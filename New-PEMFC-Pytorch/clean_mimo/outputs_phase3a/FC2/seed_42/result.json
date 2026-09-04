@@ -1,0 +1,20 @@
+{
+  "phase": "3A",
+  "fc": "FC2",
+  "seed": 42,
+  "development_only": true,
+  "test_partition_accessed": false,
+  "taus": [
+    3,
+    6,
+    12
+  ],
+  "validation_selected_tau_hours": 6,
+  "t1_task": "Delta D(t+h) from D history only",
+  "t2_tasks": [
+    "R history only",
+    "R history plus J/I/I_std/I_p2p"
+  ],
+  "t0_reference": "Saved Phase-2b R1 validation forecasts; no T0 retraining.",
+  "stop_boundary": "No final test, OCM, horizon expansion, decomposition follow-on, other seed, or RUL experiment was run."
+}

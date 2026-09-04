@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "phase": "2b",
+  "fc": "FC2",
+  "fold": "fold_2",
+  "feature_set": "R3_state_load",
+  "checks": [
+    {
+      "name": "frozen-expanding-fold-boundaries",
+      "passed": true,
+      "detail": "Expected train [0,459) and validation [459,510)."
+    },
+    {
+      "name": "development-prefix-ends-at-60-percent",
+      "passed": true,
+      "detail": "Only hourly rows [0,612) are available to this fold."
+    },
+    {
+      "name": "no-final-test-split-constructed",
+      "passed": true,
+      "detail": "This object has only train/validation windows; the final 40% is absent from its split dictionary."
+    },
+    {
+      "name": "hourly-aggregation-is-causal",
+      "passed": true,
+      "detail": "Every aggregated source sample occurs at or before its origin timestamp."
+    },
+    {
+      "name": "windows-do-not-cross-fold-boundaries",
+      "passed": true,
+      "detail": "Every 15-hour history and four targets remain in its own fold partition."
+    },
+    {
+      "name": "input-timestamps-precede-targets",
+      "passed": true,
+      "detail": "All input timestamps are strictly before h=1 targets."
+    },
+    {
+      "name": "no-window-enters-final-test-region",
+      "passed": true,
+      "detail": "No Phase-2b target index reaches the final 40% test region."
+    },
+    {
+      "name": "residual-anchor-is-observed-origin-utot",
+      "passed": true,
+      "detail": "Anchor is the final legal historical Utot, never a target-time voltage."
+    },
+    {
+      "name": "residual-label-is-future-minus-origin",
+      "passed": true,
+      "detail": "Every label is Utot(t+h)-Utot(t), h=1..4."
+    },
+    {
+      "name": "input-scaler-fits-current-fold-training-windows-only",
+      "passed": true,
+      "detail": "Input scaler mean equals only this fold's flattened training-window mean."
+    },
+    {
+      "name": "residual-scaler-fits-current-fold-training-labels-only",
+      "passed": true,
+      "detail": "Residual scaler mean equals only this fold's flattened training residual mean."
+    },
+    {
+      "name": "feature-set-is-predeclared-and-not-label-derived",
+      "passed": true,
+      "detail": "Features: ['Utot_mean', 'U1_mean', 'U2_mean', 'U3_mean', 'U4_mean', 'U5_mean', 'J_mean', 'I_mean', 'I_std', 'I_p2p']"
+    },
+    {
+      "name": "phase2b-output-is-isolated",
+      "passed": true,
+      "detail": "Output must be under E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2b, outside Phase-1/Phase-2 outputs."
+    },
+    {
+      "name": "phase2b-source-excludes-forbidden-methods-and-test-evaluation",
+      "passed": true,
+      "detail": "Forbidden source-token scan found: []"
+    }
+  ]
+}

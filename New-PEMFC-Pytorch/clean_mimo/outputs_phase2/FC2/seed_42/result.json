@@ -1,0 +1,425 @@
+{
+  "phase": 2,
+  "seed": 42,
+  "fc": "FC2",
+  "feature_set": "full_26",
+  "input_mode": "absolute_inputs",
+  "train_config": {
+    "hidden_size": 64,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "max_epochs": 300,
+    "early_stopping_patience": 35,
+    "device": "cuda"
+  },
+  "test_metrics": [
+    {
+      "model": "persistence",
+      "horizon": 1,
+      "MAE": 0.005060598254203796,
+      "RMSE": 0.04079259965253473,
+      "R2": -0.06628406047821045,
+      "persistence_RMSE": 0.04079259965253473,
+      "RMSE_improvement_vs_persistence": 0.0,
+      "MSE_skill_vs_persistence": 0.0
+    },
+    {
+      "model": "persistence",
+      "horizon": 2,
+      "MAE": 0.006136144045740366,
+      "RMSE": 0.04100496289771594,
+      "R2": -0.07481575012207031,
+      "persistence_RMSE": 0.04100496289771594,
+      "RMSE_improvement_vs_persistence": 0.0,
+      "MSE_skill_vs_persistence": 0.0
+    },
+    {
+      "model": "persistence",
+      "horizon": 3,
+      "MAE": 0.0071378410793840885,
+      "RMSE": 0.04126118764740459,
+      "R2": -0.08565056324005127,
+      "persistence_RMSE": 0.04126118764740459,
+      "RMSE_improvement_vs_persistence": 0.0,
+      "MSE_skill_vs_persistence": 0.0
+    },
+    {
+      "model": "persistence",
+      "horizon": 4,
+      "MAE": 0.008055666461586952,
+      "RMSE": 0.041528163160579556,
+      "R2": -0.09718847274780273,
+      "persistence_RMSE": 0.041528163160579556,
+      "RMSE_improvement_vs_persistence": 0.0,
+      "MSE_skill_vs_persistence": 0.0
+    },
+    {
+      "model": "persistence",
+      "horizon": "mean_h1_h4",
+      "MAE": 0.006597562460228801,
+      "RMSE": 0.04114672833955871,
+      "R2": -0.08098471164703369,
+      "persistence_RMSE": 0.04114672833955871,
+      "RMSE_improvement_vs_persistence": 0.0,
+      "MSE_skill_vs_persistence": 0.0
+    },
+    {
+      "model": "linear_trend",
+      "horizon": 1,
+      "MAE": 0.00821310468018055,
+      "RMSE": 0.03356248265448891,
+      "R2": 0.27819764614105225,
+      "persistence_RMSE": 0.04079259965253473,
+      "RMSE_improvement_vs_persistence": 0.17724089809501908,
+      "MSE_skill_vs_persistence": 0.3230674602325093
+    },
+    {
+      "model": "linear_trend",
+      "horizon": 2,
+      "MAE": 0.009665338322520256,
+      "RMSE": 0.03479986553954896,
+      "R2": 0.22586572170257568,
+      "persistence_RMSE": 0.04100496289771594,
+      "RMSE_improvement_vs_persistence": 0.15132552061186277,
+      "MSE_skill_vs_persistence": 0.2797516280352742
+    },
+    {
+      "model": "linear_trend",
+      "horizon": 3,
+      "MAE": 0.01108824647963047,
+      "RMSE": 0.03617234741328819,
+      "R2": 0.16562747955322266,
+      "persistence_RMSE": 0.04126118764740459,
+      "RMSE_improvement_vs_persistence": 0.12333237418182996,
+      "MSE_skill_vs_persistence": 0.23145387384233296
+    },
+    {
+      "model": "linear_trend",
+      "horizon": 4,
+      "MAE": 0.012445544824004173,
+      "RMSE": 0.03765007798475254,
+      "R2": 0.09816396236419678,
+      "persistence_RMSE": 0.041528163160579556,
+      "RMSE_improvement_vs_persistence": 0.09338446202957207,
+      "MSE_skill_vs_persistence": 0.17804826631059156
+    },
+    {
+      "model": "linear_trend",
+      "horizon": "mean_h1_h4",
+      "MAE": 0.010353058576583862,
+      "RMSE": 0.03554619339801965,
+      "R2": 0.19196370244026184,
+      "persistence_RMSE": 0.04114672833955871,
+      "RMSE_improvement_vs_persistence": 0.13632081372957097,
+      "MSE_skill_vs_persistence": 0.25308030710517704
+    },
+    {
+      "model": "absolute_mimo_lstm",
+      "horizon": 1,
+      "MAE": 0.03315172344446182,
+      "RMSE": 0.0475023749073075,
+      "R2": -0.4459083080291748,
+      "persistence_RMSE": 0.04079259965253473,
+      "RMSE_improvement_vs_persistence": -0.1644851103368168,
+      "MSE_skill_vs_persistence": -0.3560255721961483
+    },
+    {
+      "model": "absolute_mimo_lstm",
+      "horizon": 2,
+      "MAE": 0.032956402748823166,
+      "RMSE": 0.04707457604231917,
+      "R2": -0.41655683517456055,
+      "persistence_RMSE": 0.04100496289771594,
+      "RMSE_improvement_vs_persistence": -0.1480214275463061,
+      "MSE_skill_vs_persistence": -0.3179531981054582
+    },
+    {
+      "model": "absolute_mimo_lstm",
+      "horizon": 3,
+      "MAE": 0.02843775786459446,
+      "RMSE": 0.0435274536687214,
+      "R2": -0.2081841230392456,
+      "persistence_RMSE": 0.04126118764740459,
+      "RMSE_improvement_vs_persistence": -0.05492488584388466,
+      "MSE_skill_vs_persistence": -0.11286651477273346
+    },
+    {
+      "model": "absolute_mimo_lstm",
+      "horizon": 4,
+      "MAE": 0.029300490394234657,
+      "RMSE": 0.044241534675559004,
+      "R2": -0.24524903297424316,
+      "persistence_RMSE": 0.041528163160579556,
+      "RMSE_improvement_vs_persistence": -0.06533810572086907,
+      "MSE_skill_vs_persistence": -0.1349452795009296
+    },
+    {
+      "model": "absolute_mimo_lstm",
+      "horizon": "mean_h1_h4",
+      "MAE": 0.030961593613028526,
+      "RMSE": 0.04558648482347677,
+      "R2": -0.32897457480430603,
+      "persistence_RMSE": 0.04114672833955871,
+      "RMSE_improvement_vs_persistence": -0.10819238236196915,
+      "MSE_skill_vs_persistence": -0.23044764114381738
+    },
+    {
+      "model": "residual_mimo_lstm",
+      "horizon": 1,
+      "MAE": 0.006968102417886257,
+      "RMSE": 0.040388194447753274,
+      "R2": -0.04524719715118408,
+      "persistence_RMSE": 0.04079259965253473,
+      "RMSE_improvement_vs_persistence": 0.009913690429786848,
+      "MSE_skill_vs_persistence": 0.019729099601636046
+    },
+    {
+      "model": "residual_mimo_lstm",
+      "horizon": 2,
+      "MAE": 0.007240413222461939,
+      "RMSE": 0.040340201194637174,
+      "R2": -0.040248990058898926,
+      "persistence_RMSE": 0.04100496289771594,
+      "RMSE_improvement_vs_persistence": 0.016211737704457163,
+      "MSE_skill_vs_persistence": 0.03216065496951637
+    },
+    {
+      "model": "residual_mimo_lstm",
+      "horizon": 3,
+      "MAE": 0.007742688525468111,
+      "RMSE": 0.04070967283180584,
+      "R2": -0.05682194232940674,
+      "persistence_RMSE": 0.04126118764740459,
+      "RMSE_improvement_vs_persistence": 0.01336643094987211,
+      "MSE_skill_vs_persistence": 0.026554200423406615
+    },
+    {
+      "model": "residual_mimo_lstm",
+      "horizon": 4,
+      "MAE": 0.009188213385641575,
+      "RMSE": 0.04080421881120793,
+      "R2": -0.05926823616027832,
+      "persistence_RMSE": 0.041528163160579556,
+      "RMSE_improvement_vs_persistence": 0.01743261185360656,
+      "MSE_skill_vs_persistence": 0.034561327751174375
+    },
+    {
+      "model": "residual_mimo_lstm",
+      "horizon": "mean_h1_h4",
+      "MAE": 0.0077848543878644705,
+      "RMSE": 0.04056057182135106,
+      "R2": -0.05039659142494202,
+      "persistence_RMSE": 0.04114672833955871,
+      "RMSE_improvement_vs_persistence": 0.01423111773443067,
+      "MSE_skill_vs_persistence": 0.02825132068643335
+    }
+  ],
+  "validation_metrics": [
+    {
+      "model": "persistence",
+      "horizon": 1,
+      "MAE": 0.0010742942104116082,
+      "RMSE": 0.0015166409815847838,
+      "R2": 0.9596887826919556,
+      "persistence_RMSE": 0.0015166409815847838,
+      "RMSE_improvement_vs_persistence": 0.0,
+      "MSE_skill_vs_persistence": 0.0
+    },
+    {
+      "model": "persistence",
+      "horizon": 2,
+      "MAE": 0.0019747104961425066,
+      "RMSE": 0.00277432726458999,
+      "R2": 0.8601359128952026,
+      "persistence_RMSE": 0.00277432726458999,
+      "RMSE_improvement_vs_persistence": 0.0,
+      "MSE_skill_vs_persistence": 0.0
+    },
+    {
+      "model": "persistence",
+      "horizon": 3,
+      "MAE": 0.002812286140397191,
+      "RMSE": 0.0038500335327216724,
+      "R2": 0.7202830910682678,
+      "persistence_RMSE": 0.0038500335327216724,
+      "RMSE_improvement_vs_persistence": 0.0,
+      "MSE_skill_vs_persistence": 0.0
+    },
+    {
+      "model": "persistence",
+      "horizon": 4,
+      "MAE": 0.0035228643100708723,
+      "RMSE": 0.0047357486571312675,
+      "R2": 0.5617215633392334,
+      "persistence_RMSE": 0.0047357486571312675,
+      "RMSE_improvement_vs_persistence": 0.0,
+      "MSE_skill_vs_persistence": 0.0
+    },
+    {
+      "model": "persistence",
+      "horizon": "mean_h1_h4",
+      "MAE": 0.0023460387892555445,
+      "RMSE": 0.0032191876090069283,
+      "R2": 0.7754573374986649,
+      "persistence_RMSE": 0.0032191876090069283,
+      "RMSE_improvement_vs_persistence": 0.0,
+      "MSE_skill_vs_persistence": 0.0
+    },
+    {
+      "model": "linear_trend",
+      "horizon": 1,
+      "MAE": 0.0030540567822754383,
+      "RMSE": 0.003932885124074287,
+      "R2": 0.7289292812347412,
+      "persistence_RMSE": 0.0015166409815847838,
+      "RMSE_improvement_vs_persistence": -1.5931549864653514,
+      "MSE_skill_vs_persistence": -5.724452783830115
+    },
+    {
+      "model": "linear_trend",
+      "horizon": 2,
+      "MAE": 0.0038203541189432144,
+      "RMSE": 0.004945061859801293,
+      "R2": 0.5556406378746033,
+      "persistence_RMSE": 0.00277432726458999,
+      "RMSE_improvement_vs_persistence": -0.7824363848192617,
+      "MSE_skill_vs_persistence": -2.177079465927559
+    },
+    {
+      "model": "linear_trend",
+      "horizon": 3,
+      "MAE": 0.004593641962856054,
+      "RMSE": 0.005914038555124033,
+      "R2": 0.3399786353111267,
+      "persistence_RMSE": 0.0038500335327216724,
+      "RMSE_improvement_vs_persistence": -0.5361005312967417,
+      "MSE_skill_vs_persistence": -1.3596048422501328
+    },
+    {
+      "model": "linear_trend",
+      "horizon": 4,
+      "MAE": 0.005369115620851517,
+      "RMSE": 0.006824545649525256,
+      "R2": 0.08983463048934937,
+      "persistence_RMSE": 0.0047357486571312675,
+      "RMSE_improvement_vs_persistence": -0.441070070145847,
+      "MSE_skill_vs_persistence": -1.076682947070156
+    },
+    {
+      "model": "linear_trend",
+      "horizon": "mean_h1_h4",
+      "MAE": 0.004209292121231556,
+      "RMSE": 0.005404132797131218,
+      "R2": 0.42859579622745514,
+      "persistence_RMSE": 0.0032191876090069283,
+      "RMSE_improvement_vs_persistence": -0.8381904931818005,
+      "MSE_skill_vs_persistence": -2.5844550097694907
+    },
+    {
+      "model": "absolute_mimo_lstm",
+      "horizon": 1,
+      "MAE": 0.005839410237967968,
+      "RMSE": 0.006910344891644533,
+      "R2": 0.16312706470489502,
+      "persistence_RMSE": 0.0015166409815847838,
+      "RMSE_improvement_vs_persistence": -3.556348519887486,
+      "MSE_skill_vs_persistence": -19.760311834680884
+    },
+    {
+      "model": "absolute_mimo_lstm",
+      "horizon": 2,
+      "MAE": 0.007565265521407127,
+      "RMSE": 0.008799165475530042,
+      "R2": -0.40693438053131104,
+      "persistence_RMSE": 0.00277432726458999,
+      "RMSE_improvement_vs_persistence": -2.17163933319541,
+      "MSE_skill_vs_persistence": -9.059296059872228
+    },
+    {
+      "model": "absolute_mimo_lstm",
+      "horizon": 3,
+      "MAE": 0.00502286059781909,
+      "RMSE": 0.006203013291256925,
+      "R2": 0.2739022374153137,
+      "persistence_RMSE": 0.0038500335327216724,
+      "RMSE_improvement_vs_persistence": -0.6111582505807112,
+      "MSE_skill_vs_persistence": -1.5958309084142979
+    },
+    {
+      "model": "absolute_mimo_lstm",
+      "horizon": 4,
+      "MAE": 0.006039642263203859,
+      "RMSE": 0.0073067623470111365,
+      "R2": -0.043332576751708984,
+      "persistence_RMSE": 0.0047357486571312675,
+      "RMSE_improvement_vs_persistence": -0.5428948780903606,
+      "MSE_skill_vs_persistence": -1.3805246048374689
+    },
+    {
+      "model": "absolute_mimo_lstm",
+      "horizon": "mean_h1_h4",
+      "MAE": 0.006116794655099511,
+      "RMSE": 0.007304821501360659,
+      "R2": -0.00330941379070282,
+      "persistence_RMSE": 0.0032191876090069283,
+      "RMSE_improvement_vs_persistence": -1.720510245438492,
+      "MSE_skill_vs_persistence": -7.948990851951219
+    },
+    {
+      "model": "residual_mimo_lstm",
+      "horizon": 1,
+      "MAE": 0.0018771091708913445,
+      "RMSE": 0.002131306346007392,
+      "R2": 0.9203928709030151,
+      "persistence_RMSE": 0.0015166409815847838,
+      "RMSE_improvement_vs_persistence": -0.40528073017011956,
+      "MSE_skill_vs_persistence": -0.9748139305874648
+    },
+    {
+      "model": "residual_mimo_lstm",
+      "horizon": 2,
+      "MAE": 0.002081323182210326,
+      "RMSE": 0.0030445256069701466,
+      "R2": 0.8315658569335938,
+      "persistence_RMSE": 0.00277432726458999,
+      "RMSE_improvement_vs_persistence": -0.09739238258904126,
+      "MSE_skill_vs_persistence": -0.2042700413644527
+    },
+    {
+      "model": "residual_mimo_lstm",
+      "horizon": 3,
+      "MAE": 0.0027159820310771465,
+      "RMSE": 0.0037610870532090376,
+      "R2": 0.7330582737922668,
+      "persistence_RMSE": 0.0038500335327216724,
+      "RMSE_improvement_vs_persistence": 0.02310278047104608,
+      "MSE_skill_vs_persistence": 0.045671822476598845
+    },
+    {
+      "model": "residual_mimo_lstm",
+      "horizon": 4,
+      "MAE": 0.0034296654630452394,
+      "RMSE": 0.004486110137357189,
+      "R2": 0.6067101955413818,
+      "persistence_RMSE": 0.0047357486571312675,
+      "RMSE_improvement_vs_persistence": 0.05271363365075632,
+      "MSE_skill_vs_persistence": 0.10264854012884661
+    },
+    {
+      "model": "residual_mimo_lstm",
+      "horizon": "mean_h1_h4",
+      "MAE": 0.002526019961806014,
+      "RMSE": 0.0033557572858859417,
+      "R2": 0.7729317992925644,
+      "persistence_RMSE": 0.0032191876090069283,
+      "RMSE_improvement_vs_persistence": -0.1067141746593396,
+      "MSE_skill_vs_persistence": -0.257690902336618
+    }
+  ],
+  "best_validation_MSE": {
+    "absolute_mimo_lstm": 0.031041794456541538,
+    "residual_mimo_lstm": 0.02098902640864253
+  },
+  "selection_statement": "This is the predeclared seed-42 diagnostic. No test-based ranking, model selection, Top-K choice, or ensemble was performed."
+}

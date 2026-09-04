@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "fc": "FC2",
+  "phase": 2,
+  "checks": [
+    {
+      "name": "phase1-causal-audit-remains-pass",
+      "passed": true,
+      "detail": "The original hourly/timestamp/window/scaler audit must pass."
+    },
+    {
+      "name": "residual-anchor-is-observed-origin-utot",
+      "passed": true,
+      "detail": "Every anchor equals the last legal historical Utot_mean, not a target-time Utot."
+    },
+    {
+      "name": "residual-label-is-future-minus-origin",
+      "passed": true,
+      "detail": "Every residual label is exactly Utot(t+h) - observed Utot(t), h=1..4."
+    },
+    {
+      "name": "residual-scaler-fits-training-residuals-only",
+      "passed": true,
+      "detail": "Residual StandardScaler mean equals the flattened training residual mean only."
+    },
+    {
+      "name": "absolute-scaler-fits-training-labels-only",
+      "passed": true,
+      "detail": "Absolute target StandardScaler mean equals the flattened training-label mean only."
+    },
+    {
+      "name": "input-scaler-fits-training-representations-only",
+      "passed": true,
+      "detail": "Input StandardScaler mean equals the flattened training representation mean only."
+    },
+    {
+      "name": "feature-set-has-no-label-derived-feature",
+      "passed": true,
+      "detail": "Declared input names are limited to predeclared causal sensors: ['Utot_mean', 'U1_mean', 'U2_mean', 'U3_mean', 'U4_mean', 'U5_mean', 'J_mean', 'I_mean', 'I_std', 'I_p2p', 'TinH2_mean', 'ToutH2_mean', 'TinAIR_mean', 'ToutAIR_mean', 'TinWAT_mean', 'ToutWAT_mean', 'PinAIR_mean', 'PoutAIR_mean', 'PoutH2_mean', 'PinH2_mean', 'DinH2_mean', 'DoutH2_mean', 'DinAIR_mean', 'DoutAIR_mean', 'DWAT_mean', 'HrAIRFC_mean']"
+    },
+    {
+      "name": "relative-voltage-reference-is-final-history-row",
+      "passed": true,
+      "detail": "Relative mode uses only the final historical row of each same-split window; absolute mode has no relative transform."
+    },
+    {
+      "name": "phase2-output-is-isolated-from-phase1",
+      "passed": true,
+      "detail": "Output must be under E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2, never Phase-1 outputs/."
+    },
+    {
+      "name": "phase2-source-excludes-forbidden-methods-and-noncausal-preprocessing",
+      "passed": true,
+      "detail": "Forbidden source-token scan found: []"
+    }
+  ]
+}

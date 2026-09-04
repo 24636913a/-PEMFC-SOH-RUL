@@ -1,0 +1,70 @@
+{
+  "phase": 2,
+  "fc": "FC2",
+  "feature_set": "full_26",
+  "input_mode": "absolute_inputs",
+  "feature_names": [
+    "Utot_mean",
+    "U1_mean",
+    "U2_mean",
+    "U3_mean",
+    "U4_mean",
+    "U5_mean",
+    "J_mean",
+    "I_mean",
+    "I_std",
+    "I_p2p",
+    "TinH2_mean",
+    "ToutH2_mean",
+    "TinAIR_mean",
+    "ToutAIR_mean",
+    "TinWAT_mean",
+    "ToutWAT_mean",
+    "PinAIR_mean",
+    "PoutAIR_mean",
+    "PoutH2_mean",
+    "PinH2_mean",
+    "DinH2_mean",
+    "DoutH2_mean",
+    "DinAIR_mean",
+    "DoutAIR_mean",
+    "DWAT_mean",
+    "HrAIRFC_mean"
+  ],
+  "history_hours": 15,
+  "horizon_hours": 4,
+  "split_rows": {
+    "train": [
+      0,
+      510
+    ],
+    "validation": [
+      510,
+      612
+    ],
+    "test": [
+      612,
+      1021
+    ]
+  },
+  "window_counts": {
+    "train": 492,
+    "validation": 84,
+    "test": 391
+  },
+  "input_scaler_fit": "flattened train representations only",
+  "absolute_target_scaler_fit": "flattened train absolute labels only",
+  "residual_target_scaler_fit": "flattened train residual labels only",
+  "residual_definition": "Utot(t+h) - observed Utot(t), h=1..4",
+  "anchor_definition": "last historical Utot_mean at the prediction origin",
+  "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2\\FC2\\seed_42",
+  "train_config": {
+    "hidden_size": 64,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "max_epochs": 300,
+    "early_stopping_patience": 35,
+    "device": "cuda"
+  }
+}

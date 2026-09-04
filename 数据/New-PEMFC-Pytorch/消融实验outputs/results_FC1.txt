@@ -1,0 +1,23 @@
+
+============================================================
+FC1 消融实验 — 2026-08-02 15:04
+============================================================
+
+TFT-纯MSE: Min=0.7371 Mean=0.9000 Max=0.9665 (RMSE=0.002785V, Top5=0.9665, MCsigma=0.003637V, 12min)
+
+TFT-minus-GRN: Min=0.5500 Mean=0.7402 Max=0.9144 (RMSE=0.007761V, Top5=0.9144, MCsigma=0.003319V, 8min)
+
+TFT-minus-VS: Min=0.0848 Mean=0.4914 Max=0.8551 (RMSE=0.008567V, Top5=0.762, MCsigma=0.003148V, 8min)
+
+PINN-TFT-MT: Min=0.6235 Mean=0.8350 Max=0.9619 (RMSE=0.003493V, Top5=0.9619, MCsigma=0.003603V, 10min)
+
+DLinear: Min=-40.7994 Mean=-28.3185 Max=-15.0991 (RMSE=0.072992V, Top5=-18.4927, MCsigma=0.0V, 4min)
+
+ResMLP: Min=-7.1694 Mean=-5.5670 Max=-3.2554 (RMSE=0.03283V, Top5=-4.3123, MCsigma=0.00047V, 3min)
+
+LSTM-Baseline: Min=-0.7303 Mean=0.0569 Max=0.7213 (RMSE=0.010283V, Top5=0.5872, MCsigma=0.0V, 7min)
+
+TSMixer: Min=-0.7417 Mean=0.6683 Max=0.9732 (RMSE=0.011789V, Top5=0.9825, MCsigma=0.002331V, 6min)
+
+============================================================
+完成: 2026-08-02 16:01

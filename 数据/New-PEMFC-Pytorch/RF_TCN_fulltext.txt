@@ -1,0 +1,1612 @@
+A novel multivariable prognostic approach for PEMFC degradation and 
+remaining useful life prediction using random forest and temporal 
+convolutional network
+Tian Zhang a,b, Zhengmeng Hou a,b,*, Xiaoqin Li c, Qianjun Chen a,b,*, Qichen Wang a,  
+Christian Lüddeke a, Lin Wu a, Xuning Wu a, Wei Sun b,d
+a Institute of Subsurface Energy Systems, Clausthal University of Technology, Clausthal-Zellerfeld 38678, Germany
+b Yunnan Key Laboratory of Sino-German Blue Mining and Utilization of Special Underground Space, Kunming 650093, China
+c Faculty of Civil Engineering and Mechanics, Kunming University of Science and Technology, Kunming 650500, China
+d Faculty of Land and Resources Engineering, Kunming University of Science and Technology, Kunming 650093, China
+H I G H L I G H T S
+• A novel multivariable data-driven approach is proposed for PEMFC prognostics.
+• The RF-RFE method is employed to automatically select optimal features.
+• The baseline TCN is enhanced to develop an improved predictive model.
+• PSO is utilized to automate hyperparameter configurations.
+• By leveraging the optimal features selected, the developed predictive model achieves greater accuracy and demonstrates superior performance.
+A R T I C L E I N F O
+Keywords:
+Proton exchange membrane fuel cell
+Prognostics
+Future degradation trend
+Remaining useful life
+Temporal convolutional network
+Random forest
+A B S T R A C T
+Data-driven methods are effective in predicting future degradation trends (FDT) and remaining useful life (RUL) 
+of proton exchange membrane fuel cells (PEMFCs). However, the complex and dynamic degradation behaviour 
+of PEMFCs, influenced by diverse operational variables, poses significant challenges to existing prognostic ap­
+proaches. This paper proposes a novel multivariable prognostic approach, termed RF-TCN, which combines 
+random forest (RF) with temporal convolutional networks (TCN) to address these challenges. The approach 
+incorporates three key innovations: (1) A hybrid RF and recursive feature elimination (RFE) method is employed 
+to automatically select features most relevant to fuel cell degradation, reducing manual intervention and 
+enhancing input robustness. (2) An improved TCN-based model is developed to effectively capture temporal 
+degradation patterns, enabling accurate FDT and RUL predictions. (3) Particle swarm optimization (PSO) is 
+utilized for automatic hyperparameter configuration, further boosting predictive performance. Empirical vali­
+dation on ageing durability datasets demonstrates that the RF-TCN approach achieves superior prediction ac­
+curacy with selected optimal features and outperforms baseline TCN, CNN, RNN, and existing methods in the 
+literature. This work advances prognostic methodologies, contributing to extending fuel cell lifespan and opti­
+mizing control strategies.
+1. Introduction
+1.1. Background
+Driven by the dual imperatives of global energy transition and 
+environmental protection, proton exchange membrane fuel cells 
+(PEMFCs) are increasingly recognized as a vital component of future 
+energy systems because of their ability to convert energy efficiently and 
+cleanly [1,2]. However, their reliability and durability remain insuffi­
+cient for large-scale commercial deployment [3–5]. Prognostics and 
+* Corresponding authors at: Agricolastr. 10, Clausthal-Zellerfeld 38678, Germany.
+E-mail addresses: tian.zhang.1@tu-claushtal.de (T. Zhang), hou@tu-clausthal.de (Z. Hou), qianjun.chen@tu-clausthal.de (Q. Chen). 
+Contents lists available at ScienceDirect
+Applied Energy
+journal homepage: www.elsevier.com/locate/apenergy
+https://doi.org/10.1016/j.apenergy.2025.125569
+Received 8 October 2024; Received in revised form 27 January 2025; Accepted 15 February 2025  
+Applied Energy 385 (2025) 125569 
+Available online 19 February 2025 
+0306-2619/© 2025 The Authors. Published by Elsevier Ltd. This is an open access article under the CC BY-NC license ( http://creativecommons.org/licenses/by- 
+nc/4.0/ ). 
+health management (PHM) is a field focused on estimating the health 
+state of systems and providing useful information to users before failure 
+occurs [6]. PEMFC prognostics aims to predict future degradation trends 
+(FDT) and remaining useful life (RUL) by analyzing current and his­
+torical data [7,8]. FDT represents the projected trajectory of perfor­
+mance degradation over time [7], while RUL estimates the remaining 
+operational duration before performance drops below a predefined 
+threshold or fails to meet functional requirements [9]. Accurate pre­
+dictions of FDT and RUL enable the early detection of degradation signs, 
+allowing engineers to implement timely maintenance or adjust opera­
+tional strategies to avoid sudden failures and improve the durability of 
+PEMFCs [10–12]. Therefore, extensive research has been dedicated to 
+improving FDT and RUL prediction accuracy, optimizing fuel cell 
+management and extending their lifespan.
+1.2. Literature review
+PEMFC degradation prognostics are commonly addressed using 
+model-based, data-driven, and fusion-based approaches [13,14]. Model- 
+based methods rely on high-fidelity physical models [15], but their 
+applicability is limited by the complexity and incomplete understanding 
+of PEMFC degradation mechanisms [16]. Fusion-based methods, though 
+fundamentally model-based, are challenging to model and require 
+further theoretical development [17]. In contrast, data-driven methods 
+have gained attention for their ability to predict PEMFC degradation 
+directly from experimental data, eliminating the need for complex 
+physical models [18]. Therefore, developing data-driven methods be­
+comes a promising solution to addressing prediction challenges in fuel 
+cell energy systems [9,19].
+Currently, a variety of data-driven models have been applied to 
+predict the FDT and RUL of PEMFCs. As summarized in Table 1, these 
+models can be classified into two categories based on the number of 
+input features: univariate and multivariable models. Univariate models 
+[5,15,16,20–25], which primarily use stack voltage as the input, are 
+computationally simple but fail to account for the influence of multiple 
+operational variables. Additionally, the reliance on a single variable 
+susceptible to noise diminishes prediction accuracy and reliability. By 
+contrast, multivariable models [17–19,22,26–33] incorporate a range of 
+operational parameters, such as current density, temperature, humidity, 
+gas pressure, and fuel purity, showing more competitive and enabling 
+more robust and accurate predictions, especially in complex, dynamic 
+PEMFC systems [34,35]. However, despite their advancements, several 
+critical challenges persist.
+First, many studies rely on manually selected input features 
+[19,27–31,33], which may result in inappropriate feature subsets and 
+adversely affect prediction performance. This issue is critical, as the 
+performance of data-driven methods largely depends on the selection of 
+input features [36,37]. For instance, Zhang et al. [17] used the 
+maximum information coefficient and Akaike information criterion 
+(MIC-AIC) method to automate feature selection. However, their 
+approach included performance output variables of individual cells, 
+which limits its ability to fully exploit operational variables, and 
+measuring these variables in practice is challenging [38]. Ensemble 
+methods that integrate multiple single-feature selection algorithms [39], 
+such as support vector machine-recursive feature elimination (SVM- 
+RFE) [40] and random forest-recursive feature elimination (RF-RFE) 
+[41], have demonstrated improved accuracy in areas like gene selection 
+for cancer classification [40] and molecular biology dataset analysis 
+[41]. Nevertheless, these methods have not yet been applied to multi­
+variable predictive models for fuel cells. RF-RFE combines the strengths 
+of RF in handling high-dimensional data with complex nonlinear re­
+lationships and providing fair feature importance assessments [42], 
+alongside the iterative elimination capability of RFE. Leveraging these 
+advantages, this study employs RF-RFE to identify features correlated 
+with fuel cell degradation while excluding performance output variables 
+of individual cells to fully utilize operational variables.
+Second, most existing methods are primarily based on convolutional 
+neural networks (CNNs) and recurrent neural networks (RNNs), which 
+have inherent limitations [14]. CNNs are inefficient at capturing long 
+temporal dependencies due to the limitations of convolution kernel size 
+[6,11], while RNNs suffer from short-term memory issues, vanishing and 
+exploding gradients, and high computational costs [14,23]. To track 
+these shortcomings, various strategies have been explored, such as 
+integrating attention mechanisms into CNN/RNN architectures 
+[18,19,29] and creating ensemble learning-based stacking models [17]. 
+However, attention mechanisms generally increase model complexity 
+[18,23], while stacking models face challenges in reducing model 
+redundancy [44]. Transformer-based models, despite their exceptional 
+performance in natural language processing, computer vision, and 
+speech processing [14], demand significantly larger datasets and greater 
+computational resources, limiting their applicability in data-constrained 
+scenarios [45]. In contrast, the temporal convolutional network (TCN) is 
+specifically designed for time series modelling [46]. By utilizing dilated 
+causal convolutions, TCN naturally captures long-term dependencies in 
+time series data while maintaining lower computational complexity 
+compared to transformer-based models [14,46]. Additionally, TCN of­
+fers a flexible architecture adaptable to diverse prediction tasks. 
+Nevertheless, the baseline TCN [46] often requires modifications to 
+Table 1 
+Existing data-driven models for PEMFC degradation prognostics.
+Types
+Models
+Input 
+feature
+Feature 
+selection
+Optimizer
+Year, 
+Refs.
+CNNs
+Conditional CNN
+Voltage
+–
+–
+2024, 
+[5]
+Attention-based 
+CNN; 
+Conditional CNN
+Voltage 
+& OVs
+Manually
+Adam & grid 
+search
+2022, 
+[19]
+1D CNN
+Voltage 
+& OVs
+Cat Boost & 
+Manually
+Adam
+2024, 
+[27]
+RNNs
+Attention-based 
+LSTM/GRU
+Voltage 
+& OVs
+Manually
+Adam & grid 
+search
+2021, 
+[18]
+GRU
+Voltage 
+& OVs
+RF & 
+Manually
+Bayesian
+2023, 
+[28]
+Attention-based 
+BiLSTM
+Voltage 
+& OVs
+RF & 
+Manually
+DE 
+algorithm
+2020, 
+[29]
+BiLSTM
+Voltage
+–
+Bayesian
+2023, 
+[21]
+LSTM, GRU
+Voltage 
+& OVs
+–
+Tanh/Adam
+2023, 
+[22]
+TCN-LSTM
+Voltage
+–
+Adam
+2024, 
+[16]
+ESN
+Voltage 
+& OVs
+SNR & 
+Manually
+Manually
+2020, 
+[30]
+SI-ESN, DI-ESN
+RPLR & 
+OVs
+Manually
+Sensibility 
+analysis
+2021, 
+[26]
+LSTM, GRU
+RVLR
+–
+–
+2024, 
+[43]
+Others
+Transformer
+Voltage
+–
+Adam
+2024, 
+[23]
+TLTNN
+Voltage 
+& OVs
+Boruta & 
+Manually
+–
+2023, 
+[31]
+RCLMA
+Voltage
+–
+Adam
+2023, 
+[24]
+TFT
+Voltage 
+& OVs
+Covariate 
+analysis
+Adam
+2023, 
+[32]
+ANFIS
+Voltage
+–
+PSO
+2019, 
+[15]
+GNNM
+Voltage 
+& OVs
+Manually
+PSO
+2019, 
+[33]
+DBN-ELM
+Voltage
+–
+PSO
+2020, 
+[25]
+SVR-GRU-RELM
+Voltage 
+& OVs
+MIC & AIC
+IGOA
+2022, 
+[17]
+MP-SRCDKF
+Voltage
+–
+–
+2023, 
+[20]
+Note: “OVs” refers to operational variables, such as density, temperature, hu­
+midity, pressure and so on.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+2 
+adjust its receptive field size for specific prediction tasks. For instance, 
+Wang et al. [47], Zhang et al. [48], and Fu et al. [49] employed repeated 
+residual blocks to enhance feature extraction capabilities, but this 
+approach significantly increases computational costs. In light of the 
+above, this study employs the TCN for PEMFC degradation and RUL 
+prediction, while introducing enhanced strategies to improve its 
+performance.
+Third, configuring hyperparameters is a vital aspect of optimizing 
+data-driven models [25,50], as manually or empirically determined 
+parameters often fail to deliver optimal performance. Common tech­
+niques include grid search [18,19], Bayesian optimization [21,28], and 
+intelligent optimization algorithms [15,17,25,33]. Among these, intel­
+ligent optimization algorithms are particularly effective due to their 
+capability to locate global optimal with fast convergence and high 
+precision [51]. Particle swarm optimization (PSO) [52], recognized for 
+its simplicity, efficient search capability, and effective use of memory, is 
+well-suitable for optimizing complex models [15,33]. This study em­
+ploys PSO to automate hyperparameter configuration, ensuring efficient 
+exploration of parameter search spaces. Hyperparameter search ranges 
+are derived from existing literature, with the optimization process 
+conducted on validation datasets. The final model performance is 
+assessed on independent test datasets.
+1.3. Research gap and contributions
+The prediction accuracy of existing multivariable methods for 
+PEMFC systems is limited by several limitations: First, reliance on 
+manual feature selection often results in suboptimal subsets, compro­
+mising predictive performance. Second, conventional CNNs and RNNs, 
+commonly used in prognostic modelling, struggle to capture long-term 
+dependencies and complex temporal patterns due to architectural con­
+straints. Third, empirical hyperparameter tuning often yields subopti­
+mal configurations, reducing model accuracy.
+To address these challenges, this paper proposes a novel multivari­
+able prognostic approach that combines RF and TCN, termed RF-TCN, to 
+enhance the prediction accuracy of FDT and RUL for PEMFC systems. 
+The approach introduces three core components: (1) The RF-RFE 
+method is employed for the automated selection of features most rele­
+vant to degradation, minimizing manual intervention and improving 
+input robustness. (2) An improved TCN architecture is developed to 
+effectively capture complex temporal degradation patterns and long- 
+term dependencies. (3) PSO is employed to automate hyperparameter 
+tuning, ensuring optimal configurations and improved model 
+performance.
+The key innovations and contributions of this study are as follows: 
+(1) This study is the first to apply RF-RFE for PEMFC systems, 
+enabling automated selection of optimal features and achieving 
+higher accuracy compared to single-feature or all-feature 
+configurations.
+(2) Enhanced strategies are introduced into the baseline TCN, 
+resulting in a predictive model for fuel cells that effectively 
+captures long-term dependencies and improves computational 
+efficiency.
+(3) PSO ensures optimal hyperparameter configurations, reducing 
+the need for manual tuning and improving predictive 
+performance.
+(4) The proposed approach is validated using two durability datasets. 
+Results confirm that the proposed approach outperforms baseline 
+TCN, CNN, and RNN models, achieving superior prediction ac­
+curacy and robustness.
+The remainder of the paper is arranged as follows: Section 2 in­
+troduces the principle of the baseline TCN. Section 3 details the pro­
+posed RF-TCN prognostic approach. Section 4 presents the validation, 
+comparison, and analysis of the proposed approach. Finally, Section 5
+concludes the paper.
+2. Temporal convolutional network
+The temporal convolutional network (TCN), developed by Bai et al. 
+[46], is designed for time sequence modelling tasks. As presented in 
+Fig. 1, the TCN architecture comprises causal convolution, dilated 
+convolution, and residual blocks.
+2.1. Dilated causal convolution
+In basic causal convolutional networks, a 1D fully convolutional 
+network with zero padding is employed to ensure that the length of each 
+layer aligns with its preceding layer, as illustrated in Fig. 1(a). Addi­
+tionally, causal convolutions are utilized to restrict operations at time t 
+to inputs up to and including time t, effectively preventing future in­
+formation leakage. However, tasks involving long historical data require 
+deeper networks or larger filters, as the ability to retain historical in­
+formation grows linearly with network depth and filter size. This results 
+in greater model complexity and higher computational costs.
+To overcome this challenge, dilated convolution layers are intro­
+duced as an enhancement to causal convolution layers. By exponentially 
+expanding the receptive field with network depth, dilated convolutions 
+enable the efficient capture of long-term historical correlations without 
+requiring excessively deep architectures [6]. For a 1D sequence of an 
+Fig. 1. The architecture of the TCN [46]: (a) dilated causal convolution; (b) residual block; (c) an example of a residual block.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+3 
+input x ∈Rn and a filter f : {0, …, k −1}→R, the dilated convolution 
+operation F on the sequence element s is described as [46]. 
+F(s) = (x*df)(s) =
+∑
+k−1
+i=0
+f(i)⋅xs−d⋅i
+(1) 
+where * represents the convolution operator, d denotes the dilation 
+factor, k means the filter size, xs−d⋅i indicates the (s −d⋅i) −th element 
+within input sequence, and s −d⋅i signifies the past direction.
+As an example of Fig. 1(a), a three-layer dilated causal convolution 
+with filter size 3 and dilation factors of 1, 2, and 4 demonstrates how 
+these architectures span the entire input sequence. The dilation factor 
+typically follows an exponential progression with base 2, defined as: 
+d = 2l−1
+(2) 
+where l is the level of the network (l = 1,2,…,l).
+When the dilation factor (d) is 1, the dilated causal convolution 
+Fig. 2. The framework of the RF-TCN prognostic approach.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+4 
+reduces to an ordinary one. Utilizing larger dilation factors enables 
+networks to cover longer historical inputs, thereby effectively increasing 
+the receptive field of convolutional networks while significantly 
+reducing network depth.
+2.2. Residual connection
+The residual network effectively addresses the gradient explosion 
+and vanishing in deep architectures [48]. A residual block introduces a 
+sequence of transformations F(x) added to the block’s input x, allowing 
+layers to adjust the identity mapping instead of performing full trans­
+formations [46]. The formulation is given by: 
+y = Activation(x + F(x) )
+(3) 
+where y is the output, Activation(⋅) is the activation function, x is the 
+input, and F(x) is the output of the convolution layer.
+As depicted in Fig. 1 (b), a residual block includes two layers of 
+dilated causal convolutions, weight normalization, Rectified Linear 
+Units (ReLU), and dropout. The two middle components help accelerate 
+training and enhance generalization [6], while the last component 
+serves to regularize the model [53]. Additionally, a 1 × 1 convolution 
+ensures that the identity mapping channel has the same width as the 
+output [46], as illustrated in Fig. 1(c).
+3. Proposed RF-TCN prognostic approach
+As illustrated in Fig. 2, the RF-TCN prognostic approach comprises 
+three sequential phases: feature selection, model construction and 
+training, and model prediction and analysis.
+In the first phase, the RF-RFE method is applied to select the features 
+related to degradation from experimental monitoring variables. This 
+iterative approach eliminates the least significant features in each step, 
+ultimately producing an optimal feature subset. The second phase fo­
+cuses on constructing and training a predictive model using an improved 
+TCN architecture. Two improvement strategies are integrated to refine 
+the baseline TCN, and the model is trained with the feature subset ob­
+tained in the first phase. Additionally, the PSO algorithm is utilized to 
+configure the model’s hyperparameters, ensuring optimal performance. 
+In the final phase, the trained predictive model is employed to forecast 
+PEMFC degradation and estimate RUL. The model’s predictive accuracy 
+is validated against real-world data, and its performance is compared 
+with traditional deep learning models to demonstrate the advantages of 
+the proposed approach.
+3.1. Feature selection
+3.1.1. Data acquisition
+Two durability datasets from the IEEE PHM 2014 data challenge, as 
+detailed in [54,55], are utilized to verify the proposed approach. 
+Detailed descriptions of these datasets are provided in subsection 4.1.
+3.1.2. Feature importance assessment based on RF
+The RF algorithm is an ensemble technique that integrates multiple 
+decision trees to enhance the predictive precision and control model 
+overfitting [42,56]. Known for its stability and ability to visualize var­
+iable importance, RF is widely employed for selecting features in data- 
+driven models [57]. Each tree is trained on a randomly sampled sub- 
+dataset, and the final prediction is obtained by averaging individual 
+tree output [58].
+Feature importance is assessed through the Permutation Importance 
+score, calculated by comparing the prediction accuracy before and after 
+introducing noise to out-of-bag (OOB) data [58,59], as follows. 
+Ii = 1
+B
+∑B
+i=1
+(
+EOOB
+bi
+−EOOB
+b
+)
+(4) 
+where Ii represnts the importance of each feature xi, B means the number 
+of decision trees, EOOB
+b 
+denotes the number of classification errors of OOB 
+data in individual sub-decision trees, and EOOB
+bi 
+signifies the number of 
+classification errors when randomly permuting the value of OOB data xi 
+of individual decision trees. It is worth noting that a substantial increase 
+in OOB error following noise introduction indicates that the corre­
+sponding feature has a strong influence on the model’s predictive per­
+formance [58].
+Fig. 3. The implementation process of RF-RFE for selecting the optimal feature subsets.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+5 
+3.1.3. Feature selection using RF-RFE
+Feature selection aims to identify the most informative features from 
+the original feature space, improving the effectiveness and robustness of 
+the predictors [36]. The RF-RFE method leverages RF’s ability to handle 
+complex nonlinear relationships and RFE’s iterative elimination of un­
+important features.
+It is expected to reduce data redundancy and produce a more 
+compact feature set, thereby enhancing the reliability and accuracy of 
+feature selection. The RF-RFE feature selection process is illustrated in 
+Fig. 3.
+The implementation process is detailed below:
+Step 1: Load and normalize the original feature set S0 with 18 var­
+iables, as described in subsection 4.2, to form the current feature set SM 
+= {s1, s2, …, sM}. Define Nf, the number of features in the updated subset 
+SM-1, as the iteration criterion (Nf ≥1). Split the data into 70 % for 
+training and 30 % for testing.
+Step 2: Construct the RF regression model using SM. The number of 
+decision trees is set to 100 [33], and the maximum number of splits uses 
+the default automatic selection option in MATLAB. To improve model 
+performance, apply ten-fold cross-validation during training.
+Step 3: Compute the average mean square error (avgMSE) across ten 
+iterations to evaluate model performance [38]. Simultaneously, calcu­
+late the average importance score for each feature in SM over ten iter­
+ations and rank the features in descending order of importance.
+Step 4: Using the RFE algorithm, remove the least important feature 
+with the lowest average importance score. Update the remaining feature 
+set to SM-1 and construct a new regression model. Repeat Steps 2–4 until 
+Nf = 1.
+Step 5: Compare the avgMSE values recorded across all feature 
+subsets S = {SM, SM-1, …, S1}. Identify the subset with the minimum 
+avgMSE as the optimal feature subset S*, and output S*.
+3.2. Model construction and training
+This section describes the development and training process of the 
+prediction model, as presented in Fig. 4. In the data preprocessing stage, 
+median filtering is applied to reduce noise, followed by resampling to 
+ensure adequate data representation. The processed data is standardized 
+and split into training, validation, and testing sets. In the model con­
+struction and training stage, an improved prediction model is developed 
+by integrating two enhancement strategies into the baseline TCN ar­
+chitecture, aiming to effectively capture temporal dependencies and 
+represent features. The model is trained using the training set, while PSO 
+is used to intelligently optimize hyperparameters, ensuring optimal 
+performance. The prediction stage utilizes the optimized model to pre­
+dict the FDT and RUL.
+3.2.1. Data preprocessing
+Data preprocessing is critical for performing degradation prognostics 
+of PEMFCs as the monitoring dataset usually contains numerous raw 
+data points and significant noise. To reduce computational costs and 
+improve training efficiency, median filtering with a window size of 5 
+[25] is applied first to eliminate noise and restore the original data 
+pattern. The filtered data are then resampled at half-hour intervals 
+[17,30] to create new degradation datasets [15]. Before training the 
+model, the resampled datasets are standardized using Eq. (5a) [23] and 
+segregated into training, validation, and testing sets in specific pro­
+portions. Notably, the validation set helps to assess the model’s perfor­
+mance independently of the training and testing data [22]. 
+xi = Xi −Xmean
+Xstd
+(5a)  
+Xmean = 1
+N
+∑
+N
+i=1
+Xi
+(5b)  
+Xstd =̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+∑
+N
+i=1
+(Xi −Xmean)2
+N
+√
+√
+√
+√
+√
+(5c) 
+where xi means the standardized data, Xi indicates the input data, Xmean 
+represents the mean of the dataset, and Xstd denotes the standard devi­
+Fig. 4. The flowchart of model construction and training process.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+6 
+ation of the dataset.
+3.2.2. New improved TCN-based prediction model
+As described in subsection 2.1, the TCN architecture excels in 
+handling time series prediction tasks. However, multivariate predictive 
+models with higher dimensions require a wider receptive field to 
+effectively capture long-term dependencies. This optimization involves 
+adjusting the convolution filter size (k), dilation factor (d), and network 
+depth (n), while considering computational costs [48]. To enhance the 
+prediction performance of the baseline TCN architecture, two modifi­
+cation strategies are implemented: 
+(1) Four repeated convolution units are integrated into the original 
+residual block structures to enable multi-layer feature extraction 
+and accurate representation of local degradation properties. This 
+approach improves feature extraction capabilities while avoiding 
+the higher computational costs associated with stacking multiple 
+residual blocks [48,49].
+(2) A flattened layer and four fully connected layers are introduced in 
+the regression stage to fuse extracted local features, providing a 
+more comprehensive representation of PEMFC degradation.
+The resulting improved TCN-based predictive model is presented in 
+Fig. 5. The model comprises an input layer, a TCN layer, and a regression 
+layer. Each repeated unit in the TCN layer is structured as Dilated Causal 
+Conv + WeightNorm + ReLU + Dropout, with all convolution layers 
+sharing the same filter size and a stride of one [6]. The dilation factors 
+(d) for successive layers are set to 1, 2, 4, and 8, while dropout is applied 
+only in the TCN layer. In the regression layer, the neuron counts for four 
+fully connected layers are configured to 48, 32, 16, and 1, respectively 
+[6].
+3.2.3. Optimization technique
+The PSO optimization process for the prediction model is illustrated 
+in Fig. 6. First, a set of initial parameters for the prediction model is 
+provided. Second, the PSO algorithm iteratively optimizes the hyper­
+parameters to minimize the loss function value (fitness), which quan­
+tifies the discrepancy between the target output and the predicted 
+output on the validation sets [57]. This training process is repeated until 
+the maximum number of iterations is reached. The trained model is 
+applied to PEMFC prognostics, and its predictive performance is 
+assessed using test sets.
+The hyperparameters of the developed prediction model include the 
+filter count (f), filter size (k), the number of residual blocks (n), and the 
+dropout factor (D), where their search ranges are determined according 
+to the results of existing literature as follows: f ∈[10, 64] [16,19], k ∈
+[2, 17] [6,16,19], n ∈[1, 1], and D ∈[0.01, 0.5] [22,46]. Notably, the 
+performance enhancement of the TCN is achieved by stacking multi- 
+layer convolution units in the original residual block structure; thus, 
+the number of residual blocks n is kept at 1. The hyperparameter opti­
+mization process is implemented using MATLAB software, with the 
+initial parameters specified as follows [25,51,52]: a population size of 
+20, a maximum number of iterations of 50, a minimum inertia weight of 
+0.4, a maximum inertia weight of 0.9, personal and global learning 
+coefficients both set to 2 and a maximum particle velocity of 6.
+3.2.4. Model evaluation metrics
+Commonly used model evaluation metrics, such as MAE, mean ab­
+solute percentage error (MAPE), RMSE, and the coefficient of determi­
+nation (R2), are employed to assess the predictive model’s performance 
+[19,57]. The expressions are given by: 
+MAE = 1
+N
+∑
+N
+i=1
+|yt −pt|
+(6) 
+MAPE = 1
+N
+∑
+N
+i=1
+|yt −pt|
+|yt|
+× 100%
+(7) 
+RMSE =̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+1
+N
+∑
+N
+i=1
+(yt −pt)2
+√
+√
+√
+√
+(8) 
+R2 = 1 −
+∑
+N
+i=1
+(yt −pt)2
+/ ∑
+N
+i=1
+(yt −yt)2
+(9) 
+where yt and pt denote the real and predicted voltages of the fuel cell 
+stack, respectively. N indicates the total sample size. yt is the average 
+value of the real voltages.
+Fig. 5. Improved TCN-based predictive model for PEMFC.
+Fig. 6. Optimization process using the PSO algorithm for the prediction model.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+7 
+Smaller values of MAE, MAPE, and RMSE signify higher prediction 
+accuracy, while R2 reflects the degree of correlation between the model 
+outputs and targets. An R2 value close to 1 represents a perfect fit of the 
+model’s output relative to input data [60].
+3.3. Prediction and analysis
+3.3.1. Degradation trend prediction method
+PEMFC degradation trend prediction is a nonlinear time series task 
+that requires constructing input-output patterns in a time series dataset 
+[22]. This study employs the multi-step-ahead prediction method 
+described in [19,23] to produce input-output data pairs for training, 
+validation, and testing sets [25]. The method predicts several steps 
+ahead by learning from earlier values, and after each prediction, the 
+actual measurements are fed into the model [19]. This approach offers at 
+least two advantages: maintaining a close input-output relationship and 
+avoiding cumulative prediction errors [50].
+3.3.2. RUL calculation and evaluation indicator
+The RUL is defined as the duration until a specified voltage loss oc­
+curs [9]. In this study, the failure threshold (FT) for FC1 is set at 3.0 %, 
+3.5 %, and 4.0 % of the initial stack voltage (Vini = 3.3482 V) [17,30]. 
+Similarly, the FT for FC2 is set at 4.0 %, 4.5 %, and 5.0 % of the initial 
+stack voltage (Vini = 3.317 V) [17,30].
+To assess the model’s performance in predicting RUL, the final score 
+of the RUL prediction accuracy (FAscore) is calculated as follows:
+(1) The real RUL (ORUL) and predicted RUL (PRUL) are expressed as: 
+ORUL = trFT −tpre
+(10) 
+PRUL = tpFT −tpre
+(11) 
+where tpre represents the initial prediction time, trFT denotes the first time 
+when the real voltage reaches FT, and tpFT means the first time when the 
+predicted voltage reaches FT.
+(2) The per cent error (Er) is defined as: 
+Er = ORUL −PRUL
+ORUL
+× 100%
+(12) 
+(3) According to [54], the score of the RUL prediction accuracy 
+(Ascore) is given by: 
+Ascore =
+{
+exp( −ln(0.5) × 0.2Er );
+Er ≤0
+exp( + ln(0.5) × 0.05Er ); Er > 0
+(13) 
+In Eq. (13), Er ≤0 represents overestimation predictions with a se­
+vere deduction, while the Er > 0 represents underestimation predictions 
+with a slight deduction, as shown in Fig. 7.
+(4) The average score (FAscore) for different FTs is computed as: 
+FAscore = 1
+Z
+∑
+Z
+i=1
+(Ascore)
+(14) 
+where Z denotes the number of selected FTs, which is 3 both for FC1 and 
+FC2.
+4. Experimental verification
+4.1. Durability dataset description
+The PEMFC ageing durability dataset provided by the FCLAB 
+Research Federation [54] is utilized to validate the efficacy and 
+Fig. 7. Scoring function of a RUL estimate based on per cent error.
+Fig. 8. PEMFC system experiment platform [55].
+Table 2 
+Range of controlled physical parameters [55].
+Parameters
+Control range
+Parameters
+Control range
+Cooling temperature
+20–80 [◦C]
+Air flow
+0–100 [1/min]
+Cooling flow
+0–10 [l/min]
+H2 flow
+0–30 [1/min]
+Gas temperature
+20–80 [◦C]
+Gas pressure
+0–2 [bara]
+Gas humidification
+0–100 [%]
+Load current
+0–300 [A]
+Table 3 
+Monitoring operational data in the test [55].
+Index
+Physical meaning (unit)
+U1 to U5, Utot
+Single-cell and stack voltage (V)
+I, J
+Current and (A) and current density (A/cm2)
+TinH2, ToutH2
+Temperature of H2 at the inlet and outlet (◦C)
+TinAIR, ToutAIR
+Temperature of Air at the inlet and outlet (◦C)
+TinWAT, ToutWAT
+Temperature of cooling water at the inlet and outlet (◦C)
+PinH2, PoutH2
+Pressure of H2 at the inlet and outlet (mbara)
+PinAIR, PoutAIR
+Pressure of Air at the inlet and outlet (mbara)
+DinH2, DoutH2
+Flow rate of H2 at the inlet and outlet (L/min)
+DinAIR, DoutAIR
+Flow rate of Air at the inlet and outlet (L/min)
+DWAT
+Flow rate of cooling water (L/min)
+HrAIRFC
+Hygrometry of air at the inlet (%)
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+8 
+advantages of the proposed approach. The test platform, illustrated in 
+Fig. 8, operates under controlled physical parameters presented in 
+Table 2. Ageing tests are conducted under two conditions: static loading 
+(FC1) and quasi-dynamic loading (FC2), with durations of 1154 h and 
+1020 h, respectively.
+The FC1 test is performed with a constant current of 70 A, while the 
+FC2 test involves a dynamic current of 70 A with 7 A ripples at a fre­
+quency of 5 kHz. The platform records 24 operational variables, as 
+described in Table 3, where U1 to U5 and Utot are the performance 
+output variables, while the rest are operational parameters. Of these, the 
+stack voltage, which gradually decreases over time, reflects the degra­
+dation behaviour of the PEMFC stack to some extent [30,61] and is 
+Fig. 9. A portion of reconstructed degradation data of (a) FC1 and (b) FC2.
+Fig. 10. Normalized importance of all features: (a) FC1; (b) FC2.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+9 
+widely accepted as a health performance indicator [17]. Therefore, the 
+stack voltage is selected as the output variable for regression analysis. A 
+portion of the reconstructed degradation data for FC1 and FC2, pro­
+cessed as described in subsection 3.2.1, is presented in Fig. 9. Each result 
+includes the stack voltage and a corresponding operational variable 
+from the test.
+The proposed approach is developed in MATLAB 2023b. The pre­
+dictive model is trained using the Adam optimizer with an initial 
+learning rate of 0.001, a training epoch of 120, and a mini-batch size of 
+120. Hyperparameter configuration is achieved using PSO algorithms, 
+as detailed in subsection 3.2.3. All experiments are conducted on a 
+system equipped with an Intel i9-12900H CPU, 16GB RAM, and a 
+GeForce RTX 3060 GPU with 6GB of memory.
+4.2. Feature selection result and analysis
+In this section, the RF-RFE method described in subsection 3.1.3 is 
+utilized to identify optimal features from the monitoring operational 
+variables, which serve as inputs for the deep learning model. Notably, 
+individual cell voltage data (U1 to U5) are excluded from the original 
+feature set (S0) because they are difficult to obtain in practical appli­
+cations. Similarly, the variable (J) is excluded, as the current variable (I) 
+not only reflects actual load fluctuations but also indicates changes in 
+the cell’s active area. Ultimately, the remaining 18 monitoring opera­
+tional variables form the original feature set S0, with the stack voltage 
+(Utot) used as the output variable.
+Fig. 10 shows the normalized importance of all features during the 
+first iteration. For the same variable, the importance score ranking dif­
+fers under different current loading conditions, aligning with findings in 
+[17,27]. This discrepancy can be attributed to the statistical 
+Fig. 11. Feature selection results: (a) and (c) show the relationship between the iteration number, the number of remaining features, and the corresponding avgMSE 
+for FC1 and FC2, respectively. (b) and (d) illustrate the importance of optimal features for FC1 and FC2, respectively.
+Fig. 12. The convergence plots of the hyperparameter optimization process for (a) FC1 and (b) FC2.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+10 
+Fig. 13. Predicted stack voltage curves (left) and scatter density plots (right) for FC1 under different training lengths.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+11 
+Fig. 14. Predicted stack voltage curves (left) and scatter density plots (right) for FC2 under different training lengths.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+12 
+characteristics of the datasets themselves [62].
+The feature selection results for FC1 and FC2 are presented in Fig. 11. 
+From Fig. 11(a) and (c), the iteration process is negatively correlated 
+with the number of remaining features. As iterations progress, the 
+avgMSE initially stabilizes at a lower value, reaches a critical turning 
+point (Nf), and subsequently increases. In comparison to the results in 
+[38] (Fig. 6-4a and 6-5a in [38]), the RF-RFE generates a smoother 
+curve, indicating enhanced stability. Based on the principle of minimal 
+avgMSE, the number of optimal features in the subset SO is determined 
+to be 7 for FC1 and 8 for FC2. The selected features are presented in 
+Fig. 11(b) and 11(d), and the results are generally consistent with the 
+mechanistic analyses in [4,63].
+The feature selection approach of this study offers two significant 
+advantages over previous methods. First, the feature selection process is 
+automated through an iterative RF-RFE algorithm, eliminating the need 
+for manual, assumption-based selection [28,30]. Second, by excluding 
+performance output variables such as U1 to U5, the method maximizes 
+the use of operational variables, creating a more compact feature subset 
+than those in [17]. Based on these benefits, the selected features are 
+expected to enhance model performance, particularly in terms of 
+reducing feature space dimensionality and computational cost. Specif­
+ically, the optimal features selected via RF-RFE are anticipated to 
+contribute to a more accurate and comprehensive description of PEMFC 
+performance degradation.
+4.3. Hyperparameter optimization results and analysis
+The hyperparameter optimization process is illustrated in Fig. 12, 
+where lower fitness values indicate improved model performance. The 
+convergence plots for both the FC1 and FC2 datasets demonstrate steady 
+and smooth loss curves, with loss values gradually decreasing and 
+converging within 11 iterations, well below the preset maximum of 50. 
+This rapid convergence highlights the efficiency of the PSO algorithm in 
+minimizing model error while optimizing hyperparameters. The 
+Fig. 15. Performance metrics of the proposed model using different split ratios for (a) FC1 and (b) FC2.
+Fig. 16. Predicted results for FC1 using four different input feature sets: (a) single-input model, (b) three-input model, (c) optimal-input model, and (d) all- 
+input model.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+13 
+optimized hyperparameters are as follows: f = 64, k = 7, n = 1, and D =
+0.2 for FC1, and f = 64, k = 9, n = 1, and D = 0.27 for FC2. These pa­
+rameters will be used in subsequent analyses to ensure robust 
+performance.
+4.4. Results and discussion
+This section presents the prediction results of the proposed model 
+under different training lengths and input feature sets. Additionally, 
+three commonly used models, including CNN, LSTM and GRU models, 
+along with the baseline TCN model [46] and results from the literature 
+[19], are selected for comparison. All models are evaluated using the 
+same dataset and prognostic method described in subsection 3.3.1.
+4.4.1. FDT prediction results under different training lengths
+To evaluate the model’s generalization ability, the prediction per­
+formance of the proposed model is tested using training dataset lengths 
+of 50 %, 60 %, 70 %, and 80 % of the total samples. The validation set 
+lengths are kept at 10 %, with the remaining data as test sets.
+Fig. 13 and Fig. 14 present the predicted stack voltage curves and 
+corresponding scatter density plots for FC1 and FC2 under different 
+training lengths. The results show that with varying training lengths, the 
+predicted voltage curves effectively follow the real voltage reduction 
+and recovery trends. In the scatter density plots, the X-axis denotes the 
+real voltage, while the Y-axis signifies the predicted voltage through the 
+proposed model. The grey straight line represents the points where 
+predicted voltages coincide with real voltages. The nearer these scatter 
+points are to the grey line, the more accurate the prediction. It can be 
+observed that across all training lengths, the scatter density plots exhibit 
+a high consistency agreement between predicted and real voltages.
+Fig. 15 depicts the performance evaluation metrics (MAE, MAPE, and 
+RMSE) for the proposed model across different training lengths. It is 
+clear that with varying training lengths, the maximum values of these 
+metrics for both FC1 and FC2 remain low and are less than the best 
+prediction results in [38] (Fig. 3–9 and Fig. 3–10 in [38]). These results 
+demonstrate that the proposed model achieves high prediction accuracy 
+and exhibits robust generalization, with its performance minimally 
+impacted by variations in training length.
+4.4.2. FDT prediction results under different input feature sets
+To assess the efficacy of the optimal features selected via the RF-RFE 
+method in predicting the FDT of PEMFC, 50 % of the sample dataset is 
+utilized for training, and the impact of input features on prediction 
+performance is examined for FC1 and FC2. Four models with different 
+Fig. 17. Predicted results for FC2 using four different input feature sets: (a) single-input model, (b) three-input model, (c) optimal-input model, and (d) all- 
+input model.
+Table 4 
+Comparison of prediction performance for FC1 and FC2 using four models with different input feature sets. The best results are marked in bold, and the second-best 
+results are in blue.
+Datasets
+Models
+MAE
+MAPE
+RMSE
+PICP
+PINAW
+AIS
+FC1
+Single-input model
+0.001705
+0.0005290
+0.003851
+0.8643
+0.04978
+0.003539
+Three-input model
+0.001663
+0.0005160
+0.003816
+0.8903
+0.05397
+0.003431
+Optimal-input model
+0.001581
+0.0004900
+0.003694
+0.9001
+0.05338
+0.003294
+All-input model
+0.001816
+0.0005630
+0.004050
+0.8817
+0.07427
+0.003519
+FC2
+Single-input model
+0.001916
+0.0006036
+0.003190
+0.8690
+0.06220
+0.001645
+Three-input model
+0.001557
+0.0004888
+0.002816
+0.9103
+0.05964
+0.001410
+Optimal-input model
+0.00134
+0.0004218
+0.002202
+0.9730
+0.06249
+0.001094
+All-input model
+0.002060
+0.0006450
+0.003180
+0.8894
+0.08092
+0.002177
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+14 
+input feature sets are designed for comparison: 
+(a) Single-input model: Uses the stack voltage (Utot) as the sole 
+input, serving as a reference.
+(b) Three-input model: Incorporates the two most important vari­
+ables (Fig. 11) in addition to Utot. TinH2, DoutAIR, Utot for FC1, 
+and I, TinAIR, Utot for FC2.
+(c) Optimal-input model: Utilizes the optimal feature sets described 
+in Fig. 11.
+(d) All-input model: Involves all 18 initial input features.
+The prediction results for FC1 and FC2 are displayed in Fig. 16 and 
+Fig. 17, respectively, with a detailed comparison of performance metrics 
+given in Table 4. To assess the uncertainty of prediction results, kernel 
+density estimation [64] is employed. Metrics related to prediction in­
+terval coverage probability (PICP), prediction interval normalized 
+average width (PINAW), and average interval score (AIS) are included, 
+with details available in Ref. [38].
+From Fig. 16 and Table 4, the following observations can be made: (i) 
+The optimal-input model yields the best prediction accuracy, with the 
+smallest MAE, MAPE, and RMSE of 0.001581, 0.0004900, and 
+0.003694, respectively. (ii) The optimal-input model provides the 
+highest prediction interval quality, with the largest PICP of 0.9001, the 
+second smallest PINAW of 0.05338, and the smallest AIS of 0.003290. 
+(iii) The three-input model ranks second in performance. (iv) The single- 
+input model performs poorly, while the all-input model shows the worst 
+results due to feature redundancy affecting prediction accuracy.
+Similar conclusions can be drawn from Fig. 17 and Table 4: (i) The 
+optimal-input model achieves the best prediction accuracy, with the 
+smallest MAE, MAPE, and RMSE of 0.001344, 0.0004218, and 
+0.002202, respectively. (ii) The optimal-input model shows the highest 
+prediction interval quality, with a PICP of 0.9730, the relatively smallest 
+PINAW of 0.06249, and the smallest AIS of 0.001094. (iii) The three- 
+input model ranks second, while the single-input model performs 
+poorly, and the all-input model shows the weakest performance across 
+most metrics. These results demonstrate that the optimal features 
+selected by the RF-RFE method are effective.
+Fig. 18 shows the improvements in the evaluation metrics of the 
+model after using the optimal input feature set for FC1 and FC2. The 
+prediction performance shows varying degrees of enhancement when 
+employing optimal input feature sets for training, with significant im­
+provements in MAE, MAPE, RMSE, PICP, and AIS. For instance, in FC2, 
+compared to the single-input model, the optimal-input model reduces 
+MAE by 42.53 %, MAPE by 43.10 %, RMSE by 44.86 %, improves PICP 
+by 12.02 % and reduces AIS by 50.35 %. Relative to the all-input model, 
+the optimal-input model reduces MAE by 53.24 %, MAPE by 52.93 %, 
+RMSE by 44.39 %, improves PICP by 9.40 %, and reduces AIS by 99.02 
+%. These results prove that the RF-RFE method effectively selects 
+optimal input features that accurately characterize fuel cell degradation, 
+thereby improving prediction accuracy and reducing uncertainty.
+4.4.3. RUL prediction results and analysis
+This section evaluates the RUL prediction performance of the pro­
+posed model using different input feature sets, with predictions starting 
+at the 576th hour for FC1 and the 509th hour for FC2. Prognostics are 
+conducted using 50 % of the sample dataset for training, and the real and 
+predicted RULs under different FT conditions are calculated using Eq. 
+(10) and Eq. (11). The RUL results are presented in Table 5 and Fig. 19
+for FC1, and Table 6 and Fig. 20 for FC2.
+From observing Table 5 and Fig. 19, it is clear that the optimal-input 
+model provides better predictive accuracy, obtaining a final score of 
+0.94, which is 54.10 % higher than other input models with a final score 
+of 0.61. Notably, the optimal-input model precisely matches real ob­
+servations at the 4 % FT condition. Similarly, for FC2 (Table 6 and 
+Fig. 20), the optimal-input model achieves a final score of 0.97, the 
+Fig. 18. Comparative improvement analysis in evaluation metrics for the optimal-input model relative to other input models: (a) FC1, and (b) FC2.
+Table 5 
+Comparison of RUL between real observations and prediction results obtained 
+from models with different input feature sets, along with the corresponding final 
+scores for FC1.
+Models
+RUL results (h)
+Final score 
+(FAscore)
+FT = 3.0 
+%
+FT = 3.5 
+%
+FT = 4.0 
+%
+Real observations
+43.5
+220.5
+230.5
+–
+Single-input model
+44
+221
+310
+0.61
+Three-input model
+44
+221
+310
+0.61
+Optimal-input 
+model
+44
+220.5
+231
+0.94
+All-input model
+44
+221
+310
+0.61
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+15 
+closest to 1. Additionally, under an FT of 5.0 %, the predicted RUL of the 
+optimal-input model is 0.5 h earlier than the actual failure threshold, 
+which is beneficial for the maintenance of fuel cell systems. These results 
+confirm that the predictive model with the optimal feature set predicts 
+the RUL of fuel cells more accurately, further demonstrating the supe­
+riority of the proposed RF-TCN approach in predicting both FDT and 
+RUL.
+4.4.4. Comparison with other models
+To further validate the effectiveness of the proposed RF-TCN 
+approach, conventional deep learning models, including CNN, LSTM, 
+and GRU, are employed to predict the FDT of PEMFC. In addition, 
+predictions under different horizons (n steps ahead, with n = 5, 10, 15, 
+24) from similar work [19] are included for comparison. Moreover, the 
+baseline TCN model [46], referred to as BTCN, is also implemented to 
+assess the improvement of the improved TCN model. It is worth 
+mentioning that the optimal feature set selected via the RF-RFE method 
+is applied consistently across all models. The visual comparisons are 
+depicted in Fig. 21 and Fig. 22 for FC1 and FC2, respectively, while 
+Fig. 23 presents the comparative results of different models. MAPE and 
+RMSE are used as evaluation metrics to ensure an unbiased comparison 
+of prediction performances, as done in [18,19,65].
+As depicted in Fig. 21 and Fig. 22, predictions begin at the 579th 
+hour for FC1 and the 612th hour for FC2. The proposed RF-TCN 
+approach best matches the real voltage degradation trends, followed 
+by the BTCN model, which generally provides the second-best pre­
+dictions. In contrast, the CNN model exhibits significant fluctuations, 
+while the LSTM and GRU models observe substantial deviations from the 
+actual degradation curves. Furthermore, compared to the results in [19] 
+(Fig. 12 for FC1 and Fig. 13 for FC2 in [19]), which show significant 
+irregular degradation trends and “late” predictions, the proposed 
+approach more accurately captures the real degradation behaviour and 
+provides “early” degradation predictions for the FC2 task, indicating 
+that the proposed approach is suitable for handling long-time data, even 
+with fluctuation in the raw data, and can identify early signs of degra­
+dation of fuel cells.
+Accurate and “early” predictions are particularly valuable for 
+control-oriented ageing prediction problems, as they provide operators 
+with sufficient lead time to optimize system performance. While the 
+accuracy of the CNN/LSTM/GRU models could be improved with 
+attention mechanisms [18,19], such enhancements would increase the 
+model complexity [18,23]. In contrast, the proposed approach achieves 
+superior prediction accuracy without requiring additional complexity, 
+making it a more practical and efficient solution.
+Fig. 23 shows that the prediction performance reduces as the pre­
+diction horizon extends. This results from the models’ inability to cap­
+ture both local and global features from the input sequences [23]. 
+Despite this, the proposed RF-TCN approach achieves higher prediction 
+accuracy than all other models, including the attention-based dilated 
+CNN developed in Ref. [19]. Moreover, compared to the RMSE reported 
+in [66] for 10 steps ahead prediction horizon (0.00730 for FC1 and 
+0.00810 for FC2), the proposed RF-TCN approach obtains RMSE values 
+of 0.00627 for FC1 and 0.00765 for FC2, improving the accuracy by 
+16.43 % and 5.88 %, respectively. Overall, it can be further concluded 
+that the proposed RF-TCN approach is more capable of handling PEMFC 
+prognostic tasks and is more valuable in practice.
+The performance improvement of the improved TCN model 
+compared to the BTCN model is presented in Table 7. The predictive 
+performance has improved when using the improved TCN model. For 
+instance, in the case of FC1, the MAPE and RMSE of the improved TCN 
+model decreased by 5.72–45.15 % and 4.92–20.11 %, respectively. 
+Fig. 19. RUL prediction results of four models for FC1.
+Table 6 
+Comparison of RUL between real observations and prediction results obtained 
+from models with different input feature sets, along with the corresponding final 
+scores for FC2.
+Models
+RUL results (h)
+Final score 
+(FAscore)
+FT = 4.0 
+%
+FT = 4.5 
+%
+FT = 5.0 
+%
+Real observations
+108
+246.5
+261.5
+–
+Single-input model
+109
+247
+262.5
+0.93
+Three-input model
+207.5
+247.5
+410.5
+0.32
+Optimal-input 
+model
+108.5
+247
+261
+0.97
+All-input model
+207.5
+247.5
+261.5
+0.65
+Fig. 20. RUL prediction results of four models for FC2.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+16 
+These results confirm the effectiveness of the modifications introduced 
+in this study and underscore the superiority of the improved TCN model 
+for PEMFC prognostic tasks.
+Table 8 compares the implementation time of the improved TCN 
+model and the TCN model with repeating residual blocks described in 
+[48,49], using identical parameters. The improved model achieves 
+implementation time reductions of up to 37 % for FC1 and 52 % for FC2. 
+While the improved model demonstrates notable computational effi­
+ciency in the tested scenarios, it may require longer computation time 
+for large-scale datasets in practical applications. However, since PEMFC 
+Fig. 21. Comparison of different models under various prediction horizons for FC1: (a) 5 steps ahead, (b) 10 steps ahead, (c) 15 steps ahead, and (d) 24 steps ahead.
+Fig. 22. Comparison of different models under various prediction horizons for FC2: (a) 5 steps ahead, (b) 10 steps ahead, (c) 15 steps ahead, and (d) 24 steps ahead.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+17 
+degradation and RUL predictions typically occur over extended time­
+scales, rapid computation is not a primary requirement. Therefore, the 
+improved TCN model offers a competitive edge in both accuracy and 
+efficiency.
+5. Conclusions
+This paper introduces a novel multivariable prognostic approach for 
+PEMFCs, termed RF-TCN, which combines random forest and temporal 
+convolutional networks. The proposed approach is validated using two 
+durability test datasets and compared with existing literature results 
+[19], the BTCN model [46], and three traditional deep learning models.
+Firstly, a hybrid feature selection method integrating the advantages 
+of RF and RFE algorithms is employed to automatically select optimal 
+features. These features are then validated against existing mechanistic 
+analysis results and subsequently fed into the improved TCN-based 
+predictive model optimized using the PSO algorithm. The model per­
+formance is evaluated under different training lengths and input feature 
+sets, along with its multi-step ahead prediction capability. Results show 
+that the model maintains high prediction accuracy across different 
+training lengths, demonstrating robust generalization. When adopting 
+optimal input features, the model achieves higher accuracy and reduced 
+uncertainty compared to single-input and all-input models, verifying the 
+effectiveness of selected features. Furthermore, the proposed approach 
+outperforms the attention-based dilated CNN in [19], the BTCN model 
+[46], and CNN, LSTM, and GRU models in PEMFC degradation predic­
+tion problems for multi-step ahead forecasting. These results demon­
+strate that the proposed approach is capable of effectively handling 
+PEMFC prognostic tasks.
+Overall, the data-driven prognostic approach developed in this work 
+can precisely predict the FDT and RUL of fuel cells, which can assist in 
+achieving intelligent decision-making processes for fuel cell systems, 
+including real-time optimization of fault-tolerant control and manage­
+ment strategies.
+Fig. 23. Analysis of the effectiveness of the proposed RF-TCN approach for (a-b) FC1 and (c-d) FC2.
+Table 7 
+Performance improvement of the improved TCN model compared to the BTCN 
+model.
+Datasets
+PIindex 
+(%)
+Prediction horizons
+5 steps 
+ahead
+10 steps 
+ahead
+15 steps 
+ahead
+24 steps 
+ahead
+FC1
+PIMAPE
+5.72
+18.78
+22.50
+45.15
+PIRMSE
+4.92
+8.61
+7.82
+20.11
+FC2
+PIMAPE
+34.63
+9.10
+8.26
+6.56
+PIRMSE
+15.85
+5.94
+0.63
+3.37
+Table 8 
+Implementation time comparison between the improved TCN model and the 
+TCN model in [48,49].
+Datasets
+Models
+Implementation time (s)
+5 steps 
+ahead
+10 steps 
+ahead
+15 steps 
+ahead
+24 steps 
+ahead
+FC1
+Improved 
+TCN
+78.61 
+(↓37 %)
+79.31 
+(↓35 %)
+78.20 
+(↓37 %)
+78.23 
+(↓37 %)
+TCN [48,49]
+107.38
+106.80
+107.25
+107.45
+FC2
+Improved 
+TCN
+37.29 
+(↓36 %)
+36.11 
+(↓36 %)
+33.00 
+(↓52 %)
+34.21 
+(↓51 %)
+TCN [48,49]
+50.87
+49.21
+50.17
+51.74
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+18 
+CRediT authorship contribution statement
+Tian Zhang: Writing – review & editing, Writing – original draft, 
+Methodology, Formal analysis. Zhengmeng Hou: Writing – review & 
+editing, Supervision, Conceptualization. Xiaoqin Li: Resources. Qian­
+jun Chen: Investigation. Qichen Wang: Data curation. Christian 
+Lüddeke: Visualization. Lin Wu: Validation. Xuning Wu: Formal 
+analysis. Wei Sun: Project administration.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgements
+This work is supported by the European Union’s “Horizon Europe 
+programme”-LOC3G (Grant No. 101129729), the HaiJu Plan for High- 
+Level Talent Introduction Project of Sichuan Province (No. 
+2024JDHJ0012), and the High-End Foreign Experts Program of the 
+Yunnan Revitalization Talents Support Plan of Yunnan Province. The 
+first author Mr. Zhang would like to thank the China Scholarship Council 
+(No. 202208530003) for fellowship support.
+Data availability
+Data will be made available on request.
+References
+[1] Peng S. Current status and future prospects of fuel cells in China. Engineering 2023; 
+21:20–3. https://doi.org/10.1016/j.eng.2022.11.005.
+[2] Yu Y, Yu Q, Luo R, Chen S, Yang J, Yan F. Deep learning with dual-stage attention 
+mechanism for interpretable prediction of proton exchange membrane fuel cell 
+performance degradation. Int J Hydrog Energy 2024;58:902–11. https://doi.org/ 
+10.1016/j.ijhydene.2024.01.308.
+[3] Legala A, Shahgaldi S, Li X. Data-based modelling of proton exchange membrane 
+fuel cell performance and degradation dynamics. Energy Convers Manag 2023;296: 
+117668. https://doi.org/10.1016/j.enconman.2023.117668.
+[4] Jouin M, Gouriveau R, Hissel D, P´era M-C, Zerhouni N. Degradations analysis and 
+aging modeling for health assessment and prognostics of PEMFC. Reliab Eng Syst 
+Saf 2016;148:78–95. https://doi.org/10.1016/j.ress.2015.12.003.
+[5] Yue M, Zhang X, Teng T, Meng J, Pahon E. Recursive performance prediction of 
+automotive fuel cell based on conditional time series forecasting with 
+convolutional neural network. Int J Hydrog Energy 2024;56:248–58. https://doi. 
+org/10.1016/j.ijhydene.2023.12.168.
+[6] Qiu H, Niu Y, Shang J, Gao L, Xu D. A piecewise method for bearing remaining 
+useful life estimation using temporal convolutional networks. J Manuf Syst 2023; 
+68:227–41. https://doi.org/10.1016/j.jmsy.2023.04.002.
+[7] Wang P, Liu H, Chen J, Qin X, Lehnert W, Shao Z, et al. A novel degradation model 
+of proton exchange membrane fuel cells for state of health estimation and 
+prognostics. Int J Hydrog Energy 2021;46:31353–61. https://doi.org/10.1016/j. 
+ijhydene.2021.07.004.
+[8] Jouin M, Bressel M, Morando S, Gouriveau R, Hissel D, P´era M-C, et al. Estimating 
+the end-of-life of PEM fuel cells: guidelines and metrics. Appl Energy 2016;177: 
+87–97. https://doi.org/10.1016/j.apenergy.2016.05.076.
+[9] Hua Z, Zheng Z, Pahon E, P´era M-C, Gao F. A review on lifetime prediction of 
+proton exchange membrane fuel cells system. J Power Sources 2022;529:231256. 
+https://doi.org/10.1016/j.jpowsour.2022.231256.
+[10] Dirkes S, Leidig J, Fisch P, Pischinger S. Prescriptive lifetime management for PEM 
+fuel cell systems in transportation applications, part I: state of the art and 
+conceptual design. Energy Convers Manag 2023;277:116598. https://doi.org/ 
+10.1016/j.enconman.2022.116598.
+[11] Zuo J, Steiner NY, Li Z, Hissel D. Health management review for fuel cells: focus on 
+action phase. Renew Sust Energ Rev 2024;201:114613. https://doi.org/10.1016/j. 
+rser.2024.114613.
+[12] Theissler A, P´erez-Vel´azquez J, Kettelgerdes M, Elger G. Predictive maintenance 
+enabled by machine learning: use cases and challenges in the automotive industry. 
+Reliab Eng Syst Saf 2021;215:107864. https://doi.org/10.1016/j. 
+ress.2021.107864.
+[13] Liu H, Chen J, Hissel D, Lu J, Hou M, Shao Z. Prognostics methods and degradation 
+indexes of proton exchange membrane fuel cells: a review. Renew Sust Energ Rev 
+2020;123:109721. https://doi.org/10.1016/j.rser.2020.109721.
+[14] He W, Liu T, Ming W, Li Z, Du J, Li X, et al. Progress in prediction of remaining 
+useful life of hydrogen fuel cells based on deep learning. Renew Sust Energ Rev 
+2024;192:114193. https://doi.org/10.1016/j.rser.2023.114193.
+[15] Liu H, Chen J, Hissel D, Su H. Remaining useful life estimation for proton exchange 
+membrane fuel cells using a hybrid method. Appl Energy 2019;237:910–9. https:// 
+doi.org/10.1016/j.apenergy.2019.01.023.
+[16] Tu C, Zhou F, Pan M. A model with high-precision on proton exchange membrane 
+fuel cell performance degradation prediction based on temporal convolutional 
+network-long short-term memory. Int J Hydrog Energy 2024;74:414–22. https:// 
+doi.org/10.1016/j.ijhydene.2024.06.095.
+[17] Zhang C, Hu H, Ji J, Liu K, Xia X, Nazir MS, et al. An evolutionary stacked 
+generalization model based on deep learning and improved grasshopper 
+optimization algorithm for predicting the remaining useful life of PEMFC. Appl 
+Energy 2023;330:120333. https://doi.org/10.1016/j.apenergy.2022.120333.
+[18] Zuo J, Lv H, Zhou D, Xue Q, Jin L, Zhou W, et al. Deep learning based prognostic 
+framework towards proton exchange membrane fuel cell for automotive 
+application. Appl Energy 2021;281:115937. https://doi.org/10.1016/j. 
+apenergy.2020.115937.
+[19] Benaggoune K, Yue M, Jemei S, Zerhouni N. A data-driven method for multi-step- 
+ahead prediction and long-term prognostics of proton exchange membrane fuel 
+cell. Appl Energy 2022;313:118835. https://doi.org/10.1016/j. 
+apenergy.2022.118835.
+[20] Zhang Z, He H, Wang Y, Quan S, Chen J, Han R. A novel generalized prognostic 
+method of proton exchange membrane fuel cell using multi-point estimation under 
+various operating conditions. Appl Energy 2024;357:122519. https://doi.org/ 
+10.1016/j.apenergy.2023.122519.
+[21] Chen D, Wu W, Chang K, Li Y, Pei P, Xu X. Performance degradation prediction 
+method of PEM fuel cells using bidirectional long short-term memory neural 
+network based on Bayesian optimization. Energy 2023;285:129469. https://doi. 
+org/10.1016/j.energy.2023.129469.
+[22] Sahajpal K, Rana KPS, Kumar V. Accurate long-term prognostics of proton 
+exchange membrane fuel cells using recurrent and convolutional neural networks. 
+Int J Hydrog Energy 2023;48:30532–55. https://doi.org/10.1016/j. 
+ijhydene.2023.04.143.
+[23] Lv J, Yu Z, Zhang H, Sun G, Muhl P, Liu J. Transformer based long-term prognostics 
+for dynamic operating PEM fuel cells. IEEE Trans Transp Electrification 2024;10: 
+1747–57. https://doi.org/10.1109/TTE.2023.3266803.
+[24] Sun X, Xie M, Fu J, Zhou F, Liu J. An improved neural network model for 
+predicting the remaining useful life of proton exchange membrane fuel cells. Int J 
+Hydrog Energy 2023;48:25499–511. https://doi.org/10.1016/j. 
+ijhydene.2023.03.219.
+[25] Xie Y, Zou J, Li Z, Gao F, Peng C. A novel deep belief network and extreme learning 
+machine based performance degradation prediction method for proton exchange 
+membrane fuel cell. IEEE Access 2020;8:176661–75. https://doi.org/10.1109/ 
+ACCESS.2020.3026487.
+[26] Hua Z, Zheng Z, Pahon E, P´era M-C, Gao F. Remaining useful life prediction of 
+PEMFC systems under dynamic operating conditions. Energy Convers Manag 2021; 
+231:113825. https://doi.org/10.1016/j.enconman.2021.113825.
+[27] Zhang Z, Dong T, Xu X, Huo W, Zuo B, Zhang L. Multi-step performance 
+degradation prediction method for proton-exchange membrane fuel cell stack 
+using 1D convolution layer and CATBOOST. Int J Adapt Control Signal Process 2024. 
+https://doi.org/10.1002/acs.3860. acs.3860.
+[28] Zhu W, Guo B, Li Y, Yang Y, Xie C, Jin J, et al. Uncertainty quantification of proton- 
+exchange-membrane fuel cells degradation prediction based on Bayesian-gated 
+recurrent unit. eTransportation 2023;16:100230. https://doi.org/10.1016/j. 
+etran.2023.100230.
+[29] Wang F-K, Mamo T, Cheng X-B. Bi-directional long short-term memory recurrent 
+neural network with attention for stack voltage degradation from proton exchange 
+membrane fuel cells. J Power Sources 2020;461:228170. https://doi.org/10.1016/ 
+j.jpowsour.2020.228170.
+[30] Hua Z, Zheng Z, P´era M-C, Gao F. Remaining useful life prediction of PEMFC 
+systems based on the multi-input echo state network. Appl Energy 2020;265: 
+114791. https://doi.org/10.1016/j.apenergy.2020.114791.
+[31] Tang X, Qin X, Wei K, Xu S. A novel online degradation model for proton exchange 
+membrane fuel cell based on online transfer learning. Int J Hydrog Energy 2023; 
+48:13617–32. https://doi.org/10.1016/j.ijhydene.2022.12.260.
+[32] Hongwei L, Binxin Q, Zhicheng H, Junnan L, Yue Y, Guolong L. An interpretable 
+data-driven method for degradation prediction of proton exchange membrane fuel 
+cells based on temporal fusion transformer and covariates. Int J Hydrog Energy 
+2023;48:25958–71. https://doi.org/10.1016/j.ijhydene.2023.03.316.
+[33] Chen K, Laghrouche S, Djerdir A. Degradation prediction of proton exchange 
+membrane fuel cell based on grey neural network model and particle swarm 
+optimization. Energy Convers Manag 2019;195:810–8. https://doi.org/10.1016/j. 
+enconman.2019.05.045.
+[34] Wang Y, Yang X, Sun Z, Chen Z. A systematic review of system modeling and 
+control strategy of proton exchange membrane fuel cell. Energy Rev 2024;3: 
+100054. https://doi.org/10.1016/j.enrev.2023.100054.
+[35] Ma R, Yang T, Breaz E, Li Z, Briois P, Gao F. Data-driven proton exchange 
+membrane fuel cell degradation predication through deep learning method. Appl 
+Energy 2018;231:102–15. https://doi.org/10.1016/j.apenergy.2018.09.111.
+[36] Sun C. Feature selection. In: Dubitzky W, Wolkenhauer O, Cho K-H, Yokota H, 
+editors. Encycl. Syst. Biol., New York, NY: Springer. 2013. https://doi.org/ 
+10.1007/978-1-4419-9863-7_431. p. 737–737.
+[37] Chen X, Liu X, Shen X, Zhang Q. Applying machine learning to rechargeable 
+batteries: from the microscale to the macroscale. Angew Chem Int Ed 2021;60: 
+24354–66. https://doi.org/10.1002/anie.202107369.
+[38] Xie Y. Research on deep learning based performance degradation prediction for 
+fuel cell. Doctoral thesis. University of Electronic Science and Technology of China; 
+2021.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+19 
+[39] Xiong R, Sun Y, Wang C, Tian J, Chen X, Li H, et al. A data-driven method for 
+extracting aging features to accurately predict the battery health. Energy Storage 
+Mater 2023;57:460–70. https://doi.org/10.1016/j.ensm.2023.02.034.
+[40] Guyon I, Weston J, Barnhill S, Vapnik V. Gene selection for cancer classification 
+using support vector machines. Mach Learn 2002;46:389–422. https://doi.org/ 
+10.1023/A:1012487302797.
+[41] Chen Q, Meng Z, Liu X, Jin Q, Su R. Decision variants for the automatic 
+determination of optimal feature subset in RF-RFE. Genes 2018;9:301. https://doi. 
+org/10.3390/genes9060301.
+[42] Arora N, Kaur PD. A Bolasso based consistent feature selection enabled random 
+forest classification algorithm: an application to credit risk assessment. Appl Soft 
+Comput 2020;86:105936. https://doi.org/10.1016/j.asoc.2019.105936.
+[43] Zhang Y, Tang X, Xu S, Sun C. Deep learning-based state-of-health estimation of 
+proton-exchange membrane fuel cells under dynamic operation conditions. Sensors 
+2024;24:4451. https://doi.org/10.3390/s24144451.
+[44] Qu Z, Xu J, Wang Z, Chi R, Liu H. Prediction of electricity generation from a 
+combined cycle power plant based on a stacking ensemble and its hyperparameter 
+optimization with a grid-search method. Energy 2021;227:120309. https://doi. 
+org/10.1016/j.energy.2021.120309.
+[45] Supriyono Wibawa AP, Suyono Kurniawan F. Advancements in natural language 
+processing: implications, challenges, and future directions. Telemat Inform Rep 
+2024;16:100173. https://doi.org/10.1016/j.teler.2024.100173.
+[46] Bai S, Kolter JZ, Koltun V. An empirical evaluation of generic convolutional and 
+recurrent networks for sequence modeling. http://arxiv.org/abs/1803.01271; 
+2018.
+[47] Wang M, Rao C, Xiao X, Hu Z, Goh M. Efficient shrinkage temporal convolutional 
+network model for photovoltaic power prediction. Energy 2024;297:131295. 
+https://doi.org/10.1016/j.energy.2024.131295.
+[48] Zhang T, Huang Y, Liao H, Liang Y. A hybrid electric vehicle load classification and 
+forecasting approach based on GBDT algorithm and temporal convolutional 
+network. Appl Energy 2023;351:121768. https://doi.org/10.1016/j. 
+apenergy.2023.121768.
+[49] Fu S, Lin L, Wang Y, Guo F, Zhao M, Zhong B, et al. MCA-DTCN: a novel dual-task 
+temporal convolutional network with multi-channel attention for first prediction 
+time detection and remaining useful life prediction. Reliab Eng Syst Saf 2024;241: 
+109696. https://doi.org/10.1016/j.ress.2023.109696.
+[50] Liu H, Chen J, Hissel D, Su H. Short-term prognostics of PEM fuel cells: a 
+comparative and improvement study. IEEE Trans Ind Electron 2019;66:6077–86. 
+https://doi.org/10.1109/TIE.2018.2873105.
+[51] Abdelshafy AM, Hassan H, Jurasz J. Optimal design of a grid-connected 
+desalination plant powered by renewable energy resources using a hybrid 
+PSO–GWO approach. Energy Convers Manag 2018;173:331–47. https://doi.org/ 
+10.1016/j.enconman.2018.07.083.
+[52] Zhan Z, Zhang J, Li Y, HS-H C.. Adaptive particle swarm optimization. IEEE Trans 
+Syst Man Cybern Part B Cybern 2009;39:1362–81. https://doi.org/10.1109/ 
+TSMCB.2009.2015956.
+[53] Guo J, Liu G, Xiong C, Multiple attention networks with temporal convolution for 
+machine reading comprehension.. IEEE 9th Int. Conf Electron Inf Emerg Commun 
+ICEIEC 2019;2019:546–9. https://doi.org/10.1109/ICEIEC.2019.8784662.
+[54] Harel F. IEEE PHM Data Challenge 2014:2021. https://doi.org/10.25666/ 
+DATAUBFC-2021-07-19.
+[55] Pahon E, P´era M-C, Bouquain D, Hissel D. Impact of current ripples on the 
+durability of proton exchange membrane fuel cells based on two ageing datasets. 
+Data Brief 2022;45:108601. https://doi.org/10.1016/j.dib.2022.108601.
+[56] Zeki´c-Suˇsac M, Has A, Kneˇzevi´c M. Predicting energy cost of public buildings by 
+artificial neural networks, CART, and random forest. Neurocomputing 2021;439: 
+223–33. https://doi.org/10.1016/j.neucom.2020.01.124.
+[57] Huo W, Li W, Zhang Z, Sun C, Zhou F, Gong G. Performance prediction of proton- 
+exchange membrane fuel cell based on convolutional neural network and random 
+forest feature selection. Energy Convers Manag 2021;243:114367. https://doi.org/ 
+10.1016/j.enconman.2021.114367.
+[58] Li X, Chen W, Zhang Q, Wu L. Building auto-encoder intrusion detection system 
+based on random forest feature selection. Comput Secur 2020;95:101851. https:// 
+doi.org/10.1016/j.cose.2020.101851.
+[59] Gregorutti B, Michel B, Saint-Pierre P. Correlation and variable importance in 
+random forests. Stat Comput 2017;27:659–78. https://doi.org/10.1007/s11222- 
+016-9646-1.
+[60] Li H, Qiao B, Liu J, Yang Y, Fan W, Lu G. A data-driven framework for performance 
+prediction and parameter optimization of a proton exchange membrane fuel cell. 
+Energy Convers Manag 2022;271:116338. https://doi.org/10.1016/j. 
+enconman.2022.116338.
+[61] Jin J, Chen Y, Xie C, Zhu W, Wu F. Remaining useful life prediction of PEMFC 
+based on cycle reservoir with jump model. Int J Hydrog Energy 2021;46:40001–13. 
+https://doi.org/10.1016/j.ijhydene.2021.09.233.
+[62] Chandrashekar G, Sahin F. A survey on feature selection methods. Comput Electr 
+Eng 2014;40:16–28. https://doi.org/10.1016/j.compeleceng.2013.11.024.
+[63] Zhang Y, Ma R, Xie R, Feng Z, Liang B, Li Y. A degradation prediction method for 
+PEM fuel cell based on deep temporal feature extraction and transfer learning. IEEE 
+Trans Transp Electrification 2024;10:203–12. https://doi.org/10.1109/ 
+TTE.2023.3262588.
+[64] Zhu J, He Y. A novel hybrid model based on evolving multi-quantile long and 
+short-term memory neural network for ultra-short-term probabilistic forecasting of 
+photovoltaic power. Appl Energy 2025;377:124601. https://doi.org/10.1016/j. 
+apenergy.2024.124601.
+[65] Ma R, Li Z, Breaz E, Liu C, Bai H, Briois P, et al. Data-fusion prognostics of proton 
+exchange membrane fuel cell degradation. IEEE Trans Ind Appl 2019;55:4321–31. 
+https://doi.org/10.1109/TIA.2019.2911846.
+[66] Wu H, Wang W, Li Y, Zhu W, Xie C, Gooi HB. Hybrid physics-based and data-driven 
+prognostic for PEM fuel cells considering voltage recovery. IEEE Trans Energy 
+Convers 2024;39:601–12. https://doi.org/10.1109/TEC.2023.3311460.
+T. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 385 (2025) 125569 
+20 

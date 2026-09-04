@@ -1,0 +1,1700 @@
+=== Page 1 ===
+Future prediction on the remaining useful life of proton exchange 
+membrane fuel using temporal fusion transformer model
+Jia-Hong Chou
+, Fu-Kwun Wang *
+Department of Industrial Management, National Taiwan University of Science and Technology, Taipei City, 106335, Taiwan
+A R T I C L E I N F O
+Keywords:
+Proton exchange membrane fuel cell
+Remaining useful life
+Temporal fusion transformer
+Future prediction
+A B S T R A C T
+Proton exchange membrane fuel cell (PEMFC) is regarded as one of the leading developmental directions of the 
+green power source. Predicting the remaining useful life (RUL) of online PEMFCs is challenging, primarily due to 
+factors such as complex nonlinear degradation patterns and unknown data. To enhance the performance of RUL 
+prediction, we present a deep learning model-based temporal fusion transformer model to predict the future total 
+voltage of a PEMFC stack. The performance of RUL predictions was evaluated using different starting RUL 
+prediction points to compare them with the existing study. The experiments are conducted with different future 
+prediction steps for future RUL prediction to determine the model’s prediction step limit. The proposed method 
+achieved relative errors of 0.0148 %, 0.0060 %, 0.0662 %, and 0.0486 % for training lengths 300, 400, 500, and 
+600, respectively, in the FC1 and 0.0326 % in the FC2 datasets compared to the existing study scenarios. The 
+experimental analysis resulted in relative errors of 0.0738 % for the FC1 dataset, 1.0239 % and 1.6512 % for the 
+two FC2 dataset scenarios.
+1. Introduction
+The proton exchange membrane fuel cell (PEMFC) is a multi- 
+variable, nonlinear system including multi-physics, multi-scale, and 
+multiphase, which is challenging to model dynamically. Because of its 
+high density, eco-friendly, and lightweight, PEMFC has become a critical 
+power source for many transportation applications [1]. Therefore, 
+managing PEMFC is essential by accurately forecasting the remaining 
+useful life (RUL) prediction and making relevant optimal operational 
+decisions. Recently, the data-driven approach based on the deep 
+learning (DL) algorithm has been widely used for solving nonlinear and 
+multi-characteristic modeling problems. The most popular structure is 
+the recurrent neuron network (RNN) for predicting the RUL of PEMFC 
+because of recurrent weight updating in recurrent cells [2]. To the best 
+of our knowledge, making an accurate RUL prediction of dynamic 
+PEMFC operation is challenging because of its variety of degradation 
+patterns. The RNN and echo state network (ESN) models for single input 
+RUL prediction developed for PEMFC static operating conditions have 
+yet to consider the voltage recovery effect caused by the stack test 
+start-stop [3]. The degradation of stack voltage decreases monotonically 
+in static operating conditions. Since the voltage is readily observable in 
+the PEMFC, it serves as a health indicator [4]. The reactant voltage, 
+current, reactant temperature, and pressure of PEMFC contain impor­
+tant degradation information. Existing data-driven methods require 
+large amounts of aging data to achieve accurate decay trend prediction 
+for PEMFC. Using multivariate time series data, single-input prediction 
+algorithms cannot accurately predict RUL under dynamic PEMFC 
+operating conditions. Yue et al. [5] provided a good review on analyzing 
+the prognostics scales, horizon, threshold, and methods such as 
+data-driven, model-based, and hybrid methods for the RUL prediction of 
+PEFMC. Zhang et al. [6] reviewed the new development of the state of 
+health (SOH) prediction of PEMFC systems, including the diagnostic 
+techniques, the health indicator (HI) approaches, and the innovative 
+application of effectiveness of these techniques and approaches. They 
+pointed out that these studies play a role in extending the service life of 
+the PEMFC systems after completing the judgment of the SOH of the 
+stack system.
+Tao et al. [7] proposed a power consisting of a two-dimensional 
+convolutional neural network (CNN2D), improved Manta-Ray foraging 
+optimization (MRFO), and gate recurrent unit (GRU), the full hybrid DL 
+model called CNN2D-MRFO-GRU. Using CNN2D to extract features from 
+the nonlinear degradation characteristics and combine them with the 
+optimal GRU model, which is optimized with an improved MRFO al­
+gorithm. The hybrid model outperformed the others compared models 
+* Corresponding author.
+E-mail address: fukwun@mail.ntust.edu.tw (F.-K. Wang). 
+Contents lists available at ScienceDirect
+Renewable Energy
+journal homepage: www.elsevier.com/locate/renene
+https://doi.org/10.1016/j.renene.2025.123019
+Received 30 June 2024; Received in revised form 3 February 2025; Accepted 31 March 2025  
+Renewable Energy 247 (2025) 123019 
+Available online 1 April 2025 
+0960-1481/© 2025 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 
+
+
+=== Page 2 ===
+in their constructed dataset. A bi-directional long short-term memory 
+(BiLSTM) model with multiple variables has been used to predict the 
+RUL of PEMFC, where Gaussian filtering and cubic interpolation are 
+used to preprocess the data [8]. A hybrid method, including the residual 
+block, the LSTM model, and the multi-head self-attention, is proposed to 
+predict the total voltage degradation [9]. When fuel cells are under 
+dynamic use conditions, an attention mechanism-based data-driven 
+framework is developed to predict their voltage degradation [10]. A 
+hybrid method based on the convolutional neural network (CNN) and 
+LSTM is presented to predict the voltage degradation of a fuel cell sys­
+tem, where the complete ensemble empirical mode decomposition is 
+used to decompose the nonlinear and non-stationary voltage data [11]. 
+A hybrid method based on extreme learning with an auto-encoder and 
+fuzzy extension broad learning system is used to predict the power 
+degradation of PEMFC [12]. A hybrid method based on CNN and 
+BiLSTM is used to predict the RUL of PEMFC, where the Savitzky-Golay 
+model is used to smooth the data [13].
+The existing data-driven methods cannot accurately predict the RUL 
+of PEMFC under dynamic operating conditions and require substantial 
+training data. In addition, most studies used all data to validate their 
+approaches. The RUL prediction deals with future forecasts. Only a few 
+existing researches discuss the step-ahead prediction for future RUL 
+prediction. That is, the data after the RUL prediction point are unknown. 
+Jin et al. [14] introduced a cycle reservoir with a jump with a 
+multi-input and multi-outputs (MIMO-CRJ) framework to enhance 
+training efficiency and simplify the ESN model. They introduced the 
+concepts of single-step and multi-step prediction. Multi-step predictions 
+are attained through an iterative application of single-step predictions. It 
+should be noted that the ESN model is not a generative model trained 
+through sequence-to-sequence learning; hence, multi-step prediction 
+relies on using the previously predicted value for subsequent pre­
+dictions. Benaggoune et al. [15] introduced a multi-step-ahead predic­
+tion structure based on a dilated CNN with an attention mechanism for 
+PEMFC. Their research compared the step-ahead predictions at steps 
+five, ten, fifteen, and twenty-five with other RNN-based models. Only a 
+few existing papers focus on predicting the future RUL for PEMFC. In 
+addition, we should address the issue of future prediction steps. If the 
+model can accurately predict more future steps, the operator or user can 
+detect degradation for the next step earlier. This research aims to 
+determine the prediction horizon limit for the deep learning model when 
+predicting the RUL.
+In recent years, generative artificial intelligence (AI) has gained 
+popularity and is expected to be a trend in the next generation, exem­
+plified by models like transformers and generative pre-trained trans­
+formers (GPTs) [16]. The temporal fusion transformer (TFT) model has 
+been successfully applied in time series analysis [17]. This model em­
+ploys sequence-to-sequence learning, using past input features and 
+known future features to predict the next step in the time series data. In 
+this research, the hour index serves as the known feature, and multiple 
+hour indices input to perform multi-step ahead predictions. As deep 
+learning models become increasingly complex and accurate, researchers 
+are working on enhancing the model’s interpretability to explain the 
+contributions of each input feature, thus improving the performance of 
+the deep learning model. The TFT model includes variable selection 
+networks that calculate and understand feature contributions. The TFT 
+model has the advantage of learning long-term dependencies using a 
+self-attention mechanism; this means it can directly learn patterns 
+during the training process, giving the model more advantage over many 
+deep learning models in terms of robustness and stability.
+This study modified the TFT model by integrating a BiLSTM encoder- 
+decoder layer for future RUL prediction of PEMFCs. Compared to the 
+original TFT model, the improved version demonstrates superior per­
+formance and effectively addresses the challenges of future RUL pre­
+diction at each prediction step in our experimental analysis. Our 
+proposed approach incorporates data preprocessing methods, including 
+the Bacon-Watts and double Bacon-Watts models [18], for defining the 
+training set and feature selection using a random forest (RF) model. The 
+knee-onset and knee-point identified by the Bacon-Watts and double 
+Bacon-Watts models serve as the training and prediction starting points 
+(Sp). To optimize the hyperparameters of the deep learning model, we 
+employ an open-source AutoML toolkit alongside the improved TFT 
+model in the proposed approach. During RUL prediction, our approach 
+supports online prediction, enabling real-time forecasting when PEMFC 
+indicators are unavailable at the time of prediction. To emphasize the 
+issues addressed in this paper, our proposed approach for online RUL 
+prediction differs from traditional SOH estimation, which assumes that 
+input variables are fully known during prediction. In summary, the 
+proposed approach motivated by some limitations of DL models for 
+online RUL prediction concerning long-term and local dependency 
+learning ability, future prediction steps, and the nonlinearity relation­
+ship between the PEMFC HI and input features, a deep learning 
+model-based improved TFT is developed with tree-structure Parzen 
+estimator (TPE) involved in an open-source AutoML for hyperparameter 
+tuning and quantile prediction interval for uncertainty estimation. The 
+main contributions and novelties of this paper are: 
+1. The original TFT model’s LSTM encoder component was replaced 
+with a BiLSTM encoder to capture and extract both forward and 
+backward sequence features.
+2. The Bacon-Watts and double Bacon-Watts models define the training 
+set’s significant battery degradation trend to improve the DL model’s 
+performance on future RUL prediction problems.
+3. A detailed discussion of feature selection using an RF model based on 
+feature domain visualization helps the reader understand its 
+importance.
+4. This research employs an open-source AutoML toolkit to fine-tune 
+the hyperparameters using the TPE algorithm and visualize the 
+convergence of hyperparameter optimization for the improved TFT 
+model.
+5. Different prediction steps of the improved TFT model for future RUL 
+prediction are demonstrated to determine its prediction limits and 
+comprehensively analyze its predictive behavior in the experimental 
+analysis.
+The overall organization of the paper is as follows. Section 2 presents 
+the dataset and RUL definition. Section 3 describes the proposed method 
+and its implementation. Section 4 provides the experimental validation 
+for the proposed improved TFT prediction method and further results 
+analysis. The conclusion is presented in Section 5.
+2. Dataset description
+2.1. Row dataset introduction
+To verify the performance of the proposed approach in PEMFC online 
+RUL prediction, we selected one of the most widely used PEMFC 
+degradation datasets from the IEEE PHM 2014 Data Challenge [19] for 
+experimental analysis. FC1 and FC2, which consist of two long-term 
+PEMFC stack experiments with 5-cell stacks and an active area of 100 
+cm2, were chosen to validate the proposed approach. FC1 was tested 
+under stationary conditions in a current of 70A, and each character­
+ization was measured every week at times 0, 48,185, 348, 515, 658, 823, 
+and 991 h. FC2 was operated under a dynamic ripple current of 70A with 
+7A oscillations at a frequency of 5 kHz, and the characterization was 
+estimated every week at 0, 35, 182, 343, 515, 666, 830, and 1016 h. 
+Twenty-five characterizations for FC1 and FC2 datasets to monitor the 
+battery’s status and prognostic during each measured time interval are 
+shown in Table 1. Compared to other prognostic applications, publicly 
+available datasets for PEMFC prognostics are limited. Therefore, we 
+focus on FC1 and FC2 data from the IEEE PHM 2014 Data Challenge, the 
+only publicly available open-source dataset. To enhance dataset di­
+versity, we designed three different experimental scenarios, each 
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+2 
+
+
+=== Page 3 ===
+incorporating five different prediction steps. Additionally, we included 
+comparisons based on scenarios from previous studies to evaluate the 
+proposed approach comprehensively.
+Understanding which characteristics best represent battery degra­
+dation is crucial before conducting experimental analysis. Based on 
+previous studies, several researchers have emphasized that the most 
+essential and significant characteristic in the FC1 and FC2 datasets is the 
+degradation of PEMFC total voltage [15]. The total voltage is the sum of 
+the voltages of all individual cells connected in series within the cell 
+pack. The feature of Vtotal represents the total voltage in both datasets, 
+which performs the polarization of stacked cell degradation. Most 
+studies analyze Vtotal as the response variable for PEMFC RUL prediction 
+[16]. Thus, in this study, the characterization of Vtotal is considered the 
+response variable, while the other features serve as independent vari­
+ables in the proposed approach.
+2.2. PEMFC end of life determination
+Determining a suitable end of life (EOL) threshold is essential in the 
+RUL prediction. In the real world, the EOL determination is based on the 
+application. If the application requires the PEMFC charge-discharge low 
+frequency, the EOL threshold would be defined as a high value to renew 
+the PEMFC when its degradation to the threshold early. This paper in­
+vestigates the related papers using the same dataset with us for the RUL 
+prediction. The investigation results for EOL determination are shown in 
+Table 2. Based on Table 2 EOL threshold reference, this study chooses 
+the EOL threshold as 96 % of the initial Vtotal. However, the EOL may 
+differ even if the same threshold is selected because of different data 
+preprocessing or personal determination. In Fig. 1, two points are lower 
+than the chosen threshold of the FC1 total voltage degradation curve. 
+This paper assumes that the first point drop to 96 % is the EOL of FC. 
+Finally, the EOL is determined as 815 h for the FC1 dataset, which is 
+reached to other research and can compare the RUL prediction results.
+This research uses the same EOL threshold as 96 % of the initial Vtotal 
+to identify the EOL hours for FC2. However, determining the EOL hour 
+can be challenging due to the variability of the Vtotal degradation curve, 
+as demonstrated in Fig. 1. Table 3 shows two different EOL hour 
+determination criteria based on references for the FC2 dataset. In the 
+first scenario, some studies select the EOL hours to exceed 500, and the 
+corresponding training length is more than 500. Conversely, in the 
+second scenario, other studies set the EOL hour to be less than 500, with 
+training durations less than 500 h.
+Following their respective logic, this research establishes two sce­
+narios: if the EOL hours index exceeds 500 h, the training duration 
+should exceed 500 h; otherwise, it should be less than 500 h. In this 
+study, experiments utilize the first and last data points, representing a 
+96 % capacity drop, for EOL times of 393 and 878 h for FC2 under both 
+scenarios. These EOL hours were selected because they are consistent 
+with prior research, allowing for a comparative analysis of RUL pre­
+diction performance.
+3. Proposed method
+This research determines the EOL in advance to define the failure 
+hours and build the experimental studies for FC1 and FC2 datasets. Fig. 2
+depicts the flowchart of the proposed method for the online RUL pre­
+diction for the PEMFC dataset.
+3.1. Raw data analysis
+After getting the EOL point by the EOL threshold, the Bacon-Watts 
+model and the double Bacon-Watts model calculate the knee-point and 
+knee-onset of the Vtotal curve to determine the training length of offline 
+model training. The training set is the period between knee point and 
+onset. The reason for choosing the Bacon-Watts model and the double 
+Bacon-Watts model to define the training set for the battery online RUL 
+prediction problem is that the knee-point identified by the Bacon-Watts 
+model indicates when the degradation trend begins to decline sharply. In 
+contrast, the knee-onset point detected by the double Bacon-Watts 
+model provides an early warning before the degradation trend acceler­
+ates. These two models help define the training set by removing 
+redundant stable trends, reducing data interference, and enhancing 
+model performance for online RUL prediction of PEMFC degradation 
+aging. This period effectively represents the accelerated PEMFC degra­
+dation process due to the mathematical definitions of the knee-point and 
+knee-onset (see the following equations).
+Equation (1) represents the Bacon-Watts model for knee-point esti­
+mation, and Equation (2) is the double Bacon-Watts model, which is 
+modified from the Bacon-Watts model for estimating the knee-onset. 
+Table 1 
+The characterizations of the FC1 and FC2 datasets.
+Index
+Characterization 
+(Feature)
+Description
+1
+Time
+Aging time (hour)
+2
+V1
+Cell#1 voltage (V)
+3
+V2
+Cell#2 voltage (V)
+4
+V3
+Cell#3 voltage (V)
+5
+V4
+Cell#4 voltage (V)
+6
+V5
+Cell#5 voltage (V)
+7
+Vtotal
+Stack voltage (V)
+8
+I
+Current (A)
+9
+J
+Current density (A/cm2)
+10
+TinH2
+The inlet temperatures of hydrogen (oC)
+11
+TourH2
+The temperatures of hydrogen (oC)
+12
+TinAIR
+The inlet temperatures of air (oC)
+13
+ToutAIR
+The outlet temperatures of air (oC)
+14
+TinWAT
+The inlet temperatures of cooling water (oC)
+15
+ToutWAT
+The outlet temperatures of cooling water (oC)
+16
+PinAIR
+The inlet pressure of air (mbara)
+17
+PoutAIR
+The outlet pressure of air (mbara)
+18
+PinH2
+The inlet pressure of hydrogen (mbara)
+19
+PoutH2
+The outlet pressure of hydrogen (mbara)
+20
+DinH2
+The inlet flow rate of hydrogen (l/mn)
+21
+DoutH2
+The outlet flow rate of hydrogen (l/mn)
+22
+DinAIR
+The inlet flow rate of air (l/mn)
+23
+DoutAIR
+The outlet flow rate of air (l/mn)
+24
+DWAT
+The flow rate of cooling water (l/mn)
+25
+HrAIRFC
+The inlet hygrometry (Air) estimated (%)
+Table 2 
+Training length and EOL threshold comparison on IEEE PHM 2014 Challenge 
+dataset.
+Ref.
+Training length
+EOL threshold
+[8]
+FC1: 0 h- 300, 400, 500, 
+600 h
+96 % of the initial Vtotal (FC1 is 811h and FC2 is 
+394h)
+FC2: 0 h- 300, 400, 500, 
+600 h
+[12]
+FC1: 0 h-340, 350, 600, 
+700 h
+96 % of the initial Vtotal
+[15]
+FC1: 0 h- 591, 691, 791, 
+891, 991 h
+96 % of the initial Vtotal (FC1 is 1028h and FC2 is 
+958h)
+FC2: 0 h- 681, 731, 781, 
+831, 881, 931h
+[18]
+FC1: 0 h- 576h
+96 % of the initial Vtotal (FC1 is 927h and FC2 is 
+837h)
+FC2: 0 h- 509h
+[20]
+FC1: 0 h- 200, 300, 400, 
+500 h
+96.5 % of the initial Vtotal (FC1 is 809h and FC2 
+is 395h)
+FC2: 0 h–200 h
+[21]
+FC1: 0 h–550 h
+96.5 %, 96 %, 95.5 %, 95 %, and 94.5 % of the 
+initial Vtotal
+[22]
+FC1: 0 h-500, 550, 600, 
+650, 700, 750 h
+96.5 %, and 95.5 % of the initial Vtotal for FC1 
+and FC2 (FC1 is 792h and FC2 is 758h)
+FC2: 0 h-510, 560, 610, 
+660, 710, 760 h
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+3 
+
+
+=== Page 4 ===
+The concept of the Bacon-Watts model is that using an unknown x1 
+transition point to separate the line into two straight lines, which 
+represent the left and right parts, and the hyperbolic tangent (tanh) 
+function uses to give a ratio as slope to let two straight lines envelop the 
+original degradation curve. The double Bacon-Watts model adds one 
+more transition point x2 for calculating one more straight line to envelop 
+the original degradation curve. The transition point of the Bacon-Watts 
+model represents the knee-point, which means the aging trend degrades 
+sharply after this point, and the first transition point of the double 
+Bacon-Watts model represents the knee-onset, which means the aging 
+trend starts to degrade after this point [13]. ̂
+Vtotal = α0 + α1(x −x1) + α2(x −x1)tan h[(x −x1) / γ] + Z,
+(1) 
+where α0, α1, and α2 are the coefficients of each straight line, x1 and x2 
+are the transition points to separate the straight line, γ is a constant small 
+value, Z is the random bias from Gaussian distribution N(0,1), and x and ̂
+Vtotal are the independent variable and dependent variable, respectively.
+However, the raw data of FC1 and FC2 have some noise and signif­
+icant peaks because of the polarization and the Electrochemical 
+Impedance Spectroscopy (EIS) measurement and should be smoothed 
+and filtered. The high peak value and noise may affect the knee-point 
+and knee-onset identification. This research filters both the peaks for 
+the FC1 and FC2 datasets. The significant peaks are replaced using the 
+interpolation method, and noise values are smoothed by locally 
+weighted regression. The replaced value calculates the interpolation 
+based on the next one and two polarization estimation peaks, see 
+Equation (3). 
+Xt =
+(Xt+2 −Xt+1
+Ht+2 −Ht+1
+)
+(Ht −Ht+1) + Xt+1
+(3) 
+where X is the variable for removing the high peak, H is the variable of 
+hours, and t is the time index.
+This research uses not only the method for the Vtotal degradation 
+curve but also all features of the same time index at the polarization time 
+0, 48, 185, 348, 515, 658, 823, 991 h for the FC1 dataset and 0, 35, 182, 
+343, 515, 666, 830, and 1016 h for the FC2 dataset (see Fig. 3). The 
+results from the FC2 dataset show that the interpolation method can 
+filter high peak and replace the value with the linear relation with the 
+following one and two values.
+The locally weighted regression model is selected for smoothing the 
+noise data for knee-point and knee-onset identification to determine the 
+training length and Sp hours. The benefit is that the data numbers do not 
+reduce after smoothing. Because our EOL determination for FC2 assumes 
+two EOL hours in Section 3.1, here this study identifies knee-point and 
+knee-onset for three different scenarios for our experiments, which are 
+FC1, FC2 senario#1 (EOL = 393), and FC2 senario#2 (EOL = 878). The 
+following shows the formulation of locally weighted regression. To get 
+the local weights and linear regression coefficients, this research must 
+Fig. 1. The EOL hour determination for the FC1 and FC2 datasets.
+Table 3 
+Summary of EOL, training length, and Sp for the experimental scenarios (unit =
+hour).
+Dataset
+EOL
+Training length
+Sp
+FC1
+815
+116–578
+578
+FC2_scenario#1
+393
+147–186
+186
+FC2_scenario#2
+878
+568–609
+609̂
+Vtotal = α0 + α1(x −x1) + α2(x −x1)tan h[(x −x1) / γ] + α2(x −x2)tan h[(x −x2) / γ] + Z,
+(2) 
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+4 
+
+
+=== Page 5 ===
+Fig. 2. Flowchart of the proposed method.
+Fig. 3. The modified Vtotal degradation curve for the FC1 and FC2 datasets.
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+5 
+
+
+=== Page 6 ===
+minimize the cost function to estimate the smoothed transformation 
+Vtotal degradation data. The smoothed Vtotal degradation data based on 
+the parameters of the local weight and linear regression coefficient is 
+given in Equation (6). 
+minimize :
+∑
+m
+i=1
+w(i)(
+θTx(i) −y
+)
+(4) 
+w(i) = exp
+(
+−(x(i) −x)
+2
+2τ2
+)
+(5) ̂
+ysmoothed = w(i) θTx(i) + ξ
+(6) 
+The w(i) represents the local weight based on number i data point, θ is the 
+linear coefficient vector, τ is the bandwidth parameter that controls the 
+critical relationship between x(i) and x. Suppose the parameter of τ reach 
+1. The ̂ysmoothed becomes more smoothed; Otherwise, it becomes more 
+like the original y. The ξ represents the bias vector from Gaussian dis­
+tribution, and x and y are represent the independent and dependent 
+variables, respectively.
+Fig. 4 shows the results of three scenarios’ smoothed Vtotol degra­
+dation curve and knee-point and knee-onset identification for deter­
+mining the training set and Sp. The EOL, training length, and Sp for the 
+FC1 dataset, FC2 scenario#1, and FC2 scenario#2 are 815 h, 116–578 h, 
+and 578 h, and 393 h, 147–186 h, and 186 h, and 878 h, 568–609 h, and 
+690 h. The summary of three scenario’s EOL, training length, and Sp are 
+shown in Table 3.
+There are 25 characterizations in the FC1 and FC2 datasets. This 
+dataset’s response variable, Vtotal, is derived from the summation of V1, 
+V2, V3, V4, and V5. The time variable, represented by the time index, has 
+been excluded from feature selection due to its non-variable nature. 
+Therefore, the total independent variables for feature selection are 18 
+characterizations. However, some characterization or so-called features 
+are not essential and have no relationship with the Vtotal variable. 
+Although deep learning models can select the most crucial feature 
+during training, finding the most critical feature before model training is 
+essential. Feature selection can reduce the data dimensionality and 
+model training consumption time and denoise the dataset to increase the 
+model performance. The RF model selects the essential features and, 
+based on the distribution domain of the selected feature, explains the 
+importance of feature selection in this study. Selecting the data length 
+from 0 h to prediction Sp for feature selection in the FC1 and FC2 
+datasets. By calculating each normalized feature’s importance from high 
+to low, this research ultimately selects features whose cumulative 
+importance score surpasses 80 %. The RF model efficiently calculates the 
+important feature score based on the decrease in mean impurity (MDI). 
+The RF model ensemble the feature important from its based Decision 
+Tree (DT) model, and it can reduce the variance of important scores and 
+overfitting problems between each based model. In the regression 
+problem, the RF model utilizes mean squared error (MSE) as the 
+objective function for fitting the optimal weight. Thus, the formula for 
+the feature important score includes MSE loss. The important feature 
+formulation and computing step is shown in the description below. 
+Step 1: Calculate the information gain for the parent node with the 
+MSE of node and node weight.
+IGpj = WpjMSEpj −
+∑
+n
+i=0
+WciMSEci
+(7) 
+Where pj represents the parent node j and ci represents the child node i. 
+Each node’s weight is W, and IG represents the information gain value. 
+Fig. 4. The knee-onset and knee-point identification results for the FC1, FC2_scenario#1, and FC2_scenario#2.
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+6 
+
+
+=== Page 7 ===
+The variable n represents the total number of child nodes. 
+Step 2: Compute the feature importance for each feature in a DT 
+model
+Important(fk)DT =
+∑
+d∈all nodes branched by feature k in a DT model
+IGfkd
+∑
+m∈all nodes in a DT model
+IGm
+(8) 
+Where fk represents the feature k. IGfkd is the value of information gain in 
+node d of feature k. The IGm represents the information gain of each node 
+in a DT model. 
+Step 3: Ensemble the feature important score to get the feature 
+important score for the RF model by taking the average from each DT 
+model’s normalized feature important score.
+Important(fk)DT norm = Important(fk)DT
+∑
+v
+k
+Important(fk)
+(9) 
+Important(fk)RF =
+∑
+t∈all DT models
+Important(ft)DT norm
+NT
+(10) 
+Where Important
+(
+fk
+)
+DT norm is the normalized feature important score of 
+features k for a single DT model and the variable v represents the total 
+number of features of the input data. The NT and t represent the total 
+number of DT models of a RF model.
+Fig. 5 shows the cumulative normalized feature score from high to 
+low for the FC1, FC2_scenario#1, and FC2_scenario#2 datasets. The 
+selected features for FC1, FC2 scenario#1, and FC2 scenario#2 are 
+shown in Table 4.
+This research uses principal components analysis (PCA) to compose 
+the dimensionality of the features into two dimensions and visualize the 
+data distribution by PC1 and PC2. The eigenvalue and eigenvector are 
+calculated by data length from 0 h to knee-point, which is prediction Sp 
+the feature distribution domain analysis using PCA shown below. 
+Step 1: Find the eigenvalues and eigenvectors.
+Ax = λx
+(11) 
+where x, and λ is the eigenvectors and eigenvalues of A, and A is the 
+standard normalized features. 
+Step 2: Select the first top largest two eigenvalues and project the 
+standard normalized features to the corresponding eigenvectors.̂
+x = ΓA
+(12) 
+where ̂x, and Γ is the dimensionality reduction features vector and the 
+first top largest two eigenvalues corresponding truncated eigenvectors 
+of A, and A is the standard normalized features. 
+Step 3: Visualize the first and second dimensionality reduction 
+feature by scatter plot and see the transformed data distribution.
+Fig. 6 employs PCA to analyze the distribution across these three 
+datasets. Feature selection diminishes noise and streamlines the data 
+distribution. It can improve the data-driven model to speed up the 
+training: consumption time and model performance. Comparing the two 
+reduced dimensions of data distribution with and without feature se­
+lection reveals that PCA with feature selection yields superior results for 
+the three datasets.
+3.2. Improved TFT model
+After analyzing raw data, critical features are selected, and the 
+training set for the proposed improved TFT model is established. The 
+improved TFT model modifies from the TFT model, an attention-based 
+constriction model with the RNN-based variable selection, decoder 
+and encoder structure, and the gated residual network (see Fig. 7).
+3.2.1. Variable selection network
+The variable selection network consists of linear transformation 
+layers for continuous features, gated unit network (GRN) to select 
+essential variables automatedly during the model training.
+In the improved TFT model, the variable selection network consists 
+of two important components. The first component combines with linear 
+transformation layers to increase the dimensionality by univariate 
+feature at time t, and the output of each linear transformation layer 
+operates non-linear processing by its own GRN to share the weight 
+Fig. 5. The cumulated important score for the FC1, FC2_scenario#1, and FC2_scenario#2 datasets.
+Table 4 
+The selected features for FC1, FC2_scenario#1, and FC2_scenario#2.
+Dataset
+Selected features
+Importance score
+FC1
+DoutAIR (l/mn)
+0.6960
+TinWAT
+0.0696
+DoutH2 (l/mn)
+0.0548
+FC2_scenario#1
+DoutAIR (l/mn)
+0.3880
+TinWAT
+0.2707
+J (A/cm2)
+0.0624
+I (A)
+0.0582
+ToutAIR
+0.0451
+FC2_scenario#2
+J (A/cm2)
+0.3331
+I (A)
+0.2718
+TinWAT
+0.2473
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+7 
+
+
+=== Page 8 ===
+Fig. 6. The difference in distribution between with and without feature selection for each dataset.
+Fig. 7. The full improved TFT model structure.
+Fig. 8. The constriction of GRN and variable selection network.
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+8 
+
+
+=== Page 9 ===
+across time t and prevent the gradient vanish problem. The first 
+component operation, and GRN shown in following. Fig. 8 shows the 
+model construction of GRN. ̂
+ξ
+(i)
+t = GRNˆξ
+(i)
+t
+(
+ξ(i)
+t
+)
+, i = 1, 2, …, Xmax
+(13) 
+where ξ(i)
+t represent the linear transformation output of i variable at time 
+t, and ̂ξ
+(i)
+t is the output of each GRN for i variable at time t. The feature 
+numbers present as Xmax. 
+GRN(a) = LayerNorm(a, GLU(η2))
+(14) 
+η1 = ELU(W1a + b1)
+(15) 
+η2 = W2η1 + b2
+(16) 
+where W1 and W2 represent the first and second dense layer weights, b1 
+and b2 is the bias of the first and second layer, the η1 and η2 is the output 
+of the first and second dense layer., and the gated linear united (GLU) is 
+the filter gate see Equation (17). 
+GLU (γ) = sigmoid(W3γ + b3)⨂(W4γ + b4)
+(17) 
+where γ is the input of the GLU, W3, W4, b3, b4 are the weights and bias 
+for computing GLU, and ⨂ is the point-point multiplication. The input 
+vector of GRN, exponential linear unit (ELU), and LayerNorm represent 
+as a, the standard layer normalization, and the ELU activation function.
+The second component of the variable selection network computes 
+the variable selection weights by calculating the softmax activation of 
+the flattened inputs. The flattened input is the whole features at time t 
+which can represent as Ξt =
+[
+ξ(1)
+t
+T, ξ(2)
+t
+T, …, ξ(xmax)
+t
+T]T
+. The second com­
+ponents of variable selection network operation shown in below equa­
+tion. 
+vt = softmax (GRN(Ξt))
+(18) 
+where vt is the weight of variable selection at time t of whole features, Ξt 
+is the whole features at time t, and softmax is the softmax activation 
+function.
+Finally, the first and second component combine as the output of 
+variable selection network see following equation. ̂
+ξt =
+∑
+Xmax
+j=0
+vt
+(i)ξ(i)
+t , i = 1, 2, …, Xmax
+(19) 
+where vt(i) is the weight of variable selection at time t of number i col­
+umns, ̂ξt is the output of variable selection network combines the first 
+and second component at time t.
+3.2.2. Encoder and decoder construction for locally enhancement
+The original decoder and encoder are the LSTM model. It consists of 
+three gates: input, forget, and output gate to control the weights, called 
+memory updating of hidden state and cell state. In the study, the LSTM 
+encoder and decoder structure are substituted with BiLSTM to augment 
+the hidden and cell state memory capture. The BiLSTM model considers 
+the forward and backward direction sequence relationship to update 
+hidden state and cell state weights. The following shows three gates: 
+hidden state and cell state updating formulation. The forget gate Ft of the 
+LSTM model controls the percentage of the previous hidden state ht−1 
+and current input xt by a sigmoid function. If the output of the forget 
+gate reaches 1, the relationship between the previously hidden state and 
+current input information is very high. It should be kept and point-by- 
+point multiply to the cell state Ct−1 to affect the recurrent update. The 
+input gate It updates the cell state Ct−1 by two essential parts. The first 
+part computes the previously hidden state ht−1 and current input xt by a 
+sigmoid function representing the value informational computation, and 
+the second part calculates the previous hidden state ht−1 and current 
+input xt by a hyperbolic tangent (tahn) function representing the value 
+normalize to −1 to 1. These two parts take point-by-point multiplication 
+and add to the cell state Ct to update the weights. The output gate 
+controls the information updating of the hidden state weights by a sig­
+moid function. Finally, the previous cell state Ct−1 takes tanh function 
+and multiplies the results of the output gate for updating the hidden 
+state Ht. 
+Ft = sigmoid
+(
+Wfxt + Hfht−1 + bf
+)
+.
+(20) 
+It = sigmoid(Wixt + Hiht−1 + bi) ⊗tahn(Wcxt + Hcht−1 + bc).
+(21) 
+Ct = Ft ⊗Ct−1 + It.
+(22) 
+Ot = sigmoid(Woxt + Hoht−1 + bo)
+(23) 
+ht = Ot ⊗tahn(Ct−1)
+(24) 
+where the Ft, It, Ct, Ot, and ht represent the output of the forget gate, 
+input gate, cell state, output gate, and hidden state at number t LSTM 
+cell, respectively. Wf, Wi, Wo, and Wc represent the weights of forget 
+gate, input gate, cell state, output gate, and hidden state, respectively. 
+The Hf, Hi, and Ho are the weight parameters of the hidden state of the 
+forget gate, input gate, and output gate, respectively. The biases of the 
+forget gate, input gate, cell state, and output gate are represented as bf, 
+bi, and bo, respectively. The point-point multiplication means the sign of 
+⊗.
+The encoder and decoder structure of the improved TFT model re­
+places the Bi-LSTM with LSTM. The Bi-LSTM consists of two LSTM 
+layers, and the hidden state connects forward and backward in the first 
+LSTM layers LSTMforward and second LSTM layers LSTMbackward, respec­
+tively. Finally, the output of the Bi-LSTM decoder and decoder is the 
+addition of the forward h
+⇀
+t, the backward h←
+t hidden state, and the bias 
+vector bˆyt. 
+h→
+t = LSTMforward
+(
+xt, h→
+tt−1
+)
+(25) 
+h←
+t = LSTMbackward
+(
+xt, h←
+t−1
+)
+(26) ̂
+yt = Wforwardh
+⇀
+t + Wbackward h←
+t + bˆyt
+(27) 
+where Wforward and Wbackward are the BiLSTM output layer weights of the 
+forward and backward LSTM layers, and the h←
+t and h
+⇀
+t represent the 
+hidden state of the forward and backward LSTM layers. The input, 
+output, and output layer biases of the BiLSTM model are xt, ̂yt, and bˆyt, 
+respectively.
+3.2.3. Temporal fusion decoder
+The temporal fusion decoder treats the encoder and decoder Bi-LSTM 
+model construction output to enhance the local time information 
+learning of past input and known future input data. The output of the Bi- 
+LSTM model computes the GRN in advance to increase the depth of the 
+model and avoid the gradient vanishing problem simultaneously. After 
+that, the output of the GRNs generates queries Q, values V, and keys K 
+vector for the masked interpretable multi-head attention training to 
+learn the long-term time series relationships by its self-attention mech­
+anism as below equation. 
+Attentiondot−product(Q, K, V) = softmax
+(QKT̅̅̅̅̅
+dk
+√
+)
+V,
+(28) 
+where ̅̅̅̅̅
+dk
+√
+represents the scaling factor to normalize the scale of dot- 
+product attention output, the softmax activation function computes 
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+9 
+
+
+=== Page 10 ===
+the importance probability of each time stamp. Finally, the V vector 
+combines with the time stamps importance probability to pay attention 
+to essential time stamps.
+However, in some complicated real-world problems, more than the 
+depth of the model is needed to learn more information. The multi-head 
+attention contaminates more than one attention mechanism output to 
+enhance the model depth and learning capacity of time stamps see 
+following equation. 
+MultiHead(Q, K, V) = [Head1, Head2, ……, Headhmax] WH,
+(29) 
+Headi = Attentiondot−product
+(
+QWq
+(i), KWk
+(i), VWv
+(i))
+,
+(30) 
+where hmax represents the maximum attention heads number, WH is the 
+weight connect with different attention heads. The Wq(i), Wk
+(i), Wv(i) are 
+the weight of Q, K, and V vectors, respectively, at number i head.
+The interpretable multi-head attention improves the value sharing in 
+each head by modifying the original self-attention head computation to 
+the additive aggregation. This operation let the multi-head attention can 
+interpret the features’ importance because each head’s weights are 
+related by value-sharing calculation. 
+InterpretableMultiHead(Q, K, V) =̃ Head WH,
+(31) ̃
+Headi = 1
+hmax
+∑
+hmax
+i=1
+Attentiondot−product
+(
+QWq
+(i), KWk
+(i), VWv
+)
+,
+(32) 
+where ̃Headi is the number i head of interpretable multi-head attention. 
+The WH is the weight connect with different interpretable multi-head 
+attention heads. The Wq(i), Wk
+(i) are the weight of Q, K, respectively, 
+at number i head. The Wv is the sharing weights of V vector.
+Finally, the outputs of interpretable multi-head attention are calcu­
+lated by a GLU, LayerNorm, and a residual connection, and then the 
+results to GRN. The above is the whole operation of the temporal fusion 
+decoder.
+3.2.4. Quantile output
+The improved TFT model uses a linear transformation like TFT model 
+to output temporal fusion decoder to generate the prediction intervals 
+by quantile forecasts. The quantile prediction intervals simulate the 
+predictions of various percentiles, such as 10 %, 50 %, and 90 %, at each 
+prediction step. ̂
+y(q, t, τ) = Wq̃ψ(t, τ) + bq,
+(33) 
+where Wq and bq is the weight and bias of linear transformation layer for 
+the specific quantile q. The ̃ψ(t, τ) represents the output of temporal 
+fusion decoder at time t + τ. The current time and future prediction step 
+represent as t and, respectively. The ̂ y(q, t, τ) is the estimation of the 
+improved TFT model for quantile q at prediction step t + τ.
+3.2.5. Loss function
+Selecting a suitable loss function is essential for deep learning model 
+training. It depends on the different problems you want to solve. The 
+improved TFT model uses quintile loss to summate all quantile outputs 
+as the original TFT model. See the equation below. To ensure the out-of- 
+sample performance is accurate, the original TFT model measures the 
+normalized quantile losses and considers and focuses on P50 and P90 
+risk. 
+L(Ω, W) =
+∑
+yt∈Ω
+∑
+q∈Q
+∑
+τmax
+τ=1
+QL(yt,̂ y(q, t −τ, τ), q)
+Mτmax
+,
+(34) 
+QL(y,̂ y, q) = q(y −̂ y) + (1 −q)(̂y −y),
+(35) 
+q −risk =
+2∑
+y
+t∈˜Ω
+∑
+τmax
+τ=1
+QL(yt,̂ y(q, t −τ, τ), q)
+∑
+y
+t∈˜Ω
+∑
+τmax
+τ=1
+|yt|
+(36) 
+where M represents the training samples of domain Ω, W is the improved 
+TFT model weights, and Q is the set of output quintiles. The ̃Ω is the test 
+samples domain. The t, τ, and τmax represent the current time, future 
+prediction step, and the maximum future prediction steps, respectively. 
+The quantile loss (QL) is similar to the mean absolute error (MAE) for 
+calculating the MAE of model output ̂y and actual y at quantile q.
+4. Future RUL prediction results and discussion
+The definition of the future RUL prediction assumes that the inde­
+pendent and dependent variables after the Sp are unknown. The defi­
+nition of RUL is the cycle-life (hour) between the Sp of cycles and the 
+number of cycles at the EOL as the following equation. 
+CT=future RUL = CT=EOL −CT=Sp,
+(37) 
+Where T and C represent the time unit (hour) and the cycle number, 
+respectively.
+The prediction model only can input these rare previous known 
+variables and implement step-ahead rolling prediction to get the pre­
+dicted values. The step-ahead rolling prediction in the following para­
+graph. The step-ahead rolling prediction conducts iteratively until the 
+predicted value reaches the EOL threshold, then stop the prediction. 
+Because of this stopping rule and the future RUL definition, the pre­
+diction and actual length would differ. For the reason of the length 
+different between prediction and actual value, in this research the ab­
+solute error (AE) and relative errors (RE) use to be the performance 
+matric, instead of mean squared error (MSE), mean absolute error 
+(MAE), R-squared (R2), etc. The formulation of performance matric of 
+AE and RE define as below. 
+AE = |RULactual −̂ RUL|,
+(38) 
+Fig. 9. Sp updating based on the step-ahead rolling RUL prediction for the FC1 dataset.
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+10 
+
+
+=== Page 11 ===
+RE = |RULactual −̂ RUL|
+RULactual
+,
+(39) 
+This study used three different EOL hours as three distinct scenarios 
+for predicting future RUL. The first experiment involves an EOL of 815 h 
+for the FC1 dataset, while the second and third experiments have an EOL 
+of 313 and 878 h, respectively, for the FC2 dataset. The Sp calculated by 
+the double Bacon Watts model for each experiment is 578 h for the FC1 
+dataset, 183 h for the FC2 dataset scenario#1, and 546 h for the FC2 
+dataset scenario#2. The first experiment involves an EOL of 815 h for 
+the FC1 dataset, while the second and third experiments have EOLs of 
+313 and 878 h, respectively, for the FC2 dataset. The actual RULs for the 
+FC1 dataset, FC2 dataset scenario#1, and FC2 dataset scenario #2 are 
+237 h, 210 h, and 277 h, respectively. The selection of features used for 
+model training can enhance model performance and reduce computing 
+consumption. The selection of features used for model training can 
+enhance model performance and reduce computing consumption, as 
+shown in Table 4 for each experimental scenario.
+Implementing step-ahead rolling prediction for future RUL predic­
+tion enables the use of the improved TFT model to predict single or 
+multiple steps in FC1 and FC2 scenarios. The prediction step starts from 
+the Sp to predict the next single or multiple steps. The first Sp is called 
+initial prediction Sp. After getting the next single or multiple steps, the 
+Sp will update based on the prediction step, and over time, the unknown 
+data will update based on the Sp updating. To simply assess the per­
+formance of the proposed improved TFT model in predicting the next 1- 
+h, single step-ahead rolling prediction is utilized for FC1, 
+FC2_scenario#1, and FC2_scenario#2, as depicted in Fig. 9.
+During model training, the original training set, which includes data 
+points from knee-onset to knee-point, is divided into a sub-training set 
+and a validation set. The sub-training and validation sets are 90 % and 
+10 % of the original training set, respectively. This division is crucial for 
+tuning the hyperparameters of the proposed TFT model. The hyper­
+parameters are adjusted based on the model performance by calculating 
+the objective function from the validation set during optimization. This 
+research uses the Neural Network Intelligence (NNI) open-source 
+AutoML toolkit to optimize hyperparameters. This AutoML toolkit pro­
+vides a web-based graphical user interface (GUI) that facilitates a better 
+understanding of each optimization iteration’s hyperparameter optimi­
+zation convergence process. This research selects the BO-based TPE al­
+gorithm to optimize the hyperparameters due to its outstanding 
+performance. The search space of the TPE algorithm included some 
+parameters worse and better group condition based on the top-quantile 
+ratio [23]. The kernel density estimators (KDEs) of TPE algorithm are 
+given by 
+p(x|y, D) =
+{
+p
+(
+x⃒⃒y, D(l))
+, (y ≤yγ)
+p(x|y, D(g)), (y〉yγ)
+(40) 
+where x represents the hyperparameters, y represents the output of the 
+objective function, D represents the set of observations, and γ represents 
+the top quantile for the better groups. l and g are used to denote the 
+better and worse groups, respectively.
+The convergence process of each hyperparameter for the top 1 % 
+achieving better model performance for the FC1 dataset on the valida­
+tion set is illustrated in Fig. 10. The red color connecting lines with 
+hyperparameters represent the combinations that yield the most accu­
+rate predictions on the validation set and the other colors represent the 
+six hyperparameter combinations with better accurate predictions. The 
+boundaries for each hyperparameter are outlined in Table 5. In 300 it­
+erations of BO-based TPE optimization, the optimal hyperparameters for 
+each scenario: for the FC1 dataset experiment, batch size = 52, learning 
+rate = 0.0247, dropout rate = 0.0100, number of BiLSTM layers = 4, 
+hidden size = 21, and number of attention heads = 1; for FC2_scenario 
+Fig. 10. The convergence process visualization of each hyperparameter for the top 1 % achieving better model by NNI toolkit for FC1 dataset.
+Table 5 
+Hyperparameters optimization boundaries.
+Hyperparameters
+Type
+Boundary
+Batch size
+Integer
+[1, 64]
+Learning rate
+Float
+[0.0001, 0.1]
+Dropout rate
+Float
+[0.01, 0.5]
+Number of BiLSTM layers
+Integer
+[1,6]
+BiLSTM hidden size
+Integer
+[1, 150]
+Number of attention heads
+Integer
+[2,4]
+Table 6 
+Future RUL prediction results for the three experiments.
+Dataset
+Actual 
+RUL
+Predicted 
+RUL
+Predicted RUL 
+interval
+AE
+RE (%)
+FC1
+237
+237.1749
+[237.0773, 
+237.3510]
+0.1749
+0.0738
+FC2_scenario#1
+208
+210.1297
+[210.1296, 
+211.0107]
+2.1297
+1.0239
+FC2_scenario#2
+112
+110.1507
+[110.0113, 
+111.0074]
+1.8493
+1.6512
+Table 7 
+Future RUL prediction results without feature selection for the three 
+experiments.
+Dataset
+Actual 
+RUL
+Predicted 
+RUL
+Predicted RUL 
+interval
+AE
+RE (%)
+FC1
+237
+235.0069
+[235.0068, 
+235.2339]
+1.9931
+0.8410
+FC2_scenario#1
+208
+212.4118
+[208.2253, 
+212.4118]
+4.4118
+2.1210
+FC2_scenario#2
+112
+109.0087
+[109.2888, 
+110.1501]
+2.9913
+2.6708
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+11 
+
+
+=== Page 12 ===
+#1, batch size = 40, learning rate = 0.0756, dropout rate = 0.1437, 
+number of BiLSTM layers = 6, hidden size = 14, and number of attention 
+heads = 4; and similarly, for FC2_scenario#2, the optimal hyper­
+parameters are batch size = 50, learning rate = 0.0263, dropout rate =
+0 0.29105, number of BiLSTM layers = 1, and hidden size = 30, and 
+number of attention heads = 4.
+Table 6 shows the online RUL prediction with single prediction step 
+results using optimal hyperparameters for the three experiments. Based 
+on the predicted results in Table 6, the proposed approach demonstrates 
+high accuracy and narrow predicted RUL intervals across the three 
+scenarios, indicating its reliability and low uncertainty. The prediction 
+interval ranges are 0.2737, 0.8811, and 0.9961 for FC1, FC2_sce­
+nario#1, and FC2_scenario#2, respectively. In addition, the online RUL 
+prediction with a single prediction step without feature selection is also 
+shown in Table 7. From Table 7, the future RUL prediction results 
+without feature selection show lower accuracy than those obtained with 
+the proposed feature selection method, along with more extensive pre­
+diction interval ranges. The most significant impact is observed in 
+FC2_scenario#1, which can be attributed to the strong influence of 
+appropriate feature selection on prediction accuracy, particularly given 
+the limited length of training data. Feature selection helps the deep 
+learning model focus on the most relevant features, reducing training 
+time, prediction time consumption, and uncertainty in the results. 
+Fig. 11 presents the online RUL prediction with single prediction step 
+results with feature selection for Table 6. The results show that the 
+proposed model outperforms each experiment, and the rolling predic­
+tion results are very close to the actual unknown future Vtotal. Although 
+the training length is concise and there are various data trends, such as 
+the FC2 scenario#1 and #2 experiments, the proposed model can pre­
+dict future Vtotal trends accurately.
+In this study, multiple online RUL prediction steps are analyzed to 
+evaluate and compare the prediction horizon of the proposed improved 
+TFT model. This assessment aims to gauge the model’s capability to 
+deliver precise predictions for future Vtotal. Achieving accuracy in a 
+significant prediction step allows for early detection of the future trend 
+of Vtotal, thereby preventing sharp battery degradation. The analysis 
+focuses on the impact of prediction steps 1, 3, 5, 7, and 9. The online 
+prediction results of AE and RE for the improved TFT model in different 
+prediction steps are shown in Table 8. Fig. 12 presents the online RUL 
+prediction results with 12 different prediction steps for Table 8. In Ta­
+bles 8 and it shows that the prediction steps significantly affect the 
+online RUL prediction performance for FC2 dataset scenario#1. With 
+only 55 data points for the training length in FC2 scenario#1, accurate 
+predictions for more significant steps are challenging for the model. The 
+analysis of various prediction steps in Table 8 shows that the improved 
+TFT model achieves accurate predictions for five steps. Despite the 
+limited training data points, this accuracy is consistently maintained 
+across all experiments, including FC2 dataset scenario#1. The AE in 
+each experiment remain below 10, affirming the model’s capability to 
+predict the next 5-h Vtotal precisely. The proposed model with the pro­
+posed modeling procedure gets accurate results for each prediction step 
+from one to 9 h. Moreover, from Table 8, increasing the prediction step 
+causes the proposed model to get worse RUL prediction results, which 
+can double verify the research procedure is reasonable because the more 
+predicted steps produce more prediction bias. Ultimately, the effec­
+tiveness of a DL model, considering both training and testing speeds, is 
+crucial and directly correlates with the intrinsic value of the utilized 
+model. Table 9 illustrates the computational time for training and pre­
+diction of the proposed model across three scenarios. As depicted in 
+Table 9, the proposed improved TFT model exhibits high-speed perfor­
+mance in training and prediction processes.
+Due to the scarcity of open-source PEMFC datasets, it is challenging 
+to locate an alternative dataset for testing the model’s performance. 
+Fig. 11. The future RUL prediction results for the three experiments with one prediction step.
+Table 8 
+Online RUL prediction results with 12 different prediction steps for three 
+experiments.
+Dataset
+Steps
+Actual RUL
+Predicted RUL
+AE
+RE (%)
+FC1
+1
+237
+237.1749
+0.1749
+0.0738
+3
+236.0726
+0.9274
+0.3913
+5
+238.1313
+1.1313
+0.4774
+7
+241.9920
+4.9920
+2.1063
+9
+242.6911
+5.6912
+2.4013
+FC2_scenario#1
+1
+208
+210.1297
+2.1297
+1.0239
+3
+212.4117
+4.4118
+2.1210
+5
+214.1400
+6.1401
+2.9519
+7
+223.8890
+15.8890
+7.6389
+9
+224.8706
+16.8706
+8.1108
+FC2_scenario#2
+1
+112
+110.1507
+1.8493
+1.6512
+3
+119.1868
+7.1868
+6.4168
+5
+119.8686
+7.8685
+7.0255
+7
+118.1099
+6.1099
+5.4552
+9
+125.0479
+13.0479
+11.6499
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+12 
+
+
+=== Page 13 ===
+Consequently, this research opted to compare the experiment results 
+with existing research [8] and conduct additional experiments to assess 
+the proposed method’s robustness and performance. In the compared 
+experiment, the same training length, features selected by random for­
+est, and optimal hyperparameters are employed to ensure a fair com­
+parison. This comparison uses the same training length to compare the 
+proposed method: high peak removal, data smoothing, knee-onset, 
+feature selection by RF model, improved TFT model, hyperparameters 
+tuning, and step-ahead prediction. Because the Sp should be the same as 
+the existing research [8], the knee-point estimation cannot be used for 
+the comparison only for the three scenarios. For FC1 and FC2, refer to 
+the results in Tables 10 and 11. The compared existing research [8] uses 
+EOL thresholds 3.211 V and 3.197 V for the FC1 and FC2 datasets, which 
+is the original consideration. Because the data preprocessing approach 
+involves merging the original data into hourly data differences, it can 
+result in variations in the actual EOL and RUL values. The EOL thresh­
+olds 3.211 V and 3.197 V for the FC1 and FC2 datasets used in this 
+research cannot get the same EOL number as the existing research [8]. 
+Thus, in this comparison, the results of the FC1 and FC2 experiments 
+directly use the actual EOL cycle number as the same number of 812 and 
+395 as the existing research [8]. The two EOL cycle numbers 812 and 
+395 can be used to compare directly because these two EOL cycle 
+numbers are in the continuous degradation trend. The EOL cycle number 
+of 812 and 395 matches to our FC1 and FC2 data is at EOL threshold in 
+value of 3.203 V and 3.183 V. Tables 10 and 11 show the RE value to 
+compare the performance of the proposed method and the existing 
+research [8]. From Tables 10 and 11, the proposed method 
+Fig. 12. The online RUL prediction results with 12 different prediction steps for three experiments.
+Table 9 
+Proposed model on training time and prediction time.
+Dataset
+Training 
+length
+Training 
+time
+Prediction time (Average of each 
+prediction step)
+FC1
+116–578
+32.9533 s
+0.5653 s
+FC2_scenario#1
+147–186
+10.9496 s
+0.5699 s
+FC2_scenario#2
+568–609
+15.0362 s
+0.5585 s
+Table 10 
+Comparison results with existed research for the FC1 experiment.
+Dataset
+EOL
+Training 
+length
+Model
+Actual 
+RUL
+Predicted 
+RUL
+RE (%)
+FC1
+812 h
+300 h
+LSTM [8]
+512 h 
+[8]
+513.7600 h
+0.3437
+BiLSTM 
+[8]
+511.6700 h
+0.0645
+ESN [8]
+518.3800 h
+1.2461
+TFT
+512.1081 h
+0.0211
+Improved 
+TFT
+512.0760 h
+0.0148
+400 h
+LSTM [8]
+412 h 
+[8]
+414.3900 h
+0.5801
+BiLSTM 
+[8]
+411.4200 h
+0.1408
+ESN [8]
+410.5600 h
+0.3495
+TFT
+412.9673 h
+0.2348
+Improved 
+TFT
+412.0248 h
+0.0060
+500 h
+LSTM [8]
+312 h 
+[8]
+312.1400 h
+0.0449
+BiLSTM 
+[8]
+311.2400 h
+0.2436
+ESN [8]
+310.6800 h
+0.4231
+TFT
+311.1098 h
+0.2853
+Improved 
+TFT
+312.2067 h
+0.0662
+600 h
+LSTM [8]
+212 h 
+[8]
+211.2500 h
+0.3538
+BiLSTM 
+[8]
+211.3000 h
+0.3301
+ESN [8]
+210.9200 h
+0.5094
+TFT
+212.1076 h
+0.0508
+Improved 
+TFT
+212.1029h
+0.0486
+Table 11 
+Comparison results of different models for the FC2 dataset.
+Dataset
+EOL
+Training 
+length
+Model
+Actual 
+RUL
+Predicted 
+RUL
+RE (%)
+FC2
+395 h
+300 h
+LSTM [8]
+95 h 
+[8]
+94.4800 h
+0.5474
+BiLSTM 
+[8]
+94.8500 h
+0.1579
+ESN [8]
+94.6700 h
+0.3474
+TFT
+94.2226 h
+0.8270
+Improved 
+TFT
+95.0307 h
+0.0326
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+13 
+
+
+=== Page 14 ===
+outperformed the existing research [8] and the RE is 0.0148 %, 0.0060 
+%, 0.0662 %, and 0.0486 % for the FC1 dataset, and 0.0326 % for the 
+FC2 dataset. The predicted RUL in these five experiments is very close to 
+the actual.
+The most important feature of the TFT model is its ability to provide 
+excellent interpretability, enabling the identification of contributions for 
+the input features. The following presents the variable contribution, 
+calculated using the improved TFT model proposed in Fig. 13, for our 
+specific scenarios. The rankings of the contribution to enhancing the 
+proposed improved TFT model performance in our specific scenarios are 
+as follows: 
+• FC1 is DinAIR > DoutH2 > TinWAT.
+• FC2_ scenario1 is I > J > TinAIR > DinAIR > TinWAT.
+• FC2 _scenario_2 is I > J > TinWAT.
+Drawing insights from this model’s interpretability, the contribution 
+of each feature to the proposed model becomes apparent. When too 
+many features are input, the model requires significant training con­
+sumption. The contribution results can serve as a guide to selectively 
+remove input features, thereby reducing training time.
+5. Conclusions
+Predicting the online RUL of the PEMFC pack is challenging, espe­
+cially under dynamic operation conditions, but the proposed approach 
+with improved TFT model can tackle it. This paper analyzes explicitly 
+the PEMFC dataset and predicts the health indicator of Vtoal through 
+three analysis parts: raw data analysis, modeling, and future RUL pre­
+diction. In raw data analysis, the suitable interpolation approach is used 
+to remove outliers and knee-onset and knee-point identification to 
+determine the training set for the proposed model. The RF model selects 
+essential features at the end of raw data analysis. This research uses 
+PCA’s feature domain analysis to verify and visualize that our raw data 
+analysis is reasonable and makes sense. For modeling, the determined 
+training set is used to train the proposed improved TFT model, which 
+changes the encoder module from LSTM to BiLSTM. During model 
+training, this research combines with the NNI AutoML toolkit to opti­
+mize the hyperparameters. The toolkit provides hyperparameter 
+converge process visualization, which can easily understand the opti­
+mization process. After the proposed model training, the train model 
+with optimal hyperparameters is used for online RUL prediction.
+This study builds one scenario for the FC1 dataset and two scenarios 
+for the FC2 dataset by determining the different EOL by ourselves, four 
+different training lengths for the FC1 dataset, and one for the FC2 
+dataset to compare the model performance with other existing research. 
+The training length determination of comparison follows the existing 
+research. The online RUL results of the proposed improved TFT model 
+demonstrate under static (FC1 dataset) conditions of the comparison 
+with other research shows that the RE of the online RUL prediction 
+performance of the improved TFT model for training data [0,300 h], 
+[0,400 h], [0,500 h], and [0,600 h] are 0.0148 %, 0.0060 %, 0.0662 %, 
+and 0.0486 %, respectively. Under dynamic operation (FC2 dataset) 
+conditions of the comparison with other research, the RE of the online 
+RUL prediction performance of the improved TFT model for training 
+data [0,300 h] is 0.0326 %. The experimental results demonstrate that 
+the RE is lower than 0.07 % at different training durations and has better 
+prediction performance than ESN, LSTM, and BiLSTM. In our build 
+experiment, the online RUL prediction RE values for the three experi­
+ments are 0.0738 %, 1.0239 %, and 1.6512 %, respectively.
+The most important finding in this study is that we tested five 
+different multi-step-ahead parameters to determine the prediction 
+capability limits of the proposed improved TFT model. Through these 
+experiments, we found that the improved TFT model can provide reli­
+able five-step-ahead predictions with minimal accuracy loss and low 
+prediction uncertainty, as verified through testing across various pre­
+diction steps. Additionally, this study employs PCA to visualize the 
+domain differences between models with and without feature selection, 
+highlighting the importance of feature selection in deep learning model 
+training. Our proposed approach’s analysis procedure integrates multi­
+ple methodological components, which collectively enhance the future 
+prediction performance of the improved TFT model. The outcomes of 
+each experiment highlight that the proposed approach, designed for 
+robustness and high reliability in online RUL prediction, can effectively 
+address real-world PEMFC future prediction challenges. In the future, 
+we will explore the application of the improved TFT model in transfer 
+learning for PEMFC lifetime prediction. Due to the scarcity of battery 
+degradation data, transfer learning can adapt model weights from 
+source battery data to target battery data, enabling reliable predictions 
+with limited target data. We will focus on domain adaptation, a widely 
+used transfer learning technique that mitigates domain shifts between 
+source and target datasets. Specifically, we aim to address temporal 
+feature disparities and optimize model weights to align with the target 
+domain. This approach will enhance future RUL predictions while 
+reducing the data collection effort for researchers.
+CRediT authorship contribution statement
+Jia-Hong Chou: Writing – original draft, Visualization, Validation, 
+Software, Methodology, Investigation, Data curation. Fu-Kwun Wang: 
+Writing – review & editing, Supervision, Project administration, Meth­
+odology, Investigation, Funding acquisition, Conceptualization.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgements
+This work was supported by the National Science and Technology 
+Council, Taiwan under Grant NSTC-112-2221-E011-114-MY3.
+References
+[1] W. Zhu, B. Guo, Y. Li, Y. Yang, et al., Uncertainty quantification of proton- 
+exchange-membrane fuel cells degradation prediction based on bayesian-gated 
+recurrent unit, eTransportation 16 (2023) 100230.
+Fig. 13. Variable importance is calculated using the proposed improved TFT model.
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+14 
+
+
+=== Page 15 ===
+[2] J. Zuo, H. Lv, D. Zhou, Q. Xue, et al., Deep learning based prognostic framework 
+towards proton exchange membrane fuel cell for automotive application, Appl. 
+Energy 281 (2021) 115937.
+[3] R. Ma, T. Yang, E. Breaz, et al., Data-driven proton exchange membrane fuel cell 
+degradation predication through deep learning method, Appl. Energy 231 (2018) 
+102–115.
+[4] Z. Hua, Z. Zheng, E. Pahon, et al., Remaining useful life prediction of PEMFC 
+systems under. dynamic operating conditions, Energy Convers. Manag. 231 (2021) 
+113825.
+[5] M. Yue, S. Jemei, N. Zerhouni, R. Gouriveau, Proton exchange membrane fuel cell 
+system prognostics and decision- making: current status and perspectives, J Renew 
+Energy 179 (2021) 2277–2294.
+[6] C. Zhang, Y. Zhang, L. Wang, et al., A health management review of proton 
+exchange membrane fuel cell for electric vehicles: failure mechanisms, diagnosis 
+techniques and mitigation measures, Renew. Sustain. Energy Rev. 182 (2023) 
+113369.
+[7] T. Zihan, Z. Chu, X. Jinlin, et al., Evolutionary gate recurrent unit coupling 
+convolutional neural network and improved manta ray foraging optimization 
+algorithm for performance degradation prediction of PEMFC, Appl. Energy 336 
+(2023) 120821.
+[8] H. Li, Q. Chen, L. Zhang, et al., Degradation prediction of proton exchange 
+membrane fuel cell based on the multi-inputs bi-directional long short-term 
+memory, Appl. Energy 344 (2023) 121294.
+[9] X. Sun, M. Xie, J. Fu, et al., An improved neural network model for predicting the 
+remaining useful life of proton exchange membrane fuel cells, Int J Hydrog Energy 
+48 (65) (2023) 25499–25511.
+[10] R. Xie, C. Li, R. Ma, et al., An explainable data-driven framework for fuel cell aging 
+prediction under dynamic condition, IEEE Trans. Ind. Electron. 70 (6) (2023) 
+5960–5970.
+[11] B. Sun, X. Liu, J. Wang, et al., Short-term performance degradation prediction of a 
+commercial vehicle fuel cell system based on CNN and LSTM hybrid neural 
+network, Int J Hydrog Energy 51 (2) (2023) 18–25.
+[12] Z. Deng, S.H. Chan, Q. Chen, et al., Efficient degradation prediction of PEMFCs 
+using ELM-AE based on fuzzy extension broad learning system, Appl. Energy 331 
+(2023) 120385.
+[13] Y. Peng, T. Chen, F. Xiao, S. Zhang, Remaining useful lifetime prediction methods 
+of proton exchange membrane fuel cell based on convolutional neural network- 
+long short-term memory and convolutional neural network-bidirectional long 
+short-term memory, Fuel Cells 23 (1) (2023) 75–87.
+[14] J. Jin, Y. Chen, C. Xie, F. Wu, et al., Remaining useful life prediction of PEMFC 
+based on the multi-input cycle reservoir with jump network, Int J Hydrog Energy 
+48 (2023) 12844–12860.
+[15] K. Benaggoune, M. Yue, S. Jemei, N. Zerhouni, A data-driven method for multi- 
+step-ahead prediction and long-term prognostics of proton exchange membrane 
+fuel cell, Appl. Energy 313 (2022) 118835.
+[16] V. Bilgram, F. Laarmann, Accelerating innovation with generative AI: AI- 
+augmented digital prototyping and innovation methods, IEEE Eng. Manag. Rev. 48 
+(2023) 12844–12860.
+[17] B. Lim, S.¨O. Arık, N. Loeff, et al., Temporal fusion transformers for interpretable 
+multi-horizon time series forecasting, Int. J. Forecast. 37 (2021) 1748–1764.
+[18] P. Fermín-Cueto, E. McTurk, M. Allerhand, et al., Identification and machine 
+learning prediction of knee-point and knee-onset in capacity degradation curves of 
+lithium-ion cells, Energy AI 1 (2020) 100006.
+[19] Mao L, Jackson L. IEEE 2014 Data Challenge Data. Loughborough University. 
+Dataset. https://doi.org/10.17028/rd.lboro.3518141.v1.
+[20] S. Li, W. Luan, C. Wang, Y. Chen, Z. Zhaung, Degradation prediction of proton 
+exchange membrane fuel cell based on Bi-LSTM-GRU and ESN fusion prognostic 
+framework, Int J Hydrog Energy 78 (12) (2022) 33466–33478.
+[21] Z. Hua, Z. Zheng, S.C. P´era, F. Gao, Remaining useful life prediction of PEMFC 
+systems based on the multi-input echo state network, Appl. Energy 265 (2020) 
+114791.
+[22] Z. Zhang, Y.X. Wang, H. He, F. Sun, A short- and long-term prognostic associating 
+with remaining useful life estimation for proton exchange membrane fuel cell, 
+Appl. Energy 304 (2021) 117841.
+[23] S. Watanabe, Tree-structured parzen estimator: understanding its algorithm 
+components and their roles for better empirical performance [Online]. Available: 
+https://doi.org/10.48550/arXiv.2304.11127, 2023.
+J.-H. Chou and F.-K. Wang                                                                                                                                                                                                                   
+Renewable Energy 247 (2025) 123019 
+15 
+
+

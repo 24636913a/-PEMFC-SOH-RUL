@@ -1,0 +1,723 @@
+Remaining useful life prediction of PEMFC based on matrix long 
+short-term memory
+Fengyan Yi a
+, Xing Shu a
+, Jiaming Zhou b,*
+, Jinming Zhang b
+, Chunxiao Feng a,**,  
+Hongtao Gong a
+, Caizhi Zhang c, Wenhao Yu a
+a School of Automotive Engineering, Shandong Jiaotong University, Jinan, 250357, China
+b School of Intelligent Manufacturing, Weifang University of Science and Technology, Weifang, 262700, China
+c College of Mechanical and Vehicle Engineering, Chongqing University, Chongqing, 400044, China
+A R T I C L E I N F O
+Keywords:
+PEMFC
+Life prediction
+Remaining useful life
+Matrix long short-term memory
+A B S T R A C T
+Prognostics and health management play a crucial role in ensuring the safety and maintenance of fuel cell ve­
+hicles. To address the insufficient prediction accuracy in existing models when handling long-term sequences and 
+high-dimensional data, this paper proposes a proton exchange membrane fuel cell (PEMFC) remaining useful life 
+prediction method based on a matrix long short-term memory (M-LSTM) network. Specifically, the Spearman 
+correlation coefficient analysis is first employed to quantitatively evaluate the multidimensional correlations 
+within the experimental data, identify key variables highly associated with fuel cell degradation, optimize 
+feature selection, and achieve dimensionality reduction. Subsequently, an M-LSTM life prediction model is 
+developed, incorporating an exponential gating mechanism and a matrix storage unit to enhance the global 
+modeling capability of data-driven methods in complex nonlinear feature learning and long-sequence data 
+processing. The results demonstrate that, compared with the LSTM model, under single-step prediction, M-LSTM 
+reduces MAE and MSE by 76.3% and 58.2%, respectively, while increasing R2 by 2.3%. Under multi-step pre­
+diction, M-LSTM reduces MAE and MSE by 79.4% and 60.4% respectively, while improving R2 by 5.2%.
+1. Introduction
+In recent years, fuel cell vehicle technology using hydrogen as the 
+main fuel is also considered to be one of the most important technical 
+routes in the development of new energy vehicles [1–4]. Fuel cell ve­
+hicles have a short hydrogen refueling time and strong endurance. The 
+only reactant in its operation is water, which has almost no pollution to 
+the environment. Therefore, using fuel cell vehicles is a favorable way to 
+maintain a clean environment and protect human health [5–7]. 
+Although after years of research and continuous development, the pro­
+ton exchange membrane fuel cell (PEMFC) installed in automobiles has 
+made great research progress in terms of volume, low-temperature 
+start-up, and energy efficiency, its durability problem has not yet 
+reached the goal of industrialization and marketization [8,9]. Therefore, 
+to accurately predict the degradation degree and remaining useful life 
+(RUL) of PEMFC, extend the service life of fuel cells, and expand the 
+application of fuel cell systems, prognostics, and health management 
+methods have received widespread attention [10,11]. Currently, 
+prediction methods are mainly divided into three categories: 
+model-driven methods, data-driven methods, and hybrid models 
+[12–14].
+Model-based prediction methods can be divided into the use of 
+degradation mechanism models, empirical models, or semi-empirical 
+models [15]. Futter et al. [16] simulated the degradation process of 
+the proton exchange membrane by introducing various chemical 
+mechanisms in the battery, and verified the accuracy of the degradation 
+model through an accelerated stress test (AST). This model belongs to a 
+type of mechanism model. The introduction of chemical mechanisms 
+greatly increases the complexity of modeling. Ou et al. [17] proposed a 
+semi-empirical model-based prognostic method for predicting the 
+degradation and remaining useful life of PEMFCs. The approach in­
+tegrates a voltage prediction model, aging parameter analysis, and 
+performance recovery after shutdown, validated through experimental 
+cases. Although the semi-empirical model can reduce the complexity of 
+modeling, the empirical data in it needs to be accumulated through 
+experiments. Zhou et al. [18] proposed a real-time prediction (RTP) 
+* Corresponding author.
+** Corresponding author.
+E-mail addresses: zhoujiaming@wfust.edu.cn (J. Zhou), feng_chunxiao99@163.com (C. Feng). 
+Contents lists available at ScienceDirect
+International Journal of Hydrogen Energy
+journal homepage: www.elsevier.com/locate/he
+https://doi.org/10.1016/j.ijhydene.2025.02.302
+Received 23 December 2024; Received in revised form 12 February 2025; Accepted 19 February 2025  
+International Journal of Hydrogen Energy 111 (2025) 228–237 
+Available online 25 February 2025 
+0360-3199/© 2025 Hydrogen Energy Publications LLC. Published by Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and 
+similar technologies. 
+method for fuel cell lifespan by segmenting output power into distinct 
+operating conditions, estimating voltage decay rates for each, and con­
+structing an empirical model. Hybrid models rely on physical decay 
+models and are therefore classified here as a special type of model-based 
+approach. Pan et al. [19] introduced a novel hybrid technique 
+combining an adaptive Kalman filter and a data-driven NARX neural 
+network, where the Kalman filter and empirical aging model capture 
+macroscopic degradation trends, while the NARX neural network pro­
+vides fine-grained details. Liu et al. [20] designed an automatic machine 
+learning algorithm integrating an evolutionary approach with an 
+adaptive neuro-fuzzy inference system, enabling long-term degradation 
+trend prediction under variable current loads and remaining life esti­
+mation. Wang et al. [21] developed a hybrid model that refines the input 
+of a data-driven model using semi-empirical outputs, significantly 
+reducing oscillations in long-term degradation predictions. However, 
+fuel cell systems are complex physical and multi-scale systems. It is a 
+difficult task to establish an accurate degradation model. In addition, 
+multi-dimensional models require a lot of computing resources and 
+time, which makes it difficult to apply to dynamic control and online 
+diagnosis of fuel cells [22].
+Therefore, many scholars have proposed data-driven prediction 
+methods for fuel cell systems. Data-driven prediction methods refer to 
+learning the degradation behavior of fuel cells from fuel cell aging 
+experimental data through statistics or machine learning and using these 
+learning results to predict the life of fuel cells [23]. Compared with 
+model-based prediction methods, data-driven prediction methods can 
+achieve high prediction accuracy without analyzing the degradation 
+mechanism inside the fuel cell. LSTM is a special type of RNN (Recurrent 
+Neural Network) designed to solve the shortcomings of RNN in dealing 
+with long-term dependency problems. [24–26], which can avoid the 
+problems of gradient explosion and vanishing. The fuel cell prediction 
+method based on the LSTM architecture is currently a relatively effective 
+means. Liu et al. [27] proposed a new method for predicting the 
+remaining useful life (RUL) of PEMFC, which used an LSTM-based 
+recurrent neural network combined with data smoothing and recon­
+struction techniques to improve prediction accuracy and reliability. Jia 
+et al. [28] proposed a novel data-driven prediction model that integrates 
+the multi-head self-attention (MHSA) mechanism and bidirectional long 
+short-term memory.
+However, LSTM also has some problems. First, the original intention 
+of LSTM design is to overcome the long-term dependency problem of 
+traditional RNN, but when processing very long sequences, LSTM may 
+still perform poorly in capturing very long-distance dependencies. In 
+particular, when the length of the sequence data exceeds a certain range, 
+its performance will drop significantly. Second, LSTM needs to process 
+sequence data time step by time, which makes it difficult to achieve 
+efficient parallel computing. Compared with models such as Trans­
+former, LSTM has weaker parallel computing capabilities on large-scale 
+data, which limits its application in certain high-dimensional, large- 
+scale tasks. In recent studies, Beck et al. [30] proposed a Matrix of Long 
+Short-Term Memory (M-LSTM). Exponential gating is used in M-LSTM to 
+efficiently modify stored values when more relevant information is 
+encountered, overcoming a significant limitation of traditional LSTM. 
+Matrix memory provides greater storage capacity, enabling M-LSTM to 
+more efficiently handle rare labels, long-range dependencies, and 
+complex data patterns. Finally, M-LSTM is fully parallelizable, enabling 
+it to compute efficiently on modern hardware accelerators and scale to 
+larger models. Table 1 is a comparison of the advantages and disad­
+vantages of various life prediction methods.
+Considering that fuel cell life data has the characteristics of high data 
+dimension and high complexity, the computational requirements of 
+neural networks are very high. Therefore, this paper studies a fuel cell 
+life prediction method based on M-LSTM to alleviate the problem of 
+large prediction result errors caused by the high dimension and high 
+complexity of fuel cell life prediction data. Thanks to the exponential 
+gating, matrix characteristics and parallelization of M-LSTM, the 
+accuracy of fuel cell life prediction is improved.
+The structure of the paper is as follows: Section 2 is the PEMFC aging 
+experiment and the data processing. Section 3 is the M-LSTM prediction 
+model in detail. Section 4 is the prediction results. Section 5 summarizes 
+some important conclusions. The overall flow chart of the study is shown 
+in Fig. 1.
+2. Experiments and data processing
+The fuel cell system is mainly composed of an air supply system, a 
+hydrogen supply system, a water circulation system, and a high-voltage 
+circuit, as shown in Fig. 2. The fuel cell platform used in this experiment 
+has a rated power of 90 kW.
+The stack consists of 400 cells connected in series. The experimental 
+environment was set to standard atmospheric pressure, 25 ◦C, and 50% 
+humidity. When measuring the polarization curve, the operating voltage 
+range of the fuel cell stack was 0.46 V–0.75 V, and the current density 
+varied from 0 A/cm2 to 1 A/cm2.The following provides an overview of 
+each component:① Gas Supply System: The gas supply system ensures a 
+continuous supply of reactant gases during the operation of the PEMFC 
+stack. In this experiment, it is divided into a hydrogen supply unit and an 
+air supply unit. Hydrogen is delivered from storage tanks, while air is 
+compressed, filtered, and stored before being provided. ② Cooling 
+System: The cooling system maintains the PEMFC stack’s operating 
+temperature within the optimal range, typically 30 ◦C–80 ◦C. At the start 
+of the operation, when the stack temperature is low, the water tank 
+automatically heats deionized water, which is circulated through the 
+stack by a water pump to raise the temperature. Conversely, when the 
+stack temperature becomes too high, the circulating water is cooled via 
+cooling pipes and pumps to stabilize the system. ③ Electronic Load: To 
+evaluate the performance and degradation of the PEMFC stack under 
+real-world conditions, external electronic loads with higher current, 
+voltage, and power ratings than the stack are employed. These loads 
+simulate actual operating conditions and meet the requirements of the 
+experimental design.
+The fuel cell life data acquisition process is shown in Fig. 3. The life 
+test conditions include four conditions: idle, start-stop, rated, and vari­
+able load. The experiment was carried out on a fuel cell bench, and a 
+total of 1374 h of data was acquired. By plotting the polarization curve 
+of the fuel cell, we can see that at the same current density, the fuel cell 
+voltage begins to decrease over time, which shows that voltage is suit­
+able as a parameter for characterizing fuel cell aging. In the following, 
+the aging of the fuel cell will be evaluated by the decline of the fuel cell 
+voltage. Considering that the current density of the fuel cell is 0.7 A/cm2 
+when it is working, the voltage aging data when the current density is 
+0.7 A/cm2 in the polarization curve is selected as the voltage aging data 
+set.
+The presence of considerable noise and irregular fluctuations in the 
+experimental data set poses challenges to computational efficiency and 
+accuracy. To address this, a wavelet thresholding technique is employed 
+for data preprocessing. This method leverages the principle that, 
+Table 1 
+Comparison of life prediction methods for PEMFC.
+Method
+Advantages
+Disadvantages
+RNN
+Simple structure
+Unable to capture long- 
+distance dependencies
+LSTM
+Solving the vanishing gradient 
+problem
+Requires a lot of data and 
+time to train
+Bi-LSTM
+Capturing bidirectional 
+dependencies
+Requires a lot of data and 
+time to train
+LSTM- 
+transformer 
+[29]
+Improved long-distance 
+dependency modeling capabilities
+High model complexity
+M-LSTM
+High-dimensional data processing 
+capturing long-range 
+dependencies
+High computational 
+complexity
+F. Yi et al.                                                                                                                                                                                                                                        
+International Journal of Hydrogen Energy 111 (2025) 228–237 
+229 
+following multi-scale wavelet decomposition, the amplitude of signal 
+wavelet coefficients typically surpasses that of noise. By establishing a 
+predefined threshold, coefficients with amplitudes below this value are 
+suppressed, while those exceeding the threshold are retained. Setting the 
+wavelet base parameter to db5, the decomposition level to 8, the 
+denoising method to minimax, the threshold rule to the soft threshold, 
+and the threshold of each level to the default value. As depicted in Fig. 4, 
+the denoising process effectively attenuates noise interference while 
+Fig. 1. Overall flow chart.
+Fig. 2. Fuel cell system.
+F. Yi et al.                                                                                                                                                                                                                                        
+International Journal of Hydrogen Energy 111 (2025) 228–237 
+230 
+preserving the critical degradation characteristics of the PEMFC stack, 
+ensuring data integrity for subsequent analysis.
+The high dimensionality of the data set (Table 2) introduces risks of 
+distortion, complicating the accurate depiction of variable relationships. 
+To mitigate these effects, this study applies a normalization process to 
+the smoothed data, rescaling it within the [0,1] range. This approach 
+reduces the influence of dimensional inconsistencies, enhancing the fi­
+delity of variable correlation analysis.
+As shown in Table 1, the PEMFC data includes a lot of parameters, 
+including temperature, pressure, flow, etc. However, in the process of 
+building the prediction model, too many parameters will lead to 
+redundancy of the prediction model and affect the prediction speed of 
+the model. Therefore, it is necessary to analyze and screen the data 
+Fig. 3. Experimental data acquisition.
+Fig. 4. Comparison of voltage waveforms before and after denoising.
+Table 2 
+The aging parameters gathered during experiments.
+Parameters
+Physical meanings
+U
+The voltages of the stack(V)
+JI; I
+The current density (A/cm2) and current (A)
+Tout_ H2; Tin_ H2
+The temperatures of H2 at outlet and inlet (◦C)
+Tout_ air; Tin_ air
+The temperatures of air at the outlet and inlet (◦C)
+Tout_ water; Tin_ water
+The temperatures of water at the outlet and inlet (◦C)
+Pout_ H2; Pin_ H2
+The pressures of H2 at the outlet and inlet (Pa)
+Pout_ air; Pin_ air
+The pressures of air at the outlet and inlet (Pa)
+Fout_ H2; Fin_ H2
+The flow rates of H2 at outlet and inlet (L/min)
+Fout_ air; Fin_ air
+The flow rates of air at the outlet and inlet (L/min)
+Air_ hyg
+Air hygrometry at the inlet (%)
+F_ water
+The flow rate of cooling water (L/min)
+F. Yi et al.                                                                                                                                                                                                                                        
+International Journal of Hydrogen Energy 111 (2025) 228–237 
+231 
+obtained from the experiment and select the data most relevant to the 
+voltage to balance the calculation speed and accuracy of the model. The 
+Spearman rank correlation coefficient is widely recognized for its 
+effectiveness in assessing relationships between time-series variables, 
+especially when nonlinearity is involved. This study utilizes this method 
+to evaluate the interdependence of data variables. The corresponding 
+equation is as follows: 
+ρ = 1 −
+6 ∑
+N
+i=1
+d2
+i
+N
+(
+N2 −1
+)
+(1) 
+Where, ρ is the rank correlation coefficient; di represents the element in 
+the rank difference set, where di = xi - yi, 1≤i ≤N.
+Fig. 5 shows the correlation coefficient values between data vari­
+ables. The correlation of data variables is positively correlated with the 
+absolute value of their correlation coefficient. The absolute value of the 
+correlation coefficient between fuel cell voltage and Tout_ H2, Tin_ H2, 
+Tout_ air, Tin_ air, Tout_ water, Tin_ water, Pin_ air, Pout_ H2, Pin_ H2, Fin_ air, 
+F_water less than 0.2, and it can be considered that these data have weak 
+correlation. Therefore, these weakly correlated parameters are excluded 
+to reduce the dimension of the data volume and improve the running 
+speed of the model.
+3. M-LSTM prediction model
+3.1. M-LSTM
+The storage capacity of LSTM is enhanced by replacing the scalar 
+storage unit c ∈R with a matrix representation c ∈Rd×d, allowing 
+retrieval operations through matrix multiplication. Moreover, a 
+covariance update strategy is embedded within the LSTM design, where 
+the forget gate modulates the decay factor, the input gate adjusts the 
+learning rate, and the output gate modifies the amplitude of the 
+retrieved output [30]. The M-LSTM forward pass is: 
+Ct = ft⋅ct−1 + it⋅vt⋅kΤ
+t
+(2) 
+nt = ft⋅nt−1 + it⋅kt
+(3) 
+ht = ot ⊙̃ ht,̃ ht = Ct⋅qt / max{| nΤ
+t
+qt |, 1}
+(4) 
+qt = Wq⋅xt + bq
+(5) 
+kt = 1̅̅̅
+d
+√Wk⋅xt + bk
+(6) 
+vt = Wv⋅xt + bv
+(7) 
+it = exp(̃it),̃ it = ωΤ
+i ⋅xt + bi
+(8) 
+ft = σ(̃ft) OR
+exp (̃ft),̃ ft = ωΤ
+f ⋅xt + bf
+(9) 
+ot = σ(̃ot),̃ ot = ωo ⋅xt + bo
+(10) 
+Fig. 6 is a schematic diagram of the M-LSTM structure. The input is 
+first projected upward through a projection factor for externalizing the 
+output gate, followed by a causal convolution, and finally used as the 
+input of the M-LSTM unit. The inputs q and k are obtained through a 
+block diagonal projection matrix with a block size of 4, while the value v 
+is directly input, skipping the convolution part. After mixing the M- 
+LSTM sequence, the output is normalized by GroupNorm. Finally, a 
+learnable skip input is added and the component is gated by an external 
+output gate.
+The specific process of PEMFC remaining service life prediction is as 
+follows. 
+1) Take a group of points every 1 h to reconstruct the data set;
+2) Use wavelet threshold denoising method to preprocess voltage data;
+3) Use data normalization to process sample data;
+4) Conduct correlation analysis on experimental data, exclude param­
+eters with low correlation with voltage decay, and reduce the data 
+latitude of the prediction model;
+5) For the first prediction, the first 70% of the data set is selected as the 
+training set, and the last 30% is selected as the prediction set;
+Fig. 5. Data filtering graph based on Spearman rank correlation coefficient value.
+F. Yi et al.                                                                                                                                                                                                                                        
+International Journal of Hydrogen Energy 111 (2025) 228–237 
+232 
+6) For the second prediction, the first 50% of the data set is selected as 
+the training set, and the last 30% is selected as the prediction set;
+7) Establish LSTM, LSTM-Transformer, S-LSTM, M-LSTM model. Set the 
+number of hidden layers, loss function, and optimizer;
+8) Input the training set into models and set the number of training 
+cycles;
+9) The test set is input into the trained model, and single-step prediction 
+and multi-step prediction are performed respectively. The step 
+length of multi-step prediction is set to 20. The predicted value is 
+obtained, compared with the actual value, and the prediction error is 
+calculated.
+3.2. LSTM
+LSTM is a special RNN designed to solve the long-term dependency 
+problem faced by traditional RNN when processing long sequence data. 
+LSTM effectively saves and updates long-term information by intro­
+ducing cell state and gating mechanism, thus solving the problem of 
+gradient vanishing and gradient exploding. The structure of LSTM is 
+shown in Fig. 7, which consists of input gate, forget gate and output gate. 
+The specific formula is as follows: 
+Ct = ft⋅ct−1 + it⋅zt
+(11) 
+ht = ot⋅̃ht,̃ ht = ψ(ct)
+(12) 
+zt = φ(̃zt),̃ zt = ωΤ
+z ⋅xt + rz ⋅ht−1 + bz
+(13) 
+it = σ(̃it),̃ it = ωΤ
+i ⋅xt + ri ⋅ht−1 + bi
+(14) 
+ft = σ(̃ft),̃ ft = ωΤ
+f ⋅xt + rf ⋅ht−1 + bf
+(15) 
+ot = σ(̃ot),̃ ot = ωΤ
+o ⋅xt + ro ⋅ht−1 + bo
+(16) 
+Where, the weight vectors wz, wi, wf, and wo represent the input weights 
+associated with the connections between the input xt and the unit input, 
+input gate, forget gate, and output gate, respectively. Similarly, rz, ri, rf, 
+and ro denote the recurrent weights linking the hidden state ht-1 to the 
+same components. The terms bz, bi, bf, and bo are the corresponding 
+biases, while φ and ψ refer to the activation functions for the unit input 
+and hidden state.
+3.3. S-LSTM
+To give LSTM the ability to modify storage decisions, introduce 
+exponential gating, namely "exp" in equations (12) and (13). In partic­
+ular, the input gate and forget gate can have exponential activation 
+functions [30]. The forward pass of S-LSTM is: 
+Ct = ft⋅ct−1 + it⋅zt
+(17) 
+nt = ft⋅nt−1 + it
+(18) 
+ht = ot̃ht,̃ ht = ct/nt
+(19) 
+zt = φ(̃zt),̃ zt = ωΤ
+z ⋅xt + rz ⋅ht−1 + bz
+(20) 
+it = exp(̃it),̃ it = ωΤ
+i ⋅xt + ri ⋅ht−1 + bi
+(21) 
+ft = σ(̃ft) OR
+exp (̃ft),̃ ft = ωΤ
+f ⋅xt + rf ⋅ht−1 + bf
+(22) 
+ot = σ(̃ot),̃ ot = ωT
+o ⋅xt + r0 ⋅ht−1 + bo
+(23) 
+Fig. 8 illustrates the architecture of the S-LSTM model. The input 
+undergoes causal convolution with a projection factor, incorporating 
+Swish activations for the input and forget gates. It is then processed 
+through a block-diagonal linear layer comprising four distinct "heads," 
+corresponding to the input, forget, and output gates, as well as unit 
+updates. Finally, the output is refined via a gated MLP employing a GeLU 
+activation function and a projection factor for parameter alignment.
+4. Result and discussion
+To assess the predictive performance of the developed machine 
+Fig. 6. Schematic diagram of M-LSTM structure.
+Fig. 7. Schematic diagram of LSTM structure.
+F. Yi et al.                                                                                                                                                                                                                                        
+International Journal of Hydrogen Energy 111 (2025) 228–237 
+233 
+learning model, this study employs Mean Absolute Error (MAE), Mean 
+Squared Error (MSE), and R-squared (R2) metrics. Lower MAE and MSE 
+values indicate higher prediction accuracy, while R2values approaching 
+1 signify improved model reliability. The formulas for these metrics are 
+as follows: 
+MAE = 1
+n
+∑
+n
+t=1
+|̂yi −yi|
+(24) 
+MSE = 1
+n
+∑
+n
+t=1
+(̂yi −yi)2
+(25) 
+R2 = 1 −
+∑
+i
+(̂yi −yi)2
+∑
+i
+(yi −yi)2
+(26) 
+where, ̂yi is the model output value, yi is the average value, yi is the true 
+value.
+Firstly, this paper uses 70% of the dataset as a training set and 30% as 
+the test set. The prediction performance of LSTM, LSTM-Transformer, S- 
+LSTM, and M-LSTM is compared. The prediction results of fuel cell 
+degradation are shown in Fig. 9. The prediction results of S-LSTM and M- 
+LSTM are closely related to the actual monitored voltage, and show 
+higher prediction accuracy compared with LSTM-Transformer. In 
+contrast, LSTM has the worst performance.
+Fig. 10 shows the one-step forecast performance metrics for various 
+forecast models using 70% of the training set. Among these, M-LSTM 
+showed the best prediction performance, with a MAE of 0.5076 × 10−3, 
+an MSE of 0.1464 × 10−5, and an R2 of 0.9997. Compared to LSTM, M- 
+LSTM reduces MAE and MSE by 76.3% and 58.2%, respectively, while 
+improving R2 by 2.3%. Compared to LSTM-Transformer, M-LSTM re­
+duces MAE and MSE by 11.8% and 16.6%, respectively, while improving 
+R2 by 0.2%. The prediction performance of S-LSTM and M-LSTM is 
+almost the same. In contrast, the LSTM model records the highest MAE 
+and MSE values and the lowest R2.
+Fig. 11 shows the multi-step forecast performance metrics for various 
+forecast models using 70% of the training set. Among these, M-LSTM 
+showed the best prediction performance, with a MAE of 0.6252 × 10−3, 
+an MSE of 0.1858 × 10−5, and an R2 of 0.9987. Compared to LSTM, M- 
+LSTM reduces MAE and MSE by 75.7% and 66.1%, respectively, while 
+improving R2 by 6.7%. Compared to LSTM-Transformer, M-LSTM re­
+duces MAE and MSE by 26.6% and 39%, respectively, while improving 
+R2 by 1.7%. The prediction performance of S-LSTM and M-LSTM is 
+Fig. 8. Schematic diagram of S-LSTM structure.
+Fig. 9. 70% training set voltage decay prediction results.
+F. Yi et al.                                                                                                                                                                                                                                        
+International Journal of Hydrogen Energy 111 (2025) 228–237 
+234 
+Fig. 10. One-step forecast, 70% training set:(a) MAE; (b) MSE; (c) R.2.
+Fig. 11. Multi-step forecast, 70% training set:(a) MAE; (b) MSE; (c) R.2.
+Fig. 12. 50% training set voltage decay prediction results.
+F. Yi et al.                                                                                                                                                                                                                                        
+International Journal of Hydrogen Energy 111 (2025) 228–237 
+235 
+almost the same. In contrast, the LSTM model records the highest MAE 
+and MSE values and the lowest R2.
+Secondly, this paper uses 50% of the dataset as the training set and 
+50% as the test set. The prediction performance of LSTM, LSTM- 
+Transformer, S-LSTM, and M-LSTM is compared. The purpose is to 
+compare whether each model can make longer predictions when the 
+amount of data is small. The prediction results of fuel cell degradation 
+are shown in Fig. 12. The prediction results of S-LSTM and M-LSTM are 
+still close to the actual monitoring voltage, and the prediction stability is 
+higher than that of other models. In contrast, the performance of the 
+LSTM model is the worst.
+Fig. 13 shows the one-step forecast performance metrics for various 
+forecast models using 50% of the training set. Among these, M-LSTM 
+showed the best prediction performance, with MAE of 0.5183 × 10−3, 
+MSE of 0.2556 × 10−5, and R2 of 0.9993. Compared with LSTM, M- 
+LSTM reduces MAE and MSE by 80.8% and 56.6%, respectively, and 
+increases R2 by 3.5%. Compared to LSTM-Transformer, M-LSTM reduces 
+MAE and MSE by 21.3% and 15.5%, respectively, while improving R2 by 
+0.2%. The prediction performance of S-LSTM and M-LSTM is almost the 
+same. In contrast, the LSTM model records the highest MAE and MSE 
+values and the lowest R2.
+Fig. 14 shows the multi-step forecast performance metrics for various 
+forecast models using 50% of the training set. Among these, M-LSTM 
+showed the best prediction performance, with a MAE of 0.6354 × 10−3, 
+an MSE of 0.3138 × 10−5, and an R2 of 0.9982. Compared to LSTM, M- 
+LSTM reduces MAE and MSE by 79.4% and 60.4%, respectively, while 
+improving R2 by 5.2%. Compared to LSTM-Transformer, M-LSTM re­
+duces MAE and MSE by 32% and 24.3%, respectively, while improving 
+R2 by 2%. The prediction performance of S-LSTM and M-LSTM is almost 
+the same. In contrast, the LSTM model records the highest MAE and MSE 
+values and the lowest R2.
+When comparing the results between the 50% and 70% training sets, 
+M-LSTM maintains its high performance across both datasets. With the 
+70% training set, M-LSTM achieved an MAE of 0.5076 × 10−3, MSE of 
+0.1464 × 10−5, and R2 of 0.9997. This is only a slight improvement over 
+the 50% training set, where it achieved an MAE of 0.5183 × 10−3, MSE 
+of 0.2556 × 10−5, and R2 of 0.9993. Specifically, the decrease in MAE is 
+just 0.0107 × 10−3, in MSE is 0.1090 × 10−5, and in R2 is 0.0004. This 
+minimal loss of accuracy with the reduced dataset highlights M-LSTM’s 
+strong generalization ability, allowing it to effectively maintain high 
+prediction performance even with less training data.
+The article further compares the performance of each model under 
+single-step and multi-step prediction. By comparing Figs. 10 and 11, 
+Figs. 13 and 14, it can be found that the prediction performance of all 
+models has declined in multi-step prediction, but the results show that 
+the prediction performance of M-LSTM is still higher than that of the 
+other three models, and the prediction results will not have a large de­
+viation due to multi-step prediction. On the contrary, due to the limi­
+tations of its model structure, the accuracy of LSTM has dropped 
+significantly in multi-step prediction.
+In summary, the comparison results show that M-LSTM has good 
+prediction performance, and its prediction accuracy is higher than 
+LSTM, LSTM-Transformer and S-LSTM. There are three main reasons: 
+First, M-LSTM uses matrices to store key-value pairs, which is similar to 
+the attention mechanism of Transformer and can capture richer data 
+features. Second, the covariance update rule enables M-LSTM to auto­
+matically learn key-value relationships, avoids the design of complex 
+feature extractors, and effectively captures long-distance dependencies. 
+Finally, M-LSTM uses the parallelism of matrix operations to accelerate 
+training and inference, which is particularly suitable for high- 
+dimensional data processing. The aging data of PEMFC, including 
+voltage, current, temperature, etc., often depends on longer time series 
+data and has higher data dimensions. The above characteristics of M- 
+LSTM are highly matched with the characteristics of PEMFC aging data, 
+so better prediction results are obtained.
+5. Conclusion
+This paper proposes a prediction model based on matrix long short- 
+term memory (M-LSTM) network for the problem of PEMFC remaining 
+service life prediction, and verifies its effectiveness through experi­
+ments. The main research results are summarized as follows. 
+1) This paper uses the Spearman correlation coefficient to reduce the 
+dimensionality of experimental data, identify variables that are 
+highly correlated with PEMFC voltage decay, effectively reduce data 
+redundancy, and improve model calculation efficiency and predic­
+tion performance.
+2) The M-LSTM model effectively alleviates the performance degrada­
+tion of the traditional LSTM model when processing long-term 
+sequence data and high-dimensional data sets. Experimental results 
+show that the M-LSTM model is superior to the LSTM and LSTM- 
+Transformer models in terms of prediction accuracy and stability, 
+especially when dealing with sparse labels, long-distance de­
+pendencies, and complex data patterns. Specifically, compared with 
+the LSTM model, under single-step prediction, M-LSTM reduces MAE 
+and MSE by 76.3% and 58.2%, respectively, while increasing R2 by 
+2.3%. Under multi-step prediction, M-LSTM reduces MAE and MSE 
+by 79.4% and 60.4% respectively, while improving R2 by 5.2%.
+Compared with traditional LSTM, M-LSTM introduces additional 
+computational overhead due to the matrix memory mechanism. In 
+PEMFC life prediction with high real-time requirements, especially 
+when rapid decision-making or dynamic adjustment is required, the 
+computational complexity of M-LSTM may become a bottleneck. In the 
+future, the model architecture can be further optimized, such as com­
+pressing the M-LSTM model or adopting lightweight deep learning 
+methods to reduce the demand for computing resources and improve the 
+efficiency of real-time prediction.
+Fig. 13. One-step forecast, 50% training set:(a) MAE; (b) MSE; (c) R.2.
+F. Yi et al.                                                                                                                                                                                                                                        
+International Journal of Hydrogen Energy 111 (2025) 228–237 
+236 
+CRediT authorship contribution statement
+Fengyan Yi: Writing – original draft, Visualization, Methodology, 
+Investigation, Funding acquisition, Formal analysis. Xing Shu: Visuali­
+zation, Supervision, Formal analysis. Jiaming Zhou: Writing – review & 
+editing, Validation, Resources, Funding acquisition, Conceptualization. 
+Jinming Zhang: Writing – review & editing, Validation, Supervision. 
+Chunxiao Feng: Writing – review & editing, Supervision, Resources, 
+Conceptualization. Hongtao Gong: Visualization, Formal analysis. 
+Caizhi Zhang: Visualization, Validation. Wenhao Yu: Software, 
+Methodology, Investigation.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgment
+This research is supported by the National Natural Science Founda­
+tion of China (Grant No. 52472380), the Weifang City Science and 
+Technology Development Plan Projects (College and University Section) 
+(Grant No.2024GX031).
+References
+[1] Ma T, Li C, Xu Z, Liu W, Lin W. Modeling and simulation of the PEMFC system 
+equipped with a variable geometry turbocharger. Int J Hydrogen Energy 2024;77: 
+1327–38.
+[2] Chen J-H, He P, He Z-H, Song J-L, Liu X-H, Xiao Y-T, et al. Multi-objective 
+decoupling control of thermal management system for PEM fuel cell. Energy and AI 
+2024;18:100447.
+[3] Ma J, Zhou Y, Lian J. Comparative assessment and improvement of the powertrain 
+supplied by hybrid energy source in fuel cell vehicles. Sustain Energy Technol 
+Assessments 2024;65:103750.
+[4] Jia C, He H, Zhou J, Li J, Wei Z, Li K, et al. A novel deep reinforcement learning- 
+based predictive energy management for fuel cell buses integrating speed and 
+passenger prediction. Int J Hydrogen Energy 2025;100:456–65.
+[5] Li D, Zhang Z, Zhou L, Liu P, Wang Z, Deng J. Multi-time-step and multi-parameter 
+prediction for real-world proton exchange membrane fuel cell vehicles (PEMFCVs) 
+toward fault prognosis and energy consumption prediction. Appl Energy 2022;325: 
+119703.
+[6] Yuan H, Dai H, Wei X, Ming P. A novel model-based internal state observer of a fuel 
+cell system for electric vehicles using improved Kalman filter approach. Appl 
+Energy 2020;268:115009.
+[7] Lu D, Yi F, Hu D, Li J, Yang Q, Wang J. Online optimization of energy management 
+strategy for FCV control parameters considering dual power source lifespan decay 
+synergy. Appl Energy 2023;348:121516.
+[8] Wu H, Wang W, Li Y, Zhu W, Xie C, Gooi HB. Hybrid physics-based and data-driven 
+prognostic for PEM fuel cells considering voltage recovery. IEEE Trans Energy 
+Convers 2023;39(1):601–12.
+[9] Song R, Liu X, Wei Z, Pan F, Wang Y, He H. Safety and longevity-enhanced energy 
+management of fuel cell hybrid electric vehicle with machine learning approach. 
+IEEE Transactions on Transportation Electrification 2023;10(2):2562–71.
+[10] Yue M, Al Masry Z, Jemei S, Zerhouni N. An online prognostics-based health 
+management strategy for fuel cell hybrid electric vehicles. Int J Hydrogen Energy 
+2021;46:13206–18.
+[11] Jia C, Zhou J, He H, Li J, Wei Z, Li K, et al. A novel energy management strategy for 
+hybrid electric bus with fuel cell health and battery thermal-and health- 
+constrained awareness. Energy 2023;271:127105.
+[12] Ma T, Xu J, Li R, Yao N, Yang Y. Online short-term remaining useful life prediction 
+of fuel cell vehicles based on cloud system. Energies 2021;14:2806.
+[13] Zuo J, Lv H, Zhou D, Xue Q, Jin L, Zhou W, et al. Deep learning based prognostic 
+framework towards proton exchange membrane fuel cell for automotive 
+application. Appl Energy 2021;281:115937.
+[14] Tian Q, Chen H, Ding S, Shu L, Wang L, Huang J. Remaining useful life prediction 
+method of PEM fuel cells based on a hybrid model. Electronics 2023;12:3883.
+[15] Hua Z, Zheng Z, Pahon E, P´era M-C, Gao F. A review on lifetime prediction of 
+proton exchange membrane fuel cells system. J Power Sources 2022;529:231256.
+[16] Futter GA, Latz A, Jahnke T. Physical modeling of chemical membrane degradation 
+in polymer electrolyte membrane fuel cells: influence of pressure, relative humidity 
+and cell voltage. J Power Sources 2019;410:78–90.
+[17] Ou M, Zhang R, Shao Z, Li B, Yang D, Ming P, et al. A novel approach based on 
+semi-empirical model for degradation prediction of fuel cells. J Power Sources 
+2021;488:229435.
+[18] Zhou J, Zhang J, Yi F, Feng C, Wu G, Li Y, et al. A real-time prediction method for 
+PEMFC life under actual operating conditions. Sustain Energy Technol Assessments 
+2024;70:103949.
+[19] Pan R, Yang D, Wang Y, Chen Z. Performance degradation prediction of proton 
+exchange membrane fuel cell using a hybrid prognostic approach. Int J Hydrogen 
+Energy 2020;45:30994–1008.
+[20] Liu H, Chen J, Hissel D, Su H. Remaining useful life estimation for proton exchange 
+membrane fuel cells using a hybrid method. Appl Energy 2019;237:910–9.
+[21] Wang Y, Wu K, Zhao H, Li J, Sheng X, Yin Y, et al. Degradation prediction of proton 
+exchange membrane fuel cell stack using semi-empirical and data-driven methods. 
+Energy and AI 2023;11:100205.
+[22] Yin C, Gao Y, Li K, Wu D, Song Y, Tang H. Design and numerical analysis of air- 
+cooled proton exchange membrane fuel cell stack for performance optimization. 
+Energy Convers Manag 2021;245:114604.
+[23] Vichard L, Harel F, Ravey A, Venet P, Hissel D. Degradation prediction of PEM fuel 
+cell based on artificial intelligence. Int J Hydrogen Energy 2020;45:14953–63.
+[24] Ma R, Yang T, Breaz E, Li Z, Briois P, Gao F. Data-driven proton exchange 
+membrane fuel cell degradation predication through deep learning method. Appl 
+Energy 2018;231:102–15.
+[25] Zhang Z, Wang Y-X, He H, Sun F. A short-and long-term prognostic associating with 
+remaining useful life estimation for proton exchange membrane fuel cell. Appl 
+Energy 2021;304:117841.
+[26] Wang C, Li Z, Outbib R, Dou M, Zhao D. A novel long short-term memory networks- 
+based data-driven prognostic strategy for proton exchange membrane fuel cells. Int 
+J Hydrogen Energy 2022;47:10395–408.
+[27] Liu J, Li Q, Chen W, Yan Y, Qiu Y, Cao T. Remaining useful life prediction of 
+PEMFC based on long short-term memory recurrent neural networks. Int J 
+Hydrogen Energy 2019;44:5470–80.
+[28] Jia C, He H, Zhou J, Li K, Li J, Wei Z. A performance degradation prediction model 
+for PEMFC based on bi-directional long short-term memory and multi-head self- 
+attention mechanism. Int J Hydrogen Energy 2024;60:133–46.
+[29] Hu Q, Zhao Y, Ren L. Novel transformer-based fusion models for aero-engine 
+remaining useful life estimation. IEEE Access 2023;11:52668–85.
+[30] Beck M, P¨oppel K, Spanring M, Auer A, Prudnikova O, Kopp M, et al. xLSTM: 
+extended long short-term memory. 2024. arXiv preprint arXiv:240504517.
+Fig. 14. One-step forecast, 50% training set:(a) MAE; (b) MSE; (c) R.2.
+F. Yi et al.                                                                                                                                                                                                                                        
+International Journal of Hydrogen Energy 111 (2025) 228–237 
+237 

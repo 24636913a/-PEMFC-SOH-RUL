@@ -1,0 +1,1264 @@
+Applied Energy 304 (2021) 117841
+Available online 25 September 2021
+0306-2619/© 2021 Elsevier Ltd. All rights reserved.
+A short- and long-term prognostic associating with remaining useful life 
+estimation for proton exchange membrane fuel cell 
+Zhendong Zhang a, Ya-Xiong Wang a,b,*, Hongwen He a, Fengchun Sun a 
+a National Engineering Laboratory for Electric Vehicles, Beijing Institute of Technology, Beijing 100081, China 
+b School of Mechanical Engineering and Automation, Fuzhou University, Fuzhou 350108, China   
+H I G H L I G H T S 
+• Five multi-step strategies are compared to implement short-term voltage prognostic. 
+• Variable-step procedures are proposed to forecast the long-term degradation trend. 
+• Based on the evolutionary algorithm, the hyper-parameters adjustment is proposed. 
+• Remaining useful life is evaluated under the data-driven prognostics framework.  
+A R T I C L E I N F O  
+Keywords: 
+Proton exchange membrane fuel cell 
+Neural network 
+long short-term memory (LSTM) 
+Multi-step ahead prognostics 
+Data-driven model 
+remaining useful lifetime (RUL) 
+A B S T R A C T  
+Proton exchange membrane fuel cell (PEMFC), as a promising power source, provides a feasible solution for clean 
+and low-carbon energy systems. The durability problem restricts PEMFC application in some scenarios, which 
+can be improved by the prognostic technology indirectly. This paper aims to develop a data-based method to 
+implement the short-term and long-term prognostic simultaneously, and the developed long-term prognostic can 
+be performed without future operation information. First, the short-term prognostics of five multi-step ahead 
+forecasting strategies are proposed and compared based on a long short-term memory (LSTM) network. Results 
+show that the multi-step input and multi-step output (MIMO) with LSTM strategy has a better performance in the 
+short-term prognostics under the test conditions of the stationary and dynamic current. Then, the hyper- 
+parameters of the prediction model are determined by an evolutionary algorithm. Furthermore, in the long- 
+term prognostics regime, the variable-step long-term method is proposed and rectified by the short-term prog­
+nostics. Finally, the developed remaining useful life (RUL) prediction is compared with a model-based extended 
+Kalman filter. The average root mean square error results for the short-term prognostics of two conditions are 
+0.00532 and 0.00538, respectively. The RUL estimations of two PEMFCs named FC1 and FC2 are given with 95% 
+and 90% confidence intervals, respectively. Consequently, the proposed method can achieve acceptable accu­
+racies in the short-term prognostic, the long-term prognostic, and the RUL prediction.   
+1. Introduction 
+As an environmentally friendly power system with high efficiency, 
+the proton exchange membrane fuel cell (PEMFC) has been treated as 
+one of the most promising power sources that is gradually applied in the 
+automobile, stationary product, and portable power areas [1]. However, 
+the material degradation in each component of the PEMFC may result in 
+the shortage of its life span, which constrains the deployment and 
+commercialization. Prognostic is the core technique in the prognostics 
+and health management (PHM) process, which helps to monitor the 
+state of health and estimate the remaining useful life (RUL) of PEMFC 
+[2]. Consequently, even if material degradation is inevitable, an accu­
+rate prognostic can provide a foundation of decision-making and control 
+to decelerate the aging process. From different perspectives, prognostics 
+can be divided into short- and long-term prognostic. The short one can 
+catch the local variation with high accuracy, while the long-term 
+prognostic can capture the aging trend. Here, the PEMFC output 
+voltage as a readily available parameter is chosen to evaluate the degree 
+of aging. And the prognostics are conducted without prior knowledge of 
+the future information. Generally, the prognostics of PEMFCs can be 
+distinguished into three approaches: data-based methods, model-based 
+* Corresponding author at: National Engineering Laboratory for Electric Vehicles, Beijing Institute of Technology, Beijing 100081, China. 
+E-mail addresses: yxwang@bit.edu.cn, yxwang@fzu.edu.cn (Y.-X. Wang).  
+Contents lists available at ScienceDirect 
+Applied Energy 
+journal homepage: www.elsevier.com/locate/apenergy 
+https://doi.org/10.1016/j.apenergy.2021.117841 
+Received 30 April 2021; Received in revised form 24 August 2021; Accepted 3 September 2021   
+Applied Energy 304 (2021) 117841
+2
+methods, and hybrid methods [3]. 
+1.1. Literature review 
+Machine learning technique, as one of the data-based methods, is 
+introduced as the black-box model to describe the aging process of the 
+PEMFC. An estimator of solid oxide fuel cells based on a neural network 
+has been developed to predict voltage variation due to the degradation 
+[4]. In multi-scale prediction, Silva et al. [5] proposed a methodology 
+based on adaptive neuro-fuzzy inference systems to achieve short, me­
+dium, or long-term predictions. However, this method represents a 
+relatively high error in short-term prediction. Echo state networks (ESN) 
+[6,7] were introduced into the prognostics of the PEMFC together with a 
+filtering method and multi-input parameters, respectively. The prog­
+nostics method based on the relevance vector machine (RVM) was 
+proposed in [8] to improve the accuracy in short-term forecasting, 
+which has been validated in the single-step-ahead and multi-step-ahead 
+prediction. Furthermore, a modified RVM was then proposed to meet the 
+condition of relatively small training data sets [9]. Besides, pattern 
+recognition [10] has exhibited the effectiveness of the PEMFC prog­
+nostic. Zhou et al. [11] proposed a hierarchical degradation prognostic 
+approach to guarantee the robustness and prediction accuracy. Liu et al. 
+[12] proposed a short-term prognostics method based on the group 
+method of data handling and the wavelet analysis to achieve high ac­
+curacy in different load conditions. An adaptive neuro-fuzzy inference 
+system with a fuzzy c-means strategy was applied for the same purpose 
+in [13], which was training with the raw data. Besides, this approach 
+combing with the automatic parameter adjustment has been verified on 
+an experimental platform. An ensemble ESN was implemented to 
+enhance the prognostic adaptability [14]. Based on the virtual steady- 
+state stack voltage health indicator, an acceptable prognostic could be 
+achieved in the long-term prediction horizon. Chen et al. [15] have 
+proposed a novel degradation prognosis based on the wavelet neural 
+network and Cuckoo search algorithm. This method considering the 
+main operating conditions could be applied to the health state prog­
+nostic of PEMFC under different conditions. Xie et al [16] developed a 
+hybrid neural network combining the deep belief network and extreme 
+learning machine with the actual data validation. A digital twin tech­
+nique has been extended to the energy domain to establish an ensemble 
+RUL prediction system [17]. To improve the data processing ability, the 
+attention mechanism helps to extract the useful feature [18] and a self- 
+optimization regression method is introduced to prognose the degra­
+dation trend [19]. To enhance the reliability, He et al. [20] proposed a 
+long-term prediction method based on a least absolute shrinkage and 
+selection operator-echo state network together with a model selection 
+rule. And the final prediction was defined as an average value of the 
+prediction results. 
+The model-based approach is always used to describe the long-term 
+aging process of PEMFC combining empirical and physical models. 
+Jouin et al. [21] have proposed three empirical models, including linear, 
+logarithmic, and exponential models to approximate the aging process. 
+And the prognostic was conducted under a particle filtering framework 
+to estimate the RUL of the PEMFC. Furthermore, the degradation model 
+has been derived from the polarization curve by introducing two in­
+dicators of the state of health [22]. The extended Kalman filter (EKF) has 
+helped to forecast the future performance and RUL of the fuel cell. More 
+health indicators have been proposed. Zhou et al. [23] presented a 
+multi-physical aging model, considering ohmic losses, reaction activity 
+losses, and mass transfer losses. A prognostics framework composed of a 
+parameter extraction process and the particle filtering method was 
+proposed which realized the RUL prediction at a constant operating 
+condition [24]. Zhu et al. [25] applied the Gaussian process state space 
+to infer the internal time-varying parameters of the dynamic model. In 
+addition, an observer-based prognostic algorithm based on the EKF was 
+applied to estimate the actual state of health under variable loads and 
+verify the reliability by quantifying the uncertainty [26]. From the other 
+perspective, Jha et al. [27] developed a special model of PEMFC by using 
+Bond Graph theory, which presented a simplified graphical represen­
+tation of the complex physics of PEMFC and efficient decomposition 
+based on the functionality. The prognostics problem can be formulated 
+as the joint state-parameter estimation problem in the particle filter 
+framework where the estimation is obtained in the probabilistic domain 
+as well. However, the stack voltage is only related to degradation 
+symptoms and is significantly affected by operating conditions. To 
+improve the prognostics accuracy, the approach coupling of two nu­
+merical models concerning the fuel cell operation and surface degra­
+dation has been investigated in [28]. Chen et al. [29] selected the stack 
+voltage and power to construct a fusion health indicator. Then, a 2nd 
+order Gaussian degradation model was built to complete the RUL 
+prognostics based on an unscented particle filter. Two different physics- 
+based models were used for the objective of combining the stack voltage 
+and the stack state of health as a fusion health indicator, and an 
+Nomenclature 
+Ct 
+cell state 
+Ct 
+cell candidate state 
+Ht 
+cell hidden state 
+Xt 
+cell input 
+ft, it,ot 
+outputs of the each gate 
+σ 
+sigmoid activation function 
+Wf,Wi,Wo
+weight of the each gate 
+bf,bi,bo 
+bias of the each gate 
+yt 
+measured voltage ̂
+yt 
+predicted voltage 
+N 
+historical horizon length 
+H 
+prognostics horizon length 
+f 
+recursive strategy model 
+gi 
+direct strategy model 
+G 
+MIMO strategy model 
+Fi 
+DirRec strategy model ̂
+Gi 
+DIRMO strategy model 
+Vst 
+stack voltage (V) 
+n 
+number of fuel cells 
+E0 
+open-circuit voltage (V) 
+R 
+total resistance (Ω∙cm2) 
+a 
+the Tafel constant 
+b 
+the concentration constant 
+T 
+stack temperature (K) 
+i 
+stack current (A) 
+i0 
+exchange current (A/cm2) 
+iL 
+limiting current (A/cm2) 
+α(t)
+degradation parameter 
+β(t)
+degradation rate 
+PEMFC 
+proton exchange membrane fuel cell 
+LSTM 
+long short-term memory 
+RUL 
+remaining useful life 
+EKF 
+extended Kalman filter 
+RMSE 
+root mean square error 
+MAE 
+mean absolute error 
+FC 
+fuel cell 
+MIMO 
+multi-step input and multi-step output 
+EA 
+evolutionary algorithm  
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+3
+ensemble approach was applied to further implement the aggregation of 
+the RUL prediction and RUL uncertainty under the particle filtering 
+framework [30]. According to a multi-scale modeling approach, Robin 
+et al. [31] introduced a mechanistic catalyst dissolution model coupled 
+with a dynamic PEMFC cell model to predict the equivalent loss of active 
+surface area loss using an innovative numerical method. As for auto­
+mobile application, a semi-empirical model-based prognostics method 
+could achieve degradation prediction in [32]. Electrochemical surface 
+area, equivalent resistance, and a recovery factor have been introduced 
+into the degradation model. Chen et al. [33] developed an unscented 
+Kalman filter algorithm for degradation prediction with both high ac­
+curacy and low computational cost, and it is the first time that field- 
+based data was used. 
+The hybrid approaches are the integration of the previous two 
+methods. An improved prognostic model was developed to predict the 
+RUL, which combined a hidden semi-Mark model with an empirical 
+model [34]. Cheng et al. [35] proposed a hybrid prognostic framework 
+combining with least square support vector machine and regularized 
+particle filter. The observation values in the prognostic process were 
+obtained by the data-based method. Moreover, a brand-new perspective 
+of the hybrid degradation model was raised in [36]. The voltage aging 
+waveform of PEMFC was decomposed into multiple sub-waveforms by 
+the wavelet analysis. Then, each sub-waveform could be characterized 
+by the extreme learning machine. The moving window technique was 
+used to adjust the fusion weight factors of model-based and data-based 
+approaches adaptively. This method could capture the long-term 
+degradation trend, and the local voltage variation characteristics as 
+well [37]. Xie et al. [38] proposed a fusion prognostic approach based on 
+particle filter and LSTM neural network which could be more robust to 
+the external disturbance. 
+1.2. Motivation and innovation 
+Back to the data-based method, some of the prognostics methods are 
+just focusing on the short-term forecasting field by introducing adaptive 
+techniques [8–9,12–13,39]. In [40], the LSTM network was adopted to 
+achieve high accuracy in single-step ahead prediction, while the RUL 
+was defined as the difference value between the time to predict and the 
+End-of-Life (EOL) point of the prediction curve [15]. In the aspect of 
+long-term forecasting, the RUL prediction is achieved with iteration 
+predictions generally. On the one hand, this recursive strategy may lead 
+to an accumulation of errors by introducing the predicted voltage as the 
+training input. On the other hand, the use of the operation parameters 
+(such as current, inlet, and outlet temperature) as inputs of the prog­
+nostic model is a hypothesis that states that the future information is 
+known as prior knowledge, which is not always available in reality 
+[20,41–42]. 
+In this paper, the voltage time-series datasets are used to describe the 
+aging process of PEMFCs. The LSTM network is used to fulfill short-term 
+prognostic and life prediction. Secondly, the hyper-parameters adjust­
+ment method based on the evolutionary algorithm (EA) is used. 
+Furthermore, the accuracy of different multi-step ahead short-term 
+prognostics strategies of PEMFCs are compared, and to find the most 
+suitable strategy. Moreover, the proposed Multi-step Input and Multi- 
+step Output (MIMO) strategy is extended into the long-term prognos­
+tics field and implement RUL prediction at the same time.  
+(1) Based on the LSTM network, the short-term prognostics of five 
+multi-step ahead forecasting strategies are discussed under two 
+PEMFC experiment datasets with the stationary and dynamic 
+current.  
+(2) A hyper-parameters adjustment method based on the EA is 
+deployed to improve the forecasting performance, including the 
+minimum batch size, the training epoch, and the cell numbers of 
+the hidden layers.  
+(3) The degradation trends of two stacks are characterized by the 
+variable-step long-term prognostics method with the MIMO 
+strategy. Besides, the RUL prediction is achieved under this 
+prognostics framework. 
+1.3. Organization 
+The core of the paper is organized as follows. A description of the raw 
+data source, the experimental setup, and the performed test can be found 
+in Section 2. In section 3, the prediction method based on the LSTM is 
+briefly outlined at first. Then, five multi-step short-term forecasting 
+strategies of PEMFC are introduced. At last, a variable-step long-term 
+forecasting method is extended from the MIMO strategy. In section 4, 
+the results of different short-term prognostic strategies, the variable-step 
+long-term prognostic, and RUL prediction are discussed. Finally, con­
+clusions are presented. 
+2. Experiment and dataset analysis 
+In this section, a brief introduction of PEMFC operation principles is 
+given at first. Then, the key information of the aging experiment settings 
+and the aging dataset preprocessing is presented. 
+2.1. Fundamentals of the PEMFC 
+As an electrochemical device, the principle and the composition of 
+the fuel cell are shown in Fig. 1 using oxygen and hydrogen to produce 
+electricity, water, and heat. The global reaction equation of the system 
+is: 
+2H2 + O2→2H2O + electricity + heat
+(1) 
+Due to the limitation on the capacity and the rated power, cells are 
+generally integrated into a stack in series to cover the electricity de­
+mand. As a power source, the stack should be equipped with different 
+auxiliaries to implement gas supplement, control, and power output. 
+2.2. Experiment configuration and dataset analysis 
+The PEMFC aging experiment is implemented by the Federation for 
+Fuel Cell Research (FCLAB), which contains two aging datasets 
+including Electrochemical Impedance Spectroscopy (EIS) data, and po­
+larization data [43]. Physical parameters involved in the stack can be 
+measured and controlled by the homemade interface in the LabVIEW® 
+and the National Instrument Control system, respectively [43]. The 
+Fig. 1. The single-cell elementary structure of PEMFC.  
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+4
+PEMFC is realized with commercial membranes, diffusion layers, and 
+machined flow distribution plates, which are composed of 5 cells with an 
+area of 100 cm2, and the fuel cell operated in stationary regime (FC1) 
+has a constant current of 70 A, and the fuel cell operated under dynamic 
+current load (FC2) has a nominal current of 70 A with 7 A oscillations 
+and a 5 kHz frequency [43]. The two aging experiments of PEMFC are 
+conducted under different operating parameters [43], as summarized in 
+Table 1. Besides, the voltage recovery phenomenon is caused by the 
+polarization curve test and EIS measurement. 
+Notably, the raw voltage data contains certain noise and sharp peaks, 
+and a large collection of data points may increase the computation time. 
+Therefore, to obtain the degradation trend more effectively, the pre­
+process is necessary, including outlier handling, data filtering, and 
+datasets splitting. The Gaussian weighted moving average filter is 
+applied to smooth the raw data. The essence of the moving average filter 
+is a kind of low-pass filtering. Its purpose is to filter out high-frequency 
+perturbations and preserve useful low-frequency trends in time series. 
+Afterwards, the two new voltage aging datasets with an interval of 1 h 
+for FC1 and FC2 are obtained as shown in Fig. 2. These two new aging 
+data sequences contain 1154 and 1020 voltage data, which are used to 
+realize the short-term and the variable-step long-term prognostic. In 
+addition, before the prognostics process, it is obvious that the voltage 
+degradation of FC1 test is much more normal and stable than FC2. 
+3. The framework of the prognostics method 
+The overall framework of the prognostic method put forward in this 
+paper is shown in Fig. 3. The LSTM network is introduced to fulfill the 
+multi-step short-term prognostic first, and the prediction performance of 
+five different strategies is compared under two experiment datasets of 
+PEMFCs from different aging tests. Furthermore, the variable step long- 
+term aging prognostic is achieve based on the MIMO strategy. Both 
+short-term and long-term prognostics are conducted under the EA, 
+which helps to adjust the high parameters of the network instead of the 
+manual regulation. 
+3.1. LSTM network model 
+Facing the problem of long-term dependencies, LSTMs are specif­
+ically designed to avoid this issue as a variant of the recurrent neural 
+network. Thus, remembering information for a long time is their 
+inherent ability, rather than learning from model tuning and training. 
+Due to the chain-like property, LSTM is available in time series predic­
+tion, such as the data type of sequences and lists. As a result, LSTM has 
+been used in speech recognition, language modeling, translation, image 
+captioning, and other scenarios. 
+The cell structure of LSTM is shown in Fig. 4. The key to LSTM is that 
+the previous cell state Ct−1 to the current cell state Ct can be maintained 
+under the tiny linear interactions. As a result, the cell state preserves 
+valid information over long time scales. To be more specific, the LSTM 
+can remove the old information and add something new, through the 
+structures called gates, including forget gate, input gate, and output 
+gate. The forget gate can be written as: 
+ft = σ
+(
+Wf ∙[Ht−1, Xt] + bf)
+(2)  
+where ft is the forget gate; σ is the sigmoid activation function; Wf de­
+notes the weight for forget gate network; bf denotes the bias of the forget 
+gate network. 
+In the condition that ft is 1 and it is 0, the cell state copies the content 
+Table 1 
+Operating parameters.  
+Parameter 
+Value 
+Number of cells 
+5 
+Relative humidity of the anode and the cathode 
+50% 
+Temperature 
+55 ℃ 
+Stack current 
+70 A (FC1) 
+70 A with 7 A oscillations (FC2) 
+Relative humidity 
+50% (FC1) / 52% (FC2) 
+The gas pressure 
+1.3 bar  
+Fig. 2. The stack voltage degradation (a) FC1; (b) FC2.  
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+5
+in the previous step. On the contrary, the candidate state Ct takes place 
+of the history information, which can be described by the following 
+equation. 
+it = σ(Wi∙[Ht−1, Xt] + bi)
+(3)  
+Ct = tanh(WC∙[Ht−1, Xt] + bC)
+(4)  
+Ct = ft ⊙Ct−1 + it ⊙̃ Ct
+(5)  
+where it is the input gate; tanh is the hyperbolic tangent activation 
+function; Wi and WC denote the weights of the input gate and the 
+candidate state; bi and bC denote the biases of the input gate and the 
+candidate state, respectively; ⨀ is the element-wise multiplication. 
+Then the output gate otis given as: 
+Fig. 3. The overall prognostic method scheme.  
+Fig. 4. Long Short-Term Memory network cell model.  
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+6
+ot = σ(Wo∙[Ht−1, Xt] + bo)
+(6)  
+where Wo denotes the weight of the output gate; bo is the bias of the 
+output gate; Xt is the input data of the present step. Furthermore, the 
+output Htwhich is hidden state of the LSTM cell can be written as: 
+Ht = ot ⊙tanh(Ct)
+(7)  
+3.2. Multi-step ahead short-term forecasting strategies 
+This section will first give a presentation of the five forecasting 
+strategies. Several multi-step ahead forecasting strategies for time series 
+have been proposed and summarized according to relative literature 
+[44], which have been introduced into the multi-step short-term prog­
+nostics of the PEMFC system.  
+(1) Recursive strategy 
+In this strategy, only one single model f is trained to realize a one- 
+step-ahead prediction. ̂
+yt+1 = f(yt, ⋯, yt−N+1)
+(8)  
+where N is the historical horizon length; t is the prediction time; yt is the 
+measured voltage; ̂yt is the predicted voltage. Considering the multi-step 
+ahead forecast, the predicted value is added in the previous step into the 
+same model f for the forecasting of the next step. Thus, this process is 
+executed until every step is forecasted.  
+(2) Direct strategy 
+Different from the recursive strategy, the direct strategy forecasts 
+each horizon independently with H models gi as follows. ̂
+yt+i = gi(yt, ⋯, yt−N+1)
+(9)  
+with i ∈{1,⋯,H}. 
+where H is the prognostics horizon length. In this strategy, the 
+accumulation of errors has been avoided by using the real values to 
+conduct the prediction process. However, the assumption of conditional 
+independence can affect the accuracy when the predicted variables 
+remain complex dependencies. Besides, this strategy has suffered from a 
+larger computational burden compared with other strategies, and the 
+complexity is proportional to the prognostics horizon length.  
+(3) MIMO strategy 
+The MIMO strategy is introduced to forecast the multi-step voltage 
+with one trained model G at a time and taking the multi-step historical 
+voltage data as an input. 
+[̂
+yt+H, ⋯,̂ yt+1
+]
+= G(yt, ⋯, yt−N+1)
+(10) 
+This strategy avoids the accumulation of errors as well. Different 
+from the Direct strategy, the MIMO strategy preserves the stochastic 
+dependency between two neighboring time steps [44]. However, the 
+flexibility is constrained by using one trained model when conducting 
+the short-term prognostic.  
+(4) DirRec strategy 
+The DirRec strategy combines the ideas of the Recursive and the 
+Direct strategies. At each time step, H models Fi are trained to forecast 
+each horizon. Unlike the previous strategies, the historical horizon 
+length is varying from N to N + H −1. 
+F1 = f
+(11)  ̂
+yt+i = Fi
+(̂
+yt+i−1, yt, ⋯, yt−N+1
+)
+(12)  
+with i ∈{2, ⋯, H}. This strategy preserves all the predicted values as 
+input, thus, to a certain extent, achieves the characterization of complex 
+independence. But there is still the phenomenon of error accumulation. 
+In the same way, this strategy suffers from high computational 
+complexity as well.  
+(5) DIRMO strategy 
+The DIRMO strategy combines the features of the Direct and MIMO 
+strategies. As a compromise, the multi-step ahead prediction is decom­
+posed into n parts where n models are conducting the MIMO strategy. 
+[̂
+yt+pi, ⋯,̂ yt+p(i−1)1
+]
+=̂ Gi(yt, ⋯, yt−N+1)
+(13)  
+with H = p∙n and i ∈{1, ⋯, n}. To increase the flexibility of the prog­
+nostic, the stochastic dependency in the forecasting is partly sacrificed 
+by introducing the Direct strategy. And this is the motivation of the 
+DIRMO strategy. However, these strategies have different adaptability 
+to different time-series forecasting problems. 
+The relationships between different short-term forecasting strategies 
+and the schematic diagram of model iteration are shown in Fig. 5. 
+3.3. Variable-step long-term forecasting method 
+With the prediction length increasing, the indeterminacy of long- 
+term prognostics will accumulate to reduce the forecasting accuracy 
+and consequently affect the applicability of the method, as shown in 
+Fig. 6. Although, the MIMO strategy can preserve the stochastic de­
+pendency between two neighboring time steps. 
+Due to the small sample training and long-term time-domain pre­
+diction as well, the MIMO strategy has the problem of the drift of the 
+initial prediction value. Fortunately, on the account of the accuracy of 
+the short-term forecasting results, the initial values of the long-term 
+forecasting can be corrected by translation as below. The correction 
+process of the long-term forecasting can be described by the following 
+Fig. 5. Schematic diagram of the five forecasting strategies in the short- 
+term prognostic. 
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+7
+Fig. 6. Schematic diagram of the variable-step long-term method.  
+Fig. 7. Flow chart of the RUL prediction based on the variable-step long- 
+term method. 
+Table 2 
+The procedures of the EKF.  
+Algorithm step 
+Formula 
+(1) Initialization 
+X0|0 = E[x0], P0|0 = E[(X0 −X0|0)(X0 −X0|0)T]
+(2) Prediction 
+Xk|k−1 = AXk−1|k−1, Pk|k−1 = APk−1|k−1AT + Q  
+(3) Update 
+Kk = Pk|k−1HT
+k(HkPk|k−1HT
+k + R)
+−1, Hk = ∂g(Xk|k−1,Uk)/∂Xk|k−1  
+Pk|k = (I −KkHk)Pk|k−1, Xk|k = Xk|k−1 + Kk(Zk −g(Xk|k−1,Uk))
+Table 3 
+Parameters of EA.  
+Parameter 
+Value 
+Size of population 
+20 
+Maximum iteration 
+15 
+Probability of mutation 
+0.001  
+Fig. 8. The structure optimization results of the MIMO-LSTM model: (a) the 
+training errors of the population; (b) the cumulative minimum errors. 
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+8
+equation. 
+Δ = 1
+Ny
+∑
+Ny
+i=1
+(̂
+Y(i) −̂ y(i)
+)
+(14)  ̂
+Y
+−=̂ Y −Δ
+(15)  
+where Ny is the prognostic horizon length of the short-term forecasting; ̂
+Y and ̂y are the predicted voltage sequences of the long-term and short- 
+term forecasting, respectively; Δ is the long-term correction factor, and ̂
+Y
+−is the predicted voltage sequence after correction. As a result, the life 
+degradation trend obtained by the long-term time-domain prediction 
+can be used to predict the RUL of PEMFC at present. 
+To increase the RUL prediction accuracy of PEMFC, a variable-step 
+long-term forecasting method is proposed. In the beginning, the long- 
+term prognostics length H is set and fixed. While the long-term fore­
+casting sequence is overlapping with the EoL, the prognostics length H 
+will decrease in the next prognostic step to adapt to the RUL prediction 
+in a shorter time domain, as shown in Fig. 7. Here, for example, the 
+forecasting interval is set and fixed as 50 h. In the iteration process, the 
+training datasets are enlarged as well. Besides, the prognostics length is 
+reduced to weaken the uncertainty of the RUL prediction to some extent. 
+The prognostics process ends when the predicted RUL falls below the 
+lower limit. As a result, the variable-step long-term forecasting method 
+can improve the accuracy of the RUL prediction. 
+3.4. Model-based prognostic 
+The model-based EKF method is applied to compare with the RUL 
+prediction performance of the variable-step long-term method. The 
+semi-empirical degradation model is derived from the polarization 
+equation as below. 
+Vst = n
+(
+E0 −Ri −aTln
+( i
+i0
+)
+−bTln
+(
+1 −
+i
+iL
+))
+(16)  
+where Vst is the stack voltage; n is the number of cells; E0 is the open- 
+circuit voltage; R is the total resistance; a is the Tafel constant; b is the 
+concentration constant; T is the stack temperature; i is the stack current; 
+i0 is the exchange current, and iL is the limiting current. According to the 
+evolution of parameters in [22], R and iL are selected as time-varying 
+parameters to characterize the aging phenomenon. Besides, the other 
+initial parameters of the voltage degradation equation are obtained from 
+Fig. 9. The multi-step short-term forecasting results of FC1: (a)Direct strategy, (b) MIMO strategy, (c) Recursive strategy.  
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+9
+Pan et al. [45]. 
+R(t) = R(1 + α(t) )
+(17)  
+iL(t) = iL(1 −α(t) )
+(18)  
+α(t) =
+∫
+β(t)dt
+(19)  
+where α represents the degree of aging, and β represents the degradation 
+rate and is nearly constant. Thus, the voltage degradation is described as 
+a non-linear process by Eq. (20). The state equation of the system is 
+motivated by the static response experiment. And the observation 
+equation is modified as Eq. (23). 
+{
+Xk+1 = AXk + Wk
+Yk+1 = g(Xk, Uk) + Vk
+(20)  
+Xk = [αk, βk]T
+(21)  
+A =
+[
+1
+1
+0
+1
+]
+(22)  
+g(Xk, Uk) = n
+(
+E0 −R(1 + αk)i −aTln
+(ik
+i0
+)
+−bTln
+(
+1 −
+ik
+iL(1 −αk)
+))
+(23)  
+where Xk is the aging state of the system; Uk is the system input; Yk is the 
+system output; Wk and Vk are the process and observation noises, 
+respectively. The procedures of the EKF algorithm are shown in Table 2. 
+4. Results and discussion 
+In this section, the framework of the prognostics is mainly carried out 
+in three steps: 1) the LSTM network is applied to realize the short-term 
+aging prognostics first and the prediction performance of five different 
+strategies is compared under two experiment datasets of PEMFCs from 
+different aging tests. 2) The variable-step long-term aging forecasting 
+Fig. 10. The multi-step short-term forecasting results of FC2: (a) Direct strategy, (b) MIMO strategy, (c) Recursive strategy.  
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+10
+method is achieved based on the MIMO strategy. 3) The EA is applied to 
+optimize the high parameters such as the minimum batch size and the 
+cell numbers of the hidden layers. The parameters of EA itself are shown 
+in Table 3. 
+For the short-term aging prognostic, the performance of the fore­
+casting methods over the voltage time series can be assessed by mean 
+absolute error (MAE) and the root mean square error (RMSE) measures, 
+defined as 
+MAE = 1
+H
+∑
+H
+i=1⃒⃒⃒⃒̂
+yi −yi⃒⃒⃒⃒
+(24)  
+RMSE =̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+1
+H
+∑
+H
+i=1
+(̂
+yi −yi
+)2
+√
+√
+√
+√
+(25)  
+where H is the prediction horizon length in each step, ̂yi is the prediction 
+and yi is the true value. And the errors can be averaged in the forecasting 
+process to obtain a mean MAE* and a mean RMSE*, defined as 
+MAE* = 1
+m
+∑
+m
+j=1
+MAEj
+(26)  
+RMSE* = 1
+m
+∑
+m
+j=1
+RMSEj
+(27)  
+where m is the total number of the test data. Likewise, two aging datasets 
+of FC1 and FC2 are used to verify the effectiveness of the RUL prediction, 
+which is defined as the difference value of the predicted EOL and the 
+present time. 
+RUL(t) = TEoL(t) −t
+(28) 
+All the prognostics models are established in Python, and the training 
+process is performed on a personal computer with an Intel(R) Core(TM) 
+i7-8750H CPU (2.2 GHz clock frequency and 16 GB RAM). The RMSE is 
+introduced to quantitatively appraise the prediction effect of the short- 
+term aging prognostic. 
+Fig. 8 shows the change of training error of the MIMO-LSTM strategy 
+during the optimization. It also can be seen from Fig. 8 that the EA 
+approach ascertains the structural parameters of the network which 
+converges after five iterations. The optimal structure is obtained, where 
+the minimum batch size of each training epoch is 56, and the neuron 
+number of three LSTM layers is 24. 
+4.1. Multi-step ahead short-term forecasting strategies comparison 
+To verify the prediction performance, the basic multi-step ahead 
+strategies (Direct, MIMO, and Recursive) are firstly compared. Then, the 
+fusion multi-step strategies are introduced to supplement the compari­
+son. Half of the datasets are used as the training sample and the 
+remaining sample is used as the test sample. In the training process, the 
+historical and the prediction horizon lengths are chosen as 15 h and 4 h, 
+respectively. 
+Fig. 11. The multi-step short-term forecasting results of FC1: (a) DIRMO strategy, (b) DirRec strategy.  
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+11
+(1) The basic short-term multi-step strategies 
+In stationary current regime, the data used for the experiment comes 
+from an 1154 h duration test on the PEMFC stack. Half of the datasets 
+are used for training, and the rest of the data is used for the prediction. 
+The four-step short-term prediction results of FC1 based on the LSTM 
+and the basic strategies are shown in Fig. 9. Under the dynamic current 
+load, the data used for the experiment comes from an 1020 h duration 
+test on the PEMFC stack. Half of the datasets are used for training, and 
+the rest of the data is used for the prediction. The four-step short-term 
+prediction results of FC2 based on the LSTM and the basic strategies are 
+shown in Fig. 10. 
+The Direct-LSTM results of FC1 are shown in Fig. 9(a). The RMSE*, 
+MAE*, maximum RMSE, and maximum MAE of the test results are 
+0.00920, 0.00831, 0.0366, and 0.0354, respectively. As shown in Fig. 9 
+(a), the results of the prognostic based on the Direct strategy are sharing 
+certain biases and in larger fluctuation, especially in the middle and later 
+periods of the prognostics. Due to the factitious intervention of the po­
+larization test and EIS measurement, the voltage prediction results have 
+a translation in the timeline and the y-direction, as shown in the detail 
+view. 
+The prognostics results based on the MIMO-LSTM strategy are shown 
+in Fig. 9(b). The RMSE*, MAE*, maximum RMSE, and maximum MAE of 
+the test results are 0.00532, 0.00471, 0.0464, and 0.0457, respectively. 
+The prognostics bias is eliminated and the MIMO strategy can get ac­
+curate prediction results in these strategies. In the detail view, the 
+minimum predicted voltage dips below 3.201 V while the translation in 
+the timeline remains unchanged. Furthermore, the voltage span of each 
+prediction step is reduced even in this sharp area. 
+As for the Recursive-LSTM strategy, the prediction results show that 
+the fluctuation is controlled within the satisfied region in recursion. The 
+RMSE*, MAE*, maximum RMSE, and maximum MAE of the test results 
+are 0.00772, 0.00717, 0.0359, and 0.0350, respectively. However, due 
+to the calculation structure, this strategy is accompanied by the pre­
+diction bias because of the accumulation of errors. In the zoomed-in 
+view, the translation in the timeline is appreciably reduced based on 
+the Recursive strategy. However, the minimum predicted voltage has 
+increased to 3.213 V. 
+Fig. 12. The multi-step short-term forecasting results of FC2: (a) DIRMO strategy, (b) DirRec strategy.  
+Table 4 
+The comparison with different forecasting strategies of FC1.  
+Strategies 
+Recursive 
+Direct 
+DirRec 
+MIMO 
+DIRMO 
+RMSE∗
+0.00772  
+0.00920  
+0.00611  
+0.00532  
+0.00843 
+MAE∗
+0.00717  
+0.00831  
+0.00545  
+0.00471  
+0.00788 
+Max RMSE   
+0.0359  
+0.0366  
+0.0358  
+0.0464  
+0.0366 
+Max MAE   
+0.0350  
+0.0354  
+0.0344  
+0.0457  
+0.0359  
+Table 5 
+The comparison with different forecasting strategies of FC2.  
+Strategies 
+Recursive 
+Direct 
+DirRec 
+MIMO 
+DIRMO 
+RMSE∗
+0.00772  
+0.00832  
+0.00730  
+0.00538  
+0.00618 
+MAE∗
+0.00736  
+0.00763  
+0.00658  
+0.00491  
+0.00548 
+Max RMSE   
+0.0493  
+0.0486  
+0.0361  
+0.0617  
+0.0560 
+Max MAE   
+0.0492  
+0.0485  
+0.0336  
+0.0616  
+0.0543  
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+12
+The Direct-LSTM results of FC2 are shown in Fig. 10(a). The RMSE*, 
+MAE*, maximum RMSE, and maximum MAE of the test results are 
+0.00832, 0.00763, 0.0486, and 0.0485, respectively. As shown in Fig. 10 
+(a), the results of the prognostic based on the Direct strategy are sharing 
+certain biases and in larger fluctuation, especially in the later periods of 
+the prognostics. In the detail view, the rising fluctuation of each pre­
+diction step is unconscionable. This phenomenon is caused by the 
+abnormal data shown in Fig. 2(b). 
+The prognostics results based on the MIMO-LSTM strategy are shown 
+in Fig. 10(b). The RMSE*, MAE*, maximum RMSE, and maximum MAE 
+of the test results are 0.00538, 0.00491, 0.0617, and 0.0616, respec­
+tively. The prognostics bias is eliminated and the fluctuation in the later 
+periods is even smaller than the DIRMO strategy. The voltage recovery 
+phenomenon is ignored by voltage prediction as a transient process. 
+However, the real voltage is tracked by the predicted voltage within 10 
+steps. 
+As for the Recursive-LSTM strategy, the prediction results show that 
+the fluctuation is controlled within the satisfied region in recursion. The 
+RMSE*, MAE*, maximum RMSE, and maximum MAE of the test results 
+are 0.00772, 0.00736, 0.0493, and 0.0492, respectively. However, this 
+strategy is accompanied by prediction bias because of the accumulation 
+of errors. Thus, in the zoomed-in view, there remain voltage biases in the 
+timeline and y-direction.  
+(2) The fusion short-term multi-step strategies 
+The four-step prognostics results of FC1 based on the DIRMO-LSTM 
+strategy are shown in Fig. 11(a). The RMSE*, MAE*, maximum RMSE, 
+and maximum MAE of the test results are 0.00843, 0.00788, 0.0366, and 
+0.0359, respectively. Combing with the advantage of the MIMO strat­
+egy, the fluctuation is reduced in the prediction phase, while the 
+relentless bias is growing larger, especially after the fluctuation in 800 h. 
+In the detail view, the minimum predicted voltage is 3.212 V. 
+The DirRec-LSTM results are shown in Fig. 11(b). The RMSE*, MAE*, 
+maximum RMSE, and maximum MAE of the test results are 0.00611, 
+0.00545, 0.0358, and 0.0344, respectively. Thanks to a combination of 
+the Direct and Recursive strategies, the bias and fluctuation of this 
+strategy are controlled to a certain extent. However, the prediction re­
+sults suffer from undesirable accuracy in the large jamming area, 
+including 660 h, 800 h, and 1000 h. In the zoomed-in view of 800 h, the 
+voltage span of each prediction step increases compared with other 
+voltage gentle drop area. 
+The four-step prognostics results of FC2 based on the DIRMO-LSTM 
+strategy are shown in Fig. 12(a). The RMSE*, MAE*, maximum RMSE, 
+and maximum MAE of the test results are 0.00618, 0.00548, 0.0560, and 
+0.0543, respectively. Combing with the advantage of the MIMO strat­
+egy, the fluctuation and the bias are reduced in the prediction phase. 
+The DirRec-LSTM results are shown in Fig. 12(b). The RMSE*, MAE*, 
+maximum RMSE, and maximum MAE of the test results are 0.00730, 
+0.00658, 0.0361, and 0.0336, respectively. Thus, the fluctuation of this 
+strategy is controlled to a certain extent. However, the prediction results 
+suffer from undesirable bias in the later periods of the prognostics. 
+The error comparison is given in Table 4. The RMSE* of the Recur­
+sive, Direct, DirRec, MIMO, and DIRMO strategies are 0.00772, 
+0.00920, 0.00611, 0.00532, and 0.00834. The MIMO strategy imple­
+ments higher accuracy than the other four strategies in MAE* as well. 
+However, the Recursive one has better performance in the maximum 
+errors. The results show that the conditional independence assumption 
+is not completely valid in the process of voltage state change. Thus, the 
+Direct strategy has lower accuracy. The error comparison of FC2 is 
+shown in Table 5. The MIMO strategy implements higher accuracy than 
+the other four strategies in both RMSE* and MAE*. However, the MIMO 
+one has unsatisfactory performance in the maximum errors, which 
+means that the prognostics effect may be reduced in areas of large 
+voltage variation. Similarly, the Direct strategy has the lowest accuracy 
+as well. Furthermore, the MIMO strategy is selected to conduct the short- 
+term and long-term prediction of FC1 and FC2.  
+(3) The comparison of MIMO-based strategies 
+As shown in Table 6, the computing time of the training process 
+increases with the split rate. So that, these MIMO-based strategies are all 
+available for the real practical application with the calculation burden 
+within half a minute, while the MIMO-DCNN and the MIMO-DNN 
+strategies suffer the lower calculation burden. Besides, the errors of 
+RMSE and MAE show that the increase of the training datasets can 
+improve the prediction accuracy of the MIMO-based strategy. The 
+MIMO-LSTM strategy has the best prediction performance when the 
+training data set is large. 
+4.2. Variable-step long-term forecasting method result 
+As for the long-term aging prognostic, the initial prediction horizon 
+length and the prediction interval are set as 300 h and 50 h, respectively. 
+Regarding the threshold of EoL, it is set as 3.5% of the initial voltage 
+value (Vinit = 3.345 V) of FC1. Thus, the actual remaining useful life is 
+792 h in the beginning. The condition of FC2 under dynamic current 
+load operation suffered from severer degradation than that in stationary 
+regime. The 4.5% of the initial voltage value (Vinit = 3.330 V) is 
+considered as the threshold of EoL. Similarly, the actual remaining 
+useful life of FC2 is 758 h in the beginning. The variable-step long-term 
+prognostics results of FC1 and FC2 based on MIMO-LSTM are shown in 
+Figs. 13 and 14. 
+As for FC1, the prediction time values are 500 h, 550 h, 600 h, 650 h, 
+700 h, and 750 h, respectively. The data from 0 h to 500 h are used for 
+training at the beginning, which is gradually extended from 0 h to 750 h 
+Table 6 
+Comparison of different split rate and computational complexity of the MIMO-based strategy.  
+PEMFC 
+Split rate 
+FC1 
+FC2 
+0.30 
+0.40 
+0.50 
+0.30 
+0.40 
+0.50 
+MIMO-LSTM   
+RMSE*  
+0.00902  
+0.00696  
+0.00532  
+0.0116  
+0.00880  
+0.00538 
+MAE*  
+0.00854  
+0.00640  
+0.00471  
+0.0112  
+0.00840  
+0.00491 
+Computing time (s)  
+13.19  
+15.45  
+20.52  
+13.61  
+16.72  
+18.86  
+MIMO-DCNN   
+RMSE*  
+0.00891  
+0.00659  
+0.00586  
+0.0110  
+0.00705  
+0.00652 
+MAE*  
+0.00836  
+0.00601  
+0.00527  
+0.0105  
+0.00637  
+0.00569 
+Computing time (s)  
+3.06  
+3.35  
+3.61  
+3.56  
+3.43  
+4.07  
+MIMO-DNN   
+RMSE*  
+0.0128  
+0.00931  
+0.00685  
+0.0126  
+0.00747  
+0.00723 
+MAE*  
+0.0123  
+0.00882  
+0.00621  
+0.0120  
+0.00681  
+0.00680 
+Computing time (s)  
+1.62  
+1.70  
+1.81  
+2.70  
+2.92  
+3.74  
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+13
+during the long-term prognostic process. As shown in Fig. 13(a)-(c), the 
+results represent that the long-term prognostics are relatively flat when 
+the prediction length is reduced from 300 h to 200 h. While the pre­
+diction length is reduced to 150 h, the results represent that the 
+prediction curves have more local volatility in the details which are 
+shown in Fig. 13(d)-(f). Due to the extended training part and the 
+reduced prediction horizon length, the number of participating datasets 
+is rapidly growing. Therefore, the training model can contain and 
+Fig. 13. The variable-step long-term forecasting results of FC1: (a) H = 300, (b) H = 250, (c) H = 200, (d) H = 150, (e) H = 100, (f) H = 50.  
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+14
+present more details of the prediction. 
+The variable-step long-term prognostics results of FC2 are shown in 
+Fig. 14. Under the dynamic current load, the prediction time values are 
+510 h, 560 h, 610 h, 660 h, 710 h, and 760 h, respectively. Because the 
+prediction process of FC2 has a more abnormal trend of change than 
+FC1, the results also represent that the MIMO-LSTM strategy has more 
+difficulties to mimic the dynamic current load. Especially compared 
+with Fig. 13(a) and Fig. 14(a), the large volatility is reflected in the 
+overall forecasting trend of FC2. The rest long-term prognostics results 
+of FC2 are shown in Fig. 14 as well. The results present that the accuracy 
+Fig. 13. (continued). 
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+15
+Fig. 14. The variable-step long-term forecasting results of FC2: (a) H = 300, (b) H = 250, (c) H = 200, (d) H = 150, (e) H = 100, (f) H = 50.  
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+16
+is gradually improving along with the reduction of the prediction hori­
+zon length. The reason is that the extended training sets weaken the 
+influence of abnormal data during the training process. 
+The training loss and validation loss are shown in Fig. 15, where the 
+definition is shown in Eq. (24). MIMO-LSTM strategy has a fast 
+convergence rate, which has begun to converge at the 8th epoch. In each 
+epoch, the validation loss is greater than the training one, indicating no 
+overfitting phenomena. The results show that MIMO-LSTM has a fast 
+constringency speed and good generalization performance. 
+Fig. 14. (continued). 
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+17
+4.3. RUL prediction comparison 
+The RUL time here is considered as the time between the prediction 
+time and the failure time. And the RUL prediction result of the proposed 
+method is compared with the EKF method. Meanwhile, several points 
+are used to construct these evolutions. The RUL prediction results of FC1 
+and FC2 based on the variable-step long-term method and EKF method 
+are shown in Figs. 16 and 17. 
+To obtain satisfactory results, the estimated RUL should be within 
+the error bounds of the real RUL. In Fig. 16, the estimated RUL of the 
+variable-step MIMO-LSTM method is within the bounds ±5% of the real 
+RUL, while the estimated RUL of EKF is out of the bounds until the last 
+estimation. As shown in Fig. 17, the estimated RUL of FC2 based on the 
+variable-step MIMO-LSTM method is within the bounds of the real RUL 
+as well. However, the RUL results remain more errors compared with the 
+FC1. Especially for the RUL estimation of FC2 based on EKF, there 
+remain large fluctuations in the forecasting points which are out of the 
+±10% bounds. The reason is that the state equation of the EKF is 
+motivated by the linear evolution of the aging parameters, while the 
+system aging parameters shall contain more nonlinear factors under the 
+dynamic current load. Thus, the RUL prediction performance of FC2 
+based on the EKF is not satisfied. 
+5. Conclusion 
+This paper has proposed a data-based prognostics framework to 
+achieve the multi-step ahead short-term forecasting and the variable- 
+step long-term prediction at the same time. The proposed framework 
+can provide a concise forecasting of PEMFC output performance without 
+the future information as prior knowledge. First, five multi-step strate­
+gies based on an LSTM structure are developed and compared by two 
+data sets from the stationary and dynamic aging process. The compari­
+son results figure out that the MIMO strategy is the most feasible strategy 
+for the multi-step short-term prognostics of PEMFC. For the FC1 and FC2 
+in this study, the best short-term prognostics performance yielded by the 
+MIMO-LSTM in terms of RMSE* is 0.00532 and 0.00538, respectively, 
+and in terms of MAE* is 0.00471 and 0.00491, respectively. Then, a 
+hyper-parameters adjustment method is proposed to improve the 
+training parameters of network structure. A variable-step long-term 
+prognostics method is subsequently investigated based on the MIMO- 
+LSTM. Moreover, the model-based EKF prognostics are compared with 
+the proposed long-term prognostics method. The results indicate that 
+the proposed RUL estimation accuracy can be improved to 95% and 90% 
+confidence intervals for FC1 and FC2, respectively. Therefore, the pro­
+posed short- and long-term prognostics framework has a significant 
+performance in the short-term, long-term, and RUL prediction. How­
+ever, faced with a more complex operating condition and aging process, 
+a data-driven prediction method is difficult to be directly transferred 
+into the specific application. Furthermore, future work can be extended 
+to combine with the model-based method to expand its adaptability, in 
+particular to solve the developed data-based method drawback of dy­
+namic performance forecasting relatively low accuracy. 
+CRediT authorship contribution statement 
+Zhendong Zhang: Methodology, Software, Formal analysis, Writing 
+– original draft. Ya-Xiong Wang: Conceptualization, Methodology, 
+Software, Formal analysis, Writing – original draft, Writing – review & 
+editing. Hongwen He: Validation, Investigation, Supervision. Feng­
+chun Sun: Supervision. 
+Declaration of Competing Interest 
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper. 
+Acknowledgements 
+This work was supported by the China Postdoctoral Science Foun­
+dation (Grant No. 2019M650505). 
+Fig.15. The training process of the proposed mothed.  
+Fig. 16. The RUL prediction of FC1 based on the variable-step long-term 
+method and EKF method. 
+Fig. 17. The RUL prediction of FC2 based on the variable-step long-term 
+method and EKF method. 
+Z. Zhang et al.                                                                                                                                                                                                                                   
+Applied Energy 304 (2021) 117841
+18
+References 
+[1] Wang X, Chen J, Quan S, Wang YX, He H. Hierarchical model predictive control via 
+deep learning vehicle speed predictions for oxygen stoichiometry regulation of fuel 
+cells. Appl Energy 2020;276:115460. 
+[2] Jouin M, Gouriveau R, Hissel D, P´era M-C, Zerhouni N. Prognostics and health 
+management of PEMFC – state of the art and remaining challenges. Int J Hydrogen 
+Energy 2013;38(35):15307–17. 
+[3] Liu H, Chen J, Hissel D, Lu J, Hou M, Shao Z. Prognostics methods and degradation 
+indexes of proton exchange membrane fuel cells: a review. Renew Sustain Energy 
+Rev 2020;123:109721. https://doi.org/10.1016/j.rser.2020.109721. 
+[4] Marra D, Sorrentino M, Pianese C, Iwanschitz B. A neural network estimator of 
+solid oxide fuel cell performance for on-field diagnostics and prognostics 
+applications. J Power Sources 2013;241:320–9. 
+[5] Silva RE, Gouriveau R, Jemeï S, Hissel D, Boulon L, Agbossou K, et al. Proton 
+exchange membrane fuel cell degradation prediction based on adaptive Neuro- 
+Fuzzy inference systems. Int J Hydrogen Energy 2014;39(21):11128–44. 
+[6] Morando S, Jemei S, Hissel D, Gouriveau R, Zerhouni N. Proton exchange 
+membrane fuel cell ageing forecasting algorithm based on Echo State Network. Int 
+J Hydrogen Energy 2017;42(2):1472–80. 
+[7] Hua Z, Zheng Z, P´era M, Gao F. Remaining useful life prediction of PEMFC systems 
+based on the multi-input echo state network. Appl Energy 2020;265:114791. 
+[8] Wu Y, Breaz E, Gao F, Paire D, Miraoui A. Nonlinear performance degradation 
+prediction of proton exchange membrane fuel cells using relevance vector 
+machine. IEEE Trans Energy Convers 2016;31(4):1570–82. 
+[9] Wu Y, Breaz E, Gao F, Miraoui A. A modified relevance vector machine for PEM 
+fuel-cell stack aging prediction. IEEE Trans Ind Appl 2016;52(3):2573–81. 
+[10] Kim J, Lee I, Tak Y, Cho BH. State-of-health diagnosis based on hamming neural 
+network using output voltage pattern recognition for a PEM fuel cell. Int J 
+Hydrogen Energy 2012;37(5):4280–9. 
+[11] Zhou D, Al-Durra A, Zhang Ke, Ravey A, Gao F. Online remaining useful lifetime 
+prediction of proton exchange membrane fuel cells using a novel robust 
+methodology. J Power Sources 2018;399:314–28. 
+[12] Liu H, Chen J, Hou M, Shao Z, Su H. Data-based short-term prognostics for proton 
+exchange membrane fuel cells. Int J Hydrogen Energy 2017;42(32):20791–808. 
+[13] Liu H, Chen J, Hissel D, Su H. Short-term prognostics of PEM fuel cells: a 
+comparative and improvement study. IEEE Trans Ind Electron 2019;66(8): 
+6077–86. 
+[14] Li Z, Zheng Z, Outbib R. Adaptive prognostic of fuel cells by implementing 
+ensemble echo state networks in time-varying model space. IEEE Trans Ind 
+Electron 2020;67(1):379–89. 
+[15] Chen K, Laghrouche S, Djerdir A. Health state prognostic of fuel cell based on 
+wavelet neural network and cuckoo search algorithm. ISA Trans 2021;113:175–84. 
+[16] Xie Y, Zou J, Li Z, Gao F, Peng C. A novel deep belief network and extreme learning 
+machine based performance degradation prediction method for proton exchange 
+membrane fuel cell. IEEE Access 2020;8:176661–75. 
+[17] Meraghni S, Terrissa LS, Yue M, Ma J, Jemei S, Zerhouni N. A data-driven digital- 
+twin prognostics method for proton exchange membrane fuel cell remaining useful 
+life prediction. Int J Hydrogen Energy 2021;46(2):2555–64. 
+[18] Zuo J, Lv H, Zhou D, Xue Q, Jin L, Zhou W, et al. Deep learning based prognostic 
+framework towards proton exchange membrane fuel cell for automotive 
+application. Appl Energy 2021;281:115937. 
+[19] Ma J, Liu X, Zou X, Yue M, Shang P, Kang L, et al. Degradation prognosis for proton 
+exchange membrane fuel cell based on hybrid transfer learning and intercell 
+differences. ISA Trans 2021;113:149–65. 
+[20] He K, Mao L, Yu J, Huang W, He Q, Jackson L. Long-term performance prediction 
+of PEMFC based on LASSO-ESN. IEEE Trans Instrum Meas 2021;70:1–11. 
+[21] Jouin M, Gouriveau R, Hissel D, P´era M-C, Zerhouni N. Prognostics of PEM fuel cell 
+in a particle filtering framework. Int J Hydrogen Energy 2014;39(1):481–94. 
+[22] Bressel M, Hilairet M, Hissel D, Ould BB. Extended kalman filter for prognostic of 
+proton exchange membrane fuel cell. Appl Energy 2016;164:220–7. 
+[23] Zhou D, Wu Y, Gao F, Breaz E, Ravey A, Miraoui A. Degradation prediction of PEM 
+fuel cell stack based on multiphysical aging model with particle filter approach. 
+IEEE Trans Ind Appl 2017;53(4):4041–52. 
+[24] Jouin M, Gouriveau R, Hissel D, Pera M-C, Zerhouni N. Joint particle filters 
+prognostics for proton exchange membrane fuel cell power prediction at constant 
+current solicitation. IEEE Trans Reliab 2016;65(1):336–49. 
+[25] Zhu Li, Chen J. Prognostics of PEM fuel cells based on Gaussian process state space 
+models. Energy 2018;149:63–73. 
+[26] Bressel M, Hilairet M, Hissel D, Bouamama BO. Remaining useful life prediction 
+and uncertainty quantification of proton exchange membrane fuel cell under 
+variable load. IEEE Trans Ind Electron 2016;63(4):2569–77. 
+[27] Jha MS, Bressel M, Ould-Bouamama B, Dauphin-Tanguy G. Particle filter based 
+hybrid prognostics of proton exchange membrane fuel cell in bond graph 
+framework. Comput Chem Eng 2016;95:216–30. 
+[28] Robin C, Gerard M, Franco AA, Schott P. Multi-scale coupling between two 
+dynamical models for PEMFC aging prediction. Int J Hydrogen Energy 2013;38 
+(11):4675–88. 
+[29] Chen J, Zhou D, Lyu C, Lu C. A novel health indicator for PEMFC state of health 
+estimation and remaining useful life prediction. Int J Hydrogen Energy 2017;42 
+(31):20230–8. 
+[30] Zhang D, Baraldi P, Cadet C, Yousfi-Steiner N, B´erenguer C, Zio E. An ensemble of 
+models for integrating dependent sources of information for the prognosis of the 
+remaining useful life of Proton Exchange Membrane Fuel Cells. Mech Syst Sig 
+Process 2019;124:479–501. 
+[31] Robin C, G´erard M, Quinaud M, d’Arbigny J, Bultel Y. Proton exchange membrane 
+fuel cell model for aging predictions: Simulated equivalent active surface area loss 
+and comparisons with durability tests. J Power Sources 2016;326:417–27. 
+[32] Ou M, Zhang R, Shao Z, Li B, Yang D, Ming P, et al. A novel approach based on 
+semi-empirical model for degradation prediction of fuel cells. J Power Sources 
+2021;488:229435. https://doi.org/10.1016/j.jpowsour.2020.229435. 
+[33] Chen K, Laghrouche S, Djerdir A. Fuel cell health prognosis using Unscented 
+Kalman Filter: Postal fuel cell electric vehicles case study. Int J Hydrogen Energy 
+2019;44(3):1930–9. 
+[34] Wu X, Ye Q, Wang J. A hybrid prognostic model applied to SOFC prognostics. Int J 
+Hydrogen Energy 2017;42(39):25008–20. 
+[35] Cheng Y, Zerhouni N, Lu C. A hybrid remaining useful life prognostic method for 
+proton exchange membrane fuel cell. Int J Hydrogen Energy 2018;43(27): 
+12314–27. 
+[36] Chen K, Laghrouche S, Djerdir A. Degradation model of proton exchange 
+membrane fuel cell based on a novel hybrid method. Appl Energy 2019;252: 
+113439. 
+[37] Zhou D, Gao F, Breaz E, Ravey A, Miraoui A. Degradation prediction of PEM fuel 
+cell using a moving window based hybrid prognostic approach. Energy 2017;138: 
+1175–86. 
+[38] Xie R, Ma R, Pu S, Xu L, Zhao D, Huangfu Y. Prognostic for fuel cell based on 
+particle filter and recurrent neural network fusion structure. Energy AI 2020;2: 
+100017. https://doi.org/10.1016/j.egyai.2020.100017. 
+[39] Zuo B, Cheng J, Zhang Z. Degradation prediction model for proton exchange 
+membrane fuel cells based on long short-term memory neural network and 
+Savitzky-Golay filter. Int J Hydrogen Energy 2021;46(29):15928–37. 
+[40] Liu J, Li Qi, Chen W, Yan Yu, Qiu Y, Cao T. Remaining useful life prediction of 
+PEMFC based on long short-term memory recurrent neural networks. Int J 
+Hydrogen Energy 2019;44(11):5470–80. 
+[41] He K, Zhang C, He Q, Wu Q, Jackson L, Mao L. Effectiveness of PEMFC historical 
+state and operating mode in PEMFC prognosis. Int J Hydrogen Energy 2020;45 
+(56):32355–66. 
+[42] Hua Z, Zheng Z, Pahon E, P´era M, Gao F. Remaining useful life prediction of 
+PEMFC systems under dynamic operating conditions. Energy Convers Manage 
+2021;231:113825. 
+[43] FCLAB Research. IEEE PHM 2014 data challenge. 2014. http://eng.fclab.fr/ieee- 
+phm-2014-data-challenge/. 
+[44] Taieb SB, Bontempi G, Atiya AF, Sorjamaa A. A review and comparison of 
+strategies for multi-step ahead time series forecasting based on the NN5 forecasting 
+competition. Expert Syst Appl 2012;39(8):7067–83. 
+[45] Pan R, Yang D, Wang Y, Chen Z. Performance degradation prediction of proton 
+exchange membrane fuel cell using a hybrid prognostic approach. Int J Hydrogen 
+Energy 2020;45(55):30994–1008. 
+Z. Zhang et al.                                                                                                                                                                                                                                   

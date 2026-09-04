@@ -1,0 +1,8 @@
+{
+  "resampling_unit": "paired chronological prediction origins, resampled in 24-hour moving blocks independently within each fold",
+  "delta": "RMSE(relative) - RMSE(absolute); negative favors relative",
+  "block_length_hours": 24,
+  "replicates": 2000,
+  "seed": 42,
+  "scope": "fixed development predictions only; no retraining and no final-test rows"
+}

@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "phase": "3B",
+  "fc": "FC2",
+  "fold": "fold_1",
+  "H": 4,
+  "checks": [
+    {
+      "name": "predeclared-30-40-50-60-fold-boundaries",
+      "passed": true,
+      "detail": "Fold matches 0\u201330/30\u201340, 0\u201340/40\u201350, or 0\u201350/50\u201360%."
+    },
+    {
+      "name": "development-prefix-only",
+      "passed": true,
+      "detail": "No final-test split is constructed."
+    },
+    {
+      "name": "frozen-n15-horizon",
+      "passed": true,
+      "detail": "N=15 and H in (4, 8, 12, 24)."
+    },
+    {
+      "name": "hourly-aggregation-is-causal",
+      "passed": true,
+      "detail": "Every source sample occurs at or before its hourly origin timestamp."
+    },
+    {
+      "name": "windows-are-fold-contained",
+      "passed": true,
+      "detail": "All N=15/H windows remain in their chronological fold."
+    },
+    {
+      "name": "inputs-precede-targets",
+      "passed": true,
+      "detail": "All final input timestamps precede h=1 target timestamps."
+    },
+    {
+      "name": "no-final-test-row-in-windows",
+      "passed": true,
+      "detail": "No model input or target reaches the final 40% partition."
+    },
+    {
+      "name": "residual-anchor-is-legal-origin-utot",
+      "passed": true,
+      "detail": "Anchor is exactly the final observed Utot history value."
+    },
+    {
+      "name": "residual-label-is-future-minus-origin",
+      "passed": true,
+      "detail": "All labels equal Utot(t+h)-Utot(t)."
+    },
+    {
+      "name": "utot-scaler-fits-current-fold-train-only",
+      "passed": true,
+      "detail": "Input scaler fit scope is current fold train only."
+    },
+    {
+      "name": "residual-scaler-fits-current-fold-train-only",
+      "passed": true,
+      "detail": "Target scaler fit scope is current fold train residual only."
+    },
+    {
+      "name": "phase3b-output-is-isolated",
+      "passed": true,
+      "detail": "Output must be under E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase3b only."
+    },
+    {
+      "name": "source-excludes-forbidden-methods-and-test-evaluation",
+      "passed": true,
+      "detail": "Forbidden source-token scan found: []"
+    }
+  ]
+}

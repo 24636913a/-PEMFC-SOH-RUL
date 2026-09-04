@@ -1,0 +1,48 @@
+{
+  "phase": "2b",
+  "fc": "FC2",
+  "seed": 42,
+  "fold": "fold_3",
+  "feature_set": "R1_utot_only",
+  "feature_names": [
+    "Utot_mean"
+  ],
+  "input_mode": "absolute_inputs",
+  "target_definition": "Utot(t+h) - observed Utot(t), h=1..4",
+  "total_hourly_rows": 1021,
+  "development_row_range": [
+    0,
+    612
+  ],
+  "final_test_row_range": [
+    612,
+    1021
+  ],
+  "split_rows": {
+    "train": [
+      0,
+      561
+    ],
+    "validation": [
+      561,
+      612
+    ]
+  },
+  "window_counts": {
+    "train": 543,
+    "validation": 33
+  },
+  "test_partition_accessed": false,
+  "input_scaler_fit": "flattened current-fold train windows only",
+  "residual_scaler_fit": "flattened current-fold train residuals only",
+  "train_config": {
+    "hidden_size": 64,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "max_epochs": 300,
+    "early_stopping_patience": 35,
+    "device": "cuda"
+  },
+  "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2b\\FC2\\seed_42\\fold_3\\R1_utot_only"
+}

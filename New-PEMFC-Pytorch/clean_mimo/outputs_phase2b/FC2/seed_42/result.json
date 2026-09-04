@@ -1,0 +1,96 @@
+{
+  "phase": "2b",
+  "fc": "FC2",
+  "seed": 42,
+  "folds": [
+    {
+      "name": "fold_1",
+      "train_end_fraction": 0.35,
+      "validation_end_fraction": 0.4
+    },
+    {
+      "name": "fold_2",
+      "train_end_fraction": 0.45,
+      "validation_end_fraction": 0.5
+    },
+    {
+      "name": "fold_3",
+      "train_end_fraction": 0.55,
+      "validation_end_fraction": 0.6
+    }
+  ],
+  "feature_sets": [
+    "R1_utot_only",
+    "R2_voltage_state",
+    "R3_state_load"
+  ],
+  "selection_rule": "Lowest mean residual validation RMSE over 3 folds x 4 horizons; exact ties: higher Skill_L then R1/R2/R3 order.",
+  "validation_selected_feature_set": "R3_state_load",
+  "test_partition_accessed": false,
+  "runs": [
+    {
+      "fold": "fold_1",
+      "feature_set": "R1_utot_only",
+      "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2b\\FC2\\seed_42\\fold_1\\R1_utot_only",
+      "validation_windows": 33,
+      "test_partition_accessed": false
+    },
+    {
+      "fold": "fold_1",
+      "feature_set": "R2_voltage_state",
+      "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2b\\FC2\\seed_42\\fold_1\\R2_voltage_state",
+      "validation_windows": 33,
+      "test_partition_accessed": false
+    },
+    {
+      "fold": "fold_1",
+      "feature_set": "R3_state_load",
+      "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2b\\FC2\\seed_42\\fold_1\\R3_state_load",
+      "validation_windows": 33,
+      "test_partition_accessed": false
+    },
+    {
+      "fold": "fold_2",
+      "feature_set": "R1_utot_only",
+      "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2b\\FC2\\seed_42\\fold_2\\R1_utot_only",
+      "validation_windows": 33,
+      "test_partition_accessed": false
+    },
+    {
+      "fold": "fold_2",
+      "feature_set": "R2_voltage_state",
+      "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2b\\FC2\\seed_42\\fold_2\\R2_voltage_state",
+      "validation_windows": 33,
+      "test_partition_accessed": false
+    },
+    {
+      "fold": "fold_2",
+      "feature_set": "R3_state_load",
+      "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2b\\FC2\\seed_42\\fold_2\\R3_state_load",
+      "validation_windows": 33,
+      "test_partition_accessed": false
+    },
+    {
+      "fold": "fold_3",
+      "feature_set": "R1_utot_only",
+      "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2b\\FC2\\seed_42\\fold_3\\R1_utot_only",
+      "validation_windows": 33,
+      "test_partition_accessed": false
+    },
+    {
+      "fold": "fold_3",
+      "feature_set": "R2_voltage_state",
+      "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2b\\FC2\\seed_42\\fold_3\\R2_voltage_state",
+      "validation_windows": 33,
+      "test_partition_accessed": false
+    },
+    {
+      "fold": "fold_3",
+      "feature_set": "R3_state_load",
+      "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2b\\FC2\\seed_42\\fold_3\\R3_state_load",
+      "validation_windows": 33,
+      "test_partition_accessed": false
+    }
+  ],
+  "stop_boundary": "No final-test evaluation, OCM, decomposition, horizon extension, or multi-seed run was performed."
+}

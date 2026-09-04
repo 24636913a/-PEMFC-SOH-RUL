@@ -1,0 +1,92 @@
+{
+  "fc": "FC2",
+  "config": {
+    "history_hours": 15,
+    "horizon_hours": 4,
+    "train_fraction": 0.5,
+    "validation_fraction": 0.1,
+    "forecasting_resolution_hours": 1.0,
+    "target_name": "Utot_mean"
+  },
+  "feature_names": [
+    "Utot_mean",
+    "U1_mean",
+    "U2_mean",
+    "U3_mean",
+    "U4_mean",
+    "U5_mean",
+    "J_mean",
+    "I_mean",
+    "I_std",
+    "I_p2p",
+    "TinH2_mean",
+    "ToutH2_mean",
+    "TinAIR_mean",
+    "ToutAIR_mean",
+    "TinWAT_mean",
+    "ToutWAT_mean",
+    "PinAIR_mean",
+    "PoutAIR_mean",
+    "PoutH2_mean",
+    "PinH2_mean",
+    "DinH2_mean",
+    "DoutH2_mean",
+    "DinAIR_mean",
+    "DoutAIR_mean",
+    "DWAT_mean",
+    "HrAIRFC_mean"
+  ],
+  "n_hourly_rows": 1021,
+  "split_rows": {
+    "train": [
+      0,
+      510
+    ],
+    "validation": [
+      510,
+      612
+    ],
+    "test": [
+      612,
+      1021
+    ]
+  },
+  "window_counts": {
+    "train": 492,
+    "validation": 84,
+    "test": 391
+  },
+  "feature_scaler_fit_windows": 492,
+  "target_scaler_fit_windows": 492,
+  "feature_scaler_mean": [
+    3.2364096239976443,
+    0.6544906632929314,
+    0.6493866538209967,
+    0.6463382527918673,
+    0.6469000616209294,
+    0.6392939916551921,
+    0.7003074704308497,
+    70.03074702854725,
+    0.10162553746915147,
+    0.46874783799988606,
+    25.730527040951944,
+    38.11791929798075,
+    44.251264948444316,
+    51.301773097133896,
+    53.68161692167039,
+    55.4108659692573,
+    1299.9485170772728,
+    1267.0523784358327,
+    1299.8155405928449,
+    1287.0313164605034,
+    4.7954706192016605,
+    2.1092864016853374,
+    23.035597250972014,
+    21.302908454419473,
+    2.003484606839777,
+    52.40924884413639
+  ],
+  "target_scaler_mean": [
+    3.234709015464395
+  ]
+}

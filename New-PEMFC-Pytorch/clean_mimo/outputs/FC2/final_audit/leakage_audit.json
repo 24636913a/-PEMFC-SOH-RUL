@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "fc": "FC2",
+  "checks": [
+    {
+      "name": "hourly-aggregation-is-causal",
+      "passed": true,
+      "detail": "Every source sample in an hourly aggregate occurs no later than its interval end/origin timestamp."
+    },
+    {
+      "name": "no-target-derived-input-features",
+      "passed": true,
+      "detail": "No input feature name indicates SOH, delta-U, future target, label, or target-derived construction. Found: []"
+    },
+    {
+      "name": "current-utot-is-allowed-history",
+      "passed": true,
+      "detail": "Utot_mean at the prediction origin is intentionally retained as an observed historical measurement."
+    },
+    {
+      "name": "windows-do-not-cross-split-boundaries",
+      "passed": true,
+      "detail": "train: rows [0, 510), windows=492; validation: rows [510, 612), windows=84; test: rows [612, 1021), windows=391"
+    },
+    {
+      "name": "input-timestamps-precede-each-prediction-target",
+      "passed": true,
+      "detail": "The latest observed feature time is strictly earlier than the first target time in every window."
+    },
+    {
+      "name": "hourly-timestamps-are-contiguous",
+      "passed": true,
+      "detail": "Each input has 15 consecutive observed hourly timestamps and each label has 4 consecutive future hourly timestamps."
+    },
+    {
+      "name": "scalers-fit-on-train-windows-only",
+      "passed": true,
+      "detail": "Feature and target StandardScaler means exactly equal the flattened training-window means."
+    },
+    {
+      "name": "no-noncausal-preprocessing-code",
+      "passed": true,
+      "detail": "Searched clean_mimo Python sources for SG, bfill, and legacy target-derived patterns. Found: []"
+    }
+  ]
+}

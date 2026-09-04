@@ -1,0 +1,8 @@
+{
+  "resampling_unit": "matched prediction origins, sampled in chronological moving blocks within each fold",
+  "block_length_hours": 24,
+  "replicates": 2000,
+  "seed": 42,
+  "metric": "Delta_RMSE = RMSE(first_N) - RMSE(second_N); negative favors first_N",
+  "scope": "fixed validation predictions only; no retraining and no final-test rows"
+}

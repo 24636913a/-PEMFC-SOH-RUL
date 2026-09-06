@@ -1,0 +1,19 @@
+{
+  "empirical_duty_cycle_period_h": 9.5,
+  "sampling_recommendation": "0.5 h",
+  "lookback_primary_h": 24,
+  "lookback_sensitivity_h": [
+    12,
+    48
+  ],
+  "horizon_primary_h": 12,
+  "horizon_sensitivity_h": [
+    4,
+    8,
+    24
+  ],
+  "basis": "24 h covers about 2.53 empirical OpHrs2 duty cycles; 12 h horizon covers about 1.26 cycles; all choices remain first-round candidates",
+  "acf_scope": "train_only",
+  "sampling_scope": "train+validation_only",
+  "test_used_for_selection": false
+}

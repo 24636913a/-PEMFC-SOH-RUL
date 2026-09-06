@@ -1,0 +1,105 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "check": "required-columns",
+      "passed": true,
+      "detail": "missing=[]"
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "check": "finite-bin-coordinates",
+      "passed": true,
+      "detail": "All bin coordinates must be finite."
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "check": "unique-bin-start",
+      "passed": true,
+      "detail": "No duplicate bin_start_ophrs2_h values."
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "check": "strictly-increasing-bin-start",
+      "passed": true,
+      "detail": "Rows are strictly ordered by OpHrs2."
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "check": "correct-bin-width",
+      "passed": true,
+      "detail": "Every bin width must equal 0.5 h."
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "check": "resolution-column-consistent",
+      "passed": true,
+      "detail": "Resolution metadata matches file task."
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "check": "known-split-labels",
+      "passed": true,
+      "detail": "unknown=[]"
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "check": "coverage-nonnegative",
+      "passed": true,
+      "detail": "Coverage cannot be negative."
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv",
+      "check": "required-columns",
+      "passed": true,
+      "detail": "missing=[]"
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv",
+      "check": "finite-bin-coordinates",
+      "passed": true,
+      "detail": "All bin coordinates must be finite."
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv",
+      "check": "unique-bin-start",
+      "passed": true,
+      "detail": "No duplicate bin_start_ophrs2_h values."
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv",
+      "check": "strictly-increasing-bin-start",
+      "passed": true,
+      "detail": "Rows are strictly ordered by OpHrs2."
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv",
+      "check": "correct-bin-width",
+      "passed": true,
+      "detail": "Every bin width must equal 1.0 h."
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv",
+      "check": "resolution-column-consistent",
+      "passed": true,
+      "detail": "Resolution metadata matches file task."
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv",
+      "check": "known-split-labels",
+      "passed": true,
+      "detail": "unknown=[]"
+    },
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv",
+      "check": "coverage-nonnegative",
+      "passed": true,
+      "detail": "Coverage cannot be negative."
+    }
+  ],
+  "causal_failure_examples": [],
+  "selection_policy": "Train+Validation for task design; Test counts only",
+  "coverage_threshold": 0.8,
+  "rows_in_summary": 90
+}

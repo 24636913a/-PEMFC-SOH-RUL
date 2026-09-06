@@ -1,0 +1,32 @@
+﻿check,passed,evidence
+source_csv_count,True,expected=36
+loadcycle_file_count,True,observed=17
+publication_pdf_count,True,expected=1
+source_hashes_complete,True,hashed_files=37
+required_core_outputs_exist,True,missing=
+active_cell_mask_exact,True,observed=U1 [V]|U10 [V]|U11 [V]|U2 [V]|U3 [V]|U4 [V]|U5 [V]|U7 [V]|U8 [V]|U9 [V]
+u6_nonphysical_confirmed,True,negative_ratio=0.9999414135872774;loaded_median_V=-0.009095000103116
+causal_features_30min.csv_shape,True,"observed=(3843, 214);expected=(3843, 214)"
+causal_features_30min.csv_keys,True,unique_and_strictly_ordered
+causal_features_30min.csv_resolution,True,expected=0.5
+causal_features_30min.csv_required_features,True,missing=
+causal_features_30min.csv_no_dense_soh,True,no SOH label columns permitted
+causal_features_1h.csv_shape,True,"observed=(1927, 214);expected=(1927, 214)"
+causal_features_1h.csv_keys,True,unique_and_strictly_ordered
+causal_features_1h.csv_resolution,True,expected=1.0
+causal_features_1h.csv_required_features,True,missing=
+causal_features_1h.csv_no_dense_soh,True,no SOH label columns permitted
+frozen_split_boundaries,True,60/20/20 OpHrs2 blocked split
+test_polarization_excluded_from_selection,True,test_rows=15;eligible=0
+primary_jstar_frozen,True,jstar=1.0;scope=train+validation_only
+soh_candidate_algebra,True,Candidate A equals Candidate B
+sparse_soh_only,True,anchor_rows=11
+sampling_selection_scope,True,Test metrics excluded
+sampling_decision_primary_30min,True,1 h retained for sensitivity
+window_audit_passed,True,"{""passed"": true, ""checks"": [{""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv"", ""check"": ""required-columns"", ""passed"": true, ""detail"": ""missing=[]""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv"", ""check"": ""finite-bin-coordinates"", ""passed"": true, ""detail"": ""All bin coordinates must be finite.""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv"", ""check"": ""unique-bin-start"", ""passed"": true, ""detail"": ""No duplicate bin_start_ophrs2_h values.""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv"", ""check"": ""strictly-increasing-bin-start"", ""passed"": true, ""detail"": ""Rows are strictly ordered by OpHrs2.""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv"", ""check"": ""correct-bin-width"", ""passed"": true, ""detail"": ""Every bin width must equal 0.5 h.""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv"", ""check"": ""resolution-column-consistent"", ""passed"": true, ""detail"": ""Resolution metadata matches file task.""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv"", ""check"": ""known-split-labels"", ""passed"": true, ""detail"": ""unknown=[]""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv"", ""check"": ""coverage-nonnegative"", ""passed"": true, ""detail"": ""Coverage cannot be negative.""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv"", ""check"": ""required-columns"", ""passed"": true, ""detail"": ""missing=[]""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv"", ""check"": ""finite-bin-coordinates"", ""passed"": true, ""detail"": ""All bin coordinates must be finite.""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv"", ""check"": ""unique-bin-start"", ""passed"": true, ""detail"": ""No duplicate bin_start_ophrs2_h values.""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv"", ""check"": ""strictly-increasing-bin-start"", ""passed"": true, ""detail"": ""Rows are strictly ordered by OpHrs2.""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv"", ""check"": ""correct-bin-width"", ""passed"": true, ""detail"": ""Every bin width must equal 1.0 h.""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv"", ""check"": ""resolution-column-consistent"", ""passed"": true, ""detail"": ""Resolution metadata matches file task.""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv"", ""check"": ""known-split-labels"", ""passed"": true, ""detail"": ""unknown=[]""}, {""source"": ""E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_1h.csv"", ""check"": ""coverage-nonnegative"", ""passed"": true, ""detail"": ""Coverage cannot be negative.""}], ""causal_failure_examples"": [], ""selection_policy"": ""Train+Validation for task design; Test counts only"", ""coverage_threshold"": 0.8, ""rows_in_summary"": 90}"
+window_audit_no_causal_failures,True,sum=0
+test_windows_count_only,True,no Test target performance inspected
+required_figures_exist,True,missing_or_small=
+phase_scripts_compile,True,
+no_model_or_forbidden_preprocessing_tokens,True,
+strict_rul_ground_truth_disabled,True,No verified EOL/failure threshold

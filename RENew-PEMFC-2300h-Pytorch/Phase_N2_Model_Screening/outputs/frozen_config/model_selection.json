@@ -19,8 +19,8 @@
   "screening_positive_skill_fold_count": 3,
   "multi_seed_mean_skill_best": 0.6917379924845936,
   "learned_model_go": true,
-  "modern_bootstrap": {
-    "category": "top_modern_model",
+  "final_learned_model_bootstrap": {
+    "category": "final_learned_model_bootstrap",
     "comparison": "LSTM_vs_Ridge",
     "candidate": "LSTM",
     "reference": "Ridge",

@@ -1,0 +1,158 @@
+{
+  "LSTM|42|fold_1": {
+    "source": "Phase_N2_Model_Screening",
+    "run_id": "feature_F2_LSTM_fold_1_seed42"
+  },
+  "LSTM|42|fold_2": {
+    "source": "Phase_N2_Model_Screening",
+    "run_id": "feature_F2_LSTM_fold_2_seed42"
+  },
+  "LSTM|42|fold_3": {
+    "source": "Phase_N2_Model_Screening",
+    "run_id": "feature_F2_LSTM_fold_3_seed42"
+  },
+  "LSTM|2024|fold_1": {
+    "source": "Phase_N2_Model_Screening",
+    "run_id": "multiseed_LSTM_F2_L24p0h_H12p0h_R0p5h_fold_1_seed2024"
+  },
+  "LSTM|2024|fold_2": {
+    "source": "Phase_N2_Model_Screening",
+    "run_id": "multiseed_LSTM_F2_L24p0h_H12p0h_R0p5h_fold_2_seed2024"
+  },
+  "LSTM|2024|fold_3": {
+    "source": "Phase_N2_Model_Screening",
+    "run_id": "multiseed_LSTM_F2_L24p0h_H12p0h_R0p5h_fold_3_seed2024"
+  },
+  "LSTM|3407|fold_1": {
+    "source": "Phase_N2_Model_Screening",
+    "run_id": "multiseed_LSTM_F2_L24p0h_H12p0h_R0p5h_fold_1_seed3407"
+  },
+  "LSTM|3407|fold_2": {
+    "source": "Phase_N2_Model_Screening",
+    "run_id": "multiseed_LSTM_F2_L24p0h_H12p0h_R0p5h_fold_2_seed3407"
+  },
+  "LSTM|3407|fold_3": {
+    "source": "Phase_N2_Model_Screening",
+    "run_id": "multiseed_LSTM_F2_L24p0h_H12p0h_R0p5h_fold_3_seed3407"
+  },
+  "xLSTM|42|fold_1": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "screening_sLSTM_fold_1_seed42"
+  },
+  "xLSTM|42|fold_2": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "screening_sLSTM_fold_2_seed42"
+  },
+  "xLSTM|42|fold_3": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "screening_sLSTM_fold_3_seed42"
+  },
+  "xLSTM|2024|fold_1": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "multiseed_sLSTM_fold_1_seed2024"
+  },
+  "xLSTM|2024|fold_2": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "multiseed_sLSTM_fold_2_seed2024"
+  },
+  "xLSTM|2024|fold_3": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "multiseed_sLSTM_fold_3_seed2024"
+  },
+  "xLSTM|3407|fold_1": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "multiseed_sLSTM_fold_1_seed3407"
+  },
+  "xLSTM|3407|fold_2": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "multiseed_sLSTM_fold_2_seed3407"
+  },
+  "xLSTM|3407|fold_3": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "multiseed_sLSTM_fold_3_seed3407"
+  },
+  "CA-LSTM|42|fold_1": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_LSTM_P19_fold_1_seed42"
+  },
+  "CA-LSTM|42|fold_2": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_LSTM_P19_fold_2_seed42"
+  },
+  "CA-LSTM|42|fold_3": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_LSTM_P19_fold_3_seed42"
+  },
+  "CA-LSTM|2024|fold_1": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_LSTM_P19_fold_1_seed2024"
+  },
+  "CA-LSTM|2024|fold_2": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_LSTM_P19_fold_2_seed2024"
+  },
+  "CA-LSTM|2024|fold_3": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_LSTM_P19_fold_3_seed2024"
+  },
+  "CA-LSTM|3407|fold_1": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_LSTM_P19_fold_1_seed3407"
+  },
+  "CA-LSTM|3407|fold_2": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_LSTM_P19_fold_2_seed3407"
+  },
+  "CA-LSTM|3407|fold_3": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_LSTM_P19_fold_3_seed3407"
+  },
+  "CA-xLSTM|42|fold_1": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_sLSTM_P19_fold_1_seed42"
+  },
+  "CA-xLSTM|42|fold_2": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_sLSTM_P19_fold_2_seed42"
+  },
+  "CA-xLSTM|42|fold_3": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_sLSTM_P19_fold_3_seed42"
+  },
+  "CA-xLSTM|2024|fold_1": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_sLSTM_P19_fold_1_seed2024"
+  },
+  "CA-xLSTM|2024|fold_2": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_sLSTM_P19_fold_2_seed2024"
+  },
+  "CA-xLSTM|2024|fold_3": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_sLSTM_P19_fold_3_seed2024"
+  },
+  "CA-xLSTM|3407|fold_1": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_sLSTM_P19_fold_1_seed3407"
+  },
+  "CA-xLSTM|3407|fold_2": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_sLSTM_P19_fold_2_seed3407"
+  },
+  "CA-xLSTM|3407|fold_3": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "ablation_CA_sLSTM_P19_fold_3_seed3407"
+  },
+  "CA-xLSTM-P15|42|fold_1": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "wrong_period_CA_sLSTM_P15_fold_1_seed42"
+  },
+  "CA-xLSTM-P15|42|fold_2": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "wrong_period_CA_sLSTM_P15_fold_2_seed42"
+  },
+  "CA-xLSTM-P15|42|fold_3": {
+    "source": "Phase_N2_5_Cycle_Aware_xLSTM",
+    "run_id": "wrong_period_CA_sLSTM_P15_fold_3_seed42"
+  }
+}

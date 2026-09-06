@@ -228,7 +228,7 @@ def main() -> int:
     )
 
     bootstrap = pd.read_csv(ROOT / "outputs/statistical_tests/bootstrap_pairwise_comparison.csv")
-    modern_boot = bootstrap[bootstrap["category"] == "top_modern_model"]
+    modern_boot = bootstrap[bootstrap["category"] == "final_learned_model_bootstrap"]
     require(
         "bootstrap_protocol",
         (bootstrap["bootstrap_repetitions"] == 2000).all()
@@ -373,4 +373,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

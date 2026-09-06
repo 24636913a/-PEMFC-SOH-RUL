@@ -1,0 +1,67 @@
+phase: Phase N2.5 — Cycle-Aware Modern Recurrent Architecture Development and Final
+  Model Freezing
+status: PASS
+architecture_innovation_status: NO-GO
+test_performance_accessed: false
+sampling_resolution: 0.5
+feature_group: F2
+exact_feature_names:
+- cell_voltage_mean
+- cell_voltage_std
+- cell_voltage_range
+- cell_voltage_min
+- cell_voltage_max
+- actual_current_A_mean
+- actual_current_A_std
+- actual_current_A_peak_to_peak
+- actual_current_density_A_cm2_mean
+- actual_current_density_A_cm2_std
+- actual_current_density_A_cm2_peak_to_peak
+- load_transition_count
+- operation_point_transitions
+- zero_current_fraction
+target: direct multi-horizon residual voltage forecasting
+target_formula: delta_V(t+h) = V(t+h) - V(t)
+reconstruction_formula: V_hat(t+h) = V(t) + delta_V_hat(t+h)
+lookback_hours: 24
+lookback_steps: 48
+horizon_hours: 12
+horizon_steps: 24
+empirical_period_steps: 19
+cycle_memory_lags: []
+model: LSTM
+backbone_type: LSTM
+hidden_dimension: 64
+number_of_layers: 2
+dropout: 0.1
+cycle_attention_structure: null
+fusion_structure: null
+parameter_count: 55448
+optimizer: AdamW
+learning_rate: 0.001
+weight_decay: 1.0e-05
+batch_size: 64
+max_epochs: 300
+early_stopping_patience: 30
+loss: MSE
+random_seeds:
+- 42
+- 2024
+- 3407
+train_boundary:
+- 72.78869
+- 1383.195476
+validation_boundary:
+- 1383.195476
+- 1819.997738
+test_boundary:
+- 1819.997738
+- 2256.8
+scaler_policy:
+  missing_values: feature-wise median fitted on Fold 3 Train only
+  input_scaler: feature-wise StandardScaler fitted on Fold 3 Train only
+  target_scaler: per-horizon mean/std fitted on Fold 3 Train delta targets only
+final_training_protocol: 'Fold 3 structure: Train 0-60%, Validation 60-80%, Test 80-100%;
+  three seeds reported without seed selection'
+ensemble: false
+selected_xlstm_variant_for_ablation: sLSTM

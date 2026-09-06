@@ -1,0 +1,21 @@
+{
+  "phase_status": "PASS",
+  "architecture_innovation_status": "NO-GO",
+  "selected_xlstm_variant": "sLSTM",
+  "final_frozen_model": "LSTM",
+  "xlstm_improvement_fraction_vs_lstm": -1.1254537812141587,
+  "ca_lstm_improvement_fraction_vs_lstm": -0.10727882602745567,
+  "ca_xlstm_improvement_fraction_vs_xlstm": -0.010033708837098941,
+  "ca_xlstm_improvement_fraction_vs_lstm": -1.1467799656015725,
+  "p19_improvement_fraction_vs_p15": 0.0402876769112625,
+  "ca_lstm_improved_fold_count": 1,
+  "ca_xlstm_improved_fold_count": 0,
+  "ca_lstm_improved_seed_count": 1,
+  "ca_xlstm_improved_seed_count": 0,
+  "ca_lstm_go": false,
+  "ca_xlstm_go": false,
+  "true_period_better_than_wrong_period": true,
+  "phase_n3_go": true,
+  "target_rows_read_from_test": 0,
+  "test_predictions_constructed": false
+}

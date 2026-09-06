@@ -193,7 +193,7 @@ def main() -> None:
         pc=learned[final_model][fold]["arrays"]["y_pred"]
         pr=references[fold]["predictions"][strongest_baseline]
         pairs[fold]=(yt,pc,pr)
-    modern_boot=moving_block_bootstrap(pairs,cfg,f"{final_model}_vs_{strongest_baseline}","top_modern_model",final_model,strongest_baseline)
+    modern_boot=moving_block_bootstrap(pairs,cfg,f"{final_model}_vs_{strongest_baseline}","final_learned_model_bootstrap",final_model,strongest_baseline)
     boot_path=PHASE_ROOT/"outputs"/"statistical_tests"/"bootstrap_pairwise_comparison.csv"
     boot=pd.read_csv(boot_path) if boot_path.is_file() else pd.DataFrame()
     boot=pd.concat([boot,pd.DataFrame([modern_boot])],ignore_index=True,sort=False)
@@ -230,7 +230,7 @@ def main() -> None:
     arr=learned[final_model]["fold_3"]["arrays"]; origin_rmse=np.sqrt(np.mean((arr["y_pred"]-arr["y_true"])**2,axis=1)); i=int(np.argsort(origin_rmse)[len(origin_rmse)//2]); hours=np.arange(1,arr["y_true"].shape[1]+1)*resolution
     plt.figure(figsize=(9,5)); plt.plot(hours,arr["y_true"][i],label="Actual",lw=2); plt.plot(hours,arr["y_pred"][i],label=final_model,lw=2); plt.axhline(arr["anchor"][i],color="gray",ls="--",label="Origin voltage"); plt.xlabel("Forecast horizon (h)"); plt.ylabel("10-cell mean voltage (V)"); plt.title("Representative Fold 3 Validation trajectory"); plt.legend(); plt.grid(alpha=.25); plt.tight_layout(); plt.savefig(figdir/"representative_validation_trajectory.png",dpi=180); plt.close()
 
-    selection={"status":"PASS" if learned_go else "FAIL","test_predictions_constructed":False,"selected_feature_group":group,"selected_lookback_hours":lookback_h,"primary_horizon_hours":primary_h,"top2_modern_models":top2,"multi_seed_models":stable_models,"strongest_simple_baseline":strongest_baseline,"final_candidate_model":final_model,"screening_mean_skill_best":float(screening_mean.loc[final_model,"skill_best"]),"screening_positive_skill_fold_count":int(screening_mean.loc[final_model,"positive_skill_fold_count"]),"multi_seed_mean_skill_best":float(final_multi.skill_best),"learned_model_go":learned_go,"modern_bootstrap":modern_boot}
+    selection={"status":"PASS" if learned_go else "FAIL","test_predictions_constructed":False,"selected_feature_group":group,"selected_lookback_hours":lookback_h,"primary_horizon_hours":primary_h,"top2_modern_models":top2,"multi_seed_models":stable_models,"strongest_simple_baseline":strongest_baseline,"final_candidate_model":final_model,"screening_mean_skill_best":float(screening_mean.loc[final_model,"skill_best"]),"screening_positive_skill_fold_count":int(screening_mean.loc[final_model,"positive_skill_fold_count"]),"multi_seed_mean_skill_best":float(final_multi.skill_best),"learned_model_go":learned_go,"final_learned_model_bootstrap":modern_boot}
     write_json(selection,out/"frozen_config"/"model_selection.json")
     print(json.dumps(selection,ensure_ascii=False),flush=True)
 

@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "selected_xlstm_backbone": "sLSTM",
+  "core_models": [
+    "LSTM",
+    "xLSTM",
+    "CA-LSTM",
+    "CA-xLSTM"
+  ],
+  "wrong_period_control": "CA-xLSTM-P15",
+  "core_seeds": [
+    42,
+    2024,
+    3407
+  ],
+  "wrong_period_seeds": [
+    42
+  ],
+  "target_rows_read_from_test": 0,
+  "test_predictions_constructed": false
+}

@@ -1,0 +1,22 @@
+﻿category,name,passed,detail
+artifacts,required outputs exist,True,"required=15, missing=[]"
+spreadsheet,artifact-tool CSV import and inspection,True,"status=PASS, files=9/9"
+protocol,Phase N2 LSTM reproduction within 2%,True,"rows=4, max_relative_difference=0.00000000"
+protocol,matched origins and Test firewall records,True,"target_rows=0, max_development_target=1819.5"
+protocol,all indexed predictions remain before Test,True,"indexed_runs=39, local_manifests=39, max_target_end=1819.500000 h, unsafe_names=[]"
+screening,xLSTM screening protocol,True,fold_rows=12/12; global minimum=LSTM; best xLSTM=sLSTM; xLSTM params within 50k-150k=True
+screening,selected xLSTM and reproduction gate,True,"{""status"": ""PASS"", ""reproduction_check_pass"": true, ""reproduction_mean_difference_fraction"": 0.0, ""selected_xlstm_variant"": ""sLSTM"", ""selected_by"": ""lowest seed-42 three-fold mean RMSE; no architecture search"", ""lstm_mean_rmse_mV"": 9.005857842572587, ""selected_xlstm_mean_rmse_mV"": 17.68943493509712, ""improvement_fraction_vs_lstm"": -0.9642143196481997, ""improved_fold_count"": 0, ""condition_a_pass"": false, ""cycle_aware_experiment_authorized_independently"": true, ""target_rows_read_from_test"": 0, ""test_predictions_constructed"": false}"
+ablation,core A0-A3 exact 3-seed x 3-fold grid,True,"observed=36, expected=36; finite_metrics=True"
+ablation,pre-registered wrong-period P15 control,True,"P19 rows=3, P15 rows=3, common seed=42"
+statistics,moving-block bootstrap specification,True,"comparisons=5, repetitions={2000}, block={19}"
+cycle,8.5-10.5 h neighborhood metrics,True,"horizons=[8.5, 9.0, 9.5, 10.0, 10.5], models=['CA-LSTM', 'CA-xLSTM', 'CA-xLSTM-P15', 'CycleRepeat', 'LSTM', 'Persistence', 'Ridge', 'xLSTM']"
+cycle,attention summary simplex,True,"groups=8, max_sum_error=1.161e-09"
+cycle,attention arrays simplex,True,"runs=21, max_row_sum_error=1.192e-07"
+cycle,ageing-stage comparison,True,"mean rows=9, stages=['Early Development', 'Late Development', 'Middle Development']"
+efficiency,model efficiency and parameter limits,True,"models=['CA-LSTM', 'CA-xLSTM', 'CA-xLSTM-P15', 'LSTM', 'xLSTM'], parameter_range=[55448, 79961]"
+freeze,final architecture selection,True,"{""phase_status"": ""PASS"", ""architecture_innovation_status"": ""NO-GO"", ""selected_xlstm_variant"": ""sLSTM"", ""final_frozen_model"": ""LSTM"", ""xlstm_improvement_fraction_vs_lstm"": -1.1254537812141587, ""ca_lstm_improvement_fraction_vs_lstm"": -0.10727882602745567, ""ca_xlstm_improvement_fraction_vs_xlstm"": -0.010033708837098941, ""ca_xlstm_improvement_fraction_vs_lstm"": -1.1467799656015725, ""p19_improvement_fraction_vs_p15"": 0.0402876769112625, ""ca_lstm_improved_fold_count"": 1, ""ca_xlstm_improved_fold_count"": 0, ""ca_lstm_improved_seed_count"": 1, ""ca_xlstm_improved_seed_count"": 0, ""ca_lstm_go"": false, ""ca_xlstm_go"": false, ""true_period_better_than_wrong_period"": true, ""phase_n3_go"": true, ""target_rows_read_from_test"": 0, ""test_predictions_constructed"": false}"
+freeze,frozen Phase N2.5 configuration,True,"model=LSTM, features=14, seeds=[42, 2024, 3407]"
+report,Chinese report answers Q1-Q12,True,Q1-Q12=True; required conclusions=True
+figures,figure files and visual QA,True,12 decoded figures; visual QA PASS; xlstm_variant_rmse.png:1620x900
+reproducibility,all Python scripts compile,True,compiled Python scripts=6
+reproducibility,artifact inventory and input hashes,True,"inventoried_files=200, frozen_inputs=4"

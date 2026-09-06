@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "hash_algorithm": "SHA-256",
+  "phase_n2_5_inventory_file_count": 200,
+  "input_files": {
+    "phase_n1_causal_features_30min": {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "bytes": 10927982,
+      "sha256": "fbee6b28682766081c9cda08059e2eaabcd6bb25365ce0bc5eb7c5714fda0f38"
+    },
+    "phase_n2_frozen_config": {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N2_Model_Screening\\outputs\\frozen_config\\PHASE_N2_FROZEN_CONFIG.yaml",
+      "bytes": 2664,
+      "sha256": "61d725cfefe1ee5cf5e139130d66d2606af0251b3bc924e58490e512cb187a88"
+    },
+    "phase_n2_model_selection": {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N2_Model_Screening\\outputs\\frozen_config\\model_selection.json",
+      "bytes": 1121,
+      "sha256": "394c5d619148118449f5f6bc1b5e54f7650b7de6e306a79483977475a1bb4b66"
+    },
+    "phase_n2_bootstrap_pairwise": {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N2_Model_Screening\\outputs\\statistical_tests\\bootstrap_pairwise_comparison.csv",
+      "bytes": 1714,
+      "sha256": "eb7017ef8baee4e58ccf1393cc23024419518423dd06a3a5e6ada3442f387b13"
+    }
+  }
+}

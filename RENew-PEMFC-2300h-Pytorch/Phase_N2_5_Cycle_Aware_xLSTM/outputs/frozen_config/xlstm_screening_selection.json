@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "reproduction_check_pass": true,
+  "reproduction_mean_difference_fraction": 0.0,
+  "selected_xlstm_variant": "sLSTM",
+  "selected_by": "lowest seed-42 three-fold mean RMSE; no architecture search",
+  "lstm_mean_rmse_mV": 9.005857842572587,
+  "selected_xlstm_mean_rmse_mV": 17.68943493509712,
+  "improvement_fraction_vs_lstm": -0.9642143196481997,
+  "improved_fold_count": 0,
+  "condition_a_pass": false,
+  "cycle_aware_experiment_authorized_independently": true,
+  "target_rows_read_from_test": 0,
+  "test_predictions_constructed": false
+}

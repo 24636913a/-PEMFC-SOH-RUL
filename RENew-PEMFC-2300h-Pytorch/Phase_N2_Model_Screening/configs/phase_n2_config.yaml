@@ -1,0 +1,131 @@
+phase_name: "Phase N2 — Strong Baselines, Temporal-Diagnostic Analysis and Modern Time-Series Model Screening"
+project_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch"
+phase_n1_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation"
+phase_n2_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_Model_Screening"
+
+data:
+  primary_csv: "Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv"
+  robustness_csv: "Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_1h.csv"
+  ageing_column: "bin_center_ophrs2_h"
+  bin_start_column: "bin_start_ophrs2_h"
+  bin_end_column: "bin_end_ophrs2_h"
+  datetime_column: "last_datetime"
+  target_column: "cell_voltage_mean"
+  valid_column: "bin_valid_for_windows"
+  segment_column: "temporal_segment_id"
+
+split:
+  min_h: 72.788690
+  fold_1_train_end_h: 946.393214
+  fold_1_validation_end_h: 1164.794345
+  fold_2_train_end_h: 1164.794345
+  fold_2_validation_end_h: 1383.195476
+  fold_3_train_end_h: 1383.195476
+  development_end_h: 1819.997738
+  test_end_h: 2256.800000
+  test_policy: "schema/count/structure only; never construct Test prediction targets"
+
+task:
+  primary_resolution_hours: 0.5
+  robustness_resolution_hours: 1.0
+  default_lookback_hours: 24
+  lookback_candidates_hours: [12, 24, 48]
+  primary_horizon_hours: 12
+  horizon_candidates_hours: [4, 8, 9.5, 12, 24]
+  cycle_period_hours: 9.5
+  cycle_period_steps_30min: 19
+  target: "delta_cell_voltage_from_origin"
+  reconstruction: "origin_voltage_plus_predicted_delta"
+  future_covariates: "forbidden"
+
+active_cells: [U1, U2, U3, U4, U5, U7, U8, U9, U10, U11]
+jstar_primary_A_cm2: 1.0
+jstar_secondary_A_cm2: 1.6
+
+feature_groups:
+  F1:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+  F2:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+  F3:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+    - actual_anode_inlet_temperature_C_mean
+    - actual_cathode_inlet_temperature_C_mean
+    - actual_coolant_inlet_temperature_C_mean
+    - actual_coolant_outlet_temperature_C_mean
+    - actual_anode_inlet_pressure_kPag_mean
+    - actual_cathode_inlet_pressure_kPag_mean
+    - actual_anode_inlet_rh_pct_mean
+    - actual_cathode_inlet_rh_pct_mean
+    - actual_anode_hydrogen_flow_nl_min_mean
+    - actual_cathode_air_flow_nl_min_mean
+    - actual_coolant_flow_l_min_mean
+    - actual_anode_stoichiometry_mean
+    - actual_cathode_stoichiometry_mean
+
+baselines:
+  ridge_alphas: [0.01, 0.1, 1.0, 10.0]
+  state_space_optional: false
+
+training:
+  screening_seed: 42
+  robustness_seeds: [42, 2024, 3407]
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 64
+  max_epochs: 300
+  early_stopping_patience: 30
+  min_delta: 0.00000001
+  loss: MSE
+  gradient_clip_norm: 1.0
+  num_workers: 0
+
+architectures:
+  LSTM: {hidden_dim: 64, num_layers: 2, dropout: 0.1}
+  TCN: {hidden_dim: 48, num_layers: 3, kernel_size: 3, dropout: 0.1}
+  iTransformer: {d_model: 64, num_layers: 2, nhead: 4, dropout: 0.1}
+  TimeMixer: {hidden_dim: 64, num_layers: 2, scales: [1, 2, 4], dropout: 0.1}
+  PatchTST: {d_model: 64, num_layers: 2, nhead: 4, patch_len: 8, stride: 4, dropout: 0.1}
+
+bootstrap:
+  repetitions: 2000
+  block_length_steps: 19
+  seed: 20260906
+
+selection:
+  material_improvement_fraction: 0.02
+  maximum_single_fold_degradation_fraction: 0.03
+  minimum_improved_folds: 2
+  near_tie_fraction: 0.01
+

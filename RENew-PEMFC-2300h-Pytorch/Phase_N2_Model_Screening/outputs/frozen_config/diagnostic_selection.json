@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "test_predictions_constructed": false,
+  "selected_feature_group": "F2",
+  "feature_status": "resolved",
+  "feature_rules": {
+    "Ridge": {
+      "F2_vs_F1": {
+        "mean_improvement_fraction": 0.29900606710913447,
+        "improved_fold_count": 3,
+        "maximum_fold_degradation_fraction": -0.24148801875093293,
+        "rule_pass": true
+      },
+      "F3_vs_F2": {
+        "mean_improvement_fraction": 0.019468961865156897,
+        "improved_fold_count": 2,
+        "maximum_fold_degradation_fraction": 0.06487230813824041,
+        "rule_pass": false
+      }
+    },
+    "LSTM": {
+      "F2_vs_F1": {
+        "mean_improvement_fraction": 0.2800086428439176,
+        "improved_fold_count": 3,
+        "maximum_fold_degradation_fraction": -0.23197387150915835,
+        "rule_pass": true
+      },
+      "F3_vs_F2": {
+        "mean_improvement_fraction": 0.033065354398517544,
+        "improved_fold_count": 1,
+        "maximum_fold_degradation_fraction": 0.6658285373221465,
+        "rule_pass": false
+      }
+    }
+  },
+  "selected_lookback_hours": 24,
+  "lookback_rules": {
+    "Ridge": {
+      "12_vs_24": {
+        "mean_improvement_fraction": -0.01163342216844332,
+        "improved_fold_count": 1,
+        "maximum_fold_degradation_fraction": 0.23727811958977232,
+        "rule_pass": false
+      },
+      "48_vs_24": {
+        "mean_improvement_fraction": -0.03862686632023449,
+        "improved_fold_count": 1,
+        "maximum_fold_degradation_fraction": 0.19384003420561727,
+        "rule_pass": false
+      }
+    },
+    "LSTM": {
+      "12_vs_24": {
+        "mean_improvement_fraction": -0.06109580940352011,
+        "improved_fold_count": 1,
+        "maximum_fold_degradation_fraction": 0.13890113822219796,
+        "rule_pass": false
+      },
+      "48_vs_24": {
+        "mean_improvement_fraction": 0.004384549926127912,
+        "improved_fold_count": 2,
+        "maximum_fold_degradation_fraction": 0.013320973760313956,
+        "rule_pass": false
+      }
+    }
+  },
+  "matched_origin_audit_pass": true
+}

@@ -1,0 +1,91 @@
+phase: "Phase N2 — Strong Baselines, Temporal-Diagnostic Analysis and Modern Time-Series Model Screening"
+status: PASS
+selection_scope: "development expanding-window folds only"
+test_performance_accessed: false
+
+sampling_resolution_hours: 0.5
+target: "direct multi-horizon residual voltage forecasting"
+target_formula: "delta_V(t+h) = V(t+h) - V(t)"
+reconstruction_formula: "V_hat(t+h) = V(t) + delta_V_hat(t+h)"
+voltage_column: cell_voltage_mean
+
+feature_group: F2
+exact_feature_names:
+  - cell_voltage_mean
+  - cell_voltage_std
+  - cell_voltage_range
+  - cell_voltage_min
+  - cell_voltage_max
+  - actual_current_A_mean
+  - actual_current_A_std
+  - actual_current_A_peak_to_peak
+  - actual_current_density_A_cm2_mean
+  - actual_current_density_A_cm2_std
+  - actual_current_density_A_cm2_peak_to_peak
+  - load_transition_count
+  - operation_point_transitions
+  - zero_current_fraction
+
+lookback_hours: 24
+lookback_steps: 48
+primary_horizon_hours: 12
+horizon_steps: 24
+diagnostic_horizons_hours: [4, 8, 9.5, 12, 24]
+empirical_cycle_hours: 9.5
+empirical_cycle_steps: 19
+
+model: LSTM
+model_implementation: "local_auditable_phase_n2_v1"
+framework: "PyTorch 2.6.0+cu124"
+model_hyperparameters:
+  input_features: 14
+  hidden_dim: 64
+  num_layers: 2
+  dropout: 0.1
+  direct_output_steps: 24
+  trainable_parameters: 55448
+
+optimizer: AdamW
+learning_rate: 0.001
+weight_decay: 0.00001
+batch_size: 64
+max_epochs: 300
+early_stopping_patience: 30
+gradient_clip_norm: 1.0
+loss: MSE
+random_seeds: [42, 2024, 3407]
+
+scaler_policy:
+  missing_values: "feature-wise median fitted on each fold Train only"
+  input_scaler: "feature-wise StandardScaler fitted on each fold Train only"
+  target_scaler: "per-horizon mean/std fitted on each fold Train delta targets only"
+
+development_folds:
+  - fold: fold_1
+    train_ophrs2_h: [72.788690, 946.393214]
+    train_right_closed: false
+    validation_ophrs2_h: [946.393214, 1164.794345]
+    validation_right_closed: false
+  - fold: fold_2
+    train_ophrs2_h: [72.788690, 1164.794345]
+    train_right_closed: false
+    validation_ophrs2_h: [1164.794345, 1383.195476]
+    validation_right_closed: false
+  - fold: fold_3
+    train_ophrs2_h: [72.788690, 1383.195476]
+    train_right_closed: false
+    validation_ophrs2_h: [1383.195476, 1819.997738]
+    validation_right_closed: false
+
+test_boundary:
+  ophrs2_start_h: 1819.997738
+  ophrs2_end_h: 2256.800000
+  policy: "Phase N3 only; no Phase N2 predictions or target metrics"
+
+active_cells: [U1, U2, U3, U4, U5, U7, U8, U9, U10, U11]
+jstar_primary_A_cm2: 1.0
+jstar_secondary_A_cm2: 1.6
+future_covariates: "future actual conditions forbidden"
+dense_soh_interpolation: false
+rul_target: false
+

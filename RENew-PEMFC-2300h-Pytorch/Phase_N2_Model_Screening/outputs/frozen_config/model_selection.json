@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "test_predictions_constructed": false,
+  "selected_feature_group": "F2",
+  "selected_lookback_hours": 24.0,
+  "primary_horizon_hours": 12.0,
+  "top2_modern_models": [
+    "PatchTST",
+    "iTransformer"
+  ],
+  "multi_seed_models": [
+    "LSTM",
+    "PatchTST",
+    "iTransformer"
+  ],
+  "strongest_simple_baseline": "Ridge",
+  "final_candidate_model": "LSTM",
+  "screening_mean_skill_best": 0.6661243652205421,
+  "screening_positive_skill_fold_count": 3,
+  "multi_seed_mean_skill_best": 0.6917379924845936,
+  "learned_model_go": true,
+  "modern_bootstrap": {
+    "category": "top_modern_model",
+    "comparison": "LSTM_vs_Ridge",
+    "candidate": "LSTM",
+    "reference": "Ridge",
+    "delta_definition": "RMSE_candidate_minus_RMSE_reference_V",
+    "bootstrap_repetitions": 2000,
+    "block_length_steps": 19,
+    "mean_delta_rmse_V": -0.016428011199925093,
+    "median_delta_rmse_V": -0.01640402525663376,
+    "ci95_lower_V": -0.02078609112650156,
+    "ci95_upper_V": -0.012237195344641806,
+    "probability_candidate_better": 1.0
+  }
+}

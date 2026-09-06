@@ -1,0 +1,54 @@
+{
+  "phase": "2b_frozen_final_test",
+  "fc": "FC2",
+  "seed": 42,
+  "feature_set": "R3_state_load",
+  "feature_names": [
+    "Utot_mean",
+    "U1_mean",
+    "U2_mean",
+    "U3_mean",
+    "U4_mean",
+    "U5_mean",
+    "J_mean",
+    "I_mean",
+    "I_std",
+    "I_p2p"
+  ],
+  "input_mode": "absolute_inputs",
+  "history_hours": 15,
+  "horizon_hours": 4,
+  "split_rows": {
+    "train": [
+      0,
+      510
+    ],
+    "validation": [
+      510,
+      612
+    ],
+    "test": [
+      612,
+      1021
+    ]
+  },
+  "window_counts": {
+    "train": 492,
+    "validation": 84,
+    "test": 391
+  },
+  "residual_definition": "Utot(t+h) - observed Utot(t), h=1..4",
+  "input_scaler_fit": "flattened train representations only",
+  "residual_scaler_fit": "flattened train residual labels only",
+  "train_config": {
+    "hidden_size": 64,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "max_epochs": 300,
+    "early_stopping_patience": 35,
+    "device": "cuda"
+  },
+  "single_run_guard": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\FROZEN_R3_FINAL_TEST_COMPLETED.json",
+  "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase2b_final_test\\FC2\\seed_42"
+}

@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "phase": "3C-R",
+  "fc": "FC2",
+  "N": 24,
+  "fold": "fold_1",
+  "checks": [
+    {
+      "name": "predeclared-fold-boundaries",
+      "passed": true,
+      "detail": "Fold remains one of frozen 30/40, 40/50, or 50/60 development splits."
+    },
+    {
+      "name": "nmax-and-n-are-frozen",
+      "passed": true,
+      "detail": "N=15/24/48 uses Nmax=48 and H=24."
+    },
+    {
+      "name": "development-prefix-only",
+      "passed": true,
+      "detail": "No final 40% partition is constructed as a split."
+    },
+    {
+      "name": "hourly-aggregation-is-causal",
+      "passed": true,
+      "detail": "Hourly sources end no later than each hourly origin time."
+    },
+    {
+      "name": "nmax-windows-are-split-contained",
+      "passed": true,
+      "detail": "Every generated Nmax=48 history and H=24 target window remains inside its train or validation fold."
+    },
+    {
+      "name": "input-times-precede-targets",
+      "passed": true,
+      "detail": "The last retained historical input is strictly earlier than h=1 target."
+    },
+    {
+      "name": "no-final-test-row-in-windows",
+      "passed": true,
+      "detail": "No matched input or target reaches the final 40% partition."
+    },
+    {
+      "name": "n-input-is-last-n-of-same-nmax-window",
+      "passed": true,
+      "detail": "This N uses only the final N timestamps of its legal Nmax=48 source window."
+    },
+    {
+      "name": "origin-anchor-is-observed-utot",
+      "passed": true,
+      "detail": "The residual anchor is the last legal historical Utot at prediction origin."
+    },
+    {
+      "name": "residual-label-is-future-minus-origin",
+      "passed": true,
+      "detail": "Labels are Utot(t+h)-Utot(t); no label-derived variable is an input."
+    },
+    {
+      "name": "input-scaler-fits-current-fold-train-only",
+      "passed": true,
+      "detail": "Input scaler was fit only on this N/fold train windows."
+    },
+    {
+      "name": "residual-scaler-fits-current-fold-train-only",
+      "passed": true,
+      "detail": "Residual scaler was fit only on this fold train residuals."
+    },
+    {
+      "name": "phase3cr-output-is-isolated",
+      "passed": true,
+      "detail": "Output must be exclusively under outputs_phase3cr."
+    },
+    {
+      "name": "source-excludes-forbidden-methods-and-final-evaluation",
+      "passed": true,
+      "detail": "Forbidden source-token scan found: []"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "phase": "3C-R-matched-origin",
+  "fc": "FC1",
+  "fold": "fold_2",
+  "Nmax": 48,
+  "histories": [
+    15,
+    24,
+    48
+  ],
+  "checks": [
+    {
+      "name": "exact-history-grid",
+      "passed": true,
+      "detail": "Only N=15, N=24, and N=48 are present; N=72 is excluded."
+    },
+    {
+      "name": "same-stack-fold-and-development-boundaries",
+      "passed": true,
+      "detail": "All N variants have the same FC, fold boundaries, and development prefix."
+    },
+    {
+      "name": "train-and-validation-origins-identical-across-n",
+      "passed": true,
+      "detail": "Every N trains/evaluates at exactly the same prediction origins."
+    },
+    {
+      "name": "targets-and-target-timestamps-identical-across-n",
+      "passed": true,
+      "detail": "Every paired comparison uses the same observed future voltage targets."
+    },
+    {
+      "name": "anchors-and-residual-labels-identical-across-n",
+      "passed": true,
+      "detail": "Legal origin anchors and residual labels are the same across N."
+    },
+    {
+      "name": "max-history-source-window-identical-across-n",
+      "passed": true,
+      "detail": "All variants were generated from the same Nmax=48 windows."
+    },
+    {
+      "name": "n15-and-n24-are-exact-max-window-suffixes",
+      "passed": true,
+      "detail": "Shorter inputs are only suffix slices of the Nmax=48 history, never newly selected origins."
+    },
+    {
+      "name": "residual-scaler-label-population-identical-across-n",
+      "passed": true,
+      "detail": "Residual labels are identical across N, so their train-only scalers agree."
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "phase": "3C",
+  "fc": "FC1",
+  "N": 72,
+  "fold": "fold_3",
+  "checks": [
+    {
+      "name": "predeclared-fold-boundaries",
+      "passed": true,
+      "detail": "Fold matches frozen 30/40, 40/50, or 50/60 boundaries."
+    },
+    {
+      "name": "development-prefix-only",
+      "passed": true,
+      "detail": "No final-test split is created."
+    },
+    {
+      "name": "only-n-varies-at-h24",
+      "passed": true,
+      "detail": "N in (15, 24, 48, 72); H=24."
+    },
+    {
+      "name": "hourly-aggregation-is-causal",
+      "passed": true,
+      "detail": "Hourly sources do not exceed their origin timestamps."
+    },
+    {
+      "name": "windows-are-split-contained",
+      "passed": true,
+      "detail": "Every history/target window remains within its fold."
+    },
+    {
+      "name": "input-times-precede-targets",
+      "passed": true,
+      "detail": "Latest observed input precedes h=1 target."
+    },
+    {
+      "name": "no-final-test-row-in-windows",
+      "passed": true,
+      "detail": "No input or target reaches the final 40% partition."
+    },
+    {
+      "name": "origin-anchor-is-observed-utot",
+      "passed": true,
+      "detail": "Anchor is final legal Utot history value."
+    },
+    {
+      "name": "residual-label-is-future-minus-origin",
+      "passed": true,
+      "detail": "Labels equal Utot(t+h)-Utot(t)."
+    },
+    {
+      "name": "input-scaler-fits-current-fold-train-only",
+      "passed": true,
+      "detail": "Input scaler fit uses current-fold train windows only."
+    },
+    {
+      "name": "residual-scaler-fits-current-fold-train-only",
+      "passed": true,
+      "detail": "Residual scaler fit uses current-fold train labels only."
+    },
+    {
+      "name": "phase3c-output-is-isolated",
+      "passed": true,
+      "detail": "Output must be under E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase3c only."
+    },
+    {
+      "name": "source-excludes-forbidden-methods-and-test-evaluation",
+      "passed": true,
+      "detail": "Forbidden source-token scan found: []"
+    }
+  ]
+}

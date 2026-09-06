@@ -1,0 +1,45 @@
+{
+  "phase": "3D",
+  "fc": "FC2",
+  "representation": "absolute",
+  "seed": 42,
+  "history_hours": 15,
+  "horizon_hours": 24,
+  "feature_set": [
+    "Utot_mean"
+  ],
+  "target": "Utot(t+h)-observed_Utot(t), restored with legal origin anchor",
+  "origin_schedule": "Phase-3C-R Nmax=48 legal origins retained; model receives only final N=15 input rows.",
+  "input_definition": "[U(t-14),...,U(t)]",
+  "split_rows": {
+    "train": [
+      0,
+      408
+    ],
+    "validation": [
+      408,
+      510
+    ]
+  },
+  "development_row_range": [
+    0,
+    612
+  ],
+  "final_test_row_range": [
+    612,
+    1021
+  ],
+  "test_partition_accessed": false,
+  "input_scaler_fit": "flattened current-representation/current-fold train inputs only",
+  "residual_scaler_fit": "flattened current-fold train residual labels only",
+  "train_config": {
+    "hidden_size": 64,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "max_epochs": 300,
+    "early_stopping_patience": 35,
+    "device": "cuda"
+  },
+  "output_dir": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\New-PEMFC-Pytorch\\clean_mimo\\outputs_phase3d\\seed_42\\FC2\\absolute\\fold_2"
+}

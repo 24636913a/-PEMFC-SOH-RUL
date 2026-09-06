@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "phase": "3D",
+  "fc": "FC2",
+  "representation": "absolute",
+  "fold": "fold_2",
+  "checks": [
+    {
+      "name": "predeclared-fold-boundaries",
+      "passed": true,
+      "detail": "Fold remains frozen at 30/40, 40/50, or 50/60 development boundaries."
+    },
+    {
+      "name": "frozen-h24-n15",
+      "passed": true,
+      "detail": "N=15 and H=24 are unchanged."
+    },
+    {
+      "name": "nmax48-origin-schedule-retained",
+      "passed": true,
+      "detail": "Only the Phase-3C-R Nmax=48 legal origin schedule is retained; Nmax is not an input feature."
+    },
+    {
+      "name": "development-prefix-only",
+      "passed": true,
+      "detail": "No final 40% partition is constructed as a split."
+    },
+    {
+      "name": "hourly-aggregation-is-causal",
+      "passed": true,
+      "detail": "Hourly raw sources do not exceed the observation's origin time."
+    },
+    {
+      "name": "nmax-windows-are-split-contained",
+      "passed": true,
+      "detail": "Every inherited Nmax=48 history and H=24 target remains within its fold."
+    },
+    {
+      "name": "input-times-precede-targets",
+      "passed": true,
+      "detail": "The last N=15 input time precedes the h=1 target time."
+    },
+    {
+      "name": "no-final-row-in-windows",
+      "passed": true,
+      "detail": "No input or target reaches the final 40% partition."
+    },
+    {
+      "name": "n15-is-legal-nmax-window-suffix",
+      "passed": true,
+      "detail": "N=15 is exactly the final suffix of a legal Nmax=48 source window."
+    },
+    {
+      "name": "origin-anchor-is-observed-utot",
+      "passed": true,
+      "detail": "The anchor is the observed Utot at prediction origin."
+    },
+    {
+      "name": "residual-label-is-future-minus-origin",
+      "passed": true,
+      "detail": "Target is Utot(t+h)-Utot(t); no target-derived variable becomes input."
+    },
+    {
+      "name": "representation-is-origin-local",
+      "passed": true,
+      "detail": "Absolute uses raw legal history; relative subtracts only observed Utot(t) from that same history."
+    },
+    {
+      "name": "input-scaler-fits-current-representation-train-only",
+      "passed": true,
+      "detail": "Each input representation has its own scaler fit on its current-fold train inputs only."
+    },
+    {
+      "name": "residual-scaler-fits-train-only",
+      "passed": true,
+      "detail": "Residual scaler uses current-fold train residuals only."
+    },
+    {
+      "name": "phase3d-output-is-isolated",
+      "passed": true,
+      "detail": "Output must be exclusively under outputs_phase3d."
+    },
+    {
+      "name": "source-excludes-forbidden-methods-and-final-evaluation",
+      "passed": true,
+      "detail": "Forbidden source-token scan found: []"
+    }
+  ]
+}

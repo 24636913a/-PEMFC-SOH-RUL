@@ -1,0 +1,145 @@
+phase_name: "Phase N2.6 — Modern Temporal Architecture Expansion and Backbone Re-Screening"
+project_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch"
+phase_n2_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_Model_Screening"
+phase_n2_5_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_5_Cycle_Aware_xLSTM"
+phase_n2_6_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_6_Modern_Temporal_Expansion"
+phase_n2_5_frozen_config: "Phase_N2_5_Cycle_Aware_xLSTM/outputs/frozen_config/PHASE_N2_5_FROZEN_CONFIG.yaml"
+
+data:
+  primary_csv: "Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv"
+  ageing_column: bin_center_ophrs2_h
+  bin_start_column: bin_start_ophrs2_h
+  bin_end_column: bin_end_ophrs2_h
+  datetime_column: last_datetime
+  target_column: cell_voltage_mean
+  valid_column: bin_valid_for_windows
+  segment_column: temporal_segment_id
+
+split:
+  min_h: 72.788690
+  fold_1_train_end_h: 946.393214
+  fold_1_validation_end_h: 1164.794345
+  fold_2_train_end_h: 1164.794345
+  fold_2_validation_end_h: 1383.195476
+  fold_3_train_end_h: 1383.195476
+  development_end_h: 1819.997738
+  test_end_h: 2256.800000
+
+task:
+  resolution_hours: 0.5
+  lookback_hours: 24
+  lookback_steps: 48
+  horizon_hours: 12
+  horizon_steps: 24
+  empirical_period_hours: 9.5
+  empirical_period_steps: 19
+  target: delta_cell_voltage_from_origin
+
+architectures:
+  timesnet_d32_k2:
+    family: TimesNet
+    implementation: local_auditable_adaptation
+    d_model: 32
+    d_ff: 48
+    e_layers: 2
+    top_k: 2
+    num_kernels: 2
+    dropout: 0.1
+  timesnet_d48_k3:
+    family: TimesNet
+    implementation: local_auditable_adaptation
+    d_model: 48
+    d_ff: 48
+    e_layers: 2
+    top_k: 3
+    num_kernels: 2
+    dropout: 0.1
+  moderntcn_d80_k7_b2:
+    family: ModernTCN
+    implementation: local_auditable_adaptation
+    d_model: 80
+    patch_length: 4
+    stride: 2
+    num_blocks: 2
+    large_kernel: 7
+    expansion: 2
+    dropout: 0.1
+  moderntcn_d64_k13_b3:
+    family: ModernTCN
+    implementation: local_auditable_adaptation
+    d_model: 64
+    patch_length: 4
+    stride: 2
+    num_blocks: 3
+    large_kernel: 13
+    expansion: 3
+    dropout: 0.1
+  patchtsmixer_p4_d64:
+    family: PatchTSMixer
+    implementation: huggingface_transformers_4_53_0_adapted_head
+    d_model: 64
+    patch_length: 4
+    stride: 4
+    num_layers: 3
+    expansion: 2
+    dropout: 0.1
+    gated_attention: true
+    mode: mix_channel
+    self_attention: false
+  patchtsmixer_p6_d64:
+    family: PatchTSMixer
+    implementation: huggingface_transformers_4_53_0_adapted_head
+    d_model: 64
+    patch_length: 6
+    stride: 3
+    num_layers: 3
+    expansion: 2
+    dropout: 0.1
+    gated_attention: true
+    mode: mix_channel
+    self_attention: false
+  compact_mamba_d64_l2:
+    family: CompactMamba
+    implementation: huggingface_transformers_4_53_0_with_mambapy_1_2_0
+    d_model: 64
+    num_layers: 2
+    state_size: 16
+    conv_kernel: 4
+    expand: 2
+    dropout: 0.1
+
+training:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 64
+  max_epochs: 300
+  early_stopping_patience: 30
+  min_delta: 0.00000001
+  loss: MSE
+  gradient_clip_norm: 1.0
+  num_workers: 0
+  screening_seed: 42
+  robustness_seeds: [42, 2024, 3407]
+
+selection:
+  family_max_configs: 3
+  multiseed_max_relative_worsening: 0.10
+  replacement_min_improvement: 0.02
+  minimum_improved_folds: 2
+  minimum_improved_seeds: 2
+  maximum_worst_fold_worsening: 0.03
+  reproduction_max_difference: 0.02
+
+bootstrap:
+  repetitions: 2000
+  block_length_steps: 19
+  seed: 20260906
+
+implementation:
+  python: "3.11.9"
+  torch: "2.6.0+cu124"
+  transformers_target_version: "4.53.0"
+  mambapy_target_version: "1.2.0"
+  project_local_vendor: "Phase_N2_6_Modern_Temporal_Expansion/vendor"
+  official_mamba_cuda_kernel_available_at_plan_time: false

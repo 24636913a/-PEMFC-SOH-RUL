@@ -36,8 +36,19 @@
 - 结果：`Phase_N2_5_Cycle_Aware_xLSTM/PHASE_N2_5_RESULTS.md`。
 - 冻结配置：`Phase_N2_5_Cycle_Aware_xLSTM/outputs/frozen_config/PHASE_N2_5_FROZEN_CONFIG.yaml`。
 
+### Phase N2.6 — 现代时序架构扩展与骨干模型再筛选
+
+- 在完全相同的 0.5 h、F2、24 h→12 h、三折 Development 协议下评估 TimesNet、ModernTCN、PatchTSMixer 和 Compact Mamba。
+- LSTM seed=42 复现误差为 0.00%，通过冻结流水线一致性检查。
+- 四类现代候选均比 LSTM 差超过预注册的 10% 多 seed 入围门槛，因此未强行挑选 Top-2 或追加新模型多 seed。
+- 7/7 实现配置通过 CPU/GPU、shape、梯度、inverse-transform 和因果输入 sanity audit。
+- 最终结论：`LSTM remains incumbent`；下一阶段若开展结构创新，继续以 LSTM 为骨干。
+- Test firewall：target 读取 0 行、预测 0 个、指标 0 项；仍不授权 Phase N3。
+- 结果：`Phase_N2_6_Modern_Temporal_Expansion/PHASE_N2_6_RESULTS.md`。
+- 冻结配置：`Phase_N2_6_Modern_Temporal_Expansion/outputs/frozen_config/PHASE_N2_6_BACKBONE_SELECTION.yaml`。
+
 ## 约束
 
 - 原始数据和旧 `New-PEMFC-Pytorch` 项目均为只读。
-- 最终20% Test 在 Phase N1/N2/N2.5 中只允许结构审计；Phase N2.5 未读取 Test target，未生成 Test prediction 或 Test metric。
+- 最终20% Test 在 Phase N1/N2/N2.5/N2.6 中只允许结构审计；Phase N2.6 未读取 Test target，未生成 Test prediction 或 Test metric。
 - 尚未执行 Phase N3、RUL、uncertainty、ensemble、PINN、EIS/spatial EIS 融合或 dense SOH interpolation。

@@ -1,0 +1,8 @@
+﻿config_name,family,status,parameter_count,input_shape,output_shape,cpu_forward_backward,cuda_forward_backward,finite_output_gradient,train_only_scaler_contract,residual_inverse_transform_checked,causal_history_only_input,test_target_accessed,error
+timesnet_d32_k2,TimesNet,PASS,63224,4x48x14,4x24,True,True,True,True,True,True,False,
+timesnet_d48_k3,TimesNet,PASS,94728,4x48x14,4x24,True,True,True,True,True,True,False,
+moderntcn_d80_k7_b2,ModernTCN,PASS,59944,4x48x14,4x24,True,True,True,True,True,True,False,
+moderntcn_d64_k13_b3,ModernTCN,PASS,82904,4x48x14,4x24,True,True,True,True,True,True,False,
+patchtsmixer_p4_d64,PatchTSMixer,PASS,70780,4x48x14,4x24,True,True,True,True,True,True,False,
+patchtsmixer_p6_d64,PatchTSMixer,PASS,72159,4x48x14,4x24,True,True,True,True,True,True,False,
+compact_mamba_d64_l2,CompactMamba,PASS,68184,4x48x14,4x24,True,True,True,True,True,True,False,

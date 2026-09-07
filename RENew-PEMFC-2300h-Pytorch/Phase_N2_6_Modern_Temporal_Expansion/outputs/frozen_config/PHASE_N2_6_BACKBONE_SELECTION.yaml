@@ -1,0 +1,115 @@
+phase: Phase N2.6 — Modern Temporal Architecture Expansion and Backbone Re-Screening
+status: PASS
+selection_scope: Development expanding-window folds only
+sampling_resolution: 0.5
+feature_group: F2
+exact_feature_names:
+- cell_voltage_mean
+- cell_voltage_std
+- cell_voltage_range
+- cell_voltage_min
+- cell_voltage_max
+- actual_current_A_mean
+- actual_current_A_std
+- actual_current_A_peak_to_peak
+- actual_current_density_A_cm2_mean
+- actual_current_density_A_cm2_std
+- actual_current_density_A_cm2_peak_to_peak
+- load_transition_count
+- operation_point_transitions
+- zero_current_fraction
+target: direct multi-horizon residual voltage forecasting
+target_formula: delta_V(t+h) = V(t+h) - V(t)
+lookback_hours: 24
+lookback_steps: 48
+horizon_hours: 12
+horizon_steps: 24
+incumbent_model: LSTM
+candidate_models:
+  TimesNet:
+    config_name: timesnet_d48_k3
+    seed42_mean_rmse_mV: 15.132238938490508
+    improvement_fraction_vs_lstm: -0.6802662448164825
+    mean_skill_lstm: -0.7006339009916877
+    worst_fold_skill_lstm: -0.7945534628636053
+    improved_fold_count: 0
+    parameter_count: 94728
+  ModernTCN:
+    config_name: moderntcn_d64_k13_b3
+    seed42_mean_rmse_mV: 16.394022415690017
+    improvement_fraction_vs_lstm: -0.8203732173288392
+    mean_skill_lstm: -0.9341151670764486
+    worst_fold_skill_lstm: -1.1761213878777723
+    improved_fold_count: 0
+    parameter_count: 82904
+  PatchTSMixer:
+    config_name: patchtsmixer_p6_d64
+    seed42_mean_rmse_mV: 17.183139220527906
+    improvement_fraction_vs_lstm: -0.9079958312576941
+    mean_skill_lstm: -1.0769729181148675
+    worst_fold_skill_lstm: -1.4133393387261617
+    improved_fold_count: 0
+    parameter_count: 72159
+  CompactMamba:
+    config_name: compact_mamba_d64_l2
+    seed42_mean_rmse_mV: 18.412749889468294
+    improvement_fraction_vs_lstm: -1.044530372490153
+    mean_skill_lstm: -1.1438292701129316
+    worst_fold_skill_lstm: -1.4854094910882685
+    improved_fold_count: 0
+    parameter_count: 68184
+selected_backbone: LSTM
+selection_conclusion: LSTM remains incumbent
+selected_model_source: Phase_N2 local auditable PyTorch implementation
+selected_model_version: PyTorch 2.6.0+cu124
+selected_hyperparameters:
+  hidden_dim: 64
+  num_layers: 2
+  dropout: 0.1
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 1.0e-05
+  batch_size: 64
+  max_epochs: 300
+  early_stopping_patience: 30
+  gradient_clip: 1.0
+  loss: MSE
+parameter_count: 55448
+mean_validation_rmse: 0.0082055450951543
+mean_validation_rmse_unit: V
+mean_validation_rmse_mV: 8.205545095154395
+mean_skill_lstm: 0.0
+worst_fold_skill_lstm: 0.0
+bootstrap_ci:
+  TimesNet:
+  - 0.0039412280969909974
+  - 0.010331474274555793
+  ModernTCN:
+  - 0.004183095841450007
+  - 0.010548701444838769
+  PatchTSMixer:
+  - 0.0049150770440721525
+  - 0.01044003877938073
+  CompactMamba:
+  - 0.006606192499331766
+  - 0.01405831568095198
+random_seeds:
+- 42
+- 2024
+- 3407
+train_boundary:
+- 72.78869
+- 1383.195476
+validation_boundary:
+- 1383.195476
+- 1819.997738
+test_boundary:
+- 1819.997738
+- 2256.8
+eligible_new_models_for_multiseed: []
+next_innovation_backbone: LSTM
+phase_n3_authorized: false
+test_performance_accessed: false
+test_target_rows_read: 0
+test_predictions_constructed: false
+test_metrics_computed: false

@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "selected_backbone": "LSTM",
+  "selection_conclusion": "LSTM remains incumbent",
+  "next_innovation_backbone": "LSTM",
+  "candidate_results": {
+    "TimesNet": {
+      "config_name": "timesnet_d48_k3",
+      "seed42_mean_rmse_mV": 15.132238938490508,
+      "improvement_fraction_vs_lstm": -0.6802662448164825,
+      "mean_skill_lstm": -0.7006339009916877,
+      "worst_fold_skill_lstm": -0.7945534628636053,
+      "improved_fold_count": 0,
+      "parameter_count": 94728
+    },
+    "ModernTCN": {
+      "config_name": "moderntcn_d64_k13_b3",
+      "seed42_mean_rmse_mV": 16.394022415690017,
+      "improvement_fraction_vs_lstm": -0.8203732173288392,
+      "mean_skill_lstm": -0.9341151670764486,
+      "worst_fold_skill_lstm": -1.1761213878777723,
+      "improved_fold_count": 0,
+      "parameter_count": 82904
+    },
+    "PatchTSMixer": {
+      "config_name": "patchtsmixer_p6_d64",
+      "seed42_mean_rmse_mV": 17.183139220527906,
+      "improvement_fraction_vs_lstm": -0.9079958312576941,
+      "mean_skill_lstm": -1.0769729181148675,
+      "worst_fold_skill_lstm": -1.4133393387261617,
+      "improved_fold_count": 0,
+      "parameter_count": 72159
+    },
+    "CompactMamba": {
+      "config_name": "compact_mamba_d64_l2",
+      "seed42_mean_rmse_mV": 18.412749889468294,
+      "improvement_fraction_vs_lstm": -1.044530372490153,
+      "mean_skill_lstm": -1.1438292701129316,
+      "worst_fold_skill_lstm": -1.4854094910882685,
+      "improved_fold_count": 0,
+      "parameter_count": 68184
+    }
+  },
+  "test_performance_accessed": false
+}

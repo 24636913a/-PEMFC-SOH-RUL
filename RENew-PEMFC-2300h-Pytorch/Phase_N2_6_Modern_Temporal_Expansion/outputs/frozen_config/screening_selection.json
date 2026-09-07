@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "lstm_reproduction_pass": true,
+  "lstm_reproduction_mean_difference_fraction": 0.0,
+  "lstm_seed42_three_fold_mean_rmse_mV": 9.005857842572587,
+  "family_best_configs": {
+    "TimesNet": "timesnet_d48_k3",
+    "ModernTCN": "moderntcn_d64_k13_b3",
+    "PatchTSMixer": "patchtsmixer_p6_d64",
+    "CompactMamba": "compact_mamba_d64_l2"
+  },
+  "eligible_within_10pct": [],
+  "top_configs_for_multiseed": [],
+  "top_families_for_multiseed": [],
+  "all_new_models_worse_than_10pct": true,
+  "target_rows_read_from_test": 0,
+  "test_predictions_constructed": false,
+  "test_metrics_computed": false
+}

@@ -1,0 +1,116 @@
+{
+  "phase": "Phase N2.6",
+  "status": "PASS",
+  "checks_passed": 21,
+  "checks_total": 21,
+  "test_target_rows_read": 0,
+  "test_predictions_constructed": false,
+  "test_metrics_computed": false,
+  "checks": [
+    {
+      "check": "required_outputs_present",
+      "status": "PASS",
+      "detail": "missing=[]"
+    },
+    {
+      "check": "test_firewall_zero_access",
+      "status": "PASS",
+      "detail": "{\"resolution_hours\": 0.5, \"source_file\": \"E:\\\\沈农信电\\\\ PEMFC-SOH+RUL\\\\RENew-PEMFC-2300h-Pytorch\\\\Phase_N1_Data_Foundation\\\\outputs\\\\causal_feature_tables\\\\causal_features_30min.csv\", \"schema_column_count\": 214, \"total_metadata_rows\": 3843, \"test_metadata_rows\": 836, \"test_metadata_start_h\": 1820.0, \"test_metadata_end_h\": 2256.5, \"development_feature_target_rows\": 3005, \"target_rows_read_from_test\": 0, \"test_predictions_constructed\": false, \"test_performance_accessed\": false, \"test_metrics_computed\": false}"
+    },
+    {
+      "check": "artifact_tool_csv_audit_8_of_8",
+      "status": "PASS",
+      "detail": "audited=8"
+    },
+    {
+      "check": "implementation_sanity_7_of_7",
+      "status": "PASS",
+      "detail": "rows=7"
+    },
+    {
+      "check": "lstm_reproduction_within_2pct",
+      "status": "PASS",
+      "detail": "max_relative_difference=0"
+    },
+    {
+      "check": "matched_origin_and_target_exact",
+      "status": "PASS",
+      "detail": "maximum_target_end_h=1819.5"
+    },
+    {
+      "check": "screening_complete_and_family_best",
+      "status": "PASS",
+      "detail": "fold_rows=24, summary_rows=8"
+    },
+    {
+      "check": "multiseed_entry_threshold_fail_closed",
+      "status": "PASS",
+      "detail": "eligible=[]"
+    },
+    {
+      "check": "multiseed_only_incumbent_after_no_qualifiers",
+      "status": "PASS",
+      "detail": "rows=13, families=['LSTM']"
+    },
+    {
+      "check": "development_run_artifacts_complete",
+      "status": "PASS",
+      "detail": "json=24, npz=24, max_target_end_h=1819.5"
+    },
+    {
+      "check": "per_horizon_24_steps_complete",
+      "status": "PASS",
+      "detail": "rows=480, horizons=24"
+    },
+    {
+      "check": "cycle_region_complete",
+      "status": "PASS",
+      "detail": "rows=100"
+    },
+    {
+      "check": "ageing_stage_complete",
+      "status": "PASS",
+      "detail": "mean_rows=15"
+    },
+    {
+      "check": "paired_moving_block_bootstrap_complete",
+      "status": "PASS",
+      "detail": "rows=5, comparisons_vs_lstm=4"
+    },
+    {
+      "check": "accuracy_efficiency_complete",
+      "status": "PASS",
+      "detail": "rows=5"
+    },
+    {
+      "check": "frozen_backbone_protocol",
+      "status": "PASS",
+      "detail": "selected=LSTM, phase_n3_authorized=False"
+    },
+    {
+      "check": "results_report_q1_to_q12",
+      "status": "PASS",
+      "detail": "characters=4576"
+    },
+    {
+      "check": "figures_10_of_10_and_visual_qa",
+      "status": "PASS",
+      "detail": "modern_architecture_rmse_comparison.png:1620x936:54827; skill_vs_lstm_comparison.png:1620x936:52942; multi_seed_rmse_distribution.png:1350x936:41021; per_horizon_rmse_curves.png:1800x1080:173911; per_horizon_skill_lstm.png:1800x1080:183340; cycle_region_8_5_to_10_5h.png:1800x1080:174466; ageing_stage_rmse_comparison.png:1980x1080:45102; accuracy_vs_parameter_count.png:1620x990:51068; accuracy_vs_training_time.png:1620x990:49570; representative_validation_prediction.png:2160x1080:384354"
+    },
+    {
+      "check": "python_scripts_compile",
+      "status": "PASS",
+      "detail": "scripts=7, errors=[]"
+    },
+    {
+      "check": "root_readme_registered",
+      "status": "PASS",
+      "detail": "README contains Phase N2.6 section"
+    },
+    {
+      "check": "inherited_frozen_inputs_present",
+      "status": "PASS",
+      "detail": "files=3"
+    }
+  ]
+}

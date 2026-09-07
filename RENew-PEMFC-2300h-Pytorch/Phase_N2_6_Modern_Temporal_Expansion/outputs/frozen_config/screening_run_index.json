@@ -1,0 +1,98 @@
+{
+  "LSTM|42|fold_1": {
+    "source": "Phase_N2_Model_Screening",
+    "run_id": "feature_F2_LSTM_fold_1_seed42"
+  },
+  "LSTM|42|fold_2": {
+    "source": "Phase_N2_Model_Screening",
+    "run_id": "feature_F2_LSTM_fold_2_seed42"
+  },
+  "LSTM|42|fold_3": {
+    "source": "Phase_N2_Model_Screening",
+    "run_id": "feature_F2_LSTM_fold_3_seed42"
+  },
+  "timesnet_d32_k2|42|fold_1": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_timesnet_d32_k2_fold_1_seed42"
+  },
+  "timesnet_d32_k2|42|fold_2": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_timesnet_d32_k2_fold_2_seed42"
+  },
+  "timesnet_d32_k2|42|fold_3": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_timesnet_d32_k2_fold_3_seed42"
+  },
+  "timesnet_d48_k3|42|fold_1": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_timesnet_d48_k3_fold_1_seed42"
+  },
+  "timesnet_d48_k3|42|fold_2": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_timesnet_d48_k3_fold_2_seed42"
+  },
+  "timesnet_d48_k3|42|fold_3": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_timesnet_d48_k3_fold_3_seed42"
+  },
+  "moderntcn_d80_k7_b2|42|fold_1": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_moderntcn_d80_k7_b2_fold_1_seed42"
+  },
+  "moderntcn_d80_k7_b2|42|fold_2": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_moderntcn_d80_k7_b2_fold_2_seed42"
+  },
+  "moderntcn_d80_k7_b2|42|fold_3": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_moderntcn_d80_k7_b2_fold_3_seed42"
+  },
+  "moderntcn_d64_k13_b3|42|fold_1": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_moderntcn_d64_k13_b3_fold_1_seed42"
+  },
+  "moderntcn_d64_k13_b3|42|fold_2": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_moderntcn_d64_k13_b3_fold_2_seed42"
+  },
+  "moderntcn_d64_k13_b3|42|fold_3": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_moderntcn_d64_k13_b3_fold_3_seed42"
+  },
+  "patchtsmixer_p4_d64|42|fold_1": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_patchtsmixer_p4_d64_fold_1_seed42"
+  },
+  "patchtsmixer_p4_d64|42|fold_2": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_patchtsmixer_p4_d64_fold_2_seed42"
+  },
+  "patchtsmixer_p4_d64|42|fold_3": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_patchtsmixer_p4_d64_fold_3_seed42"
+  },
+  "patchtsmixer_p6_d64|42|fold_1": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_patchtsmixer_p6_d64_fold_1_seed42"
+  },
+  "patchtsmixer_p6_d64|42|fold_2": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_patchtsmixer_p6_d64_fold_2_seed42"
+  },
+  "patchtsmixer_p6_d64|42|fold_3": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_patchtsmixer_p6_d64_fold_3_seed42"
+  },
+  "compact_mamba_d64_l2|42|fold_1": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_compact_mamba_d64_l2_fold_1_seed42"
+  },
+  "compact_mamba_d64_l2|42|fold_2": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_compact_mamba_d64_l2_fold_2_seed42"
+  },
+  "compact_mamba_d64_l2|42|fold_3": {
+    "source": "Phase_N2_6_Modern_Temporal_Expansion",
+    "run_id": "screening_compact_mamba_d64_l2_fold_3_seed42"
+  }
+}

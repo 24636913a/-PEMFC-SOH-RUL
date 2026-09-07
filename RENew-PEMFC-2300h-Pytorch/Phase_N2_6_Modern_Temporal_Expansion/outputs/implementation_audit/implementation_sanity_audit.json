@@ -1,0 +1,235 @@
+{
+  "status": "PASS",
+  "candidate_config_count": 7,
+  "passed_config_count": 7,
+  "failed_config_count": 0,
+  "package_versions": {
+    "transformers": "4.53.0",
+    "mambapy": "1.2.0",
+    "torch": "2.6.0+cu124"
+  },
+  "official_mamba_cuda_selective_scan_available": false,
+  "mamba_backend": "mambapy_1.2.0_parallel_scan_via_transformers",
+  "target_rows_read_from_test": 0,
+  "test_predictions_constructed": false,
+  "test_metrics_computed": false,
+  "details": {
+    "timesnet_d32_k2": {
+      "status": "PASS",
+      "cpu": {
+        "device": "cpu",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 26,
+        "trainable_parameter_tensors": 26,
+        "inverse_transform_finite": true,
+        "parameter_count": 63224
+      },
+      "cuda": {
+        "device": "cuda",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 26,
+        "trainable_parameter_tensors": 26,
+        "inverse_transform_finite": true,
+        "parameter_count": 63224
+      }
+    },
+    "timesnet_d48_k3": {
+      "status": "PASS",
+      "cpu": {
+        "device": "cpu",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 26,
+        "trainable_parameter_tensors": 26,
+        "inverse_transform_finite": true,
+        "parameter_count": 94728
+      },
+      "cuda": {
+        "device": "cuda",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 26,
+        "trainable_parameter_tensors": 26,
+        "inverse_transform_finite": true,
+        "parameter_count": 94728
+      }
+    },
+    "moderntcn_d80_k7_b2": {
+      "status": "PASS",
+      "cpu": {
+        "device": "cpu",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 22,
+        "trainable_parameter_tensors": 22,
+        "inverse_transform_finite": true,
+        "parameter_count": 59944
+      },
+      "cuda": {
+        "device": "cuda",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 22,
+        "trainable_parameter_tensors": 22,
+        "inverse_transform_finite": true,
+        "parameter_count": 59944
+      }
+    },
+    "moderntcn_d64_k13_b3": {
+      "status": "PASS",
+      "cpu": {
+        "device": "cpu",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 30,
+        "trainable_parameter_tensors": 30,
+        "inverse_transform_finite": true,
+        "parameter_count": 82904
+      },
+      "cuda": {
+        "device": "cuda",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 30,
+        "trainable_parameter_tensors": 30,
+        "inverse_transform_finite": true,
+        "parameter_count": 82904
+      }
+    },
+    "patchtsmixer_p4_d64": {
+      "status": "PASS",
+      "cpu": {
+        "device": "cpu",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 78,
+        "trainable_parameter_tensors": 78,
+        "inverse_transform_finite": true,
+        "parameter_count": 70780
+      },
+      "cuda": {
+        "device": "cuda",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 78,
+        "trainable_parameter_tensors": 78,
+        "inverse_transform_finite": true,
+        "parameter_count": 70780
+      }
+    },
+    "patchtsmixer_p6_d64": {
+      "status": "PASS",
+      "cpu": {
+        "device": "cpu",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 78,
+        "trainable_parameter_tensors": 78,
+        "inverse_transform_finite": true,
+        "parameter_count": 72159
+      },
+      "cuda": {
+        "device": "cuda",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 78,
+        "trainable_parameter_tensors": 78,
+        "inverse_transform_finite": true,
+        "parameter_count": 72159
+      }
+    },
+    "compact_mamba_d64_l2": {
+      "status": "PASS",
+      "cpu": {
+        "device": "cpu",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 27,
+        "trainable_parameter_tensors": 28,
+        "inverse_transform_finite": true,
+        "parameter_count": 68184
+      },
+      "cuda": {
+        "device": "cuda",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "gradients_finite": true,
+        "parameters_with_gradient": 27,
+        "trainable_parameter_tensors": 28,
+        "inverse_transform_finite": true,
+        "parameter_count": 68184
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "tool": "@oai/artifact-tool Workbook.fromCSV + workbook.inspect",
+  "audited_file_count": 9,
+  "required_file_count": 9,
+  "files": [
+    {
+      "relative_path": "outputs/implementation_audit/implementation_fidelity_audit.csv",
+      "bytes": 6810,
+      "data_row_count": 52,
+      "artifact_tool_import": "PASS",
+      "formula_error_tokens": [],
+      "inspection_preview": "{\"kind\":\"workbook\",\"id\":\"wb/itembh\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/hsat8u\",\"name\":\"Phase_N2_6R_Result\",\"index\":0,\"range\":\"A1:F53\",\"address\":\"A1:F53\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Phase_N2_6R_Result\",\"address\":\"A1:F53\",\"rows\":53,\"cols\":6,\"values\":[[\"﻿config_name\",\"family\",\"check_name\",\"passed\",\"evidence\",\"implementation_fidelity_status\"],[\"timesnet_hf_t1\",\"TimesNet\",\"parameter_count_below_500k\",\"True\",\"parameters=149046\",\"PASS\"],[\"timesnet_hf_t1\",\"TimesNet\",\"official_embedding_present\",\"True\",\"DataEmbedding\",\"PASS\"],[\"timesnet_hf_t1\",\"TimesNet\",\"predict_linear_48_to_72_present\",\"True\",\"Linear(48,72)\",\"PASS\"],[\"timesnet_hf_t1\",\"TimesNet\",\"fft_period_discovery_present\",\"True\",\"official TimesBlock calls FFT_for_Period\",\"PASS\"],[\"timesnet_hf_t1\",\"TimesNet\",\"timesblock_operates_on_extended_sequence\",\"True\",\"runtime input lengths=[72]\",\"PASS\"],[\"timesnet_hf_t1\",\"TimesNet\",\"official_inception_block_present\",\"True\",\"official Inception_Block_V1 module tree\",\"PASS\"],[\"timesnet_hf_t1\",\"TimesNet\",\"official_residual_present\",\"True\",\"official TimesBlock residual source\",\"PASS\"]],\"valuesTruncated\":true,\"valuesPreviewRows\":8,\"valuesPreviewCols\":6,\"valuesPreviewAddress\":\"A1:F8\"}",
+      "error_scan_preview": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    },
+    {
+      "relative_path": "outputs/implementation_audit/lstm_reproduction_check.csv",
+      "bytes": 415,
+      "data_row_count": 4,
+      "artifact_tool_import": "PASS",
+      "formula_error_tokens": [],
+      "inspection_preview": "{\"kind\":\"workbook\",\"id\":\"wb/z2ifmh\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/asoi6a\",\"name\":\"Phase_N2_6R_Result\",\"index\":0,\"range\":\"A1:F5\",\"address\":\"A1:F5\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Phase_N2_6R_Result\",\"address\":\"A1:F5\",\"rows\":5,\"cols\":6,\"values\":[[\"﻿fold\",\"phase_n2_6_rmse_mV\",\"reproduced_rmse_mV\",\"relative_difference_fraction\",\"within_2pct\",\"parameter_count\"],[\"fold_1\",\"6.208478073664312\",\"6.208477922621661\",\"2.4328450464518356e-08\",\"True\",\"55448\"],[\"fold_2\",\"6.157616768162181\",\"6.157617543772075\",\"1.259594292477369e-07\",\"True\",\"55448\"],[\"fold_3\",\"14.651478685891266\",\"14.651478131404136\",\"3.784513098482704e-08\",\"True\",\"55448\"],[\"mean_3fold\",\"9.005857842572587\",\"9.005857865932624\",\"2.5938714410440765e-09\",\"True\",\"55448\"]]}",
+      "error_scan_preview": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    },
+    {
+      "relative_path": "outputs/screening/high_fidelity_screening.csv",
+      "bytes": 6547,
+      "data_row_count": 20,
+      "artifact_tool_import": "PASS",
+      "formula_error_tokens": [],
+      "inspection_preview": "{\"kind\":\"workbook\",\"id\":\"wb/v2xseq\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/wry51z\",\"name\":\"Phase_N2_6R_Result\",\"index\":0,\"range\":\"A1:W21\",\"address\":\"A1:W21\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Phase_N2_6R_Result\",\"address\":\"A1:W21\",\"rows\":21,\"cols\":23,\"values\":[[\"﻿row_type\",\"family\",\"model\",\"config_name\",\"seed\",\"fold\",\"rmse_V\",\"rmse_mV\",\"mae_V\",\"mae_mV\",\"r2\",\"bias_V\",\"bias_mV\",\"rmse_improvement_pct_vs_lstm\",\"parameter_count\",\"peak_gpu_memory_mb\",\"mean_epoch_time_s\",\"total_training_time_s\",\"best_epoch\",\"epochs_ran\",\"run_id\",\"implementation_fidelity_status\",\"fold_rmse_std_mV\"],[\"fold\",\"LSTM\",\"LSTM\",\"LSTM\",\"42\",\"fold_1\",\"0.006208477922621661\",\"6.208477922621661\",\"0.003916211772672778\",\"3.9162117726727783\",\"0.9979211571573767\",\"0.00017299967816629806\",\"0.17299967816629808\",\"0.0\",\"55448\",\"83.82666015625\",\"0.04274279566704839\",\"12.87593989999732\",\"293.0\",\"300.0\",\"reproduction_LSTM_fold_1_seed42\",\"REFERENCE\",\"\"],[\"fold\",\"LSTM\",\"LSTM\",\"LSTM\",\"42\",\"fold_2\",\"0.006157617543772075\",\"6.157617543772075\",\"0.004169462076356622\",\"4.169462076356622\",\"0.9979515462320985\",\"0.00015910362862810797\",\"0.15910362862810798\",\"0.0\",\"55448\",\"85.19970703125\",\"0.05191189266721873\",\"15.622072300000582\",\"298.0\",\"300.0\",\"reproduction_LSTM_fold_2_seed42\",\"REFERENCE\",\"\"],[\"fold\",\"LSTM\",\"LSTM\",\"LSTM\",\"42\",\"fold_3\",\"0.014651478131404137\",\"14.651478131404136\",\"0.006284497658960596\",\"6.284497658960596\",\"0.9884122136847693\",\"0.0002585825022677751\",\"0.25858250226777507\",\"0.0\",\"55448\",\"88.935546875\",\"0.060503776315262686\",\"11.517819200002123\",\"160.0\",\"190.0\",\"reproduction_LSTM_fold_3_seed42\",\"REFERENCE\",\"\"",
+      "error_scan_preview": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    },
+    {
+      "relative_path": "outputs/multiseed/multiseed_comparison.csv",
+      "bytes": 9924,
+      "data_row_count": 32,
+      "artifact_tool_import": "PASS",
+      "formula_error_tokens": [],
+      "inspection_preview": "{\"kind\":\"workbook\",\"id\":\"wb/k12665\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/70jm27\",\"name\":\"Phase_N2_6R_Result\",\"index\":0,\"range\":\"A1:W33\",\"address\":\"A1:W33\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Phase_N2_6R_Result\",\"address\":\"A1:W33\",\"rows\":33,\"cols\":23,\"values\":[[\"﻿row_type\",\"model\",\"family\",\"config_name\",\"seed\",\"fold\",\"rmse_V\",\"rmse_mV\",\"mae_V\",\"mae_mV\",\"bias_V\",\"bias_mV\",\"r2\",\"rmse_improvement_pct_vs_paired_lstm\",\"parameter_count\",\"peak_gpu_memory_mb\",\"mean_epoch_time_s\",\"total_training_time_s\",\"best_epoch\",\"epochs_ran\",\"artifact_source\",\"implementation_fidelity_status\",\"rmse_std_mV\"],[\"fold_seed\",\"LSTM\",\"LSTM\",\"LSTM\",\"42\",\"fold_1\",\"0.006208478073664312\",\"6.208478073664312\",\"0.003916211498205754\",\"3.9162114982057536\",\"0.0001729997287961376\",\"0.1729997287961376\",\"0.9979211570562266\",\"0.0\",\"55448\",\"82.95556640625\",\"0.039213556000419585\",\"11.816464300005464\",\"293.0\",\"300.0\",\"Phase_N2_frozen_reference\",\"REFERENCE\",\"\"],[\"fold_seed\",\"TimesNet\",\"TimesNet\",\"timesnet_hf_t1\",\"42\",\"fold_1\",\"0.0025675114581392585\",\"2.5675114581392586\",\"0.001594712171644953\",\"1.594712171644953\",\"0.0002494944001045691\",\"0.2494944001045691\",\"0.9996444700783056\",\"58.64507488509362\",\"149046\",\"84.3095703125\",\"0.1160143646461574\",\"34.562461199995596\",\"267.0\",\"297.0\",\"Phase_N2_6R\",\"PASS\",\"\"],[\"fold_seed\",\"LSTM\",\"LSTM\",\"LSTM\",\"2024\",\"fold_1\",\"0.007379656313888382\",\"7.379656313888383\",\"0.004568630405761653\",\"4.568630405761653\",\"-0.0002445409844532204\",\"-0.2445409844532204\",\"0.9970628667556717\",\"0.0\",\"55448\",\"82.95556640625\",\"0.03964371524189017\",\"10.713742899999488\",\"239.0\",\"269.0\",\"Phase_N2_frozen_re",
+      "error_scan_preview": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    },
+    {
+      "relative_path": "outputs/per_horizon/per_horizon_rmse_r2_mae.csv",
+      "bytes": 164110,
+      "data_row_count": 768,
+      "artifact_tool_import": "PASS",
+      "formula_error_tokens": [],
+      "inspection_preview": "{\"kind\":\"workbook\",\"id\":\"wb/c5wiib\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/bh2on2\",\"name\":\"Phase_N2_6R_Result\",\"index\":0,\"range\":\"A1:O769\",\"address\":\"A1:O769\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Phase_N2_6R_Result\",\"address\":\"A1:O769\",\"rows\":769,\"cols\":15,\"values\":[[\"﻿row_type\",\"evaluation_scope\",\"model\",\"config_name\",\"seed\",\"fold\",\"horizon_step\",\"horizon_hours\",\"rmse_V\",\"rmse_mV\",\"mae_V\",\"mae_mV\",\"bias_V\",\"bias_mV\",\"r2\"],[\"fold\",\"seed42_three_model_comparison\",\"LSTM\",\"LSTM\",\"42\",\"fold_1\",\"1\",\"0.5\",\"0.004664122105902716\",\"4.664122105902716\",\"0.003607787735472421\",\"3.6077877354724213\",\"0.00039040102211702535\",\"0.3904010221170254\",\"0.9988074484828118\"],[\"fold\",\"seed42_three_model_comparison\",\"LSTM\",\"LSTM\",\"42\",\"fold_1\",\"2\",\"1.0\",\"0.00486028952751598\",\"4.86028952751598\",\"0.0037918701576061\",\"3.7918701576061\",\"3.66605018853118e-05\",\"0.0366605018853118\",\"0.9987059851002732\"],[\"fold\",\"seed42_three_model_comparison\",\"LSTM\",\"LSTM\",\"42\",\"fold_1\",\"3\",\"1.5\",\"0.004975620402446256\",\"4.975620402446256\",\"0.0037620555561499536\",\"3.762055556149954\",\"0.0007483101581810882\",\"0.7483101581810883\",\"0.9986432623720339\"],[\"fold\",\"seed42_three_model_comparison\",\"LSTM\",\"LSTM\",\"42\",\"fold_1\",\"4\",\"2.0\",\"0.005341507445532907\",\"5.3415074455329075\",\"0.004004136495324164\",\"4.004136495324164\",\"-0.00029580755550973916\",\"-0.29580755550973914\",\"0.9985002388975228\"],[\"fold\",\"seed42_three_model_comparison\",\"LSTM\",\"LSTM\",\"42\",\"fold_1\",\"5\",\"2.5\",\"0.005417410027840553\",\"5.417410027840553\",\"0.004022154557346786\",\"4.022154557346786\",\"-0.0005256958273858984\",\"-0.5256958273858984\",\"0.9984595513498831\"],[\"fold",
+      "error_scan_preview": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    },
+    {
+      "relative_path": "outputs/per_horizon/cycle_region_rmse_r2.csv",
+      "bytes": 1200,
+      "data_row_count": 3,
+      "artifact_tool_import": "PASS",
+      "formula_error_tokens": [],
+      "inspection_preview": "{\"kind\":\"workbook\",\"id\":\"wb/c8whfc\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/a0h1lb\",\"name\":\"Phase_N2_6R_Result\",\"index\":0,\"range\":\"A1:R4\",\"address\":\"A1:R4\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Phase_N2_6R_Result\",\"address\":\"A1:R4\",\"rows\":4,\"cols\":18,\"values\":[[\"﻿model\",\"config_name\",\"evaluation_scope\",\"rmse_mV_h8_5\",\"r2_h8_5\",\"mae_mV_h8_5\",\"rmse_mV_h9_0\",\"r2_h9_0\",\"mae_mV_h9_0\",\"rmse_mV_h9_5\",\"r2_h9_5\",\"mae_mV_h9_5\",\"rmse_mV_h10_0\",\"r2_h10_0\",\"mae_mV_h10_0\",\"rmse_mV_h10_5\",\"r2_h10_5\",\"mae_mV_h10_5\"],[\"LSTM\",\"LSTM\",\"seed42_three_model_comparison\",\"6.558899675739521\",\"0.9974578741201653\",\"4.503954018755678\",\"6.3676639093930305\",\"0.9976529304212652\",\"4.446231984623345\",\"3.8457866137581966\",\"0.999031675166612\",\"1.7592495826730825\",\"7.4604657630231435\",\"0.996651318498182\",\"4.5596111872652765\",\"8.66100865734125\",\"0.9955695681701827\",\"5.153907301058675\"],[\"TimesNet\",\"timesnet_hf_t1\",\"seed42_three_model_comparison\",\"11.343360383007884\",\"0.9872567156429483\",\"4.4313907539324875\",\"11.078724279966137\",\"0.9864816713569914\",\"3.7789106925457348\",\"11.048065260256427\",\"0.9867502051434665\",\"3.8313537535449957\",\"9.775115090253271\",\"0.9902744057877467\",\"3.4993087465159376\",\"8.17895862760451\",\"0.9937536941925124\",\"3.476361632355808\"],[\"ModernTCN\",\"moderntcn_hf_m1\",\"seed42_three_model_comparison\",\"14.452947377095953\",\"0.988586217428325\",\"10.144199287982575\",\"14.331958353839376\",\"0.9888629398048409\",\"10.365323993577485\",\"14.763410555327573\",\"0.9882472303630839\",\"10.281904387637988\",\"13.946167525324597\",\"0.9894308670888939\",\"9.992564961256338\",\"14.611107559642647\",\"0.9883494357265521\",\"10.",
+      "error_scan_preview": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    },
+    {
+      "relative_path": "outputs/ageing_stage/ageing_stage_rmse_r2_mae.csv",
+      "bytes": 15765,
+      "data_row_count": 60,
+      "artifact_tool_import": "PASS",
+      "formula_error_tokens": [],
+      "inspection_preview": "{\"kind\":\"workbook\",\"id\":\"wb/pnxfo7\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/cuwwlh\",\"name\":\"Phase_N2_6R_Result\",\"index\":0,\"range\":\"A1:Q61\",\"address\":\"A1:Q61\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Phase_N2_6R_Result\",\"address\":\"A1:Q61\",\"rows\":61,\"cols\":17,\"values\":[[\"﻿row_type\",\"evaluation_scope\",\"model\",\"config_name\",\"seed\",\"fold\",\"ageing_stage\",\"ageing_start_h\",\"ageing_end_h\",\"origin_count\",\"rmse_V\",\"rmse_mV\",\"mae_V\",\"mae_mV\",\"bias_V\",\"bias_mV\",\"r2\"],[\"fold\",\"seed42_three_model_comparison\",\"LSTM\",\"LSTM\",\"42\",\"fold_1\",\"Early Development\",\"1002.5\",\"1270.8333333333333\",\"233\",\"0.006208477922621661\",\"6.208477922621661\",\"0.003916211772672778\",\"3.9162117726727783\",\"0.00017299967816629806\",\"0.17299967816629808\",\"0.9979211571573767\"],[\"fold\",\"seed42_three_model_comparison\",\"LSTM\",\"LSTM\",\"42\",\"fold_2\",\"Early Development\",\"1002.5\",\"1270.8333333333333\",\"44\",\"0.006914487122886929\",\"6.914487122886929\",\"0.005427054468203674\",\"5.427054468203674\",\"-4.626943193601839e-05\",\"-0.046269431936018394\",\"0.9974077642856138\"],[\"fold\",\"seed42_three_model_comparison\",\"LSTM\",\"LSTM\",\"42\",\"fold_2\",\"Middle Development\",\"1270.8333333333333\",\"1539.1666666666665\",\"201\",\"0.005979166304542441\",\"5.979166304542441\",\"0.003894168219434879\",\"3.8941682194348792\",\"0.00020406091551776747\",\"0.20406091551776748\",\"0.9980699713127232\"],[\"fold\",\"seed42_three_model_comparison\",\"LSTM\",\"LSTM\",\"42\",\"fold_3\",\"Middle Development\",\"1270.8333333333333\",\"1539.1666666666665\",\"154\",\"0.018574460501181483\",\"18.574460501181484\",\"0.0068010602134292\",\"6.8010602134292\",\"1.0204680860687645e-05\",\"0.010204680860687645\",\"0.9814325785204",
+      "error_scan_preview": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    },
+    {
+      "relative_path": "outputs/statistical_tests/bootstrap_rmse_difference.csv",
+      "bytes": 983,
+      "data_row_count": 3,
+      "artifact_tool_import": "PASS",
+      "formula_error_tokens": [],
+      "inspection_preview": "{\"kind\":\"workbook\",\"id\":\"wb/aby3py\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/drw6j0\",\"name\":\"Phase_N2_6R_Result\",\"index\":0,\"range\":\"A1:O4\",\"address\":\"A1:O4\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Phase_N2_6R_Result\",\"address\":\"A1:O4\",\"rows\":4,\"cols\":15,\"values\":[[\"﻿comparison\",\"candidate\",\"reference\",\"delta_definition\",\"bootstrap_repetitions\",\"block_length_steps\",\"point_delta_rmse_V\",\"mean_delta_rmse_V\",\"median_delta_rmse_V\",\"ci95_lower_V\",\"ci95_upper_V\",\"probability_candidate_better\",\"candidate_config\",\"seed_count\",\"evaluation_scope\"],[\"TimesNet_vs_LSTM_seed42\",\"TimesNet\",\"LSTM\",\"RMSE_candidate_minus_RMSE_reference_V\",\"2000\",\"19\",\"0.0035009054355009464\",\"0.0032838076335148674\",\"0.003369753407381133\",\"-0.0026723590068952136\",\"0.008758699911338355\",\"0.1315\",\"timesnet_hf_t1\",\"1\",\"seed42_three_model_comparison\"],[\"ModernTCN_vs_LSTM_seed42\",\"ModernTCN\",\"LSTM\",\"RMSE_candidate_minus_RMSE_reference_V\",\"2000\",\"19\",\"0.004078796553547256\",\"0.004151987014598045\",\"0.0041239902805296725\",\"0.0015557027546439504\",\"0.00679998750977673\",\"0.0005\",\"moderntcn_hf_m1\",\"1\",\"seed42_three_model_comparison\"],[\"TimesNet_vs_LSTM_multiseed\",\"TimesNet\",\"LSTM\",\"RMSE_candidate_minus_RMSE_reference_V\",\"2000\",\"19\",\"0.00566312629233331\",\"0.005523210610336777\",\"0.005480677504921117\",\"0.0025218777727981203\",\"0.008369178949252208\",\"0.0\",\"timesnet_hf_t1\",\"3\",\"multiseed_replacement_gate\"]]}",
+      "error_scan_preview": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    },
+    {
+      "relative_path": "outputs/screening/model_efficiency.csv",
+      "bytes": 949,
+      "data_row_count": 3,
+      "artifact_tool_import": "PASS",
+      "formula_error_tokens": [],
+      "inspection_preview": "{\"kind\":\"workbook\",\"id\":\"wb/6o3452\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/rrlon4\",\"name\":\"Phase_N2_6R_Result\",\"index\":0,\"range\":\"A1:P4\",\"address\":\"A1:P4\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Phase_N2_6R_Result\",\"address\":\"A1:P4\",\"rows\":4,\"cols\":16,\"values\":[[\"﻿evaluation_scope\",\"model\",\"config_name\",\"seed\",\"parameter_count\",\"peak_gpu_memory_mb\",\"mean_epoch_time_s\",\"total_training_time_s\",\"rmse_V\",\"rmse_mV\",\"mae_V\",\"mae_mV\",\"bias_mV\",\"r2\",\"rmse_improvement_pct_vs_lstm\",\"implementation_fidelity_status\"],[\"seed42_three_model_comparison\",\"LSTM\",\"LSTM\",\"42\",\"55448\",\"88.935546875\",\"0.0517194882165099\",\"40.015831400000025\",\"0.0090058578659326\",\"9.005857865932624\",\"0.0047900571693299\",\"4.790057169329999\",\"0.1968952696873937\",\"0.9947616390247482\",\"0.0\",\"REFERENCE\"],[\"seed42_three_model_comparison\",\"TimesNet\",\"timesnet_hf_t1\",\"42\",\"149046\",\"84.3095703125\",\"0.1390406213667619\",\"67.99400380000588\",\"0.0098951522509899\",\"9.895152250989916\",\"0.0035461174215462\",\"3.546117421546294\",\"0.1041765724145306\",\"0.9916632716563109\",\"-9.874621588480926\",\"PASS\"],[\"seed42_three_model_comparison\",\"ModernTCN\",\"moderntcn_hf_m1\",\"42\",\"445456\",\"120.6328125\",\"0.4669674059183142\",\"242.47100160000264\",\"0.0153734132060582\",\"15.373413206058215\",\"0.0103432160332767\",\"10.343216033276734\",\"-0.2884842928893036\",\"0.9872355123282168\",\"-70.70459510817722\",\"PASS\"]]}",
+      "error_scan_preview": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    }
+  ]
+}

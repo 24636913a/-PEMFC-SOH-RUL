@@ -1,0 +1,145 @@
+phase_name: "Phase N2.6R — High-Fidelity Revalidation of TimesNet and ModernTCN Forecasting Architectures"
+project_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch"
+phase_n2_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_Model_Screening"
+phase_n2_5_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_5_Cycle_Aware_xLSTM"
+phase_n2_6_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_6_Modern_Temporal_Expansion"
+phase_n2_6r_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_6R_High_Fidelity_Revalidation"
+phase_n2_5_frozen_config: "Phase_N2_5_Cycle_Aware_xLSTM/outputs/frozen_config/PHASE_N2_5_FROZEN_CONFIG.yaml"
+
+data:
+  primary_csv: "Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv"
+  ageing_column: bin_center_ophrs2_h
+  bin_start_column: bin_start_ophrs2_h
+  bin_end_column: bin_end_ophrs2_h
+  datetime_column: last_datetime
+  target_column: cell_voltage_mean
+  valid_column: bin_valid_for_windows
+  segment_column: temporal_segment_id
+
+split:
+  min_h: 72.788690
+  fold_1_train_end_h: 946.393214
+  fold_1_validation_end_h: 1164.794345
+  fold_2_train_end_h: 1164.794345
+  fold_2_validation_end_h: 1383.195476
+  fold_3_train_end_h: 1383.195476
+  development_end_h: 1819.997738
+  test_end_h: 2256.800000
+
+task:
+  resolution_hours: 0.5
+  lookback_hours: 24
+  lookback_steps: 48
+  horizon_hours: 12
+  horizon_steps: 24
+  empirical_period_hours: 9.5
+  empirical_period_steps: 19
+  target: future_absolute_cell_voltage_with_residual_equivalence
+  voltage_feature_index: 0
+
+architectures:
+  timesnet_hf_t1:
+    family: TimesNet
+    implementation: official_commit_with_shape_only_wrapper
+    d_model: 32
+    d_ff: 64
+    e_layers: 1
+    top_k: 2
+    num_kernels: 3
+    dropout: 0.1
+  timesnet_hf_t2:
+    family: TimesNet
+    implementation: official_commit_with_shape_only_wrapper
+    d_model: 64
+    d_ff: 128
+    e_layers: 2
+    top_k: 3
+    num_kernels: 2
+    dropout: 0.1
+  moderntcn_hf_m1:
+    family: ModernTCN
+    implementation: official_commit_with_audited_multiscale_activation_adapter
+    dims: [16, 24, 32, 48]
+    num_blocks: [1, 1, 1, 1]
+    dw_dims: [16, 24, 32, 48]
+    ffn_ratio: 2
+    patch_size: 4
+    patch_stride: 2
+    stem_ratio: 2
+    downsample_ratio: 2
+    large_size: [13, 11, 5, 3]
+    small_size: [5, 3, 3, 1]
+    dropout: 0.1
+    head_dropout: 0.1
+    use_multi_scale: true
+    revin: true
+    affine: true
+    subtract_last: false
+    individual: false
+    decomposition: false
+    kernel_size: 25
+    small_kernel_merged: false
+  moderntcn_hf_m2:
+    family: ModernTCN
+    implementation: official_commit_with_audited_multiscale_activation_adapter
+    dims: [18, 26, 34, 50]
+    num_blocks: [1, 1, 1, 1]
+    dw_dims: [18, 26, 34, 50]
+    ffn_ratio: 2
+    patch_size: 4
+    patch_stride: 2
+    stem_ratio: 2
+    downsample_ratio: 2
+    large_size: [15, 11, 5, 3]
+    small_size: [5, 3, 3, 1]
+    dropout: 0.1
+    head_dropout: 0.1
+    use_multi_scale: true
+    revin: true
+    affine: true
+    subtract_last: false
+    individual: false
+    decomposition: false
+    kernel_size: 25
+    small_kernel_merged: false
+
+official_sources:
+  timesnet:
+    repository: "https://github.com/thuml/Time-Series-Library"
+    commit: "4e938a1767106324dd753b2a44832bf870a0252e"
+    vendored_root: "vendor/TimesNet_official"
+    source_archive_sha256: "8AD00C38D00BAA6B4A17DF2A688A96C945A0C005B6CACECA0E932E6F5AC6EDAA"
+  moderntcn:
+    repository: "https://github.com/luodhhh/ModernTCN"
+    commit: "56a9a2c018385cd5acef015378cae7f084d1b11c"
+    vendored_root: "vendor/ModernTCN_official"
+    source_archive_sha256: "441CFF323292CDADC6FD6872218743B64098ABB3322FCDAEE3B8704C9A234EB7"
+
+training:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 64
+  max_epochs: 300
+  early_stopping_patience: 30
+  min_delta: 0.00000001
+  loss: MSE
+  gradient_clip_norm: 1.0
+  num_workers: 0
+  screening_seed: 42
+  robustness_seeds: [42, 2024, 3407]
+
+selection:
+  family_max_configs: 2
+  multiseed_max_relative_worsening: 0.10
+  multiseed_min_improved_folds_alternative: 2
+  replacement_min_improvement: 0.02
+  replacement_min_improved_folds: 2
+  maximum_late_development_worsening: 0.03
+  reproduction_max_difference: 0.02
+  parameter_upper_bound: 500000
+
+bootstrap:
+  repetitions: 2000
+  block_length_steps: 19
+  seed: 20260907

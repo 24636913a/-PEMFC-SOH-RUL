@@ -1,0 +1,159 @@
+{
+  "status": "PASS",
+  "config_status": {
+    "moderntcn_hf_m1": true,
+    "moderntcn_hf_m2": true,
+    "timesnet_hf_t1": true,
+    "timesnet_hf_t2": true
+  },
+  "source_checks": {
+    "timesnet_source_sha256": "F64C4BED1FD7347090044A0163BD4209C9F9EC1C1B19CEFF47842DF36B64BBA7",
+    "moderntcn_source_sha256": "DAF74722E40D928E5ED6BC871B528A5D5D2C9090F30CAFB89110CC88DC60FA30",
+    "timesnet_license_present": true,
+    "moderntcn_license_present": true
+  },
+  "details": {
+    "timesnet_hf_t1": {
+      "family": "TimesNet",
+      "parameter_count": 149046,
+      "structural": {
+        "observed_extended_lengths": [
+          72
+        ]
+      },
+      "cpu": {
+        "device": "cpu",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "input_gradient_finite": true,
+        "parameter_gradients_present": 19,
+        "parameter_gradients_finite": true
+      },
+      "cuda": {
+        "device": "cuda",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "input_gradient_finite": true,
+        "parameter_gradients_present": 19,
+        "parameter_gradients_finite": true
+      }
+    },
+    "timesnet_hf_t2": {
+      "family": "TimesNet",
+      "parameter_count": 335702,
+      "structural": {
+        "observed_extended_lengths": [
+          72,
+          72
+        ]
+      },
+      "cpu": {
+        "device": "cpu",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "input_gradient_finite": true,
+        "parameter_gradients_present": 23,
+        "parameter_gradients_finite": true
+      },
+      "cuda": {
+        "device": "cuda",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "input_gradient_finite": true,
+        "parameter_gradients_present": 23,
+        "parameter_gradients_finite": true
+      }
+    },
+    "moderntcn_hf_m1": {
+      "family": "ModernTCN",
+      "parameter_count": 445456,
+      "structural": {
+        "multi_scale_runtime_calls": {
+          "lateral": 4,
+          "smooth": 4,
+          "upsample": 3
+        }
+      },
+      "cpu": {
+        "device": "cpu",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "input_gradient_finite": true,
+        "parameter_gradients_present": 112,
+        "parameter_gradients_finite": true
+      },
+      "cuda": {
+        "device": "cuda",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "input_gradient_finite": true,
+        "parameter_gradients_present": 112,
+        "parameter_gradients_finite": true
+      }
+    },
+    "moderntcn_hf_m2": {
+      "family": "ModernTCN",
+      "parameter_count": 488902,
+      "structural": {
+        "multi_scale_runtime_calls": {
+          "lateral": 4,
+          "smooth": 4,
+          "upsample": 3
+        }
+      },
+      "cpu": {
+        "device": "cpu",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "input_gradient_finite": true,
+        "parameter_gradients_present": 112,
+        "parameter_gradients_finite": true
+      },
+      "cuda": {
+        "device": "cuda",
+        "output_shape": [
+          4,
+          24
+        ],
+        "output_finite": true,
+        "loss_finite": true,
+        "input_gradient_finite": true,
+        "parameter_gradients_present": 112,
+        "parameter_gradients_finite": true
+      }
+    }
+  },
+  "test_target_rows_read": 0,
+  "test_predictions_constructed": false,
+  "test_rmse_computed": false,
+  "test_r2_computed": false,
+  "test_mae_computed": false
+}

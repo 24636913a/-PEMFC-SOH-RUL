@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "lstm_reproduction_pass": true,
+  "family_best_configs": {
+    "TimesNet": "timesnet_hf_t1",
+    "ModernTCN": "moderntcn_hf_m1"
+  },
+  "eligible_for_multiseed": [
+    "timesnet_hf_t1"
+  ],
+  "eligibility_details": {
+    "TimesNet": {
+      "best_config": "timesnet_hf_t1",
+      "mean_rmse_mV": 9.895152250989915,
+      "lstm_mean_rmse_mV": 9.005857865932624,
+      "relative_ratio": 1.0987462158848094,
+      "improved_fold_count": 1,
+      "condition_a_within_10pct": true,
+      "condition_b_at_least_two_folds": false,
+      "eligible_for_multiseed": true
+    },
+    "ModernTCN": {
+      "best_config": "moderntcn_hf_m1",
+      "mean_rmse_mV": 15.373413206058215,
+      "lstm_mean_rmse_mV": 9.005857865932624,
+      "relative_ratio": 1.7070459510817722,
+      "improved_fold_count": 0,
+      "condition_a_within_10pct": false,
+      "condition_b_at_least_two_folds": false,
+      "eligible_for_multiseed": false
+    }
+  },
+  "test_target_rows_read": 0,
+  "test_predictions_constructed": false,
+  "test_rmse_computed": false,
+  "test_r2_computed": false,
+  "test_mae_computed": false
+}

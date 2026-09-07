@@ -1,0 +1,232 @@
+{
+  "status": "PASS",
+  "check_count": 45,
+  "passed_count": 45,
+  "checks": [
+    {
+      "check": "required_csv:outputs/implementation_audit/implementation_fidelity_audit.csv",
+      "status": "PASS",
+      "detail": "rows=52, columns=6"
+    },
+    {
+      "check": "required_csv:outputs/implementation_audit/lstm_reproduction_check.csv",
+      "status": "PASS",
+      "detail": "rows=4, columns=6"
+    },
+    {
+      "check": "required_csv:outputs/screening/high_fidelity_screening.csv",
+      "status": "PASS",
+      "detail": "rows=20, columns=23"
+    },
+    {
+      "check": "required_csv:outputs/multiseed/multiseed_comparison.csv",
+      "status": "PASS",
+      "detail": "rows=32, columns=23"
+    },
+    {
+      "check": "required_csv:outputs/per_horizon/per_horizon_rmse_r2_mae.csv",
+      "status": "PASS",
+      "detail": "rows=768, columns=15"
+    },
+    {
+      "check": "required_csv:outputs/per_horizon/cycle_region_rmse_r2.csv",
+      "status": "PASS",
+      "detail": "rows=3, columns=18"
+    },
+    {
+      "check": "required_csv:outputs/ageing_stage/ageing_stage_rmse_r2_mae.csv",
+      "status": "PASS",
+      "detail": "rows=60, columns=17"
+    },
+    {
+      "check": "required_csv:outputs/statistical_tests/bootstrap_rmse_difference.csv",
+      "status": "PASS",
+      "detail": "rows=3, columns=15"
+    },
+    {
+      "check": "required_csv:outputs/screening/model_efficiency.csv",
+      "status": "PASS",
+      "detail": "rows=3, columns=16"
+    },
+    {
+      "check": "report_exists",
+      "status": "PASS",
+      "detail": "characters=5005"
+    },
+    {
+      "check": "plan_exists",
+      "status": "PASS",
+      "detail": "characters=3751"
+    },
+    {
+      "check": "report_q1_q12",
+      "status": "PASS",
+      "detail": "Q1-Q12 present"
+    },
+    {
+      "check": "report_metric_priority",
+      "status": "PASS",
+      "detail": "RMSE/R²/MAE present"
+    },
+    {
+      "check": "report_general_search_stop",
+      "status": "PASS",
+      "detail": "STOP recorded"
+    },
+    {
+      "check": "test_firewall",
+      "status": "PASS",
+      "detail": "{\"test_target_rows_read\": 0, \"test_predictions_constructed\": false, \"test_rmse_computed\": false, \"test_r2_computed\": false, \"test_mae_computed\": false}"
+    },
+    {
+      "check": "all_local_predictions_development_only",
+      "status": "PASS",
+      "detail": "files=21, max_target_end_h=1819.500000"
+    },
+    {
+      "check": "implementation_fidelity",
+      "status": "PASS",
+      "detail": "configs=4"
+    },
+    {
+      "check": "lstm_reproduction_within_2pct",
+      "status": "PASS",
+      "detail": "max_fraction=1.2595943e-07"
+    },
+    {
+      "check": "only_three_model_families",
+      "status": "PASS",
+      "detail": "['LSTM', 'ModernTCN', 'TimesNet']"
+    },
+    {
+      "check": "exact_screening_configs",
+      "status": "PASS",
+      "detail": "configs=5"
+    },
+    {
+      "check": "three_folds_each_config",
+      "status": "PASS",
+      "detail": "all configs have 3 folds"
+    },
+    {
+      "check": "multiseed_exact_models",
+      "status": "PASS",
+      "detail": "['LSTM', 'TimesNet']"
+    },
+    {
+      "check": "multiseed_exact_seeds",
+      "status": "PASS",
+      "detail": "[np.int64(42), np.int64(2024), np.int64(3407)]"
+    },
+    {
+      "check": "multiseed_complete_grid",
+      "status": "PASS",
+      "detail": "rows=18"
+    },
+    {
+      "check": "per_horizon_three_models",
+      "status": "PASS",
+      "detail": "models=3"
+    },
+    {
+      "check": "per_horizon_24_steps",
+      "status": "PASS",
+      "detail": "rows=72"
+    },
+    {
+      "check": "per_horizon_metrics_finite",
+      "status": "PASS",
+      "detail": "all finite"
+    },
+    {
+      "check": "cycle_region_complete",
+      "status": "PASS",
+      "detail": "rows=3"
+    },
+    {
+      "check": "ageing_stages_complete",
+      "status": "PASS",
+      "detail": "rows=9"
+    },
+    {
+      "check": "bootstrap_protocol",
+      "status": "PASS",
+      "detail": "rows=3"
+    },
+    {
+      "check": "frozen_yaml_required_fields",
+      "status": "PASS",
+      "detail": "required=15"
+    },
+    {
+      "check": "frozen_backbone_lstm",
+      "status": "PASS",
+      "detail": "selected=LSTM"
+    },
+    {
+      "check": "frozen_test_false",
+      "status": "PASS",
+      "detail": "Test false, Phase N3 false"
+    },
+    {
+      "check": "artifact_tool_csv_audit",
+      "status": "PASS",
+      "detail": "audited=9/9"
+    },
+    {
+      "check": "figure:mean_rmse_comparison.png",
+      "status": "PASS",
+      "detail": "bytes=38865, size=1404x936"
+    },
+    {
+      "check": "figure:mean_r2_comparison.png",
+      "status": "PASS",
+      "detail": "bytes=48452, size=1404x936"
+    },
+    {
+      "check": "figure:fold_rmse_comparison.png",
+      "status": "PASS",
+      "detail": "bytes=43004, size=1620x990"
+    },
+    {
+      "check": "figure:fold_r2_comparison.png",
+      "status": "PASS",
+      "detail": "bytes=41072, size=1620x990"
+    },
+    {
+      "check": "figure:per_horizon_rmse.png",
+      "status": "PASS",
+      "detail": "bytes=106153, size=1710x1044"
+    },
+    {
+      "check": "figure:per_horizon_r2.png",
+      "status": "PASS",
+      "detail": "bytes=116827, size=1710x1044"
+    },
+    {
+      "check": "figure:cycle_region_rmse.png",
+      "status": "PASS",
+      "detail": "bytes=86860, size=1620x990"
+    },
+    {
+      "check": "figure:late_development_rmse.png",
+      "status": "PASS",
+      "detail": "bytes=30898, size=1404x936"
+    },
+    {
+      "check": "figure:rmse_vs_parameter_count.png",
+      "status": "PASS",
+      "detail": "bytes=43364, size=1530x990"
+    },
+    {
+      "check": "figure:representative_validation_prediction.png",
+      "status": "PASS",
+      "detail": "bytes=317723, size=1980x1044"
+    },
+    {
+      "check": "vendored_sources_and_licenses",
+      "status": "PASS",
+      "detail": "TimesNet.py, LICENSE, ModernTCN.py, LICENSE"
+    }
+  ]
+}

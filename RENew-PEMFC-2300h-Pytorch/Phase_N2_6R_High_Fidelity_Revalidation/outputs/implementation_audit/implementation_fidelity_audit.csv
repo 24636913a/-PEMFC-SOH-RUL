@@ -1,0 +1,53 @@
+﻿config_name,family,check_name,passed,evidence,implementation_fidelity_status
+timesnet_hf_t1,TimesNet,parameter_count_below_500k,True,parameters=149046,PASS
+timesnet_hf_t1,TimesNet,official_embedding_present,True,DataEmbedding,PASS
+timesnet_hf_t1,TimesNet,predict_linear_48_to_72_present,True,"Linear(48,72)",PASS
+timesnet_hf_t1,TimesNet,fft_period_discovery_present,True,official TimesBlock calls FFT_for_Period,PASS
+timesnet_hf_t1,TimesNet,timesblock_operates_on_extended_sequence,True,runtime input lengths=[72],PASS
+timesnet_hf_t1,TimesNet,official_inception_block_present,True,official Inception_Block_V1 module tree,PASS
+timesnet_hf_t1,TimesNet,official_residual_present,True,official TimesBlock residual source,PASS
+timesnet_hf_t1,TimesNet,official_projection_present,True,"Linear(32,14)",PASS
+timesnet_hf_t1,TimesNet,official_sample_normalization_present,True,official forecast normalization/de-normalization source,PASS
+timesnet_hf_t1,TimesNet,future_24_slice_present,True,"wrapper output=(2, 24)",PASS
+timesnet_hf_t1,TimesNet,last_hidden_only_head_absent,True,wrapper contains no last-state or mean-pooling head,PASS
+timesnet_hf_t1,TimesNet,cpu_forward_backward_finite,True,"{""device"": ""cpu"", ""output_shape"": [4, 24], ""output_finite"": true, ""loss_finite"": true, ""input_gradient_finite"": true, ""parameter_gradients_present"": 19, ""parameter_gradients_finite"": true}",PASS
+timesnet_hf_t1,TimesNet,cuda_forward_backward_finite,True,"{""device"": ""cuda"", ""output_shape"": [4, 24], ""output_finite"": true, ""loss_finite"": true, ""input_gradient_finite"": true, ""parameter_gradients_present"": 19, ""parameter_gradients_finite"": true}",PASS
+timesnet_hf_t2,TimesNet,parameter_count_below_500k,True,parameters=335702,PASS
+timesnet_hf_t2,TimesNet,official_embedding_present,True,DataEmbedding,PASS
+timesnet_hf_t2,TimesNet,predict_linear_48_to_72_present,True,"Linear(48,72)",PASS
+timesnet_hf_t2,TimesNet,fft_period_discovery_present,True,official TimesBlock calls FFT_for_Period,PASS
+timesnet_hf_t2,TimesNet,timesblock_operates_on_extended_sequence,True,"runtime input lengths=[72, 72]",PASS
+timesnet_hf_t2,TimesNet,official_inception_block_present,True,official Inception_Block_V1 module tree,PASS
+timesnet_hf_t2,TimesNet,official_residual_present,True,official TimesBlock residual source,PASS
+timesnet_hf_t2,TimesNet,official_projection_present,True,"Linear(64,14)",PASS
+timesnet_hf_t2,TimesNet,official_sample_normalization_present,True,official forecast normalization/de-normalization source,PASS
+timesnet_hf_t2,TimesNet,future_24_slice_present,True,"wrapper output=(2, 24)",PASS
+timesnet_hf_t2,TimesNet,last_hidden_only_head_absent,True,wrapper contains no last-state or mean-pooling head,PASS
+timesnet_hf_t2,TimesNet,cpu_forward_backward_finite,True,"{""device"": ""cpu"", ""output_shape"": [4, 24], ""output_finite"": true, ""loss_finite"": true, ""input_gradient_finite"": true, ""parameter_gradients_present"": 23, ""parameter_gradients_finite"": true}",PASS
+timesnet_hf_t2,TimesNet,cuda_forward_backward_finite,True,"{""device"": ""cuda"", ""output_shape"": [4, 24], ""output_finite"": true, ""loss_finite"": true, ""input_gradient_finite"": true, ""parameter_gradients_present"": 23, ""parameter_gradients_finite"": true}",PASS
+moderntcn_hf_m1,ModernTCN,parameter_count_below_500k,True,parameters=445456,PASS
+moderntcn_hf_m1,ModernTCN,revin_present,True,official RevIN enabled,PASS
+moderntcn_hf_m1,ModernTCN,per_variable_patching_present,True,official stem Conv1d(in_channels=1) applied after B×variable reshape,PASS
+moderntcn_hf_m1,ModernTCN,large_small_kernel_present,True,official ReparamLargeKernelConv contains large and small branches in all stages,PASS
+moderntcn_hf_m1,ModernTCN,variable_independent_ffn_present,True,"ffn1 groups=[14, 14, 14, 14]",PASS
+moderntcn_hf_m1,ModernTCN,variable_mixing_ffn_present,True,"ffn2 groups=[16, 24, 32, 48]; distinct from variable-independent groups",PASS
+moderntcn_hf_m1,ModernTCN,multi_stage_present,True,"4 official stages, one block each",PASS
+moderntcn_hf_m1,ModernTCN,multi_scale_fusion_present,True,"runtime module calls={'lateral': 4, 'smooth': 4, 'upsample': 3}",PASS
+moderntcn_hf_m1,ModernTCN,flatten_head_present,True,Flatten_Head,PASS
+moderntcn_hf_m1,ModernTCN,official_revin_forecasting_output_path,True,"RevIN→backbone→Flatten_Head→RevIN denorm; wrapper output=(2, 24)",PASS
+moderntcn_hf_m1,ModernTCN,temporal_mean_pooling_absent,True,no temporal mean-pooling call in adapter or wrapper,PASS
+moderntcn_hf_m1,ModernTCN,cpu_forward_backward_finite,True,"{""device"": ""cpu"", ""output_shape"": [4, 24], ""output_finite"": true, ""loss_finite"": true, ""input_gradient_finite"": true, ""parameter_gradients_present"": 112, ""parameter_gradients_finite"": true}",PASS
+moderntcn_hf_m1,ModernTCN,cuda_forward_backward_finite,True,"{""device"": ""cuda"", ""output_shape"": [4, 24], ""output_finite"": true, ""loss_finite"": true, ""input_gradient_finite"": true, ""parameter_gradients_present"": 112, ""parameter_gradients_finite"": true}",PASS
+moderntcn_hf_m2,ModernTCN,parameter_count_below_500k,True,parameters=488902,PASS
+moderntcn_hf_m2,ModernTCN,revin_present,True,official RevIN enabled,PASS
+moderntcn_hf_m2,ModernTCN,per_variable_patching_present,True,official stem Conv1d(in_channels=1) applied after B×variable reshape,PASS
+moderntcn_hf_m2,ModernTCN,large_small_kernel_present,True,official ReparamLargeKernelConv contains large and small branches in all stages,PASS
+moderntcn_hf_m2,ModernTCN,variable_independent_ffn_present,True,"ffn1 groups=[14, 14, 14, 14]",PASS
+moderntcn_hf_m2,ModernTCN,variable_mixing_ffn_present,True,"ffn2 groups=[18, 26, 34, 50]; distinct from variable-independent groups",PASS
+moderntcn_hf_m2,ModernTCN,multi_stage_present,True,"4 official stages, one block each",PASS
+moderntcn_hf_m2,ModernTCN,multi_scale_fusion_present,True,"runtime module calls={'lateral': 4, 'smooth': 4, 'upsample': 3}",PASS
+moderntcn_hf_m2,ModernTCN,flatten_head_present,True,Flatten_Head,PASS
+moderntcn_hf_m2,ModernTCN,official_revin_forecasting_output_path,True,"RevIN→backbone→Flatten_Head→RevIN denorm; wrapper output=(2, 24)",PASS
+moderntcn_hf_m2,ModernTCN,temporal_mean_pooling_absent,True,no temporal mean-pooling call in adapter or wrapper,PASS
+moderntcn_hf_m2,ModernTCN,cpu_forward_backward_finite,True,"{""device"": ""cpu"", ""output_shape"": [4, 24], ""output_finite"": true, ""loss_finite"": true, ""input_gradient_finite"": true, ""parameter_gradients_present"": 112, ""parameter_gradients_finite"": true}",PASS
+moderntcn_hf_m2,ModernTCN,cuda_forward_backward_finite,True,"{""device"": ""cuda"", ""output_shape"": [4, 24], ""output_finite"": true, ""loss_finite"": true, ""input_gradient_finite"": true, ""parameter_gradients_present"": 112, ""parameter_gradients_finite"": true}",PASS

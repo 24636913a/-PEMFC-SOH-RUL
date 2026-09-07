@@ -1,0 +1,67 @@
+phase: Phase N2.6R — High-Fidelity Revalidation of TimesNet and ModernTCN Forecasting
+  Architectures
+status: PASS
+selected_backbone: LSTM
+mean_rmse_mV: 8.205545095154397
+mean_mae_mV: 4.5155221653304425
+mean_r2: 0.9958472527378878
+fold1_rmse_mV: 6.470197311947078
+fold2_rmse_mV: 5.86356737191743
+fold3_rmse_mV: 12.28287060159868
+late_development_rmse_mV: 10.420441615446512
+h9_5_rmse_mV: 2.9118787348454465
+random_seeds:
+- 42
+- 2024
+- 3407
+parameter_count: 55448
+implementation_source: Phase N2 frozen local auditable PyTorch implementation
+implementation_commit: not_applicable_local_reference
+implementation_fidelity_status: REFERENCE_REPRODUCTION_PASS
+replacement_candidate: TimesNet
+replacement_checks:
+  mean_rmse_improves_at_least_2pct: false
+  at_least_2_of_3_folds_improve: false
+  mean_mae_not_worse: true
+  mean_r2_not_worse: false
+  late_rmse_worsening_not_over_3pct: false
+replacement_approved: false
+general_backbone_search: STOP
+next_innovation_backbone: LSTM
+phase_n3_authorized: false
+sampling_resolution_hours: 0.5
+feature_group: F2
+exact_feature_names:
+- cell_voltage_mean
+- cell_voltage_std
+- cell_voltage_range
+- cell_voltage_min
+- cell_voltage_max
+- actual_current_A_mean
+- actual_current_A_std
+- actual_current_A_peak_to_peak
+- actual_current_density_A_cm2_mean
+- actual_current_density_A_cm2_std
+- actual_current_density_A_cm2_peak_to_peak
+- load_transition_count
+- operation_point_transitions
+- zero_current_fraction
+lookback_hours: 24
+lookback_steps: 48
+horizon_hours: 12
+horizon_steps: 24
+train_boundary_h:
+- 72.78869
+- 1383.195476
+development_validation_boundary_h:
+- 946.393214
+- 1819.997738
+test_boundary_h:
+- 1819.997738
+- 2256.8
+test_performance_accessed: false
+test_target_rows_read: 0
+test_predictions_constructed: false
+test_rmse_computed: false
+test_r2_computed: false
+test_mae_computed: false

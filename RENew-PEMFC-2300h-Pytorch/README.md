@@ -47,8 +47,18 @@
 - 结果：`Phase_N2_6_Modern_Temporal_Expansion/PHASE_N2_6_RESULTS.md`。
 - 冻结配置：`Phase_N2_6_Modern_Temporal_Expansion/outputs/frozen_config/PHASE_N2_6_BACKBONE_SELECTION.yaml`。
 
+### Phase N2.6R — TimesNet 与 ModernTCN 高保真预测结构复验
+
+- 使用官方固定 commit 的完整 forecasting path 复验 TimesNet 与 ModernTCN，并保留冻结 LSTM 参考。
+- 高保真 TimesNet 相比 N2.6 轻量版 RMSE 改善 34.61%，但三随机种子下仍未通过平均 RMSE、R²、Fold 稳定性与 Late Development 替换门。
+- 高保真 ModernTCN 相比轻量版改善 6.23%，但未达到多随机种子入围门。
+- 最终冻结：`LSTM`；正式记录 `General backbone search STOP`，后续只围绕 LSTM 开展 PEMFC 任务机制创新。
+- Test firewall：目标读取 0 行、预测 0 个、RMSE/R²/MAE 均未计算；仍不授权 Phase N3。
+- 结果：`Phase_N2_6R_High_Fidelity_Revalidation/PHASE_N2_6R_RESULTS.md`。
+- 冻结配置：`Phase_N2_6R_High_Fidelity_Revalidation/outputs/frozen_config/PHASE_N2_6R_BACKBONE_SELECTION.yaml`。
+
 ## 约束
 
 - 原始数据和旧 `New-PEMFC-Pytorch` 项目均为只读。
-- 最终20% Test 在 Phase N1/N2/N2.5/N2.6 中只允许结构审计；Phase N2.6 未读取 Test target，未生成 Test prediction 或 Test metric。
+- 最终20% Test 在 Phase N1/N2/N2.5/N2.6/N2.6R 中只允许结构审计；Phase N2.6R 未读取 Test target，未生成 Test prediction 或 Test metric。
 - 尚未执行 Phase N3、RUL、uncertainty、ensemble、PINN、EIS/spatial EIS 融合或 dense SOH interpolation。

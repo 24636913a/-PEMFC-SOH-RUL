@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "selected_backbone": "LSTM",
+  "replacement_checks": {
+    "mean_rmse_improves_at_least_2pct": false,
+    "at_least_2_of_3_folds_improve": false,
+    "mean_mae_not_worse": true,
+    "mean_r2_not_worse": false,
+    "late_rmse_worsening_not_over_3pct": false
+  },
+  "replacement_approved": false,
+  "general_backbone_search": "STOP",
+  "next_innovation_backbone": "LSTM",
+  "test_performance_accessed": false
+}

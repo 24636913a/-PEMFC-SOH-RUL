@@ -1,0 +1,234 @@
+{
+  "status": "PASS",
+  "required_csv_count": 15,
+  "required_figure_count": 12,
+  "checks": [
+    {
+      "type": "core_csv",
+      "path": "outputs/integrity_audit/paired_prediction_integrity_audit.csv",
+      "rows": 9,
+      "columns": 15,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/error_complementarity/timesnet_win_rate.csv",
+      "rows": 34,
+      "columns": 6,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/error_complementarity/error_correlation.csv",
+      "rows": 7,
+      "columns": 7,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/error_complementarity/large_error_overlap.csv",
+      "rows": 14,
+      "columns": 10,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/fusion_diagnostics/oracle_fusion_upper_bound.csv",
+      "rows": 14,
+      "columns": 14,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/fusion_diagnostics/fixed_fusion_baseline.csv",
+      "rows": 12,
+      "columns": 13,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/shift_diagnostics/feature_shift_smd_psi.csv",
+      "rows": 42,
+      "columns": 13,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/shift_diagnostics/window_shift_score.csv",
+      "rows": 4799,
+      "columns": 47,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/shift_diagnostics/shift_conditioned_model_performance.csv",
+      "rows": 26,
+      "columns": 15,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/shift_diagnostics/expert_regime_analysis.csv",
+      "rows": 39,
+      "columns": 12,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/shift_diagnostics/winner_predictability.csv",
+      "rows": 2,
+      "columns": 17,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/timesnet_tuning/timesnet_robustness_tuning.csv",
+      "rows": 14,
+      "columns": 32,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/preprocessing/preprocessing_screening.csv",
+      "rows": 18,
+      "columns": 32,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/multiseed/multiseed_robustness.csv",
+      "rows": 5,
+      "columns": 11,
+      "status": "PASS"
+    },
+    {
+      "type": "core_csv",
+      "path": "outputs/error_complementarity/final_complementarity_analysis.csv",
+      "rows": 2,
+      "columns": 15,
+      "status": "PASS"
+    },
+    {
+      "type": "core_figure",
+      "path": "outputs/figures/lstm_timesnet_absolute_error_scatter.png",
+      "width": 1332,
+      "height": 1116,
+      "status": "PASS"
+    },
+    {
+      "type": "core_figure",
+      "path": "outputs/figures/timesnet_win_rate_by_fold.png",
+      "width": 1296,
+      "height": 827,
+      "status": "PASS"
+    },
+    {
+      "type": "core_figure",
+      "path": "outputs/figures/timesnet_win_rate_by_horizon.png",
+      "width": 1475,
+      "height": 864,
+      "status": "PASS"
+    },
+    {
+      "type": "core_figure",
+      "path": "outputs/figures/error_correlation_heatmap.png",
+      "width": 1116,
+      "height": 972,
+      "status": "PASS"
+    },
+    {
+      "type": "core_figure",
+      "path": "outputs/figures/large_error_overlap.png",
+      "width": 1152,
+      "height": 827,
+      "status": "PASS"
+    },
+    {
+      "type": "core_figure",
+      "path": "outputs/figures/shift_score_vs_error.png",
+      "width": 1404,
+      "height": 900,
+      "status": "PASS"
+    },
+    {
+      "type": "core_figure",
+      "path": "outputs/figures/rmse_by_shift_level.png",
+      "width": 1332,
+      "height": 864,
+      "status": "PASS"
+    },
+    {
+      "type": "core_figure",
+      "path": "outputs/figures/rmse_by_ageing_stage.png",
+      "width": 1332,
+      "height": 864,
+      "status": "PASS"
+    },
+    {
+      "type": "core_figure",
+      "path": "outputs/figures/timesnet_tuning_fold_rmse.png",
+      "width": 1835,
+      "height": 900,
+      "status": "PASS"
+    },
+    {
+      "type": "core_figure",
+      "path": "outputs/figures/preprocessing_rmse_comparison.png",
+      "width": 1620,
+      "height": 900,
+      "status": "PASS"
+    },
+    {
+      "type": "core_figure",
+      "path": "outputs/figures/oracle_vs_lstm_rmse.png",
+      "width": 1404,
+      "height": 864,
+      "status": "PASS"
+    },
+    {
+      "type": "core_figure",
+      "path": "outputs/figures/fixed_fusion_rmse.png",
+      "width": 1404,
+      "height": 864,
+      "status": "PASS"
+    },
+    {
+      "type": "paired_predictions",
+      "units": 9,
+      "status": "PASS"
+    },
+    {
+      "type": "test_firewall",
+      "status": "PASS",
+      "resolution_hours": 0.5,
+      "source_file": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "schema_column_count": 214,
+      "total_metadata_rows": 3843,
+      "test_metadata_rows": 836,
+      "test_metadata_start_h": 1820.0,
+      "test_metadata_end_h": 2256.5,
+      "development_feature_target_rows": 3005,
+      "target_rows_read_from_test": 0,
+      "test_predictions_constructed": false,
+      "test_performance_accessed": false,
+      "test_target_rows_read": 0,
+      "test_metrics_computed": false,
+      "test_shift_diagnostics_computed": false
+    },
+    {
+      "type": "local_prediction_arrays",
+      "file_count": 39,
+      "maximum_target_end_h": 1819.5,
+      "status": "PASS"
+    },
+    {
+      "type": "artifact_tool_csv_import_and_inspect",
+      "csv_count": 15,
+      "status": "PASS"
+    },
+    {
+      "type": "report_and_freeze",
+      "status": "PASS"
+    }
+  ]
+}

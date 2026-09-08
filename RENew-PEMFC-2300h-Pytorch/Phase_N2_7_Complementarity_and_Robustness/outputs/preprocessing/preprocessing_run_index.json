@@ -1,0 +1,78 @@
+{
+  "LSTM": {
+    "P0_raw": {
+      "42": {
+        "fold_1": "reproduction_LSTM_fold_1_seed42",
+        "fold_2": "reproduction_LSTM_fold_2_seed42",
+        "fold_3": "reproduction_LSTM_fold_3_seed42"
+      },
+      "2024": {
+        "fold_1": "multiseed_LSTM_F2_L24p0h_H12p0h_R0p5h_fold_1_seed2024",
+        "fold_2": "multiseed_LSTM_F2_L24p0h_H12p0h_R0p5h_fold_2_seed2024",
+        "fold_3": "multiseed_LSTM_F2_L24p0h_H12p0h_R0p5h_fold_3_seed2024"
+      },
+      "3407": {
+        "fold_1": "multiseed_LSTM_F2_L24p0h_H12p0h_R0p5h_fold_1_seed3407",
+        "fold_2": "multiseed_LSTM_F2_L24p0h_H12p0h_R0p5h_fold_2_seed3407",
+        "fold_3": "multiseed_LSTM_F2_L24p0h_H12p0h_R0p5h_fold_3_seed3407"
+      }
+    },
+    "P1_causal_ema": {
+      "42": {
+        "fold_1": "n27_preproc_lstm_P1_causal_ema_fold_1_seed42",
+        "fold_2": "n27_preproc_lstm_P1_causal_ema_fold_2_seed42",
+        "fold_3": "n27_preproc_lstm_P1_causal_ema_fold_3_seed42"
+      }
+    },
+    "P2_causal_sg": {
+      "42": {
+        "fold_1": "n27_preproc_lstm_P2_causal_sg_fold_1_seed42",
+        "fold_2": "n27_preproc_lstm_P2_causal_sg_fold_2_seed42",
+        "fold_3": "n27_preproc_lstm_P2_causal_sg_fold_3_seed42"
+      },
+      "2024": {
+        "fold_1": "n27_preproc_lstm_P2_causal_sg_fold_1_seed2024",
+        "fold_2": "n27_preproc_lstm_P2_causal_sg_fold_2_seed2024",
+        "fold_3": "n27_preproc_lstm_P2_causal_sg_fold_3_seed2024"
+      },
+      "3407": {
+        "fold_1": "n27_preproc_lstm_P2_causal_sg_fold_1_seed3407",
+        "fold_2": "n27_preproc_lstm_P2_causal_sg_fold_2_seed3407",
+        "fold_3": "n27_preproc_lstm_P2_causal_sg_fold_3_seed3407"
+      }
+    }
+  },
+  "TimesNet": {
+    "P0_raw": {
+      "42": {
+        "fold_1": "screening_timesnet_hf_t1_fold_1_seed42",
+        "fold_2": "screening_timesnet_hf_t1_fold_2_seed42",
+        "fold_3": "screening_timesnet_hf_t1_fold_3_seed42"
+      },
+      "2024": {
+        "fold_1": "multiseed_timesnet_hf_t1_fold_1_seed2024",
+        "fold_2": "multiseed_timesnet_hf_t1_fold_2_seed2024",
+        "fold_3": "multiseed_timesnet_hf_t1_fold_3_seed2024"
+      },
+      "3407": {
+        "fold_1": "multiseed_timesnet_hf_t1_fold_1_seed3407",
+        "fold_2": "multiseed_timesnet_hf_t1_fold_2_seed3407",
+        "fold_3": "multiseed_timesnet_hf_t1_fold_3_seed3407"
+      }
+    },
+    "P1_causal_ema": {
+      "42": {
+        "fold_1": "n27_preproc_timesnet_P1_causal_ema_fold_1_seed42",
+        "fold_2": "n27_preproc_timesnet_P1_causal_ema_fold_2_seed42",
+        "fold_3": "n27_preproc_timesnet_P1_causal_ema_fold_3_seed42"
+      }
+    },
+    "P2_causal_sg": {
+      "42": {
+        "fold_1": "n27_preproc_timesnet_P2_causal_sg_fold_1_seed42",
+        "fold_2": "n27_preproc_timesnet_P2_causal_sg_fold_2_seed42",
+        "fold_3": "n27_preproc_timesnet_P2_causal_sg_fold_3_seed42"
+      }
+    }
+  }
+}

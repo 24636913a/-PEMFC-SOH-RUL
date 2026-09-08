@@ -1,0 +1,6 @@
+﻿analysis,family,variant,seed_scope,mean_rmse_mV,mean_mae_mV,mean_r2,fold_3_rmse_mV,late_rmse_mV,passes_preregistered_gates,selected_final
+TimesNet robustness tuning,TimesNet,T0_original,3-seed macro mean,9.908015412009467,3.811167381783179,0.9909603740742612,21.444855556784887,22.955851640961043,False,True
+TimesNet robustness tuning,TimesNet,T1_huber,3-seed macro mean,9.845496963052312,3.2904833239810767,0.9915703973895236,20.219581059743945,22.40560171434679,False,False
+Causal preprocessing,LSTM,P0_raw,3-seed macro mean,8.205545102941075,4.51552218833865,0.995847252789242,12.282870416769638,10.420441412115316,False,False
+Causal preprocessing,LSTM,P2_causal_sg,3-seed macro mean,7.785790595883417,4.409374798750174,0.9962565712038254,11.71128743489089,10.092160456024251,True,True
+Causal preprocessing,TimesNet,P0_raw,3-seed macro mean,9.908015412009467,3.811167381783179,0.9909603740742612,21.444855556784887,22.955851640961043,False,True

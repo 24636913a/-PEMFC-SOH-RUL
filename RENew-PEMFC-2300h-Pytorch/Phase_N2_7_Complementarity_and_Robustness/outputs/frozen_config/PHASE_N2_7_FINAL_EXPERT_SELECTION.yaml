@@ -1,0 +1,95 @@
+phase: Phase N2.7
+phase_status: PASS
+created_date: '2026-09-08'
+protocol:
+  sampling_resolution_hours: 0.5
+  feature_group: F2
+  exact_feature_names:
+  - cell_voltage_mean
+  - cell_voltage_std
+  - cell_voltage_range
+  - cell_voltage_min
+  - cell_voltage_max
+  - actual_current_A_mean
+  - actual_current_A_std
+  - actual_current_A_peak_to_peak
+  - actual_current_density_A_cm2_mean
+  - actual_current_density_A_cm2_std
+  - actual_current_density_A_cm2_peak_to_peak
+  - load_transition_count
+  - operation_point_transitions
+  - zero_current_fraction
+  lookback_hours: 24
+  lookback_steps: 48
+  horizon_hours: 12
+  horizon_steps: 24
+  folds:
+  - fold_1
+  - fold_2
+  - fold_3
+  seeds:
+  - 42
+  - 2024
+  - 3407
+  development_end_h_exclusive: 1819.997738
+  test_interval_h:
+  - 1819.997738
+  - 2256.8
+final_lstm_expert:
+  architecture: Frozen Phase N2 LSTM
+  preprocessing: P2_causal_sg
+  preprocessing_definition: one-sided historical 5-point polynomial degree 2 on voltage-state
+    inputs only
+  target: raw future voltage
+  metrics_3seed_3fold_macro:
+    rmse_V: 0.007785790595883417
+    rmse_mV: 7.785790595883417
+    mae_V: 0.004409374798750174
+    mae_mV: 4.409374798750174
+    bias_V: -0.0001583954867506401
+    bias_mV: -0.15839548675064008
+    r2: 0.9962565712038255
+final_timesnet_expert:
+  architecture: official high-fidelity TimesNet from Phase N2.6R
+  tuning: T0_original
+  preprocessing: P0_raw
+  metrics_3seed_3fold_macro:
+    rmse_V: 0.009908015412009467
+    rmse_mV: 9.908015412009469
+    mae_V: 0.0038111673817831796
+    mae_mV: 3.8111673817831795
+    bias_V: -0.00010590252532353645
+    bias_mV: -0.10590252532353646
+    r2: 0.9909603740742612
+  seed42_screen_winner: T1_huber
+  tuning_final_reason: no new configuration passed both seed42 screening and 3-seed
+    confirmation; original high-fidelity TimesNet retained
+best_fixed_fusion:
+  timesnet_weight_alpha: 0.25
+  metrics:
+    rmse_mV: 7.179755608228599
+    mae_mV: 3.729112344981385
+    r2: 0.9965185446972753
+    bias_mV: -0.14527224639386416
+  diagnostic_only: true
+originwise_oracle:
+  rmse_mV: 5.261143749075427
+  improvement_fraction_vs_lstm: 0.3242633892751812
+  deployable_model: false
+phase_n2_8_decision: NOGO
+phase_n2_8_gates:
+  originwise_oracle_at_least_5pct: true
+  stable_timesnet_advantage_region: true
+  chronological_winner_auc_at_least_0p65: false
+  lstm_high_shift_and_late_safety: true
+test_firewall:
+  test_target_rows_read: 0
+  test_predictions_constructed: false
+  test_metrics_computed: false
+  test_shift_diagnostics_computed: false
+  test_performance_accessed: false
+adaptive_gate_trained: false
+phase_n2_8_executed: false
+run_indexes:
+  timesnet: outputs/timesnet_tuning/timesnet_run_index.json
+  preprocessing: outputs/preprocessing/preprocessing_run_index.json

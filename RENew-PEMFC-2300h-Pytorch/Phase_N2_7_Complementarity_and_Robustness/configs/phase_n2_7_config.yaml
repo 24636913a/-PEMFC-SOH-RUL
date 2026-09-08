@@ -1,0 +1,165 @@
+phase_name: "Phase N2.7 — LSTM–TimesNet Error Complementarity, TimesNet Robustness Tuning and Causal Preprocessing Screening"
+project_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch"
+phase_n2_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_Model_Screening"
+phase_n2_5_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_5_Cycle_Aware_xLSTM"
+phase_n2_6r_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_6R_High_Fidelity_Revalidation"
+phase_n2_7_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_7_Complementarity_and_Robustness"
+n2_6r_frozen_config: "Phase_N2_6R_High_Fidelity_Revalidation/outputs/frozen_config/PHASE_N2_6R_BACKBONE_SELECTION.yaml"
+
+data:
+  primary_csv: "Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv"
+  ageing_column: bin_center_ophrs2_h
+  bin_start_column: bin_start_ophrs2_h
+  bin_end_column: bin_end_ophrs2_h
+  datetime_column: last_datetime
+  target_column: cell_voltage_mean
+  valid_column: bin_valid_for_windows
+  segment_column: temporal_segment_id
+
+split:
+  min_h: 72.788690
+  fold_1_train_end_h: 946.393214
+  fold_1_validation_end_h: 1164.794345
+  fold_2_train_end_h: 1164.794345
+  fold_2_validation_end_h: 1383.195476
+  fold_3_train_end_h: 1383.195476
+  development_end_h: 1819.997738
+  test_end_h: 2256.800000
+
+task:
+  resolution_hours: 0.5
+  lookback_hours: 24
+  lookback_steps: 48
+  horizon_hours: 12
+  horizon_steps: 24
+  voltage_feature_index: 0
+
+features:
+  - cell_voltage_mean
+  - cell_voltage_std
+  - cell_voltage_range
+  - cell_voltage_min
+  - cell_voltage_max
+  - actual_current_A_mean
+  - actual_current_A_std
+  - actual_current_A_peak_to_peak
+  - actual_current_density_A_cm2_mean
+  - actual_current_density_A_cm2_std
+  - actual_current_density_A_cm2_peak_to_peak
+  - load_transition_count
+  - operation_point_transitions
+  - zero_current_fraction
+
+voltage_state_features:
+  - cell_voltage_mean
+  - cell_voltage_std
+  - cell_voltage_range
+  - cell_voltage_min
+  - cell_voltage_max
+
+shift_summary_features:
+  - cell_voltage_mean
+  - cell_voltage_std
+  - actual_current_A_mean
+  - actual_current_A_std
+  - actual_current_A_peak_to_peak
+  - actual_current_density_A_cm2_mean
+  - load_transition_count
+  - operation_point_transitions
+  - zero_current_fraction
+
+timesnet_architecture:
+  family: TimesNet
+  implementation: official_commit_with_shape_only_wrapper
+  d_model: 32
+  d_ff: 64
+  e_layers: 1
+  top_k: 2
+  num_kernels: 3
+  dropout: 0.1
+
+training:
+  optimizer: AdamW
+  batch_size: 64
+  max_epochs: 300
+  early_stopping_patience: 30
+  min_delta: 0.00000001
+  gradient_clip_norm: 1.0
+  num_workers: 0
+  seeds: [42, 2024, 3407]
+  default_learning_rate: 0.001
+  default_weight_decay: 0.00001
+
+timesnet_tuning:
+  T0_original:
+    loss: MSE
+    huber_delta: null
+    learning_rate: 0.001
+    dropout: 0.1
+    weight_decay: 0.00001
+  T1_huber:
+    loss: Huber
+    huber_delta: 1.0
+    learning_rate: 0.001
+    dropout: 0.1
+    weight_decay: 0.00001
+  T2_lower_lr:
+    loss: MSE
+    huber_delta: null
+    learning_rate: 0.0005
+    dropout: 0.1
+    weight_decay: 0.00001
+  T3_more_dropout:
+    loss: MSE
+    huber_delta: null
+    learning_rate: 0.001
+    dropout: 0.2
+    weight_decay: 0.00001
+  T4_stronger_regularization:
+    loss: MSE
+    huber_delta: null
+    learning_rate: 0.001
+    dropout: 0.1
+    weight_decay: 0.0001
+  T5_robust_combination:
+    loss: Huber
+    huber_delta: 1.0
+    learning_rate: 0.0005
+    dropout: 0.2
+    weight_decay: 0.00001
+
+preprocessing:
+  P0_raw:
+    method: raw
+  P1_causal_ema:
+    method: causal_ema
+    alpha: 0.5
+  P2_causal_sg:
+    method: causal_sg
+    window: 5
+    polyorder: 2
+
+selection:
+  timesnet_fold3_min_improvement: 0.10
+  timesnet_mean_max_worsening: 0.02
+  preprocessing_mean_min_improvement: 0.02
+  preprocessing_fold3_max_worsening: 0.05
+  winner_auc_threshold: 0.65
+  oracle_min_improvement: 0.05
+
+shift:
+  psi_bins: 10
+  quantile_low: 0.3333333333333333
+  quantile_high: 0.6666666666666666
+
+winner_classifier:
+  C: 1.0
+  class_weight: balanced
+  max_iter: 2000
+
+fixed_fusion_alphas: [0.25, 0.50, 0.75]
+
+bootstrap:
+  repetitions: 2000
+  block_length_steps: 19
+  seed: 20260908

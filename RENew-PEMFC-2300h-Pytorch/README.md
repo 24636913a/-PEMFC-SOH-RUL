@@ -57,8 +57,19 @@
 - 结果：`Phase_N2_6R_High_Fidelity_Revalidation/PHASE_N2_6R_RESULTS.md`。
 - 冻结配置：`Phase_N2_6R_High_Fidelity_Revalidation/outputs/frozen_config/PHASE_N2_6R_BACKBONE_SELECTION.yaml`。
 
+### Phase N2.7 — LSTM–TimesNet误差互补性、TimesNet稳健调优与因果预处理筛选
+
+- 最终 LSTM 专家：冻结 LSTM + 单侧 causal SG voltage-state 输入；三 seed、三折宏平均 RMSE 7.786 mV。
+- 最终 TimesNet 专家：N2.6R 高保真 `T0_original` + Raw 输入；Huber 的 seed=42 改善未通过三 seed 复核。
+- 两专家具有明显误差互补性：TimesNet 总体 pointwise win rate 58.14%，Top10% 大误差 Jaccard 0.123，Origin-wise Oracle 相对最终 LSTM 改善 32.43%。
+- 固定融合中最佳为预注册 `α=0.25`，RMSE 7.180 mV；仅作为诊断基线。
+- Winner 的严格时间后推 Logistic Regression 最大 ROC-AUC 0.614，未达到 0.65；因此 `Phase N2.8 = NOGO`，未训练正式 Gate。
+- Test firewall：目标读取 0 行、预测 0 个、指标 0 项、shift 诊断 0 项。
+- 结果：`Phase_N2_7_Complementarity_and_Robustness/PHASE_N2_7_RESULTS.md`。
+- 冻结配置：`Phase_N2_7_Complementarity_and_Robustness/outputs/frozen_config/PHASE_N2_7_FINAL_EXPERT_SELECTION.yaml`。
+
 ## 约束
 
 - 原始数据和旧 `New-PEMFC-Pytorch` 项目均为只读。
-- 最终20% Test 在 Phase N1/N2/N2.5/N2.6/N2.6R 中只允许结构审计；Phase N2.6R 未读取 Test target，未生成 Test prediction 或 Test metric。
-- 尚未执行 Phase N3、RUL、uncertainty、ensemble、PINN、EIS/spatial EIS 融合或 dense SOH interpolation。
+- 最终20% Test 在 Phase N1/N2/N2.5/N2.6/N2.6R/N2.7 中只允许结构审计；Phase N2.7 未读取 Test target，未生成 Test prediction、Test metric 或 Test shift diagnostics。
+- 尚未执行 Phase N2.8、Phase N3、RUL、uncertainty、正式 adaptive ensemble/Gate、PINN、EIS/spatial EIS 融合或 dense SOH interpolation。

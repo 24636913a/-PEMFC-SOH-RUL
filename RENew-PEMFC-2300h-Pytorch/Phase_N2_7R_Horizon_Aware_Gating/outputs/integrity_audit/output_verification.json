@@ -1,0 +1,232 @@
+{
+  "status": "PASS",
+  "checks": {
+    "required_csvs": true,
+    "required_figures": true,
+    "paired_audit_9_of_9": true,
+    "test_firewall": true,
+    "artifact_tool_audit": true,
+    "report": true,
+    "freeze": true
+  },
+  "csv": [
+    {
+      "path": "outputs/integrity_audit/paired_expert_prediction_audit.csv",
+      "exists": true,
+      "rows": 9,
+      "columns": 10,
+      "pass": true
+    },
+    {
+      "path": "outputs/stability/sg_lstm_stability_bootstrap.csv",
+      "exists": true,
+      "rows": 10,
+      "columns": 19,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/pointwise_winner_by_horizon.csv",
+      "exists": true,
+      "rows": 72,
+      "columns": 8,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/expert_disagreement_analysis.csv",
+      "exists": true,
+      "rows": 3,
+      "columns": 11,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_feature_definition.csv",
+      "exists": true,
+      "rows": 38,
+      "columns": 6,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_logistic_state_horizon.csv",
+      "exists": true,
+      "rows": 9,
+      "columns": 30,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_logistic_disagreement.csv",
+      "exists": true,
+      "rows": 9,
+      "columns": 30,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_continuous_mlp.csv",
+      "exists": true,
+      "rows": 9,
+      "columns": 30,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/fixed_fusion_meta_oos.csv",
+      "exists": true,
+      "rows": 6,
+      "columns": 12,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/horizon_static_fusion.csv",
+      "exists": true,
+      "rows": 144,
+      "columns": 9,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/adaptive_gate_meta_oos.csv",
+      "exists": true,
+      "rows": 45,
+      "columns": 12,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_weight_by_horizon.csv",
+      "exists": true,
+      "rows": 24,
+      "columns": 12,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_weight_by_ageing_stage.csv",
+      "exists": true,
+      "rows": 3,
+      "columns": 12,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_weight_by_disagreement.csv",
+      "exists": true,
+      "rows": 3,
+      "columns": 12,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/timesnet_tail_error_gate_analysis.csv",
+      "exists": true,
+      "rows": 2,
+      "columns": 11,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/ophrs2_ablation.csv",
+      "exists": true,
+      "rows": 9,
+      "columns": 25,
+      "pass": true
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_multiseed_summary.csv",
+      "exists": true,
+      "rows": 9,
+      "columns": 7,
+      "pass": true
+    },
+    {
+      "path": "outputs/stability/gate_bootstrap_comparison.csv",
+      "exists": true,
+      "rows": 21,
+      "columns": 19,
+      "pass": true
+    }
+  ],
+  "figures": [
+    {
+      "path": "outputs\\figures\\timesnet_win_rate_by_horizon.png",
+      "exists": true,
+      "bytes": 53867,
+      "width": 1280,
+      "height": 720,
+      "pass": true
+    },
+    {
+      "path": "outputs\\figures\\expert_disagreement_vs_error.png",
+      "exists": true,
+      "bytes": 55723,
+      "width": 1072,
+      "height": 752,
+      "pass": true
+    },
+    {
+      "path": "outputs\\figures\\gate_weight_by_horizon.png",
+      "exists": true,
+      "bytes": 35714,
+      "width": 1184,
+      "height": 704,
+      "pass": true
+    },
+    {
+      "path": "outputs\\figures\\gate_weight_by_ageing_stage.png",
+      "exists": true,
+      "bytes": 39506,
+      "width": 1184,
+      "height": 704,
+      "pass": true
+    },
+    {
+      "path": "outputs\\figures\\gate_weight_by_disagreement.png",
+      "exists": true,
+      "bytes": 33998,
+      "width": 1184,
+      "height": 704,
+      "pass": true
+    },
+    {
+      "path": "outputs\\figures\\meta_oos_rmse_comparison.png",
+      "exists": true,
+      "bytes": 42112,
+      "width": 1280,
+      "height": 720,
+      "pass": true
+    },
+    {
+      "path": "outputs\\figures\\fold2_rmse_comparison.png",
+      "exists": true,
+      "bytes": 40074,
+      "width": 1280,
+      "height": 720,
+      "pass": true
+    },
+    {
+      "path": "outputs\\figures\\fold3_rmse_comparison.png",
+      "exists": true,
+      "bytes": 40137,
+      "width": 1280,
+      "height": 720,
+      "pass": true
+    },
+    {
+      "path": "outputs\\figures\\tail_error_gate_response.png",
+      "exists": true,
+      "bytes": 26742,
+      "width": 992,
+      "height": 672,
+      "pass": true
+    },
+    {
+      "path": "outputs\\figures\\oracle_fixed_horizonstatic_adaptive_comparison.png",
+      "exists": true,
+      "bytes": 43262,
+      "width": 1168,
+      "height": 704,
+      "pass": true
+    }
+  ],
+  "test_firewall": {
+    "test_target_rows_read": 0,
+    "test_predictions_constructed": false,
+    "test_gate_predictions_constructed": false,
+    "test_gate_weights_constructed": false,
+    "test_metrics_computed": false,
+    "test_performance_accessed": false
+  },
+  "best_gate": "Gate_A_Horizon_Logistic",
+  "phase_n2_8_decision": "NOGO"
+}

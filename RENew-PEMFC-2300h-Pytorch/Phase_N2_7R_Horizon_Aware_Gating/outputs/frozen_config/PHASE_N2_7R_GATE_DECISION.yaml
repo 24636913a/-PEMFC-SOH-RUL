@@ -1,0 +1,42 @@
+phase_status: PASS
+expert_lstm: Frozen Phase N2 LSTM + P2_causal_sg
+expert_timesnet: High-fidelity TimesNet T0 original raw input
+sg_stability_status: paired moving-block bootstrap completed; inspect per seed/fold
+  rows for heterogeneity
+fixed_fusion_rmse_mV: 8.49298219950451
+horizon_static_rmse_mV: 11.473877350490731
+best_adaptive_gate: Gate_A_Horizon_Logistic
+best_gate_fold2_rmse_mV: 5.006806319319469
+best_gate_fold3_rmse_mV: 14.972702387231356
+best_gate_meta_oos_rmse_mV: 9.989754353275412
+best_gate_mae_mV: 3.855839483016323
+best_gate_r2: 0.9932421534457103
+improvement_vs_lstm_pct: -14.41075929750069
+improvement_vs_fixed_fusion_pct: -17.623634650479133
+improvement_vs_horizon_static_pct: 12.934799212855838
+winner_auc: 0.5502901600755873
+mean_gate_weight: 0.4936496744499821
+std_gate_weight: 0.18691812214201636
+h9_5_gate_weight: 0.48195542595268875
+tail_error_gate_weight: 0.45209629807174223
+ophrs2_ablation_effect: -1.196694222597717
+phase_n2_8_decision: NOGO
+test_performance_accessed: false
+test_firewall:
+  resolution_hours: 0.5
+  source_file: E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_N1_Data_Foundation\outputs\causal_feature_tables\causal_features_30min.csv
+  schema_column_count: 214
+  total_metadata_rows: 3843
+  test_metadata_rows: 836
+  test_metadata_start_h: 1820.0
+  test_metadata_end_h: 2256.5
+  development_feature_target_rows: 3005
+  target_rows_read_from_test: 0
+  test_predictions_constructed: false
+  test_performance_accessed: false
+  test_target_rows_read: 0
+  test_gate_predictions_constructed: false
+  test_gate_weights_constructed: false
+  test_metrics_computed: false
+  development_target_max_h: 1819.5
+  firewall_status: PASS

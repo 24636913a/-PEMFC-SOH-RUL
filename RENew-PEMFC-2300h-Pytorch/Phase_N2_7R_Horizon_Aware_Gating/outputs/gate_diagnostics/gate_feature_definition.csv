@@ -1,0 +1,39 @@
+﻿feature_name,feature_group,causal_source,availability,used_main_gate,used_ophrs_ablation
+g0__cell_voltage_mean__mean,G0,raw 48-step F2 history,past-known,True,True
+g0__cell_voltage_mean__std,G0,raw 48-step F2 history,past-known,True,True
+g0__cell_voltage_mean__min,G0,raw 48-step F2 history,past-known,True,True
+g0__cell_voltage_mean__max,G0,raw 48-step F2 history,past-known,True,True
+g0__cell_voltage_mean__last,G0,raw 48-step F2 history,past-known,True,True
+g0__cell_voltage_mean__slope,G0,raw 48-step F2 history,past-known,True,True
+g0__cell_voltage_std__mean,G0,raw 48-step F2 history,past-known,True,True
+g0__cell_voltage_std__last,G0,raw 48-step F2 history,past-known,True,True
+g0__cell_voltage_std__slope,G0,raw 48-step F2 history,past-known,True,True
+g0__actual_current_A_mean__mean,G0,raw 48-step F2 history,past-known,True,True
+g0__actual_current_A_mean__std,G0,raw 48-step F2 history,past-known,True,True
+g0__actual_current_A_mean__last,G0,raw 48-step F2 history,past-known,True,True
+g0__actual_current_A_mean__slope,G0,raw 48-step F2 history,past-known,True,True
+g0__actual_current_A_std__mean,G0,raw 48-step F2 history,past-known,True,True
+g0__actual_current_A_std__last,G0,raw 48-step F2 history,past-known,True,True
+g0__actual_current_A_std__slope,G0,raw 48-step F2 history,past-known,True,True
+g0__actual_current_A_peak_to_peak__mean,G0,raw 48-step F2 history,past-known,True,True
+g0__actual_current_A_peak_to_peak__last,G0,raw 48-step F2 history,past-known,True,True
+g0__load_transition_count__mean,G0,raw 48-step F2 history,past-known,True,True
+g0__load_transition_count__sum,G0,raw 48-step F2 history,past-known,True,True
+g0__load_transition_count__last,G0,raw 48-step F2 history,past-known,True,True
+g0__load_transition_count__slope,G0,raw 48-step F2 history,past-known,True,True
+g0__operation_point_transitions__mean,G0,raw 48-step F2 history,past-known,True,True
+g0__operation_point_transitions__sum,G0,raw 48-step F2 history,past-known,True,True
+g0__operation_point_transitions__last,G0,raw 48-step F2 history,past-known,True,True
+g0__operation_point_transitions__slope,G0,raw 48-step F2 history,past-known,True,True
+g0__zero_current_fraction__mean,G0,raw 48-step F2 history,past-known,True,True
+g0__zero_current_fraction__last,G0,raw 48-step F2 history,past-known,True,True
+g0__zero_current_fraction__slope,G0,raw 48-step F2 history,past-known,True,True
+horizon_step,G1,forecast task index,origin-known,False,False
+horizon_hours,G1,forecast task index,origin-known,False,False
+horizon_normalized,G1,forecast task index / 24,origin-known,True,True
+lstm_delta_from_anchor_V,G2,frozen deployable expert outputs at origin,origin-known,True,True
+timesnet_delta_from_anchor_V,G2,frozen deployable expert outputs at origin,origin-known,True,True
+signed_prediction_difference_V,G2,frozen deployable expert outputs at origin,origin-known,True,True
+absolute_prediction_difference_V,G2,frozen deployable expert outputs at origin,origin-known,True,True
+shift_score,G0 auxiliary,fold-train-fitted causal 48-step history diagnostic,past-known,False,False
+origin_age_h,diagnostic ablation,OpHrs2 at origin,origin-known,False,True

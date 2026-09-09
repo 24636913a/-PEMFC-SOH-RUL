@@ -1,0 +1,134 @@
+{
+  "status": "PASS",
+  "library": "@oai/artifact-tool",
+  "method": "Workbook.fromCSV plus bounded workbook.inspect",
+  "csvCount": 18,
+  "rows": [
+    {
+      "path": "outputs/integrity_audit/paired_expert_prediction_audit.csv",
+      "status": "PASS",
+      "byteCount": 600,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 950
+    },
+    {
+      "path": "outputs/stability/sg_lstm_stability_bootstrap.csv",
+      "status": "PASS",
+      "byteCount": 3685,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 237
+    },
+    {
+      "path": "outputs/gate_diagnostics/pointwise_winner_by_horizon.csv",
+      "status": "PASS",
+      "byteCount": 5333,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 1037
+    },
+    {
+      "path": "outputs/gate_diagnostics/expert_disagreement_analysis.csv",
+      "status": "PASS",
+      "byteCount": 770,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 1140
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_feature_definition.csv",
+      "status": "PASS",
+      "byteCount": 3143,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 1000
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_logistic_state_horizon.csv",
+      "status": "PASS",
+      "byteCount": 7925,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 239
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_logistic_disagreement.csv",
+      "status": "PASS",
+      "byteCount": 8699,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 239
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_continuous_mlp.csv",
+      "status": "PASS",
+      "byteCount": 8766,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 239
+    },
+    {
+      "path": "outputs/gate_diagnostics/fixed_fusion_meta_oos.csv",
+      "status": "PASS",
+      "byteCount": 1262,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 1740
+    },
+    {
+      "path": "outputs/gate_diagnostics/horizon_static_fusion.csv",
+      "status": "PASS",
+      "byteCount": 15581,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 1313
+    },
+    {
+      "path": "outputs/gate_diagnostics/adaptive_gate_meta_oos.csv",
+      "status": "PASS",
+      "byteCount": 8978,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 1962
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_weight_by_horizon.csv",
+      "status": "PASS",
+      "byteCount": 4935,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 2038
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_weight_by_ageing_stage.csv",
+      "status": "PASS",
+      "byteCount": 807,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 1185
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_weight_by_disagreement.csv",
+      "status": "PASS",
+      "byteCount": 788,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 1166
+    },
+    {
+      "path": "outputs/gate_diagnostics/timesnet_tail_error_gate_analysis.csv",
+      "status": "PASS",
+      "byteCount": 632,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 978
+    },
+    {
+      "path": "outputs/gate_diagnostics/ophrs2_ablation.csv",
+      "status": "PASS",
+      "byteCount": 7819,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 237
+    },
+    {
+      "path": "outputs/gate_diagnostics/gate_multiseed_summary.csv",
+      "status": "PASS",
+      "byteCount": 1206,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 1368
+    },
+    {
+      "path": "outputs/stability/gate_bootstrap_comparison.csv",
+      "status": "PASS",
+      "byteCount": 7745,
+      "inspectedRange": "A1:Z8",
+      "inspectionCharacters": 237
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+phase_status: FAIL
+leakage_audit_status: PASS
+label_permutation_status: PASS
+temporal_misalignment_status: PASS
+primary_metric: r2_delta
+lstm_r2_delta: 0.9974457207910996
+lstm_rmse_delta_mV: 9.005857842572587
+lstm_mae_delta_mV: 4.790057100305376
+timesnet_r2_delta: 0.9959361169167122
+timesnet_rmse_delta_mV: 9.895152250989915
+timesnet_mae_delta_mV: 3.546117421546294
+timexer_r2_delta: 0.9652712063392822
+timexer_rmse_delta_mV: 36.17040378824492
+timexer_fold3_r2_delta: 0.9640418787044343
+timexer_fold3_rmse_delta_mV: 36.96140690328226
+timemixerpp_r2_delta: null
+timemixerpp_rmse_delta_mV: null
+timemixerpp_fold3_r2_delta: null
+timemixerpp_fold3_rmse_delta_mV: null
+selected_backbone: UNRESOLVED
+selection_reason: TimeMixer++ official high-fidelity source unavailable; no surrogate
+  permitted.
+next_phase: NO-GO pending accessible official TimeMixer++ implementation
+test_performance_accessed: false
+test_firewall:
+  resolution_hours: 0.5
+  source_file: E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_N1_Data_Foundation\outputs\causal_feature_tables\causal_features_30min.csv
+  schema_column_count: 214
+  total_metadata_rows: 3843
+  test_metadata_rows: 836
+  test_metadata_start_h: 1820.0
+  test_metadata_end_h: 2256.5
+  development_feature_target_rows: 3005
+  target_rows_read_from_test: 0
+  test_predictions_constructed: false
+  test_performance_accessed: false
+  test_target_rows_read: 0
+  test_metrics_computed: false
+  test_feature_diagnostics_computed: false

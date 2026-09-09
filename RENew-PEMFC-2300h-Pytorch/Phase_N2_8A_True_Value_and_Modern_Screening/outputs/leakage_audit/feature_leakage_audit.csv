@@ -1,0 +1,15 @@
+﻿feature_name,source_column,temporal_window,future_access,centered_rolling,negative_shift,future_backfill,status
+cell_voltage_mean,cell_voltage_mean,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+cell_voltage_std,cell_voltage_std,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+cell_voltage_range,cell_voltage_range,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+cell_voltage_min,cell_voltage_min,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+cell_voltage_max,cell_voltage_max,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+actual_current_A_mean,actual_current_A_mean,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+actual_current_A_std,actual_current_A_std,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+actual_current_A_peak_to_peak,actual_current_A_peak_to_peak,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+actual_current_density_A_cm2_mean,actual_current_density_A_cm2_mean,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+actual_current_density_A_cm2_std,actual_current_density_A_cm2_std,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+actual_current_density_A_cm2_peak_to_peak,actual_current_density_A_cm2_peak_to_peak,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+load_transition_count,load_transition_count,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+operation_point_transitions,operation_point_transitions,current causal aggregation bin; history only through origin,False,False,False,False,PASS
+zero_current_fraction,zero_current_fraction,current causal aggregation bin; history only through origin,False,False,False,False,PASS

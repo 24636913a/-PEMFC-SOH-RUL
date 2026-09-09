@@ -1,0 +1,152 @@
+{
+  "status": "PASS",
+  "checks": {
+    "csvs": true,
+    "figures": true,
+    "firewall": true,
+    "feature_audit": true,
+    "artifact_csv_audit": true,
+    "report": true,
+    "freeze_test_false": true
+  },
+  "csv": [
+    {
+      "path": "outputs/true_delta_metrics/legacy_models_true_delta_metrics.csv",
+      "rows": 27,
+      "columns": 13,
+      "pass": true
+    },
+    {
+      "path": "outputs/true_delta_metrics/anchor_contribution_audit.csv",
+      "rows": 9,
+      "columns": 7,
+      "pass": true
+    },
+    {
+      "path": "outputs/leakage_audit/label_permutation_negative_control.csv",
+      "rows": 6,
+      "columns": 19,
+      "pass": true
+    },
+    {
+      "path": "outputs/leakage_audit/temporal_misalignment_negative_control.csv",
+      "rows": 6,
+      "columns": 19,
+      "pass": true
+    },
+    {
+      "path": "outputs/leakage_audit/feature_leakage_audit.csv",
+      "rows": 14,
+      "columns": 8,
+      "pass": true
+    },
+    {
+      "path": "outputs/model_screening/timexer_seed42_results.csv",
+      "rows": 3,
+      "columns": 18,
+      "pass": true
+    },
+    {
+      "path": "outputs/model_screening/timemixerpp_seed42_results.csv",
+      "rows": 1,
+      "columns": 5,
+      "pass": true
+    },
+    {
+      "path": "outputs/true_delta_metrics/modern_model_true_delta_comparison.csv",
+      "rows": 30,
+      "columns": 14,
+      "pass": true
+    },
+    {
+      "path": "outputs/true_delta_metrics/per_horizon_true_delta_metrics.csv",
+      "rows": 720,
+      "columns": 14,
+      "pass": true
+    },
+    {
+      "path": "outputs/lifecycle_analysis/lifecycle_generalization_summary.csv",
+      "rows": 10,
+      "columns": 5,
+      "pass": true
+    },
+    {
+      "path": "outputs/tail_error_analysis/tail_error_summary.csv",
+      "rows": 30,
+      "columns": 7,
+      "pass": true
+    },
+    {
+      "path": "outputs/model_screening/multiseed_modern_model_comparison.csv",
+      "rows": 2,
+      "columns": 4,
+      "pass": true
+    }
+  ],
+  "figures": [
+    {
+      "path": "r2_delta_model_comparison.png",
+      "width": 1120,
+      "height": 640,
+      "bytes": 26209,
+      "pass": true
+    },
+    {
+      "path": "rmse_delta_model_comparison.png",
+      "width": 1120,
+      "height": 640,
+      "bytes": 25716,
+      "pass": true
+    },
+    {
+      "path": "r2_abs_vs_r2_delta.png",
+      "width": 1120,
+      "height": 640,
+      "bytes": 29597,
+      "pass": true
+    },
+    {
+      "path": "foldwise_r2_delta.png",
+      "width": 1280,
+      "height": 640,
+      "bytes": 53874,
+      "pass": true
+    },
+    {
+      "path": "foldwise_rmse_delta.png",
+      "width": 1280,
+      "height": 640,
+      "bytes": 55694,
+      "pass": true
+    },
+    {
+      "path": "lifecycle_degradation_ratio.png",
+      "width": 1088,
+      "height": 640,
+      "bytes": 23056,
+      "pass": true
+    },
+    {
+      "path": "tail_error_p95_comparison.png",
+      "width": 1088,
+      "height": 640,
+      "bytes": 21949,
+      "pass": true
+    },
+    {
+      "path": "per_horizon_r2_delta.png",
+      "width": 1280,
+      "height": 672,
+      "bytes": 66045,
+      "pass": true
+    },
+    {
+      "path": "per_horizon_rmse_delta.png",
+      "width": 1280,
+      "height": 672,
+      "bytes": 83412,
+      "pass": true
+    }
+  ],
+  "phase_decision_status": "FAIL"
+}

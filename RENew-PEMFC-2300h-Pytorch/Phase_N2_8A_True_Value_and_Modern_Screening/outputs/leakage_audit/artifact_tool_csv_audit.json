@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "library": "@oai/artifact-tool",
+  "csvCount": 12,
+  "rows": [
+    {
+      "path": "outputs/true_delta_metrics/legacy_models_true_delta_metrics.csv",
+      "status": "PASS",
+      "byteCount": 5756,
+      "inspectionCharacters": 2074
+    },
+    {
+      "path": "outputs/true_delta_metrics/anchor_contribution_audit.csv",
+      "status": "PASS",
+      "byteCount": 1084,
+      "inspectionCharacters": 1268
+    },
+    {
+      "path": "outputs/leakage_audit/label_permutation_negative_control.csv",
+      "status": "PASS",
+      "byteCount": 1988,
+      "inspectionCharacters": 235
+    },
+    {
+      "path": "outputs/leakage_audit/temporal_misalignment_negative_control.csv",
+      "status": "PASS",
+      "byteCount": 2040,
+      "inspectionCharacters": 235
+    },
+    {
+      "path": "outputs/leakage_audit/feature_leakage_audit.csv",
+      "status": "PASS",
+      "byteCount": 2045,
+      "inspectionCharacters": 1418
+    },
+    {
+      "path": "outputs/model_screening/timexer_seed42_results.csv",
+      "status": "PASS",
+      "byteCount": 955,
+      "inspectionCharacters": 1381
+    },
+    {
+      "path": "outputs/model_screening/timemixerpp_seed42_results.csv",
+      "status": "PASS",
+      "byteCount": 349,
+      "inspectionCharacters": 568
+    },
+    {
+      "path": "outputs/true_delta_metrics/modern_model_true_delta_comparison.csv",
+      "status": "PASS",
+      "byteCount": 6447,
+      "inspectionCharacters": 2137
+    },
+    {
+      "path": "outputs/true_delta_metrics/per_horizon_true_delta_metrics.csv",
+      "status": "PASS",
+      "byteCount": 152805,
+      "inspectionCharacters": 2114
+    },
+    {
+      "path": "outputs/lifecycle_analysis/lifecycle_generalization_summary.csv",
+      "status": "PASS",
+      "byteCount": 893,
+      "inspectionCharacters": 1012
+    },
+    {
+      "path": "outputs/tail_error_analysis/tail_error_summary.csv",
+      "status": "PASS",
+      "byteCount": 3357,
+      "inspectionCharacters": 1281
+    },
+    {
+      "path": "outputs/model_screening/multiseed_modern_model_comparison.csv",
+      "status": "PASS",
+      "byteCount": 265,
+      "inspectionCharacters": 553
+    }
+  ]
+}

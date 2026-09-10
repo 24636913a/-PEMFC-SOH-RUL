@@ -1,0 +1,4 @@
+﻿model,source,fold,seed,r2_delta,rmse_delta_mV,mae_delta_mV,r2_abs,rmse_abs_mV,mae_abs_mV,parameter_count,best_epoch,epochs_run,device,validation_scaled_delta_rmse
+TimeMixer++-PyPOTS,maintained PyPOTS TimeMixer++ forward; exact pinned forward,fold_1,42,0.9552066664049356,41.20541173741805,28.686512858528268,0.9084285918685916,41.20541173741805,28.686512858528268,1401837,99,100,cuda,0.25225651264190674
+TimeMixer++-PyPOTS,maintained PyPOTS TimeMixer++ forward; exact pinned forward,fold_2,42,0.9084781993723379,59.033475222607194,37.19246026863451,0.8117229237645992,59.033475222607194,37.19246026863451,1401837,98,100,cuda,0.3960711359977722
+TimeMixer++-PyPOTS,maintained PyPOTS TimeMixer++ forward; exact pinned forward,fold_3,42,0.9405756659095541,47.51515597412346,33.364036348308616,0.8781285680350577,47.51515597412346,33.364036348308616,1401837,94,100,cuda,0.2688015401363373

@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation\scripts\phase_n2_8b_run.py", line 778, in <module>
+    main()
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation\scripts\phase_n2_8b_run.py", line 549, in main
+    legacy = legacy_seed42(cfg)
+             ^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation\scripts\phase_n2_8b_run.py", line 392, in legacy_seed42
+    result[(model, fold)] = load_legacy_array(root, pattern.format(fold=fold), cfg)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation\scripts\phase_n2_8b_run.py", line 368, in load_legacy_array
+    metadata = json.loads((root / f"{run}.json").read_text(encoding="utf-8"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\pathlib.py", line 1058, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N2_8A_True_Value_and_Modern_Screening\\outputs\\model_screening\\timexer_official_fold_1_seed42.json'

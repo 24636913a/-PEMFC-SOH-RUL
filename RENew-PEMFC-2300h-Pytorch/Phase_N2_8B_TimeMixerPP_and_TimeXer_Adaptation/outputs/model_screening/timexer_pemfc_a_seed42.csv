@@ -1,0 +1,4 @@
+﻿model,source,fold,seed,r2_delta,rmse_delta_mV,mae_delta_mV,r2_abs,rmse_abs_mV,mae_abs_mV,parameter_count,best_epoch,epochs_run,device,validation_scaled_delta_rmse
+TimeXer-PEMFC-A,official TimeXer with endogenous voltage last and 13 historical exogenous F2 channels,fold_1,42,0.9735413752463942,31.668770249025293,18.21340781200853,0.9459103993506929,31.668770249025293,18.21340781200853,115096,92,100,cuda,0.16703790426254272
+TimeXer-PEMFC-A,official TimeXer with endogenous voltage last and 13 historical exogenous F2 channels,fold_2,42,0.9582303650670183,39.881034212427195,19.791046550282005,0.9140722244681787,39.881034212427195,19.791046550282005,115096,91,100,cuda,0.20989204943180084
+TimeXer-PEMFC-A,official TimeXer with endogenous voltage last and 13 historical exogenous F2 channels,fold_3,42,0.9640418787044343,36.96140690328226,18.899151699641486,0.9262546598100752,36.96140690328226,18.899151699641486,115096,100,100,cuda,0.20632965862751007

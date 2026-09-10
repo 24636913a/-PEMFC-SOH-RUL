@@ -1,0 +1,4 @@
+﻿model,source,fold,seed,r2_delta,rmse_delta_mV,mae_delta_mV,r2_abs,rmse_abs_mV,mae_abs_mV,parameter_count,best_epoch,epochs_run,device,validation_scaled_delta_rmse
+TimeMixer++-PaperFaithful,same maintained modules; paper-guided equal-weight dec_out_list fusion,fold_1,42,0.9880796246662191,21.256537873428563,13.14817873150835,0.9756310712518727,21.256537873428563,13.14817873150835,1401837,95,100,cuda,0.1142614334821701
+TimeMixer++-PaperFaithful,same maintained modules; paper-guided equal-weight dec_out_list fusion,fold_2,42,0.9660405327367206,35.959736991822716,16.312615302245632,0.9301391672476608,35.959736991822716,16.312615302245632,1401837,98,100,cuda,0.2179728001356125
+TimeMixer++-PaperFaithful,same maintained modules; paper-guided equal-weight dec_out_list fusion,fold_3,42,0.9756411289133701,30.421356525957826,14.643399397947842,0.9500431843988587,30.421356525957826,14.643399397947842,1401837,90,100,cuda,0.17245198786258698

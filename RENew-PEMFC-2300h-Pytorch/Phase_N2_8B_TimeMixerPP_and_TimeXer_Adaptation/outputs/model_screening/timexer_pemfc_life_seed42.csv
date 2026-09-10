@@ -1,0 +1,4 @@
+﻿model,source,fold,seed,r2_delta,rmse_delta_mV,mae_delta_mV,r2_abs,rmse_abs_mV,mae_abs_mV,parameter_count,best_epoch,epochs_run,device,validation_scaled_delta_rmse
+TimeXer-PEMFC-Life,PEMFC-A plus train-standardized origin-known static lifecycle scalar only,fold_1,42,0.972085436023565,32.528421592823335,18.86526430198904,0.9429340099175363,32.528421592823335,18.86526430198904,115096,94,100,cuda,0.17496074736118317
+TimeXer-PEMFC-Life,PEMFC-A plus train-standardized origin-known static lifecycle scalar only,fold_2,42,0.956079638975387,40.894887989592874,20.646852232059654,0.9096477876942244,40.894887989592874,20.646852232059654,115096,100,100,cuda,0.21498021483421326
+TimeXer-PEMFC-Life,PEMFC-A plus train-standardized origin-known static lifecycle scalar only,fold_3,42,0.95662096109503,40.59662782192241,21.377584148193037,0.9110353415056338,40.59662782192241,21.377584148193037,115096,70,85,cuda,0.22264529764652252

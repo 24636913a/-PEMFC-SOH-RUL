@@ -1,0 +1,5 @@
+RESUME_COMPLETE_MODEL=TimeMixer++-PyPOTS
+RESUME_COMPLETE_MODEL=TimeMixer++-PaperFaithful
+RESUME_COMPLETE_MODEL=TimeXer-PEMFC-A
+RESUME_COMPLETE_MODEL=TimeXer-PEMFC-Life
+{"phase_status": "PASS", "selected_backbone": "TimesNet HF", "promotion": {"TimeMixer++-PyPOTS": false, "TimeMixer++-PaperFaithful": false, "TimeXer-PEMFC-A": false, "TimeXer-PEMFC-Life": false}, "timexer_status": "PERMANENT STOP: best adaptation mean RMSE_delta > 25 mV"}

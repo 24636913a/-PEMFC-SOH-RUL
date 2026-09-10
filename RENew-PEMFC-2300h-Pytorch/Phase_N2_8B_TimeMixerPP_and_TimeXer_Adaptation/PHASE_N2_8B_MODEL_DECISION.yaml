@@ -1,0 +1,25 @@
+phase_status: PASS
+timemixerpp_source: https://github.com/WenjieDu/PyPOTS
+timemixerpp_commit: 22fe29a3ef02da054c8ac6d56f4d6dc2eac2359c
+timemixerpp_implementation_status: maintained public reproduction / maintained implementation;
+  not official author code
+timemixerpp_pypots_r2_delta: 0.9347535105622758
+timemixerpp_pypots_rmse_delta_mV: 49.25134764471624
+timemixerpp_paperfaithful_r2_delta: 0.97658709543877
+timemixerpp_paperfaithful_rmse_delta_mV: 29.212543797069703
+timexer_original_rmse_delta_mV: 36.17040378824492
+timexer_pemfc_a_rmse_delta_mV: 36.17040378824492
+timexer_pemfc_life_rmse_delta_mV: 38.006645801446204
+timexer_final_status: 'PERMANENT STOP: best adaptation mean RMSE_delta > 25 mV'
+timesnet_r2_delta: 0.9959361169167122
+timesnet_rmse_delta_mV: 9.895152250989915
+seed42_promotion:
+  TimeMixer++-PyPOTS: false
+  TimeMixer++-PaperFaithful: false
+  TimeXer-PEMFC-A: false
+  TimeXer-PEMFC-Life: false
+selected_backbone: TimesNet HF
+selection_reason: 'Ranked only eligible final candidates by frozen order: mean R2_delta,
+  mean RMSE_delta, Fold3 RMSE, Fold3 P99, seed stability, lifecycle ratio, then complexity.'
+next_phase: Lifecycle-Aware Robust TimesNet
+test_performance_accessed: false

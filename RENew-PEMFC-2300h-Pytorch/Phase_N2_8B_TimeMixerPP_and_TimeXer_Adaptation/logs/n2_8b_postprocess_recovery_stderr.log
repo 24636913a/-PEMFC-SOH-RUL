@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation\scripts\phase_n2_8b_run.py", line 819, in <module>
+    main()
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation\scripts\phase_n2_8b_run.py", line 613, in main
+    multiseed_rows, multiseed_arrays = read_timesnet_multiseed(cfg)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation\scripts\phase_n2_8b_run.py", line 510, in read_timesnet_multiseed
+    arr = load_legacy_array(root, run, cfg)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation\scripts\phase_n2_8b_run.py", line 377, in load_legacy_array
+    raise FileNotFoundError(metadata_path)
+FileNotFoundError: E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_N2_6R_High_Fidelity_Revalidation\outputs\model_runs\screening_timesnet_hf_t1_fold_1_seed2024.json

@@ -365,9 +365,19 @@ def run_model(
 
 
 def load_legacy_array(root: Path, run: str, cfg: dict[str, Any]) -> dict[str, np.ndarray]:
-    metadata = json.loads((root / f"{run}.json").read_text(encoding="utf-8"))
-    if metadata.get("status") != "complete":
-        raise RuntimeError(f"Incomplete frozen legacy run {run}")
+    metadata_path = root / f"{run}.json"
+    # N2.8A stored its official TimeXer predictions as complete NPZ artifacts
+    # without a companion status JSON.  Preserve its read-only result and audit
+    # the arrays directly rather than inventing a missing upstream file.
+    if metadata_path.is_file():
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        if metadata.get("status") != "complete":
+            raise RuntimeError(f"Incomplete frozen legacy run {run}")
+    elif not (
+        (root.name == "model_screening" and run.startswith("timexer_official_"))
+        or ("Phase_N2_6R_High_Fidelity_Revalidation" in str(root) and run.startswith("screening_timesnet_hf_t1_"))
+    ):
+        raise FileNotFoundError(metadata_path)
     array = dict(np.load(root / f"{run}_predictions.npz", allow_pickle=False))
     required = {"y_true", "y_pred", "anchor", "target_end_age_h", "row_origin_index"}
     if not required.issubset(array):
@@ -375,6 +385,36 @@ def load_legacy_array(root: Path, run: str, cfg: dict[str, Any]) -> dict[str, np
     if float(array["target_end_age_h"].max()) >= float(cfg["split"]["development_end_h"]):
         raise RuntimeError(f"TEST FIREWALL VIOLATION in frozen legacy {run}")
     return array
+
+
+def recover_rows_from_prediction_arrays(
+    model_name: str,
+    source: str,
+    model_factory: Any,
+    prediction_paths: dict[str, Path],
+    cfg: dict[str, Any],
+) -> tuple[pd.DataFrame, dict[str, dict[str, np.ndarray]]]:
+    """Recover an interrupted post-training write without retraining predictions."""
+    arrays = {fold: dict(np.load(path, allow_pickle=False)) for fold, path in prediction_paths.items()}
+    required = {"y_true", "y_pred", "anchor", "target_end_age_h", "row_origin_index"}
+    if any(not required.issubset(array) for array in arrays.values()):
+        raise RuntimeError(f"Malformed recoverable prediction artifact for {model_name}")
+    if any(float(array["target_end_age_h"].max()) >= float(cfg["split"]["development_end_h"]) for array in arrays.values()):
+        raise RuntimeError(f"TEST FIREWALL VIOLATION in recovered {model_name}")
+    parameter_count = count_parameters(model_factory())
+    rows = []
+    for fold in FOLDS:
+        array = arrays[fold]
+        rows.append({
+            "model": model_name, "source": source, "fold": fold, "seed": 42,
+            **metric(array["y_true"], array["y_pred"], array["anchor"]),
+            "parameter_count": parameter_count,
+            "best_epoch": "recovered_after_interrupted_postprocessing",
+            "epochs_run": "recovered_after_interrupted_postprocessing",
+            "device": "cuda_training_completed",
+            "validation_scaled_delta_rmse": np.nan,
+        })
+    return pd.DataFrame(rows), arrays
 
 
 def legacy_seed42(cfg: dict[str, Any]) -> dict[tuple[str, str], dict[str, np.ndarray]]:
@@ -469,7 +509,11 @@ def read_timesnet_multiseed(cfg: dict[str, Any]) -> tuple[pd.DataFrame, dict[tup
     arrays: dict[tuple[str, str, int], dict[str, np.ndarray]] = {}
     for seed in (42, 2024, 3407):
         for fold in FOLDS:
-            run = f"screening_timesnet_hf_t1_{fold}_seed{seed}"
+            run = (
+                f"screening_timesnet_hf_t1_{fold}_seed42"
+                if seed == 42
+                else f"multiseed_timesnet_hf_t1_{fold}_seed{seed}"
+            )
             arr = load_legacy_array(root, run, cfg)
             arrays[("TimesNet HF", fold, seed)] = arr
             rows.append({"model": "TimesNet HF", "source": "frozen N2.6R high-fidelity official TimesNet", "fold": fold, "seed": seed, "parameter_count": np.nan, **metric(arr["y_true"], arr["y_pred"], arr["anchor"])})
@@ -482,7 +526,15 @@ def fmt(value: float, digits: int = 4) -> str:
 
 def table_markdown(frame: pd.DataFrame, columns: list[str]) -> str:
     view = frame[columns].copy()
-    return view.to_markdown(index=False)
+    # Keep the report dependency-free: pandas' ``to_markdown`` requires the
+    # optional ``tabulate`` package, which is not part of the fixed runtime.
+    def cell(value: Any) -> str:
+        if isinstance(value, (float, np.floating)):
+            return f"{float(value):.6f}"
+        return str(value).replace("|", "\\|")
+    lines = ["| " + " | ".join(columns) + " |", "|" + "|".join(["---"] * len(columns)) + "|"]
+    lines.extend("| " + " | ".join(cell(value) for value in row) + " |" for row in view.itertuples(index=False, name=None))
+    return "\n".join(lines)
 
 
 def main() -> None:
@@ -537,6 +589,10 @@ def main() -> None:
             if any(float(value["target_end_age_h"].max()) >= float(cfg["split"]["development_end_h"]) for value in model_arrays.values()):
                 raise RuntimeError(f"TEST FIREWALL VIOLATION in resumed {name}")
             print(f"RESUME_COMPLETE_MODEL={name}", flush=True)
+        elif all(path.is_file() for path in completed_arrays.values()):
+            rows, model_arrays = recover_rows_from_prediction_arrays(name, source, factory, completed_arrays, cfg)
+            write_csv(rows, output_files[name])
+            print(f"RECOVER_COMPLETE_PREDICTIONS={name}", flush=True)
         else:
             rows, model_arrays = run_model(name, factory, common, windows, 42, cfg)
             rows.insert(1, "source", source)

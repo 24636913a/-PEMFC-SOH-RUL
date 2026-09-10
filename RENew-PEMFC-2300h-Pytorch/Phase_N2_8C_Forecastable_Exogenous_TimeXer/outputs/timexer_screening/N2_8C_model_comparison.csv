@@ -1,0 +1,5 @@
+﻿model,source,eligibility,mean_r2_delta,mean_rmse_delta_mV,mean_mae_delta_mV,mean_p95_mV,mean_p99_mV,fold3_rmse_delta_mV,fold3_p95_mV,fold3_p99_mV,fold1_rmse_delta_mV,lifecycle_ratio,status
+TimeXer-Original,frozen N2.8A official TimeXer seed42 output,reference_only,0.9652712063392822,36.17040378824492,18.967868687310673,53.68440027038256,163.13203016916916,36.96140690328226,53.015657514333725,188.1567779183388,31.668770249025293,1.167124792426061,complete
+TimeXer-OracleFutureExo,official TimeXer plus PEMFC future-exo x_mark_enc adapter using true development-validation future exogenous,DIAGNOSTIC_ORACLE_ONLY,0.985608495785586,23.26798027513422,14.898761385634428,40.711612614983856,92.25756504279968,20.948443273952893,37.77362344316412,81.4282766230159,22.37134686620969,0.936396158855952,complete
+TimeXer-CycleExo,not run: Oracle terminal-stop gate,FORMAL_CANDIDATE,,,,,,,,,,,not_run_oracle_terminal_stop
+TimeXer-RidgeExo,not run: Oracle terminal-stop gate,FORMAL_CANDIDATE,,,,,,,,,,,not_run_oracle_terminal_stop

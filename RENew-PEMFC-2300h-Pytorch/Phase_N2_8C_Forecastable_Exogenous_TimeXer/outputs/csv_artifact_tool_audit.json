@@ -1,0 +1,221 @@
+{
+  "scope": "N2.8C required CSV artifacts, imported and inspected using @oai/artifact-tool Workbook.fromCSV",
+  "required_csv_count": 12,
+  "all_files_present": true,
+  "files_with_no_data_rows": [],
+  "files_with_invalid_tokens": [],
+  "artifacts": [
+    {
+      "relative_path": "exogenous_forecasting/future_exogenous_forecast_quality.csv",
+      "column_count": 7,
+      "data_row_count": 54,
+      "headers": [
+        "﻿model",
+        "fold",
+        "variable",
+        "rmse",
+        "mae",
+        "r2",
+        "n_values"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:G6\",\"rows\":6,\"cols\":7,\"values\":[[\"﻿model\",\"fold\",\"variable\",\"rmse\",\"mae\",\"r2\",\"n_values\"],[\"CycleRepeat\",\"fold_1\",\"actual_current_A_mean\",\"14.690628527223\",\"6.921848484234355\",\"0.9525035791757046\",\"5592\"],[\"CycleRepeat\",\"fold_1\",\"actual_current_A_std\",\"8.283708115546847\",\"4.526034427171858\",\"0.9265930307020052\",\"5592\"],[\"CycleRepeat\",\"fold_1\",\"actual_current_A_peak_to_peak\",\"38.87189918743111\",\"14.480525241818077\",\"0.8688412081307773\",\"5592\"],[\"CycleRepeat\",\"fold_1\",\"actual_current_density_A_cm2_mean\",\"0.052455325298969804\",\"0.024711970748998568\",\"0.952522274826648\",\"5592\"],[\"CycleRepeat\",\"fold_1\",\"actual_current_density_A_cm2_std\",\"0.02960040671204232\",\"0.01617942053664406\",\"0.9265103229832392\",\"5592\"]]}"
+    },
+    {
+      "relative_path": "exogenous_forecasting/future_exogenous_forecast_summary.csv",
+      "column_count": 10,
+      "data_row_count": 18,
+      "headers": [
+        "﻿model",
+        "variable",
+        "rmse_mean",
+        "rmse_std",
+        "mae_mean",
+        "mae_std",
+        "r2_mean",
+        "r2_std",
+        "folds",
+        "n_values"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:J6\",\"rows\":6,\"cols\":10,\"values\":[[\"﻿model\",\"variable\",\"rmse_mean\",\"rmse_std\",\"mae_mean\",\"mae_std\",\"r2_mean\",\"r2_std\",\"folds\",\"n_values\"],[\"CycleRepeat\",\"actual_current_A_mean\",\"16.547223015579412\",\"1.7622793158838606\",\"7.087252948302524\",\"0.7233564581807507\",\"0.9399155087287433\",\"0.012757094523475673\",\"3\",\"22656\"],[\"CycleRepeat\",\"actual_current_A_peak_to_peak\",\"37.52308953539611\",\"1.9215980722244257\",\"13.435148765269005\",\"1.2615451718314898\",\"0.8752289540205466\",\"0.011662859266461958\",\"3\",\"22656\"],[\"CycleRepeat\",\"actual_current_A_std\",\"8.593058526004905\",\"0.49840295042214666\",\"4.548794798573568\",\"0.3902748541181393\",\"0.9228564202081228\",\"0.010315729626731293\",\"3\",\"22656\"],[\"CycleRepeat\",\"actual_current_density_A_cm2_mean\",\"0.05909692030538478\",\"0.006300714682783816\",\"0.025308039532355924\",\"0.002582693066234324\",\"0.9399141805635655\",\"0.012768217177457691\",\"3\",\"22656\"],[\"CycleRepeat\",\"actual_current_density_A_cm2_peak_to_peak\",\"0.134001584917282\",\"0.006883484736152522\",\"0.0479839431595952\",\"0.0044942129133657875\",\"0.8752454543534043\",\"0.011709967881589706\",\"3\",\"22656\"]]}"
+    },
+    {
+      "relative_path": "oracle_analysis/timexer_oracle_future_exo_seed42.csv",
+      "column_count": 15,
+      "data_row_count": 3,
+      "headers": [
+        "﻿model",
+        "source",
+        "eligibility",
+        "fold",
+        "seed",
+        "r2_delta",
+        "rmse_delta_mV",
+        "mae_delta_mV",
+        "p95_mV",
+        "p99_mV",
+        "parameter_count",
+        "best_epoch",
+        "epochs_run",
+        "device",
+        "validation_scaled_delta_rmse"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:O4\",\"rows\":4,\"cols\":15,\"values\":[[\"﻿model\",\"source\",\"eligibility\",\"fold\",\"seed\",\"r2_delta\",\"rmse_delta_mV\",\"mae_delta_mV\",\"p95_mV\",\"p99_mV\",\"parameter_count\",\"best_epoch\",\"epochs_run\",\"device\",\"validation_scaled_delta_rmse\"],[\"TimeXer-OracleFutureExo\",\"official TimeXer plus PEMFC future-exo x_mark_enc adapter using true development-validation future exogenous\",\"DIAGNOSTIC_ORACLE_ONLY\",\"fold_1\",\"42\",\"0.9867964981236388\",\"22.37134686620969\",\"14.683658695805498\",\"40.14649053245733\",\"86.40653604875611\",\"116296\",\"96\",\"100\",\"cuda\",\"0.11427062004804611\"],[\"TimeXer-OracleFutureExo\",\"official TimeXer plus PEMFC future-exo x_mark_enc adapter using true development-validation future exogenous\",\"DIAGNOSTIC_ORACLE_ONLY\",\"fold_2\",\"42\",\"0.9815795618675397\",\"26.484150685240085\",\"16.21177822873655\",\"44.21472386933012\",\"108.93788245662701\",\"116296\",\"100\",\"100\",\"cuda\",\"0.13541440665721893\"],[\"TimeXer-OracleFutureExo\",\"official TimeXer plus PEMFC future-exo x_mark_enc adapter using true development-validation future exogenous\",\"DIAGNOSTIC_ORACLE_ONLY\",\"fold_3\",\"42\",\"0.9884494273655792\",\"20.948443273952893\",\"13.800847232361235\",\"37.77362344316412\",\"81.4282766230159\",\"116296\",\"95\",\"100\",\"cuda\",\"0.10714907199144363\"]]}"
+    },
+    {
+      "relative_path": "timexer_screening/timexer_cycle_exo_seed42.csv",
+      "column_count": 3,
+      "data_row_count": 1,
+      "headers": [
+        "﻿model",
+        "status",
+        "reason"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:C2\",\"rows\":2,\"cols\":3,\"values\":[[\"﻿model\",\"status\",\"reason\"],[\"TimeXer-CycleExo\",\"not_run_oracle_terminal_stop\",\"Oracle RMSEDeltaV exceeded 20 mV\"]]}"
+    },
+    {
+      "relative_path": "timexer_screening/timexer_ridge_exo_seed42.csv",
+      "column_count": 3,
+      "data_row_count": 1,
+      "headers": [
+        "﻿model",
+        "status",
+        "reason"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:C2\",\"rows\":2,\"cols\":3,\"values\":[[\"﻿model\",\"status\",\"reason\"],[\"TimeXer-RidgeExo\",\"not_run_oracle_terminal_stop\",\"Oracle RMSEDeltaV exceeded 20 mV\"]]}"
+    },
+    {
+      "relative_path": "timexer_screening/timexer_exogenous_gain.csv",
+      "column_count": 6,
+      "data_row_count": 3,
+      "headers": [
+        "﻿model",
+        "eligibility",
+        "mean_rmse_delta_mV",
+        "original_mean_rmse_delta_mV",
+        "gain_pct",
+        "status"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:F4\",\"rows\":4,\"cols\":6,\"values\":[[\"﻿model\",\"eligibility\",\"mean_rmse_delta_mV\",\"original_mean_rmse_delta_mV\",\"gain_pct\",\"status\"],[\"TimeXer-CycleExo\",\"FORMAL_CANDIDATE\",\"\",\"36.17040378824492\",\"\",\"not_run_oracle_terminal_stop\"],[\"TimeXer-RidgeExo\",\"FORMAL_CANDIDATE\",\"\",\"36.17040378824492\",\"\",\"not_run_oracle_terminal_stop\"],[\"TimeXer-OracleFutureExo\",\"DIAGNOSTIC_ORACLE_ONLY\",\"23.26798027513422\",\"36.17040378824492\",\"35.671217796313016\",\"complete\"]]}"
+    },
+    {
+      "relative_path": "per_horizon/timexer_future_exo_per_horizon.csv",
+      "column_count": 10,
+      "data_row_count": 144,
+      "headers": [
+        "﻿model",
+        "eligibility",
+        "fold",
+        "horizon_step",
+        "horizon_hours",
+        "r2_delta",
+        "rmse_delta_mV",
+        "mae_delta_mV",
+        "is_9p5h",
+        "is_12h"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:J6\",\"rows\":6,\"cols\":10,\"values\":[[\"﻿model\",\"eligibility\",\"fold\",\"horizon_step\",\"horizon_hours\",\"r2_delta\",\"rmse_delta_mV\",\"mae_delta_mV\",\"is_9p5h\",\"is_12h\"],[\"TimeXer-Original\",\"reference_only\",\"fold_1\",\"1\",\"0.5\",\"0.987914502620697\",\"23.28018569946289\",\"14.316890716552734\",\"False\",\"False\"],[\"TimeXer-Original\",\"reference_only\",\"fold_1\",\"2\",\"1.0\",\"0.9798381924629211\",\"28.147537231445312\",\"16.47856903076172\",\"False\",\"False\"],[\"TimeXer-Original\",\"reference_only\",\"fold_1\",\"3\",\"1.5\",\"0.9814972281455994\",\"27.83933448791504\",\"15.39699935913086\",\"False\",\"False\"],[\"TimeXer-Original\",\"reference_only\",\"fold_1\",\"4\",\"2.0\",\"0.9760491847991943\",\"31.10688591003418\",\"17.881492614746094\",\"False\",\"False\"],[\"TimeXer-Original\",\"reference_only\",\"fold_1\",\"5\",\"2.5\",\"0.9777931571006775\",\"30.21310043334961\",\"16.724355697631836\",\"False\",\"False\"]]}"
+    },
+    {
+      "relative_path": "error_correlation/exo_error_vs_voltage_error.csv",
+      "column_count": 6,
+      "data_row_count": 1,
+      "headers": [
+        "﻿model",
+        "fold",
+        "n_origins",
+        "pearson",
+        "spearman",
+        "status"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:F2\",\"rows\":2,\"cols\":6,\"values\":[[\"﻿model\",\"fold\",\"n_origins\",\"pearson\",\"spearman\",\"status\"],[\"not_run\",\"all\",\"0\",\"\",\"\",\"not_run_oracle_terminal_stop\"]]}"
+    },
+    {
+      "relative_path": "tail_analysis/exo_error_stratified_voltage_metrics.csv",
+      "column_count": 8,
+      "data_row_count": 1,
+      "headers": [
+        "﻿model",
+        "fold",
+        "stratum",
+        "n_origins",
+        "rmse_delta_mV",
+        "mae_delta_mV",
+        "p95_mV",
+        "p99_mV"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:H2\",\"rows\":2,\"cols\":8,\"values\":[[\"﻿model\",\"fold\",\"stratum\",\"n_origins\",\"rmse_delta_mV\",\"mae_delta_mV\",\"p95_mV\",\"p99_mV\"],[\"not_run\",\"all\",\"not_run_oracle_terminal_stop\",\"0\",\"\",\"\",\"\",\"\"]]}"
+    },
+    {
+      "relative_path": "timexer_screening/N2_8C_model_comparison.csv",
+      "column_count": 14,
+      "data_row_count": 4,
+      "headers": [
+        "﻿model",
+        "source",
+        "eligibility",
+        "mean_r2_delta",
+        "mean_rmse_delta_mV",
+        "mean_mae_delta_mV",
+        "mean_p95_mV",
+        "mean_p99_mV",
+        "fold3_rmse_delta_mV",
+        "fold3_p95_mV",
+        "fold3_p99_mV",
+        "fold1_rmse_delta_mV",
+        "lifecycle_ratio",
+        "status"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:N5\",\"rows\":5,\"cols\":14,\"values\":[[\"﻿model\",\"source\",\"eligibility\",\"mean_r2_delta\",\"mean_rmse_delta_mV\",\"mean_mae_delta_mV\",\"mean_p95_mV\",\"mean_p99_mV\",\"fold3_rmse_delta_mV\",\"fold3_p95_mV\",\"fold3_p99_mV\",\"fold1_rmse_delta_mV\",\"lifecycle_ratio\",\"status\"],[\"TimeXer-Original\",\"frozen N2.8A official TimeXer seed42 output\",\"reference_only\",\"0.9652712063392822\",\"36.17040378824492\",\"18.967868687310673\",\"53.68440027038256\",\"163.13203016916916\",\"36.96140690328226\",\"53.015657514333725\",\"188.1567779183388\",\"31.668770249025293\",\"1.167124792426061\",\"complete\"],[\"TimeXer-OracleFutureExo\",\"official TimeXer plus PEMFC future-exo x_mark_enc adapter using true development-validation future exogenous\",\"DIAGNOSTIC_ORACLE_ONLY\",\"0.985608495785586\",\"23.26798027513422\",\"14.898761385634428\",\"40.711612614983856\",\"92.25756504279968\",\"20.948443273952893\",\"37.77362344316412\",\"81.4282766230159\",\"22.37134686620969\",\"0.936396158855952\",\"complete\"],[\"TimeXer-CycleExo\",\"not run: Oracle terminal-stop gate\",\"FORMAL_CANDIDATE\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"not_run_oracle_terminal_stop\"],[\"TimeXer-RidgeExo\",\"not run: Oracle terminal-stop gate\",\"FORMAL_CANDIDATE\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"not_run_oracle_terminal_stop\"]]}"
+    },
+    {
+      "relative_path": "timexer_screening/N2_8C_multiseed_comparison.csv",
+      "column_count": 7,
+      "data_row_count": 2,
+      "headers": [
+        "﻿model",
+        "multiseed_status",
+        "n_seeds",
+        "seeds",
+        "mean_r2_delta",
+        "mean_rmse_delta_mV",
+        "rmse_delta_std_mV"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:G3\",\"rows\":3,\"cols\":7,\"values\":[[\"﻿model\",\"multiseed_status\",\"n_seeds\",\"seeds\",\"mean_r2_delta\",\"mean_rmse_delta_mV\",\"rmse_delta_std_mV\"],[\"TimeXer-CycleExo\",\"not_run_oracle_terminal_stop\",\"0\",\"\",\"\",\"\",\"\"],[\"TimeXer-RidgeExo\",\"not_run_oracle_terminal_stop\",\"0\",\"\",\"\",\"\",\"\"]]}"
+    },
+    {
+      "relative_path": "timexer_screening/foldwise_timexer_future_exo_metrics.csv",
+      "column_count": 15,
+      "data_row_count": 6,
+      "headers": [
+        "﻿model",
+        "source",
+        "eligibility",
+        "fold",
+        "seed",
+        "r2_delta",
+        "rmse_delta_mV",
+        "mae_delta_mV",
+        "p95_mV",
+        "p99_mV",
+        "parameter_count",
+        "best_epoch",
+        "epochs_run",
+        "device",
+        "validation_scaled_delta_rmse"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:O6\",\"rows\":6,\"cols\":15,\"values\":[[\"﻿model\",\"source\",\"eligibility\",\"fold\",\"seed\",\"r2_delta\",\"rmse_delta_mV\",\"mae_delta_mV\",\"p95_mV\",\"p99_mV\",\"parameter_count\",\"best_epoch\",\"epochs_run\",\"device\",\"validation_scaled_delta_rmse\"],[\"TimeXer-Original\",\"frozen N2.8A official TimeXer seed42 output\",\"reference_only\",\"fold_1\",\"42\",\"0.9735413752463942\",\"31.668770249025293\",\"18.21340781200853\",\"52.60547101497649\",\"114.0668746829034\",\"\",\"frozen\",\"\",\"frozen\",\"\"],[\"TimeXer-Original\",\"frozen N2.8A official TimeXer seed42 output\",\"reference_only\",\"fold_2\",\"42\",\"0.9582303650670183\",\"39.881034212427195\",\"19.791046550282005\",\"55.43207228183748\",\"187.17243790626526\",\"\",\"frozen\",\"\",\"frozen\",\"\"],[\"TimeXer-Original\",\"frozen N2.8A official TimeXer seed42 output\",\"reference_only\",\"fold_3\",\"42\",\"0.9640418787044343\",\"36.96140690328226\",\"18.899151699641486\",\"53.015657514333725\",\"188.1567779183388\",\"\",\"frozen\",\"\",\"frozen\",\"\"],[\"TimeXer-OracleFutureExo\",\"official TimeXer plus PEMFC future-exo x_mark_enc adapter using true development-validation future exogenous\",\"DIAGNOSTIC_ORACLE_ONLY\",\"fold_1\",\"42\",\"0.9867964981236388\",\"22.37134686620969\",\"14.683658695805498\",\"40.14649053245733\",\"86.40653604875611\",\"116296.0\",\"96\",\"100.0\",\"cuda\",\"0.11427062004804611\"],[\"TimeXer-OracleFutureExo\",\"official TimeXer plus PEMFC future-exo x_mark_enc adapter using true development-validation future exogenous\",\"DIAGNOSTIC_ORACLE_ONLY\",\"fold_2\",\"42\",\"0.9815795618675397\",\"26.484150685240085\",\"16.21177822873655\",\"44.21472386933012\",\"108.93788245662701\",\"116296.0\",\"100\",\"100.0\",\"cuda\",\"0.13541440665721893\"]]}"
+    }
+  ]
+}

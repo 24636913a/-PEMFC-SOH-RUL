@@ -1,0 +1,33 @@
+phase_status: PASS
+hypothesis:
+  timexer_failure_due_to_missing_future_exogenous: false
+original_timexer:
+  r2_delta: 0.9652712063392822
+  rmse_delta_mV: 36.17040378824492
+oracle_future_exo:
+  r2_delta: 0.985608495785586
+  rmse_delta_mV: 23.26798027513422
+  gain_pct: 35.671217796313016
+cycle_exo:
+  r2_delta: null
+  rmse_delta_mV: null
+  gain_pct: null
+ridge_exo:
+  r2_delta: null
+  rmse_delta_mV: null
+  gain_pct: null
+best_forecastable_exogenous_method: null
+best_forecastable_timexer_r2_delta: null
+best_forecastable_timexer_rmse_delta_mV: null
+fold3_rmse_delta_mV: null
+p95_mV: null
+p99_mV: null
+exo_error_voltage_error_pearson: null
+exo_error_voltage_error_spearman: null
+three_seed_promoted: false
+timexer_status: TERMINAL_STOP
+scientific_conclusion: Oracle future exogenous context did not reduce development
+  RMSEΔV below 20 mV. Missing forecastable future exogenous input is not a sufficient
+  explanation for TimeXer failure on this task.
+next_phase: Lifecycle-Aware Robust TimesNet; do not continue the TimeXer route.
+test_performance_accessed: false

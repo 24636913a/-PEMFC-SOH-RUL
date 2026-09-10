@@ -1,0 +1,99 @@
+phase_name: "Phase N2.8C — Forecastable-Exogenous TimeXer Recovery Test"
+inherited_study_commit: "bfb058c6e169a16d8a878dc1b3fd23fdda310f83"
+project_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch"
+phase_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_8C_Forecastable_Exogenous_TimeXer"
+phase_n2_8b_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation"
+phase_n2_8a_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_8A_True_Value_and_Modern_Screening"
+phase_n2_6r_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_6R_High_Fidelity_Revalidation"
+common_script: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_5_Cycle_Aware_xLSTM/scripts/phase_n2_5_common.py"
+
+data:
+  primary_csv: "Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv"
+  ageing_column: bin_center_ophrs2_h
+  bin_start_column: bin_start_ophrs2_h
+  bin_end_column: bin_end_ophrs2_h
+  datetime_column: last_datetime
+  target_column: cell_voltage_mean
+  valid_column: bin_valid_for_windows
+  segment_column: temporal_segment_id
+
+split:
+  min_h: 72.788690
+  fold_1_train_end_h: 946.393214
+  fold_1_validation_end_h: 1164.794345
+  fold_2_train_end_h: 1164.794345
+  fold_2_validation_end_h: 1383.195476
+  fold_3_train_end_h: 1383.195476
+  development_end_h: 1819.997738
+  test_end_h: 2256.800000
+
+task:
+  resolution_hours: 0.5
+  lookback_hours: 24
+  lookback_steps: 48
+  horizon_hours: 12
+  horizon_steps: 24
+  target: delta_voltage_from_known_origin_anchor
+
+features:
+  - cell_voltage_mean
+  - cell_voltage_std
+  - cell_voltage_range
+  - cell_voltage_min
+  - cell_voltage_max
+  - actual_current_A_mean
+  - actual_current_A_std
+  - actual_current_A_peak_to_peak
+  - actual_current_density_A_cm2_mean
+  - actual_current_density_A_cm2_std
+  - actual_current_density_A_cm2_peak_to_peak
+  - load_transition_count
+  - operation_point_transitions
+  - zero_current_fraction
+
+future_exogenous_features:
+  - actual_current_A_mean
+  - actual_current_A_std
+  - actual_current_A_peak_to_peak
+  - actual_current_density_A_cm2_mean
+  - actual_current_density_A_cm2_std
+  - actual_current_density_A_cm2_peak_to_peak
+  - load_transition_count
+  - operation_point_transitions
+  - zero_current_fraction
+
+training:
+  optimizer: AdamW
+  loss: MSE
+  batch_size: 64
+  max_epochs: 100
+  patience: 15
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  gradient_clip_norm: 1.0
+  seeds: [42, 2024, 3407]
+
+timexer:
+  repository: "https://github.com/thuml/TimeXer"
+  commit: "76011909357972bd55a27adba2e1be994d81b327"
+  vendor_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation/vendor/TimeXer"
+  d_model: 64
+  d_ff: 128
+  n_heads: 4
+  e_layers: 2
+  patch_len: 8
+  dropout: 0.1
+  use_norm: false
+
+future_exogenous:
+  cycle_period_steps: 19
+  ridge_alpha: 1.0
+  adapter: "shared_linear_24_to_48_then_official_x_mark_enc"
+  oracle_label: "DIAGNOSTIC_ORACLE_ONLY"
+
+thresholds:
+  oracle_terminal_stop_rmse_mV: 20.0
+  structural_recovery_rmse_mV: 20.0
+  three_seed_promotion_rmse_mV: 11.9
+
+test_performance_accessed: false

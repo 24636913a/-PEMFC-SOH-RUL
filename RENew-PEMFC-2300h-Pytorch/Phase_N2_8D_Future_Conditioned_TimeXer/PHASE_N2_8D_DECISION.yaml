@@ -1,0 +1,39 @@
+phase_status: PASS
+original_timexer:
+  r2_delta: 0.9652712146441141
+  rmse_delta_mV: 36.1704044342041
+zero_future:
+  r2_delta: 0.9670575680650441
+  rmse_delta_mV: 35.29919856598468
+ridge_future:
+  r2_delta: 0.9686513365327863
+  rmse_delta_mV: 34.43378717713041
+  gain_vs_original_pct: 4.801210504108929
+  gain_vs_zero_future_pct: 2.4516459976748726
+oracle_future:
+  r2_delta: 0.9751783941343858
+  rmse_delta_mV: 30.501138719689887
+shuffled_future:
+  r2_delta: 0.9545342474963726
+  rmse_delta_mV: 41.3489217046431
+fold3:
+  original_rmse_delta_mV: 36.96140670776367
+  ridge_future_rmse_delta_mV: 34.052110466438535
+  gain_pct: 7.871172935401415
+horizon_9_5h:
+  original_rmse_delta_mV: 13.680394172668457
+  ridge_future_rmse_delta_mV: 37.65899278364963
+horizon_12h:
+  original_rmse_delta_mV: 43.992350260416664
+  ridge_future_rmse_delta_mV: 39.546544731398505
+p95_mV: 51.566505432128906
+p99_mV: 151.77837029099476
+three_seed_promoted: false
+multiseed_r2_delta: 0.9686513365327863
+multiseed_rmse_delta_mV: 34.43378717713041
+future_condition_status: FAIL
+attention:
+  diagonal_mean: 0.05016063526272774
+  mean_abs_argmax_offset_steps: 11.583333333333334
+recommended_next_phase: Stop TimeXer and retain Lifecycle-Aware Robust TimesNet
+test_performance_accessed: false

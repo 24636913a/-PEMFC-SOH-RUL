@@ -1,0 +1,137 @@
+{
+  "scope": "N2.8D required CSV artifacts inspected through @oai/artifact-tool Workbook.fromCSV",
+  "required_csv_count": 7,
+  "all_files_present": true,
+  "files_with_no_data_rows": [],
+  "files_with_invalid_tokens": [],
+  "artifacts": [
+    {
+      "relative_path": "outputs/model_screening/N2_8D_seed42_comparison.csv",
+      "column_count": 16,
+      "data_row_count": 5,
+      "headers": [
+        "﻿model",
+        "parameter_count",
+        "fold_1_r2_delta",
+        "fold_1_rmse_delta_mV",
+        "fold_2_r2_delta",
+        "fold_2_rmse_delta_mV",
+        "fold_3_r2_delta",
+        "fold_3_rmse_delta_mV",
+        "mean_r2_delta",
+        "mean_rmse_delta_mV",
+        "mean_mae_delta_mV",
+        "mean_p95_mV",
+        "mean_p99_mV",
+        "lifecycle_ratio",
+        "eligibility",
+        "future_condition_gain_pct"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:P6\",\"rows\":6,\"cols\":16,\"values\":[[\"﻿model\",\"parameter_count\",\"fold_1_r2_delta\",\"fold_1_rmse_delta_mV\",\"fold_2_r2_delta\",\"fold_2_rmse_delta_mV\",\"fold_3_r2_delta\",\"fold_3_rmse_delta_mV\",\"mean_r2_delta\",\"mean_rmse_delta_mV\",\"mean_mae_delta_mV\",\"mean_p95_mV\",\"mean_p99_mV\",\"lifecycle_ratio\",\"eligibility\",\"future_condition_gain_pct\"],[\"FC_TimeXer_Oracle\",\"135770.0\",\"0.9795219660330339\",\"27.860678923667233\",\"0.9666939210542749\",\"35.61211981718741\",\"0.9793192953158488\",\"28.030617418215016\",\"0.9751783941343858\",\"30.501138719689887\",\"16.412547489210052\",\"46.55696849028271\",\"128.52280000845602\",\"1.0060995819596996\",\"DIAGNOSTIC_ORACLE_ONLY\",\"15.673769213244245\"],[\"FC_TimeXer_Ridge\",\"135770.0\",\"0.9734153808553176\",\"31.744083093091444\",\"0.9630588777398531\",\"37.505167971861255\",\"0.9694797510031881\",\"34.052110466438535\",\"0.9686513365327863\",\"34.43378717713041\",\"17.76544006194721\",\"51.566505432128906\",\"151.77837029099476\",\"1.0727073252227404\",\"FORMAL\",\"4.801210504108929\"],[\"FC_TimeXer_ShuffledFuture\",\"135770.0\",\"0.9667929178774758\",\"35.47830998107424\",\"0.9456521640401515\",\"45.49117979985606\",\"0.9511576605714908\",\"43.077275332998994\",\"0.9545342474963726\",\"41.3489217046431\",\"22.410044220368434\",\"65.81693664193153\",\"203.1355555355552\",\"1.2141862269081698\",\"NEGATIVE_CONTROL\",\"-14.317001292753014\"],[\"FC_TimeXer_ZeroFuture\",\"135770.0\",\"0.9719775709431705\",\"32.59120777604486\",\"0.9611734948558192\",\"38.45034337876045\",\"0.9680216383961424\",\"34.85604454314873\",\"0.9670575680650441\",\"35.29919856598468\",\"18.121735161154067\",\"49.22497918208439\",\"168.01002716024735\",\"1.0694922625349454\",\"FORMAL\",\"2.4086152252021114\"],[\"TimeXer-Original\",\"\",\"0.9735413789749146\",\"31.668771743774414\",\"0.9582303762435913\",\"39.88103485107422\",\"0.9640418887138367\",\"36.96140670776367\",\"0.9652712146441141\",\"36.1704044342041\",\"18.96786880493164\",\"53.68441518147787\",\"163.13202667236328\",\"1.167124731164533\",\"reference_only\",\"0.0\"]]}"
+    },
+    {
+      "relative_path": "outputs/ablation/N2_8D_ablation.csv",
+      "column_count": 6,
+      "data_row_count": 5,
+      "headers": [
+        "﻿model",
+        "eligibility",
+        "mean_r2_delta",
+        "mean_rmse_delta_mV",
+        "mean_mae_delta_mV",
+        "future_condition_gain_pct"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:F6\",\"rows\":6,\"cols\":6,\"values\":[[\"﻿model\",\"eligibility\",\"mean_r2_delta\",\"mean_rmse_delta_mV\",\"mean_mae_delta_mV\",\"future_condition_gain_pct\"],[\"FC_TimeXer_Oracle\",\"DIAGNOSTIC_ORACLE_ONLY\",\"0.9751783941343858\",\"30.501138719689887\",\"16.412547489210052\",\"15.673769213244245\"],[\"FC_TimeXer_Ridge\",\"FORMAL\",\"0.9686513365327863\",\"34.43378717713041\",\"17.76544006194721\",\"4.801210504108929\"],[\"FC_TimeXer_ShuffledFuture\",\"NEGATIVE_CONTROL\",\"0.9545342474963726\",\"41.3489217046431\",\"22.410044220368434\",\"-14.317001292753014\"],[\"FC_TimeXer_ZeroFuture\",\"FORMAL\",\"0.9670575680650441\",\"35.29919856598468\",\"18.121735161154067\",\"2.4086152252021114\"],[\"TimeXer-Original\",\"reference_only\",\"0.9652712146441141\",\"36.1704044342041\",\"18.96786880493164\",\"0.0\"]]}"
+    },
+    {
+      "relative_path": "outputs/horizon_analysis/N2_8D_per_horizon.csv",
+      "column_count": 7,
+      "data_row_count": 360,
+      "headers": [
+        "﻿model",
+        "fold",
+        "horizon_step",
+        "horizon_hours",
+        "r2_delta",
+        "rmse_delta_mV",
+        "mae_delta_mV"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:G6\",\"rows\":6,\"cols\":7,\"values\":[[\"﻿model\",\"fold\",\"horizon_step\",\"horizon_hours\",\"r2_delta\",\"rmse_delta_mV\",\"mae_delta_mV\"],[\"TimeXer-Original\",\"fold_1\",\"1\",\"0.5\",\"0.987914502620697\",\"23.28018569946289\",\"14.316890716552734\"],[\"TimeXer-Original\",\"fold_1\",\"2\",\"1.0\",\"0.9798381924629211\",\"28.147537231445312\",\"16.47856903076172\"],[\"TimeXer-Original\",\"fold_1\",\"3\",\"1.5\",\"0.9814972281455994\",\"27.83933448791504\",\"15.39699935913086\"],[\"TimeXer-Original\",\"fold_1\",\"4\",\"2.0\",\"0.9760491847991943\",\"31.10688591003418\",\"17.881492614746094\"],[\"TimeXer-Original\",\"fold_1\",\"5\",\"2.5\",\"0.9777931571006775\",\"30.21310043334961\",\"16.724355697631836\"]]}"
+    },
+    {
+      "relative_path": "outputs/tail_analysis/N2_8D_tail_error.csv",
+      "column_count": 6,
+      "data_row_count": 5,
+      "headers": [
+        "﻿model",
+        "p50_mV",
+        "p90_mV",
+        "p95_mV",
+        "p99_mV",
+        "max_mV"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:F6\",\"rows\":6,\"cols\":6,\"values\":[[\"﻿model\",\"p50_mV\",\"p90_mV\",\"p95_mV\",\"p99_mV\",\"max_mV\"],[\"TimeXer-Original\",\"11.043339729309082\",\"38.42306137084961\",\"53.67641830444336\",\"178.97366333007812\",\"463.4373779296875\"],[\"FC_TimeXer_ZeroFuture\",\"10.965496301651001\",\"34.69549119472504\",\"50.37099868059158\",\"179.73266169428885\",\"449.5105445384979\"],[\"FC_TimeXer_Ridge\",\"10.417073965072632\",\"35.33737361431122\",\"51.54716223478317\",\"163.27688694000264\",\"466.40412509441376\"],[\"FC_TimeXer_Oracle\",\"9.911179542541504\",\"32.807499170303345\",\"46.62509262561798\",\"125.15067979693472\",\"447.17560708522797\"],[\"FC_TimeXer_ShuffledFuture\",\"13.659894466400146\",\"44.806286692619324\",\"66.36172533035278\",\"210.8463585376744\",\"448.694571852684\"]]}"
+    },
+    {
+      "relative_path": "outputs/ablation/future_condition_gain.csv",
+      "column_count": 2,
+      "data_row_count": 2,
+      "headers": [
+        "﻿comparison",
+        "gain_pct"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:B3\",\"rows\":3,\"cols\":2,\"values\":[[\"﻿comparison\",\"gain_pct\"],[\"FC_Ridge_vs_Original\",\"4.801210504108929\"],[\"FC_Ridge_vs_ZeroFuture\",\"2.4516459976748726\"]]}"
+    },
+    {
+      "relative_path": "outputs/model_screening/N2_8D_multiseed_comparison.csv",
+      "column_count": 7,
+      "data_row_count": 1,
+      "headers": [
+        "﻿model",
+        "status",
+        "n_seeds",
+        "seeds",
+        "mean_r2_delta",
+        "mean_rmse_delta_mV",
+        "rmse_std_mV"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:G2\",\"rows\":2,\"cols\":7,\"values\":[[\"﻿model\",\"status\",\"n_seeds\",\"seeds\",\"mean_r2_delta\",\"mean_rmse_delta_mV\",\"rmse_std_mV\"],[\"FC_TimeXer_Ridge\",\"not_promoted_seed42_only\",\"1\",\"42\",\"0.9686513365327863\",\"34.43378717713041\",\"0.0\"]]}"
+    },
+    {
+      "relative_path": "outputs/model_screening/foldwise_fc_timexer_metrics.csv",
+      "column_count": 21,
+      "data_row_count": 15,
+      "headers": [
+        "﻿model",
+        "fold",
+        "seed",
+        "eligibility",
+        "parameter_count",
+        "r2_delta",
+        "rmse_delta_mV",
+        "mae_delta_mV",
+        "p50_mV",
+        "p90_mV",
+        "p95_mV",
+        "p99_mV",
+        "max_mV",
+        "best_epoch",
+        "epochs_run",
+        "validation_scaled_delta_rmse",
+        "training_time_per_epoch_s",
+        "peak_gpu_memory_mb",
+        "inference_time_batch_s",
+        "device",
+        "oof_train_windows"
+      ],
+      "invalid_tokens": [],
+      "preview": "{\"kind\":\"table\",\"sheet\":\"Audit\",\"address\":\"A1:U6\",\"rows\":6,\"cols\":21,\"values\":[[\"﻿model\",\"fold\",\"seed\",\"eligibility\",\"parameter_count\",\"r2_delta\",\"rmse_delta_mV\",\"mae_delta_mV\",\"p50_mV\",\"p90_mV\",\"p95_mV\",\"p99_mV\",\"max_mV\",\"best_epoch\",\"epochs_run\",\"validation_scaled_delta_rmse\",\"training_time_per_epoch_s\",\"peak_gpu_memory_mb\",\"inference_time_batch_s\",\"device\",\"oof_train_windows\"],[\"TimeXer-Original\",\"fold_1\",\"42\",\"reference_only\",\"\",\"0.9735413789749146\",\"31.668771743774414\",\"18.213407516479492\",\"11.261343955993652\",\"38.14802932739258\",\"52.605472564697266\",\"114.0668716430664\",\"287.08636474609375\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],[\"TimeXer-Original\",\"fold_2\",\"42\",\"reference_only\",\"\",\"0.9582303762435913\",\"39.88103485107422\",\"19.791046142578125\",\"11.391580581665039\",\"38.18508529663086\",\"55.432098388671875\",\"187.1724395751953\",\"432.6739807128906\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],[\"TimeXer-Original\",\"fold_3\",\"42\",\"reference_only\",\"\",\"0.9640418887138367\",\"36.96140670776367\",\"18.899152755737305\",\"10.71155071258545\",\"38.67262268066406\",\"53.01567459106445\",\"188.15676879882812\",\"463.4373779296875\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],[\"FC_TimeXer_ZeroFuture\",\"fold_1\",\"42\",\"FORMAL\",\"135770.0\",\"0.9719775709431705\",\"32.59120777604486\",\"17.663471749817184\",\"10.586917400360107\",\"36.71981096267701\",\"50.84356367588038\",\"135.992027819157\",\"289.66817259788513\",\"96.0\",\"100.0\",\"0.1664726734161377\",\"0.3964211169979535\",\"36.51025390625\",\"0.007428599987179041\",\"cuda\",\"984.0\"],[\"FC_TimeXer_ZeroFuture\",\"fold_2\",\"42\",\"FORMAL\",\"135770.0\",\"0.9611734948558192\",\"38.45034337876045\",\"18.793813841176682\",\"12.092828750610352\",\"31.34375214576722\",\"44.55951154232027\",\"188.9862798154356\",\"448.45496118068695\",\"97.0\",\"100.0\",\"0.19659797847270966\",\"0.5113649340043775\",\"37.3271484375\",\"0.007767999893985689\",\"cuda\",\"1217.0\"]]}"
+    }
+  ]
+}

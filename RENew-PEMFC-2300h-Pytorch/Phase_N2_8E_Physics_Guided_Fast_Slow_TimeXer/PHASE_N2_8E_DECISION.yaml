@@ -1,0 +1,62 @@
+phase_status: PASS
+original_timexer:
+  rmse_delta_mV: 36.1704044342041
+  r2_delta: 0.965271214644114
+  mae_delta_mV: 18.96786880493164
+step_aligned_timexer:
+  rmse_delta_mV: 24.719477623350237
+  r2_delta: 0.9836996950364256
+  mae_delta_mV: 12.195526305874507
+fast_slow_timexer:
+  rmse_delta_mV: 25.03280275934684
+  r2_delta: 0.9833222752057532
+  mae_delta_mV: 12.748291908430971
+pgfs_smooth:
+  rmse_delta_mV: 25.190868416122992
+  r2_delta: 0.9831004047613876
+  mae_delta_mV: 12.137286424047772
+pgfs_smooth_current:
+  rmse_delta_mV: 25.20329565880469
+  r2_delta: 0.983078143533437
+  mae_delta_mV: 12.14381885100736
+pgfs_full:
+  rmse_delta_mV: 24.92202847861664
+  r2_delta: 0.9834504219448836
+  mae_delta_mV: 12.271755714960202
+best_model: SA_TimeXer_Ridge
+best_rmse_delta_mV: 24.719477623350237
+best_r2_delta: 0.9836996950364256
+best_mae_delta_mV: 12.195526305874507
+fold3_rmse_delta_mV: 27.953133811018187
+fold3_gain_vs_original_pct: 24.372105120266742
+horizon_9_5h_rmse_delta_mV: 27.0276787290652
+horizon_12h_rmse_delta_mV: 33.13280754630976
+p95_mV: 34.588634967803955
+p99_mV: 131.58096671104448
+slow_variance_fraction:
+  model: PGFS_TimeXer_Full
+  mean: 0.04059084526275017
+  min: 0.0187147314925339
+  max: 0.0605698130293119
+  status: NON_COLLAPSED
+current_gradient_negative_fraction:
+  without_current_model: PGFS_TimeXer_Smooth
+  without_current: 0.9598401041182486
+  with_current_model: PGFS_TimeXer_SmoothCurrent
+  with_current: 0.9750859905178024
+  full_model: PGFS_TimeXer_Full
+  full: 0.9755043227665706
+smooth_constraint_status: REJECT
+current_constraint_status: KEEP
+monotonic_constraint_status: KEEP
+three_seed_promoted: false
+three_seed_result: 'NOT_RUN: best PGFS RMSE was 24.922028 mV and met neither fixed
+  promotion condition.'
+timexer_status: MEANINGFUL_RECOVERY
+next_phase: STOP_AT_N2_8E
+enter_eis_polarization_anchor_phase: NO-GO
+test_target_rows_read: 0
+test_predictions_constructed: false
+test_metrics_computed: false
+test_feature_diagnostics_computed: false
+test_performance_accessed: false

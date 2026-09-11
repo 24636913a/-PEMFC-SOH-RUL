@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "file": "outputs/model_screening/N2_8E_seed42_comparison.csv",
+      "row_count": 9,
+      "column_count": 27,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    },
+    {
+      "file": "outputs/ablation/N2_8E_physics_ablation.csv",
+      "row_count": 4,
+      "column_count": 27,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    },
+    {
+      "file": "outputs/horizon_analysis/N2_8E_per_horizon.csv",
+      "row_count": 648,
+      "column_count": 7,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    },
+    {
+      "file": "outputs/model_screening/N2_8E_fold_metrics.csv",
+      "row_count": 27,
+      "column_count": 28,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    },
+    {
+      "file": "outputs/tail_analysis/N2_8E_tail_metrics.csv",
+      "row_count": 9,
+      "column_count": 6,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    },
+    {
+      "file": "outputs/diagnostics/fast_slow_variance_audit.csv",
+      "row_count": 12,
+      "column_count": 7,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    },
+    {
+      "file": "outputs/diagnostics/current_sensitivity_audit.csv",
+      "row_count": 288,
+      "column_count": 12,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    },
+    {
+      "file": "outputs/diagnostics/current_sensitivity_summary.csv",
+      "row_count": 4,
+      "column_count": 9,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    },
+    {
+      "file": "outputs/diagnostics/slow_monotonicity_audit.csv",
+      "row_count": 12,
+      "column_count": 6,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    },
+    {
+      "file": "outputs/model_screening/N2_8E_multiseed_comparison.csv",
+      "row_count": 1,
+      "column_count": 7,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    },
+    {
+      "file": "outputs/diagnostics/physics_loss_training_history.csv",
+      "row_count": 2041,
+      "column_count": 15,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    },
+    {
+      "file": "outputs/diagnostics/step_alignment_derivative_audit.csv",
+      "row_count": 12,
+      "column_count": 4,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    },
+    {
+      "file": "outputs/diagnostics/physics_loss_dominance_audit.csv",
+      "row_count": 24,
+      "column_count": 5,
+      "header_unique_and_nonempty": true,
+      "artifact_tool_inspected": true,
+      "parse_status": "PASS"
+    }
+  ]
+}

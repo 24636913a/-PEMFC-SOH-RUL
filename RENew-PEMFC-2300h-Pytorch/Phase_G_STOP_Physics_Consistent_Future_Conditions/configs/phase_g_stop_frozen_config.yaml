@@ -1,0 +1,99 @@
+phase_name: "Phase G-STOP — Physics-Consistent Future Operating Conditions for PEMFC"
+research_start_commit: "06f157d28da767f7085e7f0bff9c907fea4b7214"
+project_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch"
+phase_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_G_STOP_Physics_Consistent_Future_Conditions"
+n2_8f_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_8F_Uncertainty_Robust_SA_TimeXer"
+n2_7_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N2_7_Complementarity_and_Robustness"
+n1_root: "E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation"
+raw_loadcycle_root: "E:/沈农信电/课题-预测质子交换膜燃料电池（PEMFC）的健康状态和剩余寿命/数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data"
+development_end_h: 1819.997738
+test_end_h: 2256.8
+task:
+  resolution_hours: 0.5
+  lookback_steps: 48
+  horizon_steps: 24
+  target: delta_voltage_from_known_origin_anchor
+features:
+  - cell_voltage_mean
+  - cell_voltage_std
+  - cell_voltage_range
+  - cell_voltage_min
+  - cell_voltage_max
+  - actual_current_A_mean
+  - actual_current_A_std
+  - actual_current_A_peak_to_peak
+  - actual_current_density_A_cm2_mean
+  - actual_current_density_A_cm2_std
+  - actual_current_density_A_cm2_peak_to_peak
+  - load_transition_count
+  - operation_point_transitions
+  - zero_current_fraction
+future_exogenous_features:
+  - actual_current_A_mean
+  - actual_current_A_std
+  - actual_current_A_peak_to_peak
+  - actual_current_density_A_cm2_mean
+  - actual_current_density_A_cm2_std
+  - actual_current_density_A_cm2_peak_to_peak
+  - load_transition_count
+  - operation_point_transitions
+  - zero_current_fraction
+g1:
+  zero_current_abs_threshold_A: 0.10
+  std_ddof: 0
+  minimum_independent_mixed_segments_total: 30
+  minimum_independent_mixed_segments_per_validation_fold: 10
+  minimum_transition_events_each_direction: 30
+  identity_absolute_tolerance: 0.000001
+  area_identity_median_relative_tolerance: 0.0002
+  area_identity_minimum_pearson: 0.99999
+  area_identity_maximum_slope_difference_pct: 0.01
+  mixture_mean_median_absolute_tolerance_A: 0.001
+  mixture_std_median_absolute_tolerance_A: 0.01
+forecast:
+  ridge_alpha: 1.0
+  oof_blocks: 5
+  oof_min_completed_windows: 64
+  logistic_C: 1.0
+  logistic_class_weight: balanced
+  logistic_threshold: 0.5
+  conditional_q_ridge_alpha: 1.0
+  conditional_on_stats_ridge_alpha: 1.0
+bootstrap:
+  block_length_origins: 19
+  repetitions: 2000
+  seed: 42
+gate_b:
+  minimum_mean_rmse_improvement_pct: 5.0
+  minimum_improved_folds: 2
+  maximum_p99_worsening_pct: 5.0
+  maximum_9p5h_worsening_pct: 10.0
+  require_lower_physical_violation_rate: true
+g4_multiseed_trigger:
+  minimum_seed42_rmse_improvement_pct: 5.0
+  minimum_improved_folds: 2
+  maximum_fold3_worsening_pct: 0.0
+  maximum_p95_worsening_pct: 5.0
+  maximum_p99_worsening_pct: 5.0
+  seeds: [42, 2024, 3407]
+lstm_transfer:
+  residual_head: per_horizon_standardized_ridge
+  residual_head_alpha: 1.0
+  oof_blocks: 5
+  oof_min_completed_windows: 64
+  seed42_screen:
+    minimum_rmse_improvement_vs_l0_pct: 2.0
+    minimum_rmse_improvement_vs_l1_pct: 2.0
+    minimum_improved_folds_vs_each_reference: 2
+    maximum_fold3_worsening_pct: 3.0
+    maximum_p95_worsening_pct: 5.0
+    maximum_p99_worsening_pct: 5.0
+  final_multiseed:
+    minimum_rmse_improvement_vs_l0_pct: 2.0
+    minimum_rmse_improvement_vs_l1_pct: 2.0
+    minimum_improved_folds_vs_each_reference: 2
+    maximum_fold3_worsening_pct: 3.0
+    maximum_p95_worsening_pct: 5.0
+    maximum_p99_worsening_pct: 5.0
+  seeds: [42, 2024, 3407]
+test_performance_accessed: false

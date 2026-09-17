@@ -1,0 +1,259 @@
+{
+  "tool": "@oai/artifact-tool Workbook.fromCSV + inspect",
+  "csvCount": 25,
+  "passedCount": 25,
+  "failedCount": 0,
+  "status": "PASS",
+  "records": [
+    {
+      "file": "outputs/ablation/oracle_replacement_audit.csv",
+      "rows": 13,
+      "dataRows": 12,
+      "columns": 8,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/rbccja\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:H13\",\"address\":\"A1:H13\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:H6\",\"rows\":6,\"cols\":8,\"nonEmpty\":48,\"text\":48,\"maxTextLength\":38,\"preview\":[[\"﻿variant\",\"fold\",\"eligibility\",\"r2_delta\",\"rmse_delta_mV\",\"mae_delta_mV\",\"p95_mV\",\"p99_mV\"],[\"P0_Ridge_formal\",\"fold_1\",\"FORMAL\",\"0.9873659610748291\",\"21.88361167907715\",\"12.765854835510254\",\"37.24645233154297\",\"97.964599609375\"],[\"true_q_only_DIAGNOSTIC\",\"fold_1\",\"DIAGNOSTIC_ONLY\",\"0.9949626922607422\",\"13.818070411682129\",\"10.304248809814453\",\"28.028335571289062\",\"40.914466857910156\"],[\"true_physical_current_group_DIAGNOSTIC\",\"fold_1\",\"DIAGNOSTIC_ONLY\",\"0.9957649111747742\",\"12.67004680633545\",\"9.547513008117676\",\"25.539600372314453\",\"38.354549407958984\"],[\"all_true_future_conditions_DIAGNOSTIC\",\"fold_1\",\"DIAGNOSTIC_ONLY\",\"0.9954763650894165\",\"13.094552993774414\",\"9.85784912109375\",\"25.94088363647461\",\"40.14837646484375\"],[\"P0_Ridge_formal\",\"fold_2\",\"FORMAL\",\"0.985066831111908\",\"23.845808029174805\",\"12.305038452148438\",\"33.912147521972656\",\"114.13773345947266\"]],\"previewAddress\":\"A1:H6\",\"previewRows\":6,\"previewCols\":8}"
+    },
+    {
+      "file": "outputs/frozen_timexer/frozen_timexer_fold_metrics.csv",
+      "rows": 10,
+      "dataRows": 9,
+      "columns": 7,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/id35uj\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:G10\",\"address\":\"A1:G10\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:G6\",\"rows\":6,\"cols\":7,\"nonEmpty\":42,\"text\":42,\"maxTextLength\":26,\"preview\":[[\"﻿model\",\"fold\",\"r2_delta\",\"rmse_delta_mV\",\"mae_delta_mV\",\"p95_mV\",\"p99_mV\"],[\"P0_Original_Ridge\",\"fold_1\",\"0.9873659610748291\",\"21.88361167907715\",\"12.765854835510254\",\"37.24645233154297\",\"97.964599609375\"],[\"P1_Physics_Projected_Ridge\",\"fold_1\",\"0.9875442385673523\",\"21.728635787963867\",\"12.678216934204102\",\"36.438846588134766\",\"97.96672058105469\"],[\"P2_Zero_Current_Aware\",\"fold_1\",\"0.9917619824409485\",\"17.670894622802734\",\"10.345669746398926\",\"26.552892684936523\",\"45.073219299316406\"],[\"P0_Original_Ridge\",\"fold_2\",\"0.985066831111908\",\"23.845808029174805\",\"12.305038452148438\",\"33.912147521972656\",\"114.13773345947266\"],[\"P1_Physics_Projected_Ridge\",\"fold_2\",\"0.9850893020629883\",\"23.82784080505371\",\"12.290453910827637\",\"33.015663146972656\",\"114.13279724121094\"]],\"previewAddress\":\"A1:G6\",\"previewRows\":6,\"previewCols\":7}"
+    },
+    {
+      "file": "outputs/frozen_timexer/frozen_timexer_summary.csv",
+      "rows": 4,
+      "dataRows": 3,
+      "columns": 9,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/varrkd\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:I4\",\"address\":\"A1:I4\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:I4\",\"rows\":4,\"cols\":9,\"nonEmpty\":36,\"text\":36,\"maxTextLength\":26,\"preview\":[[\"﻿model\",\"mean_r2_delta\",\"mean_rmse_delta_mV\",\"mean_mae_delta_mV\",\"mean_p95_mV\",\"mean_p99_mV\",\"fold_1_rmse_delta_mV\",\"fold_2_rmse_delta_mV\",\"fold_3_rmse_delta_mV\"],[\"P0_Original_Ridge\",\"0.9839886426925659\",\"24.538244883219402\",\"12.392522176106771\",\"34.20104217529297\",\"127.22559865315755\",\"21.88361167907715\",\"23.845808029174805\",\"27.88531494140625\"],[\"P1_Physics_Projected_Ridge\",\"0.9841108123461405\",\"24.442879994710285\",\"12.318136215209961\",\"33.40100987752279\",\"127.22633361816406\",\"21.728635787963867\",\"23.82784080505371\",\"27.77216339111328\"],[\"P2_Zero_Current_Aware\",\"0.9869181315104166\",\"21.34656588236491\",\"10.381657600402832\",\"26.146820068359375\",\"69.18612162272136\",\"17.670894622802734\",\"15.987232208251953\",\"30.38157081604004\"]],\"previewAddress\":\"A1:I4\",\"previewRows\":4,\"previewCols\":9}"
+    },
+    {
+      "file": "outputs/frozen_timexer/g4_retraining_fold_metrics.csv",
+      "rows": 7,
+      "dataRows": 6,
+      "columns": 17,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/tz6b3w\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:Q7\",\"address\":\"A1:Q7\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:Q6\",\"rows\":6,\"cols\":17,\"nonEmpty\":102,\"text\":102,\"maxTextLength\":28,\"preview\":[[\"﻿model\",\"fold\",\"seed\",\"fair_train_windows\",\"r2_delta\",\"rmse_delta_mV\",\"mae_delta_mV\",\"p95_mV\",\"p99_mV\",\"parameter_count\",\"best_epoch\",\"epochs_run\",\"validation_scaled_delta_rmse\",\"training_time_per_epoch_s\",\"peak_gpu_memory_mb\",\"inference_time_batch_s\",\"device\"],[\"P0_Retrained\",\"fold_1\",\"42\",\"874\",\"0.9873659610748291\",\"21.88361167907715\",\"12.765854835510254\",\"37.24645233154297\",\"97.964599609375\",\"125657\",\"93\",\"100\",\"0.1117793396115303\",\"0.46906741499551574\",\"29.0263671875\",\"0.009392399981152266\",\"cuda\"],[\"P0_Retrained\",\"fold_2\",\"42\",\"1107\",\"0.985066831111908\",\"23.845808029174805\",\"12.305038452148438\",\"33.912147521972656\",\"114.13773345947266\",\"125657\",\"98\",\"100\",\"0.12192447483539581\",\"0.6202783379965695\",\"29.4287109375\",\"0.010968099988531321\",\"cuda\"],[\"P0_Retrained\",\"fold_3\",\"42\",\"1352\",\"0.9795331358909607\",\"27.88531494140625\",\"12.106673240661621\",\"31.44452667236328\",\"169.574462890625\",\"125657\",\"99\",\"100\",\"0.1426304429769516\",\"0.724040007001604\",\"38.34521484375\",\"0.007"
+    },
+    {
+      "file": "outputs/frozen_timexer/g4_retraining_summary.csv",
+      "rows": 3,
+      "dataRows": 2,
+      "columns": 10,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/c935px\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:J3\",\"address\":\"A1:J3\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:J3\",\"rows\":3,\"cols\":10,\"nonEmpty\":30,\"text\":30,\"maxTextLength\":20,\"preview\":[[\"﻿model\",\"seed\",\"mean_r2_delta\",\"mean_rmse_delta_mV\",\"mean_mae_delta_mV\",\"mean_p95_mV\",\"mean_p99_mV\",\"fold_1_rmse_delta_mV\",\"fold_2_rmse_delta_mV\",\"fold_3_rmse_delta_mV\"],[\"P0_Retrained\",\"42\",\"0.9839886426925659\",\"24.538244883219402\",\"12.392522176106771\",\"34.20104217529297\",\"127.22559865315755\",\"21.88361167907715\",\"23.845808029174805\",\"27.88531494140625\"],[\"P2_Retrained\",\"42\",\"0.9871332049369812\",\"21.55308787027995\",\"10.385122934977213\",\"27.338228225708008\",\"72.72571818033855\",\"17.969757080078125\",\"18.165164947509766\",\"28.524341583251953\"]],\"previewAddress\":\"A1:J3\",\"previewRows\":3,\"previewCols\":10}"
+    },
+    {
+      "file": "outputs/frozen_timexer/gate_b_audit.csv",
+      "rows": 3,
+      "dataRows": 2,
+      "columns": 7,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/vhasx4\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:G3\",\"address\":\"A1:G3\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:G3\",\"rows\":3,\"cols\":7,\"nonEmpty\":21,\"text\":21,\"maxTextLength\":29,\"preview\":[[\"﻿candidate\",\"mean_rmse_improvement_pct\",\"improved_fold_count\",\"p99_change_pct\",\"horizon_9p5h_change_pct\",\"physical_violation_rate_lower\",\"gate_b_passed\"],[\"P1_Physics_Projected_Ridge\",\"0.38863777325138965\",\"3\",\"-0.006858013006640575\",\"-0.21832915434002986\",\"True\",\"False\"],[\"P2_Zero_Current_Aware\",\"13.00695716439417\",\"2\",\"-47.06575482868995\",\"-23.816827398928766\",\"True\",\"True\"]],\"previewAddress\":\"A1:G3\",\"previewRows\":3,\"previewCols\":7}"
+    },
+    {
+      "file": "outputs/frozen_timexer/paired_block_bootstrap.csv",
+      "rows": 3,
+      "dataRows": 2,
+      "columns": 9,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/f18odu\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:I3\",\"address\":\"A1:I3\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:I3\",\"rows\":3,\"cols\":9,\"nonEmpty\":27,\"text\":27,\"maxTextLength\":28,\"preview\":[[\"﻿comparison\",\"delta_definition\",\"block_length_origins\",\"repetitions\",\"mean_delta_rmse_mV\",\"median_delta_rmse_mV\",\"ci95_lower_mV\",\"ci95_upper_mV\",\"probability_candidate_better\"],[\"P1_vs_P0\",\"RMSE_candidate_minus_P0_mV\",\"19\",\"2000\",\"-0.10052973026210713\",\"-0.09621274051853888\",\"-0.186205505789878\",\"-0.04075741392072613\",\"1.0\"],[\"P2_vs_P0\",\"RMSE_candidate_minus_P0_mV\",\"19\",\"2000\",\"-1.0701971538679296\",\"-1.0258118632791544\",\"-4.878574041151393\",\"2.529855409009824\",\"0.703\"]],\"previewAddress\":\"A1:I3\",\"previewRows\":3,\"previewCols\":9}"
+    },
+    {
+      "file": "outputs/future_forecast/future_condition_forecast_metrics.csv",
+      "rows": 13,
+      "dataRows": 12,
+      "columns": 16,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/exbd1t\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:P13\",\"address\":\"A1:P13\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:P6\",\"rows\":6,\"cols\":16,\"nonEmpty\":96,\"text\":96,\"maxTextLength\":30,\"preview\":[[\"﻿model\",\"fold\",\"q_mae\",\"q_rmse\",\"mixed_event_precision\",\"mixed_event_recall\",\"mixed_event_f1\",\"q1_precision\",\"q1_recall\",\"q1_f1\",\"current_mean_mae_A\",\"current_std_mae_A\",\"current_peak_to_peak_mae_A\",\"density_mean_mae_A_cm2\",\"density_std_mae_A_cm2\",\"density_peak_to_peak_mae_A_cm2\"],[\"P0_Original_Ridge\",\"fold_1\",\"0.023676277067509667\",\"0.03490010738473652\",\"0.3460289341600236\",\"1.0\",\"0.5141478394384733\",\"NOT_ESTIMABLE\",\"NOT_ESTIMABLE\",\"NOT_ESTIMABLE\",\"4.66994063090697\",\"2.6445797867798917\",\"13.716494490118022\",\"0.016672028662317682\",\"0.009454155342634727\",\"0.048989022606583534\"],[\"P1_Physics_Projected_Ridge\",\"fold_1\",\"0.015931909748126114\",\"0.03128446793628381\",\"0.3460289341600236\",\"1.0\",\"0.5141478394384733\",\"NOT_ESTIMABLE\",\"NOT_ESTIMABLE\",\"NOT_ESTIMABLE\",\"4.66994063090697\",\"2.6445797867798917\",\"13.716494490118022\",\"0.016671338142545844\",\"0.009454763615519779\",\"0.04899749052736832\"],[\"P2_Zero_Current_Aware\",\"fold_1\",\"0.0013354406494682015\",\"0.01764550576061046\",\"0.9791"
+    },
+    {
+      "file": "outputs/future_forecast/p2_causal_oof_audit.csv",
+      "rows": 16,
+      "dataRows": 15,
+      "columns": 9,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/so1ti9\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:I16\",\"address\":\"A1:I16\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:I6\",\"rows\":6,\"cols\":9,\"nonEmpty\":54,\"text\":54,\"maxTextLength\":23,\"preview\":[[\"﻿stage\",\"fold\",\"block\",\"fit_count\",\"predict_count\",\"max_fit_target_end_h\",\"min_prediction_origin_h\",\"target_completion_pass\",\"train_only_scaler\"],[\"P2_two_part_oof\",\"fold_1\",\"1\",\"64\",\"193\",\"140.5\",\"140.5\",\"True\",\"True\"],[\"P2_two_part_oof\",\"fold_1\",\"2\",\"257\",\"192\",\"273.0\",\"273.0\",\"True\",\"True\"],[\"P2_two_part_oof\",\"fold_1\",\"3\",\"449\",\"192\",\"420.5\",\"420.5\",\"True\",\"True\"],[\"P2_two_part_oof\",\"fold_1\",\"4\",\"641\",\"192\",\"553.0\",\"553.0\",\"True\",\"True\"],[\"P2_two_part_oof\",\"fold_1\",\"5\",\"833\",\"192\",\"734.5\",\"734.5\",\"True\",\"True\"]],\"previewAddress\":\"A1:I6\",\"previewRows\":6,\"previewCols\":9}"
+    },
+    {
+      "file": "outputs/future_forecast/physical_violation_rates.csv",
+      "rows": 13,
+      "dataRows": 12,
+      "columns": 7,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/mbg56g\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:G13\",\"address\":\"A1:G13\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:G6\",\"rows\":6,\"cols\":7,\"nonEmpty\":42,\"text\":42,\"maxTextLength\":37,\"preview\":[[\"﻿model\",\"fold\",\"negative_stat_element_rate\",\"q_range_element_rate\",\"current_density_identity_element_rate\",\"q1_incompatible_element_rate\",\"physical_violation_trajectory_rate\"],[\"P0_Original_Ridge\",\"fold_1\",\"0.0\",\"0.39431330472103004\",\"0.1306628516928946\",\"0.0\",\"1.0\"],[\"P1_Physics_Projected_Ridge\",\"fold_1\",\"0.0\",\"0.0\",\"0.0\",\"0.0\",\"0.0\"],[\"P2_Zero_Current_Aware\",\"fold_1\",\"0.0\",\"0.0\",\"0.0\",\"0.0\",\"0.0\"],[\"P0_Original_Ridge\",\"fold_2\",\"0.0\",\"0.39285714285714285\",\"0.14081632653061224\",\"0.0\",\"1.0\"],[\"P1_Physics_Projected_Ridge\",\"fold_2\",\"0.0\",\"0.0\",\"0.0\",\"0.0\",\"0.0\"]],\"previewAddress\":\"A1:G6\",\"previewRows\":6,\"previewCols\":7}"
+    },
+    {
+      "file": "outputs/future_forecast/projection_change_audit.csv",
+      "rows": 7,
+      "dataRows": 6,
+      "columns": 24,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/9s7sj4\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:X7\",\"address\":\"A1:X7\"}\n{\"kind\":\"notice\",\"message\":\"Truncated: omitted 1 lines. Increase maxChars, narrow range, or use tableMaxRows/tableMaxCols/tableMaxCellChars.\"}"
+    },
+    {
+      "file": "outputs/horizon/frozen_timexer_per_horizon.csv",
+      "rows": 289,
+      "dataRows": 288,
+      "columns": 7,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/x5pgcq\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:G289\",\"address\":\"A1:G289\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:G6\",\"rows\":6,\"cols\":7,\"nonEmpty\":42,\"text\":42,\"maxTextLength\":18,\"preview\":[[\"﻿model\",\"fold\",\"horizon_step\",\"horizon_hours\",\"r2_delta\",\"rmse_delta_mV\",\"mae_delta_mV\"],[\"P0_Original_Ridge\",\"fold_1\",\"1\",\"0.5\",\"0.9935287237167358\",\"17.03522491455078\",\"10.506891250610352\"],[\"P0_Original_Ridge\",\"fold_1\",\"2\",\"1.0\",\"0.9900649189949036\",\"19.75883674621582\",\"11.245402336120605\"],[\"P0_Original_Ridge\",\"fold_1\",\"3\",\"1.5\",\"0.9910184741020203\",\"19.396116256713867\",\"10.81536865234375\"],[\"P0_Original_Ridge\",\"fold_1\",\"4\",\"2.0\",\"0.990908682346344\",\"19.16507911682129\",\"10.365859031677246\"],[\"P0_Original_Ridge\",\"fold_1\",\"5\",\"2.5\",\"0.9908660054206848\",\"19.376813888549805\",\"10.348993301391602\"]],\"previewAddress\":\"A1:G6\",\"previewRows\":6,\"previewCols\":7}"
+    },
+    {
+      "file": "outputs/lstm_transfer/lstm_future_oof_audit.csv",
+      "rows": 16,
+      "dataRows": 15,
+      "columns": 9,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/5b6xrf\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:I16\",\"address\":\"A1:I16\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:I6\",\"rows\":6,\"cols\":9,\"nonEmpty\":54,\"text\":54,\"maxTextLength\":23,\"preview\":[[\"﻿stage\",\"fold\",\"block\",\"fit_count\",\"predict_count\",\"max_fit_target_end_h\",\"min_prediction_origin_h\",\"target_completion_pass\",\"train_only_scaler\"],[\"P2_two_part_oof\",\"fold_1\",\"1\",\"64\",\"193\",\"140.5\",\"140.5\",\"True\",\"True\"],[\"P2_two_part_oof\",\"fold_1\",\"2\",\"257\",\"192\",\"273.0\",\"273.0\",\"True\",\"True\"],[\"P2_two_part_oof\",\"fold_1\",\"3\",\"449\",\"192\",\"420.5\",\"420.5\",\"True\",\"True\"],[\"P2_two_part_oof\",\"fold_1\",\"4\",\"641\",\"192\",\"553.0\",\"553.0\",\"True\",\"True\"],[\"P2_two_part_oof\",\"fold_1\",\"5\",\"833\",\"192\",\"734.5\",\"734.5\",\"True\",\"True\"]],\"previewAddress\":\"A1:I6\",\"previewRows\":6,\"previewCols\":9}"
+    },
+    {
+      "file": "outputs/lstm_transfer/lstm_oof_audit.csv",
+      "rows": 16,
+      "dataRows": 15,
+      "columns": 16,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/26cesy\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:P16\",\"address\":\"A1:P16\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:P6\",\"rows\":6,\"cols\":16,\"nonEmpty\":96,\"text\":96,\"maxTextLength\":31,\"preview\":[[\"﻿seed\",\"fold\",\"block\",\"completed_fit_count\",\"inner_training_count\",\"inner_validation_count\",\"prediction_count\",\"max_completed_fit_target_end_h\",\"min_prediction_origin_h\",\"max_inner_training_target_end_h\",\"min_inner_validation_origin_h\",\"target_completion_pass\",\"validation_residual_used\",\"best_epoch\",\"epochs_ran\",\"elapsed_s\"],[\"42\",\"fold_1\",\"1\",\"64\",\"25\",\"16\",\"193\",\"140.5\",\"140.5\",\"121.0\",\"121.0\",\"True\",\"False\",\"300\",\"300\",\"4.359930000035092\"],[\"42\",\"fold_1\",\"2\",\"257\",\"195\",\"52\",\"192\",\"273.0\",\"273.0\",\"206.0\",\"235.5\",\"True\",\"False\",\"287\",\"300\",\"9.563369600044098\"],[\"42\",\"fold_1\",\"3\",\"449\",\"336\",\"90\",\"192\",\"420.5\",\"420.5\",\"364.0\",\"364.0\",\"True\",\"False\",\"280\",\"300\",\"12.605423000000883\"],[\"42\",\"fold_1\",\"4\",\"641\",\"489\",\"129\",\"192\",\"553.0\",\"553.0\",\"477.0\",\"477.0\",\"True\",\"False\",\"293\",\"300\",\"18.341853399993852\"],[\"42\",\"fold_1\",\"5\",\"833\",\"643\",\"167\",\"192\",\"734.5\",\"734.5\",\"554.0\",\"554.0\",\"True\",\"False\",\"149\",\"179\",\"15.559206300007645\"]],\"previewAddress\":\"A1:P6\",\"previewRows\":6"
+    },
+    {
+      "file": "outputs/lstm_transfer/lstm_transfer_fold_metrics.csv",
+      "rows": 10,
+      "dataRows": 9,
+      "columns": 8,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/sv1upa\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:H10\",\"address\":\"A1:H10\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:H6\",\"rows\":6,\"cols\":8,\"nonEmpty\":48,\"text\":48,\"maxTextLength\":28,\"preview\":[[\"﻿seed\",\"model\",\"fold\",\"r2_delta\",\"rmse_delta_mV\",\"mae_delta_mV\",\"p95_mV\",\"p99_mV\"],[\"42\",\"L0_Original_LSTM\",\"fold_1\",\"0.999021505715207\",\"6.090132157003368\",\"4.046543984965705\",\"10.336542129516593\",\"18.138936907053015\"],[\"42\",\"L1_Original_Ridge_Future\",\"fold_1\",\"0.9843666686319175\",\"24.342957285068913\",\"18.4741217795929\",\"51.9331802010069\",\"68.71225710158988\"],[\"42\",\"L2_Physics_Consistent_Future\",\"fold_1\",\"0.9844952447286316\",\"24.242646466555783\",\"18.533759155983855\",\"49.828194607294826\",\"71.58222749144319\"],[\"42\",\"L0_Original_LSTM\",\"fold_2\",\"0.9991173985977239\",\"5.797201231602527\",\"4.217490188929499\",\"10.889077931642534\",\"15.828246623277664\"],[\"42\",\"L1_Original_Ridge_Future\",\"fold_2\",\"0.9913483696563588\",\"18.150351784624846\",\"13.514284511925448\",\"36.1723841228687\",\"50.643175864134164\"]],\"previewAddress\":\"A1:H6\",\"previewRows\":6,\"previewCols\":8}"
+    },
+    {
+      "file": "outputs/lstm_transfer/lstm_transfer_per_horizon.csv",
+      "rows": 217,
+      "dataRows": 216,
+      "columns": 7,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/7ej6zg\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:G217\",\"address\":\"A1:G217\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:G6\",\"rows\":6,\"cols\":7,\"nonEmpty\":42,\"text\":42,\"maxTextLength\":18,\"preview\":[[\"﻿seed\",\"model\",\"fold\",\"horizon_step\",\"horizon_hours\",\"rmse_delta_mV\",\"mae_delta_mV\"],[\"42\",\"L0_Original_LSTM\",\"fold_1\",\"1\",\"0.5\",\"4.969095573059652\",\"3.8063311909401367\"],[\"42\",\"L0_Original_LSTM\",\"fold_1\",\"2\",\"1.0\",\"5.231323887537428\",\"4.139814573807778\"],[\"42\",\"L0_Original_LSTM\",\"fold_1\",\"3\",\"1.5\",\"5.599696791625894\",\"4.075245987703871\"],[\"42\",\"L0_Original_LSTM\",\"fold_1\",\"4\",\"2.0\",\"5.413087122830132\",\"3.981900765148867\"],[\"42\",\"L0_Original_LSTM\",\"fold_1\",\"5\",\"2.5\",\"5.7391493489290015\",\"4.436170210654132\"]],\"previewAddress\":\"A1:G6\",\"previewRows\":6,\"previewCols\":7}"
+    },
+    {
+      "file": "outputs/lstm_transfer/lstm_transfer_summary.csv",
+      "rows": 4,
+      "dataRows": 3,
+      "columns": 8,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/dckqek\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:H4\",\"address\":\"A1:H4\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:H4\",\"rows\":4,\"cols\":8,\"nonEmpty\":32,\"text\":32,\"maxTextLength\":28,\"preview\":[[\"﻿seed\",\"model\",\"mean_r2_delta\",\"mean_rmse_delta_mV\",\"mean_mae_delta_mV\",\"fold_1_rmse_delta_mV\",\"fold_2_rmse_delta_mV\",\"fold_3_rmse_delta_mV\"],[\"42\",\"L0_Original_LSTM\",\"0.9981393267761128\",\"7.925718954340212\",\"4.214184808213998\",\"6.090132157003368\",\"5.797201231602527\",\"11.88982347441474\"],[\"42\",\"L1_Original_Ridge_Future\",\"0.9881689173337405\",\"21.043009517720566\",\"15.13214364539381\",\"24.342957285068913\",\"18.150351784624846\",\"20.635719483467945\"],[\"42\",\"L2_Physics_Consistent_Future\",\"0.9877072753270761\",\"21.467143234948953\",\"15.384872756317987\",\"24.242646466555783\",\"18.28809485866688\",\"21.8706883796242\"]],\"previewAddress\":\"A1:H4\",\"previewRows\":4,\"previewCols\":8}"
+    },
+    {
+      "file": "outputs/lstm_transfer/lstm_transfer_tail_metrics.csv",
+      "rows": 4,
+      "dataRows": 3,
+      "columns": 8,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/xey2wq\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:H4\",\"address\":\"A1:H4\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:H4\",\"rows\":4,\"cols\":8,\"nonEmpty\":32,\"text\":32,\"maxTextLength\":28,\"preview\":[[\"﻿seed\",\"model\",\"n_prediction_points\",\"p50_mV\",\"p90_mV\",\"p95_mV\",\"p99_mV\",\"max_mV\"],[\"42\",\"L0_Original_LSTM\",\"22656\",\"2.894289791584015\",\"8.377224206924438\",\"10.98717749118805\",\"24.466064572334343\",\"488.1158322095871\"],[\"42\",\"L1_Original_Ridge_Future\",\"22656\",\"10.883338887115956\",\"31.8882635427941\",\"40.32738928645252\",\"62.54177561306994\",\"536.9095383288853\"],[\"42\",\"L2_Physics_Consistent_Future\",\"22656\",\"11.22278231392454\",\"32.06293579461844\",\"40.92621293687827\",\"68.13078012358764\",\"555.532952367683\"]],\"previewAddress\":\"A1:H4\",\"previewRows\":4,\"previewCols\":8}"
+    },
+    {
+      "file": "outputs/physical_audit/physical_identity_errors.csv",
+      "rows": 3006,
+      "dataRows": 3005,
+      "columns": 27,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/yflfr2\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:AA3006\",\"address\":\"A1:AA3006\"}\n{\"kind\":\"notice\",\"message\":\"Truncated: omitted 1 lines. Increase maxChars, narrow range, or use tableMaxRows/tableMaxCols/tableMaxCellChars.\"}"
+    },
+    {
+      "file": "outputs/physical_audit/raw_conditional_current_statistics.csv",
+      "rows": 3006,
+      "dataRows": 3005,
+      "columns": 7,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/c5qzqi\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:G3006\",\"address\":\"A1:G3006\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:G6\",\"rows\":6,\"cols\":7,\"nonEmpty\":34,\"blank\":8,\"text\":34,\"maxTextLength\":32,\"preview\":[[\"﻿bin_start_ophrs2_h\",\"bin_end_ophrs2_h\",\"mu_on_A\",\"sigma_on_A\",\"mu_zero_group_A\",\"sigma_zero_group_A\",\"zero_current_fraction_recomputed\"],[\"72.5\",\"73.0\",\"122.27124656233421\",\"49.074556864172266\",\"0.0\",\"0.0\",\"0.14414414414414414\"],[\"73.0\",\"73.5\",\"159.0714294031111\",\"13.106435466247603\",null,null,\"0.0\"],[\"73.5\",\"74.0\",\"215.12792654488888\",\"53.519507054035216\",null,null,\"0.0\"],[\"74.0\",\"74.5\",\"251.77881053638887\",\"118.97762974861548\",null,null,\"0.0\"],[\"74.5\",\"75.0\",\"190.61861399044443\",\"44.91687034269651\",null,null,\"0.0\"]],\"previewAddress\":\"A1:G6\",\"previewRows\":6,\"previewCols\":7}"
+    },
+    {
+      "file": "outputs/physical_audit/raw_source_read_audit.csv",
+      "rows": 15,
+      "dataRows": 14,
+      "columns": 3,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/21wuxb\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:C15\",\"address\":\"A1:C15\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:C6\",\"rows\":6,\"cols\":3,\"nonEmpty\":18,\"text\":18,\"maxTextLength\":26,\"preview\":[[\"﻿filename\",\"mode\",\"rows_read\"],[\"Loadcycle_0-14.csv\",\"full_file_development_only\",\"593522\"],[\"Loadcycle_15-25.csv\",\"full_file_development_only\",\"473570\"],[\"Loadcycle_26-37.csv\",\"full_file_development_only\",\"488280\"],[\"Loadcycle_37-50.csv\",\"full_file_development_only\",\"576601\"],[\"Loadcycle_51-70.csv\",\"full_file_development_only\",\"854100\"]],\"previewAddress\":\"A1:C6\",\"previewRows\":6,\"previewCols\":3}"
+    },
+    {
+      "file": "outputs/tail/frozen_timexer_tail_metrics.csv",
+      "rows": 4,
+      "dataRows": 3,
+      "columns": 6,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/16o4cc\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:F4\",\"address\":\"A1:F4\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:F4\",\"rows\":4,\"cols\":6,\"nonEmpty\":24,\"text\":24,\"maxTextLength\":43,\"preview\":[[\"﻿model\",\"aggregation\",\"n_prediction_points\",\"p95_mV\",\"p99_mV\",\"max_mV\"],[\"P0_Original_Ridge\",\"pooled_prediction_points_across_three_folds\",\"22656\",\"33.42568874359131\",\"129.65158969163934\",\"368.0244982242584\"],[\"P1_Physics_Projected_Ridge\",\"pooled_prediction_points_across_three_folds\",\"22656\",\"32.753441482782364\",\"129.64269816875498\",\"368.0192828178406\"],[\"P2_Zero_Current_Aware\",\"pooled_prediction_points_across_three_folds\",\"22656\",\"26.16550773382187\",\"68.63009035587332\",\"593.4119671583176\"]],\"previewAddress\":\"A1:F4\",\"previewRows\":4,\"previewCols\":6}"
+    },
+    {
+      "file": "outputs/zero_current/operating_regime_counts.csv",
+      "rows": 55,
+      "dataRows": 54,
+      "columns": 10,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/8s3c0f\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:J55\",\"address\":\"A1:J55\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:J6\",\"rows\":6,\"cols\":10,\"nonEmpty\":49,\"blank\":11,\"text\":49,\"maxTextLength\":21,\"preview\":[[\"﻿scope\",\"record_type\",\"regime\",\"sample_count\",\"proportion\",\"event_count\",\"duration_min_h\",\"duration_median_h\",\"duration_max_h\",\"distinct_source_files\"],[\"train\",\"state\",\"q=0\",\"1768\",\"0.7906976744186046\",\"476\",\"0.5\",\"1.0\",\"3.5\",\"11.0\"],[\"train\",\"state\",\"0<q<1\",\"468\",\"0.20930232558139536\",\"468\",\"0.5\",\"0.5\",\"0.5\",\"11.0\"],[\"train\",\"state\",\"q=1\",\"0\",\"0.0\",\"0\",null,null,null,\"0.0\"],[\"train\",\"transition\",\"continuous_nonzero\",\"1292\",\"0.5804132973944295\",\"1292\",null,null,null,null],[\"train\",\"transition\",\"nonzero_to_mixed\",\"468\",\"0.21024258760107817\",\"468\",null,null,null,null]],\"previewAddress\":\"A1:J6\",\"previewRows\":6,\"previewCols\":10}"
+    },
+    {
+      "file": "outputs/zero_current/regime_voltage_errors.csv",
+      "rows": 46,
+      "dataRows": 45,
+      "columns": 11,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/dcvbqp\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:K46\",\"address\":\"A1:K46\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:K6\",\"rows\":6,\"cols\":11,\"nonEmpty\":66,\"text\":66,\"maxTextLength\":23,\"preview\":[[\"﻿model\",\"fold\",\"category\",\"regime\",\"sample_count\",\"unique_target_bin_count\",\"event_count\",\"rmse_delta_mV\",\"mae_delta_mV\",\"p95_mV\",\"p99_mV\"],[\"P0_Original_Ridge\",\"fold_1\",\"strict_q_state\",\"0<q<1\",\"1172\",\"53\",\"53\",\"31.870978135011622\",\"21.165967836721766\",\"71.41550140380859\",\"108.06123107910155\"],[\"P0_Original_Ridge\",\"fold_1\",\"strict_q_state\",\"q=0\",\"4420\",\"203\",\"203\",\"18.34496698550179\",\"10.538492886944594\",\"27.247416114807134\",\"80.69387504577672\"],[\"P0_Original_Ridge\",\"fold_1\",\"transition_state\",\"continuous_nonzero\",\"3248\",\"149\",\"149\",\"18.472292936903504\",\"9.843807349798128\",\"23.67576045989989\",\"85.75318656921384\"],[\"P0_Original_Ridge\",\"fold_1\",\"transition_state\",\"mixed_to_nonzero\",\"1172\",\"54\",\"54\",\"17.987395262828606\",\"12.463696491596234\",\"34.0602436065674\",\"65.96831970214842\"],[\"P0_Original_Ridge\",\"fold_1\",\"transition_state\",\"nonzero_to_mixed\",\"1172\",\"53\",\"53\",\"31.870978135011622\",\"21.165967836721766\",\"71.41550140380859\",\"108.06123107910155\"]],\"previewAddress\":\"A1:K"
+    },
+    {
+      "file": "outputs/zero_current/transition_event_metrics.csv",
+      "rows": 10,
+      "dataRows": 9,
+      "columns": 7,
+      "empty": false,
+      "duplicateHeaders": [],
+      "formulaErrors": [],
+      "inspectPreview": "{\"kind\":\"sheet\",\"id\":\"ws/nupgh1\",\"name\":\"Data\",\"index\":0,\"range\":\"A1:G10\",\"address\":\"A1:G10\"}\n{\"kind\":\"region\",\"sheet\":\"Data\",\"address\":\"A1:G6\",\"rows\":6,\"cols\":7,\"nonEmpty\":42,\"text\":42,\"maxTextLength\":27,\"preview\":[[\"﻿model\",\"fold\",\"unique_target_bins\",\"true_transition_events\",\"predicted_transition_events\",\"transition_precision\",\"transition_recall\"],[\"P0_Original_Ridge\",\"fold_1\",\"233\",\"96\",\"110\",\"0.4636363636363636\",\"0.53125\"],[\"P1_Physics_Projected_Ridge\",\"fold_1\",\"233\",\"96\",\"110\",\"0.4636363636363636\",\"0.53125\"],[\"P2_Zero_Current_Aware\",\"fold_1\",\"233\",\"96\",\"96\",\"0.9895833333333334\",\"0.9895833333333334\"],[\"P0_Original_Ridge\",\"fold_2\",\"245\",\"101\",\"133\",\"0.40601503759398494\",\"0.5346534653465347\"],[\"P1_Physics_Projected_Ridge\",\"fold_2\",\"245\",\"101\",\"133\",\"0.40601503759398494\",\"0.5346534653465347\"]],\"previewAddress\":\"A1:G6\",\"previewRows\":6,\"previewCols\":7}"
+    }
+  ]
+}

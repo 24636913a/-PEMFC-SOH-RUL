@@ -1,0 +1,36 @@
+{
+  "status": "COMPLETE",
+  "seed42_screen": {
+    "seed": 42,
+    "comparisons": {
+      "L0_Original_LSTM": {
+        "mean_rmse_improvement_pct": -170.85420715294612,
+        "improved_folds": 0,
+        "fold3_worsening_pct": 83.94460125238113,
+        "p95_worsening_pct": 272.49068716421453,
+        "p99_worsening_pct": 178.4705317937742
+      },
+      "L1_Original_Ridge_Future": {
+        "mean_rmse_improvement_pct": -2.015556362654393,
+        "improved_folds": 1,
+        "fold3_worsening_pct": 5.984617580916611,
+        "p95_worsening_pct": 1.4849055716753707,
+        "p99_worsening_pct": 8.936434016673036
+      }
+    },
+    "physical_violations_lower_than_L1": true,
+    "passed": false
+  },
+  "multiseed_run": false,
+  "seeds_run": [
+    42
+  ],
+  "final_multiseed_audit": "NOT_RUN_SEED42_SCREEN_FAILED",
+  "final_lstm_candidate": null,
+  "validation_residual_used_for_training": false,
+  "test_target_rows_read": 0,
+  "test_predictions_constructed": false,
+  "test_metrics_computed": false,
+  "test_feature_diagnostics_computed": false,
+  "test_performance_accessed": false
+}

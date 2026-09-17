@@ -1,0 +1,77 @@
+phase_status: COMPLETE_STOP_NO_NEW_FINAL_MODEL
+physical_relation_audit:
+  status: PASS
+  verified_relations:
+  - same-bin causal aggregation
+  - J=I/A with Fold-1 Train area
+  - population mixture mean and variance
+  - nonnegative statistics
+  - 0<=q<=1
+  invalid_relations:
+  - peak-to-peak derived from mean/variance
+  - q implies zero voltage
+  - q is a measured shutdown label
+zero_current_audit:
+  event_count: 624
+  q1_bins: 0
+  sufficient_for_claim: true
+  q1_metrics: NOT_ESTIMABLE
+forecast_models:
+  P0:
+    forecast_metrics:
+      q_mae: 0.0248104894222566
+      q_rmse: 0.0416239185413246
+      mixed_event_f1: 0.5100107711308606
+      current_mean_mae_A: 4.886695555169568
+    physical_violation_rate: 1.0
+    downstream_rmse_mV: 24.5382448832194
+  P1:
+    forecast_metrics:
+      q_mae: 0.017061278553639
+      q_rmse: 0.0382418742384094
+      mixed_event_f1: 0.5100107711308606
+      current_mean_mae_A: 4.886695555169568
+    physical_violation_rate: 0.0
+    downstream_rmse_mV: 24.442879994710285
+  P2:
+    forecast_metrics:
+      q_mae: 0.0017430913202451
+      q_rmse: 0.0221122851813088
+      mixed_event_f1: 0.9904994047936728
+      current_mean_mae_A: 2.0417307126542124
+    physical_violation_rate: 0.0
+    downstream_rmse_mV: 21.34656588236491
+gate_b_passed: true
+gate_b_winner: P2_Zero_Current_Aware
+timexer_retraining:
+  status: SEED42_COMPLETE_MULTISEED_NOT_TRIGGERED
+  results:
+    P0_rmse_mV: 24.5382448832194
+    P2_rmse_mV: 21.55308787027995
+    improvement_pct: 12.16532407735839
+    fold3_worsening_pct: 2.291624258820285
+lstm_transfer:
+  status: FAILED_PROMOTION_STOP
+  results:
+    L0: 7.925718954340212
+    L1: 21.043009517720566
+    L2: 21.467143234948956
+multiseed:
+  status: NOT_RUN_PREREGISTERED_TRIGGERS_FAILED
+  results: null
+final_candidate: null
+incumbent_reference: Original causal-SG LSTM
+paper_claims_supported:
+- raw-verified physical consistency
+- P2 improves frozen SA-TimeXer Development point-estimate gate
+- mechanism is fold- and backbone-dependent
+paper_claims_unsupported:
+- universal backbone improvement
+- stable multiseed new model
+- shutdown classification
+- SOH prediction
+- RUL prediction
+- Test performance
+- cross-stack generalization
+test_performance_accessed: false
+next_action: STOP; preserve artifacts; Test remains sealed pending separate authorization

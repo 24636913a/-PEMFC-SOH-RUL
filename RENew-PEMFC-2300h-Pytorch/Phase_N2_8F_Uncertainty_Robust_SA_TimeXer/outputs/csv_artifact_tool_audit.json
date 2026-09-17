@@ -1,0 +1,125 @@
+{
+  "status": "PASS",
+  "artifacts": [
+    {
+      "file": "outputs/ablation/N2_8F_seed42_comparison.csv",
+      "bytes": 1232,
+      "records_excluding_header": 4,
+      "header_column_count": 17,
+      "first_column": "model",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/ablation/N2_8F_multiseed_comparison.csv",
+      "bytes": 143,
+      "records_excluding_header": 1,
+      "header_column_count": 6,
+      "first_column": "model",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/ablation/N2_8F_ablation.csv",
+      "bytes": 1232,
+      "records_excluding_header": 4,
+      "header_column_count": 17,
+      "first_column": "model",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/ablation/same_checkpoint_oracle_swap.csv",
+      "bytes": 2651,
+      "records_excluding_header": 12,
+      "header_column_count": 12,
+      "first_column": "variant",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/attribution/condition_group_sensitivity.csv",
+      "bytes": 1829,
+      "records_excluding_header": 12,
+      "header_column_count": 7,
+      "first_column": "fold",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/attribution/future_exo_error_by_variable.csv",
+      "bytes": 2637,
+      "records_excluding_header": 27,
+      "header_column_count": 5,
+      "first_column": "fold",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/attribution/future_exo_error_by_horizon.csv",
+      "bytes": 5282,
+      "records_excluding_header": 72,
+      "header_column_count": 6,
+      "first_column": "fold",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/attribution/exo_error_voltage_error_correlation.csv",
+      "bytes": 1660,
+      "records_excluding_header": 12,
+      "header_column_count": 7,
+      "first_column": "fold",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/augmentation/forecast_error_augmentation_audit.csv",
+      "bytes": 474,
+      "records_excluding_header": 3,
+      "header_column_count": 10,
+      "first_column": "model",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/confidence/confidence_calibration.csv",
+      "bytes": 711,
+      "records_excluding_header": 12,
+      "header_column_count": 5,
+      "first_column": "fold",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/confidence/confidence_gate_statistics.csv",
+      "bytes": 8440,
+      "records_excluding_header": 72,
+      "header_column_count": 9,
+      "first_column": "model",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/lifecycle/N2_8F_fold_metrics.csv",
+      "bytes": 3395,
+      "records_excluding_header": 12,
+      "header_column_count": 25,
+      "first_column": "model",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/horizon/N2_8F_per_horizon.csv",
+      "bytes": 19220,
+      "records_excluding_header": 216,
+      "header_column_count": 7,
+      "first_column": "model",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/tail/N2_8F_tail_metrics.csv",
+      "bytes": 561,
+      "records_excluding_header": 3,
+      "header_column_count": 8,
+      "first_column": "model",
+      "artifact_tool_inspection": "PASS"
+    },
+    {
+      "file": "outputs/ablation/ridge_oof_temporal_leakage_audit.csv",
+      "bytes": 7835,
+      "records_excluding_header": 30,
+      "header_column_count": 24,
+      "first_column": "stage",
+      "artifact_tool_inspection": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+phase_status: PASS
+inherited_study_commit: 0e8a75d58bc52a3e732016b4b7e361a8eeac8277
+test_performance_accessed: false
+strict_oof_target_completion_audit: PASS
+historical_n2_8e_ridge_rmse_mV_reference_only: 24.719477623350237
+fair_m0_rmse_mV: 24.53824528907965
+best_formal_model: M0_SA_TimeXer_Ridge
+best_formal_rmse_mV: 24.53824528907965
+best_formal_r2: 0.9839886393033271
+improvement_vs_fair_m0_pct: 0.0
+confidence_estimator_status: VALID
+rmse_9p5h_mV: 26.074390436543634
+rmse_12h_mV: 33.527980116730625
+periodic_degradation_vs_m0_9p5h_pct: 0.0
+multiseed:
+  model: M0_SA_TimeXer_Ridge
+  promotion_status: not_promoted_seed42_only
+  n_seeds: 1
+  seeds: '42'
+  mean_rmse_delta_mV: 24.53824528907965
+  rmse_std_mV: 0.0
+time_xer_status: NO_FORMAL_GAIN
+further_physics_recommended: false
+enter_next_phase: NO-GO
+reason: Development-only formal comparison after strict target-completion OOF repair;
+  Test remains firewalled.
+

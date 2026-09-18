@@ -1,0 +1,13 @@
+phase_status: DIAGNOSTIC_COMPLETED_STOPPED
+fixed_start_commit: 7c4ca89fdabd2f104a2700cddc1ad1ea6a380d50
+baseline_reproduction: {P0: 24.538244883, P1: 24.442882538, P2: 21.346565882, RS: 24.201794942, status: PASS}
+timexer_decomposition: {base_plus_correction_passed: true, max_residual_mV: 0.000119209, p1_p2_base_identical: true}
+rs_identity_passed: true
+error_attribution: {fold3_continuous_nonzero_P1_mV: 26.684831011, fold3_continuous_nonzero_P2_mV: 32.812164783, max_squared_error_identity_residual_mV2: 0.027660480}
+reference_condition: {causal_reference_available: true, direct_explanatory_evidence: WEAK}
+diagnostic_decision: INCONCLUSIVE
+opr_training_authorized: false
+retraining_performed: false
+multiseed_performed: false
+test_performance_accessed: false
+next_action: STOP_DO_NOT_IMPLEMENT_OR_TRAIN_OPR_FROM_THIS_DIAGNOSTIC

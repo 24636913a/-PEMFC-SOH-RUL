@@ -1,0 +1,42 @@
+phase: Phase_RS_SA_TimeXer
+fixed_start_commit: 39300ca08e7a54f8060978891650bc49920f3278
+source_phase_n28f: ../Phase_N2_8F_Uncertainty_Robust_SA_TimeXer
+source_phase_g_stop: ../Phase_G_STOP_Physics_Consistent_Future_Conditions
+protocol:
+  sampling_hours: 0.5
+  lookback_bins: 48
+  horizon_bins: 24
+  lookback_hours: 24
+  horizon_hours: 12
+  target: delta_average_cell_voltage
+  historical_feature_count: 14
+  future_feature_count: 9
+  folds: [fold_1, fold_2, fold_3]
+selector:
+  probability_source: P2_predicted_mixed_current_probability
+  fixed_threshold: 0.5
+  selection: complete_9_dimensional_vector_per_horizon
+bootstrap:
+  seed: 42
+  repetitions: 2000
+  main_block_length_origins: 48
+  sensitivity_block_lengths_origins: [24, 48, 96]
+gates:
+  gate_a:
+    p0_minimum_mean_rmse_improvement_pct: 5.0
+    p2_maximum_mean_rmse_worsening_pct: 3.0
+    fold3_maximum_rmse_mV: 27.885315
+    horizon_12h_maximum_p0_worsening_pct: 5.0
+  gate_b:
+    p0_minimum_mean_rmse_improvement_pct: 5.0
+    p2_minimum_mean_rmse_improvement_pct: 3.0
+    minimum_folds_better_than_t2: 2
+    horizon_9_5h_maximum_t2_worsening_pct: 5.0
+    horizon_12h_maximum_t0_worsening_pct: 5.0
+    p99_maximum_t2_worsening_pct: 5.0
+test_firewall:
+  target_rows_read_from_test: 0
+  test_predictions_constructed: false
+  test_metrics_computed: false
+  test_feature_diagnostics_computed: false
+  test_performance_accessed: false

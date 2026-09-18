@@ -1,0 +1,40 @@
+phase_status: GATE_A_FAILED_STOPPED
+fixed_start_commit: 39300ca08e7a54f8060978891650bc49920f3278
+baseline_reproduction:
+  P0: {mean_rmse_delta_mV: 24.538244883, mean_r2_delta: 0.983988643, status: PASS}
+  P1: {mean_rmse_delta_mV: 24.442879995, mean_r2_delta: 0.984110812, status: PASS}
+  P2: {mean_rmse_delta_mV: 21.346565882, mean_r2_delta: 0.986918132, status: PASS}
+selector_audit:
+  threshold: 0.5
+  nonconstant_validation: true
+  P2_selection_fraction_by_fold: [0.214055794, 0.210034014, 0.212893419]
+  p1_q_nonzero_when_g0_rate_by_fold: [0.498293515, 0.502691066, 0.522435533]
+physical_consistency:
+  P1_mean_trajectory_violation_rate: 0.000000000
+  P2_mean_trajectory_violation_rate: 0.000000000
+  RS_mean_trajectory_violation_rate: 0.000000000
+frozen_models:
+  RS: {mean_rmse_delta_mV: 24.201793671, mean_r2_delta: 0.983944019, change_vs_P0_pct: 1.371129900, change_vs_P2_pct: -13.375583708}
+fold3_regime_result:
+  overall_RS_mV: 31.168859482
+  continuous_nonzero_RS_mV: 35.798820416
+  continuous_nonzero_P2_mV: 32.812163732
+horizon_9_5h_result: {RS_mV: 23.367266337, P0_mV: 26.074391683, P2_mV: 19.864298820}
+horizon_12h_result: {RS_mV: 37.145373662, P0_mV: 33.527982076, P2_mV: 35.475418727}
+tail_metrics: {RS_p95_mV: 28.429243714, RS_p99_mV: 106.656632200, RS_max_mV: 593.411967158}
+bootstrap_result: {RS_vs_P0_CI_crosses_zero: true, interpretation: IMPROVEMENT_NOT_STATISTICALLY_RESOLVED}
+gate_a_passed: false
+retraining: {status: NOT_RUN_GATE_A_FAILED, models: NOT_RUN, results: NOT_RUN}
+gate_b_passed: NOT_RUN_GATE_A_FAILED
+multiseed: {status: NOT_RUN_GATE_A_FAILED, results: NOT_RUN}
+paper_candidate: NO
+supported_contributions:
+  - physically consistent P1/P2/RS future-condition vectors
+  - nonconstant causal regime selection and mixed-current slice preservation
+unsupported_claims:
+  - overall robust RS advantage
+  - Fold3 continuous-nonzero negative-transfer resolution
+  - neural retraining or multi-seed stability
+  - Test performance
+test_performance_accessed: false
+next_action: STOP_PHASE_RS_NO_RETRAINING_NO_TEST_RELEASE

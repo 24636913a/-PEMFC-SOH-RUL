@@ -1,0 +1,6 @@
+﻿issue,reported_value,correct_value,interpretation
+formal versus pooled RMSE,21.34656588236491,21.34656588236491,formal P2 three-fold unweighted mean RMSE (mV)
+pooled prediction-point RMSE,24.47559330280174,24.47559330280174,"pooled Oracle-common diagnostic RMSE (mV), not the formal fold mean"
+Validation E1 independent events,87.0,9.0,"87 prediction points, 9 independent events"
+Validation E2 independent events,20.0,2.0,"20 prediction points, 2 independent events"
+common valid origins all folds,466.0,944.0,466 is Fold3 only; 233+245+466=944

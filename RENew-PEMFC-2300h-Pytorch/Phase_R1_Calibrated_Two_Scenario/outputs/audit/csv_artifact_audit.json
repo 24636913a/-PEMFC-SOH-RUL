@@ -1,0 +1,174 @@
+{
+  "csv_count": 21,
+  "all_pass": true,
+  "files": [
+    {
+      "file": "audit/r0_correction_audit.csv",
+      "bytes": 549,
+      "row_count": 5,
+      "header_column_count": 4,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "bootstrap/bootstrap_main.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "bootstrap/bootstrap_sensitivity.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "calibration/calibration_coefficients.csv",
+      "bytes": 478,
+      "row_count": 3,
+      "header_column_count": 9,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "calibration/calibration_internal_holdout.csv",
+      "bytes": 985,
+      "row_count": 6,
+      "header_column_count": 10,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "calibration/calibration_reliability_bins.csv",
+      "bytes": 5568,
+      "row_count": 60,
+      "header_column_count": 9,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "calibration/calibration_train_oof.csv",
+      "bytes": 37844334,
+      "row_count": 86256,
+      "header_column_count": 35,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "calibration/calibration_validation.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "folds/fold1_12h_results.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "folds/fold3_nonzero_results.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "folds/frozen_model_fold_metrics.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "horizons/frozen_model_horizon_metrics.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "physical/scenario_physical_audit.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "predictions/cts_pointwise_predictions.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "regimes/frozen_model_regime_metrics.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "reproduction/baseline_reproduction.csv",
+      "bytes": 1716,
+      "row_count": 15,
+      "header_column_count": 10,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "scenarios/p2_component_reconstruction.csv",
+      "bytes": 1774639,
+      "row_count": 22656,
+      "header_column_count": 9,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "scenarios/scenario_mixed.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "scenarios/scenario_zero.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "tails/tail_risk_summary.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "tails/tail_top20_unique_targets.csv",
+      "bytes": 156,
+      "row_count": 1,
+      "header_column_count": 2,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    }
+  ]
+}

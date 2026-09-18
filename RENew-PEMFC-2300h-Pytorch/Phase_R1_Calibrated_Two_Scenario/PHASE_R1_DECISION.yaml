@@ -1,0 +1,55 @@
+phase_status: CALIBRATION_INTERNAL_FAIL
+fixed_start_commit: fcb3f6f43b1e5b0a85fb370333dd2982076f4e35
+r0_corrections_status: PASS__R1_ONLY_NO_R0_MUTATION
+baseline_reproduction: PASS
+p2_component_reconstruction: PASS
+calibration_internal_status: FAIL_ALL_THREE_FOLDS
+calibration_parameters:
+- fold: fold_1
+  a: 0.6910011603712788
+  b: -2.360322818131224
+  final_calibrator_status: NOT_DEPLOYED_INTERNAL_FAIL
+  train_oof_prediction_points: 23064
+  train_oof_unique_targets: 1122
+  effective_weight_sum: 1122.0
+  fit_max_target_row: 1194
+  holdout_min_origin_row: 1194
+- fold: fold_2
+  a: 0.7229652551961938
+  b: -2.184589382177345
+  final_calibrator_status: NOT_DEPLOYED_INTERNAL_FAIL
+  train_oof_prediction_points: 28656
+  train_oof_unique_targets: 1378
+  effective_weight_sum: 1377.9999999999998
+  fit_max_target_row: 1525
+  holdout_min_origin_row: 1525
+- fold: fold_3
+  a: 0.7000675238870744
+  b: -2.1195453253129557
+  final_calibrator_status: NOT_DEPLOYED_INTERNAL_FAIL
+  train_oof_prediction_points: 34536
+  train_oof_unique_targets: 1646
+  effective_weight_sum: 1645.9999999999998
+  fit_max_target_row: 1865
+  holdout_min_origin_row: 1865
+calibration_validation_results: NOT_RUN
+scenario_physical_status: NOT_RUN
+fold_rmse: NOT_RUN_CTS
+mean_fold_rmse: NOT_RUN_CTS
+pooled_rmse: NOT_RUN_CTS
+fold1_12h_rmse: NOT_RUN_CTS
+fold3_nonzero_rmse: NOT_RUN_CTS
+horizon_9_5h: NOT_RUN_CTS
+horizon_12h: NOT_RUN_CTS
+p95: NOT_RUN_CTS
+p99: NOT_RUN_CTS
+maximum_absolute_error: NOT_RUN_CTS
+regime_metrics: NOT_RUN_CTS
+bootstrap_result: NOT_RUN_CTS
+gate_a_conditions: NOT_RUN__CALIBRATION_PREREQUISITE_FAILED
+gate_a_decision: NOT_RUN__CALIBRATION_INTERNAL_FAIL
+next_phase_authorization: NO_RETRAINING_AUTHORIZED
+test_firewall: PASS
+neural_retraining_performed: false
+multiseed_performed: false
+test_performance_accessed: false

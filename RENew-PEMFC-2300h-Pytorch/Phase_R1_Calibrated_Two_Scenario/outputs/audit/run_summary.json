@@ -1,0 +1,10 @@
+{
+  "phase_status": "CALIBRATION_INTERNAL_FAIL",
+  "failed_folds": [
+    "fold_1",
+    "fold_2",
+    "fold_3"
+  ],
+  "cts_validation_inference": "NOT_RUN",
+  "reason": "Both Brier and Log Loss worsened in every pre-registered Train-internal late-20% diagnostic. No Validation-based remedy was attempted."
+}

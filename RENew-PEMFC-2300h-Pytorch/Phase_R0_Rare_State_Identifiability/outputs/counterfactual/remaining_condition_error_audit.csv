@@ -1,0 +1,13 @@
+﻿fold,feature,raw_MAE,raw_RMSE,note
+fold_1,actual_current_A_peak_to_peak,13.716494490118022,19.077478319947545,unintervened future feature
+fold_1,actual_current_density_A_cm2_peak_to_peak,0.04899749052736832,0.0681270289020919,current-density features are redundant with current under fixed train-only area
+fold_1,load_transition_count,1.0453429383667234,1.3693490676868272,unintervened future feature
+fold_1,operation_point_transitions,0.5017021380148292,0.6314233419756344,unintervened future feature
+fold_2,actual_current_A_peak_to_peak,14.231025100403459,19.428679354936136,unintervened future feature
+fold_2,actual_current_density_A_cm2_peak_to_peak,0.05083514438061505,0.0694005440175599,current-density features are redundant with current under fixed train-only area
+fold_2,load_transition_count,1.1361081549582903,1.6291966977795422,unintervened future feature
+fold_2,operation_point_transitions,0.47440042415594713,0.6192989495697815,unintervened future feature
+fold_3,actual_current_A_peak_to_peak,14.912306268026521,21.16167639856921,unintervened future feature
+fold_3,actual_current_density_A_cm2_peak_to_peak,0.05326187164610251,0.07559390687757113,current-density features are redundant with current under fixed train-only area
+fold_3,load_transition_count,1.0305385844623287,1.359788657732222,unintervened future feature
+fold_3,operation_point_transitions,0.49613220866472113,0.6237165086391635,unintervened future feature

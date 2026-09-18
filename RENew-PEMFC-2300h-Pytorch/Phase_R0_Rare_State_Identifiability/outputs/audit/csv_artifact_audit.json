@@ -1,0 +1,198 @@
+{
+  "csv_count": 24,
+  "all_pass": true,
+  "files": [
+    {
+      "file": "calibration/probability_calibration.csv",
+      "bytes": 2055,
+      "row_count": 33,
+      "header_column_count": 6,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "counterfactual/counterfactual_attribution.csv",
+      "bytes": 9384491,
+      "row_count": 22656,
+      "header_column_count": 29,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "counterfactual/counterfactual_event_metrics.csv",
+      "bytes": 2612,
+      "row_count": 16,
+      "header_column_count": 15,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "counterfactual/counterfactual_fold_metrics.csv",
+      "bytes": 1686,
+      "row_count": 16,
+      "header_column_count": 8,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "counterfactual/counterfactual_input_audit.csv",
+      "bytes": 784,
+      "row_count": 12,
+      "header_column_count": 10,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "counterfactual/counterfactual_interaction.csv",
+      "bytes": 1203475,
+      "row_count": 22656,
+      "header_column_count": 7,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "counterfactual/counterfactual_pointwise.csv",
+      "bytes": 12152926,
+      "row_count": 90624,
+      "header_column_count": 13,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "counterfactual/counterfactual_regime_metrics.csv",
+      "bytes": 639,
+      "row_count": 2,
+      "header_column_count": 13,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "counterfactual/remaining_condition_error_audit.csv",
+      "bytes": 1440,
+      "row_count": 12,
+      "header_column_count": 5,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "events/event_overlap_audit.csv",
+      "bytes": 8257,
+      "row_count": 86,
+      "header_column_count": 10,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "events/event_support_summary.csv",
+      "bytes": 121,
+      "row_count": 1,
+      "header_column_count": 5,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "events/validation_error_points.csv",
+      "bytes": 17788,
+      "row_count": 107,
+      "header_column_count": 14,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "events/validation_independent_events.csv",
+      "bytes": 924,
+      "row_count": 11,
+      "header_column_count": 9,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "events/validation_unique_targets.csv",
+      "bytes": 1478,
+      "row_count": 11,
+      "header_column_count": 11,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "fold1_12h/fold1_12h_counterfactual.csv",
+      "bytes": 426,
+      "row_count": 1,
+      "header_column_count": 13,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "fold3_nonzero/fold3_nonzero_counterfactual.csv",
+      "bytes": 433,
+      "row_count": 1,
+      "header_column_count": 13,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "physical/true_conditional_current_audit.csv",
+      "bytes": 524836,
+      "row_count": 3005,
+      "header_column_count": 15,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "reproduction/baseline_reproduction.csv",
+      "bytes": 727,
+      "row_count": 5,
+      "header_column_count": 7,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "response/condition_response_components.csv",
+      "bytes": 5576361,
+      "row_count": 22656,
+      "header_column_count": 16,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "train_oof/p2_train_oof_audit.csv",
+      "bytes": 532,
+      "row_count": 15,
+      "header_column_count": 6,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "train_oof/p2_train_oof_predictions.csv",
+      "bytes": 34609506,
+      "row_count": 86256,
+      "header_column_count": 32,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "train_oof/train_oof_error_points.csv",
+      "bytes": 752633,
+      "row_count": 1687,
+      "header_column_count": 32,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "train_oof/train_oof_independent_events.csv",
+      "bytes": 5180,
+      "row_count": 75,
+      "header_column_count": 9,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "train_oof/train_oof_unique_targets.csv",
+      "bytes": 22443,
+      "row_count": 191,
+      "header_column_count": 11,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    }
+  ]
+}

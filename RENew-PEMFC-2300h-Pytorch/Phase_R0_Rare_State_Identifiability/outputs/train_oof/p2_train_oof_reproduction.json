@@ -1,0 +1,14 @@
+{
+  "protocol": "strict causal completed-target-block OOF",
+  "folds": [
+    "fold_1",
+    "fold_2",
+    "fold_3"
+  ],
+  "horizon_steps": 24,
+  "forecast_horizon_h": 12.0,
+  "prediction_rows": 86256,
+  "oof_blocks": 5,
+  "minimum_completed_windows": 64,
+  "target_leakage_guard": "max fit target_end_age_h <= prediction origin_age_h"
+}

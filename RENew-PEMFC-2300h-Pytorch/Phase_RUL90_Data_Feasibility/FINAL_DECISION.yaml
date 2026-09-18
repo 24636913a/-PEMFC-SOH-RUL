@@ -1,0 +1,44 @@
+dataset_name: RealHyFC approximately 2300 h PEMFC durability dataset
+dataset_files_found: see outputs/data_inventory.csv
+data_start_operating_hour: 72.78869
+data_end_operating_hour: 2256.8
+actual_coverage_hours: 2184.0113100000003
+official_eol_definition_found: false
+official_eol_source: NOT_FOUND; lower-voltage-limit evidence recorded in outputs/eol_evidence.csv
+official_eol_time_found: NOT_FOUND
+reference_voltage_available: true
+reference_voltage_method: nominal polarization, active 10-cell median, frozen j*=1
+  A/cm2
+reference_voltage_quality: 'CONDITIONAL: source-labelled BoL, same reported 10-cell/280
+  cm2 polarization configuration; BoL OpHrs is nonzero'
+true_BOL_reference_available: CONDITIONAL_SOURCE_LABELLED_BOL
+first_observed_reference_age: 0.0
+initial_reference_voltage_V: 0.6989533066
+final_reference_voltage_V: 0.6779838949500001
+minimum_valid_SOH: 0.9694968164558648
+maximum_confirmed_degradation_percent: 3.050318354413517
+EOL_threshold_fraction: 0.9
+EOL_threshold_voltage_V: 0.62905797594
+EOL95_threshold_voltage_V: 0.66400564127
+EOL90_observed: false
+EOL90_first_crossing_hour: NOT_OBSERVED
+EOL90_crossing_time_interval: NOT_OBSERVED
+EOL90_sustained_or_confirmed: false
+EOL95_observed: false
+EOL95_first_crossing_hour: NOT_OBSERVED
+real_RUL_labels_available: false
+right_censored: true
+RUL_lower_bound_available: true
+extrapolation_required: true
+current_12h_Task_directly_supports_RUL: false
+recommended_research_task: reference-condition SOH estimation and long-horizon health-voltage
+  forecasting
+recommended_timexer_role: short-horizon dynamic voltage auxiliary branch, aligned
+  to a slow reference-condition health state
+data_limitations: No confirmed official EOL/90% event; sparse diagnostic anchors;
+  full Test target inspected descriptively after method freeze; future operating conditions
+  are not automatically known.
+full_data_target_accessed: true
+test_seal_for_future_model_selection: compromised
+test_prediction_metrics_computed: false
+model_training_performed: false

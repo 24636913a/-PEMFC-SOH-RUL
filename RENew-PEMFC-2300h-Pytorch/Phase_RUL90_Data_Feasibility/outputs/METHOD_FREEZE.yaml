@@ -1,0 +1,27 @@
+method_status: FROZEN_BEFORE_TEST_TARGET_ACCESS
+frozen_at_utc: '2026-09-18T13:21:15.108862+00:00'
+project_git_head_expected: 34c4c447c900ef2ca6f24315ca229e0c3533536a
+development_end_ophrs2_h: 1819.9977380000005
+selection_scope: normal nominal polarization checkpoints with age < Development/Test
+  boundary; Test voltage/current/targets not read
+candidate_jstar_A_cm2:
+- 0.8
+- 1.0
+- 1.2
+- 1.4
+- 1.6
+j_tolerance_A_cm2: 0.01
+primary_jstar_A_cm2: 1.0
+reference_voltage_V: 0.6989533066
+reference_definition: active 10-cell median voltage at frozen j* on source-labelled
+  nominal BoL polarization curve
+excluded_channel: U6 [V]
+after_air_air_start_policy: excluded from reference selection and threshold event
+  confirmation
+SOH_definition: SOH_U(t)=V_ref(t)/V_ref,0
+EOL_threshold_fraction: 0.9
+EOL_threshold_voltage_V: 0.62905797594
+auxiliary_threshold_fraction: 0.95
+auxiliary_threshold_voltage_V: 0.66400564127
+centred_smoothing_or_backfill: false
+model_training_performed: false

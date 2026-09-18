@@ -1,0 +1,134 @@
+{
+  "csv_count": 16,
+  "all_pass": true,
+  "files": [
+    {
+      "file": "amplitude/condition_amplitude_groups.csv",
+      "bytes": 1292,
+      "row_count": 5,
+      "header_column_count": 15,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "film_response/film_response_groups.csv",
+      "bytes": 1588,
+      "row_count": 5,
+      "header_column_count": 16,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "film_response/film_sensitivity_audit.csv",
+      "bytes": 186,
+      "row_count": 1,
+      "header_column_count": 3,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "fold1_12h/fold1_12h_loss_concentration.csv",
+      "bytes": 532,
+      "row_count": 4,
+      "header_column_count": 7,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "fold1_12h/fold1_12h_pointwise.csv",
+      "bytes": 154435,
+      "row_count": 233,
+      "header_column_count": 45,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "fold1_12h/fold1_12h_top_absolute_error.csv",
+      "bytes": 14562,
+      "row_count": 20,
+      "header_column_count": 45,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "fold1_12h/fold1_12h_top_positive_D.csv",
+      "bytes": 14368,
+      "row_count": 20,
+      "header_column_count": 45,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "fold3_nonzero/fold3_independent_segments.csv",
+      "bytes": 1636,
+      "row_count": 4,
+      "header_column_count": 18,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "fold3_nonzero/fold3_nonzero_pointwise.csv",
+      "bytes": 4196861,
+      "row_count": 6502,
+      "header_column_count": 45,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "fold3_nonzero/fold3_segment_contribution.csv",
+      "bytes": 2347,
+      "row_count": 7,
+      "header_column_count": 19,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "mechanism_contribution_summary.csv",
+      "bytes": 2767,
+      "row_count": 10,
+      "header_column_count": 17,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "reproduction/baseline_reproduction.csv",
+      "bytes": 727,
+      "row_count": 5,
+      "header_column_count": 7,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "time_alignment/time_alignment_audit.csv",
+      "bytes": 8518,
+      "row_count": 70,
+      "header_column_count": 15,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "transitions/trajectory_shift_diagnostics.csv",
+      "bytes": 1425,
+      "row_count": 15,
+      "header_column_count": 7,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "transitions/transition_event_matching.csv",
+      "bytes": 591485,
+      "row_count": 9498,
+      "header_column_count": 8,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    },
+    {
+      "file": "transitions/transition_timing_summary.csv",
+      "bytes": 716,
+      "row_count": 6,
+      "header_column_count": 14,
+      "artifact_tool_inspected": true,
+      "status": "PASS"
+    }
+  ]
+}

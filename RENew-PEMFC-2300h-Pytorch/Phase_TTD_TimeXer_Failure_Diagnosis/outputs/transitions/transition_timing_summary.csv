@@ -1,0 +1,7 @@
+﻿scope,fold,event_type,matched,false_positive,false_negative,precision,recall,f1,early_2,early_1,exact,late_1,late_2
+all_validation,fold_1,mixed_to_nonmixed,1171,0,1,1.0,0.9991467576791809,0.9995731967562954,0,0,1171,0,0
+all_validation,fold_1,nonmixed_to_mixed,1172,1,0,0.9991474850809889,1.0,0.9995735607675906,0,23,1149,0,0
+all_validation,fold_2,mixed_to_nonmixed,1233,1,0,0.9991896272285251,1.0,0.9995946493717066,0,0,1233,0,0
+all_validation,fold_2,nonmixed_to_mixed,1234,1,0,0.9991902834008097,1.0,0.9995949777237748,0,1,1233,0,0
+all_validation,fold_3,mixed_to_nonmixed,2342,0,0,1.0,1.0,1.0,0,19,2317,6,0
+all_validation,fold_3,nonmixed_to_mixed,2340,2,0,0.9991460290350128,1.0,0.9995728321230244,0,52,2288,0,0

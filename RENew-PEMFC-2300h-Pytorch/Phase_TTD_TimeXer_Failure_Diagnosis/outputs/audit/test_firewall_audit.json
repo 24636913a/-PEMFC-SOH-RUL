@@ -1,0 +1,39 @@
+{
+  "resolution_hours": 0.5,
+  "source_file": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+  "schema_column_count": 214,
+  "total_metadata_rows": 3843,
+  "test_metadata_rows": 836,
+  "test_metadata_start_h": 1820.0,
+  "test_metadata_end_h": 2256.5,
+  "development_feature_target_rows": 3005,
+  "target_rows_read_from_test": 0,
+  "test_predictions_constructed": false,
+  "test_performance_accessed": false,
+  "test_feature_rows_read": 0,
+  "test_metrics_computed": false,
+  "test_feature_diagnostics_computed": false,
+  "enforcement": "fail_closed_development_prefix_only",
+  "phase": "TTD",
+  "p2_oof_blocks": [
+    {
+      "fold": "fold_1",
+      "threshold_source": "N2.8F_causal_Ridge_OOF_current_abs_error_75th_percentile",
+      "oof_rows": 961,
+      "target_completion_purge": "inherited_and_rechecked_in_frozen_N2.8F_package"
+    },
+    {
+      "fold": "fold_2",
+      "threshold_source": "N2.8F_causal_Ridge_OOF_current_abs_error_75th_percentile",
+      "oof_rows": 1194,
+      "target_completion_purge": "inherited_and_rechecked_in_frozen_N2.8F_package"
+    },
+    {
+      "fold": "fold_3",
+      "threshold_source": "N2.8F_causal_Ridge_OOF_current_abs_error_75th_percentile",
+      "oof_rows": 1439,
+      "target_completion_purge": "inherited_and_rechecked_in_frozen_N2.8F_package"
+    }
+  ],
+  "baseline_source": "Phase_OPR pointwise frozen outputs"
+}

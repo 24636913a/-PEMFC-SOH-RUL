@@ -1,0 +1,25 @@
+start_commit: 8a30f68346088b82511a3f71c1de9f59b316464a
+phase_status: COMPLETE_DIAGNOSIS_ONLY
+final_decision: INCONCLUSIVE
+mechanism_A_transition_timing: NOT_SUPPORTED_AS_GLOBAL_MECHANISM
+mechanism_B_condition_magnitude: INCONCLUSIVE_AT_RARE_STATE_ERRORS
+mechanism_C_film_excessive_response: INCONCLUSIVE
+mechanism_D_index_data_label_error: NOT_SUPPORTED
+cross_object_conclusion: Rare predicted-mixed/true-nonmixed events are harmful in both objects, but frozen evidence does not isolate one causal component.
+baseline_reproduction:
+  P0_RMSE_mV: 24.538245
+  P1_RMSE_mV: 24.442883
+  P2_RMSE_mV: 21.346566
+  RS_RMSE_mV: 24.201795
+condition_amplitude_thresholds_A:
+  fold_1: 12.714821321936888
+  fold_2: 11.062372880942753
+  fold_3: 9.78069870212435
+condition_amplitude_threshold_definition: Fold-specific 75th percentile of frozen N2.8F causal target-completion-purged P0 Ridge OOF absolute current error. No voltage used.
+test_firewall:
+  test_rows_read: 0
+  test_predictions_constructed: false
+  test_metrics_computed: false
+  test_performance_accessed: false
+new_model_experiment_authorized: false
+next_direction_status: PLAN_ONLY_NO_MODEL_EXPERIMENT_AUTHORIZED

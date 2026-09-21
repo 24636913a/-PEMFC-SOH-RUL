@@ -1,0 +1,5 @@
+# Model design
+
+M0 predicts the current five-point curve unchanged. M1 fits a separate linear trend at each current density from preceding full curve checkpoints. M2 and M3 pretrain, respectively, a 16-hidden-unit LSTM and a 32-dimensional history-only TimeXer encoder on 24 h causal history → 12 h dynamic-voltage increment. Their representations are frozen and compressed to one PCA component fitted on dynamic training inputs only.
+
+For each health transition, the curve head predicts a scalar mean curve shift `s` from planned diagnostic gap and the frozen representation; a fixed training-fold curve template `S(j)` reconstructs `ΔV(j)=s·S(j)`. This uses one independent curve transition per supervision example—not five independent lifetime examples. Ridge alpha is fixed at 4.0. M4 concatenates planned gap plus both PCA scalars; it is run only where its four coefficients (including intercept) do not exceed the available transition count. M4 fixed 0.5/0.5 averaging is a diagnostic, not a learned fusion architecture.

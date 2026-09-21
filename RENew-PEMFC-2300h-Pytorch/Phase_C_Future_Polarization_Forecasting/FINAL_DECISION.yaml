@@ -1,0 +1,234 @@
+phase: Phase_C_Future_Polarization_Forecasting
+decision: NO-GO_FOR_ARCHITECTURE_SELECTION
+scope: Development-only exploratory evaluation
+source_git_head: 3f75a18bc04dbefc72f82095b623c807c18c7684
+n_independent_curves: 7
+n_independent_prediction_targets: 3
+common_j_grid_A_cm2:
+- 0.8
+- 1.0
+- 1.2
+- 1.4
+- 1.6
+curve_task_feasible: true
+time_alignment_verified: true
+diagnosis_dispatch_is_completion: true
+dynamic_pretraining_causal: true
+target_completion_purge: true
+new_test_target_accessed: false
+test_metrics_computed: false
+original_test_previously_inspected: true
+RUL_labels_used: false
+true_EOL_prediction_claimed: false
+summary_metrics:
+- model: M0_Persistence
+  n_origins: 3
+  mean_curve_MAE_mV: 1.834214733333317
+  mean_curve_RMSE_mV: 1.8885187211437013
+  pooled_grid_RMSE_mV: 2.364433806692078
+  j1_MAE_mV: 1.8615026666666257
+- model: M1_LinearTrend
+  n_origins: 3
+  mean_curve_MAE_mV: 5.884517357631432
+  mean_curve_RMSE_mV: 6.051944506286495
+  pooled_grid_RMSE_mV: 6.22767801222951
+  j1_MAE_mV: 5.636557973679827
+- model: M2_LSTM
+  n_origins: 2
+  mean_curve_MAE_mV: 5.015861028698076
+  mean_curve_RMSE_mV: 5.088033018375772
+  pooled_grid_RMSE_mV: 5.156389660385648
+  j1_MAE_mV: 4.709374201261052
+- model: M3_TimeXer
+  n_origins: 2
+  mean_curve_MAE_mV: 3.0315067566426768
+  mean_curve_RMSE_mV: 3.096840837002979
+  pooled_grid_RMSE_mV: 3.2058278151086386
+  j1_MAE_mV: 2.6480476524426977
+- model: M4_FixedAverage
+  n_origins: 2
+  mean_curve_MAE_mV: 2.9507621876635692
+  mean_curve_RMSE_mV: 2.9828605074260843
+  pooled_grid_RMSE_mV: 3.1811267658582927
+  j1_MAE_mV: 3.108000209990691
+- model: M4_Fusion
+  n_origins: 1
+  mean_curve_MAE_mV: 5.311663243005893
+  mean_curve_RMSE_mV: 5.434813875341351
+  pooled_grid_RMSE_mV: 5.434813875341351
+  j1_MAE_mV: 4.616247033420673
+all_model_common_origin: 1500_to_1750_only_n_equals_1
+common_origin_metrics:
+- model: M0_Persistence
+  origin_stage: '1500'
+  target_stage: '1750'
+  n_grid_points: 5
+  Curve_MAE_mV: 1.110902349999976
+  Curve_RMSE_mV: 1.1716998359044903
+  j1_abs_error_mV: 1.3729929999999335
+- model: M1_LinearTrend
+  origin_stage: '1500'
+  target_stage: '1750'
+  n_grid_points: 5
+  Curve_MAE_mV: 5.654209853896464
+  Curve_RMSE_mV: 5.778648924419173
+  j1_abs_error_mV: 4.952631144895303
+- model: M2_LSTM
+  origin_stage: '1500'
+  target_stage: '1750'
+  n_grid_points: 5
+  Curve_MAE_mV: 5.789995378763836
+  Curve_RMSE_mV: 5.924856974563663
+  j1_abs_error_mV: 4.985549802163036
+- model: M3_TimeXer
+  origin_stage: '1500'
+  target_stage: '1750'
+  n_grid_points: 5
+  Curve_MAE_mV: 2.1458434100135815
+  Curve_RMSE_mV: 2.2680412168323887
+  j1_abs_error_mV: 1.1414214337223116
+- model: M4_FixedAverage
+  origin_stage: '1500'
+  target_stage: '1750'
+  n_grid_points: 5
+  Curve_MAE_mV: 1.8220759843751377
+  Curve_RMSE_mV: 1.8773693524647073
+  j1_abs_error_mV: 1.9220641842203623
+- model: M4_Fusion
+  origin_stage: '1500'
+  target_stage: '1750'
+  n_grid_points: 5
+  Curve_MAE_mV: 5.311663243005893
+  Curve_RMSE_mV: 5.434813875341351
+  j1_abs_error_mV: 4.616247033420673
+timexer_vs_lstm: TimeXer lower at both shared origins and all five j points, but not
+  lower than persistence on the all-model common case
+timexer_per_current_MAE_mV:
+- j_A_cm2: 0.8
+  MAE_mV: 2.705749316463668
+- j_A_cm2: 1.0
+  MAE_mV: 2.6480476524426977
+- j_A_cm2: 1.2
+  MAE_mV: 2.924753864921581
+- j_A_cm2: 1.4
+  MAE_mV: 3.262932554084663
+- j_A_cm2: 1.6
+  MAE_mV: 3.616050395300774
+learned_fusion_improves_over_timexer: false
+dynamic_encoders_improve_over_persistence_on_all_model_common_case: false
+physical_violation_rows:
+- model: M0_Persistence
+  origin_stage: '1150'
+  target_stage: '1500'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+- model: M0_Persistence
+  origin_stage: '1500'
+  target_stage: '1750'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+- model: M0_Persistence
+  origin_stage: '850'
+  target_stage: '1150'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+- model: M1_LinearTrend
+  origin_stage: '1150'
+  target_stage: '1500'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+- model: M1_LinearTrend
+  origin_stage: '1500'
+  target_stage: '1750'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+- model: M1_LinearTrend
+  origin_stage: '850'
+  target_stage: '1150'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+- model: M2_LSTM
+  origin_stage: '1150'
+  target_stage: '1500'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+- model: M2_LSTM
+  origin_stage: '1500'
+  target_stage: '1750'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+- model: M3_TimeXer
+  origin_stage: '1150'
+  target_stage: '1500'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+- model: M3_TimeXer
+  origin_stage: '1500'
+  target_stage: '1750'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+- model: M4_FixedAverage
+  origin_stage: '1150'
+  target_stage: '1500'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+- model: M4_FixedAverage
+  origin_stage: '1500'
+  target_stage: '1750'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+- model: M4_Fusion
+  origin_stage: '1500'
+  target_stage: '1750'
+  pair_count: 4
+  violation_pair_count: 0
+  curve_has_violation: false
+  violation_rate: 0.0
+  projection_applied: false
+recommended_next_direction: 'C: seek independent configuration-comparable curve sequences
+  for validation'
+limitations:
+- Only 2/3/4 history-available transition curves across origins
+- M4 fusion has one common evaluation case
+- Prior descriptive Test access remains compromised
+source_hashes:
+  Phase_RUL90_Data_Feasibility\outputs\METHOD_FREEZE.yaml: bebabf6a82ff08ba27033cfee368a99984ad295398bc9069eab3cd2faa063709
+  Phase_RUL90_Data_Feasibility\outputs\polarization_curves_development.csv: 83446a66acefc007baa3652eecb0701c063c8161674decfba8a0c63457b8529b
+  Phase_RUL90_Data_Feasibility\outputs\polarization_points_development.csv: ae2cdeab2ab24c8bfce80f2be739404e22ebceb5e40a4efbd4bca09fb5d13dac
+  Phase_RUL90_Data_Feasibility\outputs\reference_voltage_development.csv: c8fd438eb6a9adafce0d6bdddc837723187fc2c50caa8203e60a72f39daa3bac

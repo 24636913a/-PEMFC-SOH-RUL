@@ -1,0 +1,7 @@
+origin_stage,model,status,reason,dynamic_train_windows,dynamic_validation_windows,purged_windows,parameter_count,best_epoch,device
+850,M2_LSTM,NOT_RUN,sparse curve supervision,,,,,,
+850,M3_TimeXer,NOT_RUN,sparse curve supervision,,,,,,
+1150,M2_LSTM,RUN,,1024.0,233.0,24.0,2065.0,18.0,cuda
+1150,M3_TimeXer,RUN,,1024.0,233.0,24.0,15010.0,18.0,cuda
+1500,M2_LSTM,RUN,,1291.0,252.0,71.0,2065.0,18.0,cuda
+1500,M3_TimeXer,RUN,,1291.0,252.0,71.0,15010.0,16.0,cuda

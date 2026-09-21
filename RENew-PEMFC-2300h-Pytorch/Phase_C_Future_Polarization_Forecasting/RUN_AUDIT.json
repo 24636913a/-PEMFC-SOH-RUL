@@ -1,0 +1,30 @@
+{
+  "source_git_head": "3f75a18bc04dbefc72f82095b623c807c18c7684",
+  "started_at": "2026-09-21T13:40:56",
+  "seed": 42,
+  "cuda_available": true,
+  "torch_version": "2.6.0+cu124",
+  "source_hashes": {
+    "Phase_RUL90_Data_Feasibility\\outputs\\METHOD_FREEZE.yaml": "bebabf6a82ff08ba27033cfee368a99984ad295398bc9069eab3cd2faa063709",
+    "Phase_RUL90_Data_Feasibility\\outputs\\polarization_curves_development.csv": "83446a66acefc007baa3652eecb0701c063c8161674decfba8a0c63457b8529b",
+    "Phase_RUL90_Data_Feasibility\\outputs\\polarization_points_development.csv": "ae2cdeab2ab24c8bfce80f2be739404e22ebceb5e40a4efbd4bca09fb5d13dac",
+    "Phase_RUL90_Data_Feasibility\\outputs\\reference_voltage_development.csv": "c8fd438eb6a9adafce0d6bdddc837723187fc2c50caa8203e60a72f39daa3bac"
+  },
+  "finished_at": "2026-09-21T13:41:23",
+  "elapsed_seconds": 27.28,
+  "allowed_raw_stages_opened": [
+    "BoL",
+    "300",
+    "600",
+    "850",
+    "1150",
+    "1500",
+    "1750"
+  ],
+  "forbidden_test_stages_opened": [],
+  "new_test_target_accessed": false,
+  "test_metrics_computed": false,
+  "historical_test_seal": "COMPROMISED_BY_PRIOR_DESCRIPTIVE_ACCESS",
+  "time_alignment": "diagnosis_completion_dispatch",
+  "dynamic_target_completion_purge": true
+}

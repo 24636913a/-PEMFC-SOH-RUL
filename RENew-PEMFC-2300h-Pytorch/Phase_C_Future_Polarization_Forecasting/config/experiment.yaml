@@ -1,0 +1,22 @@
+experiment: Phase_C_Future_Polarization_Forecasting
+seed: 42
+scope: Development-only exploratory evaluation
+ageing_coordinate: OpHrs2 [h]
+development_causal_prefix_rows: 3005
+development_end_ophrs2_h: 1819.997738
+allowed_stages: [BoL, 300, 600, 850, 1150, 1500, 1750]
+forbidden_test_stages: [2000, 2300]
+active_cells: [U1, U2, U3, U4, U5, U7, U8, U9, U10, U11]
+excluded_cell: U6
+curve_aggregation: active-10-cell median within |j - j_grid| <= 0.01 A/cm2
+j_grid_A_cm2: [0.8, 1.0, 1.2, 1.4, 1.6]
+dynamic_auxiliary_task:
+  history_h: 24
+  forecast_h: 12
+  target: cell_voltage_mean_delta
+  purge_rule: validation history begins after all training auxiliary targets complete
+head:
+  curve_delta: DeltaV(j) = s * S(j), S fitted only from preceding transition curves
+  ridge_alpha: 4.0
+  pca_components: 1
+test_target_access_in_this_phase: false

@@ -1,0 +1,38 @@
+phase: "Phase TR — RealHyFC time-resolution and causal future-state audit"
+reference_commit: "9c6d0193e1c6d6568556b36e3d373eb11c9430e2"
+random_seed: 20260921
+data_scope:
+  ageing_coordinate: "OpHrs2 [h]"
+  development_start_h: 72.788690
+  development_end_h_exclusive: 1819.997738
+  test_access: "prohibited"
+state:
+  raw_zero_current_rule: "abs(I.S.act [A]) <= 0.10 A"
+  q_definition: "zero-current raw samples / valid-current raw samples within left-closed, right-open bin"
+  labels: ["q=0", "0<q<1", "q=1"]
+aggregation:
+  resolutions_minutes: [10, 30]
+  interval: "[bin_start, bin_end) on OpHrs2"
+  expected_raw_samples_per_minute: 60
+  minimum_coverage_ratio: 0.80
+task:
+  lookback_hours: 24
+  horizon_hours: 12
+  features: ["q", "current_mean_A", "current_std_A"]
+  simple_models:
+    ridge_alpha: 1.0
+    logistic_C: 1.0
+    logistic_class_weight: "balanced"
+    mixed_probability_threshold: 0.50
+folds:
+  fold_1: {train_end_h: 946.393214, validation_end_h: 1164.794345}
+  fold_2: {train_end_h: 1164.794345, validation_end_h: 1383.195476}
+  fold_3: {train_end_h: 1383.195476, validation_end_h: 1819.997738}
+decision_preregistered:
+  comparable_target_requirement: "identical origin end times and 30-minute target bins"
+  primary_metric: "unified_30min_q_RMSE"
+  secondary_metric: "unified_30min_mixed_Brier"
+  event_support_minimum: 10
+  go_rule: "10-minute must reduce q RMSE by >=5% in at least two folds, must not worsen Fold 3 RMSE by >5%, must have non-worse estimable Brier in at least two folds, and at least 10 independent validation mixed-state events overall."
+  no_go_rule: "If comparable evaluation is valid but GO rule is not met, return NO_GO_KEEP_30MIN."
+  inconclusive_rule: "If event support or estimable metrics are inadequate despite valid data, return INCONCLUSIVE_INSUFFICIENT_EVIDENCE."

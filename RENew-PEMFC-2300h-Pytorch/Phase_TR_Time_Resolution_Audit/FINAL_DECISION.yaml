@@ -1,0 +1,5 @@
+decision: NO_GO_KEEP_30MIN
+reference_commit: 9c6d0193e1c6d6568556b36e3d373eb11c9430e2
+development_end_h_exclusive: 1819.997738
+protocol: configs/frozen_protocol.yaml
+rationale: "Comparable evaluation was valid but frozen GO rule failed: q RMSE improvement >=5% in 3/3 folds; Fold 3 change 31.9%; non-worse Brier in 0 folds; independent mixed-state events on the common 30-minute target scale 252."

@@ -1,0 +1,13 @@
+experiment,fold,status,unique_target_times,independent_true_mixed_events,predicted_mixed_events,missed_true_events,false_positive_events
+A_30min_baseline,fold_1,RUN,256.0,53.0,53.0,0.0,0.0
+B_10min_direct_30target,fold_1,RUN,256.0,53.0,53.0,0.0,0.0
+C_10min_then_equal_mean,fold_1,NOT_RUN,,,,,
+D_10min_aggregated_history_control,fold_1,RUN,256.0,53.0,53.0,0.0,0.0
+A_30min_baseline,fold_2,RUN,268.0,57.0,57.0,0.0,0.0
+B_10min_direct_30target,fold_2,RUN,268.0,57.0,57.0,1.0,1.0
+C_10min_then_equal_mean,fold_2,NOT_RUN,,,,,
+D_10min_aggregated_history_control,fold_2,RUN,268.0,57.0,57.0,0.0,0.0
+A_30min_baseline,fold_3,RUN,607.0,126.0,126.0,5.0,5.0
+B_10min_direct_30target,fold_3,RUN,607.0,126.0,124.0,5.0,5.0
+C_10min_then_equal_mean,fold_3,NOT_RUN,,,,,
+D_10min_aggregated_history_control,fold_3,RUN,607.0,126.0,126.0,5.0,5.0

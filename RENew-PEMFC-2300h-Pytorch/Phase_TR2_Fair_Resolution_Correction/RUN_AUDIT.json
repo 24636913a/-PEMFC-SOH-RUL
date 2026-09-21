@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "test_accessed": false,
+  "source_rows": {
+    "10min": 9003,
+    "30min": 3005
+  },
+  "common_train_origins": 4220,
+  "common_validation_origins": 1016,
+  "decision": {
+    "status": "CORRECTED_DEVELOPMENT_GATE_PASS",
+    "reason": "Corrected direct B versus A: q-RMSE gain percent {\"fold_1\": 50.14, \"fold_2\": 53.39, \"fold_3\": 8.4}; non-worse Brier folds 3; common-scale independent mixed events 236."
+  },
+  "seed": 20260921
+}

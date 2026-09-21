@@ -1,0 +1,41 @@
+phase: "Phase TR2 — Fair Resolution Correction"
+status: "POST_HOC_METHOD_CORRECTION"
+reference_commit: "f24f87a96aa0ec451802891a1926aeb75cb76a5e"
+data:
+  source: "Phase_TR_Time_Resolution_Audit/outputs/tables/*_development_only.csv"
+  coordinate: "OpHrs2 [h]"
+  development_start_h: 72.788690
+  development_end_h_exclusive: 1819.997738
+  test_access: "prohibited"
+task:
+  history_hours: 24
+  horizon_hours: 12
+  features: [q, current_mean_A, current_std_A]
+  zero_current_rule: "abs(I.S.act [A]) <= 0.10 A"
+  q_definition: "zero_current_count / valid_current_count"
+  resolutions:
+    30min: {input_steps: 48, output_steps: 24}
+    10min: {input_steps: 144, output_steps: 72}
+models:
+  ridge_alpha: 1.0
+  logistic_C: 1.0
+  logistic_class_weight: balanced
+  classification_threshold: 0.50
+folds:
+  fold_1: {train_end_h: 946.393214, validation_end_h: 1164.794345}
+  fold_2: {train_end_h: 1164.794345, validation_end_h: 1383.195476}
+  fold_3: {train_end_h: 1383.195476, validation_end_h: 1819.997738}
+fairness:
+  common_origin_definition: "both representations have valid complete 24 h history and complete 12 h future on their native grids; origin end and 24 direct 30-minute targets match exactly"
+  target_mixed_definition: "zero_current_count_30 > 0 and zero_current_count_30 < valid_current_count_30"
+  experiment_c_prediction_aggregation: "equal arithmetic mean of each complete three 10-minute q predictions"
+  experiment_c_label: "direct raw-statistics 30-minute q"
+  train_scaling: "fit StandardScaler only on each Fold Train common-origin set"
+decision_rule_inherited_post_hoc:
+  q_rmse_gain_minimum_pct: 5
+  q_rmse_gain_folds_minimum: 2
+  fold3_max_worsening_pct: 5
+  brier_nonworse_folds_minimum: 2
+  independent_mixed_events_minimum: 10
+  pass_label: CORRECTED_DEVELOPMENT_GATE_PASS
+  fail_label: CORRECTED_DEVELOPMENT_GATE_FAIL

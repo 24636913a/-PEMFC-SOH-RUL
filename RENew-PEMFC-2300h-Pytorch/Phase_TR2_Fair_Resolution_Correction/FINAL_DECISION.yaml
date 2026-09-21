@@ -1,0 +1,5 @@
+status: CORRECTED_DEVELOPMENT_GATE_PASS
+classification: POST_HOC_METHOD_CORRECTION
+reference_commit: f24f87a96aa0ec451802891a1926aeb75cb76a5e
+development_end_h_exclusive: 1819.997738
+reason: "Corrected direct B versus A: q-RMSE gain percent {\"fold_1\": 50.14, \"fold_2\": 53.39, \"fold_3\": 8.4}; non-worse Brier folds 3; common-scale independent mixed events 236."

@@ -1,0 +1,26 @@
+# Common-origin audit
+
+| fold | common_train_origins | common_validation_origins | common_30min_target_points | same_origins_before_fit |
+| --- | --- | --- | --- | --- |
+| fold_1 | 1127 | 233 | 5592 | True |
+| fold_2 | 1424 | 245 | 5880 | True |
+| fold_3 | 1669 | 538 | 12912 | True |
+
+Each row has valid complete native-grid history and future. A/B/C/D share the sets before fitting.
+
+## Capacity and control
+
+| fold | experiment | input_dimension | common_train_origins | common_validation_origins | ridge_free_parameters | logistic_free_parameters | fit_seconds | control_max_abs_q_prediction_diff | control_max_abs_probability_diff |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fold_1 | A_30min_baseline | 144 | 1127 | 233 | 3480 | 3480 | 1.080638400017051 | 0.0 | 0.0 |
+| fold_1 | B_10min_direct_30target | 432 | 1127 | 233 | 10392 | 10392 | 7.887205500010168 | 0.0 | 0.0 |
+| fold_1 | C_10min_then_equal_mean | 432 | 1127 | 233 | 31176 | 0 | 1.8012407000060193 | 0.0 | 0.0 |
+| fold_1 | D_10min_aggregated_history_control | 144 | 1127 | 233 | 3480 | 3480 | 1.101622199988924 | 0.0 | 0.0 |
+| fold_2 | A_30min_baseline | 144 | 1424 | 245 | 3480 | 3480 | 1.3682700999779627 | 0.0 | 0.0 |
+| fold_2 | B_10min_direct_30target | 432 | 1424 | 245 | 10392 | 10392 | 10.294483800011221 | 0.0 | 0.0 |
+| fold_2 | C_10min_then_equal_mean | 432 | 1424 | 245 | 31176 | 0 | 5.348282199993264 | 0.0 | 0.0 |
+| fold_2 | D_10min_aggregated_history_control | 144 | 1424 | 245 | 3480 | 3480 | 1.3217816000105813 | 0.0 | 0.0 |
+| fold_3 | A_30min_baseline | 144 | 1669 | 538 | 3480 | 3480 | 1.6536016000027303 | 0.0 | 0.0 |
+| fold_3 | B_10min_direct_30target | 432 | 1669 | 538 | 10392 | 10392 | 11.434683799976483 | 0.0 | 0.0 |
+| fold_3 | C_10min_then_equal_mean | 432 | 1669 | 538 | 31176 | 0 | 3.892307600006461 | 0.0 | 0.0 |
+| fold_3 | D_10min_aggregated_history_control | 144 | 1669 | 538 | 3480 | 3480 | 1.572509200021159 | 0.0 | 0.0 |

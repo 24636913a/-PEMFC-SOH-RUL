@@ -1,0 +1,28 @@
+{
+  "source_commit": "2950160fdb762511138c1bf4a159c6c898a9d193",
+  "torch": "2.6.0+cu124",
+  "cuda_available": true,
+  "started_at": "2026-09-21T12:00:29",
+  "finished_at": "2026-09-21T12:00:59",
+  "elapsed_seconds": 29.13,
+  "test_target_access_in_this_phase": false,
+  "test_metrics_computed_in_this_phase": false,
+  "historical_test_seal": "COMPROMISED_BY_PRIOR_DESCRIPTIVE_ACCESS",
+  "development_anchor_stages": [
+    "BoL",
+    "300",
+    "600",
+    "850",
+    "1150",
+    "1500",
+    "1750"
+  ],
+  "models_with_run_predictions": [
+    "M0_linear_trend",
+    "M0_persistence",
+    "M1_LSTM",
+    "M2_TimeXer",
+    "M3_Fusion",
+    "M3_equal_weight_diagnostic"
+  ]
+}

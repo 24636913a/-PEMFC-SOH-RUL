@@ -1,0 +1,7 @@
+origin_stage,model,dynamic_train_windows,dynamic_validation_windows,parameter_count,best_epoch,device
+850,M1_LSTM,0,0,0,,NOT_RUN_sparse_health_head
+850,M2_TimeXer,0,0,0,,NOT_RUN_sparse_health_head
+1150,M1_LSTM,1024,257,2065,18.0,cuda
+1150,M2_TimeXer,1024,257,15010,16.0,cuda
+1500,M1_LSTM,1291,323,2065,17.0,cuda
+1500,M2_TimeXer,1291,323,15010,18.0,cuda

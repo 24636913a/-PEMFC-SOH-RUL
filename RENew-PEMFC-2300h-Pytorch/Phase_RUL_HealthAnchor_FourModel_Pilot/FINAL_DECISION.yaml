@@ -1,0 +1,79 @@
+phase: Phase_RUL_HealthAnchor_FourModel_Pilot
+source_commit: 2950160fdb762511138c1bf4a159c6c898a9d193
+project_path: E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_RUL_HealthAnchor_FourModel_Pilot
+development_boundary:
+  coordinate: OpHrs2 [h]
+  end_h: 1819.997738
+  causal_rows: 3005
+health_reference_definition: V_ref is active 10-cell median voltage at frozen j*=1.0
+  A/cm2; SOH=V_ref/0.6989533066
+number_of_development_anchors: 7
+number_of_valid_rolling_origins: 3
+time_alignment_verified: true
+dynamic_pretraining_causal: true
+training_targets_causal: true
+feature_normalization_causal: true
+models_attempted:
+- M0_persistence
+- M0_linear_trend
+- M1_LSTM
+- M2_TimeXer_history_only
+- M3_LSTM_TimeXer_fusion
+models_successfully_trained:
+- M1_LSTM_dynamic_encoder
+- M2_TimeXer_dynamic_encoder
+- M3_fusion_head_at_final_origin_only
+models_not_estimable:
+  M1_LSTM:
+  - 850_to_1150
+  M2_TimeXer:
+  - 850_to_1150
+  M3_Fusion:
+  - 850_to_1150
+  - 1150_to_1500
+M0_metrics:
+  persistence:
+    status: RUN
+    n_origins: 3
+    MAE_mV: 1.9652338333333574
+    RMSE_mV: 2.284180116324542
+  linear_trend:
+    status: RUN
+    n_origins: 3
+    MAE_mV: 5.290794487259258
+    RMSE_mV: 5.532862808289057
+M1_metrics:
+  status: RUN
+  n_origins: 2
+  MAE_mV: 8.185345923733045
+  RMSE_mV: 9.837914132729383
+M2_metrics:
+  status: RUN
+  n_origins: 2
+  MAE_mV: 0.5264647861210614
+  RMSE_mV: 0.5670728724243702
+M3_metrics:
+  status: RUN
+  n_origins: 1
+  MAE_mV: 13.20357275706896
+  RMSE_mV: 13.20357275706896
+fusion_improves_over_lstm: 'INCONCLUSIVE: one shared origin; fusion 13.204 mV vs LSTM
+  13.643 mV'
+fusion_improves_over_timexer: 'NO: one shared origin; fusion 13.204 mV vs TimeXer
+  0.316 mV'
+dynamic_features_improve_over_simple_baselines: 'INCONCLUSIVE: unequal feasible-origin
+  coverage'
+evidence_strength: VERY_LOW
+original_test_previously_inspected: true
+new_test_target_accessed: false
+test_metrics_computed: false
+RUL_labels_used: false
+true_EOL_prediction_claimed: false
+decision: NO-GO
+recommended_next_direction: Add independent configuration-comparable health anchors
+  or validated continuous health labels before architecture selection; prioritize
+  richer polarization-curve health representation over new network modules.
+limitations:
+- Only 2/3/4 health transitions are available by rolling origin.
+- BoL has no corresponding load-cycle history.
+- Historical descriptive Test access compromised the test seal before this phase.

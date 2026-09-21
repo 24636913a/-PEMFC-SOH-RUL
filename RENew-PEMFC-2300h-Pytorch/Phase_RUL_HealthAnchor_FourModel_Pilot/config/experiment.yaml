@@ -1,0 +1,27 @@
+experiment_name: Phase_RUL_HealthAnchor_FourModel_Pilot
+source_commit: 2950160fdb762511138c1bf4a159c6c898a9d193
+random_seed: 20260921
+ageing_coordinate: OpHrs2 [h]
+development_end_ophrs2_h: 1819.997738
+reference_anchor:
+  current_density_A_cm2: 1.0
+  initial_voltage_V: 0.6989533066
+  normalization: SOH = V_ref / 0.6989533066
+dynamic_task:
+  resolution_h: 0.5
+  lookback_h: 24
+  forecast_h: 12
+  target: cell_voltage_mean_delta_at_12h
+training:
+  batch_size: 64
+  max_epochs: 18
+  patience: 4
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  ridge_alpha: 4.0
+models:
+  - M0_persistence_linear_trend
+  - M1_lstm_dynamic_encoder
+  - M2_timexer_history_only_dynamic_encoder
+  - M3_lstm_timexer_fusion
+test_target_access_in_this_phase: false

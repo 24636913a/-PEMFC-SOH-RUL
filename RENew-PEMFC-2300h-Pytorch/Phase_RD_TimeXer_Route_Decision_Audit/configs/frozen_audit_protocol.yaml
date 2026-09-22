@@ -1,0 +1,37 @@
+phase: Phase_RD_TimeXer_Route_Decision_Audit
+reference_commit: 38768b08e09a7432e44db291c973b5fad23aeac3
+scope:
+  dataset: RealHyFC
+  development_only: true
+  development_age_h: [72.788690, 1819.997738]
+  test_access: prohibited
+task_contract:
+  resolution_h: 0.5
+  history_steps: 48
+  history_hours: 24
+  horizon_steps: 24
+  horizon_hours: 12
+  target: DeltaV
+  historical_features: 14
+  future_condition_features: 9
+inputs_read_only:
+  - Phase_OPR_TimeXer/outputs/decomposition/prediction_decomposition.csv
+  - Phase_OPR_TimeXer/outputs/error_attribution/p1_p2_error_difference.csv
+  - Phase_OPR_TimeXer/outputs/reproduction/baseline_reproduction_summary.csv
+  - Phase_TTD_TimeXer_Failure_Diagnosis/outputs/fold1_12h/fold1_12h_pointwise.csv
+  - Phase_TTD_TimeXer_Failure_Diagnosis/outputs/fold3_nonzero/fold3_nonzero_pointwise.csv
+  - Phase_TTD_TimeXer_Failure_Diagnosis/outputs/fold3_nonzero/fold3_independent_segments.csv
+frozen_reference_rmse_mV:
+  P0: 24.538245
+  P1: 24.442883
+  P2: 21.346566
+  RS: 24.201795
+  B_only: 192.382680
+tolerances:
+  decomposition_identity_mV: 0.001
+  p1_p2_base_identity_mV: 0.001
+  squared_error_identity_mV2: 0.1
+decision_rule: >-
+  Authorize no model experiment unless one mechanism is separable from the
+  frozen evidence, has a concrete code-level target, and remains consistent
+  across the Fold 1 and Fold 3 diagnostic objects. Otherwise output INCONCLUSIVE.

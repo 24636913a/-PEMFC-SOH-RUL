@@ -1,0 +1,32 @@
+{
+  "command": "python scripts/run_route_audit.py",
+  "head": "38768b08e09a7432e44db291c973b5fad23aeac3",
+  "python": "3.11.9",
+  "torch": "2.6.0+cu124",
+  "test_accessed": false,
+  "source_sha256": {
+    "decomposition": "01590e313d47646f521f97f48183441d659ef8570042090049e71ac2ab235c28",
+    "paired": "e233bf930e69595fc9b57518ba9169d625304d0b8f5290ba1b20950d645dc905",
+    "baseline": "16b081bfa6e2cc9907a40df693bf42cbf659a3523a8c6c5d5ca561c35f33778a",
+    "opr_script": "f618bc4e6f89ff9442f1f2e4eb0f7c87bb80e9fe3ca4f63f94f81de082a56266",
+    "n28_script": "d791978e8776e376e6169ec3c2088fd3cb71e7dd2b83c1d52eb85a565f10f287",
+    "fold1": "d46e017b3a3814ae6b1d1906b4ba6b96190e00c8b6e65606d3f0cf060d87ea28",
+    "fold1_concentration": "2abafbfa46a759735e2e903e310e3e5863dbcc3f5838891862e4b19c0fbdf074",
+    "fold3": "91a7dbbe3c46de887babe551f0c47df350fba96f330136ec68e53b1ca37f57b1",
+    "fold3_segments": "8b15eb0c149178fbca36aac21f2856d5b58f06c375012b8f6dfa429b66ac1c05",
+    "ttd_results": "678ba762f32300a54cb3dcedb6b7685aa9ff2167501a6aa3e18646d95a00f136"
+  },
+  "frozen_checkpoint_sha256": {
+    "M0_SA_TimeXer_Ridge_fold_1_seed42.pt": "7c31ed2a05e0c0bc2712aca627b22b359456e905fee8a955d33f5c7d15d0cd9e",
+    "M0_SA_TimeXer_Ridge_fold_2_seed42.pt": "e0db954f65c4c87a4392a545b713c0f7a61006ceb5acd7c9bfc51b67789c00ac",
+    "M0_SA_TimeXer_Ridge_fold_3_seed42.pt": "9fba6dc9f1d04f07b1786be124acec0d3be7b89c3504ca559296623d741bc501"
+  },
+  "contracts": {
+    "decomposition_max_residual_mV": 0.0001192092895507,
+    "p1_p2_base_max_difference_mV": 0.0,
+    "squared_error_max_residual_mV2": 0.0276604797982145,
+    "test_accessed": false
+  },
+  "decision": "INCONCLUSIVE",
+  "training_performed": false
+}

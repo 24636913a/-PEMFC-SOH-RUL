@@ -1,0 +1,24 @@
+{
+  "command": "python scripts/run_mr_condition_pilot.py",
+  "head": "a8182d626eaa8e3576d4866d3dcfca62f58ec246",
+  "python": "3.11.9",
+  "torch": "2.6.0+cu124",
+  "seed": 20260922,
+  "test_accessed": false,
+  "dependencies": {
+    "g_stop_script": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_G_STOP_Physics_Consistent_Future_Conditions\\scripts\\phase_g_stop_experiment.py",
+    "g_stop_sha256": "25065b3b90cb4714c375050836579202e31ac5c9803d3888f6a421aa2b80a41c",
+    "n28f_script": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N2_8F_Uncertainty_Robust_SA_TimeXer\\scripts\\phase_n2_8f_run.py",
+    "n28f_sha256": "d791978e8776e376e6169ec3c2088fd3cb71e7dd2b83c1d52eb85a565f10f287",
+    "frozen_timexer_checkpoint_sha256": {
+      "fold_1": "7c31ed2a05e0c0bc2712aca627b22b359456e905fee8a955d33f5c7d15d0cd9e",
+      "fold_2": "e0db954f65c4c87a4392a545b713c0f7a61006ceb5acd7c9bfc51b67789c00ac",
+      "fold_3": "9fba6dc9f1d04f07b1786be124acec0d3be7b89c3504ca559296623d741bc501"
+    }
+  },
+  "p0_reproduction_mean_rmse_mV": 24.538244883219402,
+  "decision": {
+    "status": "CONDITION_GATE_FAIL",
+    "reason": "MR versus common P2 q-RMSE gain percent {\"fold_1\": -22.93, \"fold_2\": -149.865, \"fold_3\": 5.043}; non-worse Brier folds 2; MR physical violation rate 0.0."
+  }
+}

@@ -1,0 +1,9 @@
+# Common-origin audit
+
+| fold | p2_original_train_origins | p2_original_validation_origins | tr2_train_origins | tr2_validation_origins | common_train_origins | common_validation_origins | excluded_from_p2_train | excluded_from_p2_validation | excluded_from_tr2_train | excluded_from_tr2_validation |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fold_1 | 1048 | 233 | 1127 | 233 | 1047 | 233 | 1 | 0 | 80 | 0 |
+| fold_2 | 1281 | 245 | 1424 | 245 | 1280 | 245 | 1 | 0 | 144 | 0 |
+| fold_3 | 1526 | 466 | 1669 | 538 | 1525 | 466 | 1 | 0 | 144 | 72 |
+
+TR2 common 10-minute-valid origins are intersected with N2.8F train/validation windows before fitting the fair P2 and MR forecasters. Target voltage is never used in this filter.

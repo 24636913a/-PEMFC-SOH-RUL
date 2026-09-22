@@ -1,0 +1,49 @@
+phase: "Phase MR — TimeXer Multi-Resolution Condition Pilot"
+reference_commit: "a8182d626eaa8e3576d4866d3dcfca62f58ec246"
+seed: 20260922
+scope:
+  dataset: RealHyFC
+  development_start_h: 72.788690
+  development_end_h_exclusive: 1819.997738
+  test_access: prohibited
+task:
+  voltage_history_steps: 48
+  voltage_horizon_steps: 24
+  voltage_resolution_h: 0.5
+  target: delta_voltage_reconstructed_to_absolute_voltage
+  voltage_features: 14
+  future_condition_features: 9
+mr_condition_model:
+  input_resolution_min: 10
+  input_steps: 144
+  inputs: [q, current_mean_A, current_std_A]
+  output_resolution_min: 30
+  output_steps: 24
+  ridge_alpha: 1.0
+  logistic_C: 1.0
+  logistic_class_weight: balanced
+  threshold: 0.5
+  training_prediction: target_completion_purged_expanding_oof
+folds:
+  fold_1: {train_end_h: 946.393214, validation_end_h: 1164.794345}
+  fold_2: {train_end_h: 1164.794345, validation_end_h: 1383.195476}
+  fold_3: {train_end_h: 1383.195476, validation_end_h: 1819.997738}
+condition_gate:
+  q_rmse_improvement_minimum_pct: 5
+  q_rmse_improved_folds_minimum: 2
+  fold3_q_rmse_maximum_worsening_pct: 3
+  mixed_brier_nonworse_folds_minimum: 2
+  physical_violation_rate_required: 0
+  failure_status: CONDITION_GATE_FAIL
+timexer_gate:
+  mean_voltage_rmse_improvement_minimum_pct: 5
+  fold3_rmse_maximum_worsening_pct: 0
+  fold3_continuous_nonzero_maximum_worsening_pct: 0
+  fold1_terminal_12h_maximum_worsening_pct: 5
+  p99_maximum_worsening_pct: 5
+  physical_violation_rate_required: 0
+  failure_status: FROZEN_TIMEXER_GATE_FAIL
+reproduction:
+  p0_mean_rmse_reference_mV: 24.538245
+  p0_mean_rmse_tolerance_mV: 0.001
+  prediction_max_abs_tolerance_V: 0.0000001

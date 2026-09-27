@@ -1,0 +1,34 @@
+phase: Phase_H0_Existing_Artifact_Comparability_Audit
+reference_head: 5a60fd98009876b7297dbcd76ac8062e8ed4b0ef
+scope:
+  dataset: RealHyFC
+  resolution_hours: 0.5
+  history_steps: 48
+  history_hours: 24
+  horizon_steps: 24
+  horizon_hours: 12
+  target: delta_voltage_from_known_origin_anchor
+  development_test_boundary_age_h: 1819.997738
+  analysis: development_only
+prohibited:
+  - model_training_or_finetuning
+  - model_forward_or_checkpoint_loading
+  - raw_data_or_data_builder_loading
+  - test_rows_test_predictions_test_performance
+  - RUL90_full_outputs
+key_contract:
+  primary: [fold, origin_row, horizon_step, target_row]
+  reconstruction: target_row_equals_origin_row_plus_horizon_step
+  require_opr_target_map_match: true
+  target_end_age_semantics: NPZ_target_end_age_h_equals_OPR_target_center_age_h_plus_0.25_h
+tolerances:
+  voltage_V: 0.000005
+  target_age_h: 0.000001
+  reported_rmse_mV: 0.01
+status_rules:
+  missing_key_semantics: ARTIFACT_ALIGNMENT_INCONCLUSIVE
+  matching_artifacts_with_protocol_differences: DESCRIPTIVE_REUSE_PROTOCOL_CONFOUNDED
+  identical_protocol_except_future_condition: FORMAL_ABLATION_ELIGIBLE
+inputs:
+  models: [H0_original, H0_PEMFC_A, H0_PEMFC_Life, SA_P0, SA_P2, SA_M0_reference_only]
+  reports_and_static_sources_only: true

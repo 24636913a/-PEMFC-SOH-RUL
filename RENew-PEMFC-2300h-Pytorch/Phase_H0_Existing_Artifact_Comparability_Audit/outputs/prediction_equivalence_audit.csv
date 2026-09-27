@@ -1,0 +1,5 @@
+left_model,right_model,key_count,max_prediction_difference_V,mean_absolute_prediction_difference_V,numerically_identical_at_voltage_tolerance,interpretation
+H0_original,H0_PEMFC_A,22656,0.0,0.0,True,same saved prediction values only; not evidence of independent replication
+H0_original,H0_PEMFC_Life,22656,0.2345580756664276,0.011799268273236808,False,same saved prediction values only; not evidence of independent replication
+SA_P0,SA_P2,22656,0.4293115437030792,0.0066519828452755,False,same saved prediction values only; not evidence of independent replication
+SA_P0,SA_M0_reference_only,22656,0.0,0.0,True,same saved prediction values only; not evidence of independent replication

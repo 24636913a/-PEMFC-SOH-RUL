@@ -1,0 +1,253 @@
+{
+  "reference_head": "5a60fd98009876b7297dbcd76ac8062e8ed4b0ef",
+  "command": "python scripts/run_existing_h0_audit.py",
+  "new_test_accessed": false,
+  "historical_test_target_descriptive_access": true,
+  "historical_test_model_metrics": false,
+  "model_training_performed": false,
+  "allowed_input_count": 30,
+  "inputs": [
+    {
+      "relative_path": "Phase_G_STOP_Physics_Consistent_Future_Conditions/configs/phase_g_stop_frozen_config.yaml",
+      "sha256": "cb4f27d89238e97f653c6613ee0a1adc8ef8e2cdaaf2ff369ef156c7e7dee855",
+      "source_commit": "39300ca08e7a54f8060978891650bc49920f3278",
+      "available_keys": null,
+      "shapes_json": null,
+      "dtypes_json": null
+    },
+    {
+      "relative_path": "Phase_G_STOP_Physics_Consistent_Future_Conditions/outputs/frozen_timexer/P0_Original_Ridge_fold_1_predictions.npz",
+      "sha256": "e42baa4c4075e24e66db7a12a4ccdf39726b4dae6acf9a76df2366d2d89c5ef2",
+      "source_commit": "39300ca08e7a54f8060978891650bc49920f3278",
+      "available_keys": "y_true;y_pred;anchor;origin_age_h;target_end_age_h;row_origin_index;future_conditions",
+      "shapes_json": "{\"y_true\": [233, 24], \"y_pred\": [233, 24], \"anchor\": [233], \"origin_age_h\": [233], \"target_end_age_h\": [233], \"row_origin_index\": [233], \"future_conditions\": [233, 24, 9]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"origin_age_h\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\", \"future_conditions\": \"float64\"}"
+    },
+    {
+      "relative_path": "Phase_G_STOP_Physics_Consistent_Future_Conditions/outputs/frozen_timexer/P0_Original_Ridge_fold_2_predictions.npz",
+      "sha256": "b39237f8dbd1909114784dba22ed5f1dca4a8eaa138aa43caf1c73c234fffe69",
+      "source_commit": "39300ca08e7a54f8060978891650bc49920f3278",
+      "available_keys": "y_true;y_pred;anchor;origin_age_h;target_end_age_h;row_origin_index;future_conditions",
+      "shapes_json": "{\"y_true\": [245, 24], \"y_pred\": [245, 24], \"anchor\": [245], \"origin_age_h\": [245], \"target_end_age_h\": [245], \"row_origin_index\": [245], \"future_conditions\": [245, 24, 9]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"origin_age_h\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\", \"future_conditions\": \"float64\"}"
+    },
+    {
+      "relative_path": "Phase_G_STOP_Physics_Consistent_Future_Conditions/outputs/frozen_timexer/P0_Original_Ridge_fold_3_predictions.npz",
+      "sha256": "81a1ae5c757688825816c1e1f74db7eebca0ba38101c3c8d461252798209d178",
+      "source_commit": "39300ca08e7a54f8060978891650bc49920f3278",
+      "available_keys": "y_true;y_pred;anchor;origin_age_h;target_end_age_h;row_origin_index;future_conditions",
+      "shapes_json": "{\"y_true\": [466, 24], \"y_pred\": [466, 24], \"anchor\": [466], \"origin_age_h\": [466], \"target_end_age_h\": [466], \"row_origin_index\": [466], \"future_conditions\": [466, 24, 9]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"origin_age_h\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\", \"future_conditions\": \"float64\"}"
+    },
+    {
+      "relative_path": "Phase_G_STOP_Physics_Consistent_Future_Conditions/outputs/frozen_timexer/P2_Zero_Current_Aware_fold_1_predictions.npz",
+      "sha256": "41e5f8e769daf2f8485992bc8f77a6b9e6c868d18d795923facca85593907021",
+      "source_commit": "39300ca08e7a54f8060978891650bc49920f3278",
+      "available_keys": "y_true;y_pred;anchor;origin_age_h;target_end_age_h;row_origin_index;future_conditions",
+      "shapes_json": "{\"y_true\": [233, 24], \"y_pred\": [233, 24], \"anchor\": [233], \"origin_age_h\": [233], \"target_end_age_h\": [233], \"row_origin_index\": [233], \"future_conditions\": [233, 24, 9]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"origin_age_h\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\", \"future_conditions\": \"float64\"}"
+    },
+    {
+      "relative_path": "Phase_G_STOP_Physics_Consistent_Future_Conditions/outputs/frozen_timexer/P2_Zero_Current_Aware_fold_2_predictions.npz",
+      "sha256": "f9e14fa9f41a9c330bb1e1dfdd707d625860e459497300ce6d81a3625e2b44b2",
+      "source_commit": "39300ca08e7a54f8060978891650bc49920f3278",
+      "available_keys": "y_true;y_pred;anchor;origin_age_h;target_end_age_h;row_origin_index;future_conditions",
+      "shapes_json": "{\"y_true\": [245, 24], \"y_pred\": [245, 24], \"anchor\": [245], \"origin_age_h\": [245], \"target_end_age_h\": [245], \"row_origin_index\": [245], \"future_conditions\": [245, 24, 9]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"origin_age_h\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\", \"future_conditions\": \"float64\"}"
+    },
+    {
+      "relative_path": "Phase_G_STOP_Physics_Consistent_Future_Conditions/outputs/frozen_timexer/P2_Zero_Current_Aware_fold_3_predictions.npz",
+      "sha256": "dec0582658d00c142f6ee499fcb4871206136851f3ee5838e90e2621515da99a",
+      "source_commit": "39300ca08e7a54f8060978891650bc49920f3278",
+      "available_keys": "y_true;y_pred;anchor;origin_age_h;target_end_age_h;row_origin_index;future_conditions",
+      "shapes_json": "{\"y_true\": [466, 24], \"y_pred\": [466, 24], \"anchor\": [466], \"origin_age_h\": [466], \"target_end_age_h\": [466], \"row_origin_index\": [466], \"future_conditions\": [466, 24, 9]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"origin_age_h\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\", \"future_conditions\": \"float64\"}"
+    },
+    {
+      "relative_path": "Phase_G_STOP_Physics_Consistent_Future_Conditions/scripts/phase_g_stop_experiment.py",
+      "sha256": "25065b3b90cb4714c375050836579202e31ac5c9803d3888f6a421aa2b80a41c",
+      "source_commit": "39300ca08e7a54f8060978891650bc49920f3278",
+      "available_keys": null,
+      "shapes_json": null,
+      "dtypes_json": null
+    },
+    {
+      "relative_path": "Phase_N2_8A_True_Value_and_Modern_Screening/configs/phase_n2_8a_config.yaml",
+      "sha256": "39e9e3e80267d56bd3fc2c5c82f26c116d27893fbade3225a42dadd3c10ba40a",
+      "source_commit": "35511f466a232fc5c56e23aac04921179da1c914",
+      "available_keys": null,
+      "shapes_json": null,
+      "dtypes_json": null
+    },
+    {
+      "relative_path": "Phase_N2_8A_True_Value_and_Modern_Screening/outputs/model_screening/timexer_official_fold_1_seed42_predictions.npz",
+      "sha256": "2f2cab81bacdb62b7f24d492be8c954db90bc9d15914082c0f0e39ca3cc5e14b",
+      "source_commit": "35511f466a232fc5c56e23aac04921179da1c914",
+      "available_keys": "y_true;y_pred;anchor;target_end_age_h;row_origin_index",
+      "shapes_json": "{\"y_true\": [233, 24], \"y_pred\": [233, 24], \"anchor\": [233], \"target_end_age_h\": [233], \"row_origin_index\": [233]}",
+      "dtypes_json": "{\"y_true\": \"float32\", \"y_pred\": \"float32\", \"anchor\": \"float32\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\"}"
+    },
+    {
+      "relative_path": "Phase_N2_8A_True_Value_and_Modern_Screening/outputs/model_screening/timexer_official_fold_2_seed42_predictions.npz",
+      "sha256": "d1554da719a760d85ca26dcec3cc99b8d3ef323299c98d5dc9c74d5fca5bfca6",
+      "source_commit": "35511f466a232fc5c56e23aac04921179da1c914",
+      "available_keys": "y_true;y_pred;anchor;target_end_age_h;row_origin_index",
+      "shapes_json": "{\"y_true\": [245, 24], \"y_pred\": [245, 24], \"anchor\": [245], \"target_end_age_h\": [245], \"row_origin_index\": [245]}",
+      "dtypes_json": "{\"y_true\": \"float32\", \"y_pred\": \"float32\", \"anchor\": \"float32\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\"}"
+    },
+    {
+      "relative_path": "Phase_N2_8A_True_Value_and_Modern_Screening/outputs/model_screening/timexer_official_fold_3_seed42_predictions.npz",
+      "sha256": "ec9cdf2aa5c5f99dfd5b01f6b871a434b5fd7e860196ddb63a1f098e03719175",
+      "source_commit": "35511f466a232fc5c56e23aac04921179da1c914",
+      "available_keys": "y_true;y_pred;anchor;target_end_age_h;row_origin_index",
+      "shapes_json": "{\"y_true\": [466, 24], \"y_pred\": [466, 24], \"anchor\": [466], \"target_end_age_h\": [466], \"row_origin_index\": [466]}",
+      "dtypes_json": "{\"y_true\": \"float32\", \"y_pred\": \"float32\", \"anchor\": \"float32\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\"}"
+    },
+    {
+      "relative_path": "Phase_N2_8A_True_Value_and_Modern_Screening/scripts/phase_n2_8a_run.py",
+      "sha256": "80a9fd4080f191f9dc6935c35bf3ef577ddd200ffa184f2540ffc2de30a61746",
+      "source_commit": "35511f466a232fc5c56e23aac04921179da1c914",
+      "available_keys": null,
+      "shapes_json": null,
+      "dtypes_json": null
+    },
+    {
+      "relative_path": "Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation/outputs/model_runs/timexer_pemfc_a_fold_1_seed42_predictions.npz",
+      "sha256": "871ed4a5a0ef57006116417dbb650a19f445bdd56f63e4e2aab9a3385114f8f8",
+      "source_commit": "ad516d139f35466304f1e20ba285fa07abf7025b",
+      "available_keys": "y_true;y_pred;anchor;target_end_age_h;row_origin_index",
+      "shapes_json": "{\"y_true\": [233, 24], \"y_pred\": [233, 24], \"anchor\": [233], \"target_end_age_h\": [233], \"row_origin_index\": [233]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\"}"
+    },
+    {
+      "relative_path": "Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation/outputs/model_runs/timexer_pemfc_a_fold_2_seed42_predictions.npz",
+      "sha256": "b81fb9e54b6568efc568ea16938138fefac17559d6269951da2d108c6024c852",
+      "source_commit": "ad516d139f35466304f1e20ba285fa07abf7025b",
+      "available_keys": "y_true;y_pred;anchor;target_end_age_h;row_origin_index",
+      "shapes_json": "{\"y_true\": [245, 24], \"y_pred\": [245, 24], \"anchor\": [245], \"target_end_age_h\": [245], \"row_origin_index\": [245]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\"}"
+    },
+    {
+      "relative_path": "Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation/outputs/model_runs/timexer_pemfc_a_fold_3_seed42_predictions.npz",
+      "sha256": "10239461d3d8f8e4c9f4ff258cf8e499cf8d49dda9cb619428c47a696a2f95c8",
+      "source_commit": "ad516d139f35466304f1e20ba285fa07abf7025b",
+      "available_keys": "y_true;y_pred;anchor;target_end_age_h;row_origin_index",
+      "shapes_json": "{\"y_true\": [466, 24], \"y_pred\": [466, 24], \"anchor\": [466], \"target_end_age_h\": [466], \"row_origin_index\": [466]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\"}"
+    },
+    {
+      "relative_path": "Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation/outputs/model_runs/timexer_pemfc_life_fold_1_seed42_predictions.npz",
+      "sha256": "ba9df2709b67f4b794c740da334ff60002b58b283094ff25b3457ca6d217dbf1",
+      "source_commit": "ad516d139f35466304f1e20ba285fa07abf7025b",
+      "available_keys": "y_true;y_pred;anchor;target_end_age_h;row_origin_index",
+      "shapes_json": "{\"y_true\": [233, 24], \"y_pred\": [233, 24], \"anchor\": [233], \"target_end_age_h\": [233], \"row_origin_index\": [233]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\"}"
+    },
+    {
+      "relative_path": "Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation/outputs/model_runs/timexer_pemfc_life_fold_2_seed42_predictions.npz",
+      "sha256": "0a96181ff072da344f5bcfb275d22c5e1be798a236f1a5ab853eb8d13b192dfb",
+      "source_commit": "ad516d139f35466304f1e20ba285fa07abf7025b",
+      "available_keys": "y_true;y_pred;anchor;target_end_age_h;row_origin_index",
+      "shapes_json": "{\"y_true\": [245, 24], \"y_pred\": [245, 24], \"anchor\": [245], \"target_end_age_h\": [245], \"row_origin_index\": [245]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\"}"
+    },
+    {
+      "relative_path": "Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation/outputs/model_runs/timexer_pemfc_life_fold_3_seed42_predictions.npz",
+      "sha256": "2a3848925c38b8031bfdff49a63c9b42beb83f5e418ca21c93e4e27e05fc7509",
+      "source_commit": "ad516d139f35466304f1e20ba285fa07abf7025b",
+      "available_keys": "y_true;y_pred;anchor;target_end_age_h;row_origin_index",
+      "shapes_json": "{\"y_true\": [466, 24], \"y_pred\": [466, 24], \"anchor\": [466], \"target_end_age_h\": [466], \"row_origin_index\": [466]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\"}"
+    },
+    {
+      "relative_path": "Phase_N2_8B_TimeMixerPP_and_TimeXer_Adaptation/scripts/phase_n2_8b_run.py",
+      "sha256": "3b0e8c6d83af5524eae24a6e5927e1060d41a1fc9faae32c3adeb9e7073a2e93",
+      "source_commit": "dc5b77d479875022acd17ccfe5615da63a3e2ddd",
+      "available_keys": null,
+      "shapes_json": null,
+      "dtypes_json": null
+    },
+    {
+      "relative_path": "Phase_N2_8F_Uncertainty_Robust_SA_TimeXer/configs/uncertainty_robust_sa_timexer_frozen_config.yaml",
+      "sha256": "a2f65c76e834789c74124c9348df7be0a5b6e3d714d076ab41743103db83f5a0",
+      "source_commit": "06f157d28da767f7085e7f0bff9c907fea4b7214",
+      "available_keys": null,
+      "shapes_json": null,
+      "dtypes_json": null
+    },
+    {
+      "relative_path": "Phase_N2_8F_Uncertainty_Robust_SA_TimeXer/outputs/model_runs/M0_SA_TimeXer_Ridge_fold_1_seed42_predictions.npz",
+      "sha256": "cd10b56155fc24d78556da3af0919aaf25230d5ad45995ab918d708123dab1c4",
+      "source_commit": "06f157d28da767f7085e7f0bff9c907fea4b7214",
+      "available_keys": "y_true;y_pred;anchor;origin_age_h;target_end_age_h;row_origin_index;z_ridge;z_true;u_pred;u_true;gate",
+      "shapes_json": "{\"y_true\": [233, 24], \"y_pred\": [233, 24], \"anchor\": [233], \"origin_age_h\": [233], \"target_end_age_h\": [233], \"row_origin_index\": [233], \"z_ridge\": [233, 24, 9], \"z_true\": [233, 24, 9], \"u_pred\": [233, 24], \"u_true\": [233, 24], \"gate\": [233, 24]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"origin_age_h\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\", \"z_ridge\": \"float64\", \"z_true\": \"float64\", \"u_pred\": \"float64\", \"u_true\": \"float64\", \"gate\": \"float64\"}"
+    },
+    {
+      "relative_path": "Phase_N2_8F_Uncertainty_Robust_SA_TimeXer/outputs/model_runs/M0_SA_TimeXer_Ridge_fold_2_seed42_predictions.npz",
+      "sha256": "b1aa5b84d787954dd95b907ff183d7978642176338dd7fdf838ad0fff04c8bd2",
+      "source_commit": "06f157d28da767f7085e7f0bff9c907fea4b7214",
+      "available_keys": "y_true;y_pred;anchor;origin_age_h;target_end_age_h;row_origin_index;z_ridge;z_true;u_pred;u_true;gate",
+      "shapes_json": "{\"y_true\": [245, 24], \"y_pred\": [245, 24], \"anchor\": [245], \"origin_age_h\": [245], \"target_end_age_h\": [245], \"row_origin_index\": [245], \"z_ridge\": [245, 24, 9], \"z_true\": [245, 24, 9], \"u_pred\": [245, 24], \"u_true\": [245, 24], \"gate\": [245, 24]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"origin_age_h\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\", \"z_ridge\": \"float64\", \"z_true\": \"float64\", \"u_pred\": \"float64\", \"u_true\": \"float64\", \"gate\": \"float64\"}"
+    },
+    {
+      "relative_path": "Phase_N2_8F_Uncertainty_Robust_SA_TimeXer/outputs/model_runs/M0_SA_TimeXer_Ridge_fold_3_seed42_predictions.npz",
+      "sha256": "afa505f8946d7a3c8be9166db073bc90a90cfb0d9d971f7d360c4d2b1b3e357e",
+      "source_commit": "06f157d28da767f7085e7f0bff9c907fea4b7214",
+      "available_keys": "y_true;y_pred;anchor;origin_age_h;target_end_age_h;row_origin_index;z_ridge;z_true;u_pred;u_true;gate",
+      "shapes_json": "{\"y_true\": [466, 24], \"y_pred\": [466, 24], \"anchor\": [466], \"origin_age_h\": [466], \"target_end_age_h\": [466], \"row_origin_index\": [466], \"z_ridge\": [466, 24, 9], \"z_true\": [466, 24, 9], \"u_pred\": [466, 24], \"u_true\": [466, 24], \"gate\": [466, 24]}",
+      "dtypes_json": "{\"y_true\": \"float64\", \"y_pred\": \"float64\", \"anchor\": \"float64\", \"origin_age_h\": \"float64\", \"target_end_age_h\": \"float64\", \"row_origin_index\": \"int64\", \"z_ridge\": \"float64\", \"z_true\": \"float64\", \"u_pred\": \"float64\", \"u_true\": \"float64\", \"gate\": \"float64\"}"
+    },
+    {
+      "relative_path": "Phase_N2_8F_Uncertainty_Robust_SA_TimeXer/scripts/phase_n2_8f_run.py",
+      "sha256": "d791978e8776e376e6169ec3c2088fd3cb71e7dd2b83c1d52eb85a565f10f287",
+      "source_commit": "06f157d28da767f7085e7f0bff9c907fea4b7214",
+      "available_keys": null,
+      "shapes_json": null,
+      "dtypes_json": null
+    },
+    {
+      "relative_path": "Phase_OPR_TimeXer/outputs/error_attribution/p1_p2_error_difference.csv",
+      "sha256": "e233bf930e69595fc9b57518ba9169d625304d0b8f5290ba1b20950d645dc905",
+      "source_commit": "8a30f68346088b82511a3f71c1de9f59b316464a",
+      "available_keys": null,
+      "shapes_json": null,
+      "dtypes_json": null
+    },
+    {
+      "relative_path": "Phase_OPR_TimeXer/outputs/reproduction/baseline_reproduction_fold_metrics.csv",
+      "sha256": "3e0d836fa37c869e72ed9a6317b8c30c421736a64ea4335ceccec77f9e81124a",
+      "source_commit": "8a30f68346088b82511a3f71c1de9f59b316464a",
+      "available_keys": null,
+      "shapes_json": null,
+      "dtypes_json": null
+    },
+    {
+      "relative_path": "Phase_OPR_TimeXer/outputs/reproduction/baseline_reproduction_summary.csv",
+      "sha256": "16b081bfa6e2cc9907a40df693bf42cbf659a3523a8c6c5d5ca561c35f33778a",
+      "source_commit": "8a30f68346088b82511a3f71c1de9f59b316464a",
+      "available_keys": null,
+      "shapes_json": null,
+      "dtypes_json": null
+    },
+    {
+      "relative_path": "Phase_OPR_TimeXer/PHASE_OPR_DIAGNOSTIC_RESULTS.md",
+      "sha256": "f88d56860ae8444e091e019b4d1d2246d457cafd35d7ab4c77fff4ae57710e5f",
+      "source_commit": "8a30f68346088b82511a3f71c1de9f59b316464a",
+      "available_keys": null,
+      "shapes_json": null,
+      "dtypes_json": null
+    },
+    {
+      "relative_path": "Phase_OPR_TimeXer/scripts/phase_opr_diagnostic.py",
+      "sha256": "f618bc4e6f89ff9442f1f2e4eb0f7c87bb80e9fe3ca4f63f94f81de082a56266",
+      "source_commit": "8a30f68346088b82511a3f71c1de9f59b316464a",
+      "available_keys": null,
+      "shapes_json": null,
+      "dtypes_json": null
+    }
+  ],
+  "p0_m0_max_prediction_difference_V": 0.0,
+  "status": "DESCRIPTIVE_REUSE_PROTOCOL_CONFOUNDED"
+}

@@ -1,0 +1,7 @@
+# Frozen third-party source checkouts are local references. Their URLs, commits,
+# licenses, and canonical source fingerprints are versioned in candidate configs.
+**/vendor/
+
+# Never version interpreter/cache products.
+**/__pycache__/
+*.pyc

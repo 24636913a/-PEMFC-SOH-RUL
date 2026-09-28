@@ -1,0 +1,23 @@
+{
+  "phase": "Phase_BG_Final_Inductive_Bias_Gap_Challenge",
+  "base_phase_bs_commit": "68f880908f9fd56d35c3788d7a19a0b2d69b4ecd",
+  "legacy_protocol_sha256": "fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788",
+  "protected_phase_bs_drift": [],
+  "development_prefix_read_rows": 3007,
+  "development_rows_after_boundary_filter": 3005,
+  "candidate_development_scores_computed": 0,
+  "candidate_models_trained": 0,
+  "test_accessed": false,
+  "test_feature_rows": 0,
+  "test_target_rows": 0,
+  "test_predictions": 0,
+  "test_metrics": 0,
+  "raw_data_accessed": false,
+  "external_feature_decomposition": false,
+  "production_contract_tests": {
+    "protocol_recovery": "PASS",
+    "xlstmtime_frozen_contract": "PASS",
+    "cfpt_protocol_gate": "PASS"
+  },
+  "backbone_search_closed": true
+}

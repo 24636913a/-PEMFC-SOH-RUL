@@ -1,0 +1,25 @@
+{
+  "candidate": "CFPT",
+  "route": "INCOMPATIBLE",
+  "cfpt_requires_decoder_timestamp": true,
+  "timesnet_functionally_consumes_decoder_timestamp": false,
+  "route_a_supported_by_author_source": false,
+  "route_b_functional_information_equality_supported": false,
+  "checks": {
+    "cfpt_forecast_uses_x_mark_dec": true,
+    "cfpt_forward_uses_x_mark_dec": true,
+    "cfpt_time_enc_call_present": true,
+    "cfpt_time_frequency_blend_present": true,
+    "timesnet_forecast_uses_x_mark_enc": true,
+    "timesnet_forecast_uses_x_mark_dec": false,
+    "timesnet_encoder_embedding_receives_x_mark_enc": true
+  },
+  "reason": "CFPT unconditionally encodes x_mark_dec and blends it into prediction, while verified official TimesNet ignores x_mark_dec in forecast; equality would require a prohibited source/body or Raw-F2 change.",
+  "development_data_read": false,
+  "development_score_computed": false,
+  "resource_preflight": false,
+  "model_training": false,
+  "test_accessed": false,
+  "legacy_protocol_sha256": "fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788",
+  "legacy_protected_bs_drift": []
+}

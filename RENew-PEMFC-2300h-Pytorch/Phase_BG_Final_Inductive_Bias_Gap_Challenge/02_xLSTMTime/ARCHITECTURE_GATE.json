@@ -1,0 +1,12 @@
+{
+  "candidate": "xLSTMTime",
+  "source_gate": "PASS",
+  "architecture_gate": "PASS",
+  "verified_author_forecasting_implementation": true,
+  "original_48_step_time_axis_recurrence": false,
+  "native_48_to_24_projection_before_xlstm_stack": true,
+  "active_blocks": ["mLSTM", "mLSTM", "mLSTM"],
+  "source_edited": false,
+  "development_score_computed": false,
+  "test_accessed": false
+}

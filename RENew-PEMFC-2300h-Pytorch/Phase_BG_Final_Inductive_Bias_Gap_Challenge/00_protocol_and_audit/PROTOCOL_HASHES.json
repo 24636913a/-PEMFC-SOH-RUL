@@ -1,0 +1,38 @@
+{
+  "bg_head": "68f880908f9fd56d35c3788d7a19a0b2d69b4ecd",
+  "bs_reference_commit": "68f880908f9fd56d35c3788d7a19a0b2d69b4ecd",
+  "legacy_protocol_path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_BS_Final_Backbone_Screening\\configs\\PREREGISTERED_PROTOCOL.yaml",
+  "legacy_protocol_sha256": "fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788",
+  "legacy_sha_file": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_BS_Final_Backbone_Screening\\configs\\PREREGISTERED_PROTOCOL.sha256",
+  "protected_bs_drift": [],
+  "read_only_helper_path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_BS_Final_Backbone_Screening\\scripts\\backbone_common.py",
+  "old_load_config_called": false,
+  "helper_reuse": [
+    "read_development_prefix",
+    "build_windows",
+    "build_outer_folds",
+    "split_inner_fit_stopper",
+    "FoldPreprocessor",
+    "standardized_delta_target",
+    "delta_metrics"
+  ],
+  "data_audit": {
+    "csv": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+    "pandas_read_csv_nrows": 3007,
+    "prefix_rows_read": 3007,
+    "development_rows_retained": 3005,
+    "rows_after_registered_prefix_read": 0,
+    "test_rows_read": 0,
+    "test_features_read": 0,
+    "test_targets_read": 0,
+    "test_predictions_constructed": false,
+    "test_metrics_computed": false,
+    "development_end_h_exclusive": 1819.997738
+  },
+  "window_identity_pass": true,
+  "test_accessed": false,
+  "test_feature_rows": 0,
+  "test_target_rows": 0,
+  "test_predictions": 0,
+  "test_metrics": 0
+}

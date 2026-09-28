@@ -1,0 +1,21 @@
+{
+  "candidate": "xLSTMTime",
+  "device": "cuda",
+  "synthetic_input_shape": [
+    4,
+    48,
+    14
+  ],
+  "batch_size": 64,
+  "test_accessed": false,
+  "development_rows_read": 0,
+  "status": "RESOURCE_INFEASIBLE",
+  "failure_stage": "author_source_import_or_construction",
+  "exception_type": "TypeError",
+  "exception_message": "include_paths() got an unexpected keyword argument 'cuda'",
+  "source_edited": false,
+  "substitute_implementation_used": false,
+  "legacy_protocol_sha256": "fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788",
+  "legacy_protected_bs_drift": [],
+  "development_performance_computed": false
+}

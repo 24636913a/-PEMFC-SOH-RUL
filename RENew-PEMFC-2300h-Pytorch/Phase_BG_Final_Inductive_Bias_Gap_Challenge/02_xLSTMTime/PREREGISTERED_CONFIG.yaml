@@ -1,0 +1,71 @@
+candidate: xLSTMTime
+status: FROZEN_BEFORE_RESOURCE_OR_DEVELOPMENT_RESULTS
+activation_order: 2
+activation_reason: PDFNet_SOURCE_GATE_FAIL
+dataset_contract: Phase_BS_exact_reuse
+source:
+  paper_title: "xLSTMTime: Long-Term Time Series Forecasting With xLSTM"
+  paper_url: https://doi.org/10.3390/ai5030071
+  preprint_url: https://arxiv.org/abs/2407.10240
+  authors: [Musleh Alharthi, Ausif Mahmood]
+  repository: https://github.com/muslehal/xLSTMTime
+  commit: db43526e006029586071fa0b8850f00b83e76622
+  retrieval_date: '2026-09-28'
+  license: MIT
+  vendor_root: 02_xLSTMTime/vendor/xLSTMTime_official
+  canonical_source_sha256:
+    xlstm.py: 723b51d04ceeff7ee3da3662f81dafdf4f250f52b338a0a191d834425c805c55
+    xlstm1/xlstm_block_stack.py: 9d690cf958b3992b2e751ed727176eed766f5f2c7124a3087e482490511530b3
+    xlstm1/blocks/mlstm/backends.py: 890ce31de3a5a7efe2c8f1ad323a3264d6caf1f145688817b988d42d05464cd1
+
+frozen_model_configuration:
+  source_constructor: xlstm.xlstm
+  context_points: 48
+  target_points: 24
+  enc_in: 14
+  n2: 256
+  native_moving_average_kernel: 25
+  native_temporal_projection: seasonal_and_trend_Linear_48_to_24
+  xLSTM_stack_num_blocks: 3
+  xLSTM_stack_embedding_dim: 256
+  xLSTM_stack_context_length_source_default: 336
+  actual_block_map_after_source_post_init: [mLSTM, mLSTM, mLSTM]
+  model_output_shape: [batch, 24, 14]
+  model_output_contract: standardized_future_absolute_voltage
+  voltage_channel: 0
+  delta_adapter: prediction_absolute_voltage_minus_standardized_origin_anchor
+  forbidden_changes:
+    - no_source_edit
+    - no_custom_head
+    - no_temporal_recurrence_rewrite
+    - no_external_decomposition
+    - no_future_covariates
+    - no_feature_selection
+
+training_protocol:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 64
+  max_epochs: 300
+  patience: 30
+  gradient_clip_norm: 1.0
+  num_workers: 0
+  seeds: [42, 2024, 3407]
+  inner_stopper: chronological_last_15pct_with_target_isolation
+  loss: standardized_DeltaV_MSE
+
+gates:
+  seed42:
+    formal_rmse_at_most_timesnet_fraction: 0.95
+    fold3_rmse_at_most_timesnet_fraction: 1.03
+    p99_at_most_timesnet_fraction: 1.05
+    target_time_equal_at_most_timesnet_fraction: 1.05
+    fold3_target_time_equal_at_most_timesnet_fraction: 1.10
+  multiseed:
+    minimum_formal_mean_improvement_fraction: 0.05
+    minimum_paired_seeds_better_than_timesnet: 2
+    fold3_at_most_timesnet_fraction: 1.03
+    p99_at_most_timesnet_fraction: 1.05
+    target_time_equal_at_most_timesnet_fraction: 1.05
+    fold3_target_time_equal_at_most_timesnet_fraction: 1.10

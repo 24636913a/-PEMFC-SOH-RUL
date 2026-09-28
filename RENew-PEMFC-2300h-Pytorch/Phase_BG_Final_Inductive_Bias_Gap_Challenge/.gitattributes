@@ -1,0 +1,4 @@
+# These two frozen configuration pairs are verified as raw UTF-8 bytes.
+# Preserve LF bytes on every checkout so their recorded SHA-256 remains valid.
+**/PREREGISTERED_CONFIG.yaml -text
+**/PREREGISTERED_CONFIG.sha256 -text

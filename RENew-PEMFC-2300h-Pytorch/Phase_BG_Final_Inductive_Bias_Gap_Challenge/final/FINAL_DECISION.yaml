@@ -1,0 +1,44 @@
+phase: Phase_BG_Final_Inductive_Bias_Gap_Challenge
+historical_incumbent: TIMESNET_FREEZE
+final_backbone: TIMESNET_FREEZE
+backbone_search: CLOSED
+terminal_state: BACKBONE_SEARCH_CLOSED
+phase_bs_reference_commit: 68f880908f9fd56d35c3788d7a19a0b2d69b4ecd
+phase_bs_protocol_sha256: fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788
+protocol_drift: false
+candidate_outcomes:
+  PDFNet:
+    activated: true
+    source_gate: FAIL
+    architecture_gate: NOT_RUN
+    resource_gate: NOT_RUN
+    seed42: NOT_RUN
+    multiseed: NOT_RUN
+    final_status: SOURCE_GATE_FAIL
+  xLSTMTime:
+    activated: true
+    source_gate: PASS
+    architecture_gate: PASS
+    resource_gate: FAIL
+    seed42: NOT_RUN
+    multiseed: NOT_RUN
+    final_status: RESOURCE_INFEASIBLE
+    failure: "Author-source import/construct calls torch.utils.cpp_extension.include_paths(cuda=True), which is incompatible with the installed PyTorch API."
+  CFPT:
+    activated: true
+    protocol: INCOMPATIBLE
+    source_gate: PASS
+    architecture_gate: PASS
+    resource_gate: NOT_RUN
+    seed42: NOT_RUN
+    multiseed: NOT_RUN
+    final_status: CFPT_PROTOCOL_INCOMPATIBLE
+    reason: "Official CFPT functionally consumes x_mark_dec; frozen official TimesNet does not functionally consume decoder marks, so neither permitted Route A nor Route B is fair without prohibited changes."
+fairness:
+  exact_phase_bs_window_identity: true
+  candidate_development_scores_computed: 0
+  test_accessed: false
+  raw_data_accessed: false
+  external_feature_decomposition: false
+next_phase_design_only: DECOMPOSITION_AND_DEGRADATION_FEATURE_STUDY
+no_automatic_next_phase_execution: true

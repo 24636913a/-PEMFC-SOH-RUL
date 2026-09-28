@@ -1,0 +1,48 @@
+candidate: CFPT
+status: FROZEN_PROTOCOL_GATE_BEFORE_DEVELOPMENT_RESULTS
+activation_order: 3
+activation_reason: PDFNet_SOURCE_GATE_FAIL_then_xLSTMTime_RESOURCE_INFEASIBLE
+dataset_contract: Phase_BS_exact_reuse_if_and_only_if_protocol_gate_passes
+source:
+  paper_title: "CFPT: Empowering Time Series Forecasting through Cross-Frequency Interaction and Periodic-Aware Timestamp Modeling"
+  paper_url: https://proceedings.mlr.press/v267/kou25b.html
+  openreview_url: https://openreview.net/forum?id=hHYjiOJFum
+  authors: [Feifei Kou, Jiahao Wang, Lei Shi, Yuhan Yao, Yawen Li, Suguo Zhu, Zhongbao Zhang, Junping Du]
+  repository: https://github.com/BUPT-SN/CFPT
+  commit: 1ded0ef7eef1189cb88198b8342214f28f13835f
+  retrieval_date: '2026-09-28'
+  license: NO_LICENSE_FILE_AT_FROZEN_COMMIT
+  vendor_root: 03_CFPT/vendor/CFPT_official
+  canonical_source_sha256:
+    models/CFPT.py: 81651c6576587c9d27bdaa9afbe5dcc19e2731fb335102a646a32f69d6a8a032
+    README.md: 583ecdec6b8b75954c9ac9d7d5b1d6584eb480305ce26f9aaf819265a5e4799f
+    run.py: a104981962b4a1ed3035e849986c15abc2753a37d782c5bc2df787035f1d7c26
+control_source:
+  repository: https://github.com/thuml/Time-Series-Library
+  commit: 4e938a1767106324dd753b2a44832bf870a0252e
+  vendor_root: Phase_BS_Final_Backbone_Screening/vendor/TimesNet_official
+  canonical_source_sha256:
+    models/TimesNet.py: f64c4bed1fd7347090044a0163bd4209c9f9ec1c1b19ceff47842df36b64bba7
+    layers/Embed.py: 17e7c3577324c41a0da427a199c955b782fde905aabb1f7cbc3c4e15ebd4ae35
+protocol_gate:
+  permitted_routes: [RAW_F2_HISTORY_ONLY, EQUAL_KNOWN_TIME, INCOMPATIBLE]
+  frozen_result_before_development_results: INCOMPATIBLE
+  source_findings_to_verify:
+    - CFPT_Model_forecast_unconditionally_calls_time_enc_on_x_mark_dec
+    - CFPT_blends_time_prediction_with_frequency_prediction
+    - CFPT_forward_passes_x_mark_dec_to_forecast
+    - TimesNet_forecast_uses_x_mark_enc_but_not_x_mark_dec
+  route_a_requirement: author_native_history_only_path_retaining_cross_frequency_and_periodic_timestamp_body
+  route_b_requirement: both_official_bodies_functionally_consume_identical_encoder_and_decoder_known_time_marks
+  prohibited_remedies:
+    - modify_CFPT_or_TimesNet_author_source
+    - append_time_marks_to_frozen_raw_F2
+    - create_custom_time_mark_adapter_or_head
+    - supply_future_sensor_or_operating_condition_values
+    - train_or_score_before_protocol_gate_passes
+not_performed:
+  development_data_read: false
+  development_score_computed: false
+  resource_preflight: false
+  model_training: false
+  test_accessed: false

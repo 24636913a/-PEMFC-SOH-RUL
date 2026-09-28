@@ -1,0 +1,5 @@
+﻿model,seed_count,formal_RMSE_mean_mV,formal_RMSE_std_mV,formal_RMSE_min_mV,formal_RMSE_max_mV,fold3_RMSE_mean_mV,P99_mean_mV,formal_improvement_fraction,paired_seeds_better_than_timesnet,formal_improvement_5pct,paired_seeds_at_least_2,fold3_103pct,p99_105pct,target_equal_105pct,fold3_target_equal_110pct,final_eligible,reason
+TimesNet,3,13.860127709696286,0.25040450742498654,13.623326056583133,14.206557830029526,25.85647704448614,46.047928103063164,0.0,0.0,False,False,True,True,True,True,False,final_gate_failed_or_incumbent
+SimpleTM,1,,,,,,,,,,,,,,,False,seed42_gate_failed_no_extra_seed
+DUET,1,,,,,,,,,,,,,,,False,seed42_gate_failed_no_extra_seed
+ModernTCN,1,,,,,,,,,,,,,,,False,seed42_gate_failed_no_extra_seed

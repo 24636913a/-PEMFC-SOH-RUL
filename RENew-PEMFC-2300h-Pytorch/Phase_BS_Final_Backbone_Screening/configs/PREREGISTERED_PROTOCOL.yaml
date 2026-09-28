@@ -1,0 +1,333 @@
+phase: Phase_BS_Final_Backbone_Screening
+status: FROZEN_BEFORE_DEVELOPMENT_RESULTS
+base_commit: 2083d1e46e830d998abc537fd2d671a3319d1fa5
+project_root: E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch
+protocol_sha256_file: configs/PREREGISTERED_PROTOCOL.sha256
+
+scope:
+  dataset: RealHyFC
+  development_only: true
+  test_access: prohibited
+  raw_data_access: prohibited
+  external_feature_decomposition: prohibited
+  forbidden_external_methods: [wavelet, SWT, VMD, EMD, EEMD, CEEMDAN]
+  permitted_internal_operations:
+    TimesNet: [official_FFT_period_discovery, official_TimesBlock]
+    SimpleTM: [official_SWT_decomposition, official_SWT_reconstruction, official_GeomAttention]
+    DUET: [official_temporal_MoE_clustering, official_channel_soft_clustering]
+    ModernTCN: [official_patching, official_large_small_kernel_convolution]
+  no_new_feature_selection: true
+  no_SG_update: true
+  no_fifth_model: true
+  source_phase_writes: prohibited
+
+data_firewall:
+  csv: Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  pandas_read_csv_nrows: 3007
+  expected_prefix_rows: 3007
+  expected_development_rows_after_end_filter: 3005
+  prohibited_operations:
+    - scan_full_csv_for_split_or_test_metadata
+    - read_rows_after_nrows_prefix
+    - read_or_construct_test_targets_features_predictions_or_metrics
+  required_columns:
+    - bin_start_ophrs2_h
+    - bin_end_ophrs2_h
+    - last_datetime
+    - temporal_segment_id
+    - bin_valid_for_windows
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+  f2_raw_feature_order:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+
+task:
+  input_shape: [batch, 48, 14]
+  resolution_h: 0.5
+  lookback_steps: 48
+  forecast_steps: 24
+  target: cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t
+  voltage_feature_index: 0
+  model_output_contract: standardized_future_absolute_voltage_channel_0
+  training_prediction_delta: standardized_future_voltage_channel_0_minus_standardized_origin_voltage_anchor
+  training_target_delta: true_delta_voltage_divided_by_train_voltage_scale
+  future_covariates: prohibited
+  auxiliary_output_supervision: prohibited
+  delta_inverse_transform: prediction_delta_standardized_times_train_voltage_scale
+
+folds:
+  - fold: fold_1
+    train_start_h: 72.788690
+    train_end_h: 946.393214
+    validation_start_h: 946.393214
+    validation_end_h: 1164.794345
+  - fold: fold_2
+    train_start_h: 72.788690
+    train_end_h: 1164.794345
+    validation_start_h: 1164.794345
+    validation_end_h: 1383.195476
+  - fold: fold_3
+    train_start_h: 72.788690
+    train_end_h: 1383.195476
+    validation_start_h: 1383.195476
+    validation_end_h: 1819.997738
+development_end_h_exclusive: 1819.997738
+window_rules:
+  continuity_h: 0.5
+  all_history_and_target_bins_valid: true
+  one_temporal_segment_only: true
+  target_end_must_not_cross_region: true
+  matched_origins_across_models: true
+  retain_all_legal_origins_and_extreme_targets: true
+
+inner_stopping:
+  stopper_fraction_of_outer_train_legal_origins: 0.15
+  temporal_direction: last_origins
+  target_row_overlap_between_fit_and_stopper: prohibited
+  scaler_fit_population: fit_origins_only
+  selection_metric: inner_deltaV_RMSE_mV
+  final_refit: same_seed_reinitialize_on_full_outer_train
+  final_scaler_fit_population: full_outer_train_only
+
+training:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 64
+  max_epochs: 300
+  patience: 30
+  gradient_clip_norm: 1.0
+  loss: common_DeltaV_standardized_MSE
+  shuffle: torch_generator_seeded
+  num_workers: 0
+  seeds: [42, 2024, 3407]
+  first_stage_seed: 42
+  gpu_resource_assumption: RTX_3070_Laptop_8GB_to_be_verified_by_preflight
+
+official_sources:
+  TimesNet:
+    role: incumbent_control
+    repository: https://github.com/thuml/Time-Series-Library
+    commit: 4e938a1767106324dd753b2a44832bf870a0252e
+    license: MIT
+    vendor_root: vendor/TimesNet_official
+    canonical_git_blob_sha256:
+      models/TimesNet.py: f64c4bed1fd7347090044a0163bd4209c9f9ec1c1b19ceff47842df36b64bba7
+      layers/Conv_Blocks.py: 16d9f2d9e4fa094dc357901e32beecda9839709bcca02625e6447186933ce4e1
+    config:
+      task_name: long_term_forecast
+      seq_len: 48
+      pred_len: 24
+      enc_in: 14
+      c_out: 14
+      d_model: 32
+      d_ff: 64
+      e_layers: 1
+      top_k: 2
+      num_kernels: 3
+      dropout: 0.1
+      embed: fixed
+      freq: h
+  SimpleTM:
+    role: challenger
+    repository: https://github.com/vsingh-group/SimpleTM
+    commit: 3c77d820837b726afb03c943235ea95bc924243d
+    license: NO_LICENSE_FILE_AT_FROZEN_COMMIT
+    vendor_root: vendor/SimpleTM_official
+    canonical_git_blob_sha256:
+      model/SimpleTM.py: 210ff3ff49d2bbf737b3f9cc27611d564b163474a0c999d991115ca9572334af
+      layers/SWTAttention_Family.py: 842d5fd4b6ce5bcbf4a732532943759afd5274530e5d3bb757dd65784b25cb17
+    config:
+      seq_len: 48
+      pred_len: 24
+      enc_in: 14
+      dec_in: 14
+      c_out: 14
+      e_layers: 1
+      d_model: 32
+      d_ff: 32
+      wv: db1
+      m: 3
+      use_norm: true
+      requires_grad: true
+      alpha: 0.3
+      dropout: 0.1
+      geomattn_dropout: 0.5
+      kernel_size: null
+      factor: 1
+      output_attention: false
+      activation: gelu
+      embed: fixed
+      freq: h
+  DUET:
+    role: challenger
+    repository: https://github.com/decisionintelligence/DUET
+    commit: dcc6e6780a9138731b64b9b5398a94a1d97033f0
+    license: MIT
+    vendor_root: vendor/DUET_official
+    canonical_git_blob_sha256:
+      ts_benchmark/baselines/duet/models/duet_model.py: 840690b13fecdd08fdc4a602f3d700ede940731a29ad0fe1de7830b7bb9b22b7
+      ts_benchmark/baselines/duet/layers/linear_extractor_cluster.py: 46ec8d4986e5579ce93066a205f4986ec2bfbc90a7fc221cd6a29ef0726754e1
+    rationale_before_preflight: >-
+      Fourteen variables retain channel relationships; two experts are the smallest
+      temporal clustering count; 48-step history gives no evidence for larger general
+      defaults; one 64-dimensional layer and four 16-dimensional heads are a resource
+      inference to be tested on the known RTX 3070 Laptop 8GB, not a tuning result.
+    config:
+      seq_len: 48
+      pred_len: 24
+      enc_in: 14
+      dec_in: 14
+      c_out: 14
+      d_model: 64
+      d_ff: 128
+      e_layers: 1
+      n_heads: 4
+      hidden_size: 64
+      num_experts: 2
+      k: 1
+      CI: true
+      noisy_gating: true
+      moving_avg: 25
+      factor: 1
+      activation: gelu
+      dropout: 0.1
+      fc_dropout: 0.1
+      output_attention: false
+      freq: h
+      forward_parameter_use:
+        seq_len: true
+        pred_len: true
+        enc_in: true
+        dec_in: false
+        c_out: false
+        d_model: true
+        d_ff: true
+        e_layers: true
+        n_heads: true
+        hidden_size: true
+        num_experts: true
+        k: true
+        CI: true
+        noisy_gating: true
+        moving_avg: true
+        factor: true
+        activation: true
+        dropout: true
+        fc_dropout: true
+        output_attention: true
+        freq: false
+      auxiliary_loss: official_L_importance_default_loss_coef_1_added_to_common_MSE
+  ModernTCN:
+    role: challenger
+    repository: https://github.com/luodhhh/ModernTCN
+    commit: 56a9a2c018385cd5acef015378cae7f084d1b11c
+    license: MIT
+    vendor_root: vendor/ModernTCN_official/ModernTCN-Long-term-forecasting
+    canonical_git_blob_sha256:
+      models/ModernTCN.py: daf74722e40d928e5ed6bc871b528a5d5d2c9090f30cafb89110cc88dc60fa30
+      models/ModernTCN_Layer.py: b2291534c6a11ebd80882bed89f7cf8c76c721b8e0495294659f2c5b0fe88cea
+    config:
+      patch_size: 4
+      patch_stride: 2
+      dims: [16, 24, 32, 48]
+      num_blocks: [1, 1, 1, 1]
+      dw_dims: [16, 24, 32, 48]
+      large_size: [13, 11, 5, 3]
+      small_size: [5, 3, 3, 1]
+      ffn_ratio: 2
+      stem_ratio: 2
+      downsample_ratio: 2
+      backbone_dropout: 0.1
+      head_dropout: 0.1
+      use_multi_scale: false
+      revin: true
+      affine: true
+      subtract_last: false
+      individual: false
+      small_kernel_merged: false
+      seq_len: 48
+      target_window: 24
+      nvars: 14
+    historical_seed42_threefold_mean_rmse_mV: 15.373
+
+preflight:
+  required_models: [TimesNet, SimpleTM, DUET, ModernTCN]
+  synthetic_input_shape: [4, 48, 14]
+  required_voltage_output_shape: [4, 24]
+  require_finite_output_loss_input_gradient_parameter_gradient: true
+  common_batch_training_step: 64
+  gpu_peak_memory_measurement: true
+  failure_rule: implementation_not_clean_without_second_configuration
+  timesnet_control_must_pass: true
+
+metrics:
+  formal_name: forecast_query_weighted_RMSE
+  formal_formula: mean_over_folds_of_sqrt(mean_over_all_origin_horizon_queries_of_squared_deltaV_error)
+  target_time_sensitivity_name: target_time_equal_weight_RMSE
+  target_time_sensitivity_formula: mean_over_folds_of_sqrt(mean_over_unique_target_rows_of_mean_over_queries_to_target_of_squared_deltaV_error)
+  endpoint: horizon_step_24_12h_RMSE
+  tail_errors: [P95_absolute_error, P99_absolute_error, max_absolute_error]
+  retain_extreme_target_age_h: 1130.25
+
+seed42_gate:
+  applies_to: [SimpleTM, DUET, ModernTCN]
+  all_conditions_required: true
+  formal_RMSE_at_most_timesnet_fraction: 0.95
+  fold3_RMSE_at_most_timesnet_fraction: 1.03
+  threefold_equal_P99_at_most_timesnet_fraction: 1.05
+  target_time_equal_threefold_at_most_timesnet_fraction: 1.05
+  target_time_equal_fold3_at_most_timesnet_fraction: 1.10
+  compliance_required:
+    - no_test_leakage
+    - no_external_feature_decomposition
+    - implementation_clean
+    - all_legal_origins_retained
+    - official_body_compliant
+  failure_action: no_additional_seed_and_permanent_challenger_exit
+
+multiseed_final_gate:
+  timesnet_always_runs: [42, 2024, 3407]
+  challenger_runs_extra_seeds_only_if_seed42_gate_passes: [2024, 3407]
+  minimum_formal_mean_improvement_fraction: 0.05
+  minimum_paired_seeds_better_than_timesnet: 2
+  maximum_fold3_mean_fraction_of_timesnet: 1.03
+  maximum_p99_fraction_of_timesnet: 1.05
+  maximum_target_time_equal_fraction_of_timesnet: 1.05
+  maximum_fold3_target_time_equal_fraction_of_timesnet: 1.10
+  tie_break_if_formal_gap_less_than_timesnet_mean_fraction: 0.01
+  tie_break_order: [fewer_parameters, lower_fold3_RMSE, lower_P99]
+  permitted_final_statuses: [TIMESNET_FREEZE, SIMPLETM_PROMOTED, DUET_PROMOTED, MODERNTCN_PROMOTED]
+  no_passing_challenger_status: TIMESNET_FREEZE
+
+terminal_rule:
+  backbone_search_permanently_ends_after_final_decision: true
+  no_MW2_TTD2_R0_or_other_posthoc_cache_diagnostic: true
+  no_automatic_future_condition_predictor_gate_or_FiLM: true
+  next_phase_design_only: [Raw_F2, EMD_derived, VMD_derived, selected_degradation_modes_and_feature_selection]
+  next_phase_execution_in_this_phase: prohibited

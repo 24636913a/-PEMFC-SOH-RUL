@@ -1,0 +1,9 @@
+# Official repositories are local, frozen source checkouts.  Their immutable
+# repository URLs, commits, and source hashes are recorded in the protocol;
+# they are deliberately not vendored into the research-results commit.
+vendor/
+
+# Interpreter caches are never research artifacts.
+__pycache__/
+scripts/__pycache__/
+tests/__pycache__/

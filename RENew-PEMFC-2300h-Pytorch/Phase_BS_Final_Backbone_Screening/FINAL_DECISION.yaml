@@ -1,0 +1,17 @@
+status: TIMESNET_FREEZE
+formal_metric: forecast_query_weighted_RMSE
+robustness_metric: target_time_equal_weight_RMSE
+test_accessed: false
+test_targets_read: 0
+test_predictions_constructed: false
+test_metrics_computed: false
+external_feature_decomposition: false
+model_training_performed: true
+candidate_models:
+- TimesNet
+- SimpleTM
+- DUET
+- ModernTCN
+authorized_extra_seed_models:
+- TimesNet
+terminal_backbone_search: true

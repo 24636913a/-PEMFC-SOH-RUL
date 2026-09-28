@@ -1,0 +1,5 @@
+﻿model,status,device,parameter_count,synthetic_input_shape,voltage_output_shape,finite_output,finite_loss,input_gradient_finite,parameter_gradients_with_values,parameter_gradients_finite,common_mse,official_auxiliary_loss,batch64_step_pass,batch64_step_time_s,peak_gpu_memory_MiB,swt,times_block,duet_cluster,duet_channel,external_feature_decomposition,simpletm_swt_internal_only,moderntcn_use_multi_scale
+TimesNet,PASS,cuda,149046,"[4,48,14]","[4, 24]",True,True,True,19,True,3.4491472244262695,0.0,True,0.04447969999455381,34.21142578125,0,2,0,0,False,False,False
+SimpleTM,PASS,cuda,9000,"[4,48,14]","[4, 24]",True,True,True,26,True,3.2587313652038574,0.0,True,0.012906800009659491,31.19482421875,6,0,0,0,False,True,False
+DUET,PASS,cuda,54761,"[4,48,14]","[4, 24]",True,True,True,36,True,3.034994602203369,0.020634938031435013,True,0.024583799997344613,28.42822265625,0,0,2,2,False,False,False
+ModernTCN,PASS,cuda,421264,"[4,48,14]","[4, 24]",True,True,True,84,True,3.075112819671631,0.0,True,0.05532040000252891,82.80712890625,0,0,0,0,False,False,False

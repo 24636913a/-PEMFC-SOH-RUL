@@ -1,0 +1,46 @@
+{
+  "command": "python scripts/run_backbone_screening.py",
+  "base_commit": "2083d1e46e830d998abc537fd2d671a3319d1fa5",
+  "data_audit": {
+    "csv": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+    "pandas_read_csv_nrows": 3007,
+    "prefix_rows_read": 3007,
+    "development_rows_retained": 3005,
+    "rows_after_registered_prefix_read": 0,
+    "test_rows_read": 0,
+    "test_features_read": 0,
+    "test_targets_read": 0,
+    "test_predictions_constructed": false,
+    "test_metrics_computed": false,
+    "development_end_h_exclusive": 1819.997738
+  },
+  "artifact_integrity": {
+    "status": "PASS",
+    "completed_cache_count": 18,
+    "seed42_models_compared_on_identical_origins": true,
+    "cross_seed_timesnet_targets_identical": true,
+    "all_target_rows_equal_origin_plus_horizon": true,
+    "all_targets_before_development_boundary": true,
+    "test_accessed": false,
+    "test_predictions_read": 0
+  },
+  "status": "TIMESNET_FREEZE",
+  "formal_metric": "forecast_query_weighted_RMSE",
+  "robustness_metric": "target_time_equal_weight_RMSE",
+  "test_accessed": false,
+  "test_targets_read": 0,
+  "test_predictions_constructed": false,
+  "test_metrics_computed": false,
+  "external_feature_decomposition": false,
+  "model_training_performed": true,
+  "candidate_models": [
+    "TimesNet",
+    "SimpleTM",
+    "DUET",
+    "ModernTCN"
+  ],
+  "authorized_extra_seed_models": [
+    "TimesNet"
+  ],
+  "terminal_backbone_search": true
+}

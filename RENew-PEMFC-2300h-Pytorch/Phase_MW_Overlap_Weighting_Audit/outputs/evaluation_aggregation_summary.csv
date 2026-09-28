@@ -1,0 +1,5 @@
+aggregation,evaluation_unit,population,unit_count,p0_mean_fold_mse_mV2,p2_mean_fold_mse_mV2,p2_minus_p0_mean_fold_delta_mse_mV2,p0_mean_fold_RMSE_mV,p2_mean_fold_RMSE_mV,p2_minus_p0_mean_fold_delta_RMSE_mV
+unweighted_mean_of_fold_metrics,forecast_query_weighted_RMSE,"all (origin_row, horizon_step) queries",22656,608.3686203729329,496.96397154930054,-111.40464882363243,24.53824528907965,21.346565684427087,-3.191679604652565
+unweighted_mean_of_fold_metrics,target_time_equal_weight_RMSE,all within-fold target-time MSE units,1082,919.3833113402419,1242.1079054572988,322.72459411705694,30.26201103841524,34.99732918733023,4.735318148914993
+pooled_all_prediction_points,forecast_query_weighted_RMSE,"all (origin_row, horizon_step) queries pooled",22656,649.6311304681462,599.0605834609811,-50.570547007165146,25.487862414650355,24.47571415630157,-1.012148258348784
+pooled_all_fold_target_times,target_time_equal_weight_RMSE,"all (fold, target_row) MSE units pooled",1082,963.0855344781517,1278.09466421617,315.0091297380184,31.033619422783282,35.75044984634697,4.716830423563685

@@ -1,7 +1,7 @@
 {
   "command": "python scripts/run_overlap_weighting_audit.py",
   "starting_commit": "796a40af3f83d7f1000e8a292aa04176121eb5e2",
-  "current_head": "796a40af3f83d7f1000e8a292aa04176121eb5e2",
+  "current_head": "c993a56e70ca127d51e9a0f1861705cac1d54169",
   "input_sha256": {
     "Phase_G_STOP_Physics_Consistent_Future_Conditions/outputs/frozen_timexer/P0_Original_Ridge_fold_1_predictions.npz": "e42baa4c4075e24e66db7a12a4ccdf39726b4dae6acf9a76df2366d2d89c5ef2",
     "Phase_G_STOP_Physics_Consistent_Future_Conditions/outputs/frozen_timexer/P0_Original_Ridge_fold_2_predictions.npz": "b39237f8dbd1909114784dba22ed5f1dca4a8eaa138aa43caf1c73c234fffe69",
@@ -15,11 +15,15 @@
     "Phase_H0_Existing_Artifact_Comparability_Audit/outputs/historical_vs_matched_metrics.csv": "00e4326236fb184081c67a575ec05d52ec26485a6e290192aca74db5b54497b6",
     "Phase_H0_Existing_Artifact_Comparability_Audit/outputs/source_manifest.json": "76fb960956e6895c33bebb8482abb6afcc649adf2ba19ebfed9a1dee20d23273",
     "Phase_G_STOP_Physics_Consistent_Future_Conditions/configs/phase_g_stop_frozen_config.yaml": "cb4f27d89238e97f653c6613ee0a1adc8ef8e2cdaaf2ff369ef156c7e7dee855",
-    "Phase_OPR_TimeXer/outputs/error_attribution/p1_p2_error_difference.csv": "e233bf930e69595fc9b57518ba9169d625304d0b8f5290ba1b20950d645dc905"
+    "Phase_OPR_TimeXer/outputs/error_attribution/p1_p2_error_difference.csv": "e233bf930e69595fc9b57518ba9169d625304d0b8f5290ba1b20950d645dc905",
+    "Phase_RD_TimeXer_Route_Decision_Audit/outputs/paired_condition_error_attribution.csv": "d8b9ffbc3714e1b043c0168f621ebe997f88821079d8d2fb56dd08e09c5bbdba",
+    "Phase_RD_TimeXer_Route_Decision_Audit/outputs/fold1_12h_unique_target_contribution.csv": "b7f874e54ce59f8393b132500b99187d26086044248997a6d8254642533546f6"
   },
   "new_test_accessed": false,
   "model_training_performed": false,
   "random_process": "none; seed_not_applicable",
+  "rd_fold1_12h_connection": "PARTIAL_RD_FOLD1_12H_CONNECTION_CONFIRMED",
+  "all_npz_target_end_ages_strictly_below_development_boundary": true,
   "status": "SIGN_REVERSAL_CONFIRMED",
   "macro_query_delta_mse_mV2": -111.40464882363243,
   "macro_target_equal_delta_mse_mV2": 322.72459411705694

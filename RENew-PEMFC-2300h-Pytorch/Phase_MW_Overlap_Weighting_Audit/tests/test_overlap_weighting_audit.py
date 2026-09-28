@@ -30,9 +30,14 @@ class OverlapAuditTests(unittest.TestCase):
         altered = base.copy(); altered.loc[0, "y_true_V"] += .01
         with self.assertRaises(RuntimeError): m.validate_truth_anchor(base, altered)
 
-    def test_hash_mismatch_uses_production_guard(self):
-        p = next(iter(m.expected_paths()))
-        with self.assertRaises(RuntimeError): m.validate_input_hashes({p: "bad"})
+    def test_full_input_set_single_hash_tamper_uses_production_guard(self):
+        observed = dict(m.expected_paths())
+        p = next(iter(observed))
+        observed[p] = "0" * 64
+        with self.assertRaises(RuntimeError): m.validate_input_hashes(observed)
+
+    def test_npz_target_end_boundary_uses_production_guard(self):
+        with self.assertRaises(RuntimeError): m.validate_target_end_ages(np.array([m.BOUNDARY]), "injected NPZ")
 
     def test_delta_mse_decomposition_identity(self):
         d = pd.DataFrame({"fold": ["fold_1"] * 3, "origin_row": [1, 2, 3], "horizon_step": [1, 2, 1], "target_row": [2, 2, 4], "squared_error_mV2_p0": [1., 4., 9.], "squared_error_mV2_p2": [4., 1., 16.]})

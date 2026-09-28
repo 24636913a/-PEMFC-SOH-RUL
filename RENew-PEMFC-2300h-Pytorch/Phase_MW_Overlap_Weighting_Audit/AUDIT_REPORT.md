@@ -4,12 +4,16 @@
 
 `forecast_query_weighted_RMSE` remains the formal historical metric. `target_time_equal_weight_RMSE` is a mandatory robustness sensitivity only; neither result selects a model. All P2−P0 attribution is in additive MSE space, not summed RMSE differences. No target times are treated as independent samples.
 
-## Three-fold macro metrics
+## Evaluation aggregation labels
 
-| fold | evaluation_unit | unit_count | p0_mse_mV2 | p2_mse_mV2 | p2_minus_p0_delta_mse_mV2 | p0_RMSE_mV | p2_RMSE_mV | p2_minus_p0_delta_RMSE_mV |
-|---|---|---|---|---|---|---|---|---|
-| three_fold_macro | forecast_query_weighted_RMSE | 22656 | 608.368620 | 496.963972 | -111.404649 | 24.538245 | 21.346566 | -3.191680 |
-| three_fold_macro | target_time_equal_weight_RMSE | 1082 | 919.383311 | 1242.107905 | 322.724594 | 30.262011 | 34.997329 | 4.735318 |
+The existing `per_fold_metrics.csv` values are unchanged. `unweighted_mean_of_fold_metrics` is the three-fold **equal-fold** summary: its MSE columns are means of fold MSEs and its RMSE columns are means of fold RMSEs. It is not the same quantity as a single pooled RMSE. `pooled_all_prediction_points` is the separate all-query combined statistic. The target-time pooled row pools `(fold, target_row)` MSE units only and is not a prediction ensemble.
+
+| aggregation | evaluation_unit | population | unit_count | p0_mean_fold_mse_mV2 | p2_mean_fold_mse_mV2 | p2_minus_p0_mean_fold_delta_mse_mV2 | p0_mean_fold_RMSE_mV | p2_mean_fold_RMSE_mV | p2_minus_p0_mean_fold_delta_RMSE_mV |
+|---|---|---|---|---|---|---|---|---|---|
+| unweighted_mean_of_fold_metrics | forecast_query_weighted_RMSE | all (origin_row, horizon_step) queries | 22656 | 608.368620 | 496.963972 | -111.404649 | 24.538245 | 21.346566 | -3.191680 |
+| unweighted_mean_of_fold_metrics | target_time_equal_weight_RMSE | all within-fold target-time MSE units | 1082 | 919.383311 | 1242.107905 | 322.724594 | 30.262011 | 34.997329 | 4.735318 |
+| pooled_all_prediction_points | forecast_query_weighted_RMSE | all (origin_row, horizon_step) queries pooled | 22656 | 649.631130 | 599.060583 | -50.570547 | 25.487862 | 24.475714 | -1.012148 |
+| pooled_all_fold_target_times | target_time_equal_weight_RMSE | all (fold, target_row) MSE units pooled | 1082 | 963.085534 | 1278.094664 | 315.009130 | 31.033619 | 35.750450 | 4.716830 |
 
 ## Per-fold metrics
 
@@ -99,6 +103,17 @@
 | fold_3 | 23 | 184 | 8 | -0.031950 | -0.027842 |
 | fold_3 | 24 | 8976 | 374 | -41.842361 | -34.943620 |
 
+## Fold 1 multiplicity-one target-key diagnostic
+
+The two rows below are retained in the official population; no target was removed or used to recompute a formal score. MW uses `P2−P0` squared-error differences. The RD columns are only an exact-key cross-reference and use the distinct `P2−P1` direction.
+
+| fold | origin_row | horizon_step | target_row | target_age_h | target_time | multiplicity | p0_error_mV | p2_error_mV_from_MW | p2_minus_p0_squared_error_mV2 | p1_error_mV_from_RD | p2_error_mV_from_RD | p2_minus_p1_squared_error_mV2_from_RD | rd_target_age_abs_difference_h | rd_p2_error_abs_difference_mV | rd_12h_event_prediction_point_count | rd_12h_event_net_p2_minus_p1_D_mV2 | rd_key_connection | mw_difference_definition | rd_difference_definition |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| fold_1 | 1675 | 1 | 1676 | 1002.750000 | 2025-04-11 12:54:02.005000 | 1 | 3.687441 | 3.532052 | -1.121832 | 3.677947 | 3.531990 | -1.052342 | 0.000000 | 0.000062 | nan | nan | EXACT_RD_POINT_FOUND_BUT_NOT_12H_QUERY | P2_minus_P0_squared_error_mV2 | P2_minus_P1_squared_error_mV2 |
+| fold_1 | 1907 | 24 | 1931 | 1130.250000 | 2025-04-18 04:04:13.005000 | 1 | -203.474104 | -561.632007 | 274028.800529 | -203.492177 | -561.631998 | 274021.435124 | 0.000000 | 0.000009 | 1.000000 | 274021.435124 | SAME_RD_FOLD1_12H_EVENT | P2_minus_P0_squared_error_mV2 | P2_minus_P1_squared_error_mV2 |
+
+RD connection status: **PARTIAL_RD_FOLD1_12H_CONNECTION_CONFIRMED**. One multiplicity-one key is the exact RD Fold 1 / 12 h event. The other has an exact RD pointwise key but is not a 12 h query; it is not claimed to be the same RD/TTD 12 h rare-event case.
+
 ## Main horizon contributions
 
 | fold | horizon_step | query_point_count | target_time_count | forecast_query_weighted_delta_MSE_contribution_mV2 | target_time_equal_weight_delta_MSE_contribution_mV2 | abs_q | abs_t |
@@ -129,5 +144,17 @@
 | fold_3 | fold_3_segment_1 | 1872 | 101 | -61.906870 | -52.378222 | 61.906870 | 52.378222 |
 | fold_3 | fold_3_segment_2 | 6048 | 275 | 55.491943 | 44.986280 | 55.491943 | 44.986280 |
 | fold_3 | fold_3_segment_0 | 2112 | 111 | -1.062126 | 157.165449 | 1.062126 | 157.165449 |
+
+## Fold 3 remains a separate attribution
+
+Fold 3 is not merged with the Fold 1 rare-event discussion. Under the formal forecast-query metric, its P2−P0 DeltaMSE is 145.449032 mV² and its P2−P0 DeltaRMSE is 2.496255 mV: P2 remains worse on that independent fold.
+
+## RESEARCH_HANDOFF
+
+1. **Fold 1 reversal driver:** Yes, at the evaluation-unit level. The two `multiplicity=1` targets contribute 1070.420620 mV² to Fold 1's target-time-equal DeltaMSE of 688.012606 mV², while their forecast-query contribution is only 49.003519 mV² against Fold 1's formal -166.632042 mV². The endpoint key is the dominant row within that two-target stratum; this does not alter the retained formal score.
+2. **RD/TTD correspondence:** One multiplicity-one key is the exact RD Fold 1 / 12 h event. The other has an exact RD pointwise key but is not a 12 h query; it is not claimed to be the same RD/TTD 12 h rare-event case. RD's `P2−P1` quantity is explicitly distinct from MW's `P2−P0`; no equality or mechanism is inferred by comparing their magnitudes.
+3. **Fold 3:** Yes. It independently retains formal P2 degradation stated above, and is not used to explain Fold 1.
+4. **End of cache diagnosis:** Yes for this frozen-cache route. The evidence is sufficient to stop further post-hoc cache diagnostics of P2 instability, but not sufficient to identify a unique causal failure mechanism.
+5. **Required next decision level:** This audit makes no model choice. Any next research decision must choose among retaining TimeXer as a paper architecture, defining one preregistered falsifiable TimeXer mechanism change, or redirecting to strong baselines plus physics-constraint/uncertainty work; none is started here.
 
 The historical H0 audit tagged `historical_full_artifact` only because coverage was 100%; this phase verifies the same condition for P0/P2. H0's old script used a strict historical-HEAD reproduction guard. This new script intentionally instead requires the specified start commit to be an ancestor of the current HEAD, while pinning every historical input SHA256.

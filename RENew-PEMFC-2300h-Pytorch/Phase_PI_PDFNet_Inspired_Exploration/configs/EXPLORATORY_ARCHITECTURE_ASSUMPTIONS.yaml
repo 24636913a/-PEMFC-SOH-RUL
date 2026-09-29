@@ -1,0 +1,150 @@
+phase: Phase_PI_PDFNet_Inspired_Exploration
+model_name: PDFNetInspired_Exploratory
+claim: PDFNet-inspired exploratory architecture
+status: FROZEN_BEFORE_ANY_DEVELOPMENT_PERFORMANCE
+base_commit: 1b59d924bb12468f37debe4ab550c044d60466f7
+paper:
+  path: 参考论文/PDFNet.pdf
+  sha256: b9f457f546031d259ec81ce9c4fae687405f0732998dff93bf0f64caee252867
+  title: "From a multi-period perspective: A periodic dynamics forecasting network for multivariate time series forecasting"
+  doi: 10.1016/j.patcog.2025.111760
+  authors: [Gang Tan, Yueyang Wang, Ziyi Xiao, Dandan He, Guodong Sa]
+  paper_verified:
+    - equation_3_embedding_domain_rfft_variable_mean_amplitude
+    - equation_4_top_k_frequency_and_period_D_over_f
+    - equations_5_6_zero_padding_and_outer_inner_segmentation
+    - equation_7_shared_Conv1D_intra_period_feature
+    - equation_8_QKV_variable_axis_attention_shape_interpretation
+    - equation_9_GPRU_with_variable_specific_bias_N_by_D
+    - equations_10_11_gated_dynamic_graph
+    - equations_12_13_mixhop_dynamic_graph_convolution
+    - equation_14_period_level_GatedDG
+    - equation_15_shared_MLP_forecast
+data_contract:
+  source_phase: Phase_BS_Final_Backbone_Screening
+  protocol_sha256: fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788
+  development_only: true
+  pandas_read_csv_nrows: 3007
+  expected_prefix_rows: 3007
+  expected_development_rows_after_filter: 3005
+  development_end_h_exclusive: 1819.997738
+  input_shape: [batch, 48, 14]
+  output_shape: [batch, 24, 14]
+  resolution_h: 0.5
+  lookback_steps: 48
+  forecast_steps: 24
+  voltage_feature_index: 0
+  output_contract: standardized_future_absolute_voltage
+  optimization_target: standardized_DeltaV_voltage_channel_only
+  future_covariates: prohibited
+  future_13_variable_supervision: prohibited
+  test_access: prohibited
+  external_decomposition: prohibited
+  new_features_or_feature_selection: prohibited
+architecture:
+  embedding_dimension: 128
+  resource_fallback:
+    permitted_before_any_development_score_only: true
+    microbatch_order: [64, 32, 16, 8]
+    effective_batch_size: 64
+    single_allowed_dimension_fallback: 128_to_64
+  top_k_distinct_periods: 2
+  period_mapping: clip(floor(D/f + 0.5), 2, D)
+  period_selection:
+    rfft_axis: embedding_dimension
+    per_sample: true
+    variable_amplitude_aggregation: mean_over_14_variables
+    exclude_DC: true
+    duplicate_integer_period_rule: continue_frequency_rank_until_two_unique
+  padding:
+    direction: right_zero_padding
+    validity_mask: required
+    padded_values_excluded_from_valid_means: true
+  inner_period_bridge:
+    classification: EXPLORATORY_BRIDGE
+    q_mapping: clip(floor(p_outer/f_inner + 0.5), 2, p_outer)
+  conv1d:
+    classification: PAPER_EQUATION_INTERPRETATION
+    shared_across_variables_periods_and_branches: true
+    in_channels: 1
+    out_channels: 1
+    kernel_size: 3
+    stride: 1
+    padding: 1
+    activation: none
+    normalization: none
+  variable_attention:
+    classification: PAPER_EQUATION_INTERPRETATION
+    equation: 8
+    qkv_bias: false
+    axis: variables
+    equation_text_conflict: true
+  patch_to_gpru:
+    classification: CORE_EXPLORATORY_BRIDGE
+    rule: patch_conv_right_pad_to_D_then_WV_then_E_times_patch_value
+  gpru:
+    classification: PAPER_VERIFIED
+    equation: 9
+    shared_across_patch_and_period_level: true
+    shared_across_period_branches: true
+    bias_shape: [14, D]
+    bias_evidence: "PDFNet.pdf p.5 Eq. (9): b_r,b_u,b_o in R^(N x D)"
+    hidden_initialization: H_j0_equals_E_times_V
+    cross_outer_segment_hidden_transfer: prohibited
+  base_graph:
+    classification: CORE_EXPLORATORY_BRIDGE
+    rule: A_equals_current_sample_current_branch_attention_E
+  gated_dynamic_graph:
+    classification: PAPER_VERIFIED_with_base_graph_bridge
+    equations: [10, 11]
+    directed_dense_graph: true
+    retain_diagonal: true
+    topk_or_threshold_or_static_node_embedding: prohibited
+  mixhop:
+    classification: EXPLORATORY_BRIDGE
+    equations: [12, 13]
+    hop_depth: 2
+    beta: 0.5
+    A_and_AT_paths: equal_mean_CORE_EXPLORATORY_BRIDGE
+    W_ell_shared_between_paths: true
+  intra_to_inter:
+    classification: CORE_EXPLORATORY_BRIDGE
+    patch_aggregate: valid_patch_mean
+    period_aggregate: valid_outer_period_mean
+  within_branch:
+    classification: ENGINEERING_DEFAULT
+    layers: [Linear_D_D, GELU, Linear_D_D, LayerNorm_D]
+  multi_period_fusion:
+    classification: CORE_EXPLORATORY_BRIDGE
+    rule: softmax_of_two_trainable_scalar_logits_initialized_zero
+  forecast_head:
+    classification: ENGINEERING_DEFAULT
+    shared_across_variables: true
+    layers: [Linear_D_D, GELU, Linear_D_24]
+    dropout: 0.0
+  forbidden_additions: [custom_LSTM_head, Transformer_head, FiLM, RevIN, BatchNorm, PINN, auxiliary_future_loss, external_decomposition, dynamic_MLP_fusion]
+training:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  scheduler: none
+  effective_batch_size: 64
+  max_epochs: 300
+  patience: 30
+  gradient_clip_norm: 1.0
+  num_workers: 0
+  seeds: [42, 2024, 3407]
+  first_stage_seed: 42
+  inner_stopper: chronological_last_15pct_with_target_isolation
+  selection_metric: inner_DeltaV_RMSE_mV
+  outer_refit: same_seed_reinitialize_full_outer_train
+  scaler_fit_scope: train_only
+controls:
+  TimesNet_predictions: Phase_BS_Final_Backbone_Screening/outputs/predictions/bs_timesnet_fold_{1,2,3}_seed{42,2024,3407}.npz
+  TimesNet_metrics: Phase_BS_Final_Backbone_Screening/outputs/formal_vs_target_time_weighting.csv
+  baseline_formal_seed42_RMSE_mV: 14.206557830029526
+stopping:
+  no_architecture_or_training_change_after_development_score: true
+  no_second_inspired_architecture: true
+  formal_backbone_change: prohibited
+  no_automatic_high_fidelity_revalidation: true

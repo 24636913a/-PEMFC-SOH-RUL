@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "dimension": 128,
+  "selected_microbatch": 64,
+  "attempts": [
+    {
+      "dimension": 128,
+      "microbatch": 64,
+      "accumulation_steps": 1,
+      "effective_batch_size": 64,
+      "single_training_step_time_s": 1.8764098999963608,
+      "allocated_bytes": 21682176,
+      "reserved_bytes": 2090860544,
+      "peak_gpu_memory_bytes": 1918481408,
+      "parameter_count": 278174,
+      "device": "cuda",
+      "device_name": "NVIDIA GeForce RTX 3070 Laptop GPU",
+      "development_accessed": false,
+      "test_accessed": false,
+      "status": "PASS"
+    }
+  ],
+  "stage0_structure_pass": true,
+  "assumptions_sha256": "fe4d7869eef1a0b5bf90e5f15067c23ce84461c8b826048e98dd670f894819c5"
+}

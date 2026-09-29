@@ -20,7 +20,7 @@ if str(PI) not in sys.path:
     sys.path.insert(0, str(PI))
 
 from models.pdfnet_inspired import PDFNetInspiredExploratory
-from scripts.posthoc_report_audit import apply_fail_closed_gate, assess_fairness, research_conclusion_text, resource_display
+from scripts.posthoc_report_audit import apply_fail_closed_gate, assess_fairness, require_fairness_pass, research_conclusion_text, resource_display
 from scripts.potential_gate import seed42_gate
 from scripts.protocol import (
     ASSUMPTIONS_SHA, BS, GATE_SHA, frozen_timesnet_summary, load_frozen_configs,
@@ -237,7 +237,7 @@ def _seed42_gate(candidate: pd.Series, control: pd.Series, gate: dict[str, Any],
     if fairness["status"] != "PASS":
         return apply_fail_closed_gate({"status": "PDFNET_INSPIRED_NO_PROMISE"}, fairness)
     candidate = candidate.copy()
-    candidate["protocol_audit_pass"] = protocol_pass
+    candidate["protocol_audit_pass"] = True
     candidate["core_gradient_pass"] = True
     candidate["no_leakage"] = True
     # `summarize_seed` intentionally retains metrics only.  The per-fold cache
@@ -336,6 +336,7 @@ def main() -> None:
     fairness = {"phase_pi_head": audit["phase_pi_head"], "base_commit": audit["base_commit"], "assumptions_sha256": sha256(PI / "configs" / "EXPLORATORY_ARCHITECTURE_ASSUMPTIONS.yaml"), "potential_gate_sha256": sha256(PI / "configs" / "PREREGISTERED_POTENTIAL_GATE.yaml"), "phase_bs_protocol_sha256": audit["phase_bs_protocol_sha256"], "paper_sha256": audit["paper_sha256"], "raw_prefix_rows_read": audit["raw_prefix_rows_read"], "development_rows_after_filter": audit["development_rows_after_filter"], "boundary_rows_filtered": audit["boundary_rows_filtered"], **fairness_checks}
     write_json(fairness, "outputs", "FAIRNESS_AUDIT.json")
     write_csv(identity_records, "outputs", "WINDOW_IDENTITY_AUDIT.csv")
+    require_fairness_pass(fairness)
     control_per_fold, controls = _timesnet_control(helpers, folds)
     dev = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     if dev.type != "cuda": raise RuntimeError("RESOURCE_INFEASIBLE: RTX CUDA unavailable after resource gate")

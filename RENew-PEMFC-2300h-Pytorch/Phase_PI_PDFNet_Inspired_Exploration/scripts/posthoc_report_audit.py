@@ -21,6 +21,12 @@ IDENTITY_BOOLEAN_FIELDS = (
     "horizon_match",
 )
 
+EXPECTED_FOLDS = ("fold_1", "fold_2", "fold_3")
+EXPECTED_SEEDS = (42, 2024, 3407)
+EXPECTED_FOLD_SEED_PAIRS = {
+    (fold, seed) for fold in EXPECTED_FOLDS for seed in EXPECTED_SEEDS
+}
+
 EXPECTED_FOLD_POPULATIONS = {
     "fold_1": {
         "outer_train_origins": 1048,
@@ -60,6 +66,50 @@ def _all_true(records: pd.DataFrame, columns: Iterable[str]) -> bool:
     ))
 
 
+def _normalise_seed(value: Any) -> Any:
+    """Keep malformed values visible as unexpected rather than coercing them away."""
+    try:
+        numeric = float(value)
+    except (TypeError, ValueError):
+        return str(value)
+    return int(numeric) if numeric.is_integer() else str(value)
+
+
+def _pair_labels(pairs: Iterable[tuple[Any, Any]]) -> list[str]:
+    return [f"{fold}/{seed}" for fold, seed in sorted(pairs, key=lambda pair: (str(pair[0]), str(pair[1])))]
+
+
+def assess_fold_seed_grid(identity_records: pd.DataFrame) -> dict[str, Any]:
+    """Require the exact frozen 3-fold × 3-seed identity-table grid."""
+    actual_count = int(len(identity_records))
+    if not {"fold", "seed"}.issubset(identity_records.columns):
+        return {
+            "expected_fold_seed_grid_pass": False,
+            "expected_fold_seed_record_count": len(EXPECTED_FOLD_SEED_PAIRS),
+            "actual_fold_seed_record_count": actual_count,
+            "duplicate_fold_seed_pairs": [],
+            "missing_fold_seed_pairs": _pair_labels(EXPECTED_FOLD_SEED_PAIRS),
+            "unexpected_fold_seed_pairs": [],
+        }
+    pairs = [(str(row.fold), _normalise_seed(row.seed)) for row in identity_records[["fold", "seed"]].itertuples(index=False)]
+    actual_pairs = set(pairs)
+    duplicate_pairs = {pair for pair in pairs if pairs.count(pair) > 1}
+    missing_pairs = EXPECTED_FOLD_SEED_PAIRS - actual_pairs
+    unexpected_pairs = actual_pairs - EXPECTED_FOLD_SEED_PAIRS
+    return {
+        "expected_fold_seed_grid_pass": bool(
+            actual_count == len(EXPECTED_FOLD_SEED_PAIRS)
+            and not duplicate_pairs
+            and actual_pairs == EXPECTED_FOLD_SEED_PAIRS
+        ),
+        "expected_fold_seed_record_count": len(EXPECTED_FOLD_SEED_PAIRS),
+        "actual_fold_seed_record_count": actual_count,
+        "duplicate_fold_seed_pairs": _pair_labels(duplicate_pairs),
+        "missing_fold_seed_pairs": _pair_labels(missing_pairs),
+        "unexpected_fold_seed_pairs": _pair_labels(unexpected_pairs),
+    }
+
+
 def assess_fairness(
     identity_records: pd.DataFrame,
     *,
@@ -75,10 +125,12 @@ def assess_fairness(
     Test access and the other information-firewall claims are separate checks;
     they must never be folded into a cache-identity ``all()`` reduction.
     """
+    grid = assess_fold_seed_grid(identity_records)
     expected_population_pass = True
     population_failures: list[str] = []
+    fold_column = identity_records["fold"] if "fold" in identity_records.columns else pd.Series("", index=identity_records.index)
     for fold, expected in EXPECTED_FOLD_POPULATIONS.items():
-        subset = identity_records.loc[identity_records.get("fold", pd.Series(dtype=str)).eq(fold)]
+        subset = identity_records.loc[fold_column.eq(fold)]
         if subset.empty:
             expected_population_pass = False
             population_failures.append(f"{fold}: missing")
@@ -104,6 +156,7 @@ def assess_fairness(
         temporal_segment_rule_pass
         and no_inner_target_overlap_pass
         and expected_population_pass
+        and grid["expected_fold_seed_grid_pass"]
     )
     test_firewall_pass = bool(
         not bool(test_accessed)
@@ -132,12 +185,20 @@ def assess_fairness(
         "inner_target_overlap_count": int(identity_records["inner_target_overlap_count"].max()) if "inner_target_overlap_count" in identity_records.columns and not identity_records.empty else None,
         "expected_fold_population_pass": expected_population_pass,
         "population_failures": population_failures,
+        **grid,
         "post_boundary_rows_entered_pipeline": int(post_boundary_rows_entered_pipeline),
         "test_accessed": bool(test_accessed),
         "future_covariates": bool(future_covariates),
         "future_13_variable_supervision": bool(future_13_variable_supervision),
         "external_decomposition": bool(external_decomposition),
     }
+
+
+def require_fairness_pass(fairness: dict[str, Any]) -> None:
+    """Stop the training runner immediately after a failed common audit."""
+    if fairness.get("status") != "PASS":
+        failed = ", ".join(fairness.get("failed_checks", [])) or "unspecified fairness check"
+        raise RuntimeError(f"PROTOCOL_FAIL: fairness audit failed before candidate training: {failed}")
 
 
 def apply_fail_closed_gate(seed42_result: dict[str, Any], fairness: dict[str, Any]) -> dict[str, Any]:

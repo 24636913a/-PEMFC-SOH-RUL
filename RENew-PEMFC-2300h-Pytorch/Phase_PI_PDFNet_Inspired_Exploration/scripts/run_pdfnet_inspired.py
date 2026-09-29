@@ -20,6 +20,7 @@ if str(PI) not in sys.path:
     sys.path.insert(0, str(PI))
 
 from models.pdfnet_inspired import PDFNetInspiredExploratory
+from scripts.posthoc_report_audit import apply_fail_closed_gate, assess_fairness, research_conclusion_text, resource_display
 from scripts.potential_gate import seed42_gate
 from scripts.protocol import (
     ASSUMPTIONS_SHA, BS, GATE_SHA, frozen_timesnet_summary, load_frozen_configs,
@@ -232,7 +233,9 @@ def _timesnet_control(helpers: Any, folds: list[tuple[str, Any, Any]]) -> tuple[
     return per_fold, summary
 
 
-def _seed42_gate(candidate: pd.Series, control: pd.Series, gate: dict[str, Any], protocol_pass: bool) -> dict[str, Any]:
+def _seed42_gate(candidate: pd.Series, control: pd.Series, gate: dict[str, Any], fairness: dict[str, Any]) -> dict[str, Any]:
+    if fairness["status"] != "PASS":
+        return apply_fail_closed_gate({"status": "PDFNET_INSPIRED_NO_PROMISE"}, fairness)
     candidate = candidate.copy()
     candidate["protocol_audit_pass"] = protocol_pass
     candidate["core_gradient_pass"] = True
@@ -241,7 +244,9 @@ def _seed42_gate(candidate: pd.Series, control: pd.Series, gate: dict[str, Any],
     # audit has already fail-closed on this invariant before summarization.
     candidate["all_legal_origins_retained"] = True
     candidate["no_future_13_variable_supervision"] = True
-    return seed42_gate(candidate, control, gate)
+    result = seed42_gate(candidate, control, gate)
+    result["common_audit_pass"] = True
+    return result
 
 
 def _multiseed_gate(candidate: pd.DataFrame, control: pd.DataFrame, gate: dict[str, Any], seed42_result: dict[str, Any]) -> dict[str, Any]:
@@ -265,13 +270,14 @@ def _multiseed_gate(candidate: pd.DataFrame, control: pd.DataFrame, gate: dict[s
 
 
 def _report(status: str, seed42: dict[str, Any], multiseed: dict[str, Any], summary: pd.DataFrame, controls: pd.DataFrame, resource: dict[str, Any]) -> None:
-    candidate = summary.loc[summary.model.eq(MODEL)].copy()
     control = controls.copy()
     def markdown_table(frame: pd.DataFrame) -> str:
         shown = frame.copy()
-        for column in shown.columns:
-            if pd.api.types.is_float_dtype(shown[column]):
-                shown[column] = shown[column].map(lambda value: f"{value:.4f}")
+        for index, row in shown.iterrows():
+            for column in shown.columns:
+                shown.loc[index, column] = resource_display(
+                    row[column], model=str(row.get("model", "")), column=column,
+                )
         return "| " + " | ".join(shown.columns) + " |\n| " + " | ".join(["---"] * len(shown.columns)) + " |\n" + "\n".join("| " + " | ".join(map(str, row)) + " |" for row in shown.itertuples(index=False, name=None))
     report = f"""# Phase PI final research report
 
@@ -292,7 +298,7 @@ Stage 0 synthetic structure audit passed. The RTX 3070 Laptop GPU resource gate 
 Seed-42 status: `{seed42['status']}`.  
 Multi-seed status: `{multiseed['status']}`.
 
-The result supports only this statement: the preregistered PDFNet-inspired exploratory architecture {'showed sufficient potential for a future source/clarification decision' if multiseed['status'] != 'PDFNET_INSPIRED_NO_PROMISE' else 'did not show sufficient potential under the frozen RealHyFC protocol'}.
+The result supports only this statement: the preregistered PDFNet-inspired exploratory architecture {research_conclusion_text(status)}.
 
 No component-level causal claim is made for rFFT, GPRU, dynamic graph, or fusion. No PDFNet official-performance claim is made.
 
@@ -319,7 +325,15 @@ def main() -> None:
     assumptions, gate = load_frozen_configs()
     if int(assumptions["architecture"]["embedding_dimension"]) != int(resource["dimension"]): raise RuntimeError("Resource audit dimension differs from frozen architecture")
     cfg, helpers, _frame, folds, identity_records, audit = recover_windows_and_timesnet()
-    fairness = {"status": "PASS", "phase_pi_head": audit["phase_pi_head"], "base_commit": audit["base_commit"], "assumptions_sha256": sha256(PI / "configs" / "EXPLORATORY_ARCHITECTURE_ASSUMPTIONS.yaml"), "potential_gate_sha256": sha256(PI / "configs" / "PREREGISTERED_POTENTIAL_GATE.yaml"), "phase_bs_protocol_sha256": audit["phase_bs_protocol_sha256"], "paper_sha256": audit["paper_sha256"], "raw_prefix_rows_read": audit["raw_prefix_rows_read"], "development_rows_after_filter": audit["development_rows_after_filter"], "boundary_rows_filtered": audit["boundary_rows_filtered"], "post_boundary_rows_entered_pipeline": audit["post_boundary_rows_entered_pipeline"], "timesnet_cache_identity_pass": bool(identity_records.drop(columns=["fold", "seed"]).select_dtypes(include=[bool]).all().all()), "test_accessed": False, "future_covariates": False, "future_13_variable_supervision": False, "external_decomposition": False}
+    fairness_checks = assess_fairness(
+        identity_records,
+        post_boundary_rows_entered_pipeline=audit["post_boundary_rows_entered_pipeline"],
+        test_accessed=False,
+        future_covariates=False,
+        future_13_variable_supervision=False,
+        external_decomposition=False,
+    )
+    fairness = {"phase_pi_head": audit["phase_pi_head"], "base_commit": audit["base_commit"], "assumptions_sha256": sha256(PI / "configs" / "EXPLORATORY_ARCHITECTURE_ASSUMPTIONS.yaml"), "potential_gate_sha256": sha256(PI / "configs" / "PREREGISTERED_POTENTIAL_GATE.yaml"), "phase_bs_protocol_sha256": audit["phase_bs_protocol_sha256"], "paper_sha256": audit["paper_sha256"], "raw_prefix_rows_read": audit["raw_prefix_rows_read"], "development_rows_after_filter": audit["development_rows_after_filter"], "boundary_rows_filtered": audit["boundary_rows_filtered"], **fairness_checks}
     write_json(fairness, "outputs", "FAIRNESS_AUDIT.json")
     write_csv(identity_records, "outputs", "WINDOW_IDENTITY_AUDIT.csv")
     control_per_fold, controls = _timesnet_control(helpers, folds)
@@ -329,7 +343,7 @@ def main() -> None:
     results = [_run_one(helpers, fold, train, validation, 42, dimension, batch_size, dev) for fold, train, validation in folds]
     candidate_per_fold = pd.DataFrame(results).sort_values("fold").reset_index(drop=True)
     candidate_summary = helpers.summarize_seed(candidate_per_fold)
-    seed42 = _seed42_gate(candidate_summary.iloc[0], controls.loc[controls.seed.eq(42)].iloc[0], gate, bool(fairness["status"] == "PASS"))
+    seed42 = _seed42_gate(candidate_summary.iloc[0], controls.loc[controls.seed.eq(42)].iloc[0], gate, fairness)
     write_csv(candidate_per_fold, "outputs", "SEED42_RESULTS.csv")
     write_json(seed42, "outputs", "SEED42_GATE.json")
     if args.seed42_only:

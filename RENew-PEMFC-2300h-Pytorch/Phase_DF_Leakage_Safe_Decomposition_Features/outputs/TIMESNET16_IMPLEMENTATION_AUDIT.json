@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "synthetic_input_shape": [
+    4,
+    48,
+    16
+  ],
+  "delta_output_shape": [
+    4,
+    24
+  ],
+  "output_finite": true,
+  "loss_finite": true,
+  "input_gradient_finite": true,
+  "parameter_gradients_finite": true,
+  "parameter_count": 149304,
+  "device": "cuda",
+  "peak_gpu_memory_MiB": 19.4755859375,
+  "development_accessed": false,
+  "test_accessed": false
+}

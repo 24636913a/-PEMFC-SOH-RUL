@@ -1,0 +1,6 @@
+﻿method,multiseed_performed,robust_raw_gain,formal_95pct,paired_seeds_at_least_2,no_seed_over_110pct,fold3_103pct,p99_105pct,target_equal_105pct,fold3_target_equal_110pct,endpoint_110pct,decomposition_specific_advance,formal_mean_strictly_better_than_simpletrend,fold3_105pct_of_simpletrend,p99_105pct_of_simpletrend,endpoint_105pct_of_simpletrend
+SimpleTrend_TimesNet,True,False,False,True,True,True,False,True,True,True,,,,,
+VMDFeature_TimesNet,True,False,False,True,True,True,True,True,True,True,,,,,
+EMDFeature_TimesNet,True,True,True,True,True,True,True,True,True,True,,,,,
+VMDFeature_TimesNet,,,,True,,,,,,,False,True,True,True,False
+EMDFeature_TimesNet,,,,True,,,,,,,True,True,True,True,True

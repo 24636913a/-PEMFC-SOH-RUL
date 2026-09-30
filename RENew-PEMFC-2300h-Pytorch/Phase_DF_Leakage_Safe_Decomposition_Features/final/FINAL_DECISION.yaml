@@ -1,0 +1,32 @@
+status: EMD_SPECIFIC_ADVANCE
+base_head: 050879ce448804094c87424b05ba4f29409899bc
+df_protocol_sha256: 607ef091e22098103ebbd02cc13a1055e55b2b3b11914f5cb184a0829ebeb283
+phase_bs_protocol_sha256: fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788
+stage0_methods:
+  SimpleTrend:
+    stage0_status: PASS
+    reason: strict_per_position_causal_control
+  VMD:
+    stage0_status: PASS
+    reason: resource_endpoint_or_full_outer_train_mode_gate
+    resolved_alpha: 2000
+    full_outer_train_mode_separation_pass_rate: 1.0
+  EMD:
+    stage0_status: PASS
+    reason: preregistered_imf_endpoint_resource_gates
+    valid_imf_rate: 1.0
+seed42_extra_seed_authorized_methods:
+- EMDFeature_TimesNet
+- SimpleTrend_TimesNet
+- VMDFeature_TimesNet
+multiseed_methods:
+- EMDFeature_TimesNet
+- SimpleTrend_TimesNet
+- VMDFeature_TimesNet
+formal_backbone: TIMESNET_FREEZE
+backbone_search: CLOSED
+test_accessed: false
+soh_claim: false
+rul_claim: false
+extended_context_tested: false
+model_training_performed: true

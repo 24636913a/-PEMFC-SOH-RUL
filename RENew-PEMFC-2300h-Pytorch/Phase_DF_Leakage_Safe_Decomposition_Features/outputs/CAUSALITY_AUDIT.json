@@ -1,0 +1,70 @@
+{
+  "base_head": "050879ce448804094c87424b05ba4f29409899bc",
+  "df_protocol_sha256": "607ef091e22098103ebbd02cc13a1055e55b2b3b11914f5cb184a0829ebeb283",
+  "phase_bs_protocol_sha256": "fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788",
+  "source_metadata": {
+    "VMD": {
+      "distribution": "vmdpy",
+      "version": "0.2",
+      "license": "UNKNOWN",
+      "home_page": "http://github.com/vrcarva/vmdpy",
+      "source_commit": "NOT_AVAILABLE_IN_PYPI_WHEEL",
+      "source_file": "D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\vmdpy\\vmdpy.py",
+      "source_sha256": "4d1b294bb7e699e2c0b481a358254aa042f51394996048196b5f9f3953fda9ee",
+      "import_path": "vmdpy.vmdpy.VMD",
+      "signature": "(f, alpha, tau, K, DC, init, tol)"
+    },
+    "EMD": {
+      "distribution": "EMD-signal",
+      "version": "1.10.0",
+      "license": "Apache-2.0",
+      "home_page": "NOT_DECLARED",
+      "source_commit": "NOT_AVAILABLE_IN_PYPI_WHEEL",
+      "source_file": "D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\PyEMD\\EMD.py",
+      "source_sha256": "4d2e761d8fc7934780e1a5bb6a48d8bb6f5249a3e27211f765d6e07f23a9eade",
+      "import_path": "PyEMD.EMD.EMD",
+      "signature": "(spline_kind: str = 'cubic', nbsym: int = 2, **kwargs)"
+    },
+    "api_snapshot": {
+      "vmd_import_path": "vmdpy.VMD",
+      "vmd_signature": "(f, alpha, tau, K, DC, init, tol)",
+      "emd_import_path": "PyEMD.EMD",
+      "emd_signature": "(spline_kind: str = 'cubic', nbsym: int = 2, **kwargs)",
+      "emd_class_module": "PyEMD.EMD"
+    }
+  },
+  "synthetic": {
+    "status": "PASS",
+    "synthetic_input_shape": [
+      48
+    ],
+    "feature_shape": [
+      48,
+      2
+    ],
+    "finite": true,
+    "deterministic": {
+      "SimpleTrend": true,
+      "VMD": true,
+      "EMD": true
+    },
+    "vmd_mode_ordering": true,
+    "emd_imf_residue_reconstruction": true,
+    "simpletrend_hand_calculation": true,
+    "slope_units": "V_per_h",
+    "first_slope_zero": true,
+    "future_perturbation_invariance": {
+      "SimpleTrend": true,
+      "VMD": true,
+      "EMD": true
+    },
+    "prefix_invariance": {
+      "SimpleTrend": true,
+      "VMD": true,
+      "EMD": true
+    },
+    "production_function_accepts_target": false,
+    "production_function_accepts_full_series": false
+  },
+  "test_accessed": false
+}

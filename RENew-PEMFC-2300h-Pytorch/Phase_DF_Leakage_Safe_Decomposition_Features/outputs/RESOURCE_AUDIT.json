@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "method_rows": [
+    {
+      "method": "VMD",
+      "fold": "fold_1",
+      "sample_origins": 100,
+      "runtime_s": 0.3581374000059441,
+      "seconds_per_origin": 0.0035813740000594,
+      "projected_complete_origin_cache_hours": 0.001982625795547,
+      "resource_stop": false
+    },
+    {
+      "method": "VMD",
+      "fold": "fold_2",
+      "sample_origins": 100,
+      "runtime_s": 0.3549945999984629,
+      "seconds_per_origin": 0.0035499459999846,
+      "projected_complete_origin_cache_hours": 0.001982625795547,
+      "resource_stop": false
+    },
+    {
+      "method": "VMD",
+      "fold": "fold_3",
+      "sample_origins": 100,
+      "runtime_s": 0.3617855999909807,
+      "seconds_per_origin": 0.0036178559999098,
+      "projected_complete_origin_cache_hours": 0.001982625795547,
+      "resource_stop": false
+    },
+    {
+      "method": "EMD",
+      "fold": "fold_1",
+      "sample_origins": 100,
+      "runtime_s": 0.7625377000076696,
+      "seconds_per_origin": 0.0076253770000766,
+      "projected_complete_origin_cache_hours": 0.004211830204473,
+      "resource_stop": false
+    },
+    {
+      "method": "EMD",
+      "fold": "fold_2",
+      "sample_origins": 100,
+      "runtime_s": 0.7478700999927241,
+      "seconds_per_origin": 0.0074787009999272,
+      "projected_complete_origin_cache_hours": 0.004211830204473,
+      "resource_stop": false
+    },
+    {
+      "method": "EMD",
+      "fold": "fold_3",
+      "sample_origins": 100,
+      "runtime_s": 0.7731146000151057,
+      "seconds_per_origin": 0.007731146000151,
+      "projected_complete_origin_cache_hours": 0.004211830204473,
+      "resource_stop": false
+    }
+  ],
+  "registered_method_limit_hours": 2.0,
+  "test_accessed": false,
+  "derived_from": "outputs/RESOURCE_AUDIT.csv"
+}

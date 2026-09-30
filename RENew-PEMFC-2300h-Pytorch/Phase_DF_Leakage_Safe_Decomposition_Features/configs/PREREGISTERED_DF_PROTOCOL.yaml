@@ -1,0 +1,201 @@
+phase: Phase_DF_Leakage_Safe_Decomposition_Features
+status: FROZEN_BEFORE_REALHYFC_STAGE0
+base_commit: 050879ce448804094c87424b05ba4f29409899bc
+study_type: frozen_backbone_feature_representation_study
+inherited_research_status:
+  pdfnet_inspired: PDFNET_INSPIRED_NO_PROMISE
+  formal_backbone: TIMESNET_FREEZE
+  backbone_search: CLOSED
+
+phase_bs_protocol:
+  relative_path: Phase_BS_Final_Backbone_Screening/configs/PREREGISTERED_PROTOCOL.yaml
+  sha256: fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788
+  timesnet_official_commit: 4e938a1767106324dd753b2a44832bf870a0252e
+
+data_firewall:
+  source_relative_path: Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  pandas_read_csv_nrows: 3007
+  expected_raw_prefix_rows: 3007
+  development_end_h_exclusive: 1819.997738
+  expected_development_rows_after_filter: 3005
+  required_audit:
+    raw_prefix_rows_read: 3007
+    development_rows_after_filter: 3005
+    boundary_rows_filtered: 2
+    post_boundary_rows_entered_pipeline: 0
+  test_access: prohibited
+
+task:
+  resolution_h: 0.5
+  context_steps: 48
+  horizon_steps: 24
+  raw_f2_dimension: 14
+  augmented_dimension: 16
+  target: cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t
+  information_set: SAME_INFORMATION_SET_48_STEP_ORIGIN_CONDITIONED_CAUSAL_BLOCK
+  raw_f2_feature_order:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+
+expected_windows:
+  fold_1: {outer_train_origins: 1048, outer_validation_origins: 233, inner_fit_origins: 867, inner_stopper_origins: 158, validation_max_target_end_age_h: 1130.5}
+  fold_2: {outer_train_origins: 1281, outer_validation_origins: 245, inner_fit_origins: 1065, inner_stopper_origins: 193, validation_max_target_end_age_h: 1383.0}
+  fold_3: {outer_train_origins: 1526, outer_validation_origins: 466, inner_fit_origins: 1281, inner_stopper_origins: 229, validation_max_target_end_age_h: 1819.5}
+
+methods:
+  RawF2_TimesNet:
+    input_dimension: 14
+    role: frozen_cached_control
+  SimpleTrend_TimesNet:
+    input_dimension: 16
+    feature_names: [causal_mean8_V, causal_slope8_V_per_h]
+  VMDFeature_TimesNet:
+    input_dimension: 16
+    feature_names: [vmd_low_V, vmd_low_slope8_V_per_h]
+  EMDFeature_TimesNet:
+    input_dimension: 16
+    feature_names: [emd_remainder2_V, emd_remainder2_slope8_V_per_h]
+
+decomposition_normalization:
+  dtype: float64
+  mean: per_origin_48_step_history_mean
+  scale: max_per_origin_48_step_history_std_or_0.001_V
+  cache_dtype: float32
+
+simple_trend:
+  causal_width_steps: 8
+  slope_time_interval_h: 0.5
+  first_position_slope_V_per_h: 0.0
+
+vmd:
+  implementation: vmdpy.VMD
+  K: 2
+  tau: 0
+  DC: 0
+  init: 1
+  tol: 1.0e-7
+  alpha_candidates: [500, 1000, 2000]
+  calibration_population: fold_1_outer_train_histories_only
+  selection:
+    finite_feature_rate: 1.0
+    minimum_frequency_separation_cycles_per_sample: 0.020833333333333332
+    minimum_separation_pass_rate: 0.90
+    endpoint_stability_gate: required
+    tie_break_order: [higher_mode_separation_pass_rate, lower_endpoint_revision_p95, lower_alpha]
+
+emd:
+  implementation: PyEMD.EMD_from_EMD_signal
+  spline_kind: cubic
+  nbsym: 2
+  extrema_detection: simple
+  FIXE: 0
+  FIXE_H: 0
+  MAX_ITERATION: 1000
+  std_thr: 0.2
+  svar_thr: 0.001
+  energy_ratio_thr: 0.2
+  total_power_thr: 0.005
+  range_thr: 0.001
+  dtype: float64
+  remove_at_most_first_imfs: 2
+  minimum_valid_imf_rate: 0.90
+
+endpoint_stability_gate:
+  required_age_step_h: 0.5
+  raw_step_change_reference: p95
+  decomposition_revision_stop_if_both:
+    greater_than_raw_step_change_p95_factor: 2.0
+    greater_than_mV: 5.0
+  label: PREREGISTERED_ENGINEERING_STABILITY_GATE
+
+resource_gate:
+  per_method_per_fold_uniform_train_origins: 100
+  maximum_estimated_complete_cache_hours: 2.0
+
+timesnet:
+  official_commit: 4e938a1767106324dd753b2a44832bf870a0252e
+  d_model: 32
+  d_ff: 64
+  e_layers: 1
+  top_k: 2
+  num_kernels: 3
+  dropout: 0.1
+  seq_len: 48
+  pred_len: 24
+  allowed_change: input_embedding_projection_for_enc_in_16_only
+
+training:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 64
+  max_epochs: 300
+  patience: 30
+  gradient_clip_norm: 1.0
+  scheduler: none
+  num_workers: 0
+  loss: standardized_DeltaV_MSE
+  first_seed: 42
+  additional_seeds: [2024, 3407]
+
+seed42_raw_gain_gate:
+  formal_RMSE_at_most_raw_fraction: 0.95
+  fold3_RMSE_at_most_raw_fraction: 1.03
+  p99_at_most_raw_fraction: 1.05
+  target_time_equal_at_most_raw_fraction: 1.05
+  fold3_target_time_equal_at_most_raw_fraction: 1.10
+  endpoint_at_most_raw_fraction: 1.10
+
+seed42_decomposition_specific_gate:
+  formal_RMSE_strictly_less_than_simpletrend: true
+  fold3_RMSE_at_most_simpletrend_fraction: 1.05
+  p99_at_most_simpletrend_fraction: 1.05
+  endpoint_at_most_simpletrend_fraction: 1.05
+
+multiseed_raw_gain_gate:
+  formal_RMSE_at_most_raw_fraction: 0.95
+  minimum_paired_seeds_better_than_raw: 2
+  maximum_any_seed_raw_fraction: 1.10
+  fold3_RMSE_at_most_raw_fraction: 1.03
+  p99_at_most_raw_fraction: 1.05
+  target_time_equal_at_most_raw_fraction: 1.05
+  fold3_target_time_equal_at_most_raw_fraction: 1.10
+  endpoint_at_most_raw_fraction: 1.10
+
+multiseed_decomposition_specific_gate:
+  formal_RMSE_strictly_less_than_simpletrend_mean: true
+  minimum_paired_seeds_better_than_simpletrend: 2
+  fold3_RMSE_at_most_simpletrend_fraction: 1.05
+  p99_at_most_simpletrend_fraction: 1.05
+  endpoint_at_most_simpletrend_fraction: 1.05
+
+forbidden:
+  - Test_access
+  - global_full_series_decomposition
+  - VMD_parameter_search_beyond_registered_alpha_candidates
+  - EEMD
+  - CEEMDAN
+  - ICEEMDAN
+  - wavelet
+  - SWT
+  - SSA
+  - STL
+  - HP_filter
+  - new_SG
+  - feature_selection
+  - backbone_search
+  - context_extension
+  - SOH_claim
+  - RUL_claim

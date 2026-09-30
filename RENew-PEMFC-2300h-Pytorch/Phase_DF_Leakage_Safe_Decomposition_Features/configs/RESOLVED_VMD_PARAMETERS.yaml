@@ -1,0 +1,17 @@
+method: VMD
+status: FROZEN_AFTER_FOLD1_OUTER_TRAIN_UNSUPERVISED_CALIBRATION
+alpha: 2000
+K: 2
+tau: 0
+DC: 0
+init: 1
+tol: 1.0e-07
+selection_rule:
+  finite_feature_rate: 1.0
+  minimum_frequency_separation_cycles_per_sample: 0.020833333333333332
+  minimum_separation_pass_rate: 0.9
+  endpoint_stability_gate: required
+  tie_break_order:
+  - higher_mode_separation_pass_rate
+  - lower_endpoint_revision_p95
+  - lower_alpha

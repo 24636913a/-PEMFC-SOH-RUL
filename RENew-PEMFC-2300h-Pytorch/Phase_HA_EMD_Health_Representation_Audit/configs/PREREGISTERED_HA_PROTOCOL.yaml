@@ -1,0 +1,219 @@
+{
+  "phase": "Phase_HA_EMD_Health_Representation_Audit",
+  "protocol_status": "PRE-REGISTERED_BEFORE_PHASE_HA_ENDPOINT_ANALYSIS",
+  "base_commit": "6efb15bb03af1a8999ccf0b4ff2f75b13f9cd10a",
+  "inherited_status": {
+    "EMD_SPECIFIC_ADVANCE": true,
+    "TIMESNET_FREEZE": true,
+    "BACKBONE_SEARCH_CLOSED": true
+  },
+  "frozen_source_hashes": {
+    "Phase_DF_Leakage_Safe_Decomposition_Features/configs/PREREGISTERED_DF_PROTOCOL.yaml": "607ef091e22098103ebbd02cc13a1055e55b2b3b11914f5cb184a0829ebeb283",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/configs/PREREGISTERED_DF_PROTOCOL.sha256": "6978ad51c42f368828c98490dee0b472cb5eb60cdd1aad7d08717d2ae037bb0f",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/configs/RESOLVED_VMD_PARAMETERS.yaml": "e025604b086e7b9331be65a016017a349e61354bb53818d6b5b91f03b4ab2050",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/scripts/decomposition_features.py": "4aa00171253b3f1a7b698f8f984d0bf7558c58f3585694d11bd531f35e36adc2",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/scripts/run_stage0.py": "4618150469a4dfdf9e64296f8ef6de5745c43b2e870992980aa6dd5bba7d6695",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/scripts/run_stage1.py": "aebb4aefca41ca59f5f87892ebfa9cb9cd98b854b3b01ee2b6fe5efed9aed245",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/docs/CAUSALITY_CONTRACT.md": "49c1141f01bc5ed54dae3d0d5b46c5af6dd2b006adc37db63696f4e925b0306d",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/docs/FEATURE_DICTIONARY.md": "3dddea02af6345ce197e69bec973c55642aa963d5db241f25550776b1c3f39a1",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/outputs/CACHE_PROVENANCE_MANIFEST.csv": "d88779777d9c5b8fe72a98906012d8a396e5fe82debe4639b594aec9598dbda5",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/outputs/ENDPOINT_AUDIT.csv": "1295ae58bc79290a979ad19c016f530df88e53544fca450f07a141267aabb80c",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/outputs/STAGE0_SUMMARY.json": "c64482cdb15cdfdb2a2b67816cf98400342bad8f31f413bcbc7ec9148e401f65",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/outputs/LOCAL_ARTIFACT_MANIFEST_AUDIT.json": "ba568a17e0b7726176e6854b81f7c7644f6cbbecc7670a40260b64be5fde5dfd",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/final/FINAL_DECISION.yaml": "e332df07ea0536fe5f62f0e74b89cccd1da9098ab259637c06445b488f8dbd21",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/final/FINAL_RESEARCH_REPORT.md": "ed3a85e5ebed035941b2487052a93f9a0b3e11f413f3c3edda921c11620fbb6a",
+    "Phase_BS_Final_Backbone_Screening/configs/PREREGISTERED_PROTOCOL.yaml": "fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788",
+    "Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv": "fbee6b28682766081c9cda08059e2eaabcd6bb25365ce0bc5eb7c5714fda0f38"
+  },
+  "development_firewall": {
+    "source_relative_path": "Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv",
+    "pandas_read_csv_nrows": 3007,
+    "raw_prefix_rows_read": 3007,
+    "development_rows_after_filter": 3005,
+    "boundary_rows_filtered": 2,
+    "post_boundary_rows_entered_pipeline": 0,
+    "test_accessed": false,
+    "future_target_loaded": false,
+    "loaded_columns": [
+      "bin_end_ophrs2_h",
+      "last_datetime",
+      "temporal_segment_id",
+      "cell_voltage_mean",
+      "cell_voltage_std",
+      "cell_voltage_range",
+      "actual_current_A_mean",
+      "actual_current_A_std",
+      "actual_current_A_peak_to_peak",
+      "actual_current_density_A_cm2_mean",
+      "actual_current_density_A_cm2_std",
+      "actual_current_density_A_cm2_peak_to_peak",
+      "load_transition_count",
+      "operation_point_transitions",
+      "zero_current_fraction",
+      "startup_flag",
+      "shutdown_flag",
+      "gap_before_flag",
+      "gap_before_duration_s",
+      "gap_after_flag"
+    ],
+    "development_end_h_exclusive": 1819.997738
+  },
+  "origin_universe": {
+    "expected_unique_common_cached_origins": 1992,
+    "context_steps": 48,
+    "resolution_h": 0.5,
+    "cache_methods": [
+      "SimpleTrend",
+      "EMD"
+    ]
+  },
+  "endpoint_definitions": {
+    "Raw_endpoint_V": "cell_voltage_mean at origin",
+    "SimpleTrend_endpoint_V": "frozen SimpleTrend features[47,0]",
+    "SimpleTrend_endpoint_slope_V_per_h": "frozen SimpleTrend features[47,1]",
+    "EMD_endpoint_V": "frozen first-two-IMF-removed EMD remainder features[47,0]; standardized remainder, dimensionless despite inherited field suffix",
+    "EMD_endpoint_slope_V_per_h": "frozen EMD features[47,1]; standardized-remainder slope per h"
+  },
+  "chronological_thirds": {
+    "method": "equal-length intervals over unique legal origin-age range",
+    "labels": [
+      "EARLY",
+      "MIDDLE",
+      "LATE"
+    ]
+  },
+  "statistical_blocks": {
+    "primary_h": 24,
+    "primary_origins": 48,
+    "sensitivity_h": 48,
+    "sensitivity_origins": 96,
+    "must_not_cross": [
+      "temporal_segment",
+      "chronological_third",
+      "nonconsecutive_origin"
+    ]
+  },
+  "current_density_strata": {
+    "source": "Fold1 outer-train cached positive-current origins only",
+    "fold1_outer_train_age_h": [
+      72.78869,
+      946.393214
+    ],
+    "positive_origin_count": 1048,
+    "P33_A_cm2": 0.6179521560983,
+    "P67_A_cm2": 0.8338987409252444,
+    "labels": [
+      "LOW",
+      "MID",
+      "HIGH"
+    ],
+    "zero_current_label": "ZERO_CURRENT"
+  },
+  "common_support_rule": {
+    "minimum_early_blocks": 5,
+    "minimum_late_blocks": 5,
+    "overlap_variables": [
+      "current_density_std",
+      "load_transition_count",
+      "zero_current_fraction"
+    ],
+    "overlap": "max(min_early,min_late) <= min(max_early,max_late) for each variable"
+  },
+  "matched_age_contrast": {
+    "definition": "median(late blocks) - median(early blocks)",
+    "representations": [
+      "Raw",
+      "SimpleTrend",
+      "EMD"
+    ],
+    "bootstrap_iterations": 2000,
+    "bootstrap_seed": 2024,
+    "joint_resample": true
+  },
+  "condition_adjusted_association": {
+    "formula": "endpoint ~ age_per_1000h + current_density + current_density_squared + current_density_std + load_transition_count + zero_current_fraction",
+    "uncertainty": "time-aware non-overlapping block bootstrap, 2000 iterations, seed 2024",
+    "severe_condition_number_threshold": 1000,
+    "interpretation": "condition-adjusted association; not a causal degradation effect"
+  },
+  "online_roughness": {
+    "adjacency": "same temporal segment, origin-row increment 1, age increment 0.5 h",
+    "metrics": [
+      "median_abs_delta",
+      "p75_abs_delta",
+      "p90_abs_delta",
+      "p95_abs_delta",
+      "p99_abs_delta",
+      "std_delta",
+      "total_variation_per_h",
+      "second_difference_std"
+    ]
+  },
+  "revision": {
+    "lags": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "physical_timestamp_index": "later feature index 47-k",
+    "require_all_intermediate_steps": true
+  },
+  "ASR": {
+    "label": "PROJECT_ANALYSIS_DESIGN",
+    "formula": "abs(D_X) / median(abs(adjacent online delta_X))",
+    "required_common_support_positive_strata": 2
+  },
+  "RDR": {
+    "label": "PROJECT_ANALYSIS_DESIGN",
+    "formula": "P95(abs(U_1)) / abs(D_EMD)",
+    "undefined_when": [
+      "no common support",
+      "zero/nonidentifiable denominator"
+    ],
+    "HI_gate": "RDR95 < 1 in stable positive-current subset"
+  },
+  "recovery": {
+    "metadata_only": [
+      "startup_flag",
+      "shutdown_flag",
+      "gap_before_flag",
+      "gap_after_flag",
+      "gap_before_duration_s"
+    ],
+    "not_a_hard_HI_gate": true,
+    "prohibit_voltage_selected_events": true
+  },
+  "final_decision_logic": {
+    "allowed_statuses": [
+      "FORECAST_ONLY_REPRESENTATION",
+      "DEGRADATION_SENSITIVE_BUT_UNSTABLE",
+      "HI_CANDIDATE_PASS"
+    ],
+    "health_evidence_requires": [
+      "at_least_two_common_support_positive_strata",
+      "negative_D_EMD",
+      "24h_CI_excludes_zero",
+      "negative_48h_sensitivity",
+      "negative_condition_adjusted_age_association_without_24h_48h_direction_reversal"
+    ],
+    "HI_extra_requires": [
+      "EMD_ASR_greater_than_Raw_and_SimpleTrend_in_at_least_two_strata",
+      "relative_conditional_residual_sd_not_worse_than_Raw_and_SimpleTrend",
+      "RDR95_less_than_one",
+      "no_strong_chronological_or_fold_direction_reversal",
+      "24h_48h_consistency"
+    ]
+  },
+  "forbidden": [
+    "Test_access",
+    "forecasting_RMSE_revalidation",
+    "EMD_parameter_change",
+    "VMD",
+    "neural_model_training",
+    "backbone_search",
+    "SOH_construction",
+    "EOL_definition",
+    "RUL_model"
+  ]
+}

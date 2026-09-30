@@ -20,7 +20,7 @@ class PhaseHAProductionGuardTests(unittest.TestCase):
     def setUpClass(cls):
         cls.protocol = load_protocol()
         cls.development, cls.firewall = read_development_prefix()
-        cls.manifest = read_manifest()
+        cls.manifest, cls.local_artifact_manifest = read_manifest()
         cls.simple, cls.emd, cls.joined = cache_universe(cls.manifest)
 
     def test_exact_prefix_boundary_and_no_targets(self):

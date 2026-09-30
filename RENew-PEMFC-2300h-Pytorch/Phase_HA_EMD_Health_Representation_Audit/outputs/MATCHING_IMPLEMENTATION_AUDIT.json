@@ -1,0 +1,13 @@
+{
+  "scales": {
+    "current_density": 0.022754764189166776,
+    "current_density_std": 0.029251294238146708,
+    "load_transition_count": 0.75
+  },
+  "constant_variables": [
+    "zero_current_fraction"
+  ],
+  "caliper_per_variable": 0.5,
+  "euclidean_caliper": 1.0,
+  "matching": "deterministic 1:1 greedy without replacement; outcomes excluded"
+}

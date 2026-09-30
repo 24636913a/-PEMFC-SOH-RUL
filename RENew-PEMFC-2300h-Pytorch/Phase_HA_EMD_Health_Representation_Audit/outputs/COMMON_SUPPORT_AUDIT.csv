@@ -1,0 +1,7 @@
+﻿stratum,block_hours,early_raw_blocks,late_raw_blocks,early_joint_support_blocks,late_joint_support_blocks,matched_pair_count,unmatched_early,unmatched_late,MATCHED_COMMON_SUPPORT_PASS,joint_bounds,status
+LOW,24,0,0,0,0,0,0,0,False,{},INSUFFICIENT_MATCHED_COMMON_SUPPORT
+MID,24,13,13,9,10,1,8,9,False,"{'current_density': (0.6764052101733333, 0.739825035055), 'current_density_std': (0.27420916001561446, 0.3384400083064656), 'load_transition_count': (18.5, 21.0), 'zero_current_fraction': (0.0, 0.0)}",INSUFFICIENT_MATCHED_COMMON_SUPPORT
+HIGH,24,0,0,0,0,0,0,0,False,{},INSUFFICIENT_MATCHED_COMMON_SUPPORT
+LOW,48,0,0,0,0,0,0,0,False,{},INSUFFICIENT_MATCHED_COMMON_SUPPORT
+MID,48,5,4,1,3,1,0,2,False,"{'current_density': (0.6958987685055555, 0.7187326004150001), 'current_density_std': (0.29040725508124954, 0.2975048804402701), 'load_transition_count': (19.5, 20.0), 'zero_current_fraction': (0.0, 0.0)}",INSUFFICIENT_MATCHED_COMMON_SUPPORT
+HIGH,48,0,0,0,0,0,0,0,False,{},INSUFFICIENT_MATCHED_COMMON_SUPPORT

@@ -1,0 +1,11 @@
+{
+  "future_perturbation_invariance": true,
+  "prefix_invariance": true,
+  "exact_48_point_history": true,
+  "same_segment_history": true,
+  "endpoint_index": "features[47,0/1]",
+  "lag_revision_index": "later_features[47-k,0]",
+  "EMD_endpoint_unit": "V",
+  "EMD_slope_unit": "V/h",
+  "no_future_target_read": true
+}

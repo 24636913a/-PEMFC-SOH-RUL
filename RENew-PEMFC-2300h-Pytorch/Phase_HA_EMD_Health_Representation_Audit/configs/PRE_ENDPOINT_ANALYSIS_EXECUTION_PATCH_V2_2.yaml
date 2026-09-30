@@ -1,0 +1,55 @@
+{
+  "phase": "Phase_HA_EMD_Health_Representation_Audit",
+  "patch": "PRE_ENDPOINT_ANALYSIS_EXECUTION_PATCH_V2_2",
+  "status": "FROZEN_AFTER_V2_1_RUNTIME_BLOCKER_BEFORE_FIRST_PERSISTED_ENDPOINT_STATISTICS",
+  "predecessor_amendment_v2_sha256": "ac11d433ae333b197f93316bbbc672fabb65cddde62cae14cc61587f37e098cb",
+  "predecessor_execution_patch_v2_1_sha256": "8e77b2874111bcab4650525c616df04ee41611d8a5f3d18697bfdd89061ad531",
+  "predecessor_execution_code_hashes": {
+    "scripts/amendment_v2_core.py": "f7be6c48c458b5cac15ef5f4fa62ceef30ce12250c4ee59ea632547cf082f1a5",
+    "scripts/freeze_amendment_v2.py": "4f2e0d273eb48a9d2a85122efc8bda6bc605d05dbebce12f51fc7b828f646ae9",
+    "scripts/freeze_execution_patch_v2_1.py": "8f8d772f6b387447de42cd7b68efddd89cb8995dcab100e4d1c13c3d8807f320",
+    "scripts/freeze_ha_protocol.py": "893e0dc57f82544b228dbc192dd33fb95d37e33e506c1d396d17e0a5d01b591e",
+    "scripts/generate_figures_and_report.py": "f3afb3da7dca14447b593a80bbdaa294c6523d69d2c882ae3b2982a042d6fed4",
+    "scripts/generate_v2_artifacts.py": "00eae9712da7d8dc0df302779b2cf5290736ed512540369ed33dbbfdc526fac7",
+    "scripts/ha_common.py": "8524caddd50923beee84a1d9a4be3637c796f18f2bfc68eb717a7916c91fa1e0",
+    "scripts/run_health_audit.py": "78c9c95f745c3535afbc62e2e839a7e263840a8de39b5e87bd93cdea7a253aa1",
+    "scripts/run_health_audit_v2.py": "159107f06b725ea3b71de3b736eae898b3cb7bd0b164151e637641c8e45c08a2"
+  },
+  "v2_1_runtime_blocker_record": {
+    "path": "TECHNICAL_BLOCKER_V2_1.md",
+    "sha256": "2e0a221749bfe64d4e490a0d5e8a188f29236b0455d6b670de9c8c636096f789",
+    "observed_error": "AttributeError: empty matched-contrast table has no stratum column in RDR audit"
+  },
+  "sole_implementation_change": {
+    "location": "rdr_audit empty-contrast handling",
+    "behavior": "an empty contrast table from no matched-support stratum produces RDR_NOT_IDENTIFIABLE_IN_STABLE_SUBSET for each stratum instead of dereferencing a missing dataframe column"
+  },
+  "statistical_protocol_changes": [],
+  "explicitly_unchanged": [
+    "N1 prefix-only access",
+    "Test prohibition",
+    "cache dual-hash semantics",
+    "EMD parameters and units",
+    "matching variables/scales/calipers",
+    "24h/48h blocks",
+    "2000 iterations",
+    "seed 2024",
+    "moving-block bootstrap",
+    "RDR definition and 30-event rule",
+    "recovery definition",
+    "Phase DF frozen results",
+    "model-training prohibition"
+  ],
+  "execution_code_hashes": {
+    "scripts/amendment_v2_core.py": "23d26ea156554f35a832b3ecafc30abdd8c1b8bd2a8a7495b84b551aa5b21846",
+    "scripts/freeze_amendment_v2.py": "4f2e0d273eb48a9d2a85122efc8bda6bc605d05dbebce12f51fc7b828f646ae9",
+    "scripts/freeze_execution_patch_v2_1.py": "8f8d772f6b387447de42cd7b68efddd89cb8995dcab100e4d1c13c3d8807f320",
+    "scripts/freeze_execution_patch_v2_2.py": "5aacf27f8479823549c301ba25f666805304a7788115304bc1bd36795b2279e7",
+    "scripts/freeze_ha_protocol.py": "893e0dc57f82544b228dbc192dd33fb95d37e33e506c1d396d17e0a5d01b591e",
+    "scripts/generate_figures_and_report.py": "f3afb3da7dca14447b593a80bbdaa294c6523d69d2c882ae3b2982a042d6fed4",
+    "scripts/generate_v2_artifacts.py": "00eae9712da7d8dc0df302779b2cf5290736ed512540369ed33dbbfdc526fac7",
+    "scripts/ha_common.py": "8524caddd50923beee84a1d9a4be3637c796f18f2bfc68eb717a7916c91fa1e0",
+    "scripts/run_health_audit.py": "78c9c95f745c3535afbc62e2e839a7e263840a8de39b5e87bd93cdea7a253aa1",
+    "scripts/run_health_audit_v2.py": "640f80ef8e3726e77c5f16c6af42b15abc8adac9afdbae9844f915ed65895e26"
+  }
+}

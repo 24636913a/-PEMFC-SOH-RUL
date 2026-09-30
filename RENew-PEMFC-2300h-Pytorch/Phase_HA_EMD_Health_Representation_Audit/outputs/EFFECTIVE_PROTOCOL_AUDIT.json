@@ -1,0 +1,36 @@
+{
+  "v1_protocol_sha256": "4ec5863046d72ac4598cb1633620ade478bc0deb8a675c3b0d9be3ffa0ae087b",
+  "v2_amendment_sha256": "ac11d433ae333b197f93316bbbc672fabb65cddde62cae14cc61587f37e098cb",
+  "v2_1_execution_patch_sha256": "8e77b2874111bcab4650525c616df04ee41611d8a5f3d18697bfdd89061ad531",
+  "v2_2_execution_patch_sha256": "78e35ad53d585b1b201e2b602c0778828bb5ba00d54256ddbff0f48430ccadf9",
+  "effective_protocol": "v1 + amendment_v2 + execution_patch_v2_1 + execution_patch_v2_2",
+  "effective_overridden_fields": [
+    "cache_integrity_semantics",
+    "N1_allowed_prefix_fingerprint",
+    "EMD_units",
+    "joint_common_support_and_matching",
+    "time_dependent_uncertainty",
+    "stable_current_RDR",
+    "recovery_amplitude_audit",
+    "associated_regression_tests"
+  ],
+  "execution_patch_scope": [
+    {
+      "location": "final_decision ASR gate evaluation",
+      "behavior": "an empty ASR table from no matched-support stratum is interpreted as a failed stability gate instead of dereferencing a missing dataframe column"
+    },
+    {
+      "location": "rdr_audit empty-contrast handling",
+      "behavior": "an empty contrast table from no matched-support stratum produces RDR_NOT_IDENTIFIABLE_IN_STABLE_SUBSET for each stratum instead of dereferencing a missing dataframe column"
+    }
+  ],
+  "statistical_protocol_changes": [],
+  "phase_df_base_commit": "6efb15bb03af1a8999ccf0b4ff2f75b13f9cd10a",
+  "v1_blocker_commit": "edb22bc5490b362e4b1936e388a75e270a5def2b",
+  "current_head": "edb22bc5490b362e4b1936e388a75e270a5def2b",
+  "branch": "main",
+  "v1_protocol_preserved": true,
+  "technical_blocker_history_preserved": true,
+  "v2_original_code_hashes_preserved_as_predecessor": true,
+  "v2_1_code_hashes_preserved_as_predecessor": true
+}

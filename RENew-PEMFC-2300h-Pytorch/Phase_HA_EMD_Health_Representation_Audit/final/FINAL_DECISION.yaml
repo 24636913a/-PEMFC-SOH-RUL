@@ -1,0 +1,19 @@
+{
+  "phase": "Phase_HA_EMD_Health_Representation_Audit",
+  "final_status": "FORECAST_ONLY_REPRESENTATION",
+  "reason": "HEALTH_EVIDENCE_NOT_IDENTIFIABLE",
+  "phase_df_base_commit": "6efb15bb03af1a8999ccf0b4ff2f75b13f9cd10a",
+  "v1_blocker_commit": "edb22bc5490b362e4b1936e388a75e270a5def2b",
+  "v1_protocol_preserved": true,
+  "technical_blocker_history_preserved": true,
+  "test_accessed": false,
+  "full_N1_file_hash_performed": false,
+  "neural_model_trained": false,
+  "emd_parameters_changed": false,
+  "Phase_DF_result_changed": false,
+  "SOH_constructed": false,
+  "RUL_model": false,
+  "branch": "main",
+  "head_at_generation": "edb22bc5490b362e4b1936e388a75e270a5def2b",
+  "automatic_next_phase": "PROHIBITED; await technical review"
+}

@@ -1,0 +1,164 @@
+{
+  "phase": "Phase_HA_EMD_Health_Representation_Audit",
+  "amendment": "PRE_ENDPOINT_ANALYSIS_TECHNICAL_AMENDMENT_V2",
+  "status": "FROZEN_AFTER_TECHNICAL_BLOCKER_BEFORE_FIRST_ENDPOINT_STATISTICS",
+  "phase_df_base_commit": "6efb15bb03af1a8999ccf0b4ff2f75b13f9cd10a",
+  "v1_blocker_commit": "edb22bc5490b362e4b1936e388a75e270a5def2b",
+  "v1_protocol_sha256": "4ec5863046d72ac4598cb1633620ade478bc0deb8a675c3b0d9be3ffa0ae087b",
+  "inherited_phase_df_status": {
+    "EMD_SPECIFIC_ADVANCE": true,
+    "TIMESNET_FREEZE": true,
+    "BACKBONE_SEARCH_CLOSED": true
+  },
+  "frozen_phase_df_source_hashes": {
+    "Phase_DF_Leakage_Safe_Decomposition_Features/configs/PREREGISTERED_DF_PROTOCOL.yaml": "607ef091e22098103ebbd02cc13a1055e55b2b3b11914f5cb184a0829ebeb283",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/configs/PREREGISTERED_DF_PROTOCOL.sha256": "6978ad51c42f368828c98490dee0b472cb5eb60cdd1aad7d08717d2ae037bb0f",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/configs/RESOLVED_VMD_PARAMETERS.yaml": "e025604b086e7b9331be65a016017a349e61354bb53818d6b5b91f03b4ab2050",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/scripts/decomposition_features.py": "4aa00171253b3f1a7b698f8f984d0bf7558c58f3585694d11bd531f35e36adc2",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/scripts/run_stage0.py": "4618150469a4dfdf9e64296f8ef6de5745c43b2e870992980aa6dd5bba7d6695",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/scripts/run_stage1.py": "aebb4aefca41ca59f5f87892ebfa9cb9cd98b854b3b01ee2b6fe5efed9aed245",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/docs/CAUSALITY_CONTRACT.md": "49c1141f01bc5ed54dae3d0d5b46c5af6dd2b006adc37db63696f4e925b0306d",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/docs/FEATURE_DICTIONARY.md": "3dddea02af6345ce197e69bec973c55642aa963d5db241f25550776b1c3f39a1",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/outputs/CACHE_PROVENANCE_MANIFEST.csv": "d88779777d9c5b8fe72a98906012d8a396e5fe82debe4639b594aec9598dbda5",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/outputs/ENDPOINT_AUDIT.csv": "1295ae58bc79290a979ad19c016f530df88e53544fca450f07a141267aabb80c",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/outputs/STAGE0_SUMMARY.json": "c64482cdb15cdfdb2a2b67816cf98400342bad8f31f413bcbc7ec9148e401f65",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/outputs/LOCAL_ARTIFACT_MANIFEST_AUDIT.json": "ba568a17e0b7726176e6854b81f7c7644f6cbbecc7670a40260b64be5fde5dfd",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/outputs/LOCAL_ARTIFACT_MANIFEST.csv": "c41a333122e69a73c5d566fefa72aa2ef71e0e748b0f87a9438d1a3d9a60ff66",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/final/FINAL_DECISION.yaml": "e332df07ea0536fe5f62f0e74b89cccd1da9098ab259637c06445b488f8dbd21",
+    "Phase_DF_Leakage_Safe_Decomposition_Features/final/FINAL_RESEARCH_REPORT.md": "ed3a85e5ebed035941b2487052a93f9a0b3e11f413f3c3edda921c11620fbb6a",
+    "Phase_BS_Final_Backbone_Screening/configs/PREREGISTERED_PROTOCOL.yaml": "fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788"
+  },
+  "execution_code_hashes": {
+    "scripts/amendment_v2_core.py": "f7be6c48c458b5cac15ef5f4fa62ceef30ce12250c4ee59ea632547cf082f1a5",
+    "scripts/freeze_amendment_v2.py": "4f2e0d273eb48a9d2a85122efc8bda6bc605d05dbebce12f51fc7b828f646ae9",
+    "scripts/freeze_ha_protocol.py": "893e0dc57f82544b228dbc192dd33fb95d37e33e506c1d396d17e0a5d01b591e",
+    "scripts/generate_figures_and_report.py": "f3afb3da7dca14447b593a80bbdaa294c6523d69d2c882ae3b2982a042d6fed4",
+    "scripts/generate_v2_artifacts.py": "00eae9712da7d8dc0df302779b2cf5290736ed512540369ed33dbbfdc526fac7",
+    "scripts/ha_common.py": "8524caddd50923beee84a1d9a4be3637c796f18f2bfc68eb717a7916c91fa1e0",
+    "scripts/run_health_audit.py": "78c9c95f745c3535afbc62e2e839a7e263840a8de39b5e87bd93cdea7a253aa1",
+    "scripts/run_health_audit_v2.py": "55f660d4d1f0658cb0606bfec545b8bec62e9dd21fd8572c9382422aeb24d4b0"
+  },
+  "allowed_prefix_firewall": {
+    "source_relative_path": "Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv",
+    "pandas_read_csv_nrows": 3007,
+    "raw_prefix_rows_read": 3007,
+    "development_rows_after_filter": 3005,
+    "boundary_rows_filtered": 2,
+    "post_boundary_rows_entered_pipeline": 0,
+    "allowed_logical_prefix_fingerprint_sha256": "8601782f9338170543b94cbb6a425ba2752947ddcc1b9dd19f54b33b2c57f275",
+    "full_N1_file_hash_performed": false,
+    "post_prefix_data_read": false,
+    "test_accessed": false,
+    "future_target_loaded": false,
+    "loaded_columns": [
+      "bin_end_ophrs2_h",
+      "last_datetime",
+      "temporal_segment_id",
+      "cell_voltage_mean",
+      "cell_voltage_std",
+      "cell_voltage_range",
+      "actual_current_A_mean",
+      "actual_current_A_std",
+      "actual_current_A_peak_to_peak",
+      "actual_current_density_A_cm2_mean",
+      "actual_current_density_A_cm2_std",
+      "actual_current_density_A_cm2_peak_to_peak",
+      "load_transition_count",
+      "operation_point_transitions",
+      "zero_current_fraction",
+      "startup_flag",
+      "shutdown_flag",
+      "gap_before_flag",
+      "gap_before_duration_s",
+      "gap_after_flag"
+    ],
+    "V1_N1_FULL_FILE_HASH_NOT_USED_BY_EFFECTIVE_PROTOCOL": true,
+    "canonical_serialization": "SAFE_N1_COLUMNS ordered; index 0..3006; UTF-8; LF; <NA>; %.17g"
+  },
+  "frozen_thresholds": {
+    "P33_A_cm2": 0.6179521560983,
+    "P67_A_cm2": 0.8338987409252444,
+    "stable_current_density_std_P50_A_cm2": 0.2926672199880467,
+    "stable_current_density_peak_to_peak_P50_A_cm2": 1.024767935,
+    "positive_origin_count": 1048
+  },
+  "matching_design": {
+    "analysis_block_hours": 24,
+    "fold1_positive_current_block_scale_source": "Fold1 outer-train condition blocks",
+    "scales": {
+      "current_density": 0.022754764189166776,
+      "current_density_std": 0.029251294238146708,
+      "load_transition_count": 0.75
+    },
+    "constant_variables": [
+      "zero_current_fraction"
+    ],
+    "joint_support_variables": [
+      "current_density",
+      "current_density_std",
+      "load_transition_count",
+      "zero_current_fraction"
+    ],
+    "per_variable_caliper": 0.5,
+    "euclidean_caliper": 1.0,
+    "minimum_raw_early_blocks": 5,
+    "minimum_raw_late_blocks": 5,
+    "minimum_matched_pairs": 5,
+    "matching": "deterministic greedy 1:1 without replacement; outcome excluded"
+  },
+  "uncertainty": {
+    "iterations": 2000,
+    "seed": 2024,
+    "minimum_bootstrap_success_rate": 0.8,
+    "matched_primary": "24h blocks; 2 consecutive analysis-block moving superblock",
+    "matched_24h_sensitivity": "24h blocks; 4 consecutive analysis-block moving superblock",
+    "analysis_48h": "48h blocks; 2 consecutive analysis-block moving superblock",
+    "regression": "fixed-design residual moving-block bootstrap: 2 analysis blocks"
+  },
+  "rdr_stable_subset": {
+    "minimum_stable_lag1_events": 30,
+    "definition": "origin and lag1 later origin: positive density, zero_current_fraction=0, load_transition_count=0, operation_point_transitions=0, Fold1 P50 current-density std and peak-to-peak limits"
+  },
+  "recovery": {
+    "event_metadata": [
+      "startup_flag",
+      "shutdown_flag",
+      "gap_before_flag",
+      "gap_after_flag",
+      "gap_before_duration_s"
+    ],
+    "pre_post_origins": 4,
+    "positive_current_required": true,
+    "matching": "same current-density stratum plus registered condition calipers",
+    "minimum_matched_events_for_identifiability": 3,
+    "hard_HI_gate": false
+  },
+  "units": {
+    "Raw_endpoint_V": "V",
+    "SimpleTrend_endpoint_V": "V",
+    "SimpleTrend_endpoint_slope_V_per_h": "V/h",
+    "EMD_endpoint_V": "V; frozen restored-voltage first-two-IMF-removed EMD remainder feature[47,0]",
+    "EMD_endpoint_slope_V_per_h": "V/h; causal slope of restored-voltage remainder feature[47,1]"
+  },
+  "overrides": [
+    "cache_integrity_semantics",
+    "N1_allowed_prefix_fingerprint",
+    "EMD_units",
+    "joint_common_support_and_matching",
+    "time_dependent_uncertainty",
+    "stable_current_RDR",
+    "recovery_amplitude_audit",
+    "associated_regression_tests"
+  ],
+  "forbidden": [
+    "Test_access",
+    "full_N1_file_hash",
+    "TimesNet_training",
+    "Phase_DF_Stage1",
+    "EMD_parameter_change",
+    "VMD",
+    "SOH",
+    "EOL",
+    "RUL"
+  ]
+}

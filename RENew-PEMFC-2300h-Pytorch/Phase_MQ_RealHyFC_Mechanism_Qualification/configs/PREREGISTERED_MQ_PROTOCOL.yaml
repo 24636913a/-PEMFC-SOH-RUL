@@ -1,0 +1,155 @@
+phase: Phase_MQ_RealHyFC_Mechanism_Qualification
+phase_mq_base_commit: 3b8f08fdddd758e6ea61b903b11eaa95d4ebf4ae
+frozen_before_health_results: true
+execution_scope:
+  neural_model_training: false
+  backbone_search: false
+  soh_constructed: false
+  rul_model: false
+  test_accessed: false
+data_firewall:
+  n1_table: ../Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  read_nrows: 3007
+  development_rule: bin_end_ophrs2_h < 1819.997738
+  expected_development_rows: 3005
+  coverage_minimum: 0.80
+  forbidden_full_file_hash: true
+  frozen_mq_columns:
+    - bin_start_ophrs2_h
+    - bin_end_ophrs2_h
+    - first_datetime
+    - last_datetime
+    - temporal_segment_id
+    - split
+    - bin_valid_for_windows
+    - coverage_ratio
+    - zero_current_fraction
+    - startup_flag
+    - shutdown_flag
+    - gap_before_flag
+    - gap_after_flag
+    - number_of_operation_points
+    - operation_point_mode
+    - operation_point_transitions
+    - set_current_A_mean
+    - actual_current_A_mean
+    - actual_current_density_A_cm2_mean
+    - cell_voltage_mean
+    - actual_anode_inlet_temperature_C_mean
+    - actual_anode_inlet_pressure_kPag_mean
+    - actual_anode_inlet_rh_pct_mean
+    - actual_anode_hydrogen_flow_nl_min_mean
+    - actual_anode_stoichiometry_mean
+    - actual_cathode_stoichiometry_mean
+age_strata:
+  EARLY: [72.788690, 655.191706]
+  MIDDLE: [655.191706, 1237.594722]
+  LATE: [1237.594722, 1819.997738]
+cycle_definition:
+  primary: OPERATION_POINT_SEQUENCE
+  protocol_schedule: not_provided_or_not_segmentwise_verifiable
+  template_source: earliest_eligible_EARLY_pure_sequence_only
+  token: operation_point_mode_plus_set_current_A_mean_rounded_3_decimals
+  period_candidate_steps: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+  period_selection: maximum_exact_token_lag_match_rate_then_shortest_period
+  required_period_match_rate: 0.70
+  cycle_match: exact_frozen_template_token_sequence
+  sensitivity_fixed_steps: 19
+  fixed_19_primary_forbidden: true
+  disallow_crossing:
+    - temporal_segment_id
+    - invalid_bin
+    - startup_or_shutdown
+    - gap_flag
+    - age_stratum
+    - train_validation_boundary
+pure_bin:
+  number_of_operation_points: 1
+  operation_point_transitions: 0
+  bin_valid_for_windows: true
+  coverage_ratio_minimum: 0.80
+  positive_current_requirements:
+    - zero_current_fraction_equals_0
+    - actual_current_density_A_cm2_mean_greater_than_0
+operation_points:
+  count: 2
+  selection_scope: earliest_EARLY_positive_pure_bins_only
+  ordering: descending_frequency_then_numeric_operation_point_id
+  phase_occurrence: first_template_occurrence_of_selected_operation_point
+reference_and_evaluation:
+  reference_cycles_per_point: 10
+  reference_selection: earliest_legal_complete_EARLY_cycles
+  early_evaluation_start: eleventh_legal_complete_EARLY_cycle
+  minimum_complete_cycles:
+    EARLY_total: 15
+    EARLY_independent_evaluation: 5
+    MIDDLE: 8
+    LATE: 8
+  cycle_summary_available_at: cycle_end_only
+condition_variables:
+  core:
+    - actual_current_density_A_cm2_mean
+    - actual_anode_inlet_temperature_C_mean
+    - actual_anode_inlet_pressure_kPag_mean
+    - actual_anode_inlet_rh_pct_mean
+    - actual_anode_hydrogen_flow_nl_min_mean
+    - actual_anode_stoichiometry_mean
+    - actual_cathode_stoichiometry_mean
+  completeness_minimum: 0.90
+  incomplete_policy: GATE_C_UNRESOLVED
+  scale_source: reference_cycles_only
+  center: median
+  scale: IQR_then_reference_standard_deviation_then_constant_exclusion
+  distance: robust_standardized_euclidean_mean_squared
+  condition_distance_variables_forbidden:
+    - voltage
+    - age
+    - SOH
+    - EMD
+  aligned_control_ratio_maximum: 0.80
+degradation_visibility:
+  unit: complete_cycle
+  contrast: median_late_residual_minus_median_early_evaluation_residual
+  expected_sign: negative
+  local_variation: median_abs_adjacent_legal_cycle_residual_difference
+  effect_to_variation_multiplier: 2.0
+  bootstrap:
+    iterations: 2000
+    seed: 2024
+    primary_moving_block_cycles: 2
+    sensitivity_moving_block_cycles: 4
+    reference_cycles_fixed: true
+anchors:
+  primary_jstar_A_cm2: 1.0
+  secondary_jstar_A_cm2: 1.6
+  development_checkpoints_h: [BoL, 300, 600, 850, 1150, 1500, 1750]
+  raw_files:
+    BoL: Polcurve_Nominal_RHFC_BoL.csv
+    300: Polcurve_Nominal_RHFC_300h.csv
+    600: Polcurve_Nominal_RHFC_600h.csv
+    850: Polcurve_Nominal_RHFC_850h.csv
+    1150: Polcurve_Nominal_RHFC_1150h.csv
+    1500: Polcurve_Nominal_RHFC_1500h.csv
+    1750: Polcurve_Nominal_RHFC_1750h.csv
+  active_cells: [U1 [V], U2 [V], U3 [V], U4 [V], U5 [V], U7 [V], U8 [V], U9 [V], U10 [V], U11 [V]]
+  current_density_tolerance_A_cm2: 0.01
+  characterization_time_mapping_max_difference_h: 48.0
+  pre_anchor_cycles: 3
+  pre_anchor_cycle_max_distance_h: 48.0
+  nonbol_required_aligned: 5
+  mandatory_aligned_h: [1500, 1750]
+  primary_rho_minimum: 0.60
+  informative_transition_noise_rule: abs_delta_SOH_greater_than_combined_one_sigma
+  minimum_informative_transitions: 3
+  same_direction_fraction_minimum: 0.75
+eis:
+  mode: metadata_compatibility_only
+  test_EIS_values_allowed: false
+  status_when_durability_compatible_development_EIS_absent: EIS_VALIDATION_NOT_AVAILABLE
+stopping:
+  gate_A_B_C_failure: REALHYFC_MECHANISM_NOT_IDENTIFIABLE
+  aggregation_resolution_failure: AGGREGATION_RESOLUTION_LIMITATION
+  gate_D_failure: CYCLE_STRUCTURE_VALID_BUT_DEGRADATION_NOT_IDENTIFIABLE
+  gate_E_failure: CYCLE_DEGRADATION_VISIBLE_BUT_ANCHOR_INCOMPATIBLE
+  gate_E_unresolved: INCONCLUSIVE_ANCHOR_ALIGNMENT
+  all_gates_pass: MECHANISM_QUALIFIED_FOR_SEPARATE_MODEL_PROTOCOL

@@ -1,0 +1,31 @@
+{
+  "status": "RAW_CYCLE_STRUCTURE_QUALIFIED",
+  "template_frozen": true,
+  "complete_cycles_by_stratum": {
+    "EARLY": 50,
+    "MIDDLE": 45,
+    "LATE": 51
+  },
+  "loaded_duration_median_h": 9.52301,
+  "loaded_duration_cv": 0.006413051198764385,
+  "gates": {
+    "unique_calibration_template": true,
+    "early_middle_late_complete_cycles": true,
+    "operation_sequence_core_ge_90pct": true,
+    "loaded_duration_median_8_11_h": true,
+    "loaded_duration_cv_le_10pct": true,
+    "key_positive_operation_point_support": true,
+    "voltage_independent_boundary": true
+  },
+  "automatic_next_phase": "NO",
+  "base_commit": "ca040e56a76e9c985ec199e67cbed1929ea285e4",
+  "execution_head": "3150a35ecf7ef44c570707815e9bf9d9dd38a8dc",
+  "protocol_sha256": "df9e45dde37feea6d74b95caed91032fe1458847d3ba2357e24a097f20bd0405",
+  "post_boundary_rows_used": 0,
+  "voltage_used_for_cycle_discovery": false,
+  "polarization_used": false,
+  "test_used_for_decision": false,
+  "neural_training": false,
+  "SOH_constructed": false,
+  "RUL_trained": false
+}

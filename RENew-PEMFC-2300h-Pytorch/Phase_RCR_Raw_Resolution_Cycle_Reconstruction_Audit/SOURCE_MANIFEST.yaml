@@ -1,26 +1,103 @@
-phase: Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit
-status: FROZEN_PRE_EXECUTION
-base_commit: ca040e56a76e9c985ec199e67cbed1929ea285e4
-raw_source:
-  root: 'E:/沈农信电/课题-预测质子交换膜燃料电池（PEMFC）的健康状态和剩余寿命/数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据'
-  relative_stream: 'Loadcycle_data/Loadcycle_*.csv'
-  expected_file_count: 17
-  expected_nominal_sampling: '~1 s'
-  file_sha256: NOT_COMPUTED_BY_DESIGN
-  rationale: >-
-    The raw stream is processed once in bounded chunks under the frozen
-    Development firewall. File identity is recorded by absolute path, byte
-    size, modification time, schema, and retained-row counts. A separate
-    full-file checksum pass is not performed because it would add an
-    unnecessary second unrestricted scan of the source stream.
-development_firewall:
-  ageing_coordinate: 'OpHrs2 [h]'
-  strict_upper_bound_h: 1819.997738
-  requirement: 'Rows at or above the boundary are discarded before storage, statistics, plots, or cycle detection.'
-historical_read_only_mapping_source:
-  path: 'RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv'
-  purpose: 'Explain raw-cycle loss at 30-minute aggregation only; voltage columns are forbidden.'
-non_blocking_documentation_debt:
-  - 'Phase MQ A0 exclusion-counter field semantics need later documentation correction.'
-  - 'Phase MQ Attempt 2 lacks ATTEMPT_2_EXECUTION_AUDIT.json.'
-  - 'Phase MQ A0 substatus and phase-level final-status mapping are not yet unified.'
+{
+  "phase": "Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit",
+  "status": "EXECUTED_DEVELOPMENT_ONLY",
+  "base_commit": "ca040e56a76e9c985ec199e67cbed1929ea285e4",
+  "execution_head": "3150a35ecf7ef44c570707815e9bf9d9dd38a8dc",
+  "protocol_sha256": "df9e45dde37feea6d74b95caed91032fe1458847d3ba2357e24a097f20bd0405",
+  "raw_source": {
+    "root": "E:\\沈农信电\\课题-预测质子交换膜燃料电池（PEMFC）的健康状态和剩余寿命\\数据\\《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据",
+    "relative_stream": "Loadcycle_data/**/Loadcycle_*.csv",
+    "file_count": 17,
+    "file_sha256": "NOT_COMPUTED_BY_DESIGN",
+    "files": [
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_0-14.csv",
+        "size_bytes": 401012788
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_15-25.csv",
+        "size_bytes": 319673021
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_26-37.csv",
+        "size_bytes": 329967768
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_37-50.csv",
+        "size_bytes": 388853998
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_51-70.csv",
+        "size_bytes": 572951135
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_70-75.csv",
+        "size_bytes": 144686909
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_76-82.csv",
+        "size_bytes": 180107151
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_82-84.csv",
+        "size_bytes": 108635588
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_85-100.csv",
+        "size_bytes": 460122597
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_101-112.csv",
+        "size_bytes": 317068009
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_112-125.csv",
+        "size_bytes": 401681009
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_126-133.csv",
+        "size_bytes": 224118059
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_134-150.csv",
+        "size_bytes": 494718459
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_151-162.csv",
+        "size_bytes": 321623333
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_162-175.csv",
+        "size_bytes": 397077811
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_176-190.csv",
+        "size_bytes": 435855328
+      },
+      {
+        "path": "Loadcycle_data/Loadcycle_data/Loadcycle_191-200.csv",
+        "size_bytes": 297331996
+      }
+    ]
+  },
+  "discovery_columns": [
+    "OpHrs2 [h]",
+    "DateTime",
+    "operation_point",
+    "I.S.set [A]",
+    "I.S.act [A]",
+    "j.S.act [A/cm2]"
+  ],
+  "voltage_used_for_cycle_discovery": false,
+  "polarization_used": false,
+  "test_used_for_decision": false,
+  "development_firewall": {
+    "raw_rows_seen_total": 8604654,
+    "development_rows_retained_total": 6708040,
+    "post_boundary_rows_discarded_total": 1896614,
+    "post_boundary_rows_used": 0,
+    "raw_files": 17,
+    "n1_mapping_rows_used": 3005,
+    "n1_test_rows_used": 0
+  }
+}

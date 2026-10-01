@@ -1,0 +1,23 @@
+{
+  "phase": "Phase_MQ_RealHyFC_Mechanism_Qualification",
+  "status": "DATA_FIREWALL_ABORT_BEFORE_MQ_OUTCOME",
+  "amendment_commit": "36fd0d529fcf9208a31b2f303c434785be1e5f0c",
+  "event": "Repository contents request for N1 dynamic CSV intended to check availability returned CSV content instead of metadata.",
+  "request_path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv",
+  "observed": "Only the beginning of the header was displayed to the analyst; no data row, Test value, model target, voltage residual, anchor association, or gate outcome was inspected or computed.",
+  "conservative_firewall_classification": "The connector returned file contents beyond a metadata-only request; absent a provable prefix boundary, treat phase_mq_execution_test_accessed as true.",
+  "planning_layer_test_contact": true,
+  "phase_mq_execution_test_accessed": true,
+  "mq_outcomes_computed": false,
+  "neural_training": false,
+  "gate_A": "NOT_RUN",
+  "gate_B": "NOT_RUN",
+  "gate_C1": "NOT_RUN",
+  "gate_C2": "NOT_RUN",
+  "gate_D": "NOT_RUN",
+  "gate_E": "NOT_RUN",
+  "original_protocol_sha256": "1e934216843a8a72fe7d2ebe9975db2b573c0548605cee0496fdd445505e6c63",
+  "amendment_sha256": "79b78925ef1f0bbeaabc0b7d41b0ae3d3c14b6f249c7b44c0c2fd7a39b22a69e",
+  "local_data_environment": "No local repository clone or authorized Windows E: Development polarization source was present in the current workspace.",
+  "disposition": "Stop this execution attempt; do not compute outcomes or assign a mechanism terminal status. A later isolated Development-only desktop run must undergo a separate firewall review."
+}

@@ -1,0 +1,55 @@
+{
+  "base_commit": "075bb1cbdd571cc721e059b7136fadfc4b9c52f9",
+  "current_implementation_reproduced": true,
+  "calibration_bins": {
+    "CURRENT": 300,
+    "COMPLIANT": 300
+  },
+  "current_max_continuous_run": 7,
+  "compliant_max_continuous_run": 7,
+  "current_periods_with_lag_pairs": [],
+  "compliant_periods_with_lag_pairs": [],
+  "largest_lag_pair_delta": 0,
+  "any_zero_to_positive_transition": false,
+  "final_technical_result": "ZERO_LAG_PAIRS_ROBUST",
+  "recommended_next_action": "STOP_0P5H_CYCLE_ROUTE_AND_START_RAW_RESOLUTION_AUDIT",
+  "neural_training": false,
+  "polarization_read": false,
+  "test_accessed": false,
+  "gates_B_to_E": "NOT_RUN",
+  "data_access": [
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "scope": "n1_prefix",
+      "nrows": 3007,
+      "usecols": [
+        "bin_start_ophrs2_h",
+        "bin_end_ophrs2_h",
+        "first_datetime",
+        "last_datetime",
+        "temporal_segment_id",
+        "split",
+        "bin_valid_for_windows",
+        "coverage_ratio",
+        "zero_current_fraction",
+        "startup_flag",
+        "shutdown_flag",
+        "gap_before_flag",
+        "number_of_operation_points",
+        "operation_point_mode",
+        "operation_point_transitions",
+        "set_current_A_mean",
+        "actual_current_A_mean",
+        "actual_current_density_A_cm2_mean",
+        "cell_voltage_mean",
+        "actual_anode_inlet_temperature_C_mean",
+        "actual_anode_inlet_pressure_kPag_mean",
+        "actual_anode_inlet_rh_pct_mean",
+        "actual_anode_hydrogen_flow_nl_min_mean",
+        "actual_anode_stoichiometry_mean",
+        "actual_cathode_stoichiometry_mean"
+      ],
+      "rows_returned": 3007
+    }
+  ]
+}

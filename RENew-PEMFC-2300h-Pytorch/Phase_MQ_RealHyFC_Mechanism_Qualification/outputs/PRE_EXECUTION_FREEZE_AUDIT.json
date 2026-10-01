@@ -1,0 +1,20 @@
+{
+  "phase": "Phase_MQ_RealHyFC_Mechanism_Qualification",
+  "audit_scope": "committed GitHub main tree at specified HEAD; unpushed local desktop state is not observable and must be checked before execution",
+  "audited_git_head": "df46775590fa1d472b5b0c9d1a33d145171aa237",
+  "head_matches_required_base": true,
+  "original_protocol_frozen": true,
+  "original_protocol_sha": "1e934216843a8a72fe7d2ebe9975db2b573c0548605cee0496fdd445505e6c63",
+  "original_protocol_sha_verified_from_content": true,
+  "phase_mq_tree_at_audit": ["README.md", "SOURCE_MANIFEST.yaml", "configs", "docs"],
+  "mq_outcome_computed_before_amendment": false,
+  "cycle_voltage_residual_read_before_amendment": false,
+  "anchor_association_computed_before_amendment": false,
+  "gate_result_computed_before_amendment": false,
+  "amendment_timing_clean": true,
+  "planning_layer_test_contact": true,
+  "phase_mq_execution_test_accessed": null,
+  "neural_training_performed_during_amendment": false,
+  "local_worktree_verification_required_before_execution": true,
+  "data_access_during_amendment": "protocol and repository metadata only; no N1 dynamic or raw polarization data"
+}

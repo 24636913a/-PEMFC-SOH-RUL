@@ -1,0 +1,215 @@
+phase: Phase_MQ_RealHyFC_Mechanism_Qualification
+status: FROZEN_AFTER_PREREGISTRATION_BEFORE_FIRST_MQ_OUTCOME
+base_commit: df46775590fa1d472b5b0c9d1a33d145171aa237
+original_protocol_path: configs/PREREGISTERED_MQ_PROTOCOL.yaml
+original_protocol_sha256: 1e934216843a8a72fe7d2ebe9975db2b573c0548605cee0496fdd445505e6c63
+application: explicit_overrides_only
+reason: resolve causal, temporal-calibration, measurement-purity and condition-control ambiguities before any MQ outcomes
+
+parser_compatibility:
+  original_yaml_is_immutable: true
+  known_unquoted_flow_sequence_field: anchors.active_cells
+  original_literal: '  active_cells: [U1 [V], U2 [V], U3 [V], U4 [V], U5 [V], U7 [V], U8 [V], U9 [V], U10 [V], U11 [V]]'
+  in_memory_replacement: '  active_cells: ["U1 [V]", "U2 [V]", "U3 [V]", "U4 [V]", "U5 [V]", "U7 [V]", "U8 [V]", "U9 [V]", "U10 [V]", "U11 [V]"]'
+  require_literal_occurs_exactly_once: true
+  validate_sha256_of_unmodified_bytes_before_parsing: true
+  validate_parsed_cells_exactly: ["U1 [V]", "U2 [V]", "U3 [V]", "U4 [V]", "U5 [V]", "U7 [V]", "U8 [V]", "U9 [V]", "U10 [V]", "U11 [V]"]
+  fail_on_any_additional_syntax_error_or_unexpected_change: true
+  write_repaired_original_to_repository: false
+
+timing:
+  freeze_audit_required: outputs/PRE_EXECUTION_FREEZE_AUDIT.json
+  amendment_timing_clean_required: true
+  first_outcome_must_follow_separate_amendment_commit: true
+  original_protocol_immutable: true
+  forbidden_pre_freeze_reads:
+    - cycle_voltage_residual
+    - anchor_association
+    - gate_result
+
+overrides:
+  data_firewall:
+    effective_causal_usecols: frozen_mq_columns_except_gap_after_flag
+    gap_after_flag: RETROSPECTIVE_ONLY_NOT_USED
+    prefix_nrows: 3007
+    development_end_h_exclusive: 1819.997738
+    expected_development_rows: 3005
+    test_and_mixed_anchor_summary_access: prohibited
+  cycle_definition:
+    layers:
+      detection:
+        pure_bin_required: false
+        token_pure: [operation_point_mode, set_current_A_mean_rounded_3_decimals]
+        token_transition: [TRANSITION, set_current_A_mean_rounded_3_decimals, operation_point_transitions]
+        token_transition_when: number_of_operation_points_gt_1_or_operation_point_transitions_gt_0
+        token_forbidden_inputs: [voltage, age, SOH, EMD, anchor, forecast_error, future_actual]
+        every_bin_requires: [coverage_ratio_at_least_0_80, bin_valid_for_windows]
+        cannot_cross: [temporal_segment_id, train_validation_boundary, age_stratum, gap_before, startup, shutdown, characterization_interruption]
+        completed_summary_available_at: confirmed_completion_of_final_constituent_bin
+        gap_after_flag_used: false
+        nonfirst_gap_before_flag: invalid_cycle
+        first_gap_before_flag: POST_GAP_CYCLE_SENSITIVITY_only_exclude_Gate_D_E
+      pure_measurement:
+        inherited_contract: docs/PURE_BIN_CONTRACT.md
+        required_only_for: [selected_operation_point_voltage, condition_vector, cycle_residual]
+        selected_occurrence: first_frozen_template_occurrence_for_each_point
+        positive_current_requires: [zero_current_fraction_equals_zero, actual_current_density_A_cm2_mean_gt_zero]
+        transition_bins_never_measurement_points: true
+    token_period_candidates_steps: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+    candidate_selection: maximum_exact_token_lag_match_rate_then_shortest
+    complete_cycle_match: exact_frozen_template
+    scan_rule: nonoverlapping_P_bin_windows_after_first_matching_start_token_in_each_continuous_segment
+    failed_expected_window_counts_in_recurrence_denominator: true
+    no_rephase_inside_segment: true
+    fixed_19_primary_forbidden: true
+  calibration:
+    scan_prefix: first_300_chronological_eligible_EARLY_bins_from_earliest_eligible_segment
+    scan_prefix_may_span_segments: true
+    lag_comparisons_must_remain_inside_each_segment: true
+    prefix_size_reason: PROJECT_ANALYSIS_DESIGN_10_times_max_candidate_period_30
+    period_fit_source: scan_prefix_only
+    provisional_template: earliest_complete_P_bin_token_sequence_in_prefix
+    reference_cycles: first_10_complete_matches_starting_at_or_after_provisional_template_start
+    reference_count: 10
+    template_first_available_at: max(scan_prefix_last_bin_end, tenth_reference_cycle_end)
+    selected_points_source: ten_reference_cycles_only
+    selected_points_rule: positive_pure_occurrence_frequency_desc_then_numeric_operation_point_id_asc
+    selected_points_must_appear_as_pure_tokens_in_template: true
+    evaluation_cycles_must_start_strictly_after_template_first_available_at: true
+    reference_cycles_excluded_from_early_evaluation: true
+    early_min_evaluation_cycles: 5
+    middle_min_evaluation_cycles: 8
+    late_min_evaluation_cycles: 8
+    period_template_points_reference_never_refit_after_first_availability: true
+  gate_A:
+    a0_coarse_set_current:
+      token: set_current_A_mean_rounded_3_decimals
+      legal_temporal_segments_only: true
+      use_same_300_bin_prefix_and_period_candidate_set: true
+      independent_calibration_reference_cycles: 10
+      post_calibration_generalization_only: true
+    a1_operation_point_sequence:
+      tokens: mixed_pure_and_transition_tokens_above
+      generalization_only_after_template_first_available_at: true
+    a2_pure_measurement_support:
+      requires_selected_points_from_ten_reference_cycles: true
+    required_post_calibration_recurrence_fraction: 0.70
+    required_evaluation_cycles: {EARLY: 5, MIDDLE: 8, LATE: 8}
+    reference_cycles_excluded_from_generalization_numerator: true
+    report_calibration_and_post_calibration_separately: true
+    a0_pass_a1_or_a2_fail_due_to_mixed_bins: AGGREGATION_RESOLUTION_LIMITATION
+    a0_fail: CYCLE_REPRODUCIBILITY_NOT_IDENTIFIABLE
+    resolution_status_priority_over_no_cycle_claim: true
+  gate_B:
+    selected_positive_operation_points: 2
+    points_selected_before_voltage_or_anchor_analysis: true
+    point_must_have_pure_bin_at_first_template_occurrence: true
+    count_unique_complete_evaluation_cycles_not_bins: true
+  gate_C:
+    c1_joint_common_support:
+      required: true
+      population: [EARLY_evaluation, MIDDLE_evaluation, LATE_evaluation]
+      core_variables: inherited_condition_variables_core
+      each_variable_completeness_minimum: 0.90
+      raw_min_max_intersection_for_each_variable: true
+      joint_hyperrectangle: intersection_of_all_seven_variable_ranges_across_three_age_strata
+      per_point_per_stratum_minimum_simultaneously_in_support_cycles: 5
+      reference_constant_later_shift: REFERENCE_CONSTANT_CONDITION_SHIFT_and_C1_FAIL
+      zero_reference_scale_may_be_excluded_from_distance_only: true
+      zero_reference_scale_never_excluded_from_raw_support: true
+      C1_fail_stops_D_E: true
+    c2_phase_alignment_benefit:
+      optional_when_only_one_template_phase: PHASE_CONTROL_NOT_APPLICABLE_UNIQUE_PHASE
+      optional_when_fewer_than_five_valid_pairs: PHASE_CONTROL_NOT_IDENTIFIABLE
+      c1_pass_remains_valid_when_c2_not_applicable_or_unresolved: true
+      different_phase_control_required: true
+      both_pair_types_query: same_LATE_observation
+      counterpart_population: EARLY_evaluation_same_operation_point
+      aligned_counterpart: same_frozen_phase
+      control_counterpart: different_frozen_phase
+      no_early_counterpart_reused_between_aligned_and_control: true
+      no_query_as_counterpart_or_self_pair: true
+      query_can_be_shared_across_pair_types: true
+      matching: deterministic_nearest_condition_without_replacement_within_each_pair_type
+      tie_break: [cycle_start_age, source_row_index]
+      forbidden_matching_inputs: [voltage, age_distance, SOH, EMD]
+      minimum_pairs_each_type: 5
+      distance_scale: reference_median_then_IQR_then_reference_std
+      numerical_zero_scale: omit_from_distance_but_keep_in_C1
+      distance: sqrt_mean_standardized_squared_difference
+      ratio_gate: median_aligned_distance_at_most_0_80_times_median_control_distance
+      c2_fail_or_unresolved_claim_limit: OPERATION_POINT_ALIGNED_only
+    allowed_final_statuses:
+      - JOINT_SUPPORT_PASS_PHASE_BENEFIT_PASS
+      - JOINT_SUPPORT_PASS_PHASE_CONTROL_NOT_APPLICABLE
+      - JOINT_SUPPORT_PASS_PHASE_CONTROL_UNRESOLVED
+      - JOINT_SUPPORT_PASS_PHASE_BENEFIT_FAIL
+      - JOINT_SUPPORT_FAIL
+  gate_D:
+    unit: independent_complete_evaluation_cycle_within_single_stack
+    residual: selected_point_cycle_voltage_median_minus_fixed_reference_point_voltage_median
+    contrast: median_LATE_residual_minus_median_EARLY_evaluation_residual
+    expected_sign: negative_for_both_frozen_points
+    local_variation: median_abs_difference_between_adjacent_legal_evaluation_cycles_in_same_segment
+    effect_threshold: absolute_contrast_strictly_greater_than_2_times_local_variation
+    uncertainty:
+      bootstrap_iterations: 2000
+      seed: 2024
+      primary_moving_block_cycles: 2
+      sensitivity_moving_block_cycles: 4
+      do_not_cross: [segment, age_stratum, characterization_interruption]
+      reference_cycles_and_all_selection_fixed: true
+  gate_E:
+    primary_anchor_jstar_A_cm2: 1.0
+    secondary_anchor_jstar_A_cm2: 1.6
+    BoL: normalization_reference_only_no_pre_cycle
+    development_nonBoL_h: [300, 600, 850, 1150, 1500, 1750]
+    anchor_alignment: nearest_three_legal_complete_evaluation_cycles_ending_before_characterization_start
+    reference_cycles_never_reused_as_pre_anchor_evaluation: true
+    max_pre_anchor_age_gap_h: 48.0
+    min_aligned_nonBoL: 5
+    mandatory_aligned_h: [1500, 1750]
+    fewer_than_three_pre_cycles: ALIGNMENT_UNRESOLVED
+    primary_expected_spearman_residual_vs_SOH_sign: positive
+    primary_spearman_minimum: 0.60
+    informative_transition: abs_delta_SOH_gt_combined_one_sigma
+    minimum_informative_transitions: 3
+    same_direction_required: ceil_0_75_times_informative_count
+    secondary_sensitivity_must_not_show_strong_opposite_direction: true
+    future_or_post_characterization_cycles_primary_forbidden: true
+  stop_logic:
+    order: [timing, firewall, A0, A1, A2, A, B, C1, C2_if_applicable, D, E]
+    stop_before_D_E_if: [AGGREGATION_RESOLUTION_LIMITATION, A_FAIL, B_FAIL, C1_FAIL]
+    gate_D_fail: CYCLE_STRUCTURE_VALID_BUT_DEGRADATION_NOT_IDENTIFIABLE
+    gate_E_fail: CYCLE_DEGRADATION_VISIBLE_BUT_ANCHOR_INCOMPATIBLE
+    gate_E_unresolved: INCONCLUSIVE_ANCHOR_ALIGNMENT
+    all_required_gates_pass: MECHANISM_QUALIFIED_FOR_SEPARATE_MODEL_PROTOCOL
+    all_pass_is_not: [validated_continuous_SOH, RUL, irreversible_degradation_proof]
+    automatic_next_model_phase: prohibited
+
+required_new_outputs:
+  - outputs/PRE_EXECUTION_FREEZE_AUDIT.json
+  - outputs/CALIBRATION_PREFIX_AUDIT.json
+  - outputs/TEMPLATE_AVAILABILITY_AUDIT.json
+  - outputs/COARSE_CYCLE_RECURRENCE.csv
+  - outputs/OP_SEQUENCE_RECURRENCE.csv
+  - outputs/AGGREGATION_RESOLUTION_AUDIT.json
+  - outputs/PHASE_CONTROL_AUDIT.csv
+  - outputs/CONSTANT_CONDITION_AUDIT.csv
+required_synthetic_tests:
+  - original_yaml_exact_single_line_in_memory_parser_compatibility
+  - future_gap_perturbation_cannot_change_published_cycle
+  - post_availability_setpoint_perturbation_cannot_change_calibration
+  - selected_points_in_frozen_template
+  - evaluation_starts_strictly_after_template_availability
+  - disjoint_early_counterpart_pools_and_no_self_pair
+  - unique_phase_has_no_fake_control
+  - reference_constant_variable_still_in_raw_common_support
+  - A0_pass_A1_or_A2_mixed_bin_failure_maps_to_aggregation_limitation
+
+provenance:
+  planning_layer_test_contact: true
+  phase_mq_execution_test_accessed: runtime_observation_only
+  prior_contact_must_not_be_erased_by_execution_flag: true
+  amendment_commit_must_precede_scripts_and_outcome_commit: true
+  no_neural_training: true

@@ -1,0 +1,18 @@
+phase: Phase_MQ_RealHyFC_Mechanism_Qualification
+status: FROZEN_AFTER_PREREGISTRATION_BEFORE_FIRST_MQ_OUTCOME
+base_commit: df46775590fa1d472b5b0c9d1a33d145171aa237
+sources_in_precedence_order:
+  - path: configs/PREREGISTERED_MQ_PROTOCOL.yaml
+    sha256: 1e934216843a8a72fe7d2ebe9975db2b573c0548605cee0496fdd445505e6c63
+    immutable_historical_protocol: true
+  - path: configs/PRE_EXECUTION_AMENDMENT_V1.yaml
+    sha256: 79b78925ef1f0bbeaabc0b7d41b0ae3d3c14b6f249c7b44c0c2fd7a39b22a69e
+    overrides_only_explicitly_named_fields: true
+effective_protocol_rule: original_protocol_plus_explicit_amendment_overrides
+unmentioned_original_requirements_remain_binding: true
+amendment_must_be_committed_separately_before_execution: true
+required_pre_execution_audit: outputs/PRE_EXECUTION_FREEZE_AUDIT.json
+execution_environment_must_verify_clean_local_head_and_no_prior_outcomes: true
+planning_layer_test_contact: true
+phase_mq_execution_test_accessed: runtime_observation_only
+neural_training_prohibited: true

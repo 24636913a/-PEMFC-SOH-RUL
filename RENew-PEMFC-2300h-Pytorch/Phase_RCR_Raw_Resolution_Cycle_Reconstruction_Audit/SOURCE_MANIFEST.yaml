@@ -1,0 +1,26 @@
+phase: Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit
+status: FROZEN_PRE_EXECUTION
+base_commit: ca040e56a76e9c985ec199e67cbed1929ea285e4
+raw_source:
+  root: 'E:/沈农信电/课题-预测质子交换膜燃料电池（PEMFC）的健康状态和剩余寿命/数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据'
+  relative_stream: 'Loadcycle_data/Loadcycle_*.csv'
+  expected_file_count: 17
+  expected_nominal_sampling: '~1 s'
+  file_sha256: NOT_COMPUTED_BY_DESIGN
+  rationale: >-
+    The raw stream is processed once in bounded chunks under the frozen
+    Development firewall. File identity is recorded by absolute path, byte
+    size, modification time, schema, and retained-row counts. A separate
+    full-file checksum pass is not performed because it would add an
+    unnecessary second unrestricted scan of the source stream.
+development_firewall:
+  ageing_coordinate: 'OpHrs2 [h]'
+  strict_upper_bound_h: 1819.997738
+  requirement: 'Rows at or above the boundary are discarded before storage, statistics, plots, or cycle detection.'
+historical_read_only_mapping_source:
+  path: 'RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv'
+  purpose: 'Explain raw-cycle loss at 30-minute aggregation only; voltage columns are forbidden.'
+non_blocking_documentation_debt:
+  - 'Phase MQ A0 exclusion-counter field semantics need later documentation correction.'
+  - 'Phase MQ Attempt 2 lacks ATTEMPT_2_EXECUTION_AUDIT.json.'
+  - 'Phase MQ A0 substatus and phase-level final-status mapping are not yet unified.'

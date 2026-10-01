@@ -1,0 +1,90 @@
+phase: Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit
+protocol_status: FROZEN_BEFORE_RAW_CYCLE_RESULTS
+base_commit: ca040e56a76e9c985ec199e67cbed1929ea285e4
+scope:
+  analysis_type: development_only_raw_resolution_cycle_structure_audit
+  prohibited:
+    - neural_model_training
+    - model_selection_or_tuning
+    - voltage_based_cycle_discovery
+    - polarization_access
+    - SOH_construction
+    - RUL_construction
+    - EMD_or_VMD_cycle_selection
+    - Test_access_or_decision_use
+raw_input:
+  root: 'E:/沈农信电/课题-预测质子交换膜燃料电池（PEMFC）的健康状态和剩余寿命/数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据'
+  stream_glob: 'Loadcycle_data/Loadcycle_*.csv'
+  expected_file_count: 17
+  csv_separator: ';'
+  encoding: utf-8-sig
+  chunk_rows: 200000
+  nominal_sampling: '~1 s'
+  required_cycle_fields:
+    - 'OpHrs2 [h]'
+    - DateTime
+    - operation_point
+    - 'I.S.set [A]'
+    - 'I.S.act [A]'
+    - 'j.S.act [A/cm2]'
+  discovery_columns_are_exactly_required_cycle_fields: true
+  voltage_columns_forbidden: true
+development_firewall:
+  ageing_coordinate: 'OpHrs2 [h]'
+  strict_upper_bound_h: 1819.997738
+  policy: drop_before_store_statistic_plot_or_detection
+  required_record: post_boundary_rows_used
+state_compression:
+  state_identity: 'operation_point + rounded(I.S.set [A], 3 decimals)'
+  set_current_round_decimals: 3
+  datetime_gap_before_s: 5.0
+  zero_current_threshold_A: 0.1
+  preserve_zero_and_stop_runs: true
+  duration_wall_clock: 'end DateTime minus start DateTime, seconds'
+  duration_loaded: 'end OpHrs2 minus start OpHrs2, seconds'
+candidate_scale:
+  loaded_duration_h_inclusive: [8.0, 11.0]
+  wall_duration_h_descriptive: [10.0, 14.0]
+  origin: existing_N1_evidence_not_tuned_in_this_phase
+calibration:
+  interval: first_100_h_of_Development_OpHrs2
+  designation: PROJECT_ANALYSIS_DESIGN
+  template_discovery_evidence:
+    set_current_recurrence: 'run-token sequence based on rounded set current'
+    operation_point_recurrence: 'run-token sequence based on operation point'
+  anchor:
+    form: consecutive_two_run_identity_tokens
+    selection: >-
+      Enumerate only anchors in the calibration run sequence. Rank anchors by
+      the number of consecutive anchor intervals whose loaded duration lies in
+      the frozen 8–11 h range, then by calibration occurrence count, then by
+      lexical token order. The winning deterministic anchor is frozen once.
+    no_voltage_or_health_information: true
+  template: earliest_consecutive_calibration_anchor_interval_in_loaded_range
+  sequence_sensitivity: difflib_sequence_edit_description_only
+  DTW_forbidden_as_main_definition: true
+qualification:
+  sequence_core_order_threshold: 0.90
+  loaded_duration_cv_maximum: 0.10
+  min_complete_cycles_per_age_stratum: 10
+  min_age_strata_with_key_positive_operation_point_support: 3
+  thresholds_designation: PROJECT_ANALYSIS_DESIGN
+age_strata_h:
+  EARLY: [72.788690, 655.191706]
+  MIDDLE: [655.191706, 1237.594722]
+  LATE: [1237.594722, 1819.997738]
+raw_to_30min_mapping:
+  permitted_only_after_raw_cycle_catalog: true
+  source: 'Phase_N1_Data_Foundation outputs causal_features_30min.csv'
+  source_access: 'nrows=3007; operating metadata only; strict Development filter'
+  voltage_columns_forbidden: true
+  preservation_rule: >-
+    A cycle is preserved only if it has at least one mapped bin, no mixed bin,
+    no within-bin operation-point transition, no segment break, and its mapped
+    bins form one contiguous temporal-segment run.
+stopping_statuses:
+  - RAW_CYCLE_STRUCTURE_QUALIFIED
+  - RAW_CYCLE_STRUCTURE_PARTIALLY_IDENTIFIABLE
+  - RAW_CYCLE_STRUCTURE_NOT_IDENTIFIABLE
+  - RAW_SOURCE_OR_PROTOCOL_LIMITATION
+no_automatic_next_phase: true

@@ -6,7 +6,7 @@ This independent Phase RCR audit used the raw Loadcycle operating-state stream
 only. It used no voltage field for cycle discovery, no polarization input, no
 Test-side row for a decision, no neural training, no SOH construction, and no
 RUL model. The strict analysis firewall was `OpHrs2 [h] < 1819.997738 h`.
-The execution head was `3150a35ecf7ef44c570707815e9bf9d9dd38a8dc`; the required research
+The execution head was `1c3d2d933c82bd8dbeefd751e1621448df9fe4de`; the required research
 base `ca040e56a76e9c985ec199e67cbed1929ea285e4` is an ancestor. The frozen protocol SHA256 is
 `df9e45dde37feea6d74b95caed91032fe1458847d3ba2357e24a097f20bd0405`.
 

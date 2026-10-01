@@ -46,6 +46,10 @@ class RawCycleReconstructionTests(unittest.TestCase):
         self.assertEqual(len(development), 1)
         self.assertAlmostEqual(float(development.iloc[0]["OpHrs2 [h]"]), 1225.01)
 
+    def test_timestamp_interval_audit_uses_seconds_not_storage_units(self) -> None:
+        timestamps = pd.Series(pd.to_datetime(["2020-01-01 00:00:00.005", "2020-01-01 00:00:01.005"]))
+        self.assertEqual(rcr.timestamp_differences_seconds(timestamps).tolist(), [1.0])
+
     def test_zero_stop_state_is_preserved(self) -> None:
         raw = frame([
             (1.0, "2020-01-01 00:00:00", "STOP", 0.0, 0.0, 0.0),

@@ -201,6 +201,12 @@ def normalise_chunk(chunk: pd.DataFrame) -> tuple[pd.DataFrame, int]:
     return work, post_count
 
 
+def timestamp_differences_seconds(datetimes: pd.Series) -> np.ndarray:
+    """Return physical timestamp intervals without depending on pandas storage units."""
+    parsed = pd.to_datetime(datetimes, errors="raise")
+    return parsed.diff().dt.total_seconds().dropna().to_numpy(dtype=float)
+
+
 @dataclass
 class RunAccumulator:
     run_id: int
@@ -332,8 +338,7 @@ def stream_and_compress(paths: Sequence[Path]) -> tuple[pd.DataFrame, pd.DataFra
             # continuous across chunk/file boundaries. No post-boundary row is kept.
             combined = development if prior_tail is None else pd.concat([prior_tail, development], ignore_index=True)
             if len(combined) > 1:
-                dt_values = combined["DateTime"].astype("int64").to_numpy() / 1e9
-                diffs = np.diff(dt_values)
+                diffs = timestamp_differences_seconds(combined["DateTime"])
                 valid_diffs = diffs[(diffs > 0) & (diffs <= GAP_SECONDS)]
                 interval_samples.extend(valid_diffs[:200].tolist())
             # Keep the final raw row to let the next chunk recreate an open run.

@@ -1,0 +1,49 @@
+{
+  "read_events": [
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "scope": "n1_prefix",
+      "nrows": 3007,
+      "usecols": [
+        "bin_start_ophrs2_h",
+        "bin_end_ophrs2_h",
+        "first_datetime",
+        "last_datetime",
+        "temporal_segment_id",
+        "split",
+        "bin_valid_for_windows",
+        "coverage_ratio",
+        "zero_current_fraction",
+        "startup_flag",
+        "shutdown_flag",
+        "gap_before_flag",
+        "number_of_operation_points",
+        "operation_point_mode",
+        "operation_point_transitions",
+        "set_current_A_mean",
+        "actual_current_A_mean",
+        "actual_current_density_A_cm2_mean",
+        "cell_voltage_mean",
+        "actual_anode_inlet_temperature_C_mean",
+        "actual_anode_inlet_pressure_kPag_mean",
+        "actual_anode_inlet_rh_pct_mean",
+        "actual_anode_hydrogen_flow_nl_min_mean",
+        "actual_anode_stoichiometry_mean",
+        "actual_cathode_stoichiometry_mean"
+      ],
+      "rows_returned": 3007
+    }
+  ],
+  "attempt_id": "MQ_ATTEMPT_2_LOCAL_ISOLATED",
+  "historical_planning_layer_test_contact": true,
+  "historical_attempt_1_test_contact": true,
+  "attempt_2_github_data_content_accessed": false,
+  "attempt_2_mixed_anchor_summary_accessed": false,
+  "attempt_2_test_accessed": false,
+  "n1_prefix_rows_read": 3007,
+  "development_rows_retained": 3005,
+  "post_prefix_rows_read": 0,
+  "full_n1_hash_performed": false,
+  "development_polarization_files_available": 7,
+  "neural_training": false
+}

@@ -1,0 +1,24 @@
+{
+  "vanilla_seed42_status": "TFT_NOT_VIABLE",
+  "vanilla_seed42_checks": {
+    "formal_110": false,
+    "fold3_115": true,
+    "p99_110": true,
+    "endpoint_115": false,
+    "target_equal_110": false
+  },
+  "borderline_checks": {
+    "formal_between_110_120": false,
+    "fold3_110": true,
+    "p99_105": true,
+    "endpoint_110": false,
+    "target_equal_105": false
+  },
+  "raw_timesnet_seed42_formal_RMSE_mV": 14.206557830029526,
+  "raw_timesnet_seed42_formal_110_limit_mV": 15.62721361303248,
+  "raw_timesnet_seed42_formal_120_limit_mV": 17.04786939603543,
+  "vanilla_seed42_formal_RMSE_mV": 19.914181241498685,
+  "final_status": "TFT_NOT_VIABLE",
+  "test_accessed": false,
+  "model_training_performed": true
+}

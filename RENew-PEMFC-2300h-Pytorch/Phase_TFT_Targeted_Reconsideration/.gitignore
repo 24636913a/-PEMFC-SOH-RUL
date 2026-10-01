@@ -1,0 +1,8 @@
+# Local source repositories are reproducibility inputs, not embedded Git repositories.
+# Their pinned commits and content hashes are recorded in SOURCE_MANIFEST.yaml.
+/sources/*
+!/sources/README.md
+
+# Python bytecode is an execution cache, not an experimental artifact.
+__pycache__/
+*.py[cod]

@@ -1,0 +1,4 @@
+﻿model,batch_size,device,elapsed_s,peak_gpu_memory_MiB,finite
+LSTM,64,cuda,0.01994079997530207,89.736328125,True
+sLSTM,64,cuda,0.11507370002800599,116.69775390625,True
+mLSTM,64,cuda,0.30189729999983683,160.599609375,True

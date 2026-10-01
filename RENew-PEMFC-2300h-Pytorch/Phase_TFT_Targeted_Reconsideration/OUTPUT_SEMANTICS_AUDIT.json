@@ -1,0 +1,7 @@
+{
+  "absolute_output_shape": "[B,24]",
+  "delta_formula": "absolute_scaled - x_scaled[:, -1, voltage_channel_0]",
+  "inverse_transform": "delta_scaled * train_voltage_scale",
+  "unit": "V_after_inverse_transform",
+  "pass": true
+}

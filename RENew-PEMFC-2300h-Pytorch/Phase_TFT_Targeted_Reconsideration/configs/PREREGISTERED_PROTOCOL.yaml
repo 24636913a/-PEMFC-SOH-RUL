@@ -1,0 +1,224 @@
+phase: Phase_TFT_Targeted_Reconsideration
+status: FROZEN_BEFORE_DEVELOPMENT_RESULTS
+base_commit: b223d30ff68f51888c57d90c4abc7a69b6f81e3e
+project_root: E:/沈农信电/ PEMFC-SOH+RUL/RENew-PEMFC-2300h-Pytorch
+
+scope:
+  dataset: RealHyFC
+  development_only: true
+  test_access: prohibited
+  raw_data_access: prohibited
+  test_polarization_access: prohibited
+  test_eis_access: prohibited
+  external_decomposition: prohibited
+  age_cycle_soh_rul_features_or_targets: prohibited
+  future_actual_operating_covariates: prohibited
+  permitted_models: [LSTM, sLSTM, mLSTM]
+  no_fourth_or_fifth_temporal_model: true
+
+data_firewall:
+  csv: Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  pandas_read_csv_nrows: 3007
+  expected_prefix_rows: 3007
+  expected_development_rows_after_end_filter: 3005
+  required_columns:
+    - bin_start_ophrs2_h
+    - bin_end_ophrs2_h
+    - last_datetime
+    - temporal_segment_id
+    - bin_valid_for_windows
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+  f2_raw_feature_order:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+
+task:
+  resolution_h: 0.5
+  lookback_steps: 48
+  lookback_hours: 24
+  forecast_steps: 24
+  forecast_hours: 12
+  input_shape: [batch, 48, 14]
+  target: delta_V_t_plus_h_equals_future_cell_voltage_mean_minus_origin_cell_voltage_mean
+  output_semantics: future_standardized_absolute_voltage
+  delta_for_loss: absolute_scaled_minus_x_scaled_at_origin_voltage_channel_0
+  delta_inverse_transform: standardized_delta_times_train_voltage_scale
+  decoder_tokens: fixed_internal_zeros_only
+  scenario: STRICT_UNKNOWN_FUTURE
+
+development_end_h_exclusive: 1819.997738
+folds:
+  - fold: fold_1
+    train_start_h: 72.788690
+    train_end_h: 946.393214
+    validation_start_h: 946.393214
+    validation_end_h: 1164.794345
+  - fold: fold_2
+    train_start_h: 72.788690
+    train_end_h: 1164.794345
+    validation_start_h: 1164.794345
+    validation_end_h: 1383.195476
+  - fold: fold_3
+    train_start_h: 72.788690
+    train_end_h: 1383.195476
+    validation_start_h: 1383.195476
+    validation_end_h: 1819.997738
+window_rules:
+  same_temporal_segment: true
+  all_history_and_target_bins_valid: true
+  exact_continuity_h: 0.5
+  target_end_within_fold: true
+  validation_origins_must_match_phase_bs: true
+
+inner_stopping:
+  stopper_fraction_of_outer_train_legal_origins: 0.15
+  temporal_direction: last_origins
+  fit_stopper_target_overlap: prohibited
+  scaler_fit_population: inner_fit_origins_only
+  selection_metric: DeltaV_RMSE_mV
+  final_refit: reinitialize_same_seed_on_full_outer_train
+  final_scaler_fit_population: full_outer_train_only
+
+architecture:
+  name: strict_history_TFT_adaptation
+  continuous_embedding_size: 16
+  recurrent_layers: 1
+  attention_heads: 4
+  grn_hidden_size: 32
+  dropout: 0.1
+  causal_attention: true
+  output_voltage_channels: 1
+  preserved_components: [continuous_variable_selection, gated_residual_networks, local_recurrent_encoder_decoder, causal_interpretable_attention, gating, absolute_voltage_output_head]
+  only_replaced_component_for_xlstm: local_recurrent_encoder_decoder
+models:
+  LSTM:
+    hidden_size: 32
+    parameter_count: 87887
+    parameter_ratio: 1.0
+    capacity_status: EXACT_REFERENCE
+    state_handoff: torch.nn.LSTM_h_c
+  sLSTM:
+    hidden_size: 32
+    parameter_count: 81647
+    parameter_ratio: 0.9289997383003175
+    capacity_status: MATCHED_080_TO_125
+    state_handoff: NX-AI_sLSTMLayer_conv_state_slstm_state
+    backend: official_v2_0_4_vanilla_native_pytorch
+  mLSTM:
+    hidden_size: 32
+    parameter_count: 88151
+    parameter_ratio: 1.0030038572257558
+    capacity_status: MATCHED_080_TO_125
+    state_handoff: NX-AI_mLSTMLayer_conv_state_mlstm_state
+parameter_matching:
+  candidate_hidden_sizes: [16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64]
+  target_ratio_range: [0.80, 1.25]
+  fallback_ratio_maximum: 1.50
+  selection_basis: parameter_count_only_before_any_development_score
+
+training:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 64
+  max_epochs: 300
+  patience: 30
+  gradient_clip_norm: 1.0
+  scheduler: none
+  num_workers: 0
+  loss: standardized_DeltaV_MSE_from_absolute_scaled_voltage_output
+  seeds: [42, 2024, 3407]
+  first_stage_seed: 42
+  resource_preflight_batch_size: 64
+
+metrics:
+  formal_name: forecast_query_weighted_RMSE
+  formal_formula: arithmetic_mean_of_three_fold_query_weighted_RMSE_values
+  robustness_name: target_time_equal_weight_RMSE
+  endpoint: horizon_step_24_12h_RMSE
+  tail: [P95_absolute_error, P99_absolute_error, max_absolute_error]
+
+gates:
+  vanilla_seed42_viable:
+    formal_RMSE_at_most_raw_timesnet: 1.10
+    fold3_RMSE_at_most_raw_timesnet: 1.15
+    P99_at_most_raw_timesnet: 1.10
+    endpoint_RMSE_at_most_raw_timesnet: 1.15
+    target_time_equal_RMSE_at_most_raw_timesnet: 1.10
+  vanilla_seed42_borderline:
+    formal_RMSE_interval_raw_timesnet: [1.10, 1.20]
+    fold3_RMSE_at_most_raw_timesnet: 1.10
+    P99_at_most_raw_timesnet: 1.05
+    endpoint_RMSE_at_most_raw_timesnet: 1.10
+    target_time_equal_RMSE_at_most_raw_timesnet: 1.05
+  vanilla_multiseed:
+    formal_mean_at_most_raw_timesnet: 1.10
+    fold3_mean_at_most_raw_timesnet: 1.15
+    P99_mean_at_most_raw_timesnet: 1.10
+    endpoint_mean_at_most_raw_timesnet: 1.15
+    target_time_equal_mean_at_most_raw_timesnet: 1.10
+    paired_seed_count_at_most_raw_timesnet: 2
+    maximum_single_seed_raw_timesnet: 1.20
+  encoder_seed42:
+    formal_RMSE_at_most_vanilla: 0.97
+    fold3_RMSE_at_most_vanilla: 1.03
+    P99_at_most_vanilla: 1.05
+    endpoint_RMSE_at_most_vanilla: 1.05
+    target_time_equal_RMSE_at_most_vanilla: 1.05
+  encoder_multiseed:
+    minimum_formal_mean_improvement_fraction: 0.03
+    paired_seed_count_better_than_vanilla: 2
+    fold3_mean_at_most_vanilla: 1.03
+    P99_mean_at_most_vanilla: 1.05
+    endpoint_mean_at_most_vanilla: 1.05
+    target_time_equal_mean_at_most_vanilla: 1.05
+
+official_sources:
+  Google_Research_TFT:
+    repository: https://github.com/google-research/google-research
+    commit: e49bbfe381c9c0e564b937f1c4e163a2273c65cc
+    reference_path: tft/libs/tft_model.py
+    role: architecture_reference_only
+  PyTorch_Forecasting_TFT:
+    repository: https://github.com/sktime/pytorch-forecasting
+    commit: 5a8c20f7001f442439644616257218fdc85be2d3
+    role: architecture_crosscheck_only
+  NX_AI_xLSTM:
+    repository: https://github.com/NX-AI/xlstm
+    tag: v2.0.4
+    commit: add5001330eb62d66867a5eca211050240ca74f5
+    local_checkout: sources/xlstm_official_v2_0_4
+    role: native_sLSTM_mLSTM_runtime
+
+stop_rules:
+  vanilla_not_viable: stop_before_xlstm
+  vanilla_multiseed_failure: stop_before_xlstm
+  encoder_seed42_failure: no_extra_seed_for_that_encoder
+  final_statuses: [TFT_NOT_VIABLE, TFT_VIABLE_LSTM_SELECTED, TFT_VIABLE_sLSTM_SELECTED, TFT_VIABLE_mLSTM_SELECTED]
+  next_phase_only: REALHYFC_SPECIFIC_MECHANISM
+  automatic_next_phase_execution: prohibited

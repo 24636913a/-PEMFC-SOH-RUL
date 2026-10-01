@@ -1,0 +1,54 @@
+phase: Phase_TFT_Targeted_Reconsideration
+frozen_before_development_scores: true
+repository:
+  path: E:/沈农信电/ PEMFC-SOH+RUL
+  required_start_commit: b223d30ff68f51888c57d90c4abc7a69b6f81e3e
+  required_branch: main
+protocol:
+  path: configs/PREREGISTERED_PROTOCOL.yaml
+  sha256: c665ff984951cfc473732bb6aba4b0163f451123d98f1b158ab841a61409bb0d
+implementation_files:
+  - path: scripts/tft_models.py
+    sha256: c8055ab551d0263acc2848c5e661b59d72b40f2097b9ce8548525f1cbfe4effb
+  - path: scripts/tft_common.py
+    sha256: 3c5782c61d493c22e64af98949e079acd9a69176cb35239a7a6d582c3cead54a
+  - path: scripts/run_tft_reconsideration.py
+    sha256: 1fa5869b3c1027b080b151fd44fc6f950007f712a89e84a6842b6e39b9cc0cbf
+frozen_runtime_source:
+  name: NX-AI_xLSTM
+  repository: https://github.com/NX-AI/xlstm
+  tag: v2.0.4
+  commit: add5001330eb62d66867a5eca211050240ca74f5
+  local_checkout: sources/xlstm_official_v2_0_4
+  files:
+    - path: xlstm/blocks/slstm/layer.py
+      sha256: d67b684b6e75d74d54ead44a1e05b14180268204a62c1e9f40115b9a663a5932
+    - path: xlstm/blocks/slstm/cell.py
+      sha256: f64328f4538ab3d37d6d96a49ea8c57dadd412433a7fc421feb6ca6d9c86d469
+    - path: xlstm/blocks/mlstm/layer.py
+      sha256: c260d4f08c8ca813e4e043f8f091785bc61e83c3f538fa9914e7eddbaee4bfeb
+    - path: xlstm/blocks/mlstm/cell.py
+      sha256: ada4b761c20f9e4dbba26a85e22bb5e109ec14839d0085b6801e3cd0b9583a68
+architecture_references:
+  - name: Google Research TFT
+    repository: https://github.com/google-research/google-research
+    commit: e49bbfe381c9c0e564b937f1c4e163a2273c65cc
+    path: tft/libs/tft_model.py
+    used_at_runtime: false
+  - name: PyTorch Forecasting TFT
+    repository: https://github.com/sktime/pytorch-forecasting
+    commit: 5a8c20f7001f442439644616257218fdc85be2d3
+    used_at_runtime: false
+frozen_historical_inputs:
+  - path: ../Phase_BS_Final_Backbone_Screening/outputs/per_fold.csv
+    sha256: 2632be0fe97b580312882790b53281f5ccf83cd9fb86f67f826b8fbc17f018db
+    role: TimesNet_Raw_F2_Development_reference
+  - path: ../Phase_BS_Final_Backbone_Screening/configs/PREREGISTERED_PROTOCOL.yaml
+    sha256: fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788
+    role: frozen_window_and_metric_protocol
+  - path: ../Phase_DF_Leakage_Safe_Decomposition_Features/outputs/MULTISEED_RESULTS.csv
+    sha256: 54fac24fcb65a806249692466384fd1f16ac769cd56c47d1f5db42c93defcf11
+    role: TimesNet_EMD_historical_reference
+  - path: ../Phase_DF_Leakage_Safe_Decomposition_Features/final/FINAL_DECISION.yaml
+    sha256: e332df07ea0536fe5f62f0e74b89cccd1da9098ab259637c06445b488f8dbd21
+    role: EMD_SPECIFIC_ADVANCE_status

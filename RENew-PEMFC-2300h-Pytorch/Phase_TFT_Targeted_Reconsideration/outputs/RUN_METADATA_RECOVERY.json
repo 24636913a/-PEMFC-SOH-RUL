@@ -1,0 +1,13 @@
+{
+  "post_result_metadata_recovery": true,
+  "training_repeated": false,
+  "data_read": "none",
+  "test_accessed": false,
+  "reason": "initial runner reached all saved seed42 artifacts then could not JSON-serialise NumPy boolean gate values",
+  "metric_inputs": [
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_Targeted_Reconsideration\\outputs\\PER_FOLD_METRICS.csv",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_BS_Final_Backbone_Screening\\outputs\\per_fold.csv",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DF_Leakage_Safe_Decomposition_Features\\outputs\\MULTISEED_RESULTS.csv"
+  ],
+  "protocol_sha256": "c665ff984951cfc473732bb6aba4b0163f451123d98f1b158ab841a61409bb0d"
+}

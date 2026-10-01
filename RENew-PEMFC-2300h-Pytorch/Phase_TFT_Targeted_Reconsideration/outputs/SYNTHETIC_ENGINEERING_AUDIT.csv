@@ -1,0 +1,4 @@
+﻿model,output_shape,finite_output,finite_input_gradient,finite_parameter_gradients,sample_isolation,zero_decoder_tokens,causal_attention_mask,native_state_contract,parameter_count
+LSTM,"[4, 24]",True,True,True,True,True,True,"torch.nn.LSTM_(h,c)_handoff",87887
+sLSTM,"[4, 24]",True,True,True,True,True,True,"NX-AI_sLSTMLayer_(conv_state,slstm_state)_handoff",81647
+mLSTM,"[4, 24]",True,True,True,True,True,True,"NX-AI_mLSTMLayer_(conv_state,mlstm_state)_handoff",88151

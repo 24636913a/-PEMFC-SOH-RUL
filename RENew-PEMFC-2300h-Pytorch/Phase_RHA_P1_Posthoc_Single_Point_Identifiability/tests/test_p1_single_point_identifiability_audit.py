@@ -57,6 +57,28 @@ class P1AuditProductionHelperTests(unittest.TestCase):
         self.assertEqual(P1.final_status(True, True, True, False, "PASS", True), "P1_STABLE_DWELL_SENSITIVITY_UNRESOLVED")
         self.assertEqual(P1.final_status(True, True, True, True, "P1_ANCHOR_ALIGNMENT_INCONCLUSIVE", False), "P1_ANCHOR_ALIGNMENT_INCONCLUSIVE")
 
+    def test_anchor_alignment_requires_three_pre_characterization_cycles(self) -> None:
+        primary = pd.DataFrame(
+            {
+                "is_evaluation_cycle": [True, True, True],
+                "cycle_end_ophrs2_h": [270.0, 275.0, 296.0],
+                "P1_cycle_operating_voltage_retention": [0.998, 0.997, 0.996],
+            }
+        )
+        polarization = pd.DataFrame(
+            {
+                "jstar_A_cm2": [1.0, 1.0, 1.6, 1.6],
+                "ageing_hour": [0.0, 300.0, 0.0, 300.0],
+                "voltage_median_V": [0.70, 0.69, 0.65, 0.64],
+                "voltage_std_V": [0.001, 0.001, 0.001, 0.001],
+            }
+        )
+        alignment, compatibility, passed, state = P1.p1_anchor_alignment(primary, polarization)
+        self.assertEqual(state, "P1_ANCHOR_ALIGNMENT_INCONCLUSIVE")
+        self.assertFalse(passed)
+        self.assertTrue(compatibility.empty)
+        self.assertEqual(int((alignment["status"] == "ALIGNED").sum()), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

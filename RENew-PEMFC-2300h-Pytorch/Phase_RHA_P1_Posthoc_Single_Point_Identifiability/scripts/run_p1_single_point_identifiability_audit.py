@@ -479,7 +479,7 @@ Sparse-anchor results, if polarization access was allowed, are written below.
 They can support only `SPARSE_POLARIZATION_ANCHOR_COMPATIBILITY`, because both
 representations are age-associated; they are not independent SOH validation.
 
-{anchor.to_markdown(index=False) if not anchor.empty else 'Polarization was not accessed because the upstream P1 gates did not all pass.'}
+{anchor.to_markdown(index=False) if not anchor.empty else ('Polarization was accessed, but the frozen pre-characterization cycle requirement made anchor alignment unresolved.' if result['development_polarization_accessed'] else 'Polarization was not accessed because the upstream P1 gates did not all pass.')}
 
 No neural model, continuous SOH label, RUL model, or automatic next phase was
 created.
@@ -542,7 +542,7 @@ def run() -> dict[str, Any]:
     pd.DataFrame([sensitivity]).to_csv(OUT / "P1_STABLE_WINDOW_SENSITIVITY.csv", index=False)
     if allow_polarization:
         alignment.to_csv(OUT / "P1_ANCHOR_ALIGNMENT.csv", index=False)
-        compatibility.to_csv(OUT / "P1_ANCHOR_COMPATIBILITY.csv", index=False)
+        (compatibility if not compatibility.empty else pd.DataFrame([{"analysis_status": anchor_state, "reason": "Fewer than five aligned non-BoL anchors or a required 1500/1750 h anchor was unresolved."}])).to_csv(OUT / "P1_ANCHOR_COMPATIBILITY.csv", index=False)
     (OUT / "DATA_ACCESS_AUDIT.json").write_text(json.dumps(access, indent=2), encoding="utf-8")
     result = {
         "final_status": status,

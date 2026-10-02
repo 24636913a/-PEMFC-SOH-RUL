@@ -1,0 +1,47 @@
+final_status: P1_ANCHOR_ALIGNMENT_INCONCLUSIVE
+analysis_designation: POSTHOC_EXPLORATORY
+original_dual_point_RHA: CONDITION_COMMON_SUPPORT_INSUFFICIENT
+original_RHA_changed: false
+P1_operation_point: '221'
+P2_replaced: false
+frozen_cycles_reused: 146
+cycle_rediscovery: false
+gates:
+  P1_A: true
+  P1_B: true
+  P1_C: true
+  stable_window_sensitivity: true
+  P1_D: false
+  P1_D_state: P1_ANCHOR_ALIGNMENT_INCONCLUSIVE
+development_polarization_accessed: true
+neural_training: false
+continuous_SOH_constructed: false
+RUL_trained: false
+automatic_next_phase: false
+protocol_sha256: db07279b06de79be807a2aa89f1108b9a1cfb0fe6c8950082c6a910351b5b78a
+execution_head: 94ecc08daa6841560d9a68bc90e70a2404b83f5c
+raw_files_opened:
+- Loadcycle_data/Loadcycle_data/Loadcycle_0-14.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_15-25.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_26-37.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_37-50.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_51-70.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_70-75.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_76-82.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_82-84.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_85-100.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_101-112.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_112-125.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_126-133.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_134-150.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_151-162.csv
+raw_post_boundary_rows_accessed: 31316
+raw_post_boundary_rows_used: 0
+crossing_file: Loadcycle_data/Loadcycle_data/Loadcycle_151-162.csv
+stopped_before_later_files: true
+test_raw_rows_accessed_in_boundary_crossing_chunk: true
+test_raw_rows_used_for_analysis: false
+test_raw_rows_used_for_threshold_selection: false
+test_raw_rows_used_for_decision: false
+test_polarization_accessed: false
+test_EIS_accessed: false

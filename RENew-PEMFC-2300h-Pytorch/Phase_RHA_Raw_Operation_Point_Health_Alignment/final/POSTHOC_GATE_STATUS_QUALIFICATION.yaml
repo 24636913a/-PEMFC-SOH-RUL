@@ -1,0 +1,35 @@
+phase: Phase_RHA_Raw_Operation_Point_Health_Alignment
+record_type: POSTHOC_DOCUMENTATION_CLARIFICATION
+original_final_status_preserved: CONDITION_COMMON_SUPPORT_INSUFFICIENT
+original_final_decision_modified: false
+original_protocol_modified: false
+operation_points:
+  P1: '221'
+  P2: '30'
+joint_common_support_cycles:
+  P1: {EARLY: 32, MIDDLE: 28, LATE: 22}
+  P2: {EARLY: 13, MIDDLE: 22, LATE: 11}
+frozen_joint_support_minimum_per_stratum: 15
+gate_status_clarification:
+  gate_A_point_support: PASS
+  gate_B_condition_completeness: PASS
+  joint_common_support: FAIL
+  gate_C_voltage_visibility: NOT_RUN
+  gate_D_sparse_anchor_compatibility: NOT_RUN
+not_run_reason: Preregistered stop after joint-common-support failure.
+formal_gate_C_voltage_contrast_calculated: false
+condition_matched_voltage_contrast_calculated: false
+gate_C_bootstrap_calculated: false
+development_polarization_accessed: false
+gate_D_anchor_compatibility_calculated: false
+raw_test_access_qualification:
+  crossing_file: Loadcycle_data/Loadcycle_data/Loadcycle_151-162.csv
+  raw_post_boundary_rows_accessed: 31316
+  raw_post_boundary_rows_used: 0
+  test_raw_rows_accessed: true
+  test_raw_rows_used_for_analysis: false
+  test_raw_rows_used_for_threshold_selection: false
+  test_raw_rows_used_for_decision: false
+  test_polarization_accessed: false
+  test_EIS_accessed: false
+  precise_statement: Test raw rows were accessed in the boundary-crossing chunk but not used.

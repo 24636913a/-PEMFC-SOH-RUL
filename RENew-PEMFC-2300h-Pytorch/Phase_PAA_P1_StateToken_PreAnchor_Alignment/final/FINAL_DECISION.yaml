@@ -1,0 +1,49 @@
+final_status: P1S_PREANCHOR_COMPATIBILITY_EXPLORATORY_PASS
+analysis_designation: POSTHOC_EXPLORATORY
+base_head: c0c56d1e3299e6f5a360ce263a34f66c119ac110
+original_P1_result_changed: false
+primary_operation_point: '221'
+frozen_P1_state_token: 221||221.200
+frozen_template_frequency: 93
+selection_based_on_voltage: false
+selection_based_on_polarization: false
+reference_complete_cycles: 10
+gates:
+  support: true
+  long_term_drift: true
+  condition_support: true
+  matched_direction: true
+  anchor_coverage: true
+neural_training: false
+continuous_SOH_constructed: false
+RUL_trained: false
+automatic_next_phase: false
+protocol_sha256: f8b5ddf76ec3f0ac40d79e637d7641cfb14d29251821a1f47533e8718910b8a5
+execution_head: a06060264451294ffab62610fa797add532bab37
+raw_files_opened:
+- Loadcycle_data/Loadcycle_data/Loadcycle_0-14.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_15-25.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_26-37.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_37-50.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_51-70.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_70-75.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_76-82.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_82-84.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_85-100.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_101-112.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_112-125.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_126-133.csv
+- Loadcycle_data/Loadcycle_data/Loadcycle_134-150.csv
+maximum_required_precharacterization_cutoff_h: 1719.31
+rows_accessed_after_latest_required_anchor: 0
+rows_at_latest_required_anchor: 26
+test_raw_rows_accessed: false
+test_raw_rows_used: false
+stopped_before_later_files: true
+latest_opened_source_file: Loadcycle_data/Loadcycle_data/Loadcycle_134-150.csv
+test_raw_rows_used_for_analysis: false
+test_raw_rows_used_for_threshold_selection: false
+test_raw_rows_used_for_decision: false
+test_polarization_accessed: false
+test_EIS_accessed: false
+development_polarization_accessed: true

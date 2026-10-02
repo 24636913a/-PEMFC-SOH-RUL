@@ -613,6 +613,18 @@ def final_status(gate_support: bool, gate_drift: bool, gate_joint: bool, gate_ma
     return "P1S_PREANCHOR_COMPATIBILITY_EXPLORATORY_PASS"
 
 
+def markdown_table(data: pd.DataFrame, columns: list[str]) -> str:
+    """Render a small report table without optional tabulate dependency."""
+    if data.empty:
+        return "Anchor alignment was not reached."
+    table = data[columns].copy()
+    lines = ["| " + " | ".join(columns) + " |", "| " + " | ".join(["---"] * len(columns)) + " |"]
+    for row in table.itertuples(index=False, name=None):
+        rendered = ["" if pd.isna(value) else str(value) for value in row]
+        lines.append("| " + " | ".join(rendered) + " |")
+    return "\n".join(lines)
+
+
 def write_report(result: dict[str, Any], drift: dict[str, Any], match: dict[str, Any], alignment: pd.DataFrame) -> None:
     summary = alignment.loc[alignment["record_type"] == "anchor_summary"] if not alignment.empty else pd.DataFrame()
     text = f"""# Final P1S pre-anchor alignment audit
@@ -648,7 +660,7 @@ P1S support: **{result['gates']['support']}**; long-term drift:
 | 4-cycle CI upper | {drift.get('bootstrap4_ci95_upper', np.nan):.8f} |
 | Matched contrast | {match.get('matched_contrast', np.nan):.8f} |
 
-{summary.to_markdown(index=False) if not summary.empty else 'Anchor alignment was not reached.'}
+{markdown_table(summary, ['checkpoint_h', 'selected_cycle_interval_ids', 'joint_support_interval_count', 'status', 'P1S_anchor_retention'])}
 
 No neural model, continuous SOH, RUL model, or automatic next phase was created.
 """
@@ -692,7 +704,22 @@ def run() -> dict[str, Any]:
     result = {"final_status": status, "analysis_designation": "POSTHOC_EXPLORATORY", "base_head": config["base_head"], "original_P1_result_changed": False, "primary_operation_point": P1_OPERATION_POINT, "frozen_P1_state_token": P1_TOKEN, "frozen_template_frequency": 93, "selection_based_on_voltage": False, "selection_based_on_polarization": False, "reference_complete_cycles": 10, "gates": {"support": gate_support, "long_term_drift": gate_drift, "condition_support": gate_joint, "matched_direction": gate_match, "anchor_coverage": coverage}, "neural_training": False, "continuous_SOH_constructed": False, "RUL_trained": False, "automatic_next_phase": False, **provenance, **access}
     (OUT / "GATE_EVALUATION.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
     MANIFEST.write_text(yaml.safe_dump({"phase": PHASE.name, "status": "EXECUTED", "analysis_designation": "POSTHOC_EXPLORATORY", "protocol_sha256": provenance["protocol_sha256"], "execution_head": provenance["execution_head"], "selected_state_token": P1_TOKEN, "raw_access": access, "polarization_accessed": bool(not polarization.empty)}, sort_keys=False, allow_unicode=True), encoding="utf-8")
+    write_report(result, drift, match_summary, alignment)
+    (FINAL / "FINAL_DECISION.yaml").write_text(yaml.safe_dump(result, sort_keys=False, allow_unicode=True), encoding="utf-8")
     save_figures(retention, drift, matches, balance, alignment, compatibility, polarization)
+    return result
+
+
+def finalize_existing_outputs() -> dict[str, Any]:
+    """Repair an interrupted post-processing step without touching source data."""
+    ensure_dirs()
+    result = json.loads((OUT / "GATE_EVALUATION.json").read_text(encoding="utf-8"))
+    if result.get("final_status") == "DATA_FIREWALL_DEVIATION":
+        raise AuditFailure("Cannot finalize an audit that failed the Test firewall.")
+    drift = pd.read_csv(OUT / "P1S_LONG_TERM_DRIFT.csv").iloc[0].to_dict()
+    match = pd.read_csv(OUT / "P1S_CONDITION_MATCHING.csv")
+    match_summary = {"matched_contrast": float(match["late_minus_early_retention"].median()) if "late_minus_early_retention" in match else np.nan}
+    alignment = pd.read_csv(OUT / "P1S_ANCHOR_ALIGNMENT.csv")
     write_report(result, drift, match_summary, alignment)
     (FINAL / "FINAL_DECISION.yaml").write_text(yaml.safe_dump(result, sort_keys=False, allow_unicode=True), encoding="utf-8")
     return result
@@ -700,6 +727,7 @@ def run() -> dict[str, Any]:
 
 if __name__ == "__main__":
     try:
-        print(json.dumps(run(), indent=2, ensure_ascii=False, default=str))
+        result = finalize_existing_outputs() if "--finalize-existing" in sys.argv[1:] else run()
+        print(json.dumps(result, indent=2, ensure_ascii=False, default=str))
     except AuditFailure as error:
         ensure_dirs(); failure={"final_status": "DATA_FIREWALL_DEVIATION" if "DATA_FIREWALL_DEVIATION" in str(error) else "P1S_SUPPORT_INSUFFICIENT", "technical_failure": str(error), "neural_training": False, "continuous_SOH_constructed": False, "RUL_trained": False, "automatic_next_phase": False}; (OUT / "GATE_EVALUATION.json").write_text(json.dumps(failure, indent=2), encoding="utf-8"); print(json.dumps(failure, indent=2, ensure_ascii=False)); sys.exit(2)

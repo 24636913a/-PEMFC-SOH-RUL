@@ -93,6 +93,10 @@ class PAAProductionTests(unittest.TestCase):
         with self.assertRaises(PAA.AuditFailure):
             PAA.validate_polarization_path(Path("Polcurve_Nominal_RHFC_2300h_afterAirAirStart.csv"))
 
+    def test_report_table_has_no_optional_tabulate_dependency(self) -> None:
+        rendered = PAA.markdown_table(pd.DataFrame({"checkpoint_h": [300], "status": ["ALIGNED"]}), ["checkpoint_h", "status"])
+        self.assertIn("| 300 | ALIGNED |", rendered)
+
 
 if __name__ == "__main__":
     unittest.main()

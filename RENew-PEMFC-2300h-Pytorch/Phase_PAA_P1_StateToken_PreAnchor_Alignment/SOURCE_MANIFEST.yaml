@@ -1,16 +1,35 @@
 phase: Phase_PAA_P1_StateToken_PreAnchor_Alignment
-status: FROZEN_BEFORE_P1S_VOLTAGE_OR_POLARIZATION_RESULTS
+status: EXECUTED
 analysis_designation: POSTHOC_EXPLORATORY
-protocol_file: configs/PREREGISTERED_PAA_PROTOCOL.yaml
 protocol_sha256: f8b5ddf76ec3f0ac40d79e637d7641cfb14d29251821a1f47533e8718910b8a5
-base_head: c0c56d1e3299e6f5a360ce263a34f66c119ac110
-original_RCR_status: RAW_CYCLE_STRUCTURE_QUALIFIED
-original_RHA_status: CONDITION_COMMON_SUPPORT_INSUFFICIENT
-original_P1_status: P1_ANCHOR_ALIGNMENT_INCONCLUSIVE
-selected_state_token: '221||221.200'
-raw_access: NOT_RUN
-polarization_access: NOT_RUN
-neural_training: false
-continuous_SOH_constructed: false
-RUL_trained: false
-automatic_next_phase: false
+execution_head: a06060264451294ffab62610fa797add532bab37
+selected_state_token: 221||221.200
+raw_access:
+  raw_files_opened:
+  - Loadcycle_data/Loadcycle_data/Loadcycle_0-14.csv
+  - Loadcycle_data/Loadcycle_data/Loadcycle_15-25.csv
+  - Loadcycle_data/Loadcycle_data/Loadcycle_26-37.csv
+  - Loadcycle_data/Loadcycle_data/Loadcycle_37-50.csv
+  - Loadcycle_data/Loadcycle_data/Loadcycle_51-70.csv
+  - Loadcycle_data/Loadcycle_data/Loadcycle_70-75.csv
+  - Loadcycle_data/Loadcycle_data/Loadcycle_76-82.csv
+  - Loadcycle_data/Loadcycle_data/Loadcycle_82-84.csv
+  - Loadcycle_data/Loadcycle_data/Loadcycle_85-100.csv
+  - Loadcycle_data/Loadcycle_data/Loadcycle_101-112.csv
+  - Loadcycle_data/Loadcycle_data/Loadcycle_112-125.csv
+  - Loadcycle_data/Loadcycle_data/Loadcycle_126-133.csv
+  - Loadcycle_data/Loadcycle_data/Loadcycle_134-150.csv
+  maximum_required_precharacterization_cutoff_h: 1719.31
+  rows_accessed_after_latest_required_anchor: 0
+  rows_at_latest_required_anchor: 26
+  test_raw_rows_accessed: false
+  test_raw_rows_used: false
+  stopped_before_later_files: true
+  latest_opened_source_file: Loadcycle_data/Loadcycle_data/Loadcycle_134-150.csv
+  test_raw_rows_used_for_analysis: false
+  test_raw_rows_used_for_threshold_selection: false
+  test_raw_rows_used_for_decision: false
+  test_polarization_accessed: false
+  test_EIS_accessed: false
+  development_polarization_accessed: true
+polarization_accessed: true

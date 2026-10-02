@@ -24,6 +24,8 @@ INPUTS = PHASE / "inputs"
 OUTPUTS = PHASE / "outputs"
 FINAL_V2 = CONFIGS / "PREREGISTERED_CHM_PROTOCOL_FINAL_V2.yaml"
 FINAL_V2_SHA = CONFIGS / "PREREGISTERED_CHM_PROTOCOL_FINAL_V2.sha256"
+SUPPLEMENT_A = CONFIGS / "CHM_FINAL_V2_EXECUTION_SUPPLEMENT_A.yaml"
+SUPPLEMENT_A_SHA = CONFIGS / "CHM_FINAL_V2_EXECUTION_SUPPLEMENT_A.sha256"
 AUTHORITY = CONFIGS / "CHM_PROTOCOL_AUTHORITY.yaml"
 ERRATA = CONFIGS / "CHM_PROTOCOL_ERRATA_V2.yaml"
 ERRATA_SHA = CONFIGS / "CHM_PROTOCOL_ERRATA_V2.sha256"
@@ -65,6 +67,7 @@ def assert_sha_sidecar(path: Path, sidecar: Path) -> str:
 def frozen_hash_paths() -> dict[str, Path]:
     return {
         "final_v2_protocol": FINAL_V2,
+        "execution_semantics_supplement_a": SUPPLEMENT_A,
         "protocol_authority": AUTHORITY,
         "protocol_errata_v2": ERRATA,
         "source_allowlist": ALLOWLIST,
@@ -76,6 +79,7 @@ def frozen_hash_paths() -> dict[str, Path]:
         "uncertainty_v2": PHASE / "docs" / "FROZEN_UNCERTAINTY_PROTOCOL_V2.md",
         "test_firewall_v2": PHASE / "docs" / "TEST_FIREWALL_PLAN_V2.md",
         "authority_audit_script": Path(__file__).resolve(),
+        "execution_semantics_audit_script": PHASE / "scripts" / "chm_v2a_execution_semantics_audit.py",
     }
 
 
@@ -89,8 +93,8 @@ def write_frozen_input_hashes_v2() -> dict[str, Any]:
     }
     payload = {
         "phase": PHASE.name,
-        "version": "V2",
-        "scope": "CHM_D_runtime_authority_and_frozen_Development_inputs_only",
+        "version": "V2A",
+        "scope": "CHM_D_runtime_authority_and_frozen_Development_inputs_with_execution_semantics_supplement_A",
         "records": records,
         "excluded_runtime_inputs": ["any_Loadcycle_raw_source", "direct_polarization_CSV", "Test_raw", "Test_polarization", "Test_EIS"],
     }
@@ -115,6 +119,7 @@ def verify_frozen_input_hashes_v2() -> dict[str, Any]:
 def validate_authority(authority: dict[str, Any]) -> None:
     expected_normative = [
         "configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.yaml",
+        "configs/CHM_FINAL_V2_EXECUTION_SUPPLEMENT_A.yaml",
         "configs/CHM_SOURCE_ALLOWLIST.yaml",
         "configs/CHM_FROZEN_INPUT_HASHES_V2.yaml",
         "inputs/CHM_HOU_TABLE.csv",
@@ -125,6 +130,8 @@ def validate_authority(authority: dict[str, Any]) -> None:
     ]
     if authority.get("normative_executable") != expected_normative:
         raise ProtocolAuthorityFailure("Normative authority set is not exact.")
+    if authority.get("authority_version") != "FINAL_V2A" or authority.get("current_status") != "FINAL_V2A_FROZEN_READY_FOR_CHM_D":
+        raise ProtocolAuthorityFailure("Execution authority is not FINAL_V2A frozen.")
     if authority.get("historical_execution_authority") is not False:
         raise ProtocolAuthorityFailure("Historical protocols have execution authority.")
     historical = set(authority.get("historical_non_executable", []))
@@ -135,8 +142,10 @@ def validate_authority(authority: dict[str, Any]) -> None:
     }
     if not required_historical.issubset(historical):
         raise ProtocolAuthorityFailure("Draft/Candidate/Final V1 historical chain is incomplete.")
-    if authority.get("conflict_resolution") != "FINAL_V2_ALWAYS_PREVAILS_NO_RUNTIME_SYNTHESIS":
+    if authority.get("conflict_resolution") != "FINAL_V2_THEN_SUPPLEMENT_A_WITHIN_DECLARED_SCOPE_NO_RUNTIME_SYNTHESIS":
         raise ProtocolAuthorityFailure("Protocol precedence permits runtime synthesis.")
+    if authority.get("supplementary_authority_topics") != ["final_all_six_profile_selection", "seed_aggregation_and_failure", "bootstrap_execution_semantics"]:
+        raise ProtocolAuthorityFailure("Supplement A scope is ambiguous.")
     runtime = authority.get("CHM_D_runtime_variable_data_inputs_only", [])
     expected_runtime = [
         "inputs/CHM_HOU_TABLE.csv",
@@ -146,6 +155,14 @@ def validate_authority(authority: dict[str, Any]) -> None:
     ]
     if runtime != expected_runtime or any("test" in item.lower() or "loadcycle" in item.lower() or "polarization" in item.lower() for item in runtime):
         raise ProtocolAuthorityFailure("CHM-D runtime input universe is ambiguous or unsafe.")
+    required_configs = authority.get("CHM_D_runtime_required_configuration_inputs", [])
+    if required_configs != [
+        "configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.yaml",
+        "configs/CHM_FINAL_V2_EXECUTION_SUPPLEMENT_A.yaml",
+        "configs/CHM_PROTOCOL_AUTHORITY.yaml",
+        "configs/CHM_FROZEN_INPUT_HASHES_V2.yaml",
+    ]:
+        raise ProtocolAuthorityFailure("CHM-D required configuration hash-validation set is ambiguous.")
 
 
 def validate_historical_nonexecutability(authority: dict[str, Any]) -> None:
@@ -221,6 +238,7 @@ def validate_frozen_tables(protocol: dict[str, Any]) -> None:
 def run_authority_audit() -> dict[str, Any]:
     """Run all protocol-authority checks without a training or Test code path."""
     protocol_hash = assert_sha_sidecar(FINAL_V2, FINAL_V2_SHA)
+    supplement_a_hash = assert_sha_sidecar(SUPPLEMENT_A, SUPPLEMENT_A_SHA)
     errata_hash = assert_sha_sidecar(ERRATA, ERRATA_SHA)
     authority = load_yaml(AUTHORITY)
     protocol = load_yaml(FINAL_V2)
@@ -230,7 +248,7 @@ def run_authority_audit() -> dict[str, Any]:
     validate_frozen_tables(protocol)
     verify_frozen_input_hashes_v2()
     checks = {
-        "execution_protocol_is_FINAL_V2": True,
+        "execution_protocol_is_FINAL_V2_with_Supplement_A": True,
         "draft_not_executable": True,
         "candidate_v1_not_executable": True,
         "FINAL_V1_superseded_preserved": True,
@@ -247,11 +265,12 @@ def run_authority_audit() -> dict[str, Any]:
         "Test_not_in_allowed_training_inputs": True,
         "raw_Loadcycle_not_in_CHM_D_runtime_inputs": True,
         "direct_polarization_CSV_not_in_CHM_D_runtime_inputs": True,
+        "Supplement_A_hash_matches": True,
     }
     result = {
         "phase": PHASE.name,
         "base_commit": "002936e0d995d7cc1db5e8edffca35b612f271b5",
-        "status": "FINAL_V2_FROZEN_AWAITING_CHM_D_EXECUTION",
+        "status": "FINAL_V2A_FROZEN_READY_FOR_CHM_D",
         "training_executed": False,
         "LOAO_executed": False,
         "bootstrap_model_fitting_executed": False,
@@ -260,6 +279,7 @@ def run_authority_audit() -> dict[str, Any]:
         "checks": checks,
         "protocol_authority_audit": "PASS",
         "final_v2_sha256": protocol_hash,
+        "execution_semantics_supplement_a_sha256": supplement_a_hash,
         "errata_v2_sha256": errata_hash,
         "remaining_protocol_ambiguity": "NONE",
     }
@@ -271,11 +291,11 @@ def run_authority_audit() -> dict[str, Any]:
 
 
 def print_summary(result: dict[str, Any]) -> None:
-    print("Phase CHM Final V2 Authority Freeze")
+    print("Phase CHM Final V2A Authority Freeze")
     print("===================================")
     print(f"Base: {result['base_commit']}")
     print("Training executed: NO")
-    print("Authoritative protocol: FINAL_V2")
+    print("Authoritative protocol: FINAL_V2 + EXECUTION_SUPPLEMENT_A")
     print("Historical FINAL_V1 preserved: YES")
     print("Execution sources ambiguous: NO")
     print("Loss profiles: 3")
@@ -293,6 +313,7 @@ def print_summary(result: dict[str, Any]) -> None:
     print("CHM-D direct polarization CSV reading allowed: NO")
     print(f"Protocol authority audit: {result['protocol_authority_audit']}")
     print(f"Final V2 hash: {result['final_v2_sha256']}")
+    print(f"Supplement A hash: {result['execution_semantics_supplement_a_sha256']}")
     print(f"Errata hash: {result['errata_v2_sha256']}")
     print(f"Remaining protocol ambiguity: {result['remaining_protocol_ambiguity']}")
     print(f"Final status: {result['status']}")

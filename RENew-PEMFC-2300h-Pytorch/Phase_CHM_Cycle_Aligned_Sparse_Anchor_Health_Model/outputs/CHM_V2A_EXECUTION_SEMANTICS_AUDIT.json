@@ -1,0 +1,76 @@
+{
+  "phase": "Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model",
+  "base_commit": "6db2be2e4e37f942f67e5e1636d8bdfbe92534d5",
+  "status": "FINAL_V2A_FROZEN_READY_FOR_CHM_D",
+  "training_executed": false,
+  "LOAO_executed": false,
+  "bootstrap_model_fitting_executed": false,
+  "MAE_RMSE_generated": false,
+  "Test_accessed": false,
+  "final_profile_selection_rule": "OUTER_INNER_SELECTION_MAJORITY_VOTE",
+  "outer_target_used_for_final_profile": false,
+  "outer_point_seed_aggregation": "MEDIAN_3_SEEDS",
+  "inner_profile_score": "MEAN_ABSOLUTE_ERROR_OVER_5_FOLDS_X_3_SEEDS",
+  "bootstrap_base_seed": 90210,
+  "bootstrap_rng": "NUMPY_PCG64_SEEDSEQUENCE",
+  "bootstrap_time_axis_reordered": false,
+  "partial_HOU_resampled": false,
+  "invalid_replicate_replaced": false,
+  "S1_primary_gate": false,
+  "complete_cycle_segments": [
+    {
+      "start_raw_cycle_id": 1,
+      "end_raw_cycle_id": 24,
+      "n": 24
+    },
+    {
+      "start_raw_cycle_id": 26,
+      "end_raw_cycle_id": 36,
+      "n": 11
+    },
+    {
+      "start_raw_cycle_id": 38,
+      "end_raw_cycle_id": 49,
+      "n": 12
+    },
+    {
+      "start_raw_cycle_id": 51,
+      "end_raw_cycle_id": 53,
+      "n": 3
+    },
+    {
+      "start_raw_cycle_id": 55,
+      "end_raw_cycle_id": 74,
+      "n": 20
+    },
+    {
+      "start_raw_cycle_id": 76,
+      "end_raw_cycle_id": 100,
+      "n": 25
+    },
+    {
+      "start_raw_cycle_id": 103,
+      "end_raw_cycle_id": 125,
+      "n": 23
+    },
+    {
+      "start_raw_cycle_id": 127,
+      "end_raw_cycle_id": 133,
+      "n": 7
+    },
+    {
+      "start_raw_cycle_id": 135,
+      "end_raw_cycle_id": 150,
+      "n": 16
+    },
+    {
+      "start_raw_cycle_id": 152,
+      "end_raw_cycle_id": 156,
+      "n": 5
+    }
+  ],
+  "complete_cycle_multiplicity_sum_for_static_trial": 146,
+  "supplement_a_sha256": "776f0dcb4e1712c01bef53cb6734439501b19e992b9d1332de697087764f6910",
+  "execution_semantics_audit": "PASS",
+  "remaining_execution_ambiguity": "NONE"
+}

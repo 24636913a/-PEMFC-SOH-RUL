@@ -1,0 +1,153 @@
+phase: Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model
+supplement_version: FINAL_V2A_EXECUTION_SEMANTICS_A
+base_final_v2_protocol: configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.yaml
+base_final_v2_sha256_sidecar: configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.sha256
+status: FINAL_V2A_FROZEN_READY_FOR_CHM_D
+frozen_before_any_CHM_D_fit: true
+training_executed: false
+LOAO_executed: false
+bootstrap_model_fitting_executed: false
+MAE_RMSE_generated: false
+Test_accessed: false
+
+supplementary_authority_only:
+  - final_all_six_profile_selection
+  - seed_aggregation_and_failure
+  - bootstrap_execution_semantics
+conflict_outside_supplementary_authority_status: CHM_PROTOCOL_RUNTIME_MISMATCH
+historical_protocol_parameter_reading: prohibited
+
+final_all_six_profile_selection:
+  source: six_outer_selected_profile_values_only
+  allowed_outer_information: [outer_selected_profile]
+  prohibited_outer_information: [outer_heldout_prediction_error, aggregate_outer_MAE, aggregate_outer_RMSE, Spearman, Test, S1_result, bootstrap_coverage]
+  required_outer_fold_count: 6
+  missing_or_invalid_outer_selection_status: DEVELOPMENT_HEALTH_MODEL_NOT_QUALIFIED
+  selection_rule: OUTER_INNER_SELECTION_MAJORITY_VOTE
+  eligible_profiles: [A_BALANCED, B_ANCHOR_EMPHASIS, C_OBSERVATION_EMPHASIS]
+  tie_break_order: [A_BALANCED, B_ANCHOR_EMPHASIS, C_OBSERVATION_EMPHASIS]
+  S1_profile_rule: use_final_all_six_profile_without_reselection
+
+seeds_and_deterministic_prediction_semantics:
+  frozen_seeds: [42, 2024, 3407]
+  inner_profile_score: MEAN_ABSOLUTE_ERROR_OVER_5_FOLDS_X_3_SEEDS
+  inner_profile_score_formula: mean_over_15_of_absolute_heldout_prediction_errors
+  inner_seed_prediction_median_before_scoring: prohibited
+  outer_point_prediction: MEDIAN_3_SEEDS
+  deterministic_primary_gate_metrics_use: six_outer_three_seed_median_predictions_only
+  bootstrap_P50_for_deterministic_point_prediction: prohibited
+  numerical_failure_conditions: [nonfinite_loss, nonfinite_model_parameters, nonfinite_HOU_latent_states, optimizer_exception, nonfinite_anchor_functional]
+  inner_fit_failure_policy: PROFILE_INVALID_FOR_OUTER_SELECTION
+  all_profiles_invalid_outer_fold_status: OUTER_FOLD_PROFILE_SELECTION_INVALID
+  outer_seed_failure_policy: ILLEGAL_OUTER_PREDICTION
+  seed_retry: prohibited
+  replacement_seed: prohibited
+  minimum_outer_seed_count: 3
+  monotonicity_requirement: each_legal_outer_seed_complete_cycle_trajectory_has_zero_increases
+  final_all_six_trajectory: pointwise_median_of_three_seed_trajectories
+  S1_trajectory: pointwise_median_of_three_seed_trajectories
+  S1_primary_comparison: primary_and_S1_three_seed_median_complete_cycle_trajectories
+
+bootstrap_execution_semantics:
+  method: TIME_AXIS_PRESERVING_BLOCK_MULTIPLICITY_WEIGHTS
+  base_seed: 90210
+  rng: NUMPY_PCG64_SEEDSEQUENCE
+  streams:
+    outer_LOAO_block4: 101
+    final_all_six_block4: 201
+    final_all_six_block8: 301
+  outer_fold_index_order:
+    0: 300
+    1: 600
+    2: 850
+    3: 1150
+    4: 1500
+    5: 1750
+  seed_sequence_tuples:
+    outer_LOAO: [90210, 101, outer_fold_index, replicate_index]
+    final_all_six_block4: [90210, 201, 0, replicate_index]
+    final_all_six_block8: [90210, 301, 0, replicate_index]
+  replicate_index_start: 0
+  optimizer_seed_rule: frozen_seeds[replicate_index_modulo_3]
+  profile_selection_inside_bootstrap: prohibited
+  outer_profile_rule: use_outer_deterministic_inner_selected_profile
+  final_profile_rule: use_final_all_six_majority_vote_profile
+  complete_HOU_only_for_block_draw: true
+  partial_HOU_resampled: false
+  partial_HOU_observation_weight: 1
+  latent_recurrence_row_universe: all_152_original_HOU_rows_in_original_order
+  bootstrap_time_axis_reordered: false
+  legal_segment_definition: maximal_complete_cycle_run_with_adjacent_raw_cycle_id_difference_plus_1
+  expected_complete_cycle_segments:
+    - {start_raw_cycle_id: 1, end_raw_cycle_id: 24, n: 24}
+    - {start_raw_cycle_id: 26, end_raw_cycle_id: 36, n: 11}
+    - {start_raw_cycle_id: 38, end_raw_cycle_id: 49, n: 12}
+    - {start_raw_cycle_id: 51, end_raw_cycle_id: 53, n: 3}
+    - {start_raw_cycle_id: 55, end_raw_cycle_id: 74, n: 20}
+    - {start_raw_cycle_id: 76, end_raw_cycle_id: 100, n: 25}
+    - {start_raw_cycle_id: 103, end_raw_cycle_id: 125, n: 23}
+    - {start_raw_cycle_id: 127, end_raw_cycle_id: 133, n: 7}
+    - {start_raw_cycle_id: 135, end_raw_cycle_id: 150, n: 16}
+    - {start_raw_cycle_id: 152, end_raw_cycle_id: 156, n: 5}
+  requested_block_lengths:
+    outer_LOAO_primary: 4
+    final_all_six_primary: 4
+    final_all_six_sensitivity: 8
+  effective_block_length: minimum_of_requested_block_length_and_segment_length
+  moving_block_draw:
+    draws_per_segment: ceiling_segment_length_divided_by_effective_block_length
+    legal_starts: inclusive_zero_to_segment_length_minus_effective_block_length
+    draw_distribution: uniform_with_replacement
+    multiplicity_construction: expand_draws_in_draw_order_then_truncate_to_segment_length_for_counting_only
+    per_segment_multiplicity_sum: segment_length
+    expanded_draw_list_used_as_model_time_axis: prohibited
+  observation_loss:
+    complete_HOU_weight: raw_cycle_multiplicity_w_c
+    partial_HOU_weight: 1
+    numerator: sum_complete_w_c_times_loss_c_plus_sum_partial_loss_p
+    denominator: sum_complete_w_c_plus_6
+    unnormalized_sum: prohibited
+  smoothness_loss:
+    triples: raw_cycle_continuous_complete_HOU_triples_only
+    triple_weight: minimum_of_w_c_minus_2_w_c_minus_1_w_c
+    denominator: sum_triple_weights
+    zero_denominator_status: INVALID_REPLICATE_SMOOTHNESS_WEIGHT_ZERO
+  anchor_loss:
+    training_anchors_fixed_at_original_checkpoints: true
+    reliability_weight: frozen_training_anchor_normalized_reliability_weight
+    resample_anchor: prohibited
+    Gaussian_anchor_target_perturbation: prohibited
+    remove_anchor_when_corresponding_complete_weight_zero: prohibited
+  invalid_replicate_conditions: [optimizer_exception, nonfinite_training_loss, nonfinite_parameter, nonfinite_latent_state, nonfinite_anchor_prediction, HOU_order_or_hash_mismatch, smoothness_denominator_zero, loss_normalization_denominator_invalid]
+  invalid_replicate_replacement: prohibited
+  failed_replicate_record: [replicate_index, RNG_seed_tuple, optimizer_seed, failure_reason]
+  legal_replicate_requirements:
+    outer_LOAO_block4: {scheduled: 200, minimum_legal: 190}
+    final_all_six_block4: {scheduled: 500, minimum_legal: 475}
+    final_all_six_block8: {scheduled: 100, minimum_legal: 95}
+  below_minimum_legal_status: UNCERTAINTY_ESTIMATION_INVALID
+  bootstrap_heldout_interval: percentile_2_5_50_97_5_of_legal_replicate_median_of_three_HOU_predictions
+
+S1_reporting_contract:
+  role: PRESPECIFIED_SECONDARY_ROBUSTNESS_DIAGNOSTIC
+  primary_gate: false
+  if_primary_gates_1_to_5_pass_and_S1_concern: [Primary_Development_qualification_DEVELOPMENT_HEALTH_MODEL_QUALIFIED, Sparse_anchor_set_robustness_S1_ROBUSTNESS_CONCERN]
+  prohibited_claims_when_S1_concern: [CHM_robustly_validated, sparse_anchor_robustness_established, anchor_dependence_negligible]
+  automatic_Test_opening: prohibited
+
+non_actions_for_this_supplement:
+  modify_HOU: false
+  modify_sparse_anchor_targets: false
+  modify_anchor_mapping: false
+  modify_loss_profiles: false
+  modify_architecture: false
+  modify_primary_gates: false
+  modify_S1_role: false
+  modify_baselines: false
+  modify_Test_firewall: false
+  neural_training: false
+  LOAO_execution: false
+  bootstrap_model_fitting: false
+  CHM_MAE_or_RMSE_generation: false
+  Test_access: false
+  automatic_CHM_D_start: false

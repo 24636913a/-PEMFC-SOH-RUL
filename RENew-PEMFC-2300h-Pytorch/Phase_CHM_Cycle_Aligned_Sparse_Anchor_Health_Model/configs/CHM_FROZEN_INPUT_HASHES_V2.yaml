@@ -1,13 +1,16 @@
 phase: Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model
-version: V2
-scope: CHM_D_runtime_authority_and_frozen_Development_inputs_only
+version: V2A
+scope: CHM_D_runtime_authority_and_frozen_Development_inputs_with_execution_semantics_supplement_A
 records:
   final_v2_protocol:
     path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.yaml
     sha256: 74e3a16ecb71597f8b1ef01a066faf6b482ce5e718ea99a03908f5a103cec7a1
+  execution_semantics_supplement_a:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/configs/CHM_FINAL_V2_EXECUTION_SUPPLEMENT_A.yaml
+    sha256: 776f0dcb4e1712c01bef53cb6734439501b19e992b9d1332de697087764f6910
   protocol_authority:
     path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/configs/CHM_PROTOCOL_AUTHORITY.yaml
-    sha256: ad4a902b1c9d190c9b0904a89d8ae551106628c6aa79f648d4384f2f3926241e
+    sha256: bcdc582e31d516ed8678120b48b600c4adc9d42d23cd72c9d3918276e6b3f16c
   protocol_errata_v2:
     path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/configs/CHM_PROTOCOL_ERRATA_V2.yaml
     sha256: 4274b45067690bfa40512b80aee93b271874d3b01a835d541941b6190155ab97
@@ -37,7 +40,10 @@ records:
     sha256: 2dabe5ba9dc113ed20aad92586392f2bbe4be52d95c36facc7b48ed197960b39
   authority_audit_script:
     path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/scripts/chm_protocol_authority_audit.py
-    sha256: c9067f9e7c5bc56d6340fa9e11ecbb3096a2209f338fd2d69bf220c6e51d734a
+    sha256: b37f163ce3e176e31230a994d551ab7a3e02486d35cd4824ee175ab380454fe5
+  execution_semantics_audit_script:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/scripts/chm_v2a_execution_semantics_audit.py
+    sha256: decfa4c001237df713dd833667f000f3754257265c8ff888e4ed0654e7d9f02e
 excluded_runtime_inputs:
 - any_Loadcycle_raw_source
 - direct_polarization_CSV

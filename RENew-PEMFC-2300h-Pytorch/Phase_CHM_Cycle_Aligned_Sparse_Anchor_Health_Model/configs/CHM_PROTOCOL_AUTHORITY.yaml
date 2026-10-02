@@ -1,8 +1,9 @@
 phase: Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model
-authority_version: FINAL_V2
-current_status: FINAL_V2_FROZEN_AWAITING_CHM_D_EXECUTION
+authority_version: FINAL_V2A
+current_status: FINAL_V2A_FROZEN_READY_FOR_CHM_D
 normative_executable:
   - configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.yaml
+  - configs/CHM_FINAL_V2_EXECUTION_SUPPLEMENT_A.yaml
   - configs/CHM_SOURCE_ALLOWLIST.yaml
   - configs/CHM_FROZEN_INPUT_HASHES_V2.yaml
   - inputs/CHM_HOU_TABLE.csv
@@ -12,6 +13,7 @@ normative_executable:
   - docs/TEST_FIREWALL_PLAN_V2.md
 execution_precedence:
   - configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.yaml
+  - configs/CHM_FINAL_V2_EXECUTION_SUPPLEMENT_A.yaml_within_its_declared_scope
   - explicitly_referenced_V2_normative_documents
   - configs/CHM_SOURCE_ALLOWLIST.yaml
   - configs/CHM_FROZEN_INPUT_HASHES_V2.yaml
@@ -25,7 +27,17 @@ historical_non_executable:
   - docs/FROZEN_UNCERTAINTY_PROTOCOL.md
   - all_earlier_design_documents_with_V2_conflicting_clauses
 historical_execution_authority: false
-conflict_resolution: FINAL_V2_ALWAYS_PREVAILS_NO_RUNTIME_SYNTHESIS
+supplementary_authority_topics:
+  - final_all_six_profile_selection
+  - seed_aggregation_and_failure
+  - bootstrap_execution_semantics
+conflict_outside_supplementary_authority_status: CHM_PROTOCOL_RUNTIME_MISMATCH
+conflict_resolution: FINAL_V2_THEN_SUPPLEMENT_A_WITHIN_DECLARED_SCOPE_NO_RUNTIME_SYNTHESIS
+CHM_D_runtime_required_configuration_inputs:
+  - configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.yaml
+  - configs/CHM_FINAL_V2_EXECUTION_SUPPLEMENT_A.yaml
+  - configs/CHM_PROTOCOL_AUTHORITY.yaml
+  - configs/CHM_FROZEN_INPUT_HASHES_V2.yaml
 CHM_D_runtime_variable_data_inputs_only:
   - inputs/CHM_HOU_TABLE.csv
   - inputs/CHM_SPARSE_ANCHOR_TARGETS.csv

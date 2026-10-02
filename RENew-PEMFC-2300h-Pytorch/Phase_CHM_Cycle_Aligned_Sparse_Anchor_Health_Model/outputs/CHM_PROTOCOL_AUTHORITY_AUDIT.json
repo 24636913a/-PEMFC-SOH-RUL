@@ -1,14 +1,14 @@
 {
   "phase": "Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model",
   "base_commit": "002936e0d995d7cc1db5e8edffca35b612f271b5",
-  "status": "FINAL_V2_FROZEN_AWAITING_CHM_D_EXECUTION",
+  "status": "FINAL_V2A_FROZEN_READY_FOR_CHM_D",
   "training_executed": false,
   "LOAO_executed": false,
   "bootstrap_model_fitting_executed": false,
   "MAE_RMSE_generated": false,
   "Test_accessed": false,
   "checks": {
-    "execution_protocol_is_FINAL_V2": true,
+    "execution_protocol_is_FINAL_V2_with_Supplement_A": true,
     "draft_not_executable": true,
     "candidate_v1_not_executable": true,
     "FINAL_V1_superseded_preserved": true,
@@ -24,10 +24,12 @@
     "sparse_anchor_target_SHA_matches": true,
     "Test_not_in_allowed_training_inputs": true,
     "raw_Loadcycle_not_in_CHM_D_runtime_inputs": true,
-    "direct_polarization_CSV_not_in_CHM_D_runtime_inputs": true
+    "direct_polarization_CSV_not_in_CHM_D_runtime_inputs": true,
+    "Supplement_A_hash_matches": true
   },
   "protocol_authority_audit": "PASS",
   "final_v2_sha256": "74e3a16ecb71597f8b1ef01a066faf6b482ce5e718ea99a03908f5a103cec7a1",
+  "execution_semantics_supplement_a_sha256": "776f0dcb4e1712c01bef53cb6734439501b19e992b9d1332de697087764f6910",
   "errata_v2_sha256": "4274b45067690bfa40512b80aee93b271874d3b01a835d541941b6190155ab97",
   "remaining_protocol_ambiguity": "NONE"
 }

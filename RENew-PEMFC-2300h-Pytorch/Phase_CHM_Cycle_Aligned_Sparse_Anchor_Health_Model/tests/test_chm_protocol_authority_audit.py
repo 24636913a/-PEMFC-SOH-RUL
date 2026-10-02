@@ -27,7 +27,7 @@ class CHMProtocolAuthorityAuditTests(unittest.TestCase):
         authority = MODULE.load_yaml(MODULE.AUTHORITY)
         MODULE.validate_authority(authority)
         MODULE.validate_historical_nonexecutability(authority)
-        self.assertEqual(authority["normative_executable"][0], "configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.yaml")
+        self.assertEqual(authority["normative_executable"][:2], ["configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.yaml", "configs/CHM_FINAL_V2_EXECUTION_SUPPLEMENT_A.yaml"])
         self.assertIn("configs/PREREGISTERED_CHM_PROTOCOL_FINAL.yaml", authority["historical_non_executable"])
 
     def test_03_protocol_has_three_profiles_and_five_primary_gates(self) -> None:
@@ -53,7 +53,7 @@ class CHMProtocolAuthorityAuditTests(unittest.TestCase):
         protocol = MODULE.load_yaml(MODULE.FINAL_V2)
         MODULE.validate_frozen_tables(protocol)
         manifest = MODULE.verify_frozen_input_hashes_v2()
-        self.assertEqual(len(manifest["records"]), 12)
+        self.assertEqual(len(manifest["records"]), 14)
         self.assertIn("sparse_anchor_targets", manifest["records"])
 
     def test_07_sparse_targets_and_mapping_have_only_six_development_anchors(self) -> None:
@@ -66,6 +66,7 @@ class CHMProtocolAuthorityAuditTests(unittest.TestCase):
     def test_08_authority_audit_exercises_all_required_checks(self) -> None:
         result = MODULE.run_authority_audit()
         self.assertEqual(result["protocol_authority_audit"], "PASS")
+        self.assertEqual(result["status"], "FINAL_V2A_FROZEN_READY_FOR_CHM_D")
         self.assertTrue(all(result["checks"].values()))
         self.assertFalse(result["training_executed"])
         self.assertFalse(result["Test_accessed"])

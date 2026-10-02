@@ -1,11 +1,13 @@
 # Implementation Plan — Pending Technical Review
 
 This document is a future execution checklist, not authorization to run it.
+Technical Resolution V1 has closed the draft-level mathematical choices; the
+immediate next action is final protocol review, not training.
 
-1. Resolve every item in `OPEN_TECHNICAL_DECISIONS.md` without reading Test.
-2. Convert the approved draft into a versioned executable protocol with a
-   content hash, fixed source hashes, exact baseline code, final grid, and
-   exact bootstrap settings.
+1. Conduct final review of Candidate V1 and record acceptance or rejection
+   without reading Test.
+2. If accepted, create an executable protocol with a content hash, fixed source
+   hashes, and static-test record; do not alter Candidate V1 definitions.
 3. Build one cycle-level Development table from the frozen RCR cycle identities
    and PAA middle-50% P1S rule. Validate exactly 146 complete cycles, the
    frozen ten-cycle reference, the seven mandatory conditions, and exclusion of

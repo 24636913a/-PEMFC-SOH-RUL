@@ -1,5 +1,9 @@
 # Claim Boundary and Research Contribution
 
+Candidate V1 is technically resolved but remains unexecuted and is not an
+authorization to train. Its HOU median-of-three anchor functional and
+uncertainty-aware sparse supervision do not alter the PAA/PAV claim boundary.
+
 ## What this protocol may investigate
 
 The planned experiment asks whether a fixed-state operating-voltage observation

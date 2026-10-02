@@ -3,11 +3,13 @@
 ## Estimand and cycle unit
 
 The proposed estimand is a **Cycle-Aligned Latent Health State**, denoted
-`H_c`, for each of the 146 RCR-frozen complete cycles. It is not called SOH in
-Development and is not an RUL target.
+`H_j`, on the timestamp-sorted Health Observation Unit (HOU) sequence. The
+primary reported trajectory selects the 146 RCR-frozen complete-cycle HOU; six
+frozen pre-anchor partial HOU are auxiliary states only. It is not called SOH
+in Development and is not an RUL target.
 
-The cycle identity, cycle boundaries, and P1S observation are inherited without
-modification. In particular, the sole P1S state is `operation_point=221`,
+The complete-cycle identity, cycle boundaries, and P1S observation are inherited
+without modification. In particular, the sole P1S state is `operation_point=221`,
 `I.S.set=221.200 A`, token `221||221.200`; P1S uses the middle-50% stable
 dwell, the active ten cells, and the earliest ten legal complete cycles as its
 fixed reference. Let the resulting cycle observation be `R_c` (P1S
@@ -17,33 +19,35 @@ operating-voltage retention). `R_c` is a dense degradation-related observation;
 ## Primary network
 
 The one proposed primary model is the small **Monotone Cycle Latent-State
-Network**:
+Network**. BoL is a target-normalization reference and is not a HOU. The first
+observable state and the HOU transition are:
 
 \[
-H_0 = 1, \qquad
-H_c = H_{c-1} - s\,\operatorname{softplus}(g_\theta(X_c)).
+H_1=\operatorname{sigmoid}(\eta), \qquad
+H_j=H_{j-1}\exp\left[-10^{-3}\operatorname{softplus}(g_\theta(X_j))\right].
 \]
 
-`s` is a fixed positive step scale to be frozen only after technical review.
-The structural decrement, rather than clipping or an extra penalty, guarantees
-that a transition cannot increase `H_c`. `g_θ` has at most two MLP layers,
-hidden width at most 32, and a target of fewer than 10,000 parameters. No
-Transformer, xLSTM, Mamba, KAN, large attention module, or graph model is in
-scope.
+`sigmoid(eta)` initializes to 0.995 solely for numerical optimization, never as
+a BoL health label. The `10^-3` transition scale is a frozen numerical
+parameterization constant, not a physical threshold. The exponential factor,
+rather than clipping or an extra penalty, guarantees positive non-increasing
+states. `g_θ` is exactly `Linear(d,16) → SiLU → Linear(16,1)`; a condition
+residual head and every large backbone are excluded.
 
 ## Inputs
 
 For cycle `c`, `X_c` contains only information available by the end of that
 cycle:
 
-1. `R_c` and the P1S voltage difference from its frozen reference;
-2. the fixed seven P1S stable-dwell conditions: current density, anode inlet
-   temperature, anode inlet pressure, anode inlet RH, hydrogen flow, anode
-   stoichiometry, and cathode stoichiometry;
-3. each of those seven conditions relative to the frozen reference-condition
-   median; and
-4. the previous latent state through the recurrence. Intra-cycle P1S
-   variability remains optional until explicitly frozen before execution.
+1. `R_j-1`, the P1S retention deviation from its frozen reference;
+2. the seven P1S conditions standardized by the earliest-ten-complete-cycle
+   reference median and IQR (reference standard deviation only when IQR is
+   zero); and
+3. the previous latent state through the recurrence.
+
+When both reference IQR and standard deviation are zero, the condition becomes
+`CONSTANT_REFERENCE_FEATURE`, is audited, set to zero, and excluded. Raw
+conditions and their duplicate deviations are not both input.
 
 `OpHrs2`, cycle index, absolute `DateTime`, all future-cycle values, future
 polarization anchors, and every Test artifact are prohibited inputs. Age may
@@ -59,10 +63,10 @@ These modes must remain distinct.
   (LOAO) analysis is a sparse-label generalization diagnostic, not a
   deployment-causality claim, because fitting a held-out early anchor can
   otherwise use later Development anchors.
-- **Causal online mode** estimates `H_c` using only `X_1, …, X_c` and anchors
-  available no later than cycle `c`. Its evaluation uses chronological prefix
-  anchor holdouts; BoL is an allowed initial reference, but a held-out or later
-  non-BoL anchor is never used. This is the primary claim hierarchy.
+- **Causal online mode** estimates `H_j` using only HOU inputs and anchors
+  available no later than the target. 300 h is cold start; 600/850 h have too
+  few prior non-BoL anchors for prefix model selection. Only 1150/1500/1750 h
+  enter its `n=3` secondary aggregate, and no later anchor is ever used.
 
 Both modes forbid future operating data in the recurrence. Reports must label
 their mode and may not merge their scores.
@@ -77,8 +81,9 @@ Y_k = V_{\mathrm{pol},k}(1.0\;\mathrm{A/cm^2}) /
 \]
 
 The six non-BoL anchors (300, 600, 850, 1150, 1500, 1750 h) use frozen PAA/PAV
-pre-characterization alignment. They are sparse supervision, never a dense
-ground-truth trajectory. PAV verified their temporal order 6/6; it also found
-that only 3/6 final median-producing intervals are directly inside complete
-cycle joint common support. That limitation is represented through
+pre-characterization alignment. For each checkpoint, prediction is the median
+of the three frozen selected HOU states, including frozen partial HOU where
+selected. They are sparse supervision, never a dense ground-truth trajectory.
+PAV verified temporal order 6/6 and found only 3/6 final median sources inside
+complete-cycle joint support. That limitation is represented through
 uncertainty-aware supervision, not retrospective interval removal.

@@ -2,38 +2,39 @@
 
 ## Primary uncertainty method
 
-The proposed primary uncertainty method is a **Block Bootstrap Ensemble** of
-the small monotone latent-state network. It is not a Bayesian network.
+The primary method is a **time-axis-preserving block-weight bootstrap** of the
+small monotone latent-state network, not a Bayesian network and not a
+concatenated resampled time sequence. Every replicate keeps the original HOU
+timestamp order, frozen anchor positions, and frozen partial-HOU positions.
 
-The resampling unit is a contiguous block of RCR-frozen complete cycles. A
-replicate jointly resamples the cycle observation, all seven conditions,
-condition deviations, and any anchor record attached to that cycle. It must
-not independently resample individual cycle rows or reorder information within
-a block. A replicate that cannot form its predeclared legal sparse-supervision
-set is invalid and must be counted and reported, not silently repaired.
+Within each legal contiguous complete-cycle segment, sample contiguous four-
+cycle blocks with replacement and convert draws to integer multiplicity weights
+on the original complete-cycle HOU. These weights apply to complete-cycle
+observation loss and to smoothness through the minimum weight of every legal
+complete-cycle triple. Partial HOU are not resampled and retain observation
+weight one. Anchor losses and locations are never deleted because a block
+weight is zero.
 
-For each legal replicate, anchor targets may receive a Gaussian perturbation
-drawn from the frozen `σ_pol,k² + σ_cycle,k²` rule. The perturbation is based
-only on Development measurements and is independent of Test coverage and model
-residuals.
-
-The ensemble returns, for every original cycle time coordinate, the median,
-2.5th percentile, and 97.5th percentile of `H_c`.
+The primary analysis schedules 500 replicates with block length four and needs
+at least 475 valid replicates. The predeclared sensitivity schedules 200 with
+block length eight and needs at least 190 valid. Numerical optimizer failure is
+recorded as `INVALID_REPLICATE` without replacement.
 
 ## Causality boundary
 
 For causal-online evaluation at a cycle or held-out checkpoint, training,
-resampling, and anchor perturbation may use only data permitted at that time.
+block weights, and anchor perturbation may use only data permitted at that time.
 Later anchors cannot appear in a bootstrap replicate for an earlier online
 prediction. Offline retrospective bootstrap results must be labeled as such.
 
 ## Pending freeze
 
-The exact contiguous block length, number of replicates, robust spread
-estimator, epsilon, polarization-repeat estimator, and invalid-replicate rule
-must be decided before the first model fit. Candidate block lengths should be
-chosen from cycle-scale quantities rather than from Test performance; no value
-is frozen by this design-only phase.
+Anchor perturbations use the resolved formula
+`sigma_pol² + sigma_int² + sigma_support²`, with weights normalized across the
+training anchors of each fold. For each permitted training anchor,
+`Y_k^(b) ~ Normal(Y_k, sigma_k²)`. The held-out outer target never appears in
+training or perturbation. Bootstrap seed is 90210.
 
-Bootstrap coverage is a calibration diagnostic with only six non-BoL anchors;
-it is not a basis for statistical-significance claims.
+For every outer held-out anchor, the replicate distribution of its frozen
+median-of-three-HOU functional supplies the 2.5%, 50%, and 97.5% values.
+Coverage is a small-sample gate, not a statistical-significance claim.

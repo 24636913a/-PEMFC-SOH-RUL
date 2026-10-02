@@ -1,0 +1,64 @@
+phase: Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model
+base_commit: 31705ef270befaca1729ed9b2952df124948f88b
+resolution_version: V1
+status: TECHNICALLY_RESOLVED_AWAITING_FINAL_FREEZE
+execution_authorized: false
+training_executed: false
+test_accessed: false
+
+resolutions:
+  anchor_to_cycle_mapping:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: anchor_prediction_is_median_of_three_frozen_HOU_latent_states
+    prohibits: [nearest_complete_cycle_replacement, nearest_cycle_id_approximation]
+  bol_initial_state:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: BoL_is_polarization_normalization_reference_only_not_a_HOU
+  initial_observable_state:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: H_1_equals_sigmoid_eta_with_sigmoid_eta_init_0_995
+  monotone_transition:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: multiplicative_softplus_decay_with_transition_scale_1e_minus_3
+  input_schema:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: retention_deviation_plus_reference_standardized_seven_conditions
+  model_capacity:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: Linear_d_16_SiLU_Linear_16_1_no_condition_residual_head
+  observation_calibration:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: positive_affine_phi_with_Huber_delta_0_001
+  smoothness:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: complete_cycle_only_second_difference_without_raw_cycle_gap_crossing
+  anchor_uncertainty:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: sigma_pol_squared_plus_sigma_int_squared_plus_sigma_support_squared
+  lambda_grid:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: 27_point_discrete_grid_with_nested_inner_LOAO_MAE_selection
+  seeds_and_optimization:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: three_fixed_seeds_AdamW_full_batch_training_loss_early_stopping
+  baselines:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: B0_raw_anchor_median_B1_isotonic_B2_nonnegative_affine
+  loao_metrics:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: no_per_anchor_Spearman_aggregate_descriptive_Spearman_n_6_only
+  qualification_gates:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: gates_1_to_5_plus_quantified_S1_no_conclusion_reversal
+  bootstrap:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: time_axis_preserving_block_weight_bootstrap_4_cycle_primary_8_cycle_sensitivity
+  online_aggregation:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: only_1150_1500_1750_secondary_n_3_online_aggregate
+  historical_test_wording:
+    status: RESOLVED_BEFORE_EXECUTION
+    resolution: CHM_specific_test_nonaccess_statement_with_historical_records_preserved
+
+remaining_blocking_technical_issues: []
+next_action: FINAL_PROTOCOL_REVIEW

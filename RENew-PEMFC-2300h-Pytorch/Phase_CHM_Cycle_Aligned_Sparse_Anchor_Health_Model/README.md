@@ -1,13 +1,12 @@
 # Phase CHM — Cycle-Aligned Sparse-Anchor Health Model Protocol
 
-**Status:** `FINAL_PROTOCOL_FROZEN_AWAITING_EXECUTION_COMMAND`
+**Status:** `FINAL_V2_FROZEN_AWAITING_CHM_D_EXECUTION`
 
 This phase designs the next Development-only health-state experiment. It does
 not execute it. The proposed estimand is a **Cycle-Aligned Latent Health
 State** (`H_c`), not SOH and not RUL. The original
-`PREREGISTERED_CHM_PROTOCOL_DRAFT.yaml` is preserved as a historical design
-record; Candidate V1 is the technically resolved successor and remains
-non-executable pending final protocol review.
+`PREREGISTERED_CHM_PROTOCOL_DRAFT.yaml`, Candidate V1, and Final V1 are
+preserved as historical, non-executable records.
 
 The protocol inherits, without modification:
 
@@ -23,19 +22,19 @@ retention at `operation_point=221`, `I.S.set=221.200 A`, state token
 `221||221.200`. It is a dense degradation-related observation, explicitly not
 a dense SOH label.
 
-Candidate V1 is preserved unchanged as the historical technical-resolution
-record. Final V1 freezes the executable Development-only protocol and its
-allowlisted source hashes. The HOU table now contains 146 complete-cycle HOU
-(141 hash-frozen PAA rows plus new Development-only cycles 152–156) and six
-frozen partial HOU. The final polarization term is a within-file local scatter
-proxy, not independent-repeat variance; anchor Gaussian perturbation is
-disabled. See `configs/PREREGISTERED_CHM_PROTOCOL_FINAL.yaml`,
-`configs/CHM_SOURCE_ALLOWLIST.yaml`, and `outputs/FINAL_PREEXECUTION_AUDIT.json`.
+The current executable authority is
+`configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.yaml`, governed by
+`configs/CHM_PROTOCOL_AUTHORITY.yaml`. Final V2 freezes the 152-row HOU table,
+the six sparse anchor targets, and the 18-row frozen anchor interval mapping.
+CHM-D may consume only those tables and Final V2 after SHA256 validation; it
+may not reconstruct raw HOU or parse a polarization CSV. The polarization term
+remains a within-file local scatter proxy, never independent-repeat variance,
+and anchor Gaussian perturbation remains disabled.
 
 This status is deliberately not an execution command. No CHM model, checkpoint,
 LOAO prediction, bootstrap model fit, MAE/RMSE, SOH label, or RUL output has
-been created. A subsequent explicit Phase CHM-D command is required before any
-Development execution.
+been created. Only a subsequent explicit `Phase CHM-D — Development Execution`
+command can initiate the frozen Development experiment.
 
 No Test raw data, Test polarization, Test EIS, 2000 h/2300 h polarization,
 after-Air-Air data, checkpoint, model metric, SOH interpolation, or RUL output

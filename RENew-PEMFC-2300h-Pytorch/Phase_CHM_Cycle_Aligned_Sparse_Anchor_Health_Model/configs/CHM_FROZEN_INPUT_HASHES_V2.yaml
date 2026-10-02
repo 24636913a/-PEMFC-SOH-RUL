@@ -1,0 +1,46 @@
+phase: Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model
+version: V2
+scope: CHM_D_runtime_authority_and_frozen_Development_inputs_only
+records:
+  final_v2_protocol:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.yaml
+    sha256: 74e3a16ecb71597f8b1ef01a066faf6b482ce5e718ea99a03908f5a103cec7a1
+  protocol_authority:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/configs/CHM_PROTOCOL_AUTHORITY.yaml
+    sha256: ad4a902b1c9d190c9b0904a89d8ae551106628c6aa79f648d4384f2f3926241e
+  protocol_errata_v2:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/configs/CHM_PROTOCOL_ERRATA_V2.yaml
+    sha256: 4274b45067690bfa40512b80aee93b271874d3b01a835d541941b6190155ab97
+  source_allowlist:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/configs/CHM_SOURCE_ALLOWLIST.yaml
+    sha256: cfd6d16b9dba52594cf444528ead6a1d5b47b7dc8327cdd613719b41132a17dd
+  HOU_table:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/inputs/CHM_HOU_TABLE.csv
+    sha256: 8f52f00b3f8f42e75750769469f60eeabc71e14d6b324eb19bb3bf4f4da2b57a
+  sparse_anchor_targets:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/inputs/CHM_SPARSE_ANCHOR_TARGETS.csv
+    sha256: eeb56964e6dbf2a927f55c70da0ee8526332e1af6b27af1da27a16bea1e7e36f
+  frozen_anchor_interval_mapping:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/inputs/CHM_FROZEN_ANCHOR_INTERVAL_MAPPING.csv
+    sha256: ca18663895905289809e985be81c3a9ea3e6990d112aa4c5bfb5b7240173ec3e
+  baseline_normative_document:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/docs/FROZEN_BASELINES.md
+    sha256: f8a1a3a3f64327cec1fd81cdb64f10934ed65172e3eced36ca6ec5f23cfa456a
+  development_evaluation_v2:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/docs/FROZEN_DEVELOPMENT_EVALUATION_V2.md
+    sha256: 4e69068b9dafcb778560ac31f2a302913672640818f555f464117eccc53d2302
+  uncertainty_v2:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/docs/FROZEN_UNCERTAINTY_PROTOCOL_V2.md
+    sha256: 2c2f5f810c1f34808361ca9226af1040e03033261af83697e6a97dde7ef68b34
+  test_firewall_v2:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/docs/TEST_FIREWALL_PLAN_V2.md
+    sha256: 2dabe5ba9dc113ed20aad92586392f2bbe4be52d95c36facc7b48ed197960b39
+  authority_audit_script:
+    path: RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/scripts/chm_protocol_authority_audit.py
+    sha256: c9067f9e7c5bc56d6340fa9e11ecbb3096a2209f338fd2d69bf220c6e51d734a
+excluded_runtime_inputs:
+- any_Loadcycle_raw_source
+- direct_polarization_CSV
+- Test_raw
+- Test_polarization
+- Test_EIS

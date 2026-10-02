@@ -1,0 +1,19 @@
+phase: Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model
+errata_version: V2
+base_commit: 002936e0d995d7cc1db5e8edffca35b612f271b5
+purpose: single_authoritative_execution_protocol_before_CHM_D
+historical_files_preserved: true
+errata:
+  - clause: FINAL_V1_and_earlier_documents
+    replacement: FINAL_V2_is_the_only_executable_protocol
+  - clause: 27_lambda_combinations
+    replacement: exactly_three_fixed_profiles_A_B_C
+  - clause: S1_as_qualification_gate
+    replacement: S1_is_prespecified_secondary_robustness_diagnostic_outside_Gates_1_to_5
+  - clause: anchor_Gaussian_perturbation
+    replacement: DISABLED_under_LOCAL_WINDOW_SCATTER_PROXY
+  - clause: 500_outer_replicate_interpretation
+    replacement: 200_block_4_replicates_per_outer_fold
+  - clause: CHM_D_reconstructs_HOU_or_reparses_polarization
+    replacement: CHM_D_consumes_hash_frozen_HOU_target_and_mapping_inputs_only
+non_actions: [training, LOAO_execution, bootstrap_model_fitting, MAE_RMSE_generation, Test_access, HOU_rebuild, P1S_rebuild, profile_change, model_redesign]

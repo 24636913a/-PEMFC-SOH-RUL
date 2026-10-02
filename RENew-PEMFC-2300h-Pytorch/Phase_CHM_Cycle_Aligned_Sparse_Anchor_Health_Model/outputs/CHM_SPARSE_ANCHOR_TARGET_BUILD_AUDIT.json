@@ -1,0 +1,24 @@
+{
+  "n1_combined_anchor_source": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/soh_anchor_analysis/soh_reference_anchors.csv",
+  "n1_rows_parsed": 8,
+  "n1_test_rows_parsed": 0,
+  "raw_Loadcycle_accessed": false,
+  "direct_polarization_csv_accessed": false,
+  "test_polarization_accessed": false,
+  "target_count": 6,
+  "mapping_count": 18,
+  "target_checkpoints": [
+    300,
+    600,
+    850,
+    1150,
+    1500,
+    1750
+  ],
+  "source_hashes": {
+    "PAA_anchor_alignment": "3f861a2b3c9cf42302bf28409a45ad3f8a47965d06be7bd5cdf5326cc284e659",
+    "PAV_median_support_provenance": "5884b7e44542eecc786de4e385b5ec155ec939167b52e4eb27415ea1431327c2",
+    "PAV_temporal_provenance": "744b6f3898537d9114f984d2d11d45cf2e174ce7fdd283bbb54fd0840f4bfe2e",
+    "CHM_polarization_structure_audit": "4ad0d98a9d9e7d4e19f20ab8e9f136da79d8edd77c15146fc05228a5a42d21af"
+  }
+}

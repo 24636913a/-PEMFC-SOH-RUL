@@ -1,0 +1,190 @@
+phase: Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model
+protocol_version: FINAL_V2
+base_commit: 002936e0d995d7cc1db5e8edffca35b612f271b5
+status: FINAL_V2_FROZEN_AWAITING_CHM_D_EXECUTION
+execution_authority: true
+execution_authorized_by_this_phase: false
+execution_requires: explicit_future_Phase_CHM_D_command
+training_executed: false
+task_type: AUTHORITATIVE_EXECUTION_PROTOCOL
+research_estimand: Cycle-Aligned Latent Health State
+not_estimands: [SOH, dense_ground_truth, EOL, RUL]
+
+historical_protocols_preserved_non_executable:
+  PREREGISTERED_CHM_PROTOCOL_DRAFT.yaml: {historical_status: DRAFT, execution_authority: false}
+  PREREGISTERED_CHM_PROTOCOL_CANDIDATE_V1.yaml: {historical_status: TECHNICALLY_RESOLVED_AWAITING_FINAL_FREEZE, execution_authority: false}
+  PREREGISTERED_CHM_PROTOCOL_FINAL.yaml: {historical_status: FROZEN_PRE_ERRATA, execution_authority: false, superseded_by: FINAL_V2}
+
+runtime_authority:
+  authority_manifest: configs/CHM_PROTOCOL_AUTHORITY.yaml
+  required_protocol_sha256_file: configs/PREREGISTERED_CHM_PROTOCOL_FINAL_V2.sha256
+  runtime_mismatch_status: CHM_PROTOCOL_RUNTIME_MISMATCH
+  historical_protocol_parameter_reading: prohibited
+  direct_raw_reconstruction: prohibited
+  direct_polarization_csv_reading: prohibited
+  Test_access: prohibited
+
+frozen_runtime_inputs:
+  HOU_table:
+    path: inputs/CHM_HOU_TABLE.csv
+    sha256: 8f52f00b3f8f42e75750769469f60eeabc71e14d6b324eb19bb3bf4f4da2b57a
+    complete_HOU: 146
+    partial_HOU: 6
+    total_HOU: 152
+  sparse_anchor_targets:
+    path: inputs/CHM_SPARSE_ANCHOR_TARGETS.csv
+    sha256: eeb56964e6dbf2a927f55c70da0ee8526332e1af6b27af1da27a16bea1e7e36f
+    anchors: [300, 600, 850, 1150, 1500, 1750]
+  frozen_anchor_interval_mapping:
+    path: inputs/CHM_FROZEN_ANCHOR_INTERVAL_MAPPING.csv
+    sha256: ca18663895905289809e985be81c3a9ea3e6990d112aa4c5bfb5b7240173ec3e
+    rows: 18
+  variable_data_inputs_only: [HOU_table, sparse_anchor_targets, frozen_anchor_interval_mapping, final_V2_protocol]
+
+HOU_and_anchor_functional:
+  sort_key: measurement_end_datetime_strict_ascending
+  complete_cycle_HOU_only_primary_trajectory: true
+  partial_HOU_role: anchor_local_auxiliary_health_observation
+  formal_anchor_prediction: median_of_three_frozen_HOU_latent_states
+  target: V_pol_checkpoint_at_1_0_A_cm2_divided_by_V_pol_BoL_at_1_0_A_cm2
+  BoL_role: target_normalization_denominator_only
+  hard_label_interpolation: prohibited
+
+polarization_reliability:
+  semantics: LOCAL_WINDOW_SCATTER_PROXY
+  sigma_pol_local_proxy: within_file_local_polarization_window_voltage_scatter_divided_by_BoL_voltage
+  sigma_int: 1.4826_times_MAD_of_three_frozen_P1S_retentions
+  sigma_support: absolute_difference_median_all_three_minus_median_joint_support
+  q_squared: sigma_pol_local_squared_plus_sigma_int_squared_plus_sigma_support_squared
+  reliability_weight: one_over_q_squared_plus_1e_minus_8
+  training_anchor_normalization: mean_one
+  probabilistic_label_variance: prohibited
+  independent_replicate_variance_claim: prohibited
+  anchor_target_gaussian_perturbation: DISABLED
+
+initial_state_and_transition:
+  first_observable_state: H_1_equals_sigmoid_eta
+  eta_initialization: logit_0_995
+  transition: H_j_equals_H_j_minus_1_times_exp_negative_1e_minus_3_times_softplus_g_theta_X_j
+  transition_scale: 0.001
+  hard_clipping: prohibited
+  monotone_penalty: prohibited
+
+inputs_and_model:
+  retention_deviation: R_j_minus_1
+  condition_features: [current_density, anode_inlet_temperature_C, anode_inlet_pressure_kPag, anode_inlet_RH_pct, anode_hydrogen_flow_nl_min, anode_stoichiometry, cathode_stoichiometry]
+  reference_population: earliest_10_legal_complete_cycles
+  transform: x_minus_reference_median_divided_by_reference_scale
+  primary_scale: IQR
+  zero_IQR_fallback: reference_standard_deviation
+  zero_standard_deviation_action: CONSTANT_REFERENCE_FEATURE_set_zero_and_exclude_from_network_with_audit
+  forbidden_features: [OpHrs2, cycle_index, DateTime, nominal_checkpoint_age, future_cycle_data, future_anchor, Test_data]
+  architecture: Linear_d_16_then_SiLU_then_Linear_16_1
+  condition_residual_head: EXCLUDED
+
+loss_profiles:
+  term_normalization: [anchor_mean, observation_mean, smoothness_mean]
+  Huber_delta: 0.001
+  profiles:
+    A_BALANCED: {lambda_anchor: 1, lambda_obs: 1, lambda_smooth: 0.1}
+    B_ANCHOR_EMPHASIS: {lambda_anchor: 3, lambda_obs: 1, lambda_smooth: 0.1}
+    C_OBSERVATION_EMPHASIS: {lambda_anchor: 1, lambda_obs: 3, lambda_smooth: 0.1}
+  profile_count: 3
+  27_combination_grid: SUPERSEDED_NOT_EXECUTABLE
+  additional_profiles: prohibited
+
+optimization:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  batch: full_HOU_sequence
+  gradient_clip_norm: 1.0
+  max_epochs: 5000
+  min_epochs: 500
+  early_stopping: {monitored_quantity: training_composite_loss_only, check_interval_epochs: 200, relative_improvement_threshold: 1e-5, heldout_anchor_used: false}
+  seeds: [42, 2024, 3407]
+
+baselines:
+  B0:
+    name: RAW_P1S_ANCHOR_FUNCTIONAL
+    prediction: median_of_the_same_three_frozen_PAA_interval_R_values
+    formula: Yhat_k_equals_median_R_k1_R_k2_R_k3
+    training: none
+    age_input: false
+  B1:
+    name: ISOTONIC_P1S_CALIBRATION
+    implementation: sklearn.isotonic.IsotonicRegression
+    increasing: true
+    out_of_bounds: clip
+    input: training_anchor_P1S_three_interval_median
+    target: training_anchor_polarization_Y
+    heldout_target: prohibited
+    age_input: false
+  B2:
+    name: NONNEGATIVE_AFFINE_P1S_CALIBRATION
+    formula: Y_equals_a_R_plus_b
+    constraint: a_greater_or_equal_zero
+    fit: deterministic_constrained_least_squares_training_anchors_only
+    prohibited: [age, cycle_index, heldout_target, Test, spline, polynomial, posthoc_substitution]
+  LOAO_contract: same_six_outer_holdouts_as_CHM_with_true_heldout_predictions
+
+retrospective_LOAO:
+  outer_folds: [300, 600, 850, 1150, 1500, 1750]
+  outer_train_anchor_count: 5
+  inner_folds_per_outer: 5
+  seeds: [42, 2024, 3407]
+  inner_selection_fits: 270
+  outer_deterministic_refits: 18
+  selection_score: mean_inner_MAE_over_three_seeds
+  tie_tolerance: 1e-8
+  tie_break_order: [A_BALANCED, B_ANCHOR_EMPHASIS, C_OBSERVATION_EMPHASIS]
+  heldout_anchor_in_training: false
+  heldout_anchor_in_profile_selection: false
+  heldout_anchor_in_early_stopping: false
+  bootstrap_used_for_profile_selection: false
+
+primary_development_qualification:
+  gate_count: 5
+  Gate_1: six_of_six_legal_LOAO_predictions
+  Gate_2: MAE_CHM_strictly_less_than_MAE_B0_from_outer_heldout_predictions
+  Gate_3: MAE_CHM_less_or_equal_min_MAE_B1_B2_from_outer_heldout_predictions_plus_1e_minus_6
+  Gate_4: complete_cycle_latent_monotonic_violation_count_equals_0
+  Gate_5: LOAO_95_percent_intervals_contain_at_least_five_of_six_heldout_targets
+  pass_status: DEVELOPMENT_HEALTH_MODEL_QUALIFIED
+  fail_status: DEVELOPMENT_HEALTH_MODEL_NOT_QUALIFIED
+  bootstrap_trigger: deterministic_Gates_1_to_4_pass
+  S1_is_qualification_gate: false
+
+S1_robustness_diagnostic:
+  role: PRESPECIFIED_SECONDARY_ROBUSTNESS_DIAGNOSTIC
+  execution_order: after_primary_deterministic_Development_experiment
+  anchor_supervision_set: [300, 850, 1750]
+  selected_profile: same_as_final_all_six_primary_model_no_reselection
+  identical_to_primary: [architecture, optimizer, seeds, preprocessing, HOU_table]
+  excluded_from: [loss_profile_selection, inner_LOAO, outer_LOAO, early_stopping, primary_PASS_FAIL]
+  diagnostic_reference_thresholds:
+    trajectory_Spearman_minimum: 0.95
+    median_absolute_difference_maximum: 0.01
+    terminal_absolute_difference_maximum: 0.01
+  supported_status: S1_ROBUSTNESS_SUPPORTED
+  concern_status: S1_ROBUSTNESS_CONCERN
+  concern_effect_on_primary_qualification: none
+  Test_opening_after_concern: manual_future_research_decision_only
+
+uncertainty:
+  method: TIME_AXIS_PRESERVING_BLOCK_WEIGHT_BOOTSTRAP
+  outer_LOAO_primary: {outer_folds: 6, scheduled_replicates_per_outer_fold: 200, complete_cycle_block_length: 4, minimum_legal_replicates_per_outer_fold: 190}
+  final_all_six_primary: {scheduled_replicates: 500, complete_cycle_block_length: 4, minimum_legal_replicates: 475}
+  final_all_six_sensitivity_only: {scheduled_replicates: 100, complete_cycle_block_length: 8, minimum_legal_replicates: 95}
+  anchor_target_gaussian_perturbation: DISABLED
+  MC_dropout: PROHIBITED
+  bootstrap_used_for_profile_selection: false
+
+non_actions_for_this_phase:
+  neural_training: false
+  checkpoint_creation: false
+  LOAO_execution: false
+  bootstrap_model_fitting: false
+  CHM_MAE_or_RMSE_generation: false
+  Test_access: false
+  automatic_CHM_D_start: false

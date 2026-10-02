@@ -1,0 +1,28 @@
+phase: Phase_RHA_Raw_Operation_Point_Health_Alignment
+status: FROZEN_PRE_EXECUTION
+rcr_scientific_base_commit: b32c0280e1cda53a3c9ef99a34dc78866c9beced
+rcr_firewall_qualification_commit: 4533a25cdfe4615922ce1415c5bdf7df0a944943
+frozen_rcr_inputs:
+  - path: 'RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/CYCLE_TEMPLATE.json'
+    sha256: 267a3ee5a2d297b4368f4dd262771a19109e8015b2617de45ab828d83d696200
+  - path: 'RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_CYCLE_CATALOG.csv'
+    sha256: 8d1a8b9e17b179fbc99776f4006a61e5758006bd73e1a55bb96ffed38fa0f3d8
+  - path: 'RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/CYCLE_SEQUENCE_SIMILARITY.csv'
+    sha256: d7e10afbadd86c6a451ab4d25daf920322218ac33338ca2b53e90b6d8cf86652
+  - path: 'RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_STATE_RUNS.csv'
+    sha256: d385fc72c7a54ba93b9ca38fe275b8c5530180bf3d109ad842dcd6a3682865b3
+  - path: 'RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/final/FINAL_DECISION.yaml'
+    sha256: 78423aac7166e896e16ba8dc591c9c62c1e01a3854d0f664946036efca5ae9da
+  - path: 'RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/final/POSTHOC_FIREWALL_QUALIFICATION.yaml'
+    sha256: cceb84dde51058d1299d4ba60505ebd3a90e649eea67df679a6f4de99df94691
+raw_source:
+  root: 'E:/沈农信电/课题-预测质子交换膜燃料电池（PEMFC）的健康状态和剩余寿命/数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据'
+  loadcycle_stream: 'Loadcycle_data/**/Loadcycle_*.csv'
+  polarization_stream: 'Polcurve_Nominal_RHFC_*.csv'
+  raw_file_sha256: NOT_COMPUTED_BY_DESIGN
+access_policy:
+  raw_stream: boundary_aware_early_stop
+  raw_post_boundary_access_must_be_disclosed: true
+  raw_post_boundary_use_permitted: false
+  polarization_before_gate_A_B_C_pass: false
+  test_polarization_access_permitted: false

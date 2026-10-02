@@ -1,0 +1,108 @@
+phase: Phase_RHA_Raw_Operation_Point_Health_Alignment
+protocol_status: FROZEN_BEFORE_RAW_VOLTAGE_OR_POLARIZATION_RESULTS
+required_rcr_cycle_status: RAW_CYCLE_STRUCTURE_QUALIFIED
+rcr_cycle_identity:
+  source_phase: Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit
+  required_complete_cycles: 146
+  reuse_only: true
+  prohibited: [cycle_rediscovery, anchor_change, voltage_based_rephasing, SOH_based_rephasing, DTW]
+raw_access:
+  strict_development_boundary_h: 1819.997738
+  source_order: verified_N1_RCR_Loadcycle_order
+  chunk_rows: 50000
+  boundary_aware_early_stop: >-
+    On the first chunk containing OpHrs2 at or above the boundary, record the accessed post-boundary row count, retain only rows below it, stop this file, and do not open later files.
+  post_boundary_rows_used: 0
+  no_test_claim_if_crossing_chunk_accessed: true
+raw_columns:
+  identity: ['OpHrs2 [h]', DateTime, operation_point, 'I.S.set [A]', 'I.S.act [A]', 'j.S.act [A/cm2]']
+  active_cells: ['U1 [V]', 'U2 [V]', 'U3 [V]', 'U4 [V]', 'U5 [V]', 'U7 [V]', 'U8 [V]', 'U9 [V]', 'U10 [V]', 'U11 [V]']
+  excluded_cells: ['U6 [V]']
+  conditions:
+    current_density: 'j.S.act [A/cm2]'
+    anode_inlet_temperature_C: 'T.Si.A [°C]'
+    anode_inlet_pressure_kPag: 'p.Si.A [kPag]'
+    anode_inlet_RH_pct: 'RH.Si.A  [%]'
+    anode_hydrogen_flow_nl_min: 'F.Si.H.A [nl/min]'
+    anode_stoichiometry: 'Stoic.S.A [-]'
+    cathode_stoichiometry: 'Stoic.S.C [-]'
+stable_dwell_measurement:
+  eligible_run_duration_wall_s_min: 120
+  primary_window: middle_50_percent_of_run_time
+  sensitivity_window: last_25_percent_of_run_time
+  run_measurement: median_of_raw_cell_means_and_each_condition
+  cycle_point_measurement: median_of_eligible_run_measurements_with_same_operation_point
+  designation: PROJECT_ANALYSIS_DESIGN
+operation_point_selection:
+  source: frozen_RCR_template_positive_current_runs
+  primary: highest_frequency_positive_current_operation_point
+  secondary: second_highest_frequency_positive_current_operation_point
+  tie_break: numeric_then_lexical_operation_point_ID
+  selection_must_not_use: [voltage, age_trend, polarization, SOH]
+reference_and_retention:
+  reference_cycles_per_point: 10
+  reference_selection: earliest_legal_complete_Development_cycles
+  reference_excluded_from_early_evaluation: true
+  point_retention: 'H_c,p = V_c,p / median(V_reference_cycles,p)'
+  two_point_representation: 'H_c = mean(H_c,P1, H_c,P2), only when both valid'
+  prohibited_name: SOH
+evaluation:
+  strata: [EARLY, MIDDLE, LATE]
+  point_support_min_evaluation_cycles_per_stratum: 20
+  point_valid_measurement_rate_min: 0.80
+  condition_complete_rate_min: 0.90
+  joint_support_min_evaluation_cycles_per_stratum: 15
+  condition_variables: [current_density, anode_inlet_temperature_C, anode_inlet_pressure_kPag, anode_inlet_RH_pct, anode_hydrogen_flow_nl_min, anode_stoichiometry, cathode_stoichiometry]
+common_support:
+  construction: intersection_of_EARLY_MIDDLE_LATE_observed_ranges_for_all_7_variables
+  failure: CONDITION_COMMON_SUPPORT_INSUFFICIENT
+condition_matching_sensitivity:
+  population: joint_support_EARLY_and_LATE_evaluation_cycles
+  scaling: median_and_IQR_from_REFERENCE_plus_EARLY_cycles
+  fallback_if_IQR_zero: standard_deviation; constant_variables_excluded_and_recorded
+  method: deterministic_nearest_condition_matching_without_replacement
+  matching_variables: all_7_frozen_condition_variables
+  forbidden_matching_variables: [voltage, age_distance, SOH, polarization]
+voltage_visibility:
+  contrast: 'D_p = median(H_LATE,p) - median(H_EARLY,p)'
+  expected_direction: negative_for_both_points
+  local_cycle_noise: 'S_p = median(abs(H_c,p - H_c-1,p)) for adjacent legal cycles within frozen contiguous segments'
+  signal_gate: '|D_p| > 2*S_p for both points'
+  designation: PROJECT_ANALYSIS_DESIGN
+bootstrap:
+  unit: cycle
+  primary_block_cycles: 4
+  sensitivity_block_cycles: 8
+  iterations: 2000
+  seed: 2024
+  segments: split_by_stratum_and_nonconsecutive_RCR_raw_cycle_id; never cross an incomplete-cycle interruption or stratum boundary
+  gate_primary: 95_percent_interval_upper_bound_less_than_zero_for_both_points
+  gate_sensitivity: point_estimate_and_bootstrap_median_do_not_reverse_direction
+condition_consistency:
+  requirement: raw_and_condition_matched_early_late_contrasts_have_same_negative_direction
+  failure: VOLTAGE_DRIFT_CONDITION_CONFOUNDED
+polarization_access_after_gate_ABC_pass_only:
+  raw_glob: 'Polcurve_Nominal_RHFC_*.csv'
+  allowlisted_nominal_checkpoints: [BoL, 300, 600, 850, 1150, 1500, 1750]
+  forbidden_checkpoints: [2000, 2300, 2300_afterAirAirStart]
+  required_configuration: 10_cell_nominal_durability_stack
+  primary_jstar_A_cm2: 1.0
+  secondary_jstar_A_cm2: 1.6
+  current_density_tolerance_A_cm2: 0.01
+  BoL_use: polarization_normalization_reference_only
+  cycle_anchor_alignment:
+    cycles: latest_3_legal_complete_cycles_ending_before_characterization
+    maximum_pre_characterization_distance_h: 48
+    insufficient_cycles_status: UNRESOLVED
+  compatibility_gate:
+    aligned_non_BoL_anchors_min: 5
+    required_anchors_h: [1500, 1750]
+    primary_spearman_rho_min: 0.60
+    repeat_noise: median_within_checkpoint_voltage_std_at_primary_jstar
+    informative_transition: 'abs(delta polarization voltage) > repeat_noise'
+    informative_transitions_min: 3
+    same_direction_fraction_min: 0.75
+    secondary_no_strong_reverse_spearman_min: -0.30
+  interpretation_limit: SPARSE_POLARIZATION_ANCHOR_COMPATIBILITY_not_independent_SOH_validation
+final_statuses: [RAW_OPERATION_POINT_HEALTH_EVIDENCE_QUALIFIED, OPERATION_POINT_SUPPORT_INSUFFICIENT, CONDITION_COMMON_SUPPORT_INSUFFICIENT, VOLTAGE_DRIFT_NOT_IDENTIFIABLE, VOLTAGE_DRIFT_CONDITION_CONFOUNDED, SPARSE_ANCHOR_COMPATIBILITY_NOT_SUPPORTED, ANCHOR_ALIGNMENT_INCONCLUSIVE]
+prohibited: [neural_network_training, backbone_search, hyperparameter_tuning, RUL_training, continuous_SOH_label_construction, automatic_next_phase]

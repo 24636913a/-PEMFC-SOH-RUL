@@ -1,0 +1,118 @@
+phase: Phase_PAA_P1_StateToken_PreAnchor_Alignment
+analysis_designation: POSTHOC_EXPLORATORY
+base_head: c0c56d1e3299e6f5a360ce263a34f66c119ac110
+original_results_preserved:
+  RCR: RAW_CYCLE_STRUCTURE_QUALIFIED
+  RHA: CONDITION_COMMON_SUPPORT_INSUFFICIENT
+  RHA_P1: P1_ANCHOR_ALIGNMENT_INCONCLUSIVE
+  may_be_modified: false
+new_estimand: P1S_fixed_state_token_pre_anchor_operating_voltage_retention
+frozen_cycle_structure:
+  complete_cycles: 146
+  age_stratum_complete_cycles: {EARLY: 50, MIDDLE: 45, LATE: 51}
+  anchor_pattern: ['15||14.000', '15||0.000']
+  complete_cycle_reuse_only: true
+  partial_intervals_anchor_local_only: true
+  prohibited: [cycle_rediscovery, cycle_catalog_rewrite, voltage_based_rephasing, SOH_based_rephasing, DTW]
+P1_state_token_selection:
+  operation_point: '221'
+  eligible_tokens_from_frozen_RCR_template:
+    '221||221.200': 93
+    '221||156.800': 48
+    '221||313.600': 25
+  primary_token: '221||221.200'
+  primary_set_current_A: 221.200
+  rule: highest_frequency_eligible_P1_state_token_in_frozen_RCR_template
+  forbidden_selection_inputs: [voltage, age_trend, polarization, SOH, correlation]
+  no_alternate_token_fallback: true
+stable_dwell:
+  duration_wall_s_min: 120
+  primary_window: middle_50_percent_of_run_time
+  sensitivity_window: last_25_percent_of_run_time
+  active_cells: ['U1 [V]', 'U2 [V]', 'U3 [V]', 'U4 [V]', 'U5 [V]', 'U7 [V]', 'U8 [V]', 'U9 [V]', 'U10 [V]', 'U11 [V]']
+  excluded_cells: ['U6 [V]']
+  dwell_measurement: median_of_active_cell_mean_voltage_and_each_condition
+  interval_measurement: median_of_eligible_dwell_measurements_within_interval
+conditions: [current_density, anode_inlet_temperature_C, anode_inlet_pressure_kPag, anode_inlet_RH_pct, anode_hydrogen_flow_nl_min, anode_stoichiometry, cathode_stoichiometry]
+reference:
+  source: earliest_10_legal_complete_Development_cycle_intervals_with_P1S_measurement
+  reference_window: middle_50_percent_of_run_time
+  last_25_sensitivity_uses_same_middle_50_reference_voltage: true
+  partial_intervals_forbidden: true
+  excluded_from_early_evaluation: true
+  representation: R_c_P1S_equals_V_c_P1S_divided_by_median_V_reference_P1S
+  representation_name: P1S_Operating_Voltage_Retention
+  prohibited_name: SOH
+support_and_drift:
+  complete_cycle_measurements_min_per_stratum: 20
+  seven_condition_complete_rate_min: 0.90
+  joint_common_support_min_per_stratum: 15
+  long_term_contrast: median_R_LATE_minus_median_R_EARLY
+  required_direction: negative
+  local_variation: median_absolute_adjacent_complete_cycle_R_difference_within_stratum
+  local_signal_rule: absolute_D_greater_than_2_times_S
+  bootstrap: {primary_block_cycles: 4, sensitivity_block_cycles: 8, iterations: 2000, seed: 2024, primary_CI_upper_less_than_zero: true, sensitivity_direction_negative: true}
+matching:
+  population: P1S_joint_common_support_complete_cycle_EARLY_and_LATE
+  method: deterministic_nearest_condition_matching_without_replacement
+  variables: all_7_frozen_conditions
+  scaling: median_and_IQR_from_REFERENCE_plus_EARLY_complete_cycle_measurements
+  iqr_zero_fallback: standard_deviation
+  constant_variables: record_and_exclude_from_distance
+  forbidden: [voltage, age, polarization, SOH]
+  no_distance_cutoff: true
+  primary_rule: raw_and_matched_contrasts_negative
+  descriptive_distance_statistics: [median, p75, p90, max]
+  balance_audit: [matched_early_median, matched_late_median, standardized_median_difference, standardized_mean_difference]
+partial_interval_characterization_metadata:
+  cutoff_definition: last_frozen_RCR_run_end_before_the_preselected_characterization_gap; all selected dwells must end strictly earlier
+  anchors:
+    - {checkpoint_h: 300, incomplete_raw_cycle_id: 25, cycle_start_run_id: 16920, pre_characterization_last_run_id: 17343, pre_characterization_cutoff_datetime: '2025-02-09T00:17:49.005000', pre_characterization_cutoff_ophrs2_h: 312.15411}
+    - {checkpoint_h: 600, incomplete_raw_cycle_id: 50, cycle_start_run_id: 34248, pre_characterization_last_run_id: 34665, pre_characterization_cutoff_datetime: '2025-02-24T01:10:00.005000', pre_characterization_cutoff_ophrs2_h: 566.16980}
+    - {checkpoint_h: 850, incomplete_raw_cycle_id: 75, cycle_start_run_id: 51819, pre_characterization_last_run_id: 52231, pre_characterization_cutoff_datetime: '2025-03-20T01:32:27.005000', pre_characterization_cutoff_ophrs2_h: 854.26343}
+    - {checkpoint_h: 1150, incomplete_raw_cycle_id: 101, cycle_start_run_id: 70187, pre_characterization_last_run_id: 70594, pre_characterization_cutoff_datetime: '2025-04-18T04:26:40.005000', pre_characterization_cutoff_ophrs2_h: 1130.87000}
+    - {checkpoint_h: 1500, incomplete_raw_cycle_id: 126, cycle_start_run_id: 87475, pre_characterization_last_run_id: 87889, pre_characterization_cutoff_datetime: '2025-05-26T21:45:55.005000', pre_characterization_cutoff_ophrs2_h: 1463.38000}
+    - {checkpoint_h: 1750, incomplete_raw_cycle_id: 151, cycle_start_run_id: 105001, pre_characterization_last_run_id: 105420, pre_characterization_cutoff_datetime: '2025-06-10T15:54:57.005000', pre_characterization_cutoff_ophrs2_h: 1719.31000}
+anchor_alignment:
+  local_window_h: 48
+  interval_unit: distinct_complete_or_pre_characterization_partial_cycle_interval
+  intervals_per_anchor: 3
+  selection: latest_3_legal_intervals_by_measurement_end_before_checkpoint_cutoff_not_by_voltage
+  legal_interval_requirements: [within_48h, complete_7_variable_condition_vector, full_P1S_middle50_dwell_ended_before_cutoff, unique_interval_id]
+  anchor_condition_support: at_least_2_of_3_selected_intervals_in_complete_cycle_joint_common_support
+  coverage: {aligned_non_BoL_min: 5, required_checkpoints_h: [1500, 1750]}
+polarization_after_all_preanchor_gates_pass_only:
+  allowlisted_nominal_checkpoints: [BoL, 300, 600, 850, 1150, 1500, 1750]
+  forbidden: [2000, 2300, afterAirAirStart, Test_EIS]
+  required_cell_count: 10
+  primary_jstar_A_cm2: 1.0
+  secondary_jstar_A_cm2: 1.6
+  density_tolerance_A_cm2: 0.01
+  compatibility: {primary_spearman_positive_min: 0.60, informative_transitions_min: 3, same_direction_fraction_min: 0.75, secondary_no_strong_reverse_min: -0.30}
+raw_firewall:
+  development_test_boundary_h: 1819.997738
+  maximum_required_precharacterization_cutoff_h: 1719.31000
+  maximum_source_file: Loadcycle_data/Loadcycle_data/Loadcycle_134-150.csv
+  prohibit_opening_later_source_files: true
+  test_raw_rows_accessed_required: false
+  test_polarization_accessed_required: false
+  test_EIS_accessed_required: false
+  test_access_failure: DATA_FIREWALL_DEVIATION
+allowed_final_statuses: [P1S_PREANCHOR_COMPATIBILITY_EXPLORATORY_PASS, P1S_SUPPORT_INSUFFICIENT, P1S_LONG_TERM_DRIFT_NOT_IDENTIFIABLE, P1S_CONDITION_SUPPORT_INSUFFICIENT, P1S_DRIFT_CONDITION_CONFOUNDED, P1S_ANCHOR_ALIGNMENT_INCONCLUSIVE, P1S_SPARSE_ANCHOR_COMPATIBILITY_NOT_SUPPORTED]
+prohibited: [neural_training, backbone_search, hyperparameter_search, continuous_SOH_construction, RUL_training, automatic_next_phase, alternate_P1_token_selection]
+frozen_input_hashes:
+  RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/CYCLE_TEMPLATE.json: 267a3ee5a2d297b4368f4dd262771a19109e8015b2617de45ab828d83d696200
+  RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_CYCLE_CATALOG.csv: 8d1a8b9e17b179fbc99776f4006a61e5758006bd73e1a55bb96ffed38fa0f3d8
+  RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_STATE_RUNS.csv: d385fc72c7a54ba93b9ca38fe275b8c5530180bf3d109ad842dcd6a3682865b3
+  RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_TIMELINE_AUDIT.csv: 070d7d2dc6246cd17dd8d86a0758739a9e12e27e100cf4f298708734671f07f5
+  RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/final/FINAL_DECISION.yaml: 78423aac7166e896e16ba8dc591c9c62c1e01a3854d0f664946036efca5ae9da
+  RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/final/POSTHOC_FIREWALL_QUALIFICATION.yaml: cceb84dde51058d1299d4ba60505ebd3a90e649eea67df679a6f4de99df94691
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_Raw_Operation_Point_Health_Alignment/outputs/SELECTED_OPERATION_POINTS.json: 57bf2fec0f85da277074931f0dc045104e1be0e47d7bff4d95498158d690be0e
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_Raw_Operation_Point_Health_Alignment/final/FINAL_DECISION.yaml: c491b03ca5c3ef698b81b878f180f8d2e3661047299d9dc7f4578cf2b21f9602
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_Raw_Operation_Point_Health_Alignment/final/POSTHOC_GATE_STATUS_QUALIFICATION.yaml: 3ce28a084ec26a9dfae324688143b7d6f77a81c02702253e6828ae193afd818f
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_P1_Posthoc_Single_Point_Identifiability/configs/PREREGISTERED_P1_EXPLORATORY_PROTOCOL.yaml: db07279b06de79be807a2aa89f1108b9a1cfb0fe6c8950082c6a910351b5b78a
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_P1_Posthoc_Single_Point_Identifiability/final/FINAL_DECISION.yaml: 420c4832c37d4f67dc2671853dab18ec290a87300d2867ed876b0184bc35cfa2
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_P1_Posthoc_Single_Point_Identifiability/outputs/P1_SUPPORT_REPRODUCTION.csv: eff1198c2c608f50239af01eef7081db619fd63cd28afaac97d4329733bbc4ef
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_P1_Posthoc_Single_Point_Identifiability/outputs/P1_RAW_DRIFT_CONTRAST.csv: 59bf1a82cfee8ef2355672e7ed08e271b464878074dbf80127b7316b98e9818e
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_P1_Posthoc_Single_Point_Identifiability/outputs/P1_MATCHED_DRIFT_CONTRAST.csv: 2282002e9ce82c47668eb6c250e7c274badd01ad48fb897a1a4c5cf124bd324b
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_P1_Posthoc_Single_Point_Identifiability/outputs/P1_ANCHOR_ALIGNMENT.csv: 40481ea1e205367561c135f2348abdb8c96eb3c13a22f785479f4e30c07e36dd

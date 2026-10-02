@@ -1,0 +1,41 @@
+{
+  "phase": "Phase_PAV_PAA_Anchor_Validity_Qualification",
+  "designation": "POSTHOC_QUALIFICATION_AUDIT",
+  "base_commit": "02b0319fac3380b0c5b76cf999f4ae8ae71df1ea",
+  "execution_head": "02b0319fac3380b0c5b76cf999f4ae8ae71df1ea",
+  "original_paa_result_changed": false,
+  "paa_exploratory_result": "P1S_PREANCHOR_COMPATIBILITY_EXPLORATORY_PASS",
+  "final_qualification": "PAA_EXPLORATORY_PASS_TEMPORALLY_VERIFIED",
+  "temporally_verified_anchors": 6,
+  "temporal_contradictions": 0,
+  "median_anchors_sourced_inside_joint_support": 3,
+  "registered_2_of_3_condition_support_rule_unchanged": true,
+  "access": {
+    "development_polarization_files": [
+      "Polcurve_Nominal_RHFC_1150h.csv",
+      "Polcurve_Nominal_RHFC_1500h.csv",
+      "Polcurve_Nominal_RHFC_1750h.csv",
+      "Polcurve_Nominal_RHFC_300h.csv",
+      "Polcurve_Nominal_RHFC_600h.csv",
+      "Polcurve_Nominal_RHFC_850h.csv"
+    ],
+    "BoL_header_read": false,
+    "test_polarization_accessed": false,
+    "test_EIS_accessed": false,
+    "neural_training": false,
+    "SOH_constructed": false,
+    "RUL": false
+  },
+  "frozen_paa_input_sha256": {
+    "P1S_ANCHOR_ALIGNMENT.csv": "3f861a2b3c9cf42302bf28409a45ad3f8a47965d06be7bd5cdf5326cc284e659",
+    "P1S_COMPLETE_CYCLE_MEASUREMENTS.csv": "f962d5f4807348c3089aa2c6a6203b874c7e19b37199f07c703bcd9651138e74",
+    "PREANCHOR_PARTIAL_CYCLE_INTERVALS.csv": "be167eb8c26b58845d95eb101c3bf85d2901c882583f555d3023cc24dcced929",
+    "PREREGISTERED_PAA_PROTOCOL.yaml": "f8b5ddf76ec3f0ac40d79e637d7641cfb14d29251821a1f47533e8718910b8a5",
+    "FINAL_DECISION.yaml": "8dc16ba629204cdf09c7279bc8a176d756765d7038585686d1abdcec5277e59e"
+  },
+  "notes": [
+    "Polarization CSV DateTime, not nominal filename or filesystem metadata, is the exact time source.",
+    "PAA anchor values and support gate are read from frozen PAA outputs and are not recomputed.",
+    "A median source outside joint support is a qualification label, not a retrospective failure of PAA's 2-of-3 rule."
+  ]
+}

@@ -1,0 +1,67 @@
+phase: Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model
+registry_version: FINAL_PREEXECUTION_V1
+read_policy: FAIL_CLOSED_ALLOWLIST_ONLY
+repository_frozen_artifacts:
+  rcr_cycle_catalog:
+    relative_path: RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_CYCLE_CATALOG.csv
+    sha256: 8d1a8b9e17b179fbc99776f4006a61e5758006bd73e1a55bb96ffed38fa0f3d8
+  rcr_state_runs:
+    relative_path: RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_STATE_RUNS.csv
+    sha256: d385fc72c7a54ba93b9ca38fe275b8c5530180bf3d109ad842dcd6a3682865b3
+  rcr_timeline_audit:
+    relative_path: RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_TIMELINE_AUDIT.csv
+    sha256: 070d7d2dc6246cd17dd8d86a0758739a9e12e27e100cf4f298708734671f07f5
+  paa_reference_cycles:
+    relative_path: RENew-PEMFC-2300h-Pytorch/Phase_PAA_P1_StateToken_PreAnchor_Alignment/outputs/P1S_REFERENCE_COMPLETE_CYCLES.csv
+    sha256: 9a9b536229cf252f561870b7ac5235f73240940bfc6ef8f2f6e78196ef837f77
+  paa_existing_complete_hou:
+    relative_path: RENew-PEMFC-2300h-Pytorch/Phase_PAA_P1_StateToken_PreAnchor_Alignment/outputs/P1S_COMPLETE_CYCLE_MEASUREMENTS.csv
+    sha256: f962d5f4807348c3089aa2c6a6203b874c7e19b37199f07c703bcd9651138e74
+  paa_partial_hou:
+    relative_path: RENew-PEMFC-2300h-Pytorch/Phase_PAA_P1_StateToken_PreAnchor_Alignment/outputs/PREANCHOR_PARTIAL_CYCLE_INTERVALS.csv
+    sha256: be167eb8c26b58845d95eb101c3bf85d2901c882583f555d3023cc24dcced929
+  paa_anchor_alignment:
+    relative_path: RENew-PEMFC-2300h-Pytorch/Phase_PAA_P1_StateToken_PreAnchor_Alignment/outputs/P1S_ANCHOR_ALIGNMENT.csv
+    sha256: 3f861a2b3c9cf42302bf28409a45ad3f8a47965d06be7bd5cdf5326cc284e659
+  pav_anchor_provenance:
+    relative_path: RENew-PEMFC-2300h-Pytorch/Phase_PAV_PAA_Anchor_Validity_Qualification/outputs/ANCHOR_MEDIAN_SUPPORT_PROVENANCE.csv
+    sha256: 5884b7e44542eecc786de4e385b5ec155ec939167b52e4eb27415ea1431327c2
+development_raw_source:
+  path: E:/沈农信电/ PEMFC-SOH+RUL/数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_151-162.csv
+  access_contract: FROZEN_DEVELOPMENT_PREFIX_268684_ROWS
+  parsed_data_rows_exactly: 268684
+  development_test_boundary_ophrs2_h: 1819.997738
+  source_file_contains_test_rows: true
+  full_file_sha256: NOT_COMPUTED_FULL_FILE_TEST_TAINTED
+development_polarization:
+  root: E:/沈农信电/ PEMFC-SOH+RUL/数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据
+  allowed_files:
+    Polcurve_Nominal_RHFC_BoL.csv:
+      checkpoint: BoL
+      sha256: 7b49b0ffd97586f67aea2a79116de3500b44754f0da190ef5635d5e378b7b316
+    Polcurve_Nominal_RHFC_300h.csv:
+      checkpoint: 300
+      sha256: 002d38bd031150881dcd57390c8fc974e22ff8c852cdaef7d1853f37c250c275
+    Polcurve_Nominal_RHFC_600h.csv:
+      checkpoint: 600
+      sha256: 5fa80a3bc845037d457f25a2db085ac46463f7189af5216e71e471ce3ee91404
+    Polcurve_Nominal_RHFC_850h.csv:
+      checkpoint: 850
+      sha256: c4e1ee815d77e151e6a4dae94f5c2ce3e674ca83654ef31b20daf308057ae796
+    Polcurve_Nominal_RHFC_1150h.csv:
+      checkpoint: 1150
+      sha256: 603b52e2b78e137e3b29957ab35c6a957531f706c2948df9a101a2cfe620cc96
+    Polcurve_Nominal_RHFC_1500h.csv:
+      checkpoint: 1500
+      sha256: aaaa197a52a7b64c62a02b2def0fef1ae074e2d0b1ec602e7fc69dad77ee0650
+    Polcurve_Nominal_RHFC_1750h.csv:
+      checkpoint: 1750
+      sha256: 06ade3cad685509ed8bf79073c0589d7e1cf3797c04bc095786494f5502a3515
+prohibited_by_registry:
+  - Test_raw
+  - Test_polarization
+  - Test_EIS
+  - Polcurve_Nominal_RHFC_2000h.csv
+  - Polcurve_Nominal_RHFC_2300h.csv
+  - after-Air-Air polarization
+  - unregistered raw source

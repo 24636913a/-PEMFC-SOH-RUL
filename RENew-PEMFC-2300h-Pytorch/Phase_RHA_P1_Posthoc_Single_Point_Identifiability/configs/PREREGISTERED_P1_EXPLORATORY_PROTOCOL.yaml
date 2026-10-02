@@ -1,0 +1,109 @@
+phase: Phase_RHA_P1_Posthoc_Single_Point_Identifiability
+analysis_designation: POSTHOC_EXPLORATORY
+freeze_parent_commit: f0a69612
+original_dual_point_RHA_status: CONDITION_COMMON_SUPPORT_INSUFFICIENT
+original_dual_point_RHA_may_be_modified: false
+primary_operation_point:
+  label: P1
+  operation_point: '221'
+  selection_provenance: original_RHA_frozen_RCR_template_positive_run_frequency
+  not_reselected_in_this_phase: true
+secondary_operation_point:
+  label: P2
+  operation_point: '30'
+  replaced: false
+frozen_cycle_structure:
+  source_phase: Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit
+  complete_cycles: 146
+  reuse_only: true
+  prohibited: [cycle_rediscovery, phase_change, voltage_based_rephasing, SOH_based_rephasing, DTW]
+stable_dwell:
+  duration_wall_s_min: 120
+  primary_window: middle_50_percent_of_run_time
+  sensitivity_window: last_25_percent_of_run_time
+  run_measurement: median_of_active_10_cell_voltage_and_conditions
+  cycle_measurement: median_of_eligible_P1_run_measurements
+reference_retention:
+  reference_cycles: earliest_10_legal_complete_Development_P1_cycles_per_stable_window
+  reference_excluded_from_early_evaluation: true
+  formula: H_c_P1_equals_V_c_P1_divided_by_median_V_reference_P1
+  representation_name: P1_Cycle_Operating_Voltage_Retention
+  prohibited_name: SOH
+raw_access:
+  boundary_h: 1819.997738
+  chunk_rows: 50000
+  boundary_aware_early_stop: true
+  post_boundary_rows_used: 0
+  test_polarization_allowed: false
+  test_EIS_allowed: false
+active_cell_channels: ['U1 [V]', 'U2 [V]', 'U3 [V]', 'U4 [V]', 'U5 [V]', 'U7 [V]', 'U8 [V]', 'U9 [V]', 'U10 [V]', 'U11 [V]']
+excluded_cell_channels: ['U6 [V]']
+condition_variables: [current_density, anode_inlet_temperature_C, anode_inlet_pressure_kPag, anode_inlet_RH_pct, anode_hydrogen_flow_nl_min, anode_stoichiometry, cathode_stoichiometry]
+age_strata: [EARLY, MIDDLE, LATE]
+gate_P1_A_support_reproduction:
+  evaluation_cycles_min_per_stratum: 20
+  middle_50_valid_measurement_rate_min: 0.80
+  seven_condition_complete_rate_min: 0.90
+  joint_common_support_cycles_min_per_stratum: 15
+  required_original_RHA_joint_counts: {EARLY: 32, MIDDLE: 28, LATE: 22}
+gate_P1_B_raw_long_term_voltage_visibility:
+  contrast: median_H_LATE_minus_median_H_EARLY
+  required_direction: negative
+  local_variation: median_absolute_adjacent_H_difference_within_stratum_and_contiguous_RCR_sequence
+  signal_rule: absolute_D_greater_than_2_times_S
+  bootstrap:
+    primary_block_cycles: 4
+    sensitivity_block_cycles: 8
+    iterations: 2000
+    seed: 2024
+    never_cross: [RCR_sequence_interruption, age_stratum_boundary]
+    primary_rule: ci95_upper_less_than_zero
+    sensitivity_rule: point_estimate_and_bootstrap_median_do_not_reverse_negative_direction
+gate_P1_C_condition_matched_robustness:
+  population: P1_joint_common_support_EARLY_and_LATE_evaluation_cycles
+  method: deterministic_nearest_condition_matching_without_replacement
+  variables: all_7_frozen_condition_variables
+  scaling: median_and_IQR_from_REFERENCE_plus_EARLY_cycles
+  iqr_zero_fallback: standard_deviation
+  constant_variables: record_and_exclude_from_numeric_distance
+  prohibited_matching_variables: [voltage, age_distance, SOH, polarization]
+  required_direction: raw_and_matched_early_late_contrasts_negative
+stable_window_sensitivity:
+  primary: middle_50
+  sensitivity: last_25
+  stopping_rule: positive_last_25_when_middle_50_negative_yields_P1_STABLE_DWELL_SENSITIVITY_UNRESOLVED
+polarization_after_P1_ABC_and_sensitivity_pass_only:
+  source_glob: Polcurve_Nominal_RHFC_*.csv
+  allowlisted_checkpoints: [BoL, 300, 600, 850, 1150, 1500, 1750]
+  forbidden_checkpoints: [2000, 2300, 2300_afterAirAirStart, test_polarization]
+  required_cell_count: 10
+  primary_jstar_A_cm2: 1.0
+  secondary_jstar_A_cm2: 1.6
+  density_tolerance_A_cm2: 0.01
+  anchor_cycles: latest_3_legal_P1_evaluation_cycles_ending_before_characterization
+  maximum_anchor_distance_h: 48
+  gate_P1_D:
+    minimum_aligned_non_BoL_anchors: 5
+    required_anchors_h: [1500, 1750]
+    primary_spearman_rho_min: 0.60
+    repeat_noise: median_checkpoint_voltage_std_at_primary_jstar
+    informative_transitions_min: 3
+    same_direction_fraction_min: 0.75
+    secondary_no_strong_reverse_spearman_min: -0.30
+  interpretation_limit: SPARSE_POLARIZATION_ANCHOR_COMPATIBILITY_not_independent_SOH_validation
+allowed_final_statuses: [P1_SINGLE_POINT_HEALTH_EVIDENCE_EXPLORATORY_PASS, P1_SUPPORT_REPRODUCTION_FAIL, P1_VOLTAGE_DRIFT_NOT_IDENTIFIABLE, P1_VOLTAGE_DRIFT_CONDITION_CONFOUNDED, P1_STABLE_DWELL_SENSITIVITY_UNRESOLVED, P1_SPARSE_ANCHOR_COMPATIBILITY_NOT_SUPPORTED, P1_ANCHOR_ALIGNMENT_INCONCLUSIVE]
+prohibited: [neural_training, backbone_search, hyperparameter_search, continuous_SOH_construction, RUL_training, automatic_next_phase]
+frozen_input_hashes:
+  RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/CYCLE_TEMPLATE.json: 267a3ee5a2d297b4368f4dd262771a19109e8015b2617de45ab828d83d696200
+  RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_CYCLE_CATALOG.csv: 8d1a8b9e17b179fbc99776f4006a61e5758006bd73e1a55bb96ffed38fa0f3d8
+  RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_STATE_RUNS.csv: d385fc72c7a54ba93b9ca38fe275b8c5530180bf3d109ad842dcd6a3682865b3
+  RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/final/FINAL_DECISION.yaml: 78423aac7166e896e16ba8dc591c9c62c1e01a3854d0f664946036efca5ae9da
+  RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/final/POSTHOC_FIREWALL_QUALIFICATION.yaml: cceb84dde51058d1299d4ba60505ebd3a90e649eea67df679a6f4de99df94691
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_Raw_Operation_Point_Health_Alignment/configs/PREREGISTERED_RHA_PROTOCOL.yaml: 226a22161ff9858a7250e823500859c85ca69f8d2b4335681c2518a666034f82
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_Raw_Operation_Point_Health_Alignment/scripts/run_raw_operation_point_health_audit.py: 7d5f08c54e01597a40b89e3dedecdebb442037f4bc0c28b3f5d5ae6bf7a983c3
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_Raw_Operation_Point_Health_Alignment/outputs/SELECTED_OPERATION_POINTS.json: 57bf2fec0f85da277074931f0dc045104e1be0e47d7bff4d95498158d690be0e
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_Raw_Operation_Point_Health_Alignment/outputs/CONDITION_SUPPORT.csv: b58c983c5d4f019c4744149a1d050b153fd93e12994fde9e4dd65235da2c7b7b
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_Raw_Operation_Point_Health_Alignment/outputs/REFERENCE_CYCLES.csv: 46056b89907bd10bdee16709ec2d52757e2a1b4a6f98b2f0f01cffbd0f3920ab
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_Raw_Operation_Point_Health_Alignment/outputs/VOLTAGE_RETENTION_BY_CYCLE.csv: 787505f9669a37f1aeb2e98551f6209f0a08f6b60708dae3afb9f7e0d5d4cb22
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_Raw_Operation_Point_Health_Alignment/final/FINAL_DECISION.yaml: c491b03ca5c3ef698b81b878f180f8d2e3661047299d9dc7f4578cf2b21f9602
+  RENew-PEMFC-2300h-Pytorch/Phase_RHA_Raw_Operation_Point_Health_Alignment/final/POSTHOC_GATE_STATUS_QUALIFICATION.yaml: 3ce28a084ec26a9dfae324688143b7d6f77a81c02702253e6828ae193afd818f

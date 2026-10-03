@@ -23,10 +23,12 @@ class CHMModel(nn.Module):
         if inputs.ndim != 2 or len(inputs) < 1:
             raise ValueError("CHM inputs must be a non-empty [HOU, feature] tensor.")
         decrement = torch.exp(-1e-3 * torch.nn.functional.softplus(self.network(inputs).squeeze(-1)))
-        states = [torch.sigmoid(self.eta)]
-        for index in range(1, len(inputs)):
-            states.append(states[-1] * decrement[index])
-        return torch.stack(states)
+        # The first observed state is H_1.  For j >= 2 the exact frozen
+        # recurrence is a cumulative product of decrements[1:].  Vectorizing
+        # it removes Python-loop overhead without changing the model, loss,
+        # chronology, or floating-point operation order within each product.
+        factors = torch.cat((torch.ones(1, dtype=inputs.dtype, device=inputs.device), decrement[1:]))
+        return torch.sigmoid(self.eta) * torch.cumprod(factors, dim=0)
 
     def observation_calibration(self, retention: torch.Tensor) -> torch.Tensor:
         return torch.nn.functional.softplus(self.a_raw) * retention + self.b

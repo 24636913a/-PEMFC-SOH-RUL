@@ -49,3 +49,13 @@ class CHMDRuntimeAuthorityTests(unittest.TestCase):
         model = CHMModel(3)
         states = model.latent_trajectory(torch.zeros((8, 3), dtype=torch.float64)).detach().numpy()
         self.assertTrue(np.all(np.diff(states) <= 0.0))
+
+    def test_07_vectorized_recurrence_matches_direct_frozen_product(self) -> None:
+        model = CHMModel(2)
+        inputs = torch.tensor([[0.0, 0.0], [0.2, -0.1], [0.4, 0.3], [-0.2, 0.1]], dtype=torch.float64)
+        states = model.latent_trajectory(inputs)
+        decrement = torch.exp(-1e-3 * torch.nn.functional.softplus(model.network(inputs).squeeze(-1)))
+        direct = [torch.sigmoid(model.eta)]
+        for index in range(1, len(inputs)):
+            direct.append(direct[-1] * decrement[index])
+        self.assertTrue(torch.allclose(states, torch.stack(direct), rtol=0.0, atol=1e-14))

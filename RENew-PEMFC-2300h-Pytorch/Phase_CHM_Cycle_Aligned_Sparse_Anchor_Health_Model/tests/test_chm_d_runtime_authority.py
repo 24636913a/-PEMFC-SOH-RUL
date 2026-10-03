@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import sys
+import importlib.util
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -10,6 +12,7 @@ import torch
 
 PHASE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PHASE / "src"))
+sys.path.insert(0, str(PHASE))
 
 from chm_data import FORBIDDEN_MODEL_INPUTS, load_frozen_chm_data, verify_runtime_authority
 from chm_evaluation import outer_training_anchors
@@ -59,3 +62,22 @@ class CHMDRuntimeAuthorityTests(unittest.TestCase):
         for index in range(1, len(inputs)):
             direct.append(direct[-1] * decrement[index])
         self.assertTrue(torch.allclose(states, torch.stack(direct), rtol=0.0, atol=1e-14))
+
+    def test_08_final_report_has_all_preregistered_sections(self) -> None:
+        spec = importlib.util.spec_from_file_location("chm_d_runner", PHASE / "scripts" / "run_chm_d_development.py")
+        self.assertIsNotNone(spec)
+        self.assertIsNotNone(spec.loader)
+        runner = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(runner)
+        metric = {"MAE": 0.1, "RMSE": 0.2, "bias": 0.0, "Spearman_n6_descriptive_only": 0.5, "calibration_slope_target_on_prediction": 1.0, "calibration_intercept_target_on_prediction": 0.0}
+        result = {"base_head": "base", "metrics": {"CHM": metric, "B0": metric, "B1": metric, "B2": metric}, "gates": {f"Gate_{index}": "PASS" for index in range(1, 6)}, "uncertainty": {"bootstrap_triggered": True}, "primary_status": "DEVELOPMENT_HEALTH_MODEL_QUALIFIED", "final_profile": {"selected": "A_BALANCED"}, "S1": {"status": "S1_ROBUSTNESS_SUPPORTED"}, "causal_online": {"MAE": 0.1, "RMSE": 0.2}}
+        with tempfile.TemporaryDirectory() as temporary:
+            previous_reports = runner.REPORTS
+            runner.REPORTS = Path(temporary)
+            try:
+                runner.build_report(result)
+                report = (Path(temporary) / "FINAL_CHM_D_DEVELOPMENT_REPORT.md").read_text(encoding="utf-8")
+            finally:
+                runner.REPORTS = previous_reports
+        for index in range(1, 13):
+            self.assertIn(f"## {index}.", report)

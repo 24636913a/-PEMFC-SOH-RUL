@@ -28,15 +28,23 @@ def anchor_loss(predictions: torch.Tensor, targets: torch.Tensor, reliability_we
     return weighted_mean((predictions - targets).square(), reliability_weights)
 
 
-def smoothness_loss(states: torch.Tensor, triples: tuple[tuple[int, int, int, int, int, int], ...], complete_weights: dict[int, int]) -> torch.Tensor:
-    terms: list[torch.Tensor] = []
+def prepare_smoothness_design(triples: tuple[tuple[int, int, int, int, int, int], ...], complete_weights: dict[int, int]) -> tuple[torch.Tensor, torch.Tensor]:
+    """Freeze legal triple indices and weights once for a complete fit."""
+    indices: list[tuple[int, int, int]] = []
     weights: list[float] = []
     for left, middle, right, c_left, c_middle, c_right in triples:
         weight = min(complete_weights[c_left], complete_weights[c_middle], complete_weights[c_right])
         if weight > 0:
-            terms.append((states[right] - 2 * states[middle] + states[left]).square())
+            indices.append((left, middle, right))
             weights.append(float(weight))
-    if not terms:
+    if not indices:
         raise ValueError("INVALID_REPLICATE_SMOOTHNESS_WEIGHT_ZERO")
-    stacked = torch.stack(terms)
-    return weighted_mean(stacked, torch.tensor(weights, dtype=states.dtype, device=states.device))
+    return torch.tensor(indices, dtype=torch.long), torch.tensor(weights, dtype=torch.float64)
+
+
+def smoothness_loss(states: torch.Tensor, design: tuple[torch.Tensor, torch.Tensor]) -> torch.Tensor:
+    """Mean weighted second differences for the already frozen legal triples."""
+    indices, weights = design
+    values = states[indices.to(device=states.device)]
+    second_differences = (values[:, 2] - 2 * values[:, 1] + values[:, 0]).square()
+    return weighted_mean(second_differences, weights.to(dtype=states.dtype, device=states.device))

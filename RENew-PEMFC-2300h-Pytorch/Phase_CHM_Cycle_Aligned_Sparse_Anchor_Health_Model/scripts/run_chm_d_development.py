@@ -211,7 +211,53 @@ def plot_results(loao: pd.DataFrame, baselines: pd.DataFrame, final_trajectory: 
 
 def build_report(result: dict[str, Any]) -> None:
     REPORTS.mkdir(parents=True, exist_ok=True)
-    lines = ["# Phase CHM-D — Development Execution", "", "## 1. Execution integrity", "", f"- Base HEAD: `{result['base_head']}`", "- Authority: `FINAL_V2A`", "- Frozen SHA checks: PASS", "- Test/raw/polarization/EIS accessed: NO", "", "## 2–4. Baselines and nested LOAO", "", f"- CHM MAE: {result['metrics']['CHM']['MAE']:.8f}", f"- B0/B1/B2 MAE: {result['metrics']['B0']['MAE']:.8f} / {result['metrics']['B1']['MAE']:.8f} / {result['metrics']['B2']['MAE']:.8f}", "- Six official CHM estimates are three-seed medians; Spearman (n=6) is descriptive only.", "", "## 5–8. Gates and qualification", "", *[f"- {gate}: {status}" for gate, status in result["gates"].items()], f"- Primary Development qualification: `{result['primary_status']}`", "", "## 9. Final all-six latent trajectory", "", "Development-only Cycle-Aligned Latent Health State. It is not validated SOH.", "", "## 10. S1 secondary robustness", "", f"- Status: `{result['S1']['status']}`", "- S1 is a prespecified secondary robustness diagnostic, not a primary gate.", "", "## 11. Causal-online diagnostic", "", "Only 1150/1500/1750 h have legal prefix fits; aggregate n=3 is secondary only.", "", "## 12. Limitations", "", "- Only six sparse Development anchors; PAA/PAV ancestry remains exploratory.", "- Three of six median sources are inside full joint support.", "- LOCAL_WINDOW_SCATTER_PROXY is not repeat variance.", "- S1 is not an independent validation set; Test remains unopened.", "- Latent health is not validated SOH and no RUL conclusion is made.", ""]
+    metrics = result["metrics"]
+    uncertainty = result["uncertainty"]
+    lines = [
+        "# Phase CHM-D — Development Execution", "",
+        "## 1. Execution integrity", "",
+        f"- Base HEAD: `{result['base_head']}`", "- Authority: `FINAL_V2A`", "- Frozen SHA checks: PASS", "- Test/raw/polarization/EIS accessed: NO", "- Neural training was Development-only.", "",
+        "## 2. Frozen baseline LOAO", "",
+        f"- B0 MAE/RMSE: {metrics['B0']['MAE']:.8f} / {metrics['B0']['RMSE']:.8f}",
+        f"- B1 MAE/RMSE: {metrics['B1']['MAE']:.8f} / {metrics['B1']['RMSE']:.8f}",
+        f"- B2 MAE/RMSE: {metrics['B2']['MAE']:.8f} / {metrics['B2']['RMSE']:.8f}",
+        "- Each B1/B2 fold excludes its held-out target; details are frozen in `outputs/CHM_D_BASELINE_LOAO.csv`.", "",
+        "## 3. Nested LOAO profile selection", "",
+        "- Inner LOAO used only the five outer-training anchors, three frozen profiles, and seeds 42/2024/3407.",
+        "- Outer held-out targets did not select either their outer profile or the final all-six profile.",
+        "- Per-fold selections are in `outputs/CHM_D_OUTER_PROFILE_SELECTION.csv`.", "",
+        "## 4. Aggregate deterministic metrics", "",
+        f"- CHM MAE/RMSE: {metrics['CHM']['MAE']:.8f} / {metrics['CHM']['RMSE']:.8f}",
+        f"- Bias: {metrics['CHM']['bias']:.8f}; descriptive Spearman (n=6): {metrics['CHM']['Spearman_n6_descriptive_only']:.8f}",
+        "- The six official CHM estimates are three-seed medians; metrics are Development-only.", "",
+        "## 5. Gates 1–4", "",
+        *[f"- {gate}: {status}" for gate, status in result["gates"].items() if gate != "Gate_5"], "",
+        "## 6. Frozen bootstrap execution", "",
+        f"- Triggered after Gates 1–4: {'YES' if uncertainty['bootstrap_triggered'] else 'NO'}.",
+        "- Bootstrap outcomes and any structured failures are retained in the corresponding `outputs/CHM_D_*BOOTSTRAP*.csv` files.", "",
+        "## 7. Gate 5", "",
+        f"- Gate_5: {result['gates']['Gate_5']}.",
+        "- This gate uses the preregistered held-out coverage rule; no Test information was used.", "",
+        "## 8. Primary Development qualification", "",
+        f"- Status: `{result['primary_status']}`.",
+        "- The status follows Gates 1–5 only. S1 cannot overturn primary qualification.", "",
+        "## 9. Final all-six latent trajectory", "",
+        "- This is a Development-only Cycle-Aligned Latent Health State, not validated SOH.",
+        f"- Final profile: `{result['final_profile']['selected']}`; outer target information was not used for this choice.", "",
+        "## 10. S1 secondary robustness", "",
+        f"- Status: `{result['S1']['status']}`.",
+        "- S1 uses the frozen reduced-anchor sensitivity and is not an independent validation set or a primary gate.", "",
+        "## 11. Causal-online diagnostic", "",
+        "- Only 1150/1500/1750 h have legal prefix fits; aggregate n=3 is secondary only.",
+        f"- MAE/RMSE: {result['causal_online']['MAE']:.8f} / {result['causal_online']['RMSE']:.8f}.", "",
+        "## 12. Limitations", "",
+        "- Only six sparse Development anchors; PAA/PAV ancestry remains exploratory.",
+        "- Three of six median sources are inside full joint support.",
+        "- `LOCAL_WINDOW_SCATTER_PROXY` is not independent replicate variance.",
+        "- S1 is not an independent validation set; Test remains unopened.",
+        "- Latent health is not validated SOH and no RUL conclusion is made.",
+        "- No automatic Test phase is started by this result.", "",
+    ]
     (REPORTS / "FINAL_CHM_D_DEVELOPMENT_REPORT.md").write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -283,7 +329,7 @@ def execute() -> dict[str, Any]:
     online_legal = online[online["status"].eq("LEGAL_PREFIX_FIT")]
     online_metrics = {"checkpoints": [1150, 1500, 1750], "MAE": float(online_legal["absolute_error"].mean()), "RMSE": float(np.sqrt(np.mean((online_legal["prediction"]-online_legal["target"]).square())))}
     primary_status = "DEVELOPMENT_HEALTH_MODEL_QUALIFIED" if all(value == "PASS" for value in gates.values()) else "DEVELOPMENT_HEALTH_MODEL_NOT_QUALIFIED"
-    result = {"phase": "Phase_CHM_D_Development_Execution", "base_head": BASE_HEAD, "execution_head": repo_head(), "execution_integrity": {"authority_version": runtime["authority"]["authority_version"], "protocol_hash_pass": True, "supplement_hash_pass": True, "frozen_input_hash_pass": True, "CHM_D_test_raw_accessed": False, "CHM_D_test_polarization_accessed": False, "CHM_D_test_EIS_accessed": False, "CHM_D_test_used_for_selection": False}, "outer_LOAO": {"legal_predictions": int(len(legal)), **metrics["CHM"]}, "baselines": {"B0_MAE": metrics["B0"]["MAE"], "B0_RMSE": metrics["B0"]["RMSE"], "B1_MAE": metrics["B1"]["MAE"], "B1_RMSE": metrics["B1"]["RMSE"], "B2_MAE": metrics["B2"]["MAE"], "B2_RMSE": metrics["B2"]["RMSE"]}, "gates": gates, "final_profile": {"majority_vote_counts": counts, "selected": profile, "outer_target_used_for_final_profile": False}, "uncertainty": {"bootstrap_triggered": bootstrap_triggered, "outer_legal_replicates": outer_intervals.set_index("checkpoint")["legal_replicates"].to_dict() if len(outer_intervals) else {}, "all_six_block4_legal": int(final_uncertainty["legal_replicates"].iloc[0]) if len(final_uncertainty) else 0, "all_six_block8_legal": 100 - sum(1 for failure in failures if failure["scope"] == "final_all_six_block8") if bootstrap_triggered else 0}, "S1": s1_result, "causal_online": online_metrics, "primary_status": primary_status, "latent_state_is_validated_SOH": False, "RUL": "NOT_RUN", "Test": "SEALED_FOR_CHM_D", "automatic_start": False, "NEXT_CANDIDATE_PHASE": "Phase_THV_Test_Health_Validation" if primary_status == "DEVELOPMENT_HEALTH_MODEL_QUALIFIED" else "NONE"}
+    result = {"phase": "Phase_CHM_D_Development_Execution", "base_head": BASE_HEAD, "execution_head": repo_head(), "execution_integrity": {"authority_version": runtime["authority"]["authority_version"], "protocol_hash_pass": True, "supplement_hash_pass": True, "frozen_input_hash_pass": True, "CHM_D_test_raw_accessed": False, "CHM_D_test_polarization_accessed": False, "CHM_D_test_EIS_accessed": False, "CHM_D_test_used_for_selection": False}, "metrics": metrics, "outer_LOAO": {"legal_predictions": int(len(legal)), **metrics["CHM"]}, "baselines": {"B0_MAE": metrics["B0"]["MAE"], "B0_RMSE": metrics["B0"]["RMSE"], "B1_MAE": metrics["B1"]["MAE"], "B1_RMSE": metrics["B1"]["RMSE"], "B2_MAE": metrics["B2"]["MAE"], "B2_RMSE": metrics["B2"]["RMSE"]}, "gates": gates, "final_profile": {"majority_vote_counts": counts, "selected": profile, "outer_selected_profiles": selected, "outer_target_used_for_final_profile": False}, "uncertainty": {"bootstrap_triggered": bootstrap_triggered, "outer_legal_replicates": outer_intervals.set_index("checkpoint")["legal_replicates"].to_dict() if len(outer_intervals) else {}, "all_six_block4_legal": int(final_uncertainty["legal_replicates"].iloc[0]) if len(final_uncertainty) else 0, "all_six_block8_legal": 100 - sum(1 for failure in failures if failure["scope"] == "final_all_six_block8") if bootstrap_triggered else 0}, "S1": s1_result, "causal_online": online_metrics, "primary_status": primary_status, "latent_state_is_validated_SOH": False, "RUL": "NOT_RUN", "Test": "SEALED_FOR_CHM_D", "automatic_start": False, "NEXT_CANDIDATE_PHASE": "Phase_THV_Test_Health_Validation" if primary_status == "DEVELOPMENT_HEALTH_MODEL_QUALIFIED" else "NONE"}
     write_yaml(result, FINAL / "FINAL_DECISION.yaml")
     write_json({"metrics": metrics, "gates": gates, "bootstrap_triggered": bootstrap_triggered}, "CHM_D_DETERMINISTIC_METRICS.json")
     if final_trajectory is not None:
@@ -297,7 +343,7 @@ def summary(result: dict[str, Any]) -> None:
     print("Phase CHM-D Development Execution\n=================================")
     print(f"Base HEAD: {result['base_head']}\nAuthority: FINAL_V2A\nFrozen hash validation: PASS\nTest accessed: NO\nHOU: 152\nComplete cycles: 146\nSparse anchors: 6")
     print(f"Outer LOAO legal: {result['outer_LOAO']['legal_predictions']} / 6")
-    for checkpoint, profile in result["final_profile"].get("majority_vote_counts", {}).items(): print(f"Profile votes {checkpoint}: {profile}")
+    for checkpoint in ANCHORS: print(f"Outer profile {checkpoint} h: {result['final_profile']['outer_selected_profiles'].get(checkpoint)}")
     print(f"Majority-vote final profile: {result['final_profile']['selected']}")
     print(f"CHM MAE: {result['outer_LOAO']['MAE']:.8f}\nB0 Raw P1S MAE: {result['baselines']['B0_MAE']:.8f}\nB1 Isotonic MAE: {result['baselines']['B1_MAE']:.8f}\nB2 Nonnegative affine MAE: {result['baselines']['B2_MAE']:.8f}\nCHM RMSE: {result['outer_LOAO']['RMSE']:.8f}\nAggregate Spearman n=6: {result['outer_LOAO']['Spearman_n6_descriptive_only']:.8f}")
     for gate, status in result["gates"].items(): print(f"{gate}: {status}")

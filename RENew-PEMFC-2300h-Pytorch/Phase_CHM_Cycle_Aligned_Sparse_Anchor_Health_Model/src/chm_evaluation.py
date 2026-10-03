@@ -12,7 +12,7 @@ import pandas as pd
 import torch
 
 from chm_data import ANCHORS, FrozenCHMData, target_for_checkpoint, training_anchor_frame
-from chm_losses import anchor_loss, anchor_predictions, observation_loss, smoothness_loss
+from chm_losses import anchor_loss, anchor_predictions, observation_loss, prepare_smoothness_design, smoothness_loss
 from chm_model import CHMModel
 
 
@@ -102,6 +102,7 @@ def fit_chm(
     retention = torch.tensor(data.hou["P1S_operating_voltage_retention"].astype(float).to_numpy(), dtype=torch.float64)
     obs_weights = torch.tensor(obs_np, dtype=torch.float64)
     profile_weights = PROFILES[profile]
+    smoothness_design = prepare_smoothness_design(data.continuous_complete_triples, complete_weights)
     checkpoint_loss: float | None = None
     final_loss = math.nan
     epochs = 0
@@ -113,7 +114,7 @@ def fit_chm(
             predictions = anchor_predictions(states, groups)
             loss_anchor = anchor_loss(predictions, anchor_targets, reliability_weights)
             loss_obs = observation_loss(states, calibrated, obs_weights)
-            loss_smooth = smoothness_loss(states, data.continuous_complete_triples, complete_weights)
+            loss_smooth = smoothness_loss(states, smoothness_design)
             total = profile_weights["lambda_anchor"] * loss_anchor + profile_weights["lambda_obs"] * loss_obs + profile_weights["lambda_smooth"] * loss_smooth
             if not torch.isfinite(total):
                 raise CHMFitFailure("nonfinite_training_loss")

@@ -1,0 +1,36 @@
+Phase CHM-D Development Execution
+=================================
+Base HEAD: a3e56dd5bc55a6f7ab4b4aa373adbb190714be73
+Authority: FINAL_V2A
+Frozen hash validation: PASS
+Test accessed: NO
+HOU: 152
+Complete cycles: 146
+Sparse anchors: 6
+Outer LOAO legal: 6 / 6
+Outer profile 300 h: B_ANCHOR_EMPHASIS
+Outer profile 600 h: A_BALANCED
+Outer profile 850 h: B_ANCHOR_EMPHASIS
+Outer profile 1150 h: B_ANCHOR_EMPHASIS
+Outer profile 1500 h: A_BALANCED
+Outer profile 1750 h: C_OBSERVATION_EMPHASIS
+Majority-vote final profile: B_ANCHOR_EMPHASIS
+CHM MAE: 0.00151714
+B0 Raw P1S MAE: 0.01238958
+B1 Isotonic MAE: 0.00129687
+B2 Nonnegative affine MAE: 0.00047687
+CHM RMSE: 0.00175833
+Aggregate Spearman n=6: 0.82857143
+Gate_1: PASS
+Gate_2: PASS
+Gate_3: FAIL
+Gate_4: PASS
+Gate_5: FAIL
+Bootstrap triggered: NO
+Primary Development qualification: DEVELOPMENT_HEALTH_MODEL_NOT_QUALIFIED
+S1: S1_ROBUSTNESS_SUPPORTED
+Causal online n=3 MAE: 0.00278916
+Latent health called validated SOH: NO
+RUL: NOT_RUN
+Test: NOT_OPENED
+Automatic next phase: NO

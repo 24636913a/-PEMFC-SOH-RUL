@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model\scripts\run_chm_d_development.py", line 360, in <module>
+    summary(execute())
+            ^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model\scripts\run_chm_d_development.py", line 275, in execute
+    metrics = {"CHM": aggregate_metrics(legal) if len(legal) == 6 else {"MAE": np.nan, "RMSE": np.nan, "bias": np.nan, "Spearman_n6_descriptive_only": np.nan, "calibration_slope_target_on_prediction": np.nan, "calibration_intercept_target_on_prediction": np.nan}, "B0": baseline_metrics(baselines, "B0"), "B1": baseline_metrics(baselines, "B1"), "B2": baseline_metrics(baselines, "B2")}
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model\src\chm_evaluation.py", line 217, in aggregate_metrics
+    "RMSE": float(np.sqrt(np.mean(residual.square()))),
+                                  ^^^^^^^^^^^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'square'

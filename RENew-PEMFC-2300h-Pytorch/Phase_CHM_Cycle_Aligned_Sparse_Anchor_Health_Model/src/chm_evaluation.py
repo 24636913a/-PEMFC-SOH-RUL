@@ -214,7 +214,7 @@ def aggregate_metrics(predictions: pd.DataFrame) -> dict[str, float]:
     slope, intercept = (np.polyfit(pred, target, 1) if len(pred) >= 2 and np.ptp(pred) > 0 else (np.nan, np.nan))
     return {
         "MAE": float(np.mean(np.abs(residual))),
-        "RMSE": float(np.sqrt(np.mean(residual.square()))),
+        "RMSE": float(np.sqrt(np.mean(np.square(residual)))),
         "bias": float(np.mean(residual)),
         "Spearman_n6_descriptive_only": float(pd.Series(pred).corr(pd.Series(target), method="spearman")),
         "calibration_slope_target_on_prediction": float(slope),

@@ -7,6 +7,7 @@ import unittest
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 import torch
 
 
@@ -15,7 +16,7 @@ sys.path.insert(0, str(PHASE / "src"))
 sys.path.insert(0, str(PHASE))
 
 from chm_data import FORBIDDEN_MODEL_INPUTS, load_frozen_chm_data, verify_runtime_authority
-from chm_evaluation import outer_training_anchors
+from chm_evaluation import aggregate_metrics, outer_training_anchors
 from chm_model import CHMModel
 
 
@@ -81,3 +82,9 @@ class CHMDRuntimeAuthorityTests(unittest.TestCase):
                 runner.REPORTS = previous_reports
         for index in range(1, 13):
             self.assertIn(f"## {index}.", report)
+
+    def test_09_aggregate_rmse_uses_numpy_square_on_prediction_arrays(self) -> None:
+        predictions = pd.DataFrame({"target": [0.2, 0.5], "official_prediction_three_seed_median": [0.1, 0.8]})
+        metrics = aggregate_metrics(predictions)
+        self.assertAlmostEqual(metrics["MAE"], 0.2)
+        self.assertAlmostEqual(metrics["RMSE"], float(np.sqrt((0.1**2 + 0.3**2) / 2)))

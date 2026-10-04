@@ -1,0 +1,32 @@
+{
+  "metrics": {
+    "CHM": {
+      "MAE": 0.0015171364900874822,
+      "RMSE": 0.0017583328365101375,
+      "bias": 0.0004106840285525252,
+      "Spearman_n6_descriptive_only": 0.8285714285714287,
+      "calibration_slope_target_on_prediction": 1.1881591238063975,
+      "calibration_intercept_target_on_prediction": -0.18426703760144958
+    },
+    "B0": {
+      "MAE": 0.012389576604708038,
+      "RMSE": 0.01241886657851295
+    },
+    "B1": {
+      "MAE": 0.0012968694357638848,
+      "RMSE": 0.002124223295374278
+    },
+    "B2": {
+      "MAE": 0.0004768699068203319,
+      "RMSE": 0.0006285778854784248
+    }
+  },
+  "gates": {
+    "Gate_1": "PASS",
+    "Gate_2": "PASS",
+    "Gate_3": "FAIL",
+    "Gate_4": "PASS",
+    "Gate_5": "FAIL"
+  },
+  "bootstrap_triggered": false
+}

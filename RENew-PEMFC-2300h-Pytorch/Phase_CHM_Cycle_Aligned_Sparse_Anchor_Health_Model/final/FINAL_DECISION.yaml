@@ -1,0 +1,87 @@
+phase: Phase_CHM_D_Development_Execution
+base_head: a3e56dd5bc55a6f7ab4b4aa373adbb190714be73
+execution_head: 878328c4eda668d76d1451635d2abd8dcf68d65a
+execution_integrity:
+  authority_version: FINAL_V2A
+  protocol_hash_pass: true
+  supplement_hash_pass: true
+  frozen_input_hash_pass: true
+  CHM_D_test_raw_accessed: false
+  CHM_D_test_polarization_accessed: false
+  CHM_D_test_EIS_accessed: false
+  CHM_D_test_used_for_selection: false
+metrics:
+  CHM:
+    MAE: 0.0015171364900874822
+    RMSE: 0.0017583328365101375
+    bias: 0.0004106840285525252
+    Spearman_n6_descriptive_only: 0.8285714285714287
+    calibration_slope_target_on_prediction: 1.1881591238063975
+    calibration_intercept_target_on_prediction: -0.18426703760144958
+  B0:
+    MAE: 0.012389576604708038
+    RMSE: 0.01241886657851295
+  B1:
+    MAE: 0.0012968694357638848
+    RMSE: 0.002124223295374278
+  B2:
+    MAE: 0.0004768699068203319
+    RMSE: 0.0006285778854784248
+outer_LOAO:
+  legal_predictions: 6
+  MAE: 0.0015171364900874822
+  RMSE: 0.0017583328365101375
+  bias: 0.0004106840285525252
+  Spearman_n6_descriptive_only: 0.8285714285714287
+  calibration_slope_target_on_prediction: 1.1881591238063975
+  calibration_intercept_target_on_prediction: -0.18426703760144958
+baselines:
+  B0_MAE: 0.012389576604708038
+  B0_RMSE: 0.01241886657851295
+  B1_MAE: 0.0012968694357638848
+  B1_RMSE: 0.002124223295374278
+  B2_MAE: 0.0004768699068203319
+  B2_RMSE: 0.0006285778854784248
+gates:
+  Gate_1: PASS
+  Gate_2: PASS
+  Gate_3: FAIL
+  Gate_4: PASS
+  Gate_5: FAIL
+final_profile:
+  majority_vote_counts:
+    A_BALANCED: 2
+    B_ANCHOR_EMPHASIS: 3
+    C_OBSERVATION_EMPHASIS: 1
+  selected: B_ANCHOR_EMPHASIS
+  outer_selected_profiles:
+    300: B_ANCHOR_EMPHASIS
+    600: A_BALANCED
+    850: B_ANCHOR_EMPHASIS
+    1150: B_ANCHOR_EMPHASIS
+    1500: A_BALANCED
+    1750: C_OBSERVATION_EMPHASIS
+  outer_target_used_for_final_profile: false
+uncertainty:
+  bootstrap_triggered: false
+  outer_legal_replicates: {}
+  all_six_block4_legal: 0
+  all_six_block8_legal: 0
+S1:
+  status: S1_ROBUSTNESS_SUPPORTED
+  trajectory_Spearman: 1.0
+  median_abs_difference: 0.00031677208336622353
+  terminal_difference: 9.028299797997352e-05
+causal_online:
+  checkpoints:
+  - 1150
+  - 1500
+  - 1750
+  MAE: 0.002789163059406574
+  RMSE: 0.002881061921034611
+primary_status: DEVELOPMENT_HEALTH_MODEL_NOT_QUALIFIED
+latent_state_is_validated_SOH: false
+RUL: NOT_RUN
+Test: SEALED_FOR_CHM_D
+automatic_start: false
+NEXT_CANDIDATE_PHASE: NONE

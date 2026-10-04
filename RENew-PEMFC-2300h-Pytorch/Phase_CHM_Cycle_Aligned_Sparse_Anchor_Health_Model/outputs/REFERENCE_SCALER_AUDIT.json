@@ -1,0 +1,46 @@
+{
+  "reference_population": "earliest_10_legal_complete_cycles",
+  "reference_complete_hou_ids": [
+    "COMPLETE_CYCLE_HOU_001",
+    "COMPLETE_CYCLE_HOU_002",
+    "COMPLETE_CYCLE_HOU_003",
+    "COMPLETE_CYCLE_HOU_004",
+    "COMPLETE_CYCLE_HOU_005",
+    "COMPLETE_CYCLE_HOU_006",
+    "COMPLETE_CYCLE_HOU_007",
+    "COMPLETE_CYCLE_HOU_008",
+    "COMPLETE_CYCLE_HOU_009",
+    "COMPLETE_CYCLE_HOU_010"
+  ],
+  "condition_median": {
+    "current_density": 0.789229989,
+    "anode_inlet_temperature_C": 75.18776130750001,
+    "anode_inlet_pressure_kPag": 164.5917511,
+    "anode_inlet_RH_pct": 40.11024761,
+    "anode_hydrogen_flow_nl_min": 23.31461525,
+    "anode_stoichiometry": 1.511621952,
+    "cathode_stoichiometry": 1.712360978
+  },
+  "condition_scale_IQR_or_std": {
+    "current_density": 0.0,
+    "anode_inlet_temperature_C": 15.186778072499997,
+    "anode_inlet_pressure_kPag": 0.20216369999999984,
+    "anode_inlet_RH_pct": 40.33385705999999,
+    "anode_hydrogen_flow_nl_min": 0.010299684374999174,
+    "anode_stoichiometry": 5.5998499999931894e-05,
+    "cathode_stoichiometry": 0.0001531451250000204
+  },
+  "constant_reference_features_excluded_from_network": [
+    "current_density"
+  ],
+  "model_input_feature_names": [
+    "P1S_retention_minus_1",
+    "anode_inlet_temperature_C",
+    "anode_inlet_pressure_kPag",
+    "anode_inlet_RH_pct",
+    "anode_hydrogen_flow_nl_min",
+    "anode_stoichiometry",
+    "cathode_stoichiometry"
+  ],
+  "forbidden_age_or_time_inputs_used": false
+}

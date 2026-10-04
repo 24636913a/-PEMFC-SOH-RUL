@@ -1,10 +1,16 @@
-# Phase CHM — Cycle-Aligned Sparse-Anchor Health Model Protocol
+# Phase CHM — Cycle-Aligned Sparse-Anchor Health Model
 
-**Status:** `FINAL_V2A_FROZEN_READY_FOR_CHM_D`
+**Status:** `CHM_D_NEGATIVE_DEVELOPMENT_RESULT_FROZEN`
 
-This phase designs the next Development-only health-state experiment. It does
-not execute it. The proposed estimand is a **Cycle-Aligned Latent Health
-State** (`H_c`), not SOH and not RUL. The original
+CHM-D has executed once under the frozen Development-only protocol. The
+primary result is `DEVELOPMENT_HEALTH_MODEL_NOT_QUALIFIED`: Gate 3 failed
+because the prespecified nonnegative affine P1S calibration (B2) outperformed
+the neural latent-state CHM. Gate 5 was not evaluated because bootstrap was
+not triggered after Gate 3 failed. This phase does not open Test, construct
+validated SOH, or train RUL.
+
+The proposed estimand remains a **Cycle-Aligned Latent Health State** (`H_c`),
+not SOH and not RUL. The original
 `PREREGISTERED_CHM_PROTOCOL_DRAFT.yaml`, Candidate V1, and Final V1 are
 preserved as historical, non-executable records.
 
@@ -32,14 +38,17 @@ may not reconstruct raw HOU or parse a polarization CSV. The polarization term
 remains a within-file local scatter proxy, never independent-repeat variance,
 and anchor Gaussian perturbation remains disabled.
 
-This status is deliberately not an execution command. No CHM model, checkpoint,
-LOAO prediction, bootstrap model fit, MAE/RMSE, SOH label, or RUL output has
-been created. Only a subsequent explicit `Phase CHM-D — Development Execution`
-command can initiate the frozen Development experiment. Supplement A freezes
-the final all-six majority-vote profile rule, exact three-seed aggregation, and
-time-axis-preserving bootstrap multiplicity-weight semantics; it does not train
-or report any CHM performance result.
+The execution record is retained without alteration in `final/FINAL_DECISION.yaml`,
+the LOAO outputs, profiles, final latent trajectory, S1 trajectory, report, and
+figures. The posthoc semantic qualification is in
+`docs/POSTHOC_CHM_D_RESULT_CLARIFICATION.md` and
+`final/POSTHOC_RESULT_QUALIFICATION.yaml`. It does not revise the original
+execution-time result.
+
+The qualified label for the historical `CHM_D_CAUSAL_ONLINE_DIAGNOSTIC.csv` is
+`ANCHOR_PREFIX_FULL_HOU_RETROSPECTIVE_DIAGNOSTIC`: its sparse polarization
+anchors are prefix-restricted, but each fit uses the full frozen Development
+HOU sequence. It is not a strict causal-online or deployment evaluation.
 
 No Test raw data, Test polarization, Test EIS, 2000 h/2300 h polarization,
-after-Air-Air data, checkpoint, model metric, SOH interpolation, or RUL output
-is created in this phase.
+after-Air-Air data, SOH interpolation, or RUL output is created by CHM-D.

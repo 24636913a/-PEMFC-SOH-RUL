@@ -1,0 +1,23 @@
+{
+  "primary_status_original": "DEVELOPMENT_HEALTH_MODEL_NOT_QUALIFIED",
+  "primary_status_changed": false,
+  "failure_driver": "GATE_3_SIMPLE_MONOTONE_BASELINE_OUTPERFORMS_CHM",
+  "CHM_MAE": 0.0015171364900874822,
+  "B2_MAE": 0.0004768699068203319,
+  "CHM_to_B2_MAE_ratio": 3.181447326386,
+  "Gate_5_serialized_original": "FAIL",
+  "Gate_5_scientific_status": "NOT_EVALUATED_GATE_3_STOP",
+  "bootstrap_triggered": false,
+  "coverage_observed": false,
+  "coverage_failure_observed": false,
+  "strict_online_executed": false,
+  "original_online_label": "CAUSAL_ONLINE_DIAGNOSTIC",
+  "qualified_online_label": "ANCHOR_PREFIX_FULL_HOU_RETROSPECTIVE_DIAGNOSTIC",
+  "future_HOU_after_1150": 53,
+  "future_HOU_after_1500": 28,
+  "future_HOU_after_1750": 5,
+  "S1_role": "SECONDARY_SENSITIVITY_ONLY",
+  "Test_opening": "NO",
+  "retraining_performed": false,
+  "RUL": "NOT_RUN"
+}

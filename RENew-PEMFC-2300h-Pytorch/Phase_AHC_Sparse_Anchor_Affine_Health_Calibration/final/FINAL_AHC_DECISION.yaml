@@ -1,0 +1,26 @@
+base_commit: b89fc66f0a6fbf9dc21890367af37904a6a4aa06
+analysis: POSTHOC_HYPOTHESIS_CHARACTERIZATION
+input_sha256:
+  RENew-PEMFC-2300h-Pytorch\Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model\inputs\CHM_SPARSE_ANCHOR_TARGETS.csv: eeb56964e6dbf2a927f55c70da0ee8526332e1af6b27af1da27a16bea1e7e36f
+  RENew-PEMFC-2300h-Pytorch\Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model\inputs\CHM_FROZEN_ANCHOR_INTERVAL_MAPPING.csv: ca18663895905289809e985be81c3a9ea3e6990d112aa4c5bfb5b7240173ec3e
+  RENew-PEMFC-2300h-Pytorch\Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model\outputs\CHM_D_BASELINE_LOAO.csv: 9fd27b3d3fbbf8a56797a00b5cc0ae74787cd527db30066daab136093dae75f8
+B2_original_LOAO_reproduced: true
+original_B2_LOAO_MAE: 0.00047686990682028205
+all_six_slope: 1.1988114938324186
+all_six_intercept: -0.20903624631182127
+LOAO_slope_range: 0.0926153687833946
+maximum_LOAO_function_spread_over_observed_R: 0.0007149158322204974
+chronological_n3_metrics:
+  MAE: 0.0007646870339716635
+  RMSE: 0.0008643470977688401
+  bias: 7.373144002990421e-05
+raw_B0_n3_metrics:
+  MAE: 0.013021458879010073
+  RMSE: 0.013033884901435961
+  bias: 0.013021458879010073
+joint_support3_max_function_difference: 0.0007044774356632644
+shared_age_confounding: REPORTED
+validated_SOH: false
+RUL: 'NO'
+Test_accessed: false
+final_status: AFFINE_CALIBRATION_DEVELOPMENT_HYPOTHESIS_SUPPORTED

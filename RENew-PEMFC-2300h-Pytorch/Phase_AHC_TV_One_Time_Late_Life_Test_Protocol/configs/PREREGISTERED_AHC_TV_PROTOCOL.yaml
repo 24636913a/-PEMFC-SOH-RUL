@@ -1,0 +1,61 @@
+phase: Phase_AHC_TV_One_Time_Late_Life_Test_Protocol
+status: AHC_TV_PROTOCOL_FROZEN_AWAITING_MANUAL_TEST_OPENING_DECISION
+base_commit: 3681911fa225cbab4d6812934e1d6c8eda948aad
+nature: PROTOCOL_FREEZE_ONLY
+Test_accessed: false
+Development_rescreening: false
+primary_research_question: late_life_temporal_generalization_and_incremental_information_beyond_nominal_age
+primary_Test_checkpoints: [2000, 2300]
+after_Air_Air: EXCLUDED
+primary_candidate: FROZEN_P1S_AFFINE
+primary_comparator: NOMINAL_AGE_AFFINE_BASELINE
+secondary_reference: RAW_P1S_B0
+target:
+  current_density_A_cm2: 1.0
+  formula: Y_k = V_pol_k(1.0) / V_pol_BoL(1.0)
+  development_pipeline_preserved: true
+P1S_input:
+  operation_point: 221
+  set_current_A: 221.200
+  state_token: '221||221.200'
+  retention_reference: Development_earliest_10_legal_complete_cycles
+  pre_characterization_window_h: 48
+  distinct_intervals: 3
+  partial_cycle_rule: PAA_FROZEN_RULE
+  joint_support_requirement: 2_of_3
+alignment_gate:
+  required_for_each_checkpoint:
+    - at_least_3_distinct_legal_intervals
+    - within_48_h
+    - strictly_pre_characterization
+    - at_least_2_of_3_in_Development_joint_common_support
+  failure_status: TEST_ALIGNMENT_INCONCLUSIVE
+one_shot_unblinding:
+  sequence:
+    - verify_protocol_and_hashes
+    - construct_2000_and_2300_P1S_inputs
+    - generate_all_frozen_predictions
+    - write_and_sha256_freeze_prediction_artifact
+    - read_polarization_targets
+    - compute_errors
+    - stop_Test_tuning_permanently
+  prediction_artifact: inputs/FROZEN_TEST_PREDICTIONS_BEFORE_TARGET_UNBLINDING.csv
+  target_before_prediction_prohibited: true
+success_rule:
+  A: AE_P1S_2000 < AE_Age_2000
+  B: AE_P1S_2300 < AE_Age_2300
+  C: MAE_P1S_Test < MAE_Age_Test
+  all_required: true
+result_statuses:
+  supported: LATE_LIFE_TEST_SUPPORTS_INCREMENTAL_P1S_CALIBRATION
+  not_supported: LATE_LIFE_TEST_DOES_NOT_SUPPORT_INCREMENTAL_P1S_CALIBRATION
+  alignment_inconclusive: TEST_ALIGNMENT_INCONCLUSIVE
+claims_prohibited:
+  - validated_SOH
+  - universal_health_indicator
+  - causal_degradation_state
+  - cross_stack_validation
+  - RUL_validation
+automatic_actions:
+  Test_opening: false
+  RUL_training: false

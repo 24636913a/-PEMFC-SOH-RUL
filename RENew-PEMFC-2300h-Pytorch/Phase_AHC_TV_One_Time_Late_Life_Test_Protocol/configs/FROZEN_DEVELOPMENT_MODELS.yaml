@@ -1,0 +1,24 @@
+P1S_affine:
+  name: FROZEN_P1S_AFFINE
+  formula: Y = a * R + b
+  slope: 1.1988114938324186
+  intercept: -0.20903624631182127
+  fitted_on_nominal_checkpoints: [300, 600, 850, 1150, 1500, 1750]
+  source: Phase_AHC_Sparse_Anchor_Affine_Health_Calibration/outputs/B2_ALL_SIX_CALIBRATION.csv
+  refit_on_Test_prohibited: true
+nominal_age_affine:
+  name: NOMINAL_AGE_AFFINE_BASELINE
+  formula: Y = alpha + beta * A_nominal_h
+  intercept_alpha: 0.9853267436259231
+  slope_beta: -0.0000083952663925
+  slope_constraint: beta <= 0
+  fitted_on_nominal_checkpoints: [300, 600, 850, 1150, 1500, 1750]
+  target_source: Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/inputs/CHM_SPARSE_ANCHOR_TARGETS.csv
+  model_selection_performed: false
+P1S_reference:
+  source: frozen Development earliest-10 legal complete-cycle reference voltage
+  Test_reference_refit_prohibited: true
+P1S_state:
+  operation_point: 221
+  set_current_A: 221.200
+  state_token: '221||221.200'

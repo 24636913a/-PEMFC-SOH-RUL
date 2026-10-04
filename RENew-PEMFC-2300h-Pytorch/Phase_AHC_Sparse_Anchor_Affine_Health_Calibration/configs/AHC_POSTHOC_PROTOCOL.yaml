@@ -1,0 +1,46 @@
+phase: Phase_AHC_Sparse_Anchor_Affine_Health_Calibration
+analysis_type: POSTHOC_HYPOTHESIS_CHARACTERIZATION
+base_commit: b89fc66f0a6fbf9dc21890367af37904a6a4aa06
+allowed_inputs:
+  - RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/inputs/CHM_SPARSE_ANCHOR_TARGETS.csv
+  - RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/inputs/CHM_FROZEN_ANCHOR_INTERVAL_MAPPING.csv
+  - RENew-PEMFC-2300h-Pytorch/Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model/outputs/CHM_D_BASELINE_LOAO.csv
+checkpoints: [300, 600, 850, 1150, 1500, 1750]
+model:
+  formula: Y = a * R + b
+  slope_constraint: a >= 0
+  fit: deterministic_constrained_least_squares
+reproduction:
+  aggregate_MAE: 0.0004768699068203319
+  tolerance: 1.0e-10
+chronological_prefix:
+  descriptive_only_checkpoints: [850]
+  official_checkpoints: [1150, 1500, 1750]
+  statuses:
+    300: NO_PRIOR_CALIBRATION
+    600: INSUFFICIENT_PRIOR_ANCHORS
+    850: TWO_ANCHOR_WARMSTART_DESCRIPTIVE
+support_sensitivity:
+  checkpoints: [300, 850, 1750]
+  role: SECONDARY_SUPPORT_SENSITIVITY
+final_status_rule:
+  supported_requires:
+    - exact_B2_LOAO_reproduction
+    - chronological_n3_B2_MAE_less_than_raw_B0_MAE
+    - all_LOAO_and_all_six_fits_finite_with_nonnegative_slope
+  otherwise: AFFINE_CALIBRATION_DEVELOPMENT_HYPOTHESIS_WEAK
+prohibitions:
+  - neural_network
+  - CHM_retraining
+  - raw_data
+  - polarization_CSV
+  - Test
+  - RUL
+  - age_as_model_input
+  - bootstrap_confidence_intervals
+  - model_selection
+claims_prohibited:
+  - validated_SOH
+  - Test_generalization
+  - causal_degradation_mechanism
+  - cross_stack_generalization

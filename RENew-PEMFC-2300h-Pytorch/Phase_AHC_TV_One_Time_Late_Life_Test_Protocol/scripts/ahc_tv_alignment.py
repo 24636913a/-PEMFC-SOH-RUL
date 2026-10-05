@@ -96,6 +96,16 @@ def _sidecar_hash(path: Path) -> str:
     return token[0].lower()
 
 
+def write_sha256_sidecar(path: Path) -> str:
+    """Freeze one runtime artifact with its adjacent SHA256 sidecar."""
+    path = Path(path)
+    digest = sha256_file(path)
+    path.with_name(path.name + ".sha256").write_text(
+        f"{digest}  {path.name}\n", encoding="utf-8"
+    )
+    return digest
+
+
 def require_manual_test_authorization(token: str) -> None:
     """Require an exact, user-supplied marker before any future Test reader runs."""
     if token != REQUIRED_TEST_AUTHORIZATION:
@@ -252,6 +262,67 @@ def _authority_hashes_pass(phase: Path) -> bool:
     )
 
 
+def verify_frozen_runtime_authority(phase: Path = PHASE) -> None:
+    """Fail closed unless every authority-listed runtime input is immutable."""
+    if not _authority_hashes_pass(Path(phase)):
+        raise TargetUnblindingBlocked("PREUNBLINDING_CONTRACT_PREREQUISITE_FAILED")
+
+
+def _verify_stage_p_runtime_evidence(
+    frozen_prediction_path: Path,
+    artifact: pd.DataFrame,
+) -> None:
+    """Require Stage P provenance and its completion marker before Reader T.
+
+    This routine deliberately reads only Stage-P-created, target-free runtime
+    artifacts.  It is invoked before a Reader T call is permitted to open a
+    polarization target column.
+    """
+    runtime_dir = Path(frozen_prediction_path).parent
+    provenance_path = runtime_dir / "FROZEN_TEST_PREDICTION_PROVENANCE.json"
+    completion_path = runtime_dir / "STAGE_P_COMPLETION_MARKER.json"
+    for path, code in (
+        (provenance_path, "STAGE_P_PROVENANCE_MISSING"),
+        (completion_path, "STAGE_P_COMPLETION_MARKER_MISSING"),
+    ):
+        if not path.exists():
+            raise TargetUnblindingBlocked(code)
+        if _sidecar_hash(path) != sha256_file(path):
+            raise TargetUnblindingBlocked(code.replace("MISSING", "SHA256_MISMATCH"))
+    try:
+        provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+        completion = json.loads(completion_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as error:
+        raise TargetUnblindingBlocked("STAGE_P_RUNTIME_EVIDENCE_INVALID") from error
+    expected_sha = sha256_file(Path(frozen_prediction_path))
+    if provenance.get("prediction_sha256") != expected_sha:
+        raise TargetUnblindingBlocked("STAGE_P_PROVENANCE_PREDICTION_MISMATCH")
+    records = provenance.get("checkpoints")
+    if not isinstance(records, list) or [record.get("checkpoint") for record in records] != [2000, 2300]:
+        raise TargetUnblindingBlocked("STAGE_P_PROVENANCE_CHECKPOINTS_INVALID")
+    for row, record in zip(artifact.itertuples(index=False), records):
+        if list(record.get("selected_interval_ids", [])) != [
+            str(row.selected_interval_1), str(row.selected_interval_2), str(row.selected_interval_3)
+        ]:
+            raise TargetUnblindingBlocked("STAGE_P_PROVENANCE_INTERVAL_MISMATCH")
+    required_completion = {
+        "status": "STAGE_P_FROZEN_COMPLETE",
+        "authorization_marker_present": True,
+        "both_checkpoints_built": True,
+        "both_alignments_legal": True,
+        "prediction_sha256_frozen": True,
+        "provenance_sha256_frozen": True,
+        "strict_prediction_verification": "PASS",
+        "target_columns_read_so_far": False,
+    }
+    if any(completion.get(name) != expected for name, expected in required_completion.items()):
+        raise TargetUnblindingBlocked("STAGE_P_COMPLETION_MARKER_INVALID")
+    if completion.get("prediction_sha256") != expected_sha:
+        raise TargetUnblindingBlocked("STAGE_P_COMPLETION_PREDICTION_MISMATCH")
+    if completion.get("provenance_sha256") != sha256_file(provenance_path):
+        raise TargetUnblindingBlocked("STAGE_P_COMPLETION_PROVENANCE_MISMATCH")
+
+
 def authorize_and_verify_target_unblinding(
     frozen_prediction_path: Path,
     *,
@@ -261,9 +332,9 @@ def authorize_and_verify_target_unblinding(
     """Single target gate: authorization, authority, replay, and strict artifact."""
     require_manual_test_authorization(authorization_token)
     phase = Path(phase)
-    if not _authority_hashes_pass(phase):
-        raise TargetUnblindingBlocked("PREUNBLINDING_CONTRACT_PREREQUISITE_FAILED")
+    verify_frozen_runtime_authority(phase)
     artifact = verify_frozen_prediction_artifact_strict(frozen_prediction_path, phase=phase)
+    _verify_stage_p_runtime_evidence(frozen_prediction_path, artifact)
     replay = replay_development_alignment(phase)
     if not replay["all_pass"]:
         raise TargetUnblindingBlocked("DEVELOPMENT_ALIGNMENT_REPLAY_FAILED")

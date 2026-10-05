@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import sys
 import tempfile
 import unittest
@@ -71,6 +72,31 @@ class MetadataTargetIsolationTests(unittest.TestCase):
         table.to_csv(prediction, index=False)
         digest = hashlib.sha256(prediction.read_bytes()).hexdigest()
         prediction.with_name(prediction.name + ".sha256").write_text(digest + "  " + prediction.name + "\n", encoding="utf-8")
+        provenance = {
+            "prediction_sha256": digest,
+            "checkpoints": [
+                {
+                    "checkpoint": int(row.checkpoint),
+                    "selected_interval_ids": [str(row.selected_interval_1), str(row.selected_interval_2), str(row.selected_interval_3)],
+                }
+                for row in table.itertuples(index=False)
+            ],
+        }
+        provenance_path = self.root / "FROZEN_TEST_PREDICTION_PROVENANCE.json"
+        provenance_path.write_text(json.dumps(provenance), encoding="utf-8")
+        provenance_digest = hashlib.sha256(provenance_path.read_bytes()).hexdigest()
+        provenance_path.with_name(provenance_path.name + ".sha256").write_text(provenance_digest + "  " + provenance_path.name + "\n", encoding="utf-8")
+        completion = {
+            "status": "STAGE_P_FROZEN_COMPLETE", "authorization_marker_present": True,
+            "both_checkpoints_built": True, "both_alignments_legal": True,
+            "prediction_sha256_frozen": True, "provenance_sha256_frozen": True,
+            "strict_prediction_verification": "PASS", "target_columns_read_so_far": False,
+            "prediction_sha256": digest, "provenance_sha256": provenance_digest,
+        }
+        completion_path = self.root / "STAGE_P_COMPLETION_MARKER.json"
+        completion_path.write_text(json.dumps(completion), encoding="utf-8")
+        completion_digest = hashlib.sha256(completion_path.read_bytes()).hexdigest()
+        completion_path.with_name(completion_path.name + ".sha256").write_text(completion_digest + "  " + completion_path.name + "\n", encoding="utf-8")
         return prediction
 
     def assert_reader_rejected_before_open(self, table: pd.DataFrame, *, authorization_token: str = REQUIRED_TEST_AUTHORIZATION) -> None:

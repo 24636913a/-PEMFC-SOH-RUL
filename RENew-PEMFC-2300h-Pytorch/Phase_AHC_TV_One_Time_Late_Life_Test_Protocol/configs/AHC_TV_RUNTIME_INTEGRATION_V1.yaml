@@ -1,0 +1,46 @@
+phase: Phase_AHC_TV_One_Time_Late_Life_Test_Protocol
+contract: AHC_TV_RUNTIME_INTEGRATION_V1
+status: FROZEN_FOR_FUTURE_MANUAL_EXECUTION_ONLY
+sole_formal_runtime_entry: scripts/run_ahc_tv_one_shot.py
+runtime_sequence:
+  - AUTHORIZATION
+  - AUTHORITY_VERIFY
+  - STAGE_P
+  - PREDICTION_FREEZE
+  - HARDENED_VERIFY
+  - STAGE_T
+  - DECISION
+authorization:
+  exact_marker: OPEN_AHC_TV_TEST
+  external_command_argument_required: true
+  missing_or_wrong_marker_must_fail_before_any_Test_IO: true
+stage_P:
+  implementation: scripts/ahc_tv_stage_p.py
+  target_columns_permitted: false
+  requires_both_metadata_starts_before_raw_read: true
+  raw_slice_rule: DateTime_strictly_less_than_checkpoint_characterization_start
+  source_of_R_and_support: raw_operating_rows_only
+  frozen_reference_and_support_only: true
+  output_files:
+    - TEST_CHARACTERIZATION_TIME_METADATA.csv
+    - FROZEN_TEST_PREDICTIONS_BEFORE_TARGET_UNBLINDING.csv
+    - FROZEN_TEST_PREDICTIONS_BEFORE_TARGET_UNBLINDING.csv.sha256
+    - FROZEN_TEST_PREDICTION_PROVENANCE.json
+    - FROZEN_TEST_PREDICTION_PROVENANCE.json.sha256
+    - STAGE_P_COMPLETION_MARKER.json
+    - STAGE_P_COMPLETION_MARKER.json.sha256
+stage_T:
+  implementation: scripts/ahc_tv_stage_t.py
+  paired_checkpoints: [2000, 2300]
+  requires_completed_stage_P_prediction_and_provenance: true
+  target_read_after_all_prerequisites_only: true
+  target_read_order_cannot_change_model_or_alignment: true
+runtime_prohibitions:
+  - actual_Test_execution_during_protocol_freeze
+  - target_read_before_prediction_and_provenance_freeze
+  - after_Air_Air
+  - Test_EIS
+  - historical_N1_Test_derived_outputs
+  - target_driven_refit_or_tuning
+  - raw_or_polarization_source_auto_discovery
+final_freeze_status: AHC_TV_RUNTIME_FROZEN_READY_FOR_MANUAL_OPEN_DECISION

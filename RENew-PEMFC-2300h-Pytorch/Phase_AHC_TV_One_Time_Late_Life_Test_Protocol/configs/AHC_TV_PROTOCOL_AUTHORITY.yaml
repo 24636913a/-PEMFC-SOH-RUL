@@ -9,6 +9,12 @@ execution_authority:
   execution_gate_patch:
     path: configs/AHC_TV_EXECUTION_GATE_PATCH_V1.yaml
     role: frozen_target_unblinding_gate_hardening_only
+  runtime_integration:
+    path: configs/AHC_TV_RUNTIME_INTEGRATION_V1.yaml
+    role: sole_formal_stage_P_stage_T_runtime_sequence
+  runtime_source_registry:
+    path: configs/AHC_TV_RUNTIME_SOURCE_REGISTRY.yaml
+    role: filename_only_checkpoint_and_raw_source_binding
   frozen_alignment_inputs:
     path: configs/AHC_TV_FROZEN_ALIGNMENT_INPUTS.yaml
     role: PAA_reference_support_and_BoL_constants
@@ -19,6 +25,7 @@ precedence:
   - PREREGISTERED_AHC_TV_PROTOCOL.yaml
   - AHC_TV_EXECUTION_CONTRACT_V1.yaml
   - AHC_TV_EXECUTION_GATE_PATCH_V1.yaml
+  - AHC_TV_RUNTIME_INTEGRATION_V1.yaml
   - AHC_TV_FROZEN_ALIGNMENT_INPUTS.yaml
   - AHC_TV_FROZEN_INPUT_AUTHORITY.yaml
 historical_or_non_executable:

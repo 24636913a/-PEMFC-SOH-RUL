@@ -1,0 +1,64 @@
+{
+  "audit_kind": "synthetic_runtime_integration_only",
+  "real_Test_accessed": false,
+  "named_test_results": {
+    "synthetic_end_to_end": {
+      "passed": true,
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    "authorization_before_io": {
+      "passed": true,
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    "source_binding_fail_closed": {
+      "passed": true,
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    "stage_p_alignment_fail_closed": {
+      "passed": true,
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    "prediction_and_provenance_tamper_block": {
+      "passed": true,
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    "future_raw_isolation": {
+      "passed": true,
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    "historical_n1_block": {
+      "passed": true,
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "formal_stage_P_builder_exists": true,
+  "one_shot_runner_exists": true,
+  "prediction_generated_only_by_Stage_P": true,
+  "Stage_P_target_columns_not_read": true,
+  "raw_R_and_support_derived": true,
+  "frozen_reference_and_support_used": true,
+  "prediction_and_provenance_frozen_before_target": true,
+  "completion_marker_required": true,
+  "checkpoint_source_binding": true,
+  "future_raw_isolation_2000_and_2300": true,
+  "synthetic_end_to_end": true,
+  "missing_authorization_blocks_all_io": true,
+  "historical_N1_runtime_input_blocked": true,
+  "development_replay_6_of_6": true,
+  "runtime_source_ambiguity": "NONE",
+  "all_required_synthetic_checks_pass": true
+}

@@ -1,0 +1,24 @@
+phase: Phase_AHC_TV_One_Time_Late_Life_Test_Protocol
+execution_authority:
+  original_protocol:
+    path: configs/PREREGISTERED_AHC_TV_PROTOCOL.yaml
+    role: frozen_direction_and_primary_success_rules
+  execution_contract:
+    path: configs/AHC_TV_EXECUTION_CONTRACT_V1.yaml
+    role: sole_preunblinding_execution_supplement
+  frozen_alignment_inputs:
+    path: configs/AHC_TV_FROZEN_ALIGNMENT_INPUTS.yaml
+    role: PAA_reference_support_and_BoL_constants
+  frozen_input_authority:
+    path: configs/AHC_TV_FROZEN_INPUT_AUTHORITY.yaml
+    role: runtime_hash_verification_registry
+precedence:
+  - PREREGISTERED_AHC_TV_PROTOCOL.yaml
+  - AHC_TV_EXECUTION_CONTRACT_V1.yaml
+  - AHC_TV_FROZEN_ALIGNMENT_INPUTS.yaml
+  - AHC_TV_FROZEN_INPUT_AUTHORITY.yaml
+historical_or_non_executable:
+  - Phase_N1_Data_Foundation/outputs/soh_anchor_analysis
+  - any_Git_history_version_of_historical_N1_Test_derived_outputs
+runtime_interpretation: no_combined_or_posthoc_interpretation_of_historical_Test_derived_outputs
+manual_authority_required_before_Test_runtime: OPEN_AHC_TV_TEST

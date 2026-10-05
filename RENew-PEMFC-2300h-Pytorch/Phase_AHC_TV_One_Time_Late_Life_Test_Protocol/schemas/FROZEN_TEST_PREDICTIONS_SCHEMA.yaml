@@ -1,0 +1,31 @@
+artifact: FROZEN_TEST_PREDICTIONS_BEFORE_TARGET_UNBLINDING.csv
+created_in_current_phase: false
+creation_authority_required: OPEN_AHC_TV_TEST
+required_rows:
+  checkpoints: [2000, 2300]
+  row_count: 2
+required_columns:
+  - checkpoint
+  - actual_characterization_start
+  - raw_cutoff_datetime
+  - raw_cutoff_ophrs2_h
+  - selected_interval_1
+  - selected_interval_2
+  - selected_interval_3
+  - measurement_end_datetime_1
+  - measurement_end_datetime_2
+  - measurement_end_datetime_3
+  - joint_support_1
+  - joint_support_2
+  - joint_support_3
+  - joint_support_count
+  - R1
+  - R2
+  - R3
+  - P1S_R_median
+  - P1S_affine_prediction
+  - nominal_age_prediction
+  - raw_P1S_prediction
+sidecar_sha256_required: true
+target_columns_or_values_allowed: false
+must_exist_before_Reader_T: true

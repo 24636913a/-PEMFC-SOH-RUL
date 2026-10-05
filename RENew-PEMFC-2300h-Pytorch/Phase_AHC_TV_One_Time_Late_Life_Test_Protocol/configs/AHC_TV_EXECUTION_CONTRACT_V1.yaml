@@ -1,0 +1,106 @@
+phase: Phase_AHC_TV_One_Time_Late_Life_Test_Protocol
+contract: AHC_TV_EXECUTION_CONTRACT_V1
+status_if_all_preunblinding_checks_pass: AHC_TV_EXECUTION_CONTRACT_FROZEN_AWAITING_MANUAL_TEST_OPENING_DECISION
+scope:
+  supplements_only:
+    - P1S_alignment_exact_semantics
+    - characterization_time_metadata_isolation
+    - Development_reference_and_support_constants
+    - historical_Test_exposure_boundary
+    - prediction_before_target_unblinding_enforcement
+  does_not_change:
+    - P1S_affine_slope_intercept
+    - nominal_age_affine_slope_intercept
+    - Test_checkpoints
+    - success_Rules_A_B_C
+    - local_window_48_h
+    - interval_count_3
+    - joint_support_2_of_3
+    - P1S_state_token
+    - target_jstar_1_0_A_cm2
+    - after_Air_Air_exclusion
+PAA_alignment_authority:
+  path: RENew-PEMFC-2300h-Pytorch/Phase_PAA_P1_StateToken_PreAnchor_Alignment/configs/PREREGISTERED_PAA_PROTOCOL.yaml
+  sha256: f8b5ddf76ec3f0ac40d79e637d7641cfb14d29251821a1f47533e8718910b8a5
+  inheritance: EXACT_ALIGNMENT_SEMANTICS
+P1S_state:
+  operation_point: 221
+  set_current_A: 221.200
+  state_token: '221||221.200'
+  stable_dwell_wall_duration_s_min: 120
+  stable_dwell_window: middle_50_percent_of_run_time
+  active_cells: ['U1 [V]', 'U2 [V]', 'U3 [V]', 'U4 [V]', 'U5 [V]', 'U7 [V]', 'U8 [V]', 'U9 [V]', 'U10 [V]', 'U11 [V]']
+  excluded_cells: ['U6 [V]']
+  dwell_value: active_cell_mean_voltage_median
+  interval_value: median_of_eligible_dwell_values
+conditions:
+  - current_density
+  - anode_inlet_temperature_C
+  - anode_inlet_pressure_kPag
+  - anode_inlet_RH_pct
+  - anode_hydrogen_flow_nl_min
+  - anode_stoichiometry
+  - cathode_stoichiometry
+P1S_reference:
+  voltage_V: 0.71383023635
+  retention_formula: R_test_equals_V_P1S_test_divided_by_0_71383023635
+  Test_reference_recalculation: prohibited
+alignment:
+  local_window_operating_h: 48
+  characterization_start: minimum_valid_polarization_DateTime
+  nominal_checkpoint_as_cutoff: prohibited
+  pre_characterization_raw_cutoff: last_legal_raw_state_run_end_strictly_before_characterization_start
+  partial_interval_requires:
+    - frozen_cycle_start_anchor_present
+    - full_P1S_dwell_completed
+    - measurement_end_strictly_before_characterization_start
+    - no_post_characterization_raw_row
+    - no_unobserved_interval_remainder_inference
+  legal_interval_requires:
+    - distinct_interval_id
+    - full_legal_P1S_middle50_dwell
+    - complete_7_condition_vector
+    - measurement_end_datetime_strictly_before_characterization_start
+    - cutoff_ophrs2_minus_measurement_end_ophrs2_less_than_or_equal_to_48
+  selection: LATEST_3_LEGAL_INTERVALS_BY_MEASUREMENT_END
+  sort_order: [measurement_end_datetime_DESC, measurement_end_ophrs2_h_DESC, source_interval_id_ASC]
+  support_evaluated_after_selection: true
+  support_cannot_alter_selection: true
+  required_selected_intervals: 3
+  joint_support_required: 2_of_3
+  failure_status: TEST_ALIGNMENT_INCONCLUSIVE
+metadata_target_isolation:
+  Reader_M:
+    allowed_polarization_columns: [DateTime]
+    allowed_purpose: resolve_characterization_start_only
+    whole_polarization_file_sha256_before_prediction: prohibited
+    emitted_metadata_columns: [checkpoint, source_basename, valid_datetime_count, characterization_start_datetime, metadata_columns_read]
+  Stage_P:
+    requires_manual_authorization: OPEN_AHC_TV_TEST
+    allowed_inputs: [metadata_only_Test_DateTime, Test_raw_operating_data, frozen_Development_constants, frozen_affine_coefficients]
+    prohibited_inputs: [Test_polarization_target_columns, historical_N1_Test_derived_outputs]
+    requires_both_checkpoints_before_target_read: true
+  Reader_T:
+    allowed_purpose: one_shot_jstar_1_0_target_extraction_after_prediction_freeze
+    prerequisites:
+      - original_protocol_hash_pass
+      - execution_contract_hash_pass
+      - alignment_builder_hash_pass
+      - Development_replay_6_of_6_pass
+      - both_Test_alignments_legal
+      - frozen_prediction_csv_exists
+      - frozen_prediction_sha256_sidecar_exists
+      - frozen_prediction_sha256_matches
+    target_columns_before_prerequisites: prohibited
+historical_Test_exposure:
+  historical_N1_Test_polarization_parsed_and_persisted: true
+  historical_N1_Test_derived_outputs_runtime_input: prohibited
+  historical_N1_git_history_reuse: prohibited
+  current_phase_Test_data_accessed: false
+claim_boundary:
+  all_success_rules_only_support: Frozen_P1S_affine_calibration_outperformed_one_prespecified_nominal_age_affine_comparator_at_two_same_stack_late_life_checkpoints
+  prohibited: [universal_age_independent_health_information, causal_health_information, cross_stack_validity, universal_SOH, RUL_validity]
+non_actions:
+  automatic_Test_opening: false
+  Test_prediction_generation_this_phase: false
+  Test_target_reading_this_phase: false

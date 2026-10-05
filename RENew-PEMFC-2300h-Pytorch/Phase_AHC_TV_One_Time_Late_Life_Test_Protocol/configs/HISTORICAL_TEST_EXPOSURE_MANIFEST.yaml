@@ -1,0 +1,24 @@
+phase: Phase_AHC_TV_One_Time_Late_Life_Test_Protocol
+classification: PROJECT_HISTORICAL_EXPOSURE_DISCLOSURE
+source_script: RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/scripts/phase_n1_analyze_polarization.py
+historical_behavior:
+  nominal_polarization_csvs_scanned: 11
+  Test_checkpoint_values_parsed: true
+  excluded_from_jstar_selection: true
+  excluded_from_formula_and_model_selection: true
+tainted_directory: RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/soh_anchor_analysis/
+tainted_runtime_input_status: HISTORICAL_TEST_DERIVED_OUTPUTS_PROHIBITED_AS_RUNTIME_INPUT
+tainted_artifacts:
+  - path: polarization_checkpoint_jstar_measurements.csv
+    classification: contains_all_checkpoint_including_Test_polarization_derived_values
+  - path: polarization_curve_points_for_plot.csv
+    classification: contains_all_checkpoint_including_Test_curve_values
+  - path: soh_reference_anchors.csv
+    classification: contains_all_checkpoint_including_Test_health_anchor_values
+  - path: figures_and_derived_outputs
+    classification: may_derive_from_all_checkpoint_including_Test_polarization_values
+current_phase:
+  tainted_file_contents_read: false
+  Test_raw_read: false
+  Test_polarization_read: false
+  Test_EIS_read: false

@@ -1,0 +1,44 @@
+phase: Phase_AHC_TV_One_Time_Late_Life_Test_Protocol
+patch: AHC_TV_EXECUTION_GATE_PATCH_V1
+scope: TARGET_UNBLINDING_GATE_HARDENING
+scientific_protocol_changed: false
+scientific_constants_changed: false
+applies_after:
+  - PREREGISTERED_AHC_TV_PROTOCOL.yaml
+  - AHC_TV_EXECUTION_CONTRACT_V1.yaml
+hardening_only:
+  required_test_authorization: OPEN_AHC_TV_TEST
+  authorization_marker_semantics: explicit_human_execution_authorization_marker_not_security_credential
+  authorization_must_be_external_command_argument: true
+  authorization_may_not_be_programmatically_generated: true
+  future_Test_raw_builder_requires_same_authorization: true
+prediction_artifact_gate:
+  schema_path: schemas/FROZEN_TEST_PREDICTIONS_SCHEMA.yaml
+  required_verifier: verify_frozen_prediction_artifact_strict
+  reader_T_required_gate: authorize_and_verify_target_unblinding
+  exact_schema_required: true
+  immutable_sha256_sidecar_required: true
+  target_like_columns_prohibited: true
+  finite_numeric_fields:
+    - raw_cutoff_ophrs2_h
+    - R1
+    - R2
+    - R3
+    - P1S_R_median
+    - P1S_affine_prediction
+    - nominal_age_prediction
+    - raw_P1S_prediction
+  semantic_checks:
+    - checkpoint_rows_exactly_2000_then_2300
+    - selected_interval_ids_nonempty_and_pairwise_distinct
+    - support_booleans_explicit_and_support_count_consistent
+    - raw_cutoff_and_measurement_times_strictly_pre_characterization
+    - R_median_recomputed_at_1e12
+    - raw_prediction_equals_R_median_at_1e12
+    - P1S_affine_prediction_recomputed_from_authority_verified_models_at_1e12
+    - nominal_age_prediction_recomputed_from_authority_verified_models_at_1e12
+non_actions:
+  real_Test_access_this_phase: false
+  real_Test_prediction_this_phase: false
+  Test_target_reading_this_phase: false
+  automatic_Test_opening: false

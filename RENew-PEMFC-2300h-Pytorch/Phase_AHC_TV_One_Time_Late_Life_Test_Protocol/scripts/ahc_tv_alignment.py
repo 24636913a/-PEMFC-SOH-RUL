@@ -34,6 +34,8 @@ TARGET_COLUMNS = (
     "U1 [V]", "U2 [V]", "U3 [V]", "U4 [V]", "U5 [V]",
     "U7 [V]", "U8 [V]", "U9 [V]", "U10 [V]", "U11 [V]",
 )
+REQUIRED_TEST_AUTHORIZATION = "OPEN_AHC_TV_TEST"
+FROZEN_PREDICTION_SCHEMA = PHASE / "schemas" / "FROZEN_TEST_PREDICTIONS_SCHEMA.yaml"
 TAINTED_N1_DIR = (REPO / "RENew-PEMFC-2300h-Pytorch" / "Phase_N1_Data_Foundation" / "outputs" / "soh_anchor_analysis").resolve()
 
 
@@ -94,7 +96,14 @@ def _sidecar_hash(path: Path) -> str:
     return token[0].lower()
 
 
+def require_manual_test_authorization(token: str) -> None:
+    """Require an exact, user-supplied marker before any future Test reader runs."""
+    if token != REQUIRED_TEST_AUTHORIZATION:
+        raise TargetUnblindingBlocked("MANUAL_TEST_AUTHORIZATION_REQUIRED")
+
+
 def verify_prediction_artifact(path: Path) -> None:
+    """Legacy immutability-only check; it is insufficient for Reader T."""
     path = Path(path)
     if not path.exists():
         raise TargetUnblindingBlocked("FROZEN_PREDICTION_ARTIFACT_MISSING")
@@ -105,11 +114,118 @@ def verify_prediction_artifact(path: Path) -> None:
         raise TargetUnblindingBlocked("FROZEN_PREDICTION_ARTIFACT_NOT_TWO_CHECKPOINTS")
 
 
+def _strict_boolean(value: object) -> bool:
+    if isinstance(value, (bool, np.bool_)):
+        return bool(value)
+    if isinstance(value, str) and value in {"true", "false", "True", "False"}:
+        return value.lower() == "true"
+    raise TargetUnblindingBlocked("FROZEN_PREDICTION_SUPPORT_EVIDENCE_INVALID")
+
+
+def _finite_numeric(table: pd.DataFrame, names: tuple[str, ...]) -> dict[str, np.ndarray]:
+    converted: dict[str, np.ndarray] = {}
+    for name in names:
+        values = pd.to_numeric(table[name], errors="coerce").to_numpy(dtype=float)
+        if not np.isfinite(values).all():
+            raise TargetUnblindingBlocked("FROZEN_PREDICTION_FINITE_VALUES_REQUIRED")
+        converted[name] = values
+    return converted
+
+
+def verify_frozen_prediction_artifact_strict(
+    path: Path,
+    *,
+    phase: Path = PHASE,
+) -> pd.DataFrame:
+    """Validate an immutable, complete, target-free prediction artifact.
+
+    The schema file is the sole authority for columns and their order. This
+    function performs no Test-source read; it inspects only the supplied
+    prediction artifact and frozen Development-model parameters.
+    """
+    phase = Path(phase)
+    if not _authority_hashes_pass(phase):
+        raise TargetUnblindingBlocked("PREUNBLINDING_CONTRACT_PREREQUISITE_FAILED")
+    path = Path(path)
+    if not path.exists():
+        raise TargetUnblindingBlocked("FROZEN_PREDICTION_ARTIFACT_MISSING")
+    if _sidecar_hash(path) != sha256_file(path):
+        raise TargetUnblindingBlocked("FROZEN_PREDICTION_SHA256_MISMATCH")
+    schema = read_yaml(phase / "schemas" / "FROZEN_TEST_PREDICTIONS_SCHEMA.yaml")
+    required_columns = list(schema["required_columns"])
+    table = pd.read_csv(path)
+    normalized_names = {str(name).strip().lower() for name in table.columns}
+    target_like = {
+        "target", "y_test", "polarization_target", "actual_health",
+        "voltage_anchor", "error", "absolute_error",
+    }
+    if normalized_names & target_like:
+        raise TargetUnblindingBlocked("TARGET_LIKE_COLUMN_IN_PREUNBLINDING_ARTIFACT")
+    if list(table.columns) != required_columns:
+        raise TargetUnblindingBlocked("FROZEN_PREDICTION_SCHEMA_INVALID")
+    row_spec = schema["required_rows"]
+    checkpoints = row_spec["checkpoints"]
+    if len(table) != int(row_spec["row_count"]) or table["checkpoint"].tolist() != checkpoints:
+        raise TargetUnblindingBlocked("FROZEN_PREDICTION_SCHEMA_INVALID")
+    numeric = _finite_numeric(
+        table,
+        (
+            "raw_cutoff_ophrs2_h", "R1", "R2", "R3", "P1S_R_median",
+            "P1S_affine_prediction", "nominal_age_prediction", "raw_P1S_prediction",
+        ),
+    )
+    intervals = ("selected_interval_1", "selected_interval_2", "selected_interval_3")
+    for row in table.itertuples(index=False):
+        ids = [getattr(row, name) for name in intervals]
+        if any(pd.isna(value) or not str(value).strip() for value in ids) or len(set(map(str, ids))) != 3:
+            raise TargetUnblindingBlocked("FROZEN_PREDICTION_INTERVAL_IDS_INVALID")
+    support_columns = ("joint_support_1", "joint_support_2", "joint_support_3")
+    parsed_support = table.loc[:, support_columns].map(_strict_boolean)
+    support_count = pd.to_numeric(table["joint_support_count"], errors="coerce")
+    if (
+        support_count.isna().any()
+        or (~np.isfinite(support_count.to_numpy(dtype=float))).any()
+        or (~support_count.isin((2, 3))).any()
+        or (~support_count.eq(parsed_support.sum(axis=1))).any()
+    ):
+        raise TargetUnblindingBlocked("FROZEN_PREDICTION_SUPPORT_EVIDENCE_INVALID")
+    datetime_columns = (
+        "actual_characterization_start", "raw_cutoff_datetime",
+        "measurement_end_datetime_1", "measurement_end_datetime_2", "measurement_end_datetime_3",
+    )
+    parsed_time = {name: pd.to_datetime(table[name], errors="coerce") for name in datetime_columns}
+    if any(values.isna().any() for values in parsed_time.values()):
+        raise TargetUnblindingBlocked("FROZEN_PREDICTION_TEMPORAL_EVIDENCE_INVALID")
+    start = parsed_time["actual_characterization_start"]
+    cutoff = parsed_time["raw_cutoff_datetime"]
+    measurement_ends = [parsed_time[name] for name in datetime_columns[2:]]
+    if not ((cutoff < start).all() and all((end < start).all() and (end <= cutoff).all() for end in measurement_ends)):
+        raise TargetUnblindingBlocked("FROZEN_PREDICTION_TEMPORAL_EVIDENCE_INVALID")
+    r_calc = np.median(np.column_stack((numeric["R1"], numeric["R2"], numeric["R3"])), axis=1)
+    if not np.all(np.abs(r_calc - numeric["P1S_R_median"]) <= 1e-12):
+        raise TargetUnblindingBlocked("FROZEN_PREDICTION_R_MEDIAN_MISMATCH")
+    if not np.all(np.abs(numeric["raw_P1S_prediction"] - numeric["P1S_R_median"]) <= 1e-12):
+        raise TargetUnblindingBlocked("FROZEN_RAW_P1S_PREDICTION_MISMATCH")
+    models = read_yaml(phase / "configs" / "FROZEN_DEVELOPMENT_MODELS.yaml")
+    affine = models["P1S_affine"]
+    expected_p1s = float(affine["slope"]) * numeric["P1S_R_median"] + float(affine["intercept"])
+    if not np.all(np.abs(numeric["P1S_affine_prediction"] - expected_p1s) <= 1e-12):
+        raise TargetUnblindingBlocked("FROZEN_P1S_PREDICTION_COEFFICIENT_MISMATCH")
+    age = models["nominal_age_affine"]
+    expected_age = float(age["intercept_alpha"]) + float(age["slope_beta"]) * np.asarray(checkpoints, dtype=float)
+    if not np.all(np.abs(numeric["nominal_age_prediction"] - expected_age) <= 1e-12):
+        raise TargetUnblindingBlocked("FROZEN_AGE_PREDICTION_COEFFICIENT_MISMATCH")
+    return table
+
+
 def read_characterization_metadata_only(
     path: Path,
+    *,
+    authorization_token: str,
     read_csv: Callable[..., pd.DataFrame] = pd.read_csv,
 ) -> pd.DataFrame:
     """Reader M: request only DateTime and return no target-capable columns."""
+    require_manual_test_authorization(authorization_token)
     data = read_csv(assert_runtime_input_allowed(Path(path)), sep=";", encoding="utf-8-sig", usecols=list(METADATA_COLUMNS))
     if tuple(data.columns) != METADATA_COLUMNS:
         raise AlignmentContractError("METADATA_READER_COLUMN_ISOLATION_FAILED")
@@ -136,49 +252,50 @@ def _authority_hashes_pass(phase: Path) -> bool:
     )
 
 
+def authorize_and_verify_target_unblinding(
+    frozen_prediction_path: Path,
+    *,
+    authorization_token: str,
+    phase: Path = PHASE,
+) -> pd.DataFrame:
+    """Single target gate: authorization, authority, replay, and strict artifact."""
+    require_manual_test_authorization(authorization_token)
+    phase = Path(phase)
+    if not _authority_hashes_pass(phase):
+        raise TargetUnblindingBlocked("PREUNBLINDING_CONTRACT_PREREQUISITE_FAILED")
+    artifact = verify_frozen_prediction_artifact_strict(frozen_prediction_path, phase=phase)
+    replay = replay_development_alignment(phase)
+    if not replay["all_pass"]:
+        raise TargetUnblindingBlocked("DEVELOPMENT_ALIGNMENT_REPLAY_FAILED")
+    return artifact
+
+
 def verify_reader_t_prerequisites(
     frozen_prediction_path: Path,
+    *,
+    authorization_token: str,
     phase: Path = PHASE,
-) -> None:
-    """Fail closed before Reader T can open any target-capable source column."""
-    phase = Path(phase)
-    verify_prediction_artifact(frozen_prediction_path)
-    audit_path = phase / "outputs" / "AHC_TV_PREUNBLINDING_CONTRACT_AUDIT.json"
-    if not audit_path.exists():
-        raise TargetUnblindingBlocked("PREUNBLINDING_CONTRACT_AUDIT_MISSING")
-    audit = json.loads(audit_path.read_text(encoding="utf-8"))
-    static_ok = (
-        audit.get("final_status") == "AHC_TV_EXECUTION_CONTRACT_FROZEN_AWAITING_MANUAL_TEST_OPENING_DECISION"
-        and audit.get("original_protocol_sha256_pass") is True
-        and audit.get("execution_contract_sha256_pass") is True
-        and audit.get("Development_alignment_replay") == "6/6 PASS"
-        and all(audit.get("frozen_alignment_input_hashes", {}).values())
-        and all(audit.get("frozen_input_authority_hashes", {}).values())
-        and _authority_hashes_pass(phase)
+) -> pd.DataFrame:
+    """Compatibility wrapper; Reader T still reaches the single hardened gate."""
+    return authorize_and_verify_target_unblinding(
+        frozen_prediction_path,
+        authorization_token=authorization_token,
+        phase=phase,
     )
-    if not static_ok:
-        raise TargetUnblindingBlocked("PREUNBLINDING_CONTRACT_PREREQUISITE_FAILED")
-    prediction = pd.read_csv(frozen_prediction_path)
-    required = ("checkpoint", "joint_support_count", "selected_interval_1", "selected_interval_2", "selected_interval_3")
-    if any(name not in prediction.columns for name in required):
-        raise TargetUnblindingBlocked("FROZEN_PREDICTION_ALIGNMENT_EVIDENCE_MISSING")
-    legal = (
-        len(prediction) == 2
-        and set(pd.to_numeric(prediction["checkpoint"], errors="coerce")) == {2000, 2300}
-        and pd.to_numeric(prediction["joint_support_count"], errors="coerce").ge(2).all()
-        and prediction[["selected_interval_1", "selected_interval_2", "selected_interval_3"]].notna().all(axis=None)
-    )
-    if not legal:
-        raise TargetUnblindingBlocked("BOTH_TEST_ALIGNMENTS_NOT_LEGAL")
 
 
 def read_targets_after_prediction_freeze(
     polarization_path: Path,
     frozen_prediction_path: Path,
+    *,
+    authorization_token: str,
     read_csv: Callable[..., pd.DataFrame] = pd.read_csv,
 ) -> pd.DataFrame:
     """Reader T; checks the prediction artifact before opening target columns."""
-    verify_reader_t_prerequisites(frozen_prediction_path)
+    authorize_and_verify_target_unblinding(
+        frozen_prediction_path,
+        authorization_token=authorization_token,
+    )
     return read_csv(assert_runtime_input_allowed(Path(polarization_path)), sep=";", encoding="utf-8-sig", usecols=list(TARGET_COLUMNS))
 
 

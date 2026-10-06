@@ -28,6 +28,8 @@ from run_realhyfc_source_binding_dry_run import run_real_filename_binding_dry_ru
 REPO = PHASE.parents[1]
 CHM_PHASE = REPO / "RENew-PEMFC-2300h-Pytorch" / "Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model"
 OUTPUTS = PHASE / "outputs"
+AUDIT_PATH = OUTPUTS / "AHC_TV_FINAL_PREOPEN_AUDIT_V2.json"
+RUN_LOG_PATH = OUTPUTS / "AHC_TV_FINAL_PREOPEN_AUDIT_V2_RUN.log"
 PAA_RAW_ROOT = Path(r"E:\沈农信电\课题-预测质子交换膜燃料电池（PEMFC）的健康状态和剩余寿命\数据\《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据")
 VOLTAGE_TOL = 1e-12
 RETENTION_TOL = 1e-12
@@ -306,6 +308,10 @@ def write_final_preopen_audit_v2(*, rcr_template: dict, source_binding: dict, ar
         "nominal_2300_source_match_count": int(source_binding["nominal_2300_match_count"]),
         "afterAirAir_2300_excluded": bool(source_binding["after_air_air_2300_excluded"]),
         "test_source_binding_dry_run": source_binding["binding_status"],
+        "exact_2000_source_identity_locked": bool(source_binding["exact_source_identity_frozen"]),
+        "exact_2300_source_identity_locked": bool(source_binding["exact_source_identity_frozen"]),
+        "source_identity_preledger_check": suites["D_realhyfc_source_binding"]["status"],
+        "wrong_source_does_not_consume_one_shot": suites["D_realhyfc_source_binding"]["status"],
         "RCR_cycle_template_runtime_hash_locked": bool(rcr_template["locked"]),
         "RCR_cycle_template_sha256": rcr_template["sha256"],
         "RCR_cycle_template_hash_check": rcr_template["hash_check"],
@@ -317,12 +323,31 @@ def write_final_preopen_audit_v2(*, rcr_template: dict, source_binding: dict, ar
         "formal_condition_vectors": f"{int(rows['conditions_match'].sum())}/18 {'PASS' if bool(rows['conditions_match'].all()) else 'FAIL'}",
         "formal_support": f"{int(rows['support_match'].sum())}/18 {'PASS' if bool(rows['support_match'].all()) else 'FAIL'}",
         "stage_t_development_target_replay": f"{targets['pass_count']}/{targets['required']} {'PASS' if targets['all_pass'] else 'FAIL'}",
-        "synthetic_runtime_E2E_test_suite": suites["A_stage_p_stage_t_integration"], "one_shot_state_machine_test_suite": suites["B_one_shot_execution_state_machine"], "formal_stage_p_development_equivalence_test_suite": suites["C_formal_stage_p_development_equivalence"],
+        "synthetic_runtime_E2E_test_suite": suites["A_stage_p_stage_t_integration"], "one_shot_state_machine_test_suite": suites["B_one_shot_execution_state_machine"], "formal_stage_p_development_equivalence_test_suite": suites["C_formal_stage_p_development_equivalence"], "realhyfc_source_identity_test_suite": suites["D_realhyfc_source_binding"],
         "synthetic_test_mode_used_for_formal_development_replay": False, "active_cell_missing_value_semantics": "MATCHES_FROZEN_NANMEAN", "scientific_protocol_changed": False,
-        "remaining_preopen_blocker": "NONE" if all_pass else "IMPLEMENTATION_EQUIVALENCE_OR_ACTUAL_TEST_FAILURE", "final_status": "AHC_TV_FINAL_PREOPEN_VERIFICATION_PASS" if all_pass else "AHC_TV_FINAL_PREOPEN_VERIFICATION_BLOCKED",
+        "preopen_verification_status": "AHC_TV_FINAL_PREOPEN_VERIFICATION_PASS" if all_pass else "AHC_TV_FINAL_PREOPEN_VERIFICATION_BLOCKED",
+        "source_identity_lock_status": "AHC_TV_EXACT_SOURCE_IDENTITY_LOCKED" if all_pass else "AHC_TV_PREOPEN_SOURCE_IDENTITY_BLOCKED",
+        "remaining_preopen_blocker": "NONE" if all_pass else "SOURCE_IDENTITY_OR_IMPLEMENTATION_FAILURE",
+        "final_status": "READY_FOR_EXPLICIT_OPEN_AHC_TV_TEST" if all_pass else "AHC_TV_PREOPEN_SOURCE_IDENTITY_BLOCKED",
     }
-    (OUTPUTS / "AHC_TV_FINAL_PREOPEN_AUDIT_V2.json").write_text(json.dumps(audit, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    AUDIT_PATH.write_text(json.dumps(audit, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return audit
+
+
+def _write_run_log_and_verify_consistency(report: dict[str, Any]) -> None:
+    """Persist this audit's actual execution report and cross-check both records."""
+    RUN_LOG_PATH.write_text(json.dumps(report, indent=2, default=str) + "\n", encoding="utf-8")
+    audit = json.loads(AUDIT_PATH.read_text(encoding="utf-8"))
+    run_log = json.loads(RUN_LOG_PATH.read_text(encoding="utf-8"))
+    required = (
+        "real_Test_accessed", "formal_stage_p_runtime_replay", "stage_t_development_target_replay",
+        "synthetic_runtime_E2E_test_suite", "one_shot_state_machine_test_suite",
+        "RCR_cycle_template_hash_check", "nominal_2000_source_match_count",
+        "nominal_2300_source_match_count", "exact_2000_source_identity_locked",
+        "exact_2300_source_identity_locked", "final_status",
+    )
+    if any(audit.get(field) != run_log.get("audit", {}).get(field) for field in required):
+        raise PreOpenVerificationError("PREOPEN_JSON_RUN_LOG_INCONSISTENT")
 
 
 def main() -> None:
@@ -332,8 +357,10 @@ def main() -> None:
     independent = stage_p_development_raw_replay(); targets = stage_t_development_target_replay()
     suites = {"A_stage_p_stage_t_integration": _run_test_suite("test_stage_p_stage_t_integration.py"), "B_one_shot_execution_state_machine": _run_test_suite("test_one_shot_execution_state_machine.py"), "C_formal_stage_p_development_equivalence": _run_test_suite("test_formal_stage_p_development_equivalence.py"), "D_realhyfc_source_binding": _run_test_suite("test_realhyfc_source_binding.py")}
     formal = _formal_output_summary(); audit = write_final_preopen_audit_v2(rcr_template=rcr_template, source_binding=source_binding, artifact=artifact, independent=independent, formal=formal, targets=targets, suites=suites)
-    print(json.dumps({"rcr_template": rcr_template, "source_binding": source_binding, "artifact": artifact, "independent": {key: value for key, value in independent.items() if key != "rows"}, "formal": {key: value for key, value in formal.items() if key != "rows"}, "targets": {key: value for key, value in targets.items() if key != "rows"}, "audit": audit}, indent=2, default=str))
-    if audit["final_status"] != "AHC_TV_FINAL_PREOPEN_VERIFICATION_PASS":
+    report = {"rcr_template": rcr_template, "source_binding": source_binding, "artifact": artifact, "independent": {key: value for key, value in independent.items() if key != "rows"}, "formal": {key: value for key, value in formal.items() if key != "rows"}, "targets": {key: value for key, value in targets.items() if key != "rows"}, "audit": audit}
+    _write_run_log_and_verify_consistency(report)
+    print(json.dumps(report, indent=2, default=str))
+    if audit["final_status"] != "READY_FOR_EXPLICIT_OPEN_AHC_TV_TEST":
         raise PreOpenVerificationError(audit["remaining_preopen_blocker"])
 
 

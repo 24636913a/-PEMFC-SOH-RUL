@@ -13,9 +13,11 @@ path_resolution_before_manual_authorization: filename_and_relative_path_only
 polarization_checkpoint_sources:
   '2000':
     role: nominal_2000_h_polarization_checkpoint
+    frozen_relative_path: 'Polcurve_Nominal_RHFC_2000h.csv'
     filename_regex: '(?i)^(?!.*after[_-]?air[_-]?air)(?!.*afterairair)(?!.*eis)(?!.*spatial)(?!.*sensitivity)(?=.*(?<![0-9])2000(?:h)?(?![0-9])).*\.csv$'
   '2300':
     role: nominal_2300_h_polarization_checkpoint
+    frozen_relative_path: 'Polcurve_Nominal_RHFC_2300h.csv'
     filename_regex: '(?i)^(?!.*after[_-]?air[_-]?air)(?!.*afterairair)(?!.*eis)(?!.*spatial)(?!.*sensitivity)(?=.*(?<![0-9])2300(?:h)?(?![0-9])).*\.csv$'
 raw_operating_source:
   role: durability_stack_operating_rows_only

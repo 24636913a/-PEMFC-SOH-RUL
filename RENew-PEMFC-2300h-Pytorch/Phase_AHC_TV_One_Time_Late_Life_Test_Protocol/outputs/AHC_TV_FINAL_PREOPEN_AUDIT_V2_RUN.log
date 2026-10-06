@@ -4,6 +4,19 @@
     "sha256": "267a3ee5a2d297b4368f4dd262771a19109e8015b2617de45ab828d83d696200",
     "hash_check": "PASS"
   },
+  "source_binding": {
+    "dataset_root": "E:\\\u6c88\u519c\u4fe1\u7535\\\u8bfe\u9898-\u9884\u6d4b\u8d28\u5b50\u4ea4\u6362\u819c\u71c3\u6599\u7535\u6c60\uff08PEMFC\uff09\u7684\u5065\u5eb7\u72b6\u6001\u548c\u5269\u4f59\u5bff\u547d\\\u6570\u636e\\\u300a\u8010\u4e45\u6027\u6d4b\u8bd5\u671f\u95f4PEM\u71c3\u6599\u7535\u6c60\u5806\u7684\u7a7a\u95f4\u89e3\u6790\u7535\u5316\u5b66\u8868\u5f81\u300b\u7684\u57fa\u7840\u6570\u636e",
+    "file_content_opened": false,
+    "nominal_2000_match_count": 1,
+    "nominal_2300_match_count": 1,
+    "after_air_air_2300_excluded": true,
+    "matched_2000_basename": "Polcurve_Nominal_RHFC_2000h.csv",
+    "matched_2300_basename": "Polcurve_Nominal_RHFC_2300h.csv",
+    "matched_2000_relative_path": "Polcurve_Nominal_RHFC_2000h.csv",
+    "matched_2300_relative_path": "Polcurve_Nominal_RHFC_2300h.csv",
+    "exact_source_identity_frozen": true,
+    "binding_status": "PASS"
+  },
   "artifact": {
     "anchors": [
       {
@@ -182,6 +195,17 @@
   "audit": {
     "real_Test_accessed": false,
     "real_2000_2300_accessed": false,
+    "authoritative_local_dataset_root_recorded": true,
+    "real_test_filename_enumeration_only": true,
+    "real_test_file_content_accessed": false,
+    "nominal_2000_source_match_count": 1,
+    "nominal_2300_source_match_count": 1,
+    "afterAirAir_2300_excluded": true,
+    "test_source_binding_dry_run": "PASS",
+    "exact_2000_source_identity_locked": true,
+    "exact_2300_source_identity_locked": true,
+    "source_identity_preledger_check": "PASS",
+    "wrong_source_does_not_consume_one_shot": "PASS",
     "RCR_cycle_template_runtime_hash_locked": true,
     "RCR_cycle_template_sha256": "267a3ee5a2d297b4368f4dd262771a19109e8015b2617de45ab828d83d696200",
     "RCR_cycle_template_hash_check": "PASS",
@@ -220,10 +244,21 @@
       "wasSuccessful": true,
       "status": "PASS"
     },
+    "realhyfc_source_identity_test_suite": {
+      "executed_in_this_audit": true,
+      "tests_run": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "wasSuccessful": true,
+      "status": "PASS"
+    },
     "synthetic_test_mode_used_for_formal_development_replay": false,
     "active_cell_missing_value_semantics": "MATCHES_FROZEN_NANMEAN",
     "scientific_protocol_changed": false,
+    "preopen_verification_status": "AHC_TV_FINAL_PREOPEN_VERIFICATION_PASS",
+    "source_identity_lock_status": "AHC_TV_EXACT_SOURCE_IDENTITY_LOCKED",
     "remaining_preopen_blocker": "NONE",
-    "final_status": "AHC_TV_FINAL_PREOPEN_VERIFICATION_PASS"
+    "final_status": "READY_FOR_EXPLICIT_OPEN_AHC_TV_TEST"
   }
 }

@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from ahc_tv_alignment import PHASE, read_yaml
-from ahc_tv_stage_p import bind_both_polarization_sources
+from ahc_tv_stage_p import bind_both_polarization_sources, verify_frozen_polarization_source_identity
 
 
 OUTPUTS = PHASE / "outputs"
@@ -79,6 +79,7 @@ def build_filename_audit_rows(*, phase: Path = PHASE) -> tuple[Path, list[dict[s
 def run_real_filename_binding_dry_run(*, phase: Path = PHASE) -> dict[str, Any]:
     """Write the permitted filename-only audit and require a unique nominal pair."""
     phase = Path(phase)
+    registry = _registry(phase)
     root, rows = build_filename_audit_rows(phase=phase)
     OUTPUTS.mkdir(parents=True, exist_ok=True)
     with FILENAME_AUDIT.open("w", encoding="utf-8", newline="") as handle:
@@ -92,6 +93,8 @@ def run_real_filename_binding_dry_run(*, phase: Path = PHASE) -> dict[str, Any]:
     candidates = [root / str(row["relative_path"]) for row in rows]
     try:
         bound = bind_both_polarization_sources(candidates, phase=phase)
+        exact_2000 = verify_frozen_polarization_source_identity(2000, bound[2000], phase=phase)
+        exact_2300 = verify_frozen_polarization_source_identity(2300, bound[2300], phase=phase)
     except Exception as error:
         audit = {
             "dataset_root": str(root),
@@ -111,7 +114,13 @@ def run_real_filename_binding_dry_run(*, phase: Path = PHASE) -> dict[str, Any]:
         row for row in rows
         if bool(row["contains_2300"]) and bool(row["contains_afterairair"])
     ]
-    passed = len(nominal_2000) == 1 and len(nominal_2300) == 1 and bool(after_air_air_2300)
+    matched_2000_relative_path = str(exact_2000.relative_to(root))
+    matched_2300_relative_path = str(exact_2300.relative_to(root))
+    identity_frozen = (
+        matched_2000_relative_path == registry["polarization_checkpoint_sources"]["2000"]["frozen_relative_path"]
+        and matched_2300_relative_path == registry["polarization_checkpoint_sources"]["2300"]["frozen_relative_path"]
+    )
+    passed = len(nominal_2000) == 1 and len(nominal_2300) == 1 and bool(after_air_air_2300) and identity_frozen
     audit = {
         "dataset_root": str(root),
         "file_content_opened": False,
@@ -120,6 +129,9 @@ def run_real_filename_binding_dry_run(*, phase: Path = PHASE) -> dict[str, Any]:
         "after_air_air_2300_excluded": bool(after_air_air_2300) and bound[2300].name != after_air_air_2300[0]["basename"],
         "matched_2000_basename": bound[2000].name,
         "matched_2300_basename": bound[2300].name,
+        "matched_2000_relative_path": matched_2000_relative_path,
+        "matched_2300_relative_path": matched_2300_relative_path,
+        "exact_source_identity_frozen": identity_frozen,
         "binding_status": "PASS" if passed else "FAIL",
     }
     DRY_RUN_AUDIT.write_text(json.dumps(audit, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

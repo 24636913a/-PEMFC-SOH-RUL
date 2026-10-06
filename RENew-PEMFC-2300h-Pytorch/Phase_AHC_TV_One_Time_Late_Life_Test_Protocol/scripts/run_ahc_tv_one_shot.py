@@ -25,7 +25,7 @@ from ahc_tv_one_shot_ledger import (
     write_exclusive_sha256_sidecar,
     write_exclusive_text,
 )
-from ahc_tv_stage_p import build_and_freeze_stage_p
+from ahc_tv_stage_p import build_and_freeze_stage_p, preflight_runtime_source_identities
 from ahc_tv_stage_t import unblind_both_test_targets_once
 
 
@@ -58,9 +58,16 @@ def run_one_shot(
     ``runtime/ONE_SHOT_TEST_RUN`` directory from it.
     """
     phase = Path(phase)
-    # These two checks intentionally happen before ledger creation.
+    # All source identities are verified before the one-shot ledger is
+    # consumed.  This preflight only resolves paths and applies frozen filename
+    # rules; it opens neither raw rows nor characterization files.
     require_manual_test_authorization(authorization)
     verify_frozen_runtime_authority(phase)
+    preflight_runtime_source_identities(
+        raw_sources,
+        {2000: polarization_2000, 2300: polarization_2300},
+        phase=phase,
+    )
     create_execution_ledger(phase=phase, authorization_marker=authorization)
     runtime_dir = canonical_run_dir(phase)
     stage = "STAGE_P"

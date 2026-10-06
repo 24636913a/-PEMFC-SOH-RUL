@@ -20,7 +20,7 @@ frozen_hashes:
     sha256: 23cdca393da5831bdb2a18b71e10d36ea126f3257a063573208d4ebd83aed1c8
   - name: runtime_source_registry
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/configs/AHC_TV_RUNTIME_SOURCE_REGISTRY.yaml
-    sha256: 08a3727168b3906827297be12e0fa9b70c4654ff1e625332dd1b6e82a3528567
+    sha256: 911f2ab3d4fbb24652aa4ab4b8aec371650acff6f263d94200c3f7407c1bb849
   - name: inherited_dataset_source_registry
     path: RENew-PEMFC-2300h-Pytorch/Phase_PAA_P1_StateToken_PreAnchor_Alignment/SOURCE_MANIFEST.yaml
     sha256: 397bd4d9422d6b93c437cbe78430f1c68197aca838c5345fee468e8d8913b0b8
@@ -47,7 +47,7 @@ frozen_hashes:
     sha256: f3873d867490da185209e03435e567fed6ca30fda977a080aec50d1c1c19ca80
   - name: Stage_P_runtime_builder
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/ahc_tv_stage_p.py
-    sha256: 5fc9a91e9db4cf69dacc0cf787c748d4ad905fb6530a4c95a097b79d0add8f95
+    sha256: b25523bd27f6626d9d7d4f07d9c1a9d89bd7fca26605f7f66a96181637cf8e3d
   - name: authoritative_raw_alignment_core
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/ahc_tv_raw_alignment_core.py
     sha256: 988b67e9af8d381d4008e589689c859261f7fba2b9ce28310ef19f25e15cb984
@@ -56,16 +56,16 @@ frozen_hashes:
     sha256: dc6f6a97715e8f55b87688dbd5f5e07b5294781ada076b22757d8127ad11aa33
   - name: one_shot_runtime_entry
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/run_ahc_tv_one_shot.py
-    sha256: de8a9810db303b6fb7c52e918a75bea2bd9aec221e846499abe31d095749822a
+    sha256: e51a95ab6c2dd5c627dde899a5f76060c8b0d9b40837292dfc6b5d93aaea8ffa
   - name: one_shot_execution_ledger
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/ahc_tv_one_shot_ledger.py
     sha256: d4415220591f8244b59c805951083358f85d308c5f1e25bb07f559ff7b7b1f57
   - name: final_preopen_verification_runner
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/run_final_preopen_verification.py
-    sha256: cf29a07e8668dc1297e9a6d99244813310b0efc9f7d98428384b17a5127b8c09
+    sha256: bf71fee5624ff986219899a5ac038b3c40f683284554fe7868e40f08ecf7d1eb
   - name: realhyfc_source_filename_dry_run
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/run_realhyfc_source_binding_dry_run.py
-    sha256: 6f10711c848f376dc9f4a334ba2b97619285b582f839d509b07ba1ca9d91e3f1
+    sha256: 0d6d14ef2466aded6f33849cb04ced0eb7160fd4cc8a993901beb94d09a66641
   - name: frozen_prediction_schema
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/schemas/FROZEN_TEST_PREDICTIONS_SCHEMA.yaml
     sha256: 2cbd5928ee63f2c613002330b1aa3500cd5f11d6f6eb78f671f2a070a1bc38ad

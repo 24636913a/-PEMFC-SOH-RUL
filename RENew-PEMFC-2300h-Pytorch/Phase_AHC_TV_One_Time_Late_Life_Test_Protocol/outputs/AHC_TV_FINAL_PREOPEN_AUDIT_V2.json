@@ -8,6 +8,10 @@
   "nominal_2300_source_match_count": 1,
   "afterAirAir_2300_excluded": true,
   "test_source_binding_dry_run": "PASS",
+  "exact_2000_source_identity_locked": true,
+  "exact_2300_source_identity_locked": true,
+  "source_identity_preledger_check": "PASS",
+  "wrong_source_does_not_consume_one_shot": "PASS",
   "RCR_cycle_template_runtime_hash_locked": true,
   "RCR_cycle_template_sha256": "267a3ee5a2d297b4368f4dd262771a19109e8015b2617de45ab828d83d696200",
   "RCR_cycle_template_hash_check": "PASS",
@@ -46,9 +50,20 @@
     "wasSuccessful": true,
     "status": "PASS"
   },
+  "realhyfc_source_identity_test_suite": {
+    "executed_in_this_audit": true,
+    "tests_run": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "wasSuccessful": true,
+    "status": "PASS"
+  },
   "synthetic_test_mode_used_for_formal_development_replay": false,
   "active_cell_missing_value_semantics": "MATCHES_FROZEN_NANMEAN",
   "scientific_protocol_changed": false,
+  "preopen_verification_status": "AHC_TV_FINAL_PREOPEN_VERIFICATION_PASS",
+  "source_identity_lock_status": "AHC_TV_EXACT_SOURCE_IDENTITY_LOCKED",
   "remaining_preopen_blocker": "NONE",
-  "final_status": "AHC_TV_FINAL_PREOPEN_VERIFICATION_PASS"
+  "final_status": "READY_FOR_EXPLICIT_OPEN_AHC_TV_TEST"
 }

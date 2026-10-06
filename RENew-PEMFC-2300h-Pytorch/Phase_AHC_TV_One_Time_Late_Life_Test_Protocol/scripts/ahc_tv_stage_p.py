@@ -113,6 +113,42 @@ def _checkpoint_filename_matches(path: Path, checkpoint: int, registry: dict) ->
     return re.search(pattern, Path(path).name) is not None
 
 
+def verify_frozen_polarization_source_identity(
+    checkpoint: int,
+    supplied_path: Path,
+    *,
+    phase: Path = PHASE,
+    synthetic_test_mode: bool = False,
+) -> Path:
+    """Require the exact frozen polarization source path without opening it.
+
+    In the formal runtime, identity is the resolved absolute path assembled
+    from the frozen authoritative root plus its frozen relative path.  The
+    filename regex remains a defence-in-depth check, not the identity rule.
+    Synthetic tests may opt out of the real-machine path lock while still
+    exercising the same forbidden-name and regex defences.
+    """
+    registry = _registry(Path(phase))
+    checkpoint_key = str(int(checkpoint))
+    if checkpoint_key not in registry["polarization_checkpoint_sources"]:
+        raise RuntimeSourceBindingError("TEST_SOURCE_IDENTITY_MISMATCH")
+    supplied = assert_runtime_input_allowed(Path(supplied_path))
+    if synthetic_test_mode:
+        if _forbidden_source_name(supplied, registry) or not _checkpoint_filename_matches(supplied, checkpoint, registry):
+            raise RuntimeSourceBindingError("TEST_SOURCE_BINDING_AMBIGUOUS")
+        return supplied
+    root = Path(registry["local_dataset_root"]["path"]).resolve()
+    frozen_relative_path = Path(registry["polarization_checkpoint_sources"][checkpoint_key]["frozen_relative_path"])
+    if frozen_relative_path.is_absolute() or ".." in frozen_relative_path.parts:
+        raise RuntimeSourceBindingError("TEST_SOURCE_IDENTITY_MISMATCH")
+    expected = (root / frozen_relative_path).resolve()
+    if supplied != expected:
+        raise RuntimeSourceBindingError("TEST_SOURCE_IDENTITY_MISMATCH")
+    if _forbidden_source_name(supplied, registry) or not _checkpoint_filename_matches(supplied, checkpoint, registry):
+        raise RuntimeSourceBindingError("TEST_SOURCE_IDENTITY_MISMATCH")
+    return supplied
+
+
 def bind_unique_polarization_source(
     checkpoint: int,
     candidates: Iterable[Path],
@@ -140,7 +176,9 @@ def bind_unique_polarization_source(
     ]
     if len(matches) != 1:
         raise RuntimeSourceBindingError("TEST_SOURCE_BINDING_AMBIGUOUS")
-    return matches[0]
+    return verify_frozen_polarization_source_identity(
+        checkpoint, matches[0], phase=phase, synthetic_test_mode=synthetic_test_mode
+    )
 
 
 def bind_both_polarization_sources(
@@ -155,6 +193,13 @@ def bind_both_polarization_sources(
     if isinstance(sources, Mapping):
         if set(sources) != {2000, 2300}:
             raise RuntimeSourceBindingError("TEST_SOURCE_BINDING_AMBIGUOUS")
+        # An explicit CLI declaration is checked against the exact frozen
+        # identity before it can be treated as a bindable candidate.
+        for checkpoint in (2000, 2300):
+            verify_frozen_polarization_source_identity(
+                checkpoint, Path(sources[checkpoint]), phase=phase,
+                synthetic_test_mode=synthetic_test_mode,
+            )
         return {
             checkpoint: bind_unique_polarization_source(
                 checkpoint, [Path(sources[checkpoint])], phase=phase,
@@ -190,6 +235,19 @@ def validate_raw_sources(
     if len({str(path) for path in paths}) != len(paths):
         raise RuntimeSourceBindingError("TEST_SOURCE_BINDING_AMBIGUOUS")
     return paths
+
+
+def preflight_runtime_source_identities(
+    raw_sources: Iterable[Path],
+    polarization_sources: Mapping[int, Path] | Iterable[Path],
+    *,
+    phase: Path = PHASE,
+) -> tuple[list[Path], dict[int, Path]]:
+    """Complete filename/path-only preflight required before ledger creation."""
+    return (
+        validate_raw_sources(raw_sources, phase=phase),
+        bind_both_polarization_sources(polarization_sources, phase=phase),
+    )
 
 
 def _write_json_with_sidecar(path: Path, value: dict) -> str:

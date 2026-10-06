@@ -21,6 +21,9 @@ execution_authority:
   final_preopen_verification:
     path: scripts/run_final_preopen_verification.py
     role: Development_only_raw_and_target_equivalence_audit
+  raw_alignment_core:
+    path: scripts/ahc_tv_raw_alignment_core.py
+    role: sole_authoritative_PAA_raw_to_runs_P1S_intervals_implementation
   frozen_alignment_inputs:
     path: configs/AHC_TV_FROZEN_ALIGNMENT_INPUTS.yaml
     role: PAA_reference_support_and_BoL_constants

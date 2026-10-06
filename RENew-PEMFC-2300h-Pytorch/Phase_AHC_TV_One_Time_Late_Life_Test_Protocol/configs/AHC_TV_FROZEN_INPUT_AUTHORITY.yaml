@@ -5,7 +5,7 @@ Test_runtime_inputs_not_listed_until_manual_OPEN_AHC_TV_TEST: true
 frozen_hashes:
   - name: protocol_authority_registry
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/configs/AHC_TV_PROTOCOL_AUTHORITY.yaml
-    sha256: d70e5a01d11b009f06be3ebb99accd5d18bd59519041b6607a663b11c700f754
+    sha256: 67db6c96fc98eb0d219a92557b8036cf0d4fcd6f9808fd1acda06d2eeabf3e81
   - name: original_AHC_TV_protocol
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/configs/PREREGISTERED_AHC_TV_PROTOCOL.yaml
     sha256: ba8389b3544b1b45da6ccae9e38704a73a50a61a51dcd048b552ab0e83612589
@@ -44,7 +44,10 @@ frozen_hashes:
     sha256: f3873d867490da185209e03435e567fed6ca30fda977a080aec50d1c1c19ca80
   - name: Stage_P_runtime_builder
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/ahc_tv_stage_p.py
-    sha256: d1a773f6b0e0c00e099dc2b4546e51ba8827c81a9a9802472f4e17ed847919f8
+    sha256: 1ce23e731ececb45d675233e1e83005b3eda557f9c5686f4458b4b45558de194
+  - name: authoritative_raw_alignment_core
+    path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/ahc_tv_raw_alignment_core.py
+    sha256: 988b67e9af8d381d4008e589689c859261f7fba2b9ce28310ef19f25e15cb984
   - name: Stage_T_runtime_reader
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/ahc_tv_stage_t.py
     sha256: 02ed905650f32f8c2e602f270c5d92cdc5ae6f5e3993ff3e3815f42b572b18e6
@@ -56,7 +59,7 @@ frozen_hashes:
     sha256: d4415220591f8244b59c805951083358f85d308c5f1e25bb07f559ff7b7b1f57
   - name: final_preopen_verification_runner
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/run_final_preopen_verification.py
-    sha256: ae2ec399eac7a31d08d0c776800f2a298b40dc634bc546cba3398d72d98ecfd1
+    sha256: 95d03f22242b07a1d82a73477e7d88328ff74a4413120c68c162980614ad505e
   - name: frozen_prediction_schema
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/schemas/FROZEN_TEST_PREDICTIONS_SCHEMA.yaml
     sha256: 2cbd5928ee63f2c613002330b1aa3500cd5f11d6f6eb78f671f2a070a1bc38ad

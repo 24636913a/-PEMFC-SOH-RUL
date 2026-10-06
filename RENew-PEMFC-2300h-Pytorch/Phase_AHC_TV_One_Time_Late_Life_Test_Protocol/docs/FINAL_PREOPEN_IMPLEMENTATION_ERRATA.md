@@ -25,6 +25,19 @@ source-file restriction). These are implementation corrections,
 not new scientific choices. The Development raw-to-anchor replay is the
 evidence that the corrected implementation reproduces the frozen PAA result.
 
+### Final direct-runtime correction
+
+The former formal Stage-P implementation evaluated each P1 run with a direct
+per-window `DateTime.between()` lookup.  Frozen PAA instead first builds one
+combined registry of every P1 middle-50 and last-25 window, sorts it by window
+start, assigns each raw timestamp to one globally owned window, and only then
+uses the middle-50 measurements.  `scripts/ahc_tv_raw_alignment_core.py` is
+now the sole implementation of raw normalization, RCR runs, global ownership,
+P1 measurement, and interval construction.  Both the formal Stage-P runtime
+and Development replay invoke it.  This corrects an implementation path only:
+the scientific protocol, targets, support bounds, and selection rules are
+unchanged, and no real Test source was opened.
+
 ## Stage T
 
 Stage T now uses the same ten-cell `numpy.nanmean` / local `nanmedian`

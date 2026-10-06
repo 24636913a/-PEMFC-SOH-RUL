@@ -1,0 +1,221 @@
+{
+  "artifact": {
+    "anchors": [
+      {
+        "checkpoint": 300,
+        "expected_interval_ids": "PARTIAL_PRE_300|COMPLETE_024|COMPLETE_023",
+        "replayed_interval_ids": "PARTIAL_PRE_300|COMPLETE_024|COMPLETE_023",
+        "expected_retention": 0.9956275785669164,
+        "replayed_retention": 0.9956275785669164,
+        "expected_support_count": 3,
+        "replayed_support_count": 3,
+        "interval_ids_pass": true,
+        "retention_pass_at_1e12": true,
+        "support_count_pass": true,
+        "status": "ALIGNED",
+        "pass": true
+      },
+      {
+        "checkpoint": 600,
+        "expected_interval_ids": "PARTIAL_PRE_600|COMPLETE_049|COMPLETE_048",
+        "replayed_interval_ids": "PARTIAL_PRE_600|COMPLETE_049|COMPLETE_048",
+        "expected_retention": 0.9915913989148296,
+        "replayed_retention": 0.9915913989148296,
+        "expected_support_count": 2,
+        "replayed_support_count": 2,
+        "interval_ids_pass": true,
+        "retention_pass_at_1e12": true,
+        "support_count_pass": true,
+        "status": "ALIGNED",
+        "pass": true
+      },
+      {
+        "checkpoint": 850,
+        "expected_interval_ids": "PARTIAL_PRE_850|COMPLETE_074|COMPLETE_073",
+        "replayed_interval_ids": "PARTIAL_PRE_850|COMPLETE_074|COMPLETE_073",
+        "expected_retention": 0.990112305187449,
+        "replayed_retention": 0.990112305187449,
+        "expected_support_count": 3,
+        "replayed_support_count": 3,
+        "interval_ids_pass": true,
+        "retention_pass_at_1e12": true,
+        "support_count_pass": true,
+        "status": "ALIGNED",
+        "pass": true
+      },
+      {
+        "checkpoint": 1150,
+        "expected_interval_ids": "PARTIAL_PRE_1150|COMPLETE_100|COMPLETE_099",
+        "replayed_interval_ids": "PARTIAL_PRE_1150|COMPLETE_100|COMPLETE_099",
+        "expected_retention": 0.985142214444108,
+        "replayed_retention": 0.985142214444108,
+        "expected_support_count": 2,
+        "replayed_support_count": 2,
+        "interval_ids_pass": true,
+        "retention_pass_at_1e12": true,
+        "support_count_pass": true,
+        "status": "ALIGNED",
+        "pass": true
+      },
+      {
+        "checkpoint": 1500,
+        "expected_interval_ids": "PARTIAL_PRE_1500|COMPLETE_125|COMPLETE_124",
+        "replayed_interval_ids": "PARTIAL_PRE_1500|COMPLETE_125|COMPLETE_124",
+        "expected_retention": 0.9865916156775026,
+        "replayed_retention": 0.9865916156775026,
+        "expected_support_count": 2,
+        "replayed_support_count": 2,
+        "interval_ids_pass": true,
+        "retention_pass_at_1e12": true,
+        "support_count_pass": true,
+        "status": "ALIGNED",
+        "pass": true
+      },
+      {
+        "checkpoint": 1750,
+        "expected_interval_ids": "PARTIAL_PRE_1750|COMPLETE_150|COMPLETE_149",
+        "replayed_interval_ids": "PARTIAL_PRE_1750|COMPLETE_150|COMPLETE_149",
+        "expected_retention": 0.9856019202793188,
+        "replayed_retention": 0.9856019202793188,
+        "expected_support_count": 2,
+        "replayed_support_count": 2,
+        "interval_ids_pass": true,
+        "retention_pass_at_1e12": true,
+        "support_count_pass": true,
+        "status": "ALIGNED",
+        "pass": true
+      }
+    ],
+    "pass_count": 6,
+    "required": 6,
+    "all_pass": true
+  },
+  "independent": {
+    "checkpoints": [
+      {
+        "checkpoint": 300,
+        "expected_anchor_median_R": 0.9956275785669164,
+        "runtime_anchor_median_R": 0.9956275785669163,
+        "anchor_median_abs_diff": 1.1102230246251565e-16,
+        "anchor_median_match": true,
+        "expected_support_count": 3,
+        "runtime_support_count": 3,
+        "support_count_match": true,
+        "pass": true
+      },
+      {
+        "checkpoint": 600,
+        "expected_anchor_median_R": 0.9915913989148296,
+        "runtime_anchor_median_R": 0.9915913989148296,
+        "anchor_median_abs_diff": 0.0,
+        "anchor_median_match": true,
+        "expected_support_count": 2,
+        "runtime_support_count": 2,
+        "support_count_match": true,
+        "pass": true
+      },
+      {
+        "checkpoint": 850,
+        "expected_anchor_median_R": 0.990112305187449,
+        "runtime_anchor_median_R": 0.990112305187449,
+        "anchor_median_abs_diff": 0.0,
+        "anchor_median_match": true,
+        "expected_support_count": 3,
+        "runtime_support_count": 3,
+        "support_count_match": true,
+        "pass": true
+      },
+      {
+        "checkpoint": 1150,
+        "expected_anchor_median_R": 0.985142214444108,
+        "runtime_anchor_median_R": 0.985142214444108,
+        "anchor_median_abs_diff": 0.0,
+        "anchor_median_match": true,
+        "expected_support_count": 2,
+        "runtime_support_count": 2,
+        "support_count_match": true,
+        "pass": true
+      },
+      {
+        "checkpoint": 1500,
+        "expected_anchor_median_R": 0.9865916156775026,
+        "runtime_anchor_median_R": 0.9865916156775026,
+        "anchor_median_abs_diff": 0.0,
+        "anchor_median_match": true,
+        "expected_support_count": 2,
+        "runtime_support_count": 2,
+        "support_count_match": true,
+        "pass": true
+      },
+      {
+        "checkpoint": 1750,
+        "expected_anchor_median_R": 0.9856019202793188,
+        "runtime_anchor_median_R": 0.9856019202793187,
+        "anchor_median_abs_diff": 1.1102230246251565e-16,
+        "anchor_median_match": true,
+        "expected_support_count": 2,
+        "runtime_support_count": 2,
+        "support_count_match": true,
+        "pass": true
+      }
+    ],
+    "pass_count": 6,
+    "required": 6,
+    "all_pass": true,
+    "audit_role": "INDEPENDENT_REFERENCE_REPLAY"
+  },
+  "formal": {
+    "pass_count": 6,
+    "required": 6,
+    "all_pass": true
+  },
+  "targets": {
+    "pass_count": 7,
+    "required": 7,
+    "all_pass": true
+  },
+  "audit": {
+    "real_Test_accessed": false,
+    "real_2000_2300_accessed": false,
+    "artifact_alignment_replay": "6/6 PASS",
+    "independent_reference_raw_stage_p_replay": "6/6 PASS",
+    "formal_stage_p_runtime_replay": "6/6 PASS",
+    "formal_selected_intervals": "18/18 PASS",
+    "formal_R_values": "18/18 PASS",
+    "formal_condition_vectors": "18/18 PASS",
+    "formal_support": "18/18 PASS",
+    "stage_t_development_target_replay": "7/7 PASS",
+    "synthetic_runtime_E2E_test_suite": {
+      "executed_in_this_audit": true,
+      "tests_run": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "wasSuccessful": true,
+      "status": "PASS"
+    },
+    "one_shot_state_machine_test_suite": {
+      "executed_in_this_audit": true,
+      "tests_run": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "wasSuccessful": true,
+      "status": "PASS"
+    },
+    "formal_stage_p_development_equivalence_test_suite": {
+      "executed_in_this_audit": true,
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "wasSuccessful": true,
+      "status": "PASS"
+    },
+    "synthetic_test_mode_used_for_formal_development_replay": false,
+    "active_cell_missing_value_semantics": "MATCHES_FROZEN_NANMEAN",
+    "scientific_protocol_changed": false,
+    "remaining_preopen_blocker": "NONE",
+    "final_status": "AHC_TV_FINAL_PREOPEN_VERIFICATION_PASS"
+  }
+}

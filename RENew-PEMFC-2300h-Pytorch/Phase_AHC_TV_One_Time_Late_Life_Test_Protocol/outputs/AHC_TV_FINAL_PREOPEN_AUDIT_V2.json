@@ -1,0 +1,44 @@
+{
+  "real_Test_accessed": false,
+  "real_2000_2300_accessed": false,
+  "artifact_alignment_replay": "6/6 PASS",
+  "independent_reference_raw_stage_p_replay": "6/6 PASS",
+  "formal_stage_p_runtime_replay": "6/6 PASS",
+  "formal_selected_intervals": "18/18 PASS",
+  "formal_R_values": "18/18 PASS",
+  "formal_condition_vectors": "18/18 PASS",
+  "formal_support": "18/18 PASS",
+  "stage_t_development_target_replay": "7/7 PASS",
+  "synthetic_runtime_E2E_test_suite": {
+    "executed_in_this_audit": true,
+    "tests_run": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "wasSuccessful": true,
+    "status": "PASS"
+  },
+  "one_shot_state_machine_test_suite": {
+    "executed_in_this_audit": true,
+    "tests_run": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "wasSuccessful": true,
+    "status": "PASS"
+  },
+  "formal_stage_p_development_equivalence_test_suite": {
+    "executed_in_this_audit": true,
+    "tests_run": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "wasSuccessful": true,
+    "status": "PASS"
+  },
+  "synthetic_test_mode_used_for_formal_development_replay": false,
+  "active_cell_missing_value_semantics": "MATCHES_FROZEN_NANMEAN",
+  "scientific_protocol_changed": false,
+  "remaining_preopen_blocker": "NONE",
+  "final_status": "AHC_TV_FINAL_PREOPEN_VERIFICATION_PASS"
+}

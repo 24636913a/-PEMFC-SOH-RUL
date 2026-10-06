@@ -8,12 +8,10 @@ the real Test data during the protocol-freeze phase.
 """
 from __future__ import annotations
 
-import json
 import re
-import warnings
 from io import StringIO
 from pathlib import Path
-from typing import Any, Callable, Iterable, Mapping
+from typing import Callable, Iterable, Mapping
 
 import numpy as np
 import pandas as pd
@@ -33,40 +31,21 @@ from ahc_tv_alignment import (
     verify_frozen_prediction_artifact_strict,
     verify_frozen_runtime_authority,
 )
+from ahc_tv_raw_alignment_core import (
+    ACTIVE_CELLS,
+    RAW_COLUMNS,
+    RawAlignmentCoreError,
+    nanmean_active_voltage as _nanmean_active_voltage,
+    normalize_operation,
+    normalize_raw_operating_frame,
+    runtime_p1_intervals,
+)
 from ahc_tv_one_shot_ledger import write_exclusive_json, write_exclusive_sha256_sidecar, write_exclusive_text
 
 
-ACTIVE_CELLS = (
-    "U1 [V]", "U2 [V]", "U3 [V]", "U4 [V]", "U5 [V]",
-    "U7 [V]", "U8 [V]", "U9 [V]", "U10 [V]", "U11 [V]",
-)
-RAW_CONDITIONS = {
-    "current_density": "j.S.act [A/cm2]",
-    "anode_inlet_temperature_C": "T.Si.A [°C]",
-    "anode_inlet_pressure_kPag": "p.Si.A [kPag]",
-    "anode_inlet_RH_pct": "RH.Si.A  [%]",
-    "anode_hydrogen_flow_nl_min": "F.Si.H.A [nl/min]",
-    "anode_stoichiometry": "Stoic.S.A [-]",
-    "cathode_stoichiometry": "Stoic.S.C [-]",
-}
-RAW_IDENTITY = (
-    "DateTime", "OpHrs2 [h]", "operation_point", "I.S.set [A]",
-    "I.S.act [A]", "j.S.act [A/cm2]",
-)
-RAW_COLUMNS = tuple(dict.fromkeys((*RAW_IDENTITY, *ACTIVE_CELLS, *RAW_CONDITIONS.values())))
-P1_TOKEN = "221||221.200"
-ANCHOR_PATTERN = ("15||14.000", "15||0.000")
 PREDICTION_NAME = "FROZEN_TEST_PREDICTIONS_BEFORE_TARGET_UNBLINDING.csv"
 PROVENANCE_NAME = "FROZEN_TEST_PREDICTION_PROVENANCE.json"
 COMPLETION_NAME = "STAGE_P_COMPLETION_MARKER.json"
-RCR_TEMPLATE_PATH = (
-    PHASE.parents[0] / "Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit"
-    / "outputs" / "CYCLE_TEMPLATE.json"
-)
-RCR_GAP_SECONDS = 5.0
-RCR_ZERO_CURRENT_A = 0.1
-RCR_LOADED_MIN_H, RCR_LOADED_MAX_H = 8.0, 11.0
-RCR_CORE_ORDER_MIN = 0.90
 
 
 class RuntimeSourceBindingError(AlignmentContractError):
@@ -170,10 +149,8 @@ def _write_csv_with_sidecar(path: Path, frame: pd.DataFrame, *, sidecar: bool = 
 
 
 def _normalize_operation(values: pd.Series) -> pd.Series:
-    numeric = pd.to_numeric(values, errors="coerce")
-    result = values.astype("string").str.strip()
-    result.loc[numeric.notna()] = numeric.loc[numeric.notna()].map(lambda value: f"{float(value):g}")
-    return result.astype(str)
+    """Compatibility alias; normalization authority is the shared raw core."""
+    return normalize_operation(values)
 
 
 def _read_raw_operating(
@@ -187,122 +164,11 @@ def _read_raw_operating(
         absent = [name for name in RAW_COLUMNS if name not in header]
         if absent:
             raise StagePError("TEST_RAW_SCHEMA_MISSING_COLUMNS: " + ",".join(absent))
-        frame = read_csv(source, sep=";", encoding="utf-8-sig", usecols=list(RAW_COLUMNS), low_memory=False).copy()
-        frame["_source_basename"] = source.name
-        frame["_source_index"] = source_index
-        frames.append(frame)
-    raw = pd.concat(frames, ignore_index=True, sort=False)
-    raw["DateTime"] = pd.to_datetime(raw["DateTime"], errors="coerce")
-    raw["OpHrs2 [h]"] = pd.to_numeric(raw["OpHrs2 [h]"].astype("string").str.replace(",", "", regex=False), errors="coerce")
-    raw["operation_point"] = _normalize_operation(raw["operation_point"])
-    for name in ["I.S.set [A]", "I.S.act [A]", *ACTIVE_CELLS, *RAW_CONDITIONS.values()]:
-        raw[name] = pd.to_numeric(raw[name], errors="coerce")
-    raw = raw.loc[raw["DateTime"].notna() & raw["OpHrs2 [h]"].notna()].copy()
-    # The frozen RCR implementation preserves source ordering and deliberately
-    # starts a fresh state sequence at each source-file boundary.
-    return raw.reset_index(drop=True)
-
-
-def _identity_token(operation_point: str, set_current: float) -> str:
-    return f"{str(operation_point)}||{round(float(set_current), 3):.3f}"
-
-
-def _state_runs(raw: pd.DataFrame) -> pd.DataFrame:
-    """RCR-equivalent 5 s source-bounded run-length encoding.
-
-    This replaces the previous 2 s/``DataFrame`` grouping shortcut.  State
-    identity, time/order discontinuities, zero-current flags, and source-file
-    boundaries now have the same semantics as frozen RCR.
-    """
-    records: list[pd.DataFrame] = []
-    run_offset = 0
-    for source_order, source in raw.groupby("_source_index", sort=False):
-        work = source.copy()
-        work["_rounded_set"] = pd.to_numeric(work["I.S.set [A]"], errors="raise").round(3)
-        work["_token"] = work["operation_point"].astype(str) + "||" + work["_rounded_set"].map(lambda value: f"{value:.3f}")
-        previous_dt = pd.to_datetime(work["DateTime"]).shift()
-        previous_age = pd.to_numeric(work["OpHrs2 [h]"], errors="raise").shift()
-        delta_s = (pd.to_datetime(work["DateTime"]) - previous_dt).dt.total_seconds()
-        work["_discontinuity"] = (
-            (delta_s > RCR_GAP_SECONDS)
-            | (pd.to_datetime(work["DateTime"]) <= previous_dt)
-            | (pd.to_numeric(work["OpHrs2 [h]"], errors="raise") < previous_age)
-        ).fillna(False)
-        if int(source_order) != 0:
-            work.iloc[0, work.columns.get_loc("_discontinuity")] = True
-        work["_new_run"] = work["_token"].ne(work["_token"].shift()).fillna(True) | work["_discontinuity"]
-        work["_local_run"] = work["_new_run"].cumsum()
-        grouped = work.groupby("_local_run", sort=True, observed=True)
-        compressed = grouped.agg(
-            start_datetime=("DateTime", "first"), end_datetime=("DateTime", "last"),
-            start_ophrs2_h=("OpHrs2 [h]", "first"), end_ophrs2_h=("OpHrs2 [h]", "last"),
-            operation_point=("operation_point", "first"), rounded_set_A=("_rounded_set", "first"),
-            median_set_current_A=("I.S.set [A]", "median"), median_actual_current_A=("I.S.act [A]", "median"),
-            median_actual_current_density_A_cm2=("j.S.act [A/cm2]", "median"), raw_row_count=("DateTime", "size"),
-            gap_before=("_discontinuity", "first"), row_start=("DateTime", lambda series: int(series.index.min())),
-            row_end=("DateTime", lambda series: int(series.index.max())),
-        ).reset_index(drop=True)
-        compressed["stop_or_zero_current_flag"] = grouped["I.S.act [A]"].apply(lambda values: bool((values.abs() <= RCR_ZERO_CURRENT_A).any())).to_numpy(dtype=int)
-        compressed["duration_wall_s"] = (pd.to_datetime(compressed["end_datetime"]) - pd.to_datetime(compressed["start_datetime"])).dt.total_seconds()
-        compressed["duration_loaded_s"] = (pd.to_numeric(compressed["end_ophrs2_h"]) - pd.to_numeric(compressed["start_ophrs2_h"])) * 3600.0
-        compressed["run_id"] = np.arange(run_offset + 1, run_offset + len(compressed) + 1, dtype=int)
-        run_offset += len(compressed)
-        compressed["state_token"] = compressed["operation_point"].astype(str) + "||" + compressed["rounded_set_A"].map(lambda value: f"{value:.3f}")
-        compressed["set_token"] = compressed["rounded_set_A"].map(lambda value: f"{value:.3f}")
-        compressed["source_order"] = int(source_order)
-        records.append(compressed)
-    return pd.concat(records, ignore_index=True) if records else pd.DataFrame()
-
-
-def _lcs_length(left: list[str], right: list[str]) -> int:
-    prior = [0] * (len(right) + 1)
-    for token_left in left:
-        current = [0]
-        for index, token_right in enumerate(right, start=1):
-            current.append(prior[index - 1] + 1 if token_left == token_right else max(prior[index], current[-1]))
-        prior = current
-    return prior[-1]
-
-
-def _load_rcr_template() -> dict[str, Any]:
-    if not RCR_TEMPLATE_PATH.exists():
-        raise StagePError("FROZEN_RCR_TEMPLATE_MISSING")
-    return json.loads(RCR_TEMPLATE_PATH.read_text(encoding="utf-8"))
-
-
-def _nanmean_active_voltage(frame: pd.DataFrame) -> pd.Series:
-    cells = frame.loc[:, ACTIVE_CELLS].to_numpy(dtype=float)
-    all_missing = np.isnan(cells).all(axis=1)
-    with np.errstate(invalid="ignore"), warnings.catch_warnings():
-        warnings.simplefilter("ignore", category=RuntimeWarning)
-        values = np.nanmean(cells, axis=1)
-    values[all_missing] = np.nan
-    return pd.Series(values, index=frame.index, dtype=float)
-
-
-def _measurement_for_p1_runs(raw: pd.DataFrame, p1_runs: pd.DataFrame) -> pd.DataFrame:
-    values: list[dict[str, Any]] = []
-    for p1 in p1_runs.itertuples(index=False):
-        window_start = pd.Timestamp(p1.start_datetime) + pd.to_timedelta(float(p1.duration_wall_s) * .25, unit="s")
-        window_end = pd.Timestamp(p1.start_datetime) + pd.to_timedelta(float(p1.duration_wall_s) * .75, unit="s")
-        # PAA's frozen window-membership contract is a global DateTime lookup;
-        # it intentionally does not add a source-file restriction at packaging
-        # boundaries where timestamp regions may overlap.
-        dwell = raw.loc[raw["DateTime"].between(window_start, window_end, inclusive="both")].copy()
-        # PAA measures a stable run over the inclusive middle-50 window; it
-        # does not impose an additional positive-current row filter.
-        active_mean = _nanmean_active_voltage(dwell) if not dwell.empty else pd.Series(dtype=float)
-        value: dict[str, Any] = {
-            "P1S_voltage_V": float(np.nanmedian(active_mean.to_numpy(dtype=float))) if active_mean.notna().any() else np.nan,
-            "raw_contributing_count": int(active_mean.notna().sum()),
-            "measurement_end_datetime": pd.Timestamp(p1.end_datetime),
-            "measurement_end_ophrs2_h": float(p1.end_ophrs2_h),
-        }
-        for canonical, source_name in RAW_CONDITIONS.items():
-            source_values = pd.to_numeric(dwell[source_name], errors="coerce")
-            value[canonical] = float(np.nanmedian(source_values.to_numpy(dtype=float))) if source_values.notna().any() else np.nan
-        values.append(value)
-    return pd.DataFrame(values)
+        frame = read_csv(source, sep=";", encoding="utf-8-sig", usecols=list(RAW_COLUMNS), low_memory=False)
+        frames.append(normalize_raw_operating_frame(frame, source_index=source_index, source_basename=source.name))
+    # The shared core deliberately preserves source operation-point text for
+    # RCR identity and applies numeric normalization only during PAA lookup.
+    return pd.concat(frames, ignore_index=True, sort=False)
 
 
 def _runtime_p1_intervals(
@@ -310,67 +176,22 @@ def _runtime_p1_intervals(
     reference_voltage: float,
     *,
     partial_interval_id: str = "PARTIAL_PRE_RUNTIME",
+    partial_last_run_id: int | None = None,
     require_development_stratum: bool = False,
     synthetic_test_mode: bool = False,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Build canonical RCR-template-qualified complete/partial P1S intervals."""
-    runs = _state_runs(raw_before_start)
-    if runs.empty:
-        raise StagePError("TEST_ALIGNMENT_INCONCLUSIVE")
-    starts = [index for index in range(len(runs) - 1) if (runs.iloc[index].state_token, runs.iloc[index + 1].state_token) == ANCHOR_PATTERN]
-    if not starts:
-        raise StagePError("TEST_ALIGNMENT_INCONCLUSIVE")
-    template = _load_rcr_template()
-    t_set = list(template["template_set_tokens"])
-    t_operation = list(template["template_positive_operation_tokens"])
-    records: list[dict[str, Any]] = []
-    for raw_cycle_id, (left, right) in enumerate(zip(starts[:-1], starts[1:]), start=1):
-        cycle = runs.iloc[left:right].copy()
-        end_anchor = runs.iloc[right]
-        loaded_h = float(end_anchor.start_ophrs2_h - cycle.iloc[0].start_ophrs2_h)
-        positive = cycle.loc[cycle["stop_or_zero_current_flag"].eq(0)].copy()
-        op_fraction = _lcs_length(t_operation, positive["operation_point"].astype(str).tolist()) / len(t_operation)
-        complete = bool(RCR_LOADED_MIN_H <= loaded_h <= RCR_LOADED_MAX_H and op_fraction >= RCR_CORE_ORDER_MIN)
-        if require_development_stratum:
-            start_age, end_age = float(cycle.iloc[0].start_ophrs2_h), float(end_anchor.start_ophrs2_h)
-            complete &= bool((72.788690 <= start_age < 655.191706 and end_age < 655.191706) or (655.191706 <= start_age < 1237.594722 and end_age < 1237.594722) or (1237.594722 <= start_age < 1819.997738 and end_age < 1819.997738))
-        if not complete and not synthetic_test_mode:
-            continue
-        p1 = cycle.loc[(cycle["state_token"].eq(P1_TOKEN)) & (cycle["duration_wall_s"].ge(120.0)) & (cycle["stop_or_zero_current_flag"].eq(0))]
-        measurement = _measurement_for_p1_runs(raw_before_start, p1)
-        if measurement.empty:
-            continue
-        records.append({
-            "cycle_interval_id": f"COMPLETE_{raw_cycle_id:03d}", "interval_kind": "COMPLETE_CYCLE_INTERVAL",
-            "raw_cycle_id": raw_cycle_id, "cycle_start_datetime": str(cycle.iloc[0].start_datetime),
-            "measurement_end_datetime": str(measurement["measurement_end_datetime"].max()),
-            "measurement_end_ophrs2_h": float(measurement["measurement_end_ophrs2_h"].max()),
-            "P1S_voltage_V": float(np.nanmedian(measurement["P1S_voltage_V"].to_numpy(dtype=float))),
-            "P1S_operating_voltage_retention": float(np.nanmedian(measurement["P1S_voltage_V"].to_numpy(dtype=float)) / reference_voltage),
-            "has_complete_middle50_dwell": bool(measurement["P1S_voltage_V"].notna().all() and (measurement["raw_contributing_count"] > 0).all()),
-            "cycle_start_anchor_present": True, "eligible_dwell_count": int(len(measurement)),
-            "raw_contributing_count": int(measurement["raw_contributing_count"].sum()),
-            **{name: float(np.nanmedian(measurement[name].to_numpy(dtype=float))) for name in CONDITIONS},
-        })
-    partial_start = starts[-1]
-    partial = runs.iloc[partial_start:].copy()
-    p1 = partial.loc[(partial["state_token"].eq(P1_TOKEN)) & (partial["duration_wall_s"].ge(120.0)) & (partial["stop_or_zero_current_flag"].eq(0))]
-    measurement = _measurement_for_p1_runs(raw_before_start, p1)
-    if not measurement.empty:
-        partial_id = len(starts)
-        records.append({
-            "cycle_interval_id": partial_interval_id, "interval_kind": "PRE_CHARACTERIZATION_PARTIAL_CYCLE_INTERVAL",
-            "raw_cycle_id": partial_id, "cycle_start_datetime": str(partial.iloc[0].start_datetime),
-            "measurement_end_datetime": str(measurement["measurement_end_datetime"].max()),
-            "measurement_end_ophrs2_h": float(measurement["measurement_end_ophrs2_h"].max()),
-            "P1S_voltage_V": float(np.nanmedian(measurement["P1S_voltage_V"].to_numpy(dtype=float))),
-            "P1S_operating_voltage_retention": float(np.nanmedian(measurement["P1S_voltage_V"].to_numpy(dtype=float)) / reference_voltage),
-            "has_complete_middle50_dwell": bool(measurement["P1S_voltage_V"].notna().all() and (measurement["raw_contributing_count"] > 0).all()),
-            "cycle_start_anchor_present": bool((partial.iloc[0].state_token, partial.iloc[1].state_token) == ANCHOR_PATTERN) if len(partial) > 1 else False,
-            "eligible_dwell_count": int(len(measurement)), "raw_contributing_count": int(measurement["raw_contributing_count"].sum()),
-            **{name: float(np.nanmedian(measurement[name].to_numpy(dtype=float))) for name in CONDITIONS},
-        })
-    return pd.DataFrame(records), runs
+    """Delegate all formal raw-to-interval work to the authoritative core."""
+    try:
+        return runtime_p1_intervals(
+            raw_before_start,
+            reference_voltage,
+            partial_interval_id=partial_interval_id,
+            partial_last_run_id=partial_last_run_id,
+            require_development_stratum=require_development_stratum,
+            synthetic_test_mode=synthetic_test_mode,
+        )
+    except RawAlignmentCoreError as exc:
+        raise StagePError(f"TEST_{exc}") from exc
 
 
 def _prediction_row(
@@ -381,6 +202,9 @@ def _prediction_row(
     models: dict,
     *,
     synthetic_test_mode: bool = False,
+    partial_last_run_id: int | None = None,
+    require_development_stratum: bool = False,
+    operating_age_cutoff_h: float | None = None,
 ) -> tuple[dict, dict]:
     before = raw.loc[raw["DateTime"] < characterization_start].copy()
     if before.empty:
@@ -389,6 +213,8 @@ def _prediction_row(
         before,
         float(alignment_inputs["reference_voltage_V"]),
         partial_interval_id=f"PARTIAL_PRE_{int(checkpoint)}",
+        partial_last_run_id=partial_last_run_id,
+        require_development_stratum=require_development_stratum,
         synthetic_test_mode=synthetic_test_mode,
     )
     if intervals.empty:
@@ -397,7 +223,7 @@ def _prediction_row(
     result = align_latest_three_intervals(
         intervals,
         characterization_start,
-        float(raw_cutoff.end_ophrs2_h),
+        float(operating_age_cutoff_h) if operating_age_cutoff_h is not None else float(raw_cutoff.end_ophrs2_h),
         alignment_inputs["frozen_development_joint_common_support"],
     )
     if result.status != "ALIGNED" or len(result.selected) != 3:
@@ -428,9 +254,12 @@ def _prediction_row(
             "interval_id": str(item.cycle_interval_id), "interval_kind": str(item.interval_kind),
             "raw_cycle_id": int(item.raw_cycle_id), "measurement_end_datetime": str(item.measurement_end_datetime),
             "measurement_end_ophrs2_h": float(item.measurement_end_ophrs2_h),
+            "P1S_voltage_V": float(item.P1S_voltage_V),
+            "P1S_operating_voltage_retention": float(item.P1S_operating_voltage_retention),
             "eligible_dwell_count": int(item.eligible_dwell_count),
             "raw_contributing_count": int(item.raw_contributing_count),
             "in_frozen_joint_common_support": bool(item.in_frozen_joint_common_support),
+            **{condition: float(getattr(item, condition)) for condition in CONDITIONS},
         })
     provenance = {
         "checkpoint": int(checkpoint),

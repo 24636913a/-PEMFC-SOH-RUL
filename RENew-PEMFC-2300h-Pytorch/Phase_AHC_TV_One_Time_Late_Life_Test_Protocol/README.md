@@ -23,3 +23,22 @@ target-free provenance, and permits paired Stage T target reading only after
 the hardened verification gate accepts those artifacts. The present freeze ran
 only temporary synthetic integration data; it did not create any real runtime
 artifact or read actual Test sources.
+
+## Final direct-runtime verification (V2)
+
+The final Development-only audit passes only because the actual formal Stage-P
+runtime was replayed at all six frozen PAA checkpoints, and the audit runner
+executed its required unittest suites itself:
+
+- Formal Stage P Development replay: **6/6 PASS**.
+- Synthetic runtime E2E: **ACTUALLY EXECUTED, PASS** (7 tests).
+- One-shot state machine: **ACTUALLY EXECUTED, PASS** (7 tests).
+- Real Test: **NOT OPENED**.
+
+The formal runtime and retained independent reference replay reproduce all 18
+selected interval identities, timestamps, P1S retention values, condition
+vectors, and support flags. `scripts/ahc_tv_raw_alignment_core.py` is the
+authoritative raw-to-interval implementation. This is an implementation
+correction only, not a scientific-protocol change. The phase is therefore
+`READY_FOR_EXPLICIT_OPEN_AHC_TV_TEST`, and remains prohibited from initiating
+that one-shot action itself.

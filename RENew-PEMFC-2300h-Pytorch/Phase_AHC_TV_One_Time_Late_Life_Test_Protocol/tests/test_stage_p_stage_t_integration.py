@@ -147,6 +147,7 @@ class StagePStageTIntegrationTests(unittest.TestCase):
             frozen_prediction_path=stage_p["prediction_path"],
             authorization_token=REQUIRED_TEST_AUTHORIZATION,
             event_log=events,
+            synthetic_test_mode=True,
         )
         self.assertEqual(
             events,
@@ -217,6 +218,7 @@ class StagePStageTIntegrationTests(unittest.TestCase):
                 frozen_prediction_path=stage_p["prediction_path"],
                 authorization_token=REQUIRED_TEST_AUTHORIZATION,
                 read_csv=target_reader,
+                synthetic_test_mode=True,
             )
         self.assertFalse(target_called)
 
@@ -237,6 +239,7 @@ class StagePStageTIntegrationTests(unittest.TestCase):
                 polarization_sources={2000: self.polar_2000, 2300: self.polar_2300},
                 frozen_prediction_path=prediction, authorization_token=REQUIRED_TEST_AUTHORIZATION,
                 read_csv=forbidden,
+                synthetic_test_mode=True,
             )
         self.assertFalse(called)
         stage_p, _ = self._stage_p("tamper_provenance")
@@ -246,6 +249,7 @@ class StagePStageTIntegrationTests(unittest.TestCase):
                 polarization_sources={2000: self.polar_2000, 2300: self.polar_2300},
                 frozen_prediction_path=stage_p["prediction_path"], authorization_token=REQUIRED_TEST_AUTHORIZATION,
                 read_csv=forbidden,
+                synthetic_test_mode=True,
             )
         self.assertFalse(called)
 

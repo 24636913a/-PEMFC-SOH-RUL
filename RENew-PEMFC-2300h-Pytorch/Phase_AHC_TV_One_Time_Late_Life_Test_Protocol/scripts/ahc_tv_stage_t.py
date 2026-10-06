@@ -77,6 +77,7 @@ def unblind_both_test_targets_once(
     event_log: list[str] | None = None,
     read_csv: Callable[..., pd.DataFrame] = pd.read_csv,
     before_first_target_read: Callable[[], None] | None = None,
+    synthetic_test_mode: bool = False,
 ) -> dict:
     """Read 2000 and 2300 target columns only after one unified gate passes.
 
@@ -87,7 +88,9 @@ def unblind_both_test_targets_once(
     """
     require_manual_test_authorization(authorization_token)
     phase = Path(phase)
-    sources = bind_both_polarization_sources(polarization_sources, phase=phase)
+    sources = bind_both_polarization_sources(
+        polarization_sources, phase=phase, synthetic_test_mode=synthetic_test_mode
+    )
     prediction = authorize_and_verify_target_unblinding(
         frozen_prediction_path, authorization_token=authorization_token, phase=phase
     )

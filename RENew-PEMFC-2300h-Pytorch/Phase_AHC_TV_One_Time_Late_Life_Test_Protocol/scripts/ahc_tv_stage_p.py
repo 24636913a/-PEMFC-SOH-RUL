@@ -70,16 +70,47 @@ def _forbidden_source_name(path: Path, registry: dict) -> bool:
     return any(token.lower() in lowered for token in registry["forbidden_source_name_tokens"])
 
 
-def _assert_source_path_allowed(path: Path, registry: dict) -> Path:
+def _assert_source_path_allowed(
+    path: Path,
+    registry: dict,
+    *,
+    synthetic_test_mode: bool = False,
+) -> Path:
+    """Validate an identity-only candidate without opening its contents.
+
+    The real Test runtime is constrained to the frozen authoritative root.
+    Synthetic tests explicitly opt out so they can exercise the production
+    filename-binding functions using temporary paths.
+    """
     resolved = assert_runtime_input_allowed(Path(path))
-    if _forbidden_source_name(resolved, registry):
-        raise RuntimeSourceBindingError("TEST_SOURCE_BINDING_AMBIGUOUS")
+    if not synthetic_test_mode:
+        root = Path(registry["local_dataset_root"]["path"]).resolve()
+        if not resolved.is_relative_to(root):
+            raise RuntimeSourceBindingError("TEST_SOURCE_BINDING_AMBIGUOUS")
     return resolved
+
+
+def _classify_source_candidate(
+    path: Path,
+    registry: dict,
+    *,
+    synthetic_test_mode: bool = False,
+) -> tuple[Path, bool]:
+    """Return a validated path and whether filename policy excludes it.
+
+    Exclusion is deliberately distinct from rejection.  A forbidden candidate
+    in an auto-discovered set is ignored; a forbidden sole mapping leaves zero
+    nominal matches and therefore still fails closed.
+    """
+    resolved = _assert_source_path_allowed(
+        Path(path), registry, synthetic_test_mode=synthetic_test_mode
+    )
+    return resolved, _forbidden_source_name(resolved, registry)
 
 
 def _checkpoint_filename_matches(path: Path, checkpoint: int, registry: dict) -> bool:
     pattern = registry["polarization_checkpoint_sources"][str(int(checkpoint))]["filename_regex"]
-    return re.search(pattern, Path(path).name, flags=re.IGNORECASE) is not None
+    return re.search(pattern, Path(path).name) is not None
 
 
 def bind_unique_polarization_source(
@@ -87,14 +118,25 @@ def bind_unique_polarization_source(
     candidates: Iterable[Path],
     *,
     phase: Path = PHASE,
+    synthetic_test_mode: bool = False,
 ) -> Path:
-    """Bind a checkpoint by registry/filename only; do not open source bytes."""
+    """Bind a checkpoint by filename identity only; never open source bytes.
+
+    All proposed candidates are classified first.  Forbidden filenames are
+    excluded before nominal matching, so an after-Air-Air file cannot make an
+    otherwise unique nominal candidate fail.  A sole forbidden or wrong file
+    yields zero nominal matches and is rejected below.
+    """
     registry = _registry(phase)
-    validated = [_assert_source_path_allowed(Path(candidate), registry) for candidate in candidates]
+    classified = [
+        _classify_source_candidate(
+            Path(candidate), registry, synthetic_test_mode=synthetic_test_mode
+        )
+        for candidate in candidates
+    ]
     matches = [
-        candidate for candidate in validated
-        if _checkpoint_filename_matches(candidate, checkpoint, registry)
-        and not _forbidden_source_name(candidate, registry)
+        candidate for candidate, excluded in classified
+        if not excluded and _checkpoint_filename_matches(candidate, checkpoint, registry)
     ]
     if len(matches) != 1:
         raise RuntimeSourceBindingError("TEST_SOURCE_BINDING_AMBIGUOUS")
@@ -102,7 +144,8 @@ def bind_unique_polarization_source(
 
 
 def bind_both_polarization_sources(
-    sources: Mapping[int, Path] | Iterable[Path], *, phase: Path = PHASE
+    sources: Mapping[int, Path] | Iterable[Path], *, phase: Path = PHASE,
+    synthetic_test_mode: bool = False,
 ) -> dict[int, Path]:
     """Return exactly one filename-bound 2000 h and 2300 h source.
 
@@ -113,21 +156,36 @@ def bind_both_polarization_sources(
         if set(sources) != {2000, 2300}:
             raise RuntimeSourceBindingError("TEST_SOURCE_BINDING_AMBIGUOUS")
         return {
-            checkpoint: bind_unique_polarization_source(checkpoint, [Path(sources[checkpoint])], phase=phase)
+            checkpoint: bind_unique_polarization_source(
+                checkpoint, [Path(sources[checkpoint])], phase=phase,
+                synthetic_test_mode=synthetic_test_mode,
+            )
             for checkpoint in (2000, 2300)
         }
     candidate_list = [Path(path) for path in sources]
     return {
-        checkpoint: bind_unique_polarization_source(checkpoint, candidate_list, phase=phase)
+        checkpoint: bind_unique_polarization_source(
+            checkpoint, candidate_list, phase=phase,
+            synthetic_test_mode=synthetic_test_mode,
+        )
         for checkpoint in (2000, 2300)
     }
 
 
-def validate_raw_sources(raw_sources: Iterable[Path], *, phase: Path = PHASE) -> list[Path]:
+def validate_raw_sources(
+    raw_sources: Iterable[Path], *, phase: Path = PHASE, synthetic_test_mode: bool = False,
+) -> list[Path]:
     """Validate only source identities; raw contents remain unopened here."""
     registry = _registry(phase)
-    paths = [_assert_source_path_allowed(Path(path), registry) for path in raw_sources]
-    if not paths or any(re.fullmatch(registry["raw_operating_source"]["filename_regex"], path.name, re.I) is None for path in paths):
+    paths = [
+        _assert_source_path_allowed(Path(path), registry, synthetic_test_mode=synthetic_test_mode)
+        for path in raw_sources
+    ]
+    if not paths or any(
+        _forbidden_source_name(path, registry)
+        or re.fullmatch(registry["raw_operating_source"]["filename_regex"], path.name, re.I) is None
+        for path in paths
+    ):
         raise RuntimeSourceBindingError("TEST_SOURCE_BINDING_AMBIGUOUS")
     if len({str(path) for path in paths}) != len(paths):
         raise RuntimeSourceBindingError("TEST_SOURCE_BINDING_AMBIGUOUS")
@@ -292,8 +350,10 @@ def build_and_freeze_stage_p(
     _log(event_log, "AUTHORIZATION_OK")
     phase = Path(phase)
     verify_frozen_runtime_authority(phase)
-    raw_paths = validate_raw_sources(raw_sources, phase=phase)
-    polar_paths = bind_both_polarization_sources(polarization_sources, phase=phase)
+    raw_paths = validate_raw_sources(raw_sources, phase=phase, synthetic_test_mode=synthetic_test_mode)
+    polar_paths = bind_both_polarization_sources(
+        polarization_sources, phase=phase, synthetic_test_mode=synthetic_test_mode
+    )
     runtime_dir = Path(runtime_dir)
     # The canonical formal directory is created exactly once by this Stage-P
     # builder, after the phase-global ledger has already consumed the opening.

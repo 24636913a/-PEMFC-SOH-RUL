@@ -15,6 +15,9 @@ execution_authority:
   runtime_source_registry:
     path: configs/AHC_TV_RUNTIME_SOURCE_REGISTRY.yaml
     role: filename_only_checkpoint_and_raw_source_binding
+  realhyfc_source_filename_dry_run:
+    path: scripts/run_realhyfc_source_binding_dry_run.py
+    role: filename_and_relative_path_only_preopen_source_binding_audit
   one_shot_execution_ledger:
     path: scripts/ahc_tv_one_shot_ledger.py
     role: phase_global_non_overwrite_execution_state_machine

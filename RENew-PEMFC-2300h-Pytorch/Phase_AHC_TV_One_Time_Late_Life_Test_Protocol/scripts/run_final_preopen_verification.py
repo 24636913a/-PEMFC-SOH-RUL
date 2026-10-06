@@ -22,6 +22,7 @@ from ahc_tv_alignment import CONDITIONS, PHASE, read_yaml, replay_development_al
 from ahc_tv_raw_alignment_core import RCR_TEMPLATE_PATH, RawAlignmentCoreError, read_development_prefix, runtime_p1_intervals
 from ahc_tv_stage_p import _prediction_row
 from ahc_tv_stage_t import TARGET_COLUMNS, extract_jstar_voltage_from_table
+from run_realhyfc_source_binding_dry_run import run_real_filename_binding_dry_run
 
 
 REPO = PHASE.parents[1]
@@ -293,11 +294,18 @@ def _formal_output_summary() -> dict[str, Any]:
     return {"rows": rows, "pass_count": int(checkpoint_pass.sum()), "required": 6, "all_pass": bool(len(checkpoint_pass) == 6 and checkpoint_pass.all())}
 
 
-def write_final_preopen_audit_v2(*, rcr_template: dict, artifact: dict, independent: dict, formal: dict, targets: dict, suites: dict[str, dict]) -> dict[str, Any]:
+def write_final_preopen_audit_v2(*, rcr_template: dict, source_binding: dict, artifact: dict, independent: dict, formal: dict, targets: dict, suites: dict[str, dict]) -> dict[str, Any]:
     rows = formal["rows"]
-    all_pass = bool(rcr_template["locked"] and rcr_template["hash_check"] == "PASS" and artifact["all_pass"] and independent["all_pass"] and formal["all_pass"] and targets["all_pass"] and all(result["wasSuccessful"] for result in suites.values()))
+    all_pass = bool(rcr_template["locked"] and rcr_template["hash_check"] == "PASS" and source_binding["binding_status"] == "PASS" and artifact["all_pass"] and independent["all_pass"] and formal["all_pass"] and targets["all_pass"] and all(result["wasSuccessful"] for result in suites.values()))
     audit = {
         "real_Test_accessed": False, "real_2000_2300_accessed": False,
+        "authoritative_local_dataset_root_recorded": True,
+        "real_test_filename_enumeration_only": True,
+        "real_test_file_content_accessed": bool(source_binding["file_content_opened"]),
+        "nominal_2000_source_match_count": int(source_binding["nominal_2000_match_count"]),
+        "nominal_2300_source_match_count": int(source_binding["nominal_2300_match_count"]),
+        "afterAirAir_2300_excluded": bool(source_binding["after_air_air_2300_excluded"]),
+        "test_source_binding_dry_run": source_binding["binding_status"],
         "RCR_cycle_template_runtime_hash_locked": bool(rcr_template["locked"]),
         "RCR_cycle_template_sha256": rcr_template["sha256"],
         "RCR_cycle_template_hash_check": rcr_template["hash_check"],
@@ -319,11 +327,12 @@ def write_final_preopen_audit_v2(*, rcr_template: dict, artifact: dict, independ
 
 def main() -> None:
     rcr_template = rcr_cycle_template_runtime_lock_audit(phase=PHASE)
+    source_binding = run_real_filename_binding_dry_run(phase=PHASE)
     artifact = replay_development_alignment(PHASE)
     independent = stage_p_development_raw_replay(); targets = stage_t_development_target_replay()
-    suites = {"A_stage_p_stage_t_integration": _run_test_suite("test_stage_p_stage_t_integration.py"), "B_one_shot_execution_state_machine": _run_test_suite("test_one_shot_execution_state_machine.py"), "C_formal_stage_p_development_equivalence": _run_test_suite("test_formal_stage_p_development_equivalence.py")}
-    formal = _formal_output_summary(); audit = write_final_preopen_audit_v2(rcr_template=rcr_template, artifact=artifact, independent=independent, formal=formal, targets=targets, suites=suites)
-    print(json.dumps({"rcr_template": rcr_template, "artifact": artifact, "independent": {key: value for key, value in independent.items() if key != "rows"}, "formal": {key: value for key, value in formal.items() if key != "rows"}, "targets": {key: value for key, value in targets.items() if key != "rows"}, "audit": audit}, indent=2, default=str))
+    suites = {"A_stage_p_stage_t_integration": _run_test_suite("test_stage_p_stage_t_integration.py"), "B_one_shot_execution_state_machine": _run_test_suite("test_one_shot_execution_state_machine.py"), "C_formal_stage_p_development_equivalence": _run_test_suite("test_formal_stage_p_development_equivalence.py"), "D_realhyfc_source_binding": _run_test_suite("test_realhyfc_source_binding.py")}
+    formal = _formal_output_summary(); audit = write_final_preopen_audit_v2(rcr_template=rcr_template, source_binding=source_binding, artifact=artifact, independent=independent, formal=formal, targets=targets, suites=suites)
+    print(json.dumps({"rcr_template": rcr_template, "source_binding": source_binding, "artifact": artifact, "independent": {key: value for key, value in independent.items() if key != "rows"}, "formal": {key: value for key, value in formal.items() if key != "rows"}, "targets": {key: value for key, value in targets.items() if key != "rows"}, "audit": audit}, indent=2, default=str))
     if audit["final_status"] != "AHC_TV_FINAL_PREOPEN_VERIFICATION_PASS":
         raise PreOpenVerificationError(audit["remaining_preopen_blocker"])
 

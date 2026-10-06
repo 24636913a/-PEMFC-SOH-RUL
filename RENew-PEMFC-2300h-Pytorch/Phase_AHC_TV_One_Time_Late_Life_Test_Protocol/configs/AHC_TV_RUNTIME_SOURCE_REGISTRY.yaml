@@ -1,25 +1,29 @@
 phase: Phase_AHC_TV_One_Time_Late_Life_Test_Protocol
 authority: AHC_TV_RUNTIME_SOURCE_REGISTRY_V1
 purpose: filename_and_registry_only_source_binding_before_any_Test_content_read
+local_dataset_root:
+  path: 'E:\沈农信电\课题-预测质子交换膜燃料电池（PEMFC）的健康状态和剩余寿命\数据\《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据'
+  role: REALHYFC_AUTHORITATIVE_LOCAL_DATA_ROOT
 existing_dataset_source_registry:
   path: RENew-PEMFC-2300h-Pytorch/Phase_PAA_P1_StateToken_PreAnchor_Alignment/SOURCE_MANIFEST.yaml
   sha256: 397bd4d9422d6b93c437cbe78430f1c68197aca838c5345fee468e8d8913b0b8
   role: source_layout_provenance_only_no_runtime_auto_discovery
-dataset_root_policy: inherited_from_the_existing_RealHyFC_source_layout_at_future_manual_execution
-path_resolution_before_manual_authorization: prohibited
+dataset_root_policy: local_dataset_root_is_the_sole_authoritative_RealHyFC_source_root
+path_resolution_before_manual_authorization: filename_and_relative_path_only
 polarization_checkpoint_sources:
   '2000':
     role: nominal_2000_h_polarization_checkpoint
-    filename_regex: '(?i)(?<![0-9])2000(?:h)?(?![0-9]).*\.csv$'
+    filename_regex: '(?i)^(?!.*after[_-]?air[_-]?air)(?!.*afterairair)(?!.*eis)(?!.*spatial)(?!.*sensitivity)(?=.*(?<![0-9])2000(?:h)?(?![0-9])).*\.csv$'
   '2300':
     role: nominal_2300_h_polarization_checkpoint
-    filename_regex: '(?i)(?<![0-9])2300(?:h)?(?![0-9]).*\.csv$'
+    filename_regex: '(?i)^(?!.*after[_-]?air[_-]?air)(?!.*afterairair)(?!.*eis)(?!.*spatial)(?!.*sensitivity)(?=.*(?<![0-9])2300(?:h)?(?![0-9])).*\.csv$'
 raw_operating_source:
   role: durability_stack_operating_rows_only
   filename_regex: '^Loadcycle_.+\.csv$'
 forbidden_source_name_tokens:
+  - afterairair
   - after_air_air
-  - air_air
+  - after-air-air
   - eis
   - spatial
   - sensitivity

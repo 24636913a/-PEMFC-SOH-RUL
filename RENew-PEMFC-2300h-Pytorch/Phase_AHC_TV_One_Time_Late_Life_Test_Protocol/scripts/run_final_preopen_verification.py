@@ -18,8 +18,8 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-from ahc_tv_alignment import CONDITIONS, PHASE, read_yaml, replay_development_alignment, sha256_file
-from ahc_tv_raw_alignment_core import RawAlignmentCoreError, read_development_prefix, runtime_p1_intervals
+from ahc_tv_alignment import CONDITIONS, PHASE, read_yaml, replay_development_alignment, sha256_file, verify_frozen_runtime_authority
+from ahc_tv_raw_alignment_core import RCR_TEMPLATE_PATH, RawAlignmentCoreError, read_development_prefix, runtime_p1_intervals
 from ahc_tv_stage_p import _prediction_row
 from ahc_tv_stage_t import TARGET_COLUMNS, extract_jstar_voltage_from_table
 
@@ -32,10 +32,28 @@ VOLTAGE_TOL = 1e-12
 RETENTION_TOL = 1e-12
 CONDITION_TOL = 1e-10
 OPHRS_TOL = 1e-9
+RCR_TEMPLATE_SHA256 = "267a3ee5a2d297b4368f4dd262771a19109e8015b2617de45ab828d83d696200"
 
 
 class PreOpenVerificationError(RuntimeError):
     """A Development-only replay did not reproduce a frozen artifact."""
+
+
+def rcr_cycle_template_runtime_lock_audit(*, phase: Path = PHASE) -> dict[str, Any]:
+    """Verify the direct formal raw-core dependency before any replay or Test I/O."""
+    authority = read_yaml(Path(phase) / "configs" / "AHC_TV_FROZEN_INPUT_AUTHORITY.yaml")
+    entries = [entry for entry in authority["frozen_hashes"] if entry["name"] == "frozen_RCR_cycle_template"]
+    if len(entries) != 1:
+        raise PreOpenVerificationError("RCR_CYCLE_TEMPLATE_RUNTIME_LOCK_MISSING")
+    entry = entries[0]
+    if entry["path"] != "RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/CYCLE_TEMPLATE.json":
+        raise PreOpenVerificationError("RCR_CYCLE_TEMPLATE_RUNTIME_PATH_MISMATCH")
+    if entry["sha256"] != RCR_TEMPLATE_SHA256 or sha256_file(RCR_TEMPLATE_PATH) != RCR_TEMPLATE_SHA256:
+        raise PreOpenVerificationError("RCR_CYCLE_TEMPLATE_RUNTIME_HASH_MISMATCH")
+    # This production guard hashes every frozen runtime input, including the
+    # direct RCR template entry, before any Reader M/Reader T invocation.
+    verify_frozen_runtime_authority(Path(phase))
+    return {"locked": True, "sha256": RCR_TEMPLATE_SHA256, "hash_check": "PASS"}
 
 
 def _load_dev_raw_sources() -> list[Path]:
@@ -275,11 +293,14 @@ def _formal_output_summary() -> dict[str, Any]:
     return {"rows": rows, "pass_count": int(checkpoint_pass.sum()), "required": 6, "all_pass": bool(len(checkpoint_pass) == 6 and checkpoint_pass.all())}
 
 
-def write_final_preopen_audit_v2(*, artifact: dict, independent: dict, formal: dict, targets: dict, suites: dict[str, dict]) -> dict[str, Any]:
+def write_final_preopen_audit_v2(*, rcr_template: dict, artifact: dict, independent: dict, formal: dict, targets: dict, suites: dict[str, dict]) -> dict[str, Any]:
     rows = formal["rows"]
-    all_pass = bool(artifact["all_pass"] and independent["all_pass"] and formal["all_pass"] and targets["all_pass"] and all(result["wasSuccessful"] for result in suites.values()))
+    all_pass = bool(rcr_template["locked"] and rcr_template["hash_check"] == "PASS" and artifact["all_pass"] and independent["all_pass"] and formal["all_pass"] and targets["all_pass"] and all(result["wasSuccessful"] for result in suites.values()))
     audit = {
         "real_Test_accessed": False, "real_2000_2300_accessed": False,
+        "RCR_cycle_template_runtime_hash_locked": bool(rcr_template["locked"]),
+        "RCR_cycle_template_sha256": rcr_template["sha256"],
+        "RCR_cycle_template_hash_check": rcr_template["hash_check"],
         "artifact_alignment_replay": f"{artifact['pass_count']}/{artifact['required']} {'PASS' if artifact['all_pass'] else 'FAIL'}",
         "independent_reference_raw_stage_p_replay": f"{independent['pass_count']}/{independent['required']} {'PASS' if independent['all_pass'] else 'FAIL'}",
         "formal_stage_p_runtime_replay": f"{formal['pass_count']}/{formal['required']} {'PASS' if formal['all_pass'] else 'FAIL'}",
@@ -297,11 +318,12 @@ def write_final_preopen_audit_v2(*, artifact: dict, independent: dict, formal: d
 
 
 def main() -> None:
+    rcr_template = rcr_cycle_template_runtime_lock_audit(phase=PHASE)
     artifact = replay_development_alignment(PHASE)
     independent = stage_p_development_raw_replay(); targets = stage_t_development_target_replay()
     suites = {"A_stage_p_stage_t_integration": _run_test_suite("test_stage_p_stage_t_integration.py"), "B_one_shot_execution_state_machine": _run_test_suite("test_one_shot_execution_state_machine.py"), "C_formal_stage_p_development_equivalence": _run_test_suite("test_formal_stage_p_development_equivalence.py")}
-    formal = _formal_output_summary(); audit = write_final_preopen_audit_v2(artifact=artifact, independent=independent, formal=formal, targets=targets, suites=suites)
-    print(json.dumps({"artifact": artifact, "independent": {key: value for key, value in independent.items() if key != "rows"}, "formal": {key: value for key, value in formal.items() if key != "rows"}, "targets": {key: value for key, value in targets.items() if key != "rows"}, "audit": audit}, indent=2, default=str))
+    formal = _formal_output_summary(); audit = write_final_preopen_audit_v2(rcr_template=rcr_template, artifact=artifact, independent=independent, formal=formal, targets=targets, suites=suites)
+    print(json.dumps({"rcr_template": rcr_template, "artifact": artifact, "independent": {key: value for key, value in independent.items() if key != "rows"}, "formal": {key: value for key, value in formal.items() if key != "rows"}, "targets": {key: value for key, value in targets.items() if key != "rows"}, "audit": audit}, indent=2, default=str))
     if audit["final_status"] != "AHC_TV_FINAL_PREOPEN_VERIFICATION_PASS":
         raise PreOpenVerificationError(audit["remaining_preopen_blocker"])
 

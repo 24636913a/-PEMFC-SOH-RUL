@@ -1,14 +1,19 @@
 from __future__ import annotations
 
 import hashlib
+import sys
 import unittest
 from pathlib import Path
+from unittest import mock
 
 import yaml
 
 
 PHASE = Path(__file__).resolve().parents[1]
 REPO = PHASE.parents[1]
+sys.path.insert(0, str(PHASE / "scripts"))
+from ahc_tv_alignment import TargetUnblindingBlocked, sha256_file, verify_frozen_runtime_authority  # noqa: E402
+from ahc_tv_raw_alignment_core import RCR_TEMPLATE_PATH  # noqa: E402
 
 
 def sha256(path: Path) -> str:
@@ -55,3 +60,21 @@ class RuntimeIntegrationAuthorityTests(unittest.TestCase):
         self.assertEqual(registry["binding_failure_status"], "TEST_SOURCE_BINDING_AMBIGUOUS")
         self.assertIn("after_Air_Air_polarization", registry["forbidden_source_classes"])
         self.assertIn("Test_EIS", registry["forbidden_source_classes"])
+
+    def test_rcr_template_hash_mismatch_fails_closed_before_any_test_reader(self) -> None:
+        authority = yaml.safe_load((PHASE / "configs" / "AHC_TV_FROZEN_INPUT_AUTHORITY.yaml").read_text(encoding="utf-8"))
+        template = [item for item in authority["frozen_hashes"] if item["name"] == "frozen_RCR_cycle_template"]
+        self.assertEqual(len(template), 1)
+        self.assertEqual(template[0]["sha256"], "267a3ee5a2d297b4368f4dd262771a19109e8015b2617de45ab828d83d696200")
+        verify_frozen_runtime_authority(PHASE)
+        real_sha256 = sha256_file
+
+        def tampered_hash(path: Path) -> str:
+            if Path(path).resolve() == RCR_TEMPLATE_PATH.resolve():
+                return "0" * 64
+            return real_sha256(path)
+
+        with mock.patch("ahc_tv_alignment.sha256_file", side_effect=tampered_hash), mock.patch("pandas.read_csv") as test_reader:
+            with self.assertRaises(TargetUnblindingBlocked):
+                verify_frozen_runtime_authority(PHASE)
+            test_reader.assert_not_called()

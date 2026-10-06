@@ -30,6 +30,9 @@ frozen_hashes:
   - name: PAA_protocol_exact_alignment_authority
     path: RENew-PEMFC-2300h-Pytorch/Phase_PAA_P1_StateToken_PreAnchor_Alignment/configs/PREREGISTERED_PAA_PROTOCOL.yaml
     sha256: f8b5ddf76ec3f0ac40d79e637d7641cfb14d29251821a1f47533e8718910b8a5
+  - name: frozen_RCR_cycle_template
+    path: RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/CYCLE_TEMPLATE.json
+    sha256: 267a3ee5a2d297b4368f4dd262771a19109e8015b2617de45ab828d83d696200
   - name: P1S_reference_complete_cycles
     path: RENew-PEMFC-2300h-Pytorch/Phase_PAA_P1_StateToken_PreAnchor_Alignment/outputs/P1S_REFERENCE_COMPLETE_CYCLES.csv
     sha256: 9a9b536229cf252f561870b7ac5235f73240940bfc6ef8f2f6e78196ef837f77
@@ -59,7 +62,7 @@ frozen_hashes:
     sha256: d4415220591f8244b59c805951083358f85d308c5f1e25bb07f559ff7b7b1f57
   - name: final_preopen_verification_runner
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/run_final_preopen_verification.py
-    sha256: 95d03f22242b07a1d82a73477e7d88328ff74a4413120c68c162980614ad505e
+    sha256: aa2112be8047e58de066d6cca231d67d8406ce94da072ca32efd991ed78c01bd
   - name: frozen_prediction_schema
     path: RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/schemas/FROZEN_TEST_PREDICTIONS_SCHEMA.yaml
     sha256: 2cbd5928ee63f2c613002330b1aa3500cd5f11d6f6eb78f671f2a070a1bc38ad

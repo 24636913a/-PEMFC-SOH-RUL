@@ -126,6 +126,7 @@ class StagePStageTIntegrationTests(unittest.TestCase):
             runtime_dir=self.root / runtime_name,
             authorization_token=kwargs.pop("authorization_token", REQUIRED_TEST_AUTHORIZATION),
             event_log=events,
+            synthetic_test_mode=True,
             **kwargs,
         )
         return result, events
@@ -182,7 +183,7 @@ class StagePStageTIntegrationTests(unittest.TestCase):
         with self.assertRaises(TargetUnblindingBlocked):
             run_one_shot(
                 authorization="wrong", raw_sources=[self.raw], polarization_2000=self.polar_2000,
-                polarization_2300=self.polar_2300, runtime_dir=self.root / "runner_no_auth",
+                polarization_2300=self.polar_2300,
             )
 
     def test_stage_p_fails_for_less_than_three_intervals_or_one_of_three_support(self) -> None:

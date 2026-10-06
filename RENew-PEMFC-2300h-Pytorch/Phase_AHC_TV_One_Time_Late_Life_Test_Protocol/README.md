@@ -1,10 +1,14 @@
 # Phase AHC-TV — One-Time Late-Life Test Validation Protocol
 
-**Status:** `AHC_TV_RUNTIME_FROZEN_READY_FOR_MANUAL_OPEN_DECISION`
+**Status:** `READY_FOR_EXPLICIT_OPEN_AHC_TV_TEST`
 
 This is a protocol-freeze-only phase. It does not read Test raw data, polarization, EIS, 2000 h, 2300 h, or after-Air-Air data; it does not run Test metrics. The sole preregistered question is whether the Development-frozen P1S affine calibration is more accurate than a Development-frozen nominal-age affine baseline at the two late-life checkpoints 2000 h and 2300 h.
 
 The protocol provides no authorization to unblind Test. A separate manual decision is required before any one-shot execution.
+
+The final pre-open verification passed without opening real 2000 h or 2300 h
+Test sources.  The phase is ready only to wait for an explicit
+`OPEN_AHC_TV_TEST` decision; it must not initiate one-shot execution itself.
 
 The original protocol remains intact. `configs/AHC_TV_EXECUTION_CONTRACT_V1.yaml`
 is its frozen pre-unblinding supplement: it fixes the exact PAA inheritance,

@@ -1,6 +1,7 @@
 """Stage T: the sole paired target reader for a completed AHC-TV Stage P run."""
 from __future__ import annotations
 
+import warnings
 from pathlib import Path
 from typing import Callable, Iterable, Mapping
 
@@ -27,16 +28,33 @@ def _log(events: list[str] | None, event: str) -> None:
         events.append(event)
 
 
-def _target_from_table(table: pd.DataFrame, *, bol_voltage: float) -> float:
+def extract_jstar_voltage_from_table(table: pd.DataFrame) -> tuple[float, int]:
+    """Frozen 10-active-cell nanmean/nanmedian extractor used by Stage T.
+
+    It mirrors the Development polarization reader: one missing active cell
+    does not invalidate a row, while an all-missing active-cell row contributes
+    no voltage.  The returned count is the number of finite j*=1.0 local rows.
+    """
     if tuple(table.columns) != TARGET_COLUMNS:
         raise StageTError("TARGET_READER_COLUMN_ISOLATION_FAILED")
     density = pd.to_numeric(table["j.S.act [A/cm2]"], errors="coerce")
     active = table.loc[:, TARGET_COLUMNS[1:]].apply(pd.to_numeric, errors="coerce")
-    voltage = active.mean(axis=1, skipna=False)
+    cells = active.to_numpy(dtype=float)
+    all_missing = np.isnan(cells).all(axis=1)
+    with np.errstate(invalid="ignore"), warnings.catch_warnings():
+        warnings.simplefilter("ignore", category=RuntimeWarning)
+        voltage = np.nanmean(cells, axis=1)
+    voltage[all_missing] = np.nan
+    voltage = pd.Series(voltage, index=table.index, dtype=float)
     selected = voltage.loc[density.sub(1.0).abs().le(0.01) & voltage.notna()]
     if selected.empty:
         raise StageTError("TEST_TARGET_JSTAR_ROWS_UNAVAILABLE")
-    return float(selected.median() / float(bol_voltage))
+    return float(np.nanmedian(selected.to_numpy(dtype=float))), int(len(selected))
+
+
+def _target_from_table(table: pd.DataFrame, *, bol_voltage: float) -> float:
+    voltage, _ = extract_jstar_voltage_from_table(table)
+    return float(voltage / float(bol_voltage))
 
 
 def _read_one_target(
@@ -58,6 +76,7 @@ def unblind_both_test_targets_once(
     phase: Path = PHASE,
     event_log: list[str] | None = None,
     read_csv: Callable[..., pd.DataFrame] = pd.read_csv,
+    before_first_target_read: Callable[[], None] | None = None,
 ) -> dict:
     """Read 2000 and 2300 target columns only after one unified gate passes.
 
@@ -75,6 +94,8 @@ def unblind_both_test_targets_once(
     alignment_inputs = read_yaml(phase / "configs" / "AHC_TV_FROZEN_ALIGNMENT_INPUTS.yaml")
     bol_voltage = float(alignment_inputs["polarization_target_normalization"]["V_pol_BoL_jstar_1_0"])
     targets: dict[int, float] = {}
+    if before_first_target_read is not None:
+        before_first_target_read()
     for checkpoint in (2000, 2300):
         target_table = _read_one_target(sources[checkpoint], read_csv=read_csv)
         _log(event_log, f"TARGET_{checkpoint}_READ")

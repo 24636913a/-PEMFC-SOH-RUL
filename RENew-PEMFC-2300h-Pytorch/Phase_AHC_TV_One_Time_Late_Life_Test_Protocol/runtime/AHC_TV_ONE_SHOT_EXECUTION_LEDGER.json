@@ -1,0 +1,26 @@
+{
+  "aborted_at_utc": "2026-10-06T16:12:59.478042Z",
+  "authorization_marker": "OPEN_AHC_TV_TEST",
+  "base_commit": "50d0964ed7c8b288b6440529ca71b269eeec4bc4",
+  "completed": false,
+  "failure": {
+    "exception_type": "StagePError",
+    "message": "TEST_ALIGNMENT_INCONCLUSIVE",
+    "stage": "STAGE_P",
+    "target_unblinded": false
+  },
+  "stage_p_frozen": false,
+  "started_at_utc": "2026-10-06T16:11:19.149120Z",
+  "status": "ABORTED_AFTER_TEST_EXECUTION_STARTED",
+  "target_unblinded": false,
+  "transition_history": [
+    {
+      "at_utc": "2026-10-06T16:11:19.149120Z",
+      "status": "EXECUTION_STARTED_BEFORE_FIRST_TEST_IO"
+    },
+    {
+      "at_utc": "2026-10-06T16:12:59.478042Z",
+      "status": "ABORTED_AFTER_TEST_EXECUTION_STARTED"
+    }
+  ]
+}

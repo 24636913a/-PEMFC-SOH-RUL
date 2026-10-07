@@ -1,0 +1,81 @@
+phase: Phase_TSHE_TimesNet_P1S_B2_Health_State_Estimation
+base_commit: 85d0d6027de5949ff1ad13177a1041d64d54dd0a
+backbone: TimesNet
+backbone_search_reopened: false
+backbone_authority: ../Phase_BS_Final_Backbone_Screening/configs/PREREGISTERED_PROTOCOL.yaml
+input:
+  name: Raw F2
+  shape: [48, 14]
+  resolution_h: 0.5
+  feature_order:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+  prohibited_model_inputs:
+    - P1S_voltage_V
+    - P1S_operating_voltage_retention
+    - SOH_P1S_B2
+    - operating_age_OpHrs2
+    - raw_cycle_id
+    - target_cycle_metadata
+    - future_operating_conditions
+    - polarization_target
+target:
+  name: SOH_P1S_B2
+  definition: a_times_P1S_operating_voltage_retention_plus_b
+  source_table: ../Phase_PAA_P1_StateToken_PreAnchor_Alignment/outputs/P1S_COMPLETE_CYCLE_MEASUREMENTS.csv
+  stable_window: middle_50
+  interval_kind: COMPLETE_CYCLE_INTERVAL
+  b2_source: ../Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/configs/FROZEN_DEVELOPMENT_MODELS.yaml
+  slope: 1.1988114938324186
+  intercept: -0.20903624631182127
+isolation:
+  target_cycle_catalog: ../Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_CYCLE_CATALOG.csv
+  rule: input_end_ophrs2_h_strictly_less_than_target_cycle_start_ophrs2_h
+  require_single_temporal_segment: true
+  require_all_48_bins_valid: true
+  require_0_5h_continuity: true
+model:
+  head: temporal_mean_pooling_then_Linear_d_model_to_1
+  forbidden_head_components: [attention, MLP_stack, GRU, LSTM, Transformer, extra_hidden_layers]
+training:
+  seeds: [42, 2024, 3407]
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 64
+  max_epochs: 300
+  patience: 30
+  gradient_clip_norm: 1.0
+  loss: standardized_SOH_MSE
+  inner_stopper_fraction: 0.15
+folds:
+  - fold: fold_1
+    train: [72.788690, 946.393214]
+    validation: [946.393214, 1164.794345]
+  - fold: fold_2
+    train: [72.788690, 1164.794345]
+    validation: [1164.794345, 1383.195476]
+  - fold: fold_3
+    train: [72.788690, 1383.195476]
+    validation: [1383.195476, 1819.997738]
+development_end_h_exclusive: 1819.997738
+posthoc_late_life_holdout: [1819.997738, 2256.8]
+gates:
+  A: TimesNet_three_fold_mean_MAE_less_than_Age_only_mean_MAE
+  B: TimesNet_three_fold_mean_MAE_less_than_Last_voltage_only_mean_MAE
+  C: Fold3_seed_mean_R2_greater_than_zero
+  D: Fold3_seed_mean_Spearman_greater_than_zero
+real_rul_labels_available: false
+direct_rul_model_training: prohibited

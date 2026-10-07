@@ -1,0 +1,24 @@
+repair_phase: CSHSE_PROTOCOL_REPAIR_ONLY
+prior_run_status: INVALID_PROTOCOL_BREACH
+prior_breach: FULL_FILE_HASH_READ_BEYOND_DEVELOPMENT_PREFIX
+test_label_access_confirmed: false
+test_label_access_evidence: none
+causal_features_access:
+  permitted_read: pd.read_csv(path, usecols=explicit_columns, nrows=3007)
+  required_filter: bin_end_ophrs2_h < 1819.997738
+  required_development_rows: 3005
+  full_file_hash_prohibited: true
+  full_file_metadata_integrity_prohibited: true
+  fingerprint:
+    name: development_prefix_fingerprint_sha256
+    scope: filtered_3005_development_rows_only
+    serialization: deterministic_csv
+    encoding: utf-8
+    index: false
+    header: true
+    lineterminator: LF
+    float_format: '%.17g'
+    column_order: explicit_CSHSE_source_column_order
+    row_order: original_prefix_order_after_prescribed_filter
+clean_rerun_required: true
+model_protocol_changed: false

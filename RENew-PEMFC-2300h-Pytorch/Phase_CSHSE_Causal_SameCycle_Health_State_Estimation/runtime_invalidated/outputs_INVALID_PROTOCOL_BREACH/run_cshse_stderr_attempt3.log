@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_CSHSE_Causal_SameCycle_Health_State_Estimation\scripts\run_cshse.py", line 713, in <module>
+    main()
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_CSHSE_Causal_SameCycle_Health_State_Estimation\scripts\run_cshse.py", line 707, in main
+    (REPORT / "CAUSAL_SAME_CYCLE_HEALTH_STATE_ESTIMATION_REPORT.md").write_text(build_report(summary, reconstruction, timing, results, baselines, spread, stability), encoding="utf-8")
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_CSHSE_Causal_SameCycle_Health_State_Estimation\scripts\run_cshse.py", line 537, in build_report
+    {markdown_table(timing[["history_extension_h", "same_cycle_history_used", "window_legal"]].describe().transpose().reset_index().rename(columns={{"index":"quantity"}}), 6)}
+                                                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unhashable type: 'dict'

@@ -1,0 +1,62 @@
+phase: Phase_CSHSE_Causal_SameCycle_Health_State_Estimation
+base_commit: 01dd495536db6514414bd432e0bb8498cfe884b9
+designation: DEVELOPMENT_ONLY
+test_access: prohibited
+task_definition: PRE_P1S_CURRENT_HISTORY_TO_CURRENT_P1S_B2_PROXY
+development_boundary_h: 1819.997738
+causal_table:
+  source: Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  allowed_nrows: 3007
+  required_development_rows: 3005
+resolution_h: 0.5
+lookback_bins: 48
+lookback_h: 24.0
+guard_h: 0.5
+p1s_authority:
+  phase: Phase_PAA_P1_StateToken_PreAnchor_Alignment
+  stable_window: middle_50
+  voltage_match_tolerance_V: 1.0e-8
+  target_measurement_input_excluded: true
+health_supervision:
+  source_phase: Phase_CSTL_Chronology_Safe_Pretrained_TimesNet_Health_Transfer
+  calibration: fold_specific_chronology_safe_B2
+  fold_1_anchors: [300, 600, 850]
+  fold_2_anchors: [300, 600, 850, 1150]
+  fold_3_anchors: [300, 600, 850, 1150]
+timesnet:
+  source_phase: Phase_BS_Final_Backbone_Screening
+  checkpoints_per_fold: 3
+  pretrained_task: DeltaV_forecasting
+  encoder_frozen: true
+  parameters_updated: 0
+  latent: pre_projection_latent
+  pooling: temporal_mean
+  probe: Ridge
+  ridge_alpha_grid: [1.0e-6, 1.0e-4, 1.0e-2, 1.0, 100.0]
+  inner_selection: chronological_last_15_percent_outer_train_MAE
+inputs:
+  feature_order:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+prohibited:
+  - Test_access
+  - post_1819_label_construction
+  - encoder_finetuning
+  - multitask_training
+  - backbone_search
+  - lookback_change
+  - P1S_measurement_as_input
+  - operating_age_as_TimesNet_input
+  - RUL_training

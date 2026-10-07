@@ -1,0 +1,7 @@
+﻿source,source_type,allowed_range,read_method,nrows_limit,post_read_filter,full_file_hash_allowed
+RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv,mixed Development/Test physical file,read nrows=3007; retain bin_end_ophrs2_h < 1819.997738 (3005 rows),read_causal_development_prefix,3007,bin_end_ophrs2_h < 1819.997738,False
+RENew-PEMFC-2300h-Pytorch/Phase_PAA_P1_StateToken_PreAnchor_Alignment/outputs/P1S_COMPLETE_CYCLE_MEASUREMENTS.csv,Development-only frozen P1S artifact,entire artifact,pd.read_csv,not applicable,middle_50 complete cycles,True
+RENew-PEMFC-2300h-Pytorch/Phase_TSHE_TimesNet_P1S_B2_Health_State_Estimation/outputs/HEALTH_EVENT_DATASET.csv,Development-only frozen event artifact,entire artifact,pd.read_csv,not applicable,previously legal 105 events,True
+RENew-PEMFC-2300h-Pytorch/Phase_CSTL_Chronology_Safe_Pretrained_TimesNet_Health_Transfer/outputs/FOLD_SPECIFIC_CHRONOLOGY_SAFE_B2.csv,Development-only frozen calibration artifact,entire artifact,pd.read_csv,not applicable,TARGET_AUTHORITY folds,True
+Phase_BS_Final_Backbone_Screening/checkpoints/bs_timesnet_fold_*_seed*.pt,frozen Development-trained checkpoints,nine listed checkpoints,torch.load(map_location=cpu),not applicable,none,True
+PAA allowlisted Loadcycle raw files through 1719.31 h,mixed raw durability files,PAA frozen chunks ages < 1719.31 h,pd.read_csv chunks with age firewall,PAA frozen cutoff,age < 1719.31 h; raises at >=1819.997738,False

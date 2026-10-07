@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_CSHSE_Causal_SameCycle_Health_State_Estimation\scripts\run_cshse.py", line 700, in <module>
+    main()
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_CSHSE_Causal_SameCycle_Health_State_Estimation\scripts\run_cshse.py", line 572, in main
+    reconstruction = raw_reconstruction(paa, source, float(config["p1s_authority"]["voltage_match_tolerance_V"]))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_CSHSE_Causal_SameCycle_Health_State_Estimation\scripts\run_cshse.py", line 298, in raw_reconstruction
+    raise AuditFailure("P1S_MEASUREMENT_INTERVAL_RECONSTRUCTION_MISMATCH")
+AuditFailure: P1S_MEASUREMENT_INTERVAL_RECONSTRUCTION_MISMATCH

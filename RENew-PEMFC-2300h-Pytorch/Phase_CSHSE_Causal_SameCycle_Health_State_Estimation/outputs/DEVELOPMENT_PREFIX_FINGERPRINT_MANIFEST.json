@@ -1,0 +1,42 @@
+{
+  "fingerprint_name": "development_prefix_fingerprint_sha256",
+  "fingerprint_scope": "filtered_3005_development_rows_only",
+  "development_prefix_fingerprint_sha256": "51547e1f7747ac20e73e413a9ac22d93f831ba3b58e60b5ab0e1f6e399b5f7bf",
+  "row_count": 3005,
+  "column_count": 18,
+  "column_names": [
+    "bin_start_ophrs2_h",
+    "bin_end_ophrs2_h",
+    "bin_valid_for_windows",
+    "temporal_segment_id",
+    "cell_voltage_mean",
+    "cell_voltage_std",
+    "cell_voltage_range",
+    "cell_voltage_min",
+    "cell_voltage_max",
+    "actual_current_A_mean",
+    "actual_current_A_std",
+    "actual_current_A_peak_to_peak",
+    "actual_current_density_A_cm2_mean",
+    "actual_current_density_A_cm2_std",
+    "actual_current_density_A_cm2_peak_to_peak",
+    "load_transition_count",
+    "operation_point_transitions",
+    "zero_current_fraction"
+  ],
+  "column_order": "explicit_CSHSE_source_column_order",
+  "row_order": "original_prefix_order_after_prescribed_filter",
+  "serialization": {
+    "format": "csv",
+    "encoding": "utf-8",
+    "index": false,
+    "header": true,
+    "lineterminator": "LF",
+    "float_format": "%.17g"
+  },
+  "full_file_hash_computed": false,
+  "statement": "This fingerprint covers only the legally accessible frozen Development prefix after nrows=3007 and bin_end_ophrs2_h < 1819.997738.",
+  "development_filter": "bin_end_ophrs2_h < 1819.997738",
+  "causal_features_read_nrows": 3007,
+  "development_rows_after_filter": 3005
+}

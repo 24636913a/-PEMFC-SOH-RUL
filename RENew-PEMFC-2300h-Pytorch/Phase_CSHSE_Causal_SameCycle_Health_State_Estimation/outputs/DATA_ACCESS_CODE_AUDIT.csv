@@ -1,0 +1,7 @@
+﻿function_name,file_path,read_method,read_limit,purpose,can_read_beyond_development_prefix,audit_pass
+read_causal_development_prefix,RENew-PEMFC-2300h-Pytorch/Phase_CSHSE_Causal_SameCycle_Health_State_Estimation/scripts/run_cshse.py,"pd.read_csv(usecols=explicit, nrows=3007)",3007,formal Raw F2 Development source,False,True
+development_prefix_fingerprint,RENew-PEMFC-2300h-Pytorch/Phase_CSHSE_Causal_SameCycle_Health_State_Estimation/scripts/run_cshse.py,in-memory deterministic CSV serialization of filtered Development dataframe,3005,Development-only integrity fingerprint,False,True
+reproduce_preprocessing via CSTL,RENew-PEMFC-2300h-Pytorch/Phase_CSTL_Chronology_Safe_Pretrained_TimesNet_Health_Transfer/scripts/run_cstl.py,calls backbone_common.read_development_prefix,3007,sampled checkpoint-preprocessing consistency,False,True
+backbone_common.read_development_prefix,RENew-PEMFC-2300h-Pytorch/Phase_BS_Final_Backbone_Screening/scripts/backbone_common.py,"pd.read_csv(usecols=registered, nrows=frozen 3007)",3007,frozen Final Backbone Screening replay,False,True
+raw_reconstruction,RENew-PEMFC-2300h-Pytorch/Phase_CSHSE_Causal_SameCycle_Health_State_Estimation/scripts/run_cshse.py,PAA allowlisted raw chunks below 1719.31 h with fail-closed age firewall,PAA frozen cutoff,P1S interval location/value replay,False,True
+sha256,RENew-PEMFC-2300h-Pytorch/Phase_CSHSE_Causal_SameCycle_Health_State_Estimation/scripts/run_cshse.py,whole-file bytes for small frozen configs/code/artifacts; raises for CAUSAL,not applicable to causal CSV,small-artifact provenance,False,True

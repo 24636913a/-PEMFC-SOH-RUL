@@ -1,0 +1,90 @@
+{
+  "target_blind": true,
+  "one_shot_rerun": false,
+  "ledger_modified": false,
+  "2000_failure": "JOINT_SUPPORT",
+  "2300_alignment": "ALIGNED",
+  "timeline_interval_count": 69,
+  "timeline_start_h": 1504.31,
+  "timeline_end_h": 2256.77,
+  "development_checkpoint_cutoffs_h": {
+    "1500": 1463.38,
+    "1750": 1719.31,
+    "2000": 1998.17,
+    "2300": 2256.8
+  },
+  "dominant_violation_variables": [
+    "anode_stoichiometry",
+    "cathode_stoichiometry",
+    "anode_inlet_RH_pct"
+  ],
+  "potentially_overrestrictive_support_dimensions": [
+    "anode_stoichiometry",
+    "cathode_stoichiometry",
+    "anode_hydrogen_flow_nl_min"
+  ],
+  "development_support_box_assessment": "POTENTIALLY_OVERRESTRICTIVE",
+  "support_drift_classification": "MULTIPLE_CAUSES",
+  "p1s_should_be_abandoned": "NO",
+  "p1s_signal_itself": "USABLE",
+  "principal_weakness": "HARD_SUPPORT_GATE",
+  "recommended_next_route": "Route A - Condition-Normalized P1S Health Representation",
+  "checkpoint_anatomy": {
+    "2000": {
+      "support_count": 0,
+      "common_fail_variables": [
+        "anode_stoichiometry",
+        "cathode_stoichiometry"
+      ],
+      "final_joint_failure_run_count": 10,
+      "final_joint_failure_run_start_h": 1915.47,
+      "failure_pattern": "PERSISTENT",
+      "sustained_variable_violation_start_h_in_latest10": {
+        "current_density": null,
+        "anode_inlet_temperature_C": null,
+        "anode_inlet_pressure_kPag": null,
+        "anode_inlet_RH_pct": null,
+        "anode_hydrogen_flow_nl_min": null,
+        "anode_stoichiometry": 1915.47,
+        "cathode_stoichiometry": 1915.47
+      },
+      "persistent_variable_violation_run_count": {
+        "current_density": 0,
+        "anode_inlet_temperature_C": 1,
+        "anode_inlet_pressure_kPag": 0,
+        "anode_inlet_RH_pct": 2,
+        "anode_hydrogen_flow_nl_min": 0,
+        "anode_stoichiometry": 25,
+        "cathode_stoichiometry": 25
+      },
+      "persistent_variable_violation_start_h": {
+        "current_density": null,
+        "anode_inlet_temperature_C": 1998.14,
+        "anode_inlet_pressure_kPag": null,
+        "anode_inlet_RH_pct": 1991.66,
+        "anode_hydrogen_flow_nl_min": null,
+        "anode_stoichiometry": 1772.62,
+        "cathode_stoichiometry": 1772.62
+      },
+      "earliest_sustained_variables": [
+        "anode_stoichiometry",
+        "cathode_stoichiometry"
+      ]
+    },
+    "2300": {
+      "support_count": 2,
+      "rank3_fail_variables": [
+        "anode_inlet_temperature_C",
+        "anode_stoichiometry"
+      ]
+    }
+  },
+  "targets_remain_blinded": true,
+  "all_target_metrics": "NOT_EVALUATED_TARGET_BLIND",
+  "input_boundary": {
+    "raw_polarization_targets_read": false,
+    "stage_t_run": false,
+    "original_one_shot_runner_run": false,
+    "frozen_support_refit": false
+  }
+}

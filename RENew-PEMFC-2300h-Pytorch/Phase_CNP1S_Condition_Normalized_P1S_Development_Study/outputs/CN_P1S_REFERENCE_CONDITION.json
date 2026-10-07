@@ -1,0 +1,28 @@
+{
+  "source_artifact": "RENew-PEMFC-2300h-Pytorch\\Phase_PAA_P1_StateToken_PreAnchor_Alignment\\outputs\\P1S_REFERENCE_COMPLETE_CYCLES.csv",
+  "number_of_intervals": 10,
+  "interval_ids": [
+    "COMPLETE_001",
+    "COMPLETE_002",
+    "COMPLETE_003",
+    "COMPLETE_004",
+    "COMPLETE_005",
+    "COMPLETE_006",
+    "COMPLETE_007",
+    "COMPLETE_008",
+    "COMPLETE_009",
+    "COMPLETE_010"
+  ],
+  "reference_condition": {
+    "current_density": 0.789229989,
+    "anode_inlet_temperature_C": 75.18776130750001,
+    "anode_inlet_pressure_kPag": 164.5917511,
+    "anode_inlet_RH_pct": 40.11024761,
+    "anode_hydrogen_flow_nl_min": 23.31461525,
+    "anode_stoichiometry": 1.511621952,
+    "cathode_stoichiometry": 1.712360978
+  },
+  "frozen_raw_reference_voltage_V": 0.71383023635,
+  "final_OLS_normalized_reference_voltage_V": 0.7140705465122044,
+  "final_Ridge_normalized_reference_voltage_V": 0.7140705162829833
+}

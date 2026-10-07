@@ -1,0 +1,42 @@
+base_commit: d83aa909a687915ef24ebae8cddaae374111b99d
+phase_status: DEVELOPMENT_ONLY_EXPLORATORY_METHOD_DEVELOPMENT
+test_boundary:
+  polarization_targets_2000_2300_accessed: false
+  stage_t: prohibited
+  one_shot_runner: prohibited
+  one_shot_ledger_modification: prohibited
+development_anchors_h: [300, 600, 850, 1150, 1500, 1750]
+condition_variables:
+  - current_density
+  - anode_inlet_temperature_C
+  - anode_inlet_pressure_kPag
+  - anode_inlet_RH_pct
+  - anode_hydrogen_flow_nl_min
+  - anode_stoichiometry
+  - cathode_stoichiometry
+reference_condition: earliest_10_legal_complete_middle50_P1S_intervals_median
+condition_models:
+  C0: RAW_P1S_NO_CORRECTION
+  C1:
+    type: partial_linear_OLS
+    age_nuisance_basis: cubic_spline_5_knots_train_prefix_only
+  C2:
+    type: partial_linear_Ridge
+    primary: true
+    age_nuisance_basis: cubic_spline_5_knots_train_prefix_only
+    alpha_grid: [1.0e-6, 1.0e-5, 1.0e-4, 1.0e-3, 1.0e-2, 1.0e-1, 1.0, 10.0, 100.0]
+    alpha_selection: chronological_inner_validation_P1S_voltage_reconstruction_MAE_only
+health_mapping:
+  type: nonnegative_affine
+  formula: Y_equals_a_times_R_plus_b
+  constraint: a_greater_or_equal_zero
+  age_input: prohibited
+evaluation:
+  anchor_selection: frozen_existing_latest_three_interval_ids
+  loao: six_development_anchors
+  chronological_prefix_targets_h: [1150, 1500, 1750]
+primary_gates:
+  A: Ridge_CN_LOAO_MAE_less_or_equal_to_frozen_Raw_B2_LOAO_MAE
+  B: absolute_anode_stoichiometry_residual_Spearman_decreases
+  C: absolute_cathode_stoichiometry_residual_Spearman_decreases
+  D: Ridge_CN_anchor_R_to_Y_Spearman_no_lower_than_Raw_anchor_R_to_Y_Spearman

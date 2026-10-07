@@ -1,0 +1,167 @@
+{
+  "postmortem_mode": "TARGET_BLIND_ONLY",
+  "original_one_shot_rerun": false,
+  "polarization_targets_accessed": false,
+  "ledger_modified": false,
+  "frozen_ledger_status": "ABORTED_AFTER_TEST_EXECUTION_STARTED",
+  "frozen_failure": {
+    "exception_type": "StagePError",
+    "message": "TEST_ALIGNMENT_INCONCLUSIVE",
+    "stage": "STAGE_P",
+    "target_unblinded": false
+  },
+  "checkpoints": {
+    "2000": {
+      "checkpoint": 2000,
+      "characterization_start_datetime": "2025-07-08 20:30:54.005000",
+      "raw_rows_total": 8604654,
+      "raw_rows_before_characterization": 7507355,
+      "earliest_raw_datetime": "2025-01-27 12:09:18.005000",
+      "latest_raw_datetime_before_characterization": "2025-07-08 20:00:35.005000",
+      "latest_raw_ophrs2_h": 1998.17,
+      "raw_history_available": true,
+      "target_evaluation": "NOT_EVALUATED_TARGET_BLIND",
+      "raw_cutoff_ophrs2_h": 1998.17,
+      "total_reconstructed_runs": 123003,
+      "total_complete_intervals": 167,
+      "partial_interval_present": true,
+      "total_P1S_intervals": 168,
+      "p1_state_coverage": {
+        "48": {
+          "P1S_state_token_appearance_count": 467,
+          "P1S_stable_dwell_ge_120s_count": 122
+        },
+        "96": {
+          "P1S_state_token_appearance_count": 934,
+          "P1S_stable_dwell_ge_120s_count": 243
+        },
+        "168": {
+          "P1S_state_token_appearance_count": 1635,
+          "P1S_stable_dwell_ge_120s_count": 424
+        }
+      },
+      "available_structural_legal_interval_count": 168,
+      "within_48h_candidate_count": 6,
+      "strictly_pre_characterization_count": 168,
+      "latest_legal_interval_operating_age_gaps_h": [
+        0.029999999999972715,
+        6.509999999999991,
+        16.029999999999973,
+        25.560000000000173,
+        35.090000000000146
+      ],
+      "hypothetical_window_legal_interval_counts": {
+        "48": 6,
+        "72": 8,
+        "96": 11,
+        "120": 13,
+        "168": 18
+      },
+      "G1_PASS": true,
+      "G2_PASS": true,
+      "G3_PASS": true,
+      "G4_PASS": false,
+      "latest_3_available": true,
+      "selected_interval_ids": [
+        "POSTMORTEM_PARTIAL_PRE_2000",
+        "COMPLETE_175",
+        "COMPLETE_174"
+      ],
+      "selected_support_flags": [
+        false,
+        false,
+        false
+      ],
+      "selected_support_fail_variables": [
+        "anode_inlet_temperature_C;anode_inlet_RH_pct;anode_stoichiometry;cathode_stoichiometry",
+        "anode_inlet_RH_pct;anode_stoichiometry;cathode_stoichiometry",
+        "anode_stoichiometry;cathode_stoichiometry"
+      ],
+      "support_count": 0,
+      "official_frozen_alignment_status": "TEST_ALIGNMENT_INCONCLUSIVE",
+      "alignment_status": "FAILED",
+      "primary_failure": "FAIL_JOINT_SUPPORT_LT_2_OF_3",
+      "secondary_failures": [],
+      "failure_category": "JOINT_SUPPORT"
+    },
+    "2300": {
+      "checkpoint": 2300,
+      "characterization_start_datetime": "2025-07-26 12:40:40.005000",
+      "raw_rows_total": 8604654,
+      "raw_rows_before_characterization": 8604654,
+      "earliest_raw_datetime": "2025-01-27 12:09:18.005000",
+      "latest_raw_datetime_before_characterization": "2025-07-26 12:06:23.005000",
+      "latest_raw_ophrs2_h": 2256.8,
+      "raw_history_available": true,
+      "target_evaluation": "NOT_EVALUATED_TARGET_BLIND",
+      "raw_cutoff_ophrs2_h": 2256.8,
+      "total_reconstructed_runs": 140839,
+      "total_complete_intervals": 189,
+      "partial_interval_present": true,
+      "total_P1S_intervals": 190,
+      "p1_state_coverage": {
+        "48": {
+          "P1S_state_token_appearance_count": 467,
+          "P1S_stable_dwell_ge_120s_count": 122
+        },
+        "96": {
+          "P1S_state_token_appearance_count": 933,
+          "P1S_stable_dwell_ge_120s_count": 239
+        },
+        "168": {
+          "P1S_state_token_appearance_count": 1632,
+          "P1S_stable_dwell_ge_120s_count": 421
+        }
+      },
+      "available_structural_legal_interval_count": 190,
+      "within_48h_candidate_count": 6,
+      "strictly_pre_characterization_count": 190,
+      "latest_legal_interval_operating_age_gaps_h": [
+        0.03000000000020009,
+        6.519999999999982,
+        16.039999999999964,
+        25.570000000000164,
+        35.090000000000146
+      ],
+      "hypothetical_window_legal_interval_counts": {
+        "48": 6,
+        "72": 7,
+        "96": 9,
+        "120": 11,
+        "168": 16
+      },
+      "G1_PASS": true,
+      "G2_PASS": true,
+      "G3_PASS": true,
+      "G4_PASS": true,
+      "latest_3_available": true,
+      "selected_interval_ids": [
+        "POSTMORTEM_PARTIAL_PRE_2300",
+        "COMPLETE_200",
+        "COMPLETE_199"
+      ],
+      "selected_support_flags": [
+        true,
+        true,
+        false
+      ],
+      "selected_support_fail_variables": [
+        "",
+        "",
+        "anode_inlet_temperature_C;anode_stoichiometry"
+      ],
+      "support_count": 2,
+      "official_frozen_alignment_status": "ALIGNED",
+      "alignment_status": "ALIGNED",
+      "primary_failure": "NONE",
+      "secondary_failures": [],
+      "failure_category": "OTHER"
+    }
+  },
+  "root_cause": "JOINT_SUPPORT",
+  "p1s_itself_unusable": "NO",
+  "original_test_may_be_rerun_as_confirmatory_test": "NO",
+  "polarization_targets_remain_blinded": "YES",
+  "all_target_metrics": "NOT_EVALUATED_TARGET_BLIND",
+  "next_recommended_protocol_direction": "Assess target-blind late-life operating-condition support drift before proposing any separate future protocol; do not alter the consumed Test."
+}

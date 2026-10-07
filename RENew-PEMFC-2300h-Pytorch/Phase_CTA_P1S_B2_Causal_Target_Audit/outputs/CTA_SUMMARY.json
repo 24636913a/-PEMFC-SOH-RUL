@@ -1,0 +1,57 @@
+{
+  "phase": "Phase_CTA_P1S_B2_Causal_Target_Audit",
+  "base_commit": "5ffd0895e44b28ff95eb2348d08fccd199fb491c",
+  "n_p1s_events": 141,
+  "in_support_count": 82,
+  "out_of_support_count": 59,
+  "global_B2_role": "RETROSPECTIVE_REFERENCE_ONLY",
+  "fold1_B2_a": 1.246206115099345,
+  "fold1_B2_b": -0.2561034171536503,
+  "fold2_B2_a": 1.1453649921594855,
+  "fold2_B2_b": -0.1559492395388378,
+  "fold3_B2_a": 1.1453649921594855,
+  "fold3_B2_b": -0.1559492395388378,
+  "global_vs_causal_mean_abs_delta": 0.0003425027842122721,
+  "global_vs_causal_p95_abs_delta": 0.00041922341816753584,
+  "global_vs_causal_max_abs_delta": 0.00042740275328034816,
+  "global_vs_causal_median_abs_delta_over_sigma_total": 1.6439060799592087,
+  "global_vs_causal_p95_abs_delta_over_sigma_total": 1.9018977251976341,
+  "SG_prefix_revision": {
+    "endpoint_mean_abs_revision": 0.0003432310578552001,
+    "endpoint_p95_abs_revision": 0.0008776187637393185,
+    "endpoint_max_abs_revision": 0.0014256812076420822,
+    "history_max_revision": 0.0014256812076420822
+  },
+  "isotonic_prefix_revision": {
+    "endpoint_mean_abs_revision": 0.0003167448170963268,
+    "endpoint_p95_abs_revision": 0.0013071007925511413,
+    "endpoint_max_abs_revision": 0.0018068166061440127,
+    "history_max_revision": 0.0018068166061440127
+  },
+  "PCHIP_prefix_revision": {
+    "endpoint_mean_abs_revision": 0.0006587531329928945,
+    "endpoint_p95_abs_revision": 0.002310572070817757,
+    "endpoint_max_abs_revision": 0.0032896798698188734,
+    "history_max_revision": 0.0033545119688165315
+  },
+  "causal_24h_prefix_invariance": "PASS",
+  "causal_48h_prefix_invariance": "PASS",
+  "causal_96h_prefix_invariance": "PASS",
+  "dominant_support_violation_variables": [
+    "RH_violation",
+    "temperature_violation",
+    "anode_stoich_violation",
+    "pressure_violation",
+    "cathode_stoich_violation",
+    "current_density_violation",
+    "H2_flow_violation"
+  ],
+  "causal_target_decision": "T2",
+  "target": "RAW_P1S_RETENTION_AS_CAUSAL_HEALTH_TARGET",
+  "trend_usage_decision": "FULL_SEQUENCE_TRENDS_RETROSPECTIVE_ONLY",
+  "causal_raw_slope_online_candidate": "YES",
+  "support_handling_decision": "STRATIFIED_MODELING_REQUIRED",
+  "test_targets_reopened": false,
+  "model_training_performed": false,
+  "RUL_training_performed": false
+}

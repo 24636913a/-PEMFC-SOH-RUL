@@ -1,0 +1,38 @@
+phase: Phase_CTA_P1S_B2_Causal_Target_Audit
+base_commit: 5ffd0895e44b28ff95eb2348d08fccd199fb491c
+scope: DEVELOPMENT_ONLY
+model_training: prohibited
+test_target_reopening: prohibited
+target_retuning: prohibited
+development_boundary_ophrs2_h: 1819.997738
+folds:
+  fold_1:
+    train: [72.788690, 946.393214]
+    validation: [946.393214, 1164.794345]
+    B2: {a: 1.246206115099345, b: -0.25610341715365037, anchors: [300, 600, 850]}
+  fold_2:
+    train: [72.788690, 1164.794345]
+    validation: [1164.794345, 1383.195476]
+    B2: {a: 1.1453649921594857, b: -0.15594923953883788, anchors: [300, 600, 850, 1150]}
+  fold_3:
+    train: [72.788690, 1383.195476]
+    validation: [1383.195476, 1819.997738]
+    B2: {a: 1.1453649921594857, b: -0.15594923953883788, anchors: [300, 600, 850, 1150]}
+global_B2:
+  a: 1.1988114938324186
+  b: -0.20903624631182127
+  role: RETROSPECTIVE_REFERENCE_ONLY
+trend_replay:
+  SG_window_length_cycles: 11
+  SG_polynomial_order: 2
+  PCHIP_fixed_time_bins: 15
+  numerical_tolerance: 1.0e-12
+final_decisions:
+  causal_target: RAW_P1S_RETENTION_AS_CAUSAL_HEALTH_TARGET
+  trend_usage: FULL_SEQUENCE_TRENDS_RETROSPECTIVE_ONLY
+  causal_raw_slope_online_candidate: true
+  support_handling: STRATIFIED_MODELING_REQUIRED
+late_life_policy:
+  allowed_existing_artifacts_only: true
+  test_targets_reopened: false
+  post_ELTE_retuning: false

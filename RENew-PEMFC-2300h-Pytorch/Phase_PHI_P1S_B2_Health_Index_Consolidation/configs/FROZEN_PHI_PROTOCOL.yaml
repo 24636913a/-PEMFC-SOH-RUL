@@ -1,0 +1,47 @@
+phase: Phase_PHI_P1S_B2_Health_Index_Consolidation
+base_commit: d367ae76958a4289a5be6615ff6e81d75b664d54
+identity: P1S_B2_IS_DIRECT_HEALTH_INDICATOR_NOT_NEURAL_PREDICTION_TARGET
+health_indicator_name: HI_P1S
+health_indicator_interpretation: P1S-B2 calibrated health indicator; not true SOH
+p1s_state_token: "221||221.200"
+p1s_stable_window: middle_50
+p1s_reference_voltage_V: 0.71383023635
+frozen_B2:
+  formula: HI_P1S = a * R_P1S + b
+  a: 1.1988114938324186
+  b: -0.20903624631182127
+  refit_prohibited: true
+development_boundary_ophrs2_h: 1819.997738
+trend_methods:
+  T0: HI_RAW
+  T1:
+    name: Savitzky-Golay light smoothing
+    window_length_cycles: 11
+    polynomial_order: 2
+  T2:
+    name: decreasing isotonic regression
+  T3:
+    name: monotonic binned PCHIP spline
+    fixed_time_bins: 15
+primary_health_trend: HI_TREND_ISOTONIC
+primary_trend_selection_basis:
+  - Development-only raw HI consistency
+  - monotonic physical plausibility
+  - causal usability
+  - minimal method complexity
+  - no late-life target criterion
+uncertainty:
+  measurement: sample standard deviation across frozen middle_50 and last_25 P1S windows
+  calibration: leave-one-Development-anchor-out B2 prediction standard deviation
+  interval: descriptive raw-HI plus/minus 1.96 times quadrature total sigma
+  probability_claim: prohibited
+late_life_target_policy:
+  test_targets_reopened: false
+  post_ELTE_retuning: false
+  existing_ELTE_evidence_only: true
+prohibited:
+  - B2 refitting
+  - target-driven trend selection
+  - raw polarization target access
+  - neural-network training
+  - RUL modeling

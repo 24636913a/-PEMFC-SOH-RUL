@@ -1,0 +1,31 @@
+phase: Phase_ELTE_Exploratory_Late_Life_Target_Evaluation
+authorization: OPEN_EXPLORATORY_LATE_LIFE_TEST
+nature: EXPLORATORY_ONLY
+confirmatory_test: false
+post_target_retuning: prohibited
+base_tracked_commit: 184433d2f392c164920e39c61cc9ed106e04f4e6
+targets:
+  checkpoints: [2000, 2300]
+  exact_nominal_sources:
+    2000: Polcurve_Nominal_RHFC_2000h.csv
+    2300: Polcurve_Nominal_RHFC_2300h.csv
+  jstar_A_cm2: 1.0
+  jstar_tolerance_A_cm2: 0.01
+  bol_voltage_V: 0.6989533066
+methods:
+  primary: Raw_P1S_frozen_B2_affine
+  comparator: frozen_nominal_age_affine
+  secondary: [Raw_P1S_B0, frozen_CN_P1S_Ridge]
+selection:
+  2000:
+    interval_ids: [POSTMORTEM_PARTIAL_PRE_2000, COMPLETE_175, COMPLETE_174]
+    expected_support_count: 0
+    support_status: OUT_OF_FROZEN_DEVELOPMENT_JOINT_SUPPORT
+  2300:
+    interval_ids: [POSTMORTEM_PARTIAL_PRE_2300, COMPLETE_200, COMPLETE_199]
+    expected_support_count: 2
+    support_status: FROZEN_ALIGNMENT_COMPATIBLE
+rules:
+  E1: AE_Raw_P1S_B2_2000 < AE_Age_2000
+  E2: AE_Raw_P1S_B2_2300 < AE_Age_2300
+  E3: MAE_Raw_P1S_B2 < MAE_Age

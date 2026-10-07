@@ -1,0 +1,70 @@
+{
+  "base_commit": "184433d2f392c164920e39c61cc9ed106e04f4e6",
+  "authorization": "OPEN_EXPLORATORY_LATE_LIFE_TEST",
+  "nature": "EXPLORATORY_ONLY",
+  "target_values_read": false,
+  "selected_intervals": {
+    "2000": [
+      {
+        "cycle_interval_id": "POSTMORTEM_PARTIAL_PRE_2000",
+        "selected_rank": 1.0,
+        "P1S_operating_voltage_retention": 0.9830793616816228,
+        "P1S_voltage_V": 0.7017517731,
+        "in_frozen_joint_common_support": false
+      },
+      {
+        "cycle_interval_id": "COMPLETE_175",
+        "selected_rank": 2.0,
+        "P1S_operating_voltage_retention": 0.9829211692371876,
+        "P1S_voltage_V": 0.70163885055,
+        "in_frozen_joint_common_support": false
+      },
+      {
+        "cycle_interval_id": "COMPLETE_174",
+        "selected_rank": 3.0,
+        "P1S_operating_voltage_retention": 0.9826774105097772,
+        "P1S_voltage_V": 0.7014648482000001,
+        "in_frozen_joint_common_support": false
+      }
+    ],
+    "2300": [
+      {
+        "cycle_interval_id": "POSTMORTEM_PARTIAL_PRE_2300",
+        "selected_rank": 1.0,
+        "P1S_operating_voltage_retention": 0.9836223958727524,
+        "P1S_voltage_V": 0.702139407325,
+        "in_frozen_joint_common_support": true
+      },
+      {
+        "cycle_interval_id": "COMPLETE_200",
+        "selected_rank": 2.0,
+        "P1S_operating_voltage_retention": 0.983673664785354,
+        "P1S_voltage_V": 0.7021760046249998,
+        "in_frozen_joint_common_support": true
+      },
+      {
+        "cycle_interval_id": "COMPLETE_199",
+        "selected_rank": 3.0,
+        "P1S_operating_voltage_retention": 0.9837613187145572,
+        "P1S_voltage_V": 0.70223857465,
+        "in_frozen_joint_common_support": false
+      }
+    ]
+  },
+  "raw_B2_coefficients": {
+    "a": 1.1988114938324186,
+    "b": -0.20903624631182127
+  },
+  "age_coefficients": {
+    "alpha": 0.9853267436259231,
+    "beta": -8.3952663925e-06
+  },
+  "BoL_voltage_V": 0.6989533066,
+  "CN_transform_sha256": "09591331505f2de3de91571571991e53c9308d87413948d0ee1e89371d2edb48",
+  "CN_affine_coefficients": {
+    "a_CN": 1.0627693265550502,
+    "b_CN": -0.07384961069992746
+  },
+  "CN_ridge_alpha": 1e-06,
+  "CN_reference_voltage_V": 0.7140705162829833
+}

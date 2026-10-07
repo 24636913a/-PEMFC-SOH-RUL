@@ -1,0 +1,24 @@
+{
+  "authorization": "OPEN_EXPLORATORY_LATE_LIFE_TEST",
+  "nature": "EXPLORATORY_ONLY",
+  "base_commit": "184433d2f392c164920e39c61cc9ed106e04f4e6",
+  "target_opening": "CONSUMED_ON_FIRST_TARGET_IO",
+  "predictions_frozen_before_target": true,
+  "frozen_prediction_sha256": "54a9ffc305d46622f8f98a312ea17807f781aa3b56947fef201542c09c33cc9c",
+  "prediction_provenance_sha256": "4e4999520bad4309cd2121e765b05218784214aa640ce1671bca22989774b5ba",
+  "target_opening_started": true,
+  "target_read_events": [
+    "TARGET_2000_READ",
+    "TARGET_2300_READ"
+  ],
+  "targets_unblinded": true,
+  "completed": true,
+  "project_target_exposure": {
+    "2000": "OPENED",
+    "2300": "OPENED"
+  },
+  "result_paths": {
+    "results": "RENew-PEMFC-2300h-Pytorch\\Phase_ELTE_Exploratory_Late_Life_Target_Evaluation\\outputs\\ELTE_TARGET_RESULTS.csv",
+    "summary": "RENew-PEMFC-2300h-Pytorch\\Phase_ELTE_Exploratory_Late_Life_Target_Evaluation\\outputs\\ELTE_SUMMARY.json"
+  }
+}

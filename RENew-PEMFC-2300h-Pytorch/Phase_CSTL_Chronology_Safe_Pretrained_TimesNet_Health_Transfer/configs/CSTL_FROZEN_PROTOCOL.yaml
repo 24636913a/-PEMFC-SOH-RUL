@@ -1,0 +1,78 @@
+phase: Phase_CSTL_Chronology_Safe_Pretrained_TimesNet_Health_Transfer
+base_commit: a85c07e5bb2b09b9d1ea58f3fa8c844508365162
+scope: DEVELOPMENT_ONLY
+backbone: TimesNet
+backbone_search_reopened: false
+neural_health_training: prohibited
+encoder_finetuning: prohibited
+multitask_training: prohibited
+test_access: prohibited
+inputs:
+  backbone_protocol: ../Phase_BS_Final_Backbone_Screening/configs/PREREGISTERED_PROTOCOL.yaml
+  health_events: ../Phase_TSHE_TimesNet_P1S_B2_Health_State_Estimation/outputs/HEALTH_EVENT_DATASET.csv
+  anchor_comparison: ../Phase_CNP1S_Condition_Normalized_P1S_Development_Study/outputs/CN_P1S_ANCHOR_COMPARISON.csv
+  checkpoints: ../Phase_BS_Final_Backbone_Screening/checkpoints/bs_timesnet_fold_{fold}_seed{seed}.pt
+  prediction_artifacts: ../Phase_BS_Final_Backbone_Screening/outputs/predictions/bs_timesnet_{fold}_seed{seed}.npz
+input:
+  shape: [48, 14]
+  resolution_h: 0.5
+  source_csv_prefix_rows: 3007
+  development_end_h_exclusive: 1819.997738
+  feature_order:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+calibration:
+  method_provenance: Phase_AHC_Sparse_Anchor_Affine_Health_Calibration/scripts/run_affine_characterization.py::affine_parameters
+  formula: Y_equals_max_0_OLS_slope_times_R_raw_plus_intercept
+  fold_1: [300, 600, 850]
+  fold_2: [300, 600, 850, 1150]
+  fold_3: [300, 600, 850, 1150]
+encoder:
+  seq_len: 48
+  pred_len: 24
+  enc_in: 14
+  c_out: 14
+  d_model: 32
+  d_ff: 64
+  e_layers: 1
+  top_k: 2
+  num_kernels: 3
+  dropout: 0.1
+  frozen: true
+  health_embedding: pre_projection_latent_temporal_mean
+probe:
+  model: Ridge
+  embedding_standardization: inner_fit_only_then_full_outer_train_for_refit
+  target_standardization: prohibited
+  fit_intercept: true
+  alpha_grid: [0.000001, 0.0001, 0.01, 1.0, 100.0]
+  inner_stopper_fraction: 0.15
+  selection_metric: chronological_inner_MAE
+folds:
+  - fold: fold_1
+    train: [72.788690, 946.393214]
+    validation: [946.393214, 1164.794345]
+  - fold: fold_2
+    train: [72.788690, 1164.794345]
+    validation: [1164.794345, 1383.195476]
+  - fold: fold_3
+    train: [72.788690, 1383.195476]
+    validation: [1383.195476, 1819.997738]
+gates:
+  A: overall_probe_MAE_less_than_Age_Linear_MAE
+  B: overall_probe_MAE_less_than_LastVoltage_Linear_MAE
+  C: Fold3_probe_mean_MAE_less_than_each_Fold3_simple_baseline_MAE
+  D: Fold3_median_Spearman_greater_than_0_5
+  E: Fold3_positive_R2_seed_count_at_least_2

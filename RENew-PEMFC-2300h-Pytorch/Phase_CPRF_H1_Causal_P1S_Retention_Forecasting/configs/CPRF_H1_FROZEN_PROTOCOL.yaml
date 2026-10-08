@@ -1,0 +1,95 @@
+protocol_version: H1
+phase: Phase_CPRF_H1_Causal_P1S_Retention_Forecasting
+designation: DEVELOPMENT_ONLY
+target:
+  name: R_P1S_causal_target
+  definition: "V_P1S(target) / V_ref, where V_ref is the causal reference available before both origin and target"
+  label_source: Phase_CTAE_P1S_Reference_Availability_Erratum
+  reference_voltage_V: 0.71383023635
+  global_B2_used_for_training_or_selection: false
+  post_reference_causal_slope_source: POST_REFERENCE_CAUSAL_SLOPE_AVAILABILITY.csv
+horizon:
+  name: H1_next_contiguous_raw_complete_cycle
+  target_rule: "raw_cycle_id(target) = raw_cycle_id(origin) + 1"
+  skipped_future_legal_target_allowed: false
+  origin_time: actual_raw_P1S_measurement_end_ophrs2_h
+  lead_time_definition: target_P1S_measurement_end_ophrs2_h - origin_P1S_measurement_end_ophrs2_h
+data_firewall:
+  development_boundary_h: 1819.997738
+  causal_csv_read_nrows: 3007
+  causal_csv_filter: "bin_end_ophrs2_h < 1819.997738"
+  expected_development_rows: 3005
+  causal_csv_full_file_hash_allowed: false
+  raw_p1_replay_maximum_required_cutoff_h: 1719.31
+  test_accessed: false
+input:
+  resolution_h: 0.5
+  seq_len: 48
+  input_duration_h: 24
+  features:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+  forbidden_inputs: [OpHrs2, nominal_age, P1S_voltage, P1S_retention, B2, condition_support_status, target_labels, future_covariates]
+  origin_input_rule: "latest legal 48-bin Raw F2 window with final bin_end <= origin P1S measurement end"
+  target_measurement_rule: "every input bin_end < target P1S measurement start"
+  target_measurement_in_input: false
+folds:
+  - {name: fold_1, train: [72.788690, 946.393214], validation: [946.393214, 1164.794345]}
+  - {name: fold_2, train: [72.788690, 1164.794345], validation: [1164.794345, 1383.195476]}
+  - {name: fold_3, train: [72.788690, 1383.195476], validation: [1383.195476, 1819.997738]}
+fold_assignment: "target P1S measurement start >= role lower bound and target P1S measurement end < role upper bound"
+baselines:
+  - {name: PERSISTENCE, scope: all_valid_H1_samples, formula: "Rhat_target = R_origin"}
+  - {name: CAUSAL_LINEAR_96H, scope: origin_96h_slope_available, formula: "Rhat_target = R_origin + slope96h_origin * lead_to_target_end_h"}
+  - {name: RIDGE_CAUSAL_STATE, scope: all_24_48_96h_slopes_available, features: [R_origin, slope_24h, slope_48h, slope_96h, lead_to_target_end_h], alpha_grid: [1e-6, 1e-4, 1e-2, 1.0, 100.0]}
+timesnet:
+  authority: Phase_BS_Final_Backbone_Screening/configs/PREREGISTERED_PROTOCOL.yaml
+  implementation: official_TimesNet_body_with_scalar_retention_head
+  seq_len: 48
+  pred_len: 24
+  enc_in: 14
+  d_model: 32
+  d_ff: 64
+  e_layers: 1
+  top_k: 2
+  num_kernels: 3
+  dropout: 0.1
+  embed: fixed
+  freq: h
+  head: "temporal mean over 72 latent TimesNet positions -> Linear(32, 1)"
+  seeds: [42, 2024, 3407]
+training:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 64
+  max_epochs: 300
+  patience: 30
+  gradient_clip_norm: 1.0
+  loss: train_only_standardized_target_MSE
+  input_scaler: StandardScaler_fit_on_outer_train_windows_only
+  target_scaler: StandardScaler_fit_on_outer_train_targets_only
+  inner_selection: chronological_later_15_percent_of_outer_train
+  final_refit: same_seed_reinitialize_on_full_outer_train_for_selected_epoch
+metrics:
+  primary: equal_fold_mean_MAE_mV
+  error_conversion: "absolute_retention_error * V_ref * 1000"
+  secondary: [MAE_R, RMSE_R, R2, Spearman, P95_absolute_error_mV, max_absolute_error_mV]
+gates:
+  A: "three-seed TimesNet equal-fold mean MAE_mV <= 0.95 * persistence equal-fold mean MAE_mV"
+  B: "three-seed TimesNet equal-fold mean MAE_mV <= 0.97 * Ridge causal state equal-fold mean MAE_mV on exactly matched Ridge scope"
+  C: "Fold3 three-seed TimesNet mean MAE_mV <= 1.05 * Fold3 persistence MAE_mV"
+  D: "at least 2 of 3 seeds have equal-fold mean MAE_mV strictly below persistence"
+stop_rule: "No H3/H6, post-hoc model changes, or Test evaluation after this H1 run."

@@ -1,0 +1,37 @@
+{
+  "name": "DEVELOPMENT_PREFIX_FINGERPRINT",
+  "development_prefix_fingerprint_sha256": "51547e1f7747ac20e73e413a9ac22d93f831ba3b58e60b5ab0e1f6e399b5f7bf",
+  "row_count": 3005,
+  "column_count": 18,
+  "column_order": [
+    "bin_start_ophrs2_h",
+    "bin_end_ophrs2_h",
+    "bin_valid_for_windows",
+    "temporal_segment_id",
+    "cell_voltage_mean",
+    "cell_voltage_std",
+    "cell_voltage_range",
+    "cell_voltage_min",
+    "cell_voltage_max",
+    "actual_current_A_mean",
+    "actual_current_A_std",
+    "actual_current_A_peak_to_peak",
+    "actual_current_density_A_cm2_mean",
+    "actual_current_density_A_cm2_std",
+    "actual_current_density_A_cm2_peak_to_peak",
+    "load_transition_count",
+    "operation_point_transitions",
+    "zero_current_fraction"
+  ],
+  "serialization": {
+    "encoding": "utf-8",
+    "index": false,
+    "header": true,
+    "line_terminator": "LF",
+    "float_format": "%.17g",
+    "na_rep": "<NA>",
+    "row_order": "original_filtered_prefix_order"
+  },
+  "legal_read_contract": "pd.read_csv(usecols=CAUSAL_COLUMNS, nrows=3007), then bin_end_ophrs2_h < 1819.997738",
+  "not_a_full_source_file_hash": true
+}

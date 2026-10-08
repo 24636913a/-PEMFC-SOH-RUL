@@ -1,0 +1,93 @@
+phase: Phase_CMRF_H3_H6_OriginConditioned_P1S_Forecasting
+status: FROZEN_BEFORE_DEVELOPMENT_RESULTS
+base_commit: aeb755136aa895d0e1dcba41538ce13e38a881f5
+scope:
+  development_only: true
+  test_access: prohibited
+  raw_test_region_access: prohibited
+  external_feature_decomposition: prohibited
+  forbidden: [EMD, VMD, B2, smoothed_health_target, backbone_search, RUL, future_covariates]
+data_firewall:
+  causal_features_csv: Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  read_contract: pd.read_csv(usecols=required_columns, nrows=3007), then bin_end_ophrs2_h < 1819.997738
+  prefix_nrows: 3007
+  expected_development_rows: 3005
+  development_boundary_h: 1819.997738
+  full_file_hash_prohibited: true
+target:
+  name: POST_REFERENCE_RAW_P1S_RETENTION
+  reference_voltage_V: 0.71383023635
+  origin_retention: R_origin = V_P1S(origin) / V_ref
+  target_retention: R_target = V_P1S(target) / V_ref
+  model_target: DeltaR_H = R_target - R_origin
+  reconstruction: R_hat_target = R_origin + DeltaR_hat_H
+  prohibited_target_sources: [B2, global_calibration, smoothed_trajectory, polarization_Y]
+horizons:
+  primary: H6
+  secondary: H3
+  definition: target_raw_cycle_id = origin_raw_cycle_id + H
+  physical_continuity: every raw cycle i through i+H must exist and have complete_cycle=true
+input:
+  resolution_h: 0.5
+  lookback_steps: 48
+  input_end: at_or_before_origin_P1S_measurement_end
+  feature_order:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+  forbidden_inputs: [operating_age, future_lead, target_timestamp, target_conditions, target_support, target_P1S_measurement]
+folds:
+  - {fold: fold_1, train: [72.788690, 946.393214], validation: [946.393214, 1164.794345]}
+  - {fold: fold_2, train: [72.788690, 1164.794345], validation: [1164.794345, 1383.195476]}
+  - {fold: fold_3, train: [72.788690, 1383.195476], validation: [1383.195476, 1819.997738]}
+baselines:
+  persistence: predicted_DeltaR_H=0
+  previous_H_cycle_drift: predicted_DeltaR_H=R_origin-R_origin_minus_H; matched_subset_only=true
+  ridge_matched_context:
+    features: [R_origin, mean_std_last_slope_for_each_of_14_input_features]
+    alpha_grid: [0.000001, 0.0001, 0.01, 1.0, 100.0]
+    selection: chronological_last_15_percent_of_outer_train
+timesnet:
+  architecture_source: Phase_BS_Final_Backbone_Screening/configs/PREREGISTERED_PROTOCOL.yaml
+  seq_len: 48
+  pred_len: 24
+  enc_in: 14
+  d_model: 32
+  d_ff: 64
+  e_layers: 1
+  top_k: 2
+  num_kernels: 3
+  dropout: 0.1
+  head: temporal_mean_pooling_32_plus_standardized_R_origin_to_linear_33_to_1
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 64
+  max_epochs: 300
+  patience: 30
+  gradient_clip_norm: 1.0
+  seeds: [42, 2024, 3407]
+  scaler_scope: outer_train_only
+  inner_selection: chronological_last_15_percent_then_same_seed_reinitialised_full_outer_train_refit
+gates:
+  H6:
+    A: TimesNet_equal_fold_mean_MAE_mV <= 0.95 * Persistence_equal_fold_mean_MAE_mV
+    B: TimesNet_matched_context_MAE_mV <= 0.97 * Ridge_matched_context_MAE_mV
+    C: Fold3_TimesNet_mean_MAE_mV <= 1.05 * Fold3_Persistence_MAE_mV
+    D: at_least_2_of_3_seed_overall_equal_fold_MAE_mV_strictly_below_Persistence
+  emd_followup_authorized_only_if: all_H6_gates_pass OR (H6_A_C_D_pass AND TimesNet_vs_Ridge_gap_at_most_3_percent)
+reporting:
+  fold_aggregation: equal_fold_mean_primary
+  pooled_metrics: descriptive_only
+  support_stratification: posthoc_only

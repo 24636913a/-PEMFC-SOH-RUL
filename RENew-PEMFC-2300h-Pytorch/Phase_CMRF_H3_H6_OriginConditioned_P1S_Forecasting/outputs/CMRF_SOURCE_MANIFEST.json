@@ -1,0 +1,42 @@
+{
+  "sources": [
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_CTAE_P1S_Reference_Availability_Erratum/outputs/P1S_REFERENCE_AVAILABILITY_AUDIT.csv",
+      "role": "causal_raw_retention_target_and_support",
+      "sha256": "aaa90129b08bc5c4638a3b7b77da4e84da9650599f42a7d735010ab364872ace"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_PHI_P1S_B2_Health_Index_Consolidation/outputs/P1S_B2_FULL_HEALTH_TRAJECTORY.csv",
+      "role": "Development_P1S_to_raw_cycle_identity_only",
+      "sha256": "fbc9c2f0f9831d8da63426b33c241730d00cce409b7e1fc37b9bcfaa93ebc32a"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_CYCLE_CATALOG.csv",
+      "role": "Development_only_raw_cycle_completeness_catalog",
+      "sha256": "8d1a8b9e17b179fbc99776f4006a61e5758006bd73e1a55bb96ffed38fa0f3d8"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_CPRF_H1_Causal_P1S_Retention_Forecasting/outputs/P1S_RAW_MEASUREMENT_INTERVAL_RECONSTRUCTION.csv",
+      "role": "frozen_matched_PAA_P1S_measurement_envelopes",
+      "sha256": "239e6f3c6033687998a86386c5d9e92ea9535efe0d539351aef89d6b34d8cb0b"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_BS_Final_Backbone_Screening/configs/PREREGISTERED_PROTOCOL.yaml",
+      "role": "frozen_TimesNet_architecture_and_training_authority",
+      "sha256": "fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_CMRF_H3_H6_OriginConditioned_P1S_Forecasting/configs/CMRF_H3_H6_FROZEN_PROTOCOL.yaml",
+      "role": "CMRF_frozen_protocol",
+      "sha256": "6d8731857156e6cd03b9fd0134481df0c2b13ebe48d56a4ec88957986a042203"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv",
+      "role": "mixed_causal_feature_source_prefix_only",
+      "development_prefix_fingerprint_sha256": "51547e1f7747ac20e73e413a9ac22d93f831ba3b58e60b5ab0e1f6e399b5f7bf",
+      "full_file_hash_computed": false
+    }
+  ],
+  "test_accessed": false,
+  "full_causal_file_hash_computed": false
+}

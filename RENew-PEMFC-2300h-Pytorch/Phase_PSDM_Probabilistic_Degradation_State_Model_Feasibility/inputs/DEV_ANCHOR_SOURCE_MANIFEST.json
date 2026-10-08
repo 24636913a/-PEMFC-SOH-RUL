@@ -1,0 +1,33 @@
+{
+  "stage": "A",
+  "exact_polarization_source": "RENew-PEMFC-2300h-Pytorch/Phase_RUL90_Data_Feasibility/outputs/polarization_points_development.csv",
+  "expected_git_blob_sha": "1da6d582d92e50576072f53575725e6e2d57c66f",
+  "observed_git_blob_sha": "1da6d582d92e50576072f53575725e6e2d57c66f",
+  "actual_source_sha256": "ae2cdeab2ab24c8bfce80f2be739404e22ebceb5e40a4efbd4bca09fb5d13dac",
+  "source_record_count": 40,
+  "frozen_anchor_count": 12,
+  "frozen_reference_count": 2,
+  "allowed_stages": [
+    "BoL",
+    "300h",
+    "600h",
+    "850h",
+    "1150h",
+    "1500h",
+    "1750h"
+  ],
+  "allowed_jstar_A_cm2": [
+    1.0,
+    1.6
+  ],
+  "excluded_stage_examples": [
+    "1500h_afterAirAirStart",
+    "2000h",
+    "2300h"
+  ],
+  "CHM_j1_crosscheck_max_abs_difference": 6.734557678189645e-08,
+  "PAA_checkpoint_alignment_pass": true,
+  "historical_mixed_n1_access": true,
+  "current_stage_A_test_accessed": false,
+  "current_stage_A_late_life_target_accessed": false
+}

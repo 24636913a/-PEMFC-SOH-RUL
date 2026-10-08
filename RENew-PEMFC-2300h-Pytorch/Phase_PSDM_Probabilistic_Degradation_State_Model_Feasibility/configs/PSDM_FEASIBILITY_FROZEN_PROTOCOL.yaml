@@ -1,0 +1,127 @@
+phase: Phase_PSDM_Probabilistic_Degradation_State_Model_Feasibility
+status: FROZEN_BEFORE_PSDM_RESULTS
+base_commit: 7bd758ce9553850fa808a3a994532c1e9e4c5a72
+scope:
+  development_only: true
+  test_access_prohibited: true
+  raw_F2_modeling: false
+  TimesNet_training: false
+  EMD: false
+  VMD: false
+  SG: false
+  PINN: false
+  RUL: false
+historical_psdm_attempt:
+  mixed_n1_test_rows_accessed: true
+  model_training_performed: false
+  results_generated: false
+  git_changed: false
+stage_A_anchor_authority:
+  exact_source: RENew-PEMFC-2300h-Pytorch/Phase_RUL90_Data_Feasibility/outputs/polarization_points_development.csv
+  expected_git_blob_sha: 1da6d582d92e50576072f53575725e6e2d57c66f
+  observed_git_blob_sha: 1da6d582d92e50576072f53575725e6e2d57c66f
+  source_sha256: ae2cdeab2ab24c8bfce80f2be739404e22ebceb5e40a4efbd4bca09fb5d13dac
+  allowed_stages:
+  - BoL
+  - 300h
+  - 600h
+  - 850h
+  - 1150h
+  - 1500h
+  - 1750h
+  allowed_jstar_A_cm2:
+  - 1.0
+  - 1.6
+  after_air_air_start: false
+  selection_scope: development-only
+  BoL_reference_voltage_V:
+    j1.0: 0.6989533066
+    j1.6: 0.6373789965
+  cross_checks:
+    CHM_sparse_anchor_targets_sha256: eeb56964e6dbf2a927f55c70da0ee8526332e1af6b27af1da27a16bea1e7e36f
+    PAA_anchor_alignment_sha256: 3f861a2b3c9cf42302bf28409a45ad3f8a47965d06be7bd5cdf5326cc284e659
+P1S_observation:
+  source: Phase_CTAE_P1S_Reference_Availability_Erratum/outputs/P1S_REFERENCE_AVAILABILITY_AUDIT.csv
+  criterion: causal_target_eligible == true
+  expected_count: 131
+  reference_voltage_V: 0.71383023635
+  identity_source: Phase_PHI_P1S_B2_Health_Index_Consolidation/outputs/P1S_B2_FULL_HEALTH_TRAJECTORY.csv
+evaluation_authorities:
+  H3: Phase_CMRF_H3_H6_OriginConditioned_P1S_Forecasting/inputs/H3_FROZEN_SAMPLE_AUTHORITY.csv
+  H6: Phase_CMRF_H3_H6_OriginConditioned_P1S_Forecasting/inputs/H6_FROZEN_SAMPLE_AUTHORITY.csv
+  H6_primary: true
+models:
+  persistence: Rhat_target=R_origin
+  gaussian_persistence: mu=R_origin; sigma=std(outer_train_DeltaR_H,ddof=1), floor=1e-8
+  ULLT:
+    observation: R=H+epsilon
+    transition: H_next=H+s; s_next=s+eta
+    state:
+    - H
+    - s
+    Q: diag(0,q_s)
+    parameters:
+    - log_q_s
+    - log_r
+    - s0
+  PSDM:
+    observation: R=H+epsilon
+    transition: H_next=H-softplus(z); z_next=z+eta
+    state:
+    - H
+    - z
+    Q: diag(0,q_z)
+    parameters:
+    - log_q_z
+    - log_r
+    - z0
+    jacobian: '[[1,-sigmoid(z)],[0,1]]'
+    posterior: Gaussian_EKF_approximation
+parameter_fit:
+  optimizer: scipy.optimize.minimize L-BFGS-B
+  log_q_log_r_bounds:
+  - -25
+  - -5
+  ULLT_s0_bounds:
+  - -0.01
+  - 0.01
+  PSDM_softplus_z0_bounds:
+  - 1.0e-08
+  - 0.01
+  initial_state: H0=first_outer_train_R; P0=diag(r,max(q,1e-8))
+  deterministic_training_only_multistarts: 4
+  validation_fit_prohibited: true
+walk_forward:
+  fixed_parameters_after_outer_train_fit: true
+  past_validation_P1S_assimilation_allowed: true
+  future_P1S_for_current_origin_prohibited: true
+  raw_cycle_propagation_exact: true
+metrics:
+  point:
+  - MAE_R
+  - RMSE_R
+  - MAE_mV_equivalent
+  - RMSE_mV_equivalent
+  - R2
+  - Spearman
+  - P95_absolute_error_mV_equivalent
+  - max_absolute_error_mV_equivalent
+  probabilistic:
+  - Gaussian_NLL
+  - Gaussian_CRPS
+  - coverage_80
+  - coverage_95
+  - mean_width_80
+  - mean_width_95
+  aggregation: equal_fold_mean_primary; pooled_descriptive_only
+gates:
+  A: PSDM_H6_equal_fold_MAE_mV <= 1.05*Persistence_H6_equal_fold_MAE_mV
+  B: PSDM_H6_equal_fold_CRPS <= 0.95*GaussianPersistence_H6_equal_fold_CRPS
+  C: 0.85 <= pooled_H6_coverage_95 <= 1.00 and finite_mean_width_95
+  D: 0.65 <= pooled_H6_coverage_80 <= 0.95
+  E: PSDM_H6_fold3_CRPS <= 1.10*GaussianPersistence_H6_fold3_CRPS
+stop_rules:
+  stage_A_failure_prevents_stage_B: true
+  no_posthoc_parameter_search: true
+  no_automatic_second_round: true
+  no_RUL_or_threshold_definition: true

@@ -1,0 +1,45 @@
+status: FROZEN_AFTER_FOLD1_INNER_ONLY_OPTUNA_BEFORE_OUTER_EVALUATION
+protocol_sha256: 1ed7b8cda5b12571972b37cc2690f1b82d4cc72212dfeddf9030c67244b50237
+optimizer: AdamW
+formal_training:
+  optimizer: AdamW
+  max_epochs: 300
+  patience: 30
+  gradient_clip_norm: 1.0
+  seeds:
+  - 42
+  - 2024
+  - 3407
+  train_only_scaler: full_outer_train_only
+  final_refit: same_seed_reinitialize_on_full_outer_train_for_selected_inner_epoch
+  loss: standardized_multi_step_deltaV_MSE
+  checkpoint_resume: allowed_only_when_protocol_and_run_signature_match
+search_results:
+  Optuna_RawF2_TimesNet:
+    method: Optuna_RawF2_TimesNet
+    best_trial: 8
+    best_inner_deltaV_RMSE_mV: 16.577890367153934
+    selected_epoch: 107
+    hyperparameters:
+      learning_rate: 0.0005691541320277273
+      weight_decay: 9.087897961459053e-06
+      dropout: 0.2
+      batch_size: 32
+    storage_relative_path: outputs/optuna_Optuna_RawF2_TimesNet.sqlite3
+    completed_trials: 20
+    outer_validation_accessed: false
+  Optuna_EMDFeature_TimesNet:
+    method: Optuna_EMDFeature_TimesNet
+    best_trial: 18
+    best_inner_deltaV_RMSE_mV: 16.88677057421291
+    selected_epoch: 30
+    hyperparameters:
+      learning_rate: 0.0017576842851711155
+      weight_decay: 0.0003673043400272034
+      dropout: 0.1
+      batch_size: 32
+    storage_relative_path: outputs/optuna_Optuna_EMDFeature_TimesNet.sqlite3
+    completed_trials: 20
+    outer_validation_accessed: false
+outer_validation_used_for_selection: false
+test_accessed: false

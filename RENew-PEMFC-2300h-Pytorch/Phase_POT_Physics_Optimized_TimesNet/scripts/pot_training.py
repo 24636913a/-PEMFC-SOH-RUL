@@ -129,11 +129,28 @@ def formal_refit_and_predict(method: str, fold: str, outer_train: Any, outer_val
     fit, stopper = common.split_inner_fit_stopper(train, 0.15)
     if set(fit.target_row.reshape(-1)) & set(stopper.target_row.reshape(-1)):
         raise POTFailure("TARGET_ROW_ISOLATION_FAIL")
-    selected = select_inner_epoch(method, fit, stopper, hp, int(seed), bs_cfg, common, max_epochs, patience, clip)
     signature = _signature(method, fold, seed, hp, protocol_sha)
     checkpoint, checkpoint_json = _checkpoint_paths(method, fold, seed)
     checkpoint.parent.mkdir(parents=True, exist_ok=True)
     dev = device()
+    if checkpoint.exists() and checkpoint_json.exists():
+        saved_signature = json.loads(checkpoint_json.read_text(encoding="utf-8"))
+        if {key: saved_signature[key] for key in signature} == signature and bool(saved_signature.get("complete")):
+            state = torch.load(checkpoint, map_location=dev, weights_only=False)
+            model = TimesNetVoltageAdapter(bs_cfg, METHODS[method]["input_dimension"], hp.dropout).to(dev)
+            model.load_state_dict(state["model_state_dict"])
+            scaler = common.FoldPreprocessor()
+            scaler.mean = np.asarray(state["preprocessor"]["mean"])
+            scaler.scale = np.asarray(state["preprocessor"]["scale"])
+            scaler.medians = np.asarray(state["preprocessor"]["medians"])
+            prediction = predict_delta(model, scaler.transform(validation.x), dev) * scaler.voltage_scale
+            record = dict(state["record"])
+            record["resumed_from_checkpoint"] = True
+            del model
+            if dev.type == "cuda":
+                torch.cuda.empty_cache()
+            return record, prediction
+    selected = select_inner_epoch(method, fit, stopper, hp, int(seed), bs_cfg, common, max_epochs, patience, clip)
     set_seed(int(seed))
     scaler = common.FoldPreprocessor().fit(train.x)
     x_train, x_valid = scaler.transform(train.x), scaler.transform(validation.x)
@@ -151,14 +168,6 @@ def formal_refit_and_predict(method: str, fold: str, outer_train: Any, outer_val
     peak = float(torch.cuda.max_memory_allocated(dev) / (1024 ** 2)) if dev.type == "cuda" else float("nan")
     if np.any(validation.target_end_age_h >= 1819.997738):
         raise POTFailure("TEST_FIREWALL_FAIL")
-    state = {
-        "signature": signature,
-        "selected": selected,
-        "model_state_dict": model.state_dict(),
-        "preprocessor": {"mean": scaler.mean, "scale": scaler.scale, "medians": scaler.medians},
-    }
-    torch.save(state, checkpoint)
-    checkpoint_json.write_text(json.dumps({**signature, "selected_epoch": selected["selected_epoch"], "complete": True}, indent=2) + "\n", encoding="utf-8")
     record = {
         "run_id": checkpoint.stem, "model": method, "fold": fold, "seed": int(seed), "status": "complete",
         "selected_epoch": int(selected["selected_epoch"]), "inner_fit_origins": len(fit.origin_row), "inner_stopper_origins": len(stopper.origin_row),
@@ -169,6 +178,15 @@ def formal_refit_and_predict(method: str, fold: str, outer_train: Any, outer_val
         "future_covariates_used": False, "physics_loss_used": False, "test_accessed": False,
         "all_legal_validation_origins_retained": True, **metrics,
     }
+    state = {
+        "signature": signature,
+        "selected": selected,
+        "model_state_dict": model.state_dict(),
+        "preprocessor": {"mean": scaler.mean, "scale": scaler.scale, "medians": scaler.medians},
+        "record": record,
+    }
+    torch.save(state, checkpoint)
+    checkpoint_json.write_text(json.dumps({**signature, "selected_epoch": selected["selected_epoch"], "complete": True}, indent=2) + "\n", encoding="utf-8")
     del model
     if dev.type == "cuda":
         torch.cuda.empty_cache()

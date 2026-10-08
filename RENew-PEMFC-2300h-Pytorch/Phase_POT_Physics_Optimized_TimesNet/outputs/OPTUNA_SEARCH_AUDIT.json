@@ -1,0 +1,74 @@
+{
+  "status": "COMPLETE",
+  "protocol_sha256": "1ed7b8cda5b12571972b37cc2690f1b82d4cc72212dfeddf9030c67244b50237",
+  "stage0_status": "PHYSICS_LOSS_NOT_ESTABLISHED",
+  "search_results": [
+    {
+      "method": "Optuna_RawF2_TimesNet",
+      "best_trial": 8,
+      "best_inner_deltaV_RMSE_mV": 16.577890367153934,
+      "selected_epoch": 107,
+      "hyperparameters": {
+        "learning_rate": 0.0005691541320277273,
+        "weight_decay": 9.087897961459053e-06,
+        "dropout": 0.2,
+        "batch_size": 32
+      },
+      "storage_relative_path": "outputs/optuna_Optuna_RawF2_TimesNet.sqlite3",
+      "completed_trials": 20,
+      "outer_validation_accessed": false
+    },
+    {
+      "method": "Optuna_EMDFeature_TimesNet",
+      "best_trial": 18,
+      "best_inner_deltaV_RMSE_mV": 16.88677057421291,
+      "selected_epoch": 30,
+      "hyperparameters": {
+        "learning_rate": 0.0017576842851711155,
+        "weight_decay": 0.0003673043400272034,
+        "dropout": 0.1,
+        "batch_size": 32
+      },
+      "storage_relative_path": "outputs/optuna_Optuna_EMDFeature_TimesNet.sqlite3",
+      "completed_trials": 20,
+      "outer_validation_accessed": false
+    }
+  ],
+  "data_firewall": {
+    "source_relative_path": "Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv",
+    "pandas_read_csv_nrows": 3007,
+    "prefix_rows_read": 3007,
+    "development_filter": "bin_end_ophrs2_h < 1819.997738",
+    "development_rows_retained": 3005,
+    "rows_after_registered_prefix_read": 0,
+    "full_causal_file_hash_computed": false,
+    "full_causal_file_read_detected": false,
+    "development_prefix_fingerprint_sha256": "e7470dec603689595b03c3b06a1a3509a2a74b4cc4f68c985992f914ebc29f2e",
+    "fingerprint_columns": [
+      "bin_start_ophrs2_h",
+      "bin_end_ophrs2_h",
+      "last_datetime",
+      "zero_current_fraction",
+      "operation_point_transitions",
+      "load_transition_count",
+      "cell_voltage_mean",
+      "cell_voltage_std",
+      "cell_voltage_range",
+      "cell_voltage_min",
+      "cell_voltage_max",
+      "actual_current_A_mean",
+      "actual_current_A_std",
+      "actual_current_A_peak_to_peak",
+      "actual_current_density_A_cm2_mean",
+      "actual_current_density_A_cm2_std",
+      "actual_current_density_A_cm2_peak_to_peak",
+      "bin_valid_for_windows",
+      "temporal_segment_id"
+    ],
+    "test_accessed": false,
+    "test_rows_read": 0,
+    "test_targets_read": 0
+  },
+  "outer_validation_used_for_selection": false,
+  "test_accessed": false
+}

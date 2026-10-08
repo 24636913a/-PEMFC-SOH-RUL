@@ -1,0 +1,36 @@
+{
+  "status": "PHYSICS_LOSS_NOT_ESTABLISHED",
+  "protocol_sha256": "1ed7b8cda5b12571972b37cc2690f1b82d4cc72212dfeddf9030c67244b50237",
+  "candidate": "TARGET_FUTURE_ACTUAL_CONDITIONED_POLARIZATION_ORDERING",
+  "reason": "FUTURE_ACTUAL_CONDITION_INFORMATION_UNAVAILABLE_AT_INFERENCE",
+  "support": {
+    "pair_count": 9452,
+    "candidate_query_count": 25152,
+    "active_pair_fraction": 0.37579516539440205,
+    "minimum_pair_support": 200,
+    "minimum_active_pair_fraction": 0.05,
+    "empirical_support_pass": true
+  },
+  "loss_contract": {
+    "differentiable": true,
+    "finite_loss": true,
+    "nonzero_gradient_on_violation": true,
+    "synthetic_gradient_norm": 1.4142135623730951,
+    "zero_support_returns_zero": true
+  },
+  "information_gate": {
+    "target_actual_current_density_origin_available": false,
+    "target_actual_temperature_origin_available": false,
+    "target_actual_relative_humidity_origin_available": false,
+    "target_actual_pressure_origin_available": false,
+    "future_actual_conditions_used_as_model_inputs": false,
+    "future_actual_conditions_allowed_as_training_pair_selectors": false,
+    "information_gate_pass": false,
+    "reason": "FUTURE_ACTUAL_CONDITION_INFORMATION_UNAVAILABLE_AT_INFERENCE"
+  },
+  "physics_training_authorized": false,
+  "alternative_constraint_substituted": false,
+  "current_phase_test_not_accessed": true,
+  "historical_test_contact_exists": true,
+  "model_training_performed": false
+}

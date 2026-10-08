@@ -1,0 +1,42 @@
+{
+  "data_firewall": {
+    "source_relative_path": "Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv",
+    "pandas_read_csv_nrows": 3007,
+    "prefix_rows_read": 3007,
+    "development_filter": "bin_end_ophrs2_h < 1819.997738",
+    "development_rows_retained": 3005,
+    "rows_after_registered_prefix_read": 0,
+    "full_causal_file_hash_computed": false,
+    "full_causal_file_read_detected": false,
+    "development_prefix_fingerprint_sha256": "6b4f37900536e05be8fd0139fd75ec4feb52424cbbb5ab4b5d61f46f5d71c5ab",
+    "fingerprint_columns": [
+      "bin_start_ophrs2_h",
+      "bin_end_ophrs2_h",
+      "last_datetime",
+      "zero_current_fraction",
+      "operation_point_transitions",
+      "load_transition_count",
+      "cell_voltage_mean",
+      "cell_voltage_std",
+      "cell_voltage_range",
+      "cell_voltage_min",
+      "cell_voltage_max",
+      "actual_current_A_mean",
+      "actual_current_A_std",
+      "actual_current_A_peak_to_peak",
+      "actual_current_density_A_cm2_mean",
+      "actual_current_density_A_cm2_std",
+      "actual_current_density_A_cm2_peak_to_peak",
+      "actual_cathode_inlet_rh_pct_mean",
+      "actual_cathode_inlet_pressure_kPag_mean",
+      "actual_cathode_inlet_temperature_C_mean",
+      "bin_valid_for_windows",
+      "temporal_segment_id"
+    ],
+    "test_accessed": false,
+    "test_rows_read": 0,
+    "test_targets_read": 0
+  },
+  "current_phase_test_not_accessed": true,
+  "historical_test_contact_exists": true
+}

@@ -1,0 +1,5 @@
+method,uses_R_origin,uses_past_retention_slope,uses_actual_target_end_lead,uses_Raw_F2_dynamic_history,uses_future_target_measurement,strictly_available_at_prediction_origin,formal_role_after_erratum,information_set,actual_target_end_lead_availability_status
+PERSISTENCE,True,False,False,False,False,True,PRINCIPAL_STRICTLY_CAUSAL_H1_BASELINE,{R_origin},NOT_ESTABLISHED
+CAUSAL_LINEAR_96H,True,True,True,False,False,False,DESCRIPTIVE_ACTUAL_LEAD_LINEAR_BASELINE,"{R_origin, slope_96h, actual_target_end_lead}",NOT_ESTABLISHED
+RIDGE_CAUSAL_STATE,True,True,True,False,False,False,DESCRIPTIVE_ACTUAL_LEAD_RIDGE_BASELINE,"{R_origin, slope_24h, slope_48h, slope_96h, actual_target_end_lead}",NOT_ESTABLISHED
+TIMESNET_RAW_F2,False,False,False,True,False,True,RAW_F2_ONLY_TIMESNET_H1_NOT_SUPPORTED,{48x14 Raw F2 dynamic history},NOT_ESTABLISHED

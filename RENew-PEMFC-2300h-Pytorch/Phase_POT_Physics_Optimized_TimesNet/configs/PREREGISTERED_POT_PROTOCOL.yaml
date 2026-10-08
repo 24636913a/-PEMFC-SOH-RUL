@@ -182,4 +182,3 @@ test_firewall:
   historical_test_contact_exists: true
   current_phase_test_not_accessed: required
   prohibited: [Test_rows, Test_targets, Test_predictions, Test_metrics, future_actual_covariates_as_inputs, SOH_training, RUL_training, backbone_search, PSDM_extension]
-

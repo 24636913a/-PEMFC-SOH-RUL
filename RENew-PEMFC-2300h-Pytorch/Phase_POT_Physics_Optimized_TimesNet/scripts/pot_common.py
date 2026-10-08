@@ -314,4 +314,3 @@ def finite_gradient_norm(loss: torch.Tensor, parameters: Iterable[torch.nn.Param
     if not math.isfinite(value):
         raise POTFailure("PHYSICS_GRADIENT_NONFINITE")
     return value
-

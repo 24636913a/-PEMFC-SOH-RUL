@@ -1,0 +1,20 @@
+phase: Phase_CTAE_P1S_Reference_Availability_Erratum
+base_commit: 1f689dbcdd988326fbab4c6114c085c4c266d7a5
+scope: DEVELOPMENT_ONLY
+reference_cycles: [COMPLETE_001, COMPLETE_002, COMPLETE_003, COMPLETE_004, COMPLETE_005, COMPLETE_006, COMPLETE_007, COMPLETE_008, COMPLETE_009, COMPLETE_010]
+reference_voltage_V: 0.71383023635
+reference_availability_ophrs_h: 171.82091
+formal_target: POST_REFERENCE_RAW_P1S_RETENTION_AS_CAUSAL_HEALTH_TARGET
+formal_target_formula: R_P1S(t) = V_P1S(t) / median(first_10_reference_cycle_P1S_voltages)
+eligibility:
+  must_be_evaluation_complete_cycle: true
+  measurement_end_must_be_greater_than_reference_availability: true
+  reference_cycles_as_prediction_targets: prohibited
+slope_windows_h: [24, 48, 96]
+slope_minimum_eligible_observations: 3
+slope_numerical_tolerance: 1.0e-12
+preserved_CTA_decisions:
+  global_B2_role: RETROSPECTIVE_REFERENCE_ONLY
+  full_sequence_trend_role: RETROSPECTIVE_ONLY
+  support_handling: STRATIFIED_MODELING_REQUIRED
+prohibited: [model_training, test_access, target_retuning, support_redefinition, trend_replay]

@@ -24,3 +24,15 @@ Execution order is fixed:
 
 No backbone search, Test evaluation, SOH/RUL modelling, or future-condition
 input is permitted.
+
+## Completed decision
+
+`PHYSICS_LOSS_NOT_ESTABLISHED` was reached at Stage 0 because the only
+preregistered output-level candidate required future actual operating
+conditions that are unavailable at inference.  M5/M6 were consequently not
+run.  The completed, frozen M4-versus-M2 advance gate failed all five checks;
+the phase conclusion is `NO_ROBUST_IMPROVEMENT`.  See
+[`reports/FINAL_RESEARCH_DECISION.md`](reports/FINAL_RESEARCH_DECISION.md) and
+[`outputs/POT_FINAL_SUMMARY.json`](outputs/POT_FINAL_SUMMARY.json).  This is a
+negative Development-only result, not a failure of the data firewall or a
+claim about SOH/RUL.

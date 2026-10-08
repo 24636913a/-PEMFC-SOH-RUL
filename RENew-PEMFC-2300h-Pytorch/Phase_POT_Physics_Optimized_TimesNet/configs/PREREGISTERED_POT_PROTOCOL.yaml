@@ -1,0 +1,185 @@
+phase: Phase_POT_Physics_Optimized_TimesNet
+status: FROZEN_BEFORE_STAGE0_AND_TRAINING
+base_commit: dc3b83e9c06b3296b540d3b886c65937ce0ca83d
+study_type: Development-only causal multi-step dynamic-voltage forecasting
+
+inherited_evidence:
+  phase_bs_protocol_sha256: fd710c4f2c1036c9a4b49068bd38d16aa39ad9f4bbc94a41b30f59f37afd6788
+  phase_df_protocol_sha256: 607ef091e22098103ebbd02cc13a1055e55b2b3b11914f5cb184a0829ebeb283
+  frozen_conclusions:
+    - TIMESNET_FREEZE
+    - BACKBONE_SEARCH_CLOSED
+    - EMD_SPECIFIC_ADVANCE
+    - FORECAST_ONLY_REPRESENTATION
+    - PSDM_FEASIBILITY_NOT_ESTABLISHED
+
+data_firewall:
+  source_relative_path: Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  reader: pandas.read_csv
+  pandas_read_csv_nrows: 3007
+  development_filter: bin_end_ophrs2_h < 1819.997738
+  expected_prefix_rows: 3007
+  expected_development_rows: 3005
+  full_file_hash_prohibited: true
+  full_file_read_prohibited: true
+  test_access_prohibited: true
+  late_life_target_access_prohibited: true
+
+task:
+  resolution_h: 0.5
+  context_steps: 48
+  horizon_steps: 24
+  input_shape_raw: [batch, 48, 14]
+  input_shape_emd: [batch, 48, 16]
+  raw_f2_feature_order:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+  target: cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t
+  future_covariates: prohibited
+  target_row_isolation: required
+  target_completion_purge: required
+  all_legal_validation_origins_retained: required
+
+folds:
+  - {fold: fold_1, train_start_h: 72.788690, train_end_h: 946.393214, validation_start_h: 946.393214, validation_end_h: 1164.794345}
+  - {fold: fold_2, train_start_h: 72.788690, train_end_h: 1164.794345, validation_start_h: 1164.794345, validation_end_h: 1383.195476}
+  - {fold: fold_3, train_start_h: 72.788690, train_end_h: 1383.195476, validation_start_h: 1383.195476, validation_end_h: 1819.997738}
+expected_windows:
+  fold_1: {outer_train_origins: 1048, outer_validation_origins: 233, inner_fit_origins: 867, inner_stopper_origins: 158}
+  fold_2: {outer_train_origins: 1281, outer_validation_origins: 245, inner_fit_origins: 1065, inner_stopper_origins: 193}
+  fold_3: {outer_train_origins: 1526, outer_validation_origins: 466, inner_fit_origins: 1281, inner_stopper_origins: 229}
+
+emd_feature:
+  source_phase: Phase_DF_Leakage_Safe_Decomposition_Features
+  source_method: EMD
+  source_cache_manifest_sha256_file: Phase_DF_Leakage_Safe_Decomposition_Features/outputs/CACHE_PROVENANCE_MANIFEST.sha256
+  input_dimension: 16
+  ordered_extra_features: [emd_remainder2_V, emd_remainder2_slope8_V_per_h]
+  information_set: same_48_step_origin_conditioned_causal_block
+  nomenclature: CAUSAL_EMD_SLOW_VARYING_FEATURES
+  soh_or_irreversible_degradation_claim: prohibited
+
+timesnet:
+  official_commit: 4e938a1767106324dd753b2a44832bf870a0252e
+  d_model: 32
+  d_ff: 64
+  e_layers: 1
+  top_k: 2
+  num_kernels: 3
+  seq_len: 48
+  pred_len: 24
+  embed: fixed
+  freq: h
+  only_tuned_training_parameters: [learning_rate, weight_decay, dropout, batch_size]
+
+inner_stopping:
+  stopper_fraction: 0.15
+  chronological_last_origins: true
+  target_overlap_between_fit_and_stopper: prohibited
+  scaler_fit_population: fit_origins_only
+  selection_metric: inner_deltaV_RMSE_mV
+
+optuna_tpe:
+  sampler_seed: 9137
+  n_trials_per_method: 20
+  methods: [Optuna_RawF2_TimesNet, Optuna_EMDFeature_TimesNet]
+  search_fold: fold_1
+  search_partition: outer_train_chronological_inner_fit_and_stopper_only
+  objective: inner_deltaV_RMSE_mV
+  max_epochs_per_trial: 120
+  patience_per_trial: 15
+  gradient_clip_norm: 1.0
+  optimizer: AdamW
+  trial_seed_base: 17041
+  duplicate_signature_action: prune_before_training
+  resume_storage: outputs/optuna_{method}.sqlite3
+  search_space:
+    learning_rate: {type: log_float, low: 0.0002, high: 0.002}
+    weight_decay: {type: log_float, low: 0.000001, high: 0.001}
+    dropout: {type: categorical, choices: [0.05, 0.1, 0.2]}
+    batch_size: {type: categorical, choices: [32, 64]}
+
+formal_training:
+  optimizer: AdamW
+  max_epochs: 300
+  patience: 30
+  gradient_clip_norm: 1.0
+  seeds: [42, 2024, 3407]
+  train_only_scaler: full_outer_train_only
+  final_refit: same_seed_reinitialize_on_full_outer_train_for_selected_inner_epoch
+  loss: standardized_multi_step_deltaV_MSE
+  checkpoint_resume: allowed_only_when_protocol_and_run_signature_match
+
+stage0_physics_candidate:
+  name: TARGET_FUTURE_ACTUAL_CONDITIONED_POLARIZATION_ORDERING
+  loss: mean_relu(predicted_absolute_voltage_high_j - predicted_absolute_voltage_low_j)
+  output_quantity: predicted_absolute_cell_voltage_V
+  comparison_unit: two different forecast queries at the same horizon
+  high_low_condition: target_actual_current_density_high_minus_low_A_cm2 >= 0.20
+  confounder_calipers:
+    target_actual_cathode_inlet_temperature_C_abs_difference_max: 2.0
+    target_actual_cathode_inlet_RH_pct_abs_difference_max: 5.0
+    target_actual_cathode_inlet_pressure_kPag_abs_difference_max: 5.0
+    target_age_h_abs_difference_max: 24.0
+    target_zero_current_fraction_max: 0.05
+  minimum_support:
+    fold1_outer_train_candidate_pairs: 200
+    active_pair_fraction_of_queries: 0.05
+  information_gate:
+    requires_each_condition_at_origin_or_explicitly_future_known_by_protocol: true
+    future_actual_measurements_as_inputs: prohibited
+    future_actual_measurements_as_training_pair_selectors: prohibited
+  nontriviality_gate:
+    direct_differentiable_prediction_gradient: required
+    finite_loss_and_gradient: required
+    applicable_pair_support: required
+  alternative_physics_loss_if_rejected: prohibited
+  pass_status: PHYSICS_LOSS_FEASIBLE
+  fail_status: PHYSICS_LOSS_NOT_ESTABLISHED
+
+ablations:
+  M1: {name: RawF2_TimesNet, source: frozen_Phase_DF_historical_control, input_dimension: 14}
+  M2: {name: EMD_TimesNet, source: frozen_Phase_DF_historical_EMD_control, input_dimension: 16}
+  M3: {name: Optuna_RawF2_TimesNet, source: Phase_POT_formal_refit, input_dimension: 14}
+  M4: {name: Optuna_EMD_TimesNet, source: Phase_POT_formal_refit, input_dimension: 16}
+  M5: {name: Physics_EMD_TimesNet, only_if_stage0_pass: true}
+  M6: {name: Physics_Optuna_EMD_TimesNet, only_if_stage0_pass: true}
+
+metrics:
+  primary: three_fold_equal_forecast_query_weighted_RMSE_mV
+  secondary: [MAE_mV, R2, endpoint_RMSE_mV, P95_abs_error_mV, P99_abs_error_mV, max_abs_error_mV, target_time_equal_RMSE_mV, fold3_RMSE_mV]
+  seed_summary: [mean, std, min, max]
+  overlapping_queries_independent_samples_claim: prohibited
+
+optuna_only_advance_gate:
+  comparison: M4_vs_M2
+  formal_equal_fold_RMSE_at_most_fraction_of_M2: 0.99
+  minimum_paired_seeds_better_than_M2: 2
+  fold3_RMSE_at_most_fraction_of_M2: 1.03
+  P99_at_most_fraction_of_M2: 1.05
+  target_time_equal_RMSE_at_most_fraction_of_M2: 1.05
+
+final_statuses:
+  - PHYSICS_OPTIMIZED_TIMESNET_ADVANCE
+  - OPTUNA_ONLY_ADVANCE
+  - NO_ROBUST_IMPROVEMENT
+  - PHYSICS_CONSTRAINT_NOT_FEASIBLE
+  - TECHNICAL_FAILURE
+
+test_firewall:
+  historical_test_contact_exists: true
+  current_phase_test_not_accessed: required
+  prohibited: [Test_rows, Test_targets, Test_predictions, Test_metrics, future_actual_covariates_as_inputs, SOH_training, RUL_training, backbone_search, PSDM_extension]
+

@@ -21,6 +21,8 @@ stage_A_anchor_authority:
   expected_git_blob_sha: 1da6d582d92e50576072f53575725e6e2d57c66f
   observed_git_blob_sha: 1da6d582d92e50576072f53575725e6e2d57c66f
   source_sha256: ae2cdeab2ab24c8bfce80f2be739404e22ebceb5e40a4efbd4bca09fb5d13dac
+  frozen_anchor_table_sha256: e7e58495b81c5c9853504720ffd26744eb3d033f599bff24ce2d070c8ffc9d66
+  frozen_reference_table_sha256: e77efd4c6c14161e92ea5a6b99570dda170f3681bdf9f762d00c9fc1b138539e
   allowed_stages:
   - BoL
   - 300h

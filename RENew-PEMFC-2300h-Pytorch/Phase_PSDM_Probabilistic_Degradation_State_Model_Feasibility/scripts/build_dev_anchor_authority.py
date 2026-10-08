@@ -101,14 +101,14 @@ def validate_anchor_frame(raw: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame
     return refs, anchors
 
 
-def frozen_protocol(source_hash: str, source_blob: str, chm_hash: str, paa_hash: str) -> dict[str, Any]:
+def frozen_protocol(source_hash: str, source_blob: str, chm_hash: str, paa_hash: str, anchor_hash: str, reference_hash: str) -> dict[str, Any]:
     return {
         "phase": "Phase_PSDM_Probabilistic_Degradation_State_Model_Feasibility",
         "status": "FROZEN_BEFORE_PSDM_RESULTS",
         "base_commit": BASE_COMMIT,
         "scope": {"development_only": True, "test_access_prohibited": True, "raw_F2_modeling": False, "TimesNet_training": False, "EMD": False, "VMD": False, "SG": False, "PINN": False, "RUL": False},
         "historical_psdm_attempt": {"mixed_n1_test_rows_accessed": True, "model_training_performed": False, "results_generated": False, "git_changed": False},
-        "stage_A_anchor_authority": {"exact_source": str(SOURCE.relative_to(REPO)).replace("\\", "/"), "expected_git_blob_sha": EXPECTED_BLOB, "observed_git_blob_sha": source_blob, "source_sha256": source_hash, "allowed_stages": list(STAGES), "allowed_jstar_A_cm2": list(JSTARS), "after_air_air_start": False, "selection_scope": "development-only", "BoL_reference_voltage_V": {"j1.0": REFS[1.0], "j1.6": REFS[1.6]}, "cross_checks": {"CHM_sparse_anchor_targets_sha256": chm_hash, "PAA_anchor_alignment_sha256": paa_hash}},
+        "stage_A_anchor_authority": {"exact_source": str(SOURCE.relative_to(REPO)).replace("\\", "/"), "expected_git_blob_sha": EXPECTED_BLOB, "observed_git_blob_sha": source_blob, "source_sha256": source_hash, "frozen_anchor_table_sha256": anchor_hash, "frozen_reference_table_sha256": reference_hash, "allowed_stages": list(STAGES), "allowed_jstar_A_cm2": list(JSTARS), "after_air_air_start": False, "selection_scope": "development-only", "BoL_reference_voltage_V": {"j1.0": REFS[1.0], "j1.6": REFS[1.6]}, "cross_checks": {"CHM_sparse_anchor_targets_sha256": chm_hash, "PAA_anchor_alignment_sha256": paa_hash}},
         "P1S_observation": {"source": "Phase_CTAE_P1S_Reference_Availability_Erratum/outputs/P1S_REFERENCE_AVAILABILITY_AUDIT.csv", "criterion": "causal_target_eligible == true", "expected_count": 131, "reference_voltage_V": VREF_P1S, "identity_source": "Phase_PHI_P1S_B2_Health_Index_Consolidation/outputs/P1S_B2_FULL_HEALTH_TRAJECTORY.csv"},
         "evaluation_authorities": {"H3": "Phase_CMRF_H3_H6_OriginConditioned_P1S_Forecasting/inputs/H3_FROZEN_SAMPLE_AUTHORITY.csv", "H6": "Phase_CMRF_H3_H6_OriginConditioned_P1S_Forecasting/inputs/H6_FROZEN_SAMPLE_AUTHORITY.csv", "H6_primary": True},
         "models": {"persistence": "Rhat_target=R_origin", "gaussian_persistence": "mu=R_origin; sigma=std(outer_train_DeltaR_H,ddof=1), floor=1e-8", "ULLT": {"observation": "R=H+epsilon", "transition": "H_next=H+s; s_next=s+eta", "state": ["H", "s"], "Q": "diag(0,q_s)", "parameters": ["log_q_s", "log_r", "s0"]}, "PSDM": {"observation": "R=H+epsilon", "transition": "H_next=H-softplus(z); z_next=z+eta", "state": ["H", "z"], "Q": "diag(0,q_z)", "parameters": ["log_q_z", "log_r", "z0"], "jacobian": "[[1,-sigmoid(z)],[0,1]]", "posterior": "Gaussian_EKF_approximation"}},
@@ -149,14 +149,17 @@ def run() -> dict[str, Any]:
     if set(freeze.checkpoint_h.astype(int)) != set(paa.checkpoint_h.astype(int)):
         raise AnchorAuthorityFailure("PAA_CHECKPOINT_ALIGNMENT_MISMATCH")
     refs_out = refs.assign(jstar_A_cm2=refs.target_jstar_A_cm2.astype(float), BoL_reference_voltage_V=refs.active_voltage_median_V.astype(float), source_stage=refs.stage.astype(str), source_filename=refs.filename.astype(str), source_valid_sample_count=refs.valid_sample_count.astype(int))[ ["jstar_A_cm2", "BoL_reference_voltage_V", "source_stage", "source_filename", "source_valid_sample_count", "selection_scope"]].sort_values("jstar_A_cm2")
-    write_csv(freeze, INPUT / "DEV_POLARIZATION_ANCHORS_J1_J16_FROZEN.csv"); write_csv(refs_out, INPUT / "DEV_POLARIZATION_REFERENCE_FROZEN.csv")
-    protocol = frozen_protocol(source_hash, source_blob, sha256_file(CHM), sha256_file(PAA))
+    anchor_path = INPUT / "DEV_POLARIZATION_ANCHORS_J1_J16_FROZEN.csv"; reference_path = INPUT / "DEV_POLARIZATION_REFERENCE_FROZEN.csv"
+    write_csv(freeze, anchor_path); write_csv(refs_out, reference_path)
+    anchor_hash, reference_hash = sha256_file(anchor_path), sha256_file(reference_path)
+    protocol = frozen_protocol(source_hash, source_blob, sha256_file(CHM), sha256_file(PAA), anchor_hash, reference_hash)
     protocol_path = CONFIG / "PSDM_FEASIBILITY_FROZEN_PROTOCOL.yaml"; protocol_path.write_text(yaml.safe_dump(protocol, sort_keys=False, allow_unicode=True), encoding="utf-8")
     protocol_sha = sha256_file(protocol_path); (CONFIG / "PSDM_FEASIBILITY_FROZEN_PROTOCOL.sha256").write_text(f"{protocol_sha}  PSDM_FEASIBILITY_FROZEN_PROTOCOL.yaml\n", encoding="utf-8")
     chm_difference = np.abs(j1.polarization_retention.to_numpy(float) - j1.Y.to_numpy(float))
     manifest = {
         "stage": "A", "exact_polarization_source": str(SOURCE.relative_to(REPO)).replace("\\", "/"),
         "expected_git_blob_sha": EXPECTED_BLOB, "observed_git_blob_sha": source_blob, "actual_source_sha256": source_hash,
+        "frozen_anchor_table_sha256": anchor_hash, "frozen_reference_table_sha256": reference_hash,
         "source_record_count": int(len(raw)), "frozen_anchor_count": int(len(freeze)), "frozen_reference_count": int(len(refs_out)),
         "allowed_stages": list(STAGES), "allowed_jstar_A_cm2": list(JSTARS),
         "excluded_stage_examples": ["1500h_afterAirAirStart", "2000h", "2300h"],

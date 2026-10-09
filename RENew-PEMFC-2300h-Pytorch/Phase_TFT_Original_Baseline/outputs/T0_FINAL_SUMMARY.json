@@ -24,5 +24,15 @@
     "RawF2_TimesNet_seed42_RMSE_mV": 14.206557830029526,
     "EMDFeature_TimesNet_seed42_RMSE_mV": 13.334967291809761,
     "historical_StrictHistoryTFT_seed42_RMSE_mV": 19.9142
+  },
+  "raw_timesnet_RMSE_gap_mV": 11.951387860949167,
+  "historical_tft_like_RMSE_gap_mV": 6.243745690978692,
+  "horizon_step_1_equal_fold_RMSE_mV": 20.20062739650309,
+  "horizon_step_24_equal_fold_RMSE_mV": 28.10242257638868,
+  "diagnostic_artifacts": {
+    "horizon_behavior": "T0_HORIZON_BEHAVIOR_DIAGNOSTICS.csv",
+    "output_variation": "T0_OUTPUT_VARIATION_DIAGNOSTICS.csv",
+    "interpretability": "T0_INTERPRETABILITY_DIAGNOSTICS.json",
+    "frozen_context": "FROZEN_CONTEXT_FOLD_COMPARISON.csv"
   }
 }

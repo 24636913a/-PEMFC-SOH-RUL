@@ -1,23 +1,41 @@
 {
-  "status": "T1R_EXECUTION_CHAIN_STATIC_PASS",
-  "protocol_sha256": "c9f58b01c74dc82b3d35f264cc320f7c800a7b3b43d038437df166ead53eb183",
-  "original_t1": {
-    "protocol_sha256": "c119ec2df9a6c5d5a5ffea81ed959507eafd664135e29f869fa805d7bc7282cf",
-    "runner_sha256": "abeeee10b1acb8f289a555d43a8d3e9876b1a25d9e5158f81c52482edee91147",
-    "database_sha256": "2bb56377aedec88169ede6ccbcb724c4c958f12eafe1a991cfe809c7b1804f8c",
+  "authorization_file_created": false,
+  "model_training_performed": false,
+  "multiseed_identity_required": true,
+  "new_trials_created": false,
+  "old_t1_integrity": {
+    "archive_exists": true,
     "archive_sha256": "2bb56377aedec88169ede6ccbcb724c4c958f12eafe1a991cfe809c7b1804f8c",
-    "archive_exists": true
+    "database_contents_read": false,
+    "database_sha256": "2bb56377aedec88169ede6ccbcb724c4c958f12eafe1a991cfe809c7b1804f8c"
   },
-  "data_firewall": {
-    "nrows": 3007,
-    "development_rows": 3005,
-    "full_file_hash": false,
+  "outer_predictions_created": false,
+  "preflight": {
+    "authorization_file_present": false,
+    "canonical_tft_loaded": "CanonicalStrictHistoryTFT",
+    "data_audit": {
+      "development_rows": 3005,
+      "full_file_hash": false,
+      "nrows": 3007,
+      "test_accessed": false
+    },
+    "model_training_performed": false,
+    "protocol_sha256": "c9f58b01c74dc82b3d35f264cc320f7c800a7b3b43d038437df166ead53eb183",
+    "status": "T1R_FULL_PIPELINE_READY",
     "test_accessed": false
   },
-  "new_trials_created": false,
-  "model_training_performed": false,
+  "protocol_preserved": true,
+  "protocol_sha256": "c9f58b01c74dc82b3d35f264cc320f7c800a7b3b43d038437df166ead53eb183",
+  "runner_sha256": "b2106d1336dbdb385ea5679753036d5cf88a35c1a9b1935b834eaa272e027732",
+  "status": "T1R_FULL_PIPELINE_READY",
+  "t0_query_universe_match_required": true,
   "test_accessed": false,
-  "old_t1_runner_imported": false,
-  "study_prefix": "T1R",
-  "database_path_template": "outputs/optuna_T1R_{fold}.db"
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "passed": true,
+    "synthetic_only": true,
+    "tests_run": 17
+  },
+  "trial_budget_source": "persisted Optuna study.trials only"
 }

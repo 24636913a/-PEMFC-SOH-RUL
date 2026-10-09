@@ -1,9 +1,9 @@
-"""Pure, fail-closed T1-R decision state machine; no model or database I/O."""
+"""Protocol-derived, identity-gated T1-R decisions."""
 from __future__ import annotations
 
+import math
 from statistics import median
 from typing import Any
-
 
 TECHNICAL = "TFT_T1_TECHNICAL_FAILURE"
 INSUFFICIENT = "TFT_OPTUNA_INSUFFICIENT_GAIN"
@@ -12,66 +12,37 @@ ADVANCE = "TFT_OPTUNA_ADVANCE"
 EXTENDED = "TFT_EXTENDED_BUDGET_CONFIG_ADVANCE"
 
 
-def _finite_metrics(metrics: dict[str, Any], keys: tuple[str, ...]) -> bool:
+def thresholds(cfg: dict[str, Any]) -> dict[str, float]:
+    seed42, multi, a = cfg["decision"]["seed42_optuna_conditions"], cfg["decision"]["multiseed"], cfg["comparators"]["A_frozen_t0"]
+    return {"a_rmse": float(a["RMSE_mV"]), "a_fold3": float(a["fold3_RMSE_mV"]), "improve": float(seed42["c_vs_a_relative_improvement_min"]), "competitive": float(seed42["c_rmse_mV_max"]), "fold3": float(seed42["c_fold3_rmse_mV_max"]), "p99_mult": float(seed42["c_p99_vs_b_multiplier_max"]), "target_mult": float(seed42["c_target_time_equal_vs_b_multiplier_max"]), "multi_comp": float(multi["per_seed_c_rmse_mV_max"]), "multi_fold3": float(multi["median_fold3_rmse_mV_max"]), "multi_min": int(multi["min_paired_c_beats_b"])}
+
+
+def _finite(x: dict[str, Any]) -> bool:
     try:
-        return all(float(metrics[k]) == float(metrics[k]) and abs(float(metrics[k])) != float("inf") for k in keys)
-    except (KeyError, TypeError, ValueError):
+        return all(math.isfinite(float(x[k])) for k in ("rmse", "fold3_rmse", "p99", "target_equal_rmse"))
+    except (KeyError, ValueError, TypeError):
         return False
 
 
-def check_trial_budget(attempted: int, completed: int, states: list[str] | None = None, minimum_completed: int = 12, budget: int = 16) -> dict[str, Any]:
-    states = states or []
-    if attempted != budget or completed < minimum_completed or completed > budget or len(states) not in {0, attempted}:
-        return {"pass": False, "reason": "TRIAL_BUDGET_NOT_CLOSED"}
-    if any(state in {"RUNNING", "WAITING"} for state in states):
-        return {"pass": False, "reason": "UNRESOLVED_TRIAL_STATE"}
-    return {"pass": True, "reason": "PASS"}
-
-
-def seed42_decision(a: dict[str, Any], b: dict[str, Any], c: dict[str, Any], *, audits_pass: bool) -> dict[str, Any]:
-    keys = ("rmse", "fold3_rmse", "p99", "target_equal_rmse")
-    if not audits_pass or not (_finite_metrics(a, keys) and _finite_metrics(b, keys) and _finite_metrics(c, keys)):
+def seed42_decision(a: dict[str, Any], b: dict[str, Any], c: dict[str, Any], *, cfg: dict[str, Any], identity_audited: bool) -> dict[str, Any]:
+    """A formal caller must supply metrics produced after query identity auditing."""
+    if not identity_audited or not all(_finite(x) for x in (a, b, c)):
         return {"status": TECHNICAL, "reason": "AUDIT_OR_METRIC_FAILURE"}
-    c_conditions = {
-        "c_beats_b_strict": c["rmse"] < b["rmse"],
-        "c_improves_a_15pct": c["rmse"] <= a["rmse"] * 0.85,
-        "c_competitive": c["rmse"] <= 19.8892,
-        "c_fold3": c["fold3_rmse"] <= 33.4534,
-        "c_p99": c["p99"] <= b["p99"] * 1.10,
-        "c_target_equal": c["target_equal_rmse"] <= b["target_equal_rmse"] * 1.10,
-    }
-    if all(c_conditions.values()):
-        return {"status": PENDING, "reason": "ALL_SEED42_OPTUNA_CONDITIONS_PASS", "conditions": c_conditions}
-    b_conditions = {
-        "b_beats_a_15pct": b["rmse"] <= a["rmse"] * 0.85,
-        "b_competitive": b["rmse"] <= 19.8892,
-        "b_fold3": b["fold3_rmse"] <= 33.4534,
-        "b_p99": b["p99"] <= a["p99"] * 1.10,
-        "b_target_equal": b["target_equal_rmse"] <= a["target_equal_rmse"] * 1.10,
-        "c_not_better_than_b": not c_conditions["c_beats_b_strict"],
-    }
-    if all(b_conditions.values()):
-        return {"status": EXTENDED, "reason": "EXTENDED_BUDGET_CONFIGURATION_DESCRIPTIVE_ADVANCE", "conditions": {**c_conditions, **b_conditions}}
-    return {"status": INSUFFICIENT, "reason": "SEED42_FULL_OPTUNA_GATE_NOT_MET", "conditions": {**c_conditions, **b_conditions}}
+    t = thresholds(cfg)
+    conditions = {"c_beats_b_strict": c["rmse"] < b["rmse"], "c_improves_a": c["rmse"] <= t["a_rmse"] * (1 - t["improve"]), "c_competitive": c["rmse"] <= t["competitive"], "c_fold3": c["fold3_rmse"] <= t["fold3"], "c_p99": c["p99"] <= b["p99"] * t["p99_mult"], "c_target_equal": c["target_equal_rmse"] <= b["target_equal_rmse"] * t["target_mult"]}
+    return {"status": PENDING if all(conditions.values()) else INSUFFICIENT, "reason": "ALL_SEED42_OPTUNA_CONDITIONS_PASS" if all(conditions.values()) else "SEED42_FULL_OPTUNA_GATE_NOT_MET", "conditions": conditions}
 
 
-def multiseed_decision(seed42: dict[str, Any], pairs: list[dict[str, float]] | None, *, audits_pass: bool) -> dict[str, Any]:
+def multiseed_decision(seed42: dict[str, Any], identity: dict[str, Any], metrics_by_seed: dict[int, dict[str, float]], *, cfg: dict[str, Any]) -> dict[str, Any]:
     if seed42.get("status") != PENDING:
         return {"status": seed42.get("status", TECHNICAL), "reason": "MULTISEED_NOT_AUTHORIZED_BY_SEED42"}
-    if not audits_pass:
-        return {"status": TECHNICAL, "reason": "MULTISEED_AUDIT_FAILURE"}
-    if pairs is None:
-        return {"status": PENDING, "reason": "MULTISEED_REQUIRED_NOT_RUN"}
-    if len(pairs) != 3 or any(not _finite_metrics(pair, ("b_rmse", "c_rmse", "c_fold3_rmse")) for pair in pairs):
-        return {"status": TECHNICAL, "reason": "MULTISEED_INPUT_INVALID"}
-    c_values = [float(pair["c_rmse"]) for pair in pairs]
-    b_values = [float(pair["b_rmse"]) for pair in pairs]
-    fold3 = [float(pair["c_fold3_rmse"]) for pair in pairs]
-    conditions = {
-        "each_seed_competitive": all(value <= 19.889180962041335 for value in c_values),
-        "median_c_competitive": median(c_values) <= 19.889180962041335,
-        "median_fold3": median(fold3) <= 33.4533564032138,
-        "at_least_two_paired_c_beats_b": sum(c < b for c, b in zip(c_values, b_values)) >= 2,
-        "median_c_beats_b_strict": median(c_values) < median(b_values),
-    }
+    if not identity.get("pass") or set(metrics_by_seed) != {42, 2024, 3407}:
+        return {"status": TECHNICAL, "reason": "MULTISEED_IDENTITY_AUDIT_FAILURE"}
+    if any(not _finite(v) or "b_rmse" not in v or not math.isfinite(float(v["b_rmse"])) for v in metrics_by_seed.values()):
+        return {"status": TECHNICAL, "reason": "MULTISEED_METRIC_INVALID"}
+    t = thresholds(cfg)
+    c = [float(v["rmse"]) for v in metrics_by_seed.values()]
+    b = [float(v["b_rmse"]) for v in metrics_by_seed.values()]
+    f = [float(v["fold3_rmse"]) for v in metrics_by_seed.values()]
+    conditions = {"each_seed_competitive": all(x <= t["multi_comp"] for x in c), "median_c_competitive": median(c) <= t["multi_comp"], "median_fold3": median(f) <= t["multi_fold3"], "paired_c_beats_b": sum(x < y for x, y in zip(c, b)) >= t["multi_min"], "median_c_beats_b": median(c) < median(b)}
     return {"status": ADVANCE if all(conditions.values()) else INSUFFICIENT, "reason": "MULTISEED_PASS" if all(conditions.values()) else "MULTISEED_GATE_NOT_MET", "conditions": conditions}

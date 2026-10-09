@@ -1,0 +1,129 @@
+phase: Phase_TFT_Original_Baseline
+status: FROZEN_BEFORE_TRAINING
+base_commit: 1a376569a25681c53a9e621e3ece6ee4caeb22ed
+study_type: Development-only canonical TFT strict-history baseline
+
+scope:
+  dataset: RealHyFC_2300h
+  backbone_search_reopened: false
+  model_identity: Canonical_Architecture_TFT_Strict_History
+  test_access: prohibited
+  Optuna: prohibited
+  external_feature_selection: prohibited
+  SG_Kalman_or_other_filtering: prohibited
+  EMD_VMD_or_other_decomposition: prohibited
+  physics_loss_or_PINN: prohibited
+  SOH_RUL_or_health_labels: prohibited
+  future_actual_covariates: prohibited
+
+upstream_architecture:
+  implementation: pytorch_forecasting.models.temporal_fusion_transformer.TemporalFusionTransformer
+  package: pytorch-forecasting
+  package_version: 1.8.0
+  source_repository: https://github.com/sktime/pytorch-forecasting
+  source_files:
+    _tft.py_sha256: 6ad5f6c806d314cfec53851ce0914c6d3476c4b05bd136a2764f4a562f1b7343
+    sub_modules.py_sha256: 9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e
+  adaptation:
+    historical_observed: Raw_F2_14_only
+    known_future: deterministic_relative_forecast_step_only
+    unknown_future: actual_current_voltage_temperature_RH_pressure_and_flow
+    static_covariates: none
+    decoder_actual_variables: prohibited
+    output: one_channel_standardized_deltaV_point_forecast
+    loss: standardized_deltaV_MSE
+    quantile_or_probabilistic_output: not_claimed
+
+data_firewall:
+  source_relative_path: Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  pandas_read_csv_nrows: 3007
+  required_post_read_filter: bin_end_ophrs2_h < 1819.997738
+  expected_prefix_rows: 3007
+  expected_development_rows: 3005
+  full_file_hash_prohibited: true
+  full_file_read_prohibited: true
+  test_rows_targets_predictions_or_metrics: prohibited
+
+task:
+  resolution_h: 0.5
+  input_shape: [batch, 48, 14]
+  lookback_steps: 48
+  horizon_steps: 24
+  target: cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t
+  output_shape: [batch, 24]
+  raw_f2_feature_order:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+  future_covariates: prohibited
+
+folds:
+  - {fold: fold_1, train_start_h: 72.788690, train_end_h: 946.393214, validation_start_h: 946.393214, validation_end_h: 1164.794345}
+  - {fold: fold_2, train_start_h: 72.788690, train_end_h: 1164.794345, validation_start_h: 1164.794345, validation_end_h: 1383.195476}
+  - {fold: fold_3, train_start_h: 72.788690, train_end_h: 1383.195476, validation_start_h: 1383.195476, validation_end_h: 1819.997738}
+expected_windows:
+  fold_1: {outer_train_origins: 1048, outer_validation_origins: 233, inner_fit_origins: 867, inner_stopper_origins: 158}
+  fold_2: {outer_train_origins: 1281, outer_validation_origins: 245, inner_fit_origins: 1065, inner_stopper_origins: 193}
+  fold_3: {outer_train_origins: 1526, outer_validation_origins: 466, inner_fit_origins: 1281, inner_stopper_origins: 229}
+
+model:
+  hidden_size: 32
+  hidden_continuous_size: 16
+  attention_head_size: 4
+  lstm_layers: 1
+  dropout: 0.1
+  causal_attention: true
+  encoder_continuous_variables: 15
+  decoder_continuous_variables: 1
+  decoder_known_variable: relative_forecast_step
+  static_variables: 0
+
+training:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 64
+  max_epochs: 300
+  patience: 30
+  gradient_clip_norm: 1.0
+  seed: 42
+  chronological_inner_stopper_fraction: 0.15
+  scaler_fit: inner_fit_only_then_full_outer_train_for_refit
+  selection_metric: inner_deltaV_RMSE_mV
+  final_refit: same_seed_reinitialize_on_full_outer_train_for_selected_inner_epoch
+  loss: standardized_deltaV_MSE
+
+metrics:
+  formal: three_fold_equal_forecast_query_weighted_RMSE_mV
+  secondary: [MAE_mV, R2, endpoint_RMSE_mV, P95_absolute_error_mV, P99_absolute_error_mV, max_absolute_error_mV, target_time_equal_RMSE_mV]
+  overlapping_queries_independent_samples_claim: prohibited
+  frozen_context_references:
+    RawF2_TimesNet_seed42_RMSE_mV: 14.206557830029526
+    EMDFeature_TimesNet_seed42_RMSE_mV: 13.334967291809761
+    historical_StrictHistoryTFT_seed42_RMSE_mV: 19.9142
+
+stage0_requirements:
+  architecture_component_audit: required
+  synthetic_forward_loss_gradient: required
+  extractable_encoder_VSN_weights: required
+  extractable_decoder_VSN_weights: required
+  extractable_attention_weights: required
+  safe_prefix_reader: required
+  future_mutation_invariance: required
+  gpu_forward_backward_audit: required
+  all_checks_pass_before_training: true
+
+final_statuses:
+  - CANONICAL_TFT_BASELINE_ESTABLISHED
+  - CANONICAL_TFT_IMPLEMENTATION_FAILED

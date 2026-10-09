@@ -1,0 +1,130 @@
+phase: Phase_TFT_Hyperparameter_Optimization
+status: FROZEN_BEFORE_SEARCH_AND_OUTER_EVALUATION
+base_commit: 5aadd2aaaa8dea592c4c736feb3a7bf166336f3a
+study_type: development_only_nested_optuna_tpe_canonical_tft
+
+scope:
+  dataset: RealHyFC_2300h
+  test_access: prohibited
+  raw_f2_only: true
+  backbone_search_reopened: false
+  model_identity: Canonical_Architecture_TFT_Strict_History
+  future_actual_covariates: prohibited
+  filters_decomposition_physics_loss_SOH_RUL: prohibited
+
+frozen_t0_authority:
+  phase: Phase_TFT_Original_Baseline
+  canonical_tft_relative_path: models/canonical_tft.py
+  canonical_tft_sha256: b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618
+  t0_protocol_sha256: c5dbc3ab6b528f7058a3e9cb670bcf465da258f7ebbc87229a493beff327a3bf
+  t0_frozen_equal_fold_RMSE_mV: 26.157945690978693
+  t0_fold_RMSE_mV: {fold_1: 26.655705145790066, fold_2: 18.36477552393221, fold_3: 33.4533564032138}
+  raw_f2_timesnet_RMSE_mV: 14.206557830029526
+
+data_firewall:
+  source_relative_path: Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  pandas_read_csv_nrows: 3007
+  required_post_read_filter: bin_end_ophrs2_h < 1819.997738
+  expected_prefix_rows: 3007
+  expected_development_rows: 3005
+  full_file_hash_prohibited: true
+  full_file_read_prohibited: true
+  test_rows_targets_predictions_or_metrics: prohibited
+
+task:
+  resolution_h: 0.5
+  lookback_steps: 48
+  horizon_steps: 24
+  input_shape: [batch, 48, 14]
+  output_shape: [batch, 24]
+  target: cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t
+  raw_f2_feature_order:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+
+folds:
+  - {fold: fold_1, train_start_h: 72.788690, train_end_h: 946.393214, validation_start_h: 946.393214, validation_end_h: 1164.794345}
+  - {fold: fold_2, train_start_h: 72.788690, train_end_h: 1164.794345, validation_start_h: 1164.794345, validation_end_h: 1383.195476}
+  - {fold: fold_3, train_start_h: 72.788690, train_end_h: 1383.195476, validation_start_h: 1383.195476, validation_end_h: 1819.997738}
+expected_windows:
+  fold_1: {outer_train_origins: 1048, outer_validation_origins: 233, inner_fit_origins: 867, inner_stopper_origins: 158}
+  fold_2: {outer_train_origins: 1281, outer_validation_origins: 245, inner_fit_origins: 1065, inner_stopper_origins: 193}
+  fold_3: {outer_train_origins: 1526, outer_validation_origins: 466, inner_fit_origins: 1281, inner_stopper_origins: 229}
+
+architecture_fixed:
+  implementation: pytorch_forecasting.models.temporal_fusion_transformer.TemporalFusionTransformer
+  package: pytorch-forecasting
+  package_version: 1.8.0
+  attention_head_size: 4
+  lstm_layers: 1
+  causal_attention: true
+  decoder_known_variable: relative_forecast_step
+  decoder_actual_covariates: prohibited
+  output_size: 1
+
+search:
+  method: Optuna_TPE
+  sampler_seed: 9137
+  trials_per_outer_fold: 16
+  trial_0: {learning_rate: 0.001, weight_decay: 0.00001, dropout: 0.1, hidden_size: 32, hidden_continuous_size: 16, batch_size: 64}
+  learning_rate: {type: log_float, low: 0.0001, high: 0.002}
+  weight_decay: {type: log_float, low: 0.000001, high: 0.001}
+  dropout: {choices: [0.05, 0.1, 0.2]}
+  width_combinations:
+    - {hidden_size: 16, hidden_continuous_size: 8}
+    - {hidden_size: 16, hidden_continuous_size: 16}
+    - {hidden_size: 32, hidden_continuous_size: 8}
+    - {hidden_size: 32, hidden_continuous_size: 16}
+    - {hidden_size: 32, hidden_continuous_size: 32}
+    - {hidden_size: 64, hidden_continuous_size: 8}
+    - {hidden_size: 64, hidden_continuous_size: 16}
+    - {hidden_size: 64, hidden_continuous_size: 32}
+  batch_size: {choices: [32, 64]}
+  pruner: none_except_duplicate_invalid_nan_or_oom
+
+training:
+  optimizer: AdamW
+  gradient_clip_norm: 1.0
+  max_epochs: 450
+  patience: 40
+  seed: 42
+  chronological_inner_stopper_fraction: 0.15
+  scaler_fit: inner_fit_only_then_full_outer_train_for_refit
+  selection_metric: inner_deltaV_RMSE_mV
+  final_refit: same_seed_reinitialize_on_full_outer_train_for_selected_inner_epoch
+  loss: standardized_deltaV_MSE
+
+evaluation:
+  formal_primary: three_fold_equal_forecast_query_weighted_RMSE_mV
+  metrics: [RMSE_mV, MAE_mV, R2, endpoint_RMSE_mV, P95_absolute_error_mV, P99_absolute_error_mV, max_absolute_error_mV, target_time_equal_RMSE_mV]
+  fixed_outer_validation_origin_target_truth_match_to_T0: required
+  independent_samples_claim_for_overlapping_queries: prohibited
+
+seed42_advance_gate:
+  t1_vs_t0_relative_improvement_min: 0.15
+  raw_timesnet_multiplier_max: 1.40
+  fold3_rmse_mV_max: 33.4533564032138
+  p99_multiplier_vs_matched_budget_max: 1.10
+  target_time_equal_rmse_multiplier_vs_matched_budget_max: 1.10
+  all_core_audits_pass: true
+
+multiseed_gate:
+  execute_only_if_seed42_advance_gate_passes: true
+  seeds: [2024, 3407]
+  each_seed_t1_equal_fold_rmse_mV_max: 19.889180962041335
+  median_three_seed_equal_fold_rmse_mV_max: 19.889180962041335
+  fold3_median_rmse_mV_max: 33.4533564032138
+
+final_statuses: [TFT_OPTUNA_ADVANCE, TFT_TRAINING_BUDGET_ONLY_ADVANCE, TFT_OPTUNA_INSUFFICIENT_GAIN, TFT_T1_TECHNICAL_FAILURE]

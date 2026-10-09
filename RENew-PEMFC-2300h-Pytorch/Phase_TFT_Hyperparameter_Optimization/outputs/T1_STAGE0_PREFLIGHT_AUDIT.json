@@ -1,0 +1,81 @@
+{
+  "status": "T1_STAGE0_PASS",
+  "protocol_sha256": "c119ec2df9a6c5d5a5ffea81ed959507eafd664135e29f869fa805d7bc7282cf",
+  "t0_authority": {
+    "canonical_tft_sha256": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+    "t0_protocol_sha256": "c5dbc3ab6b528f7058a3e9cb670bcf465da258f7ebbc87229a493beff327a3bf",
+    "pass": true
+  },
+  "t0_validation_authority": {
+    "pass": true,
+    "folds": [
+      {
+        "fold": "fold_1",
+        "expected_queries": 5592,
+        "t0_queries": 5592,
+        "origin_target_truth_exact_match": true
+      },
+      {
+        "fold": "fold_2",
+        "expected_queries": 5880,
+        "t0_queries": 5880,
+        "origin_target_truth_exact_match": true
+      },
+      {
+        "fold": "fold_3",
+        "expected_queries": 11184,
+        "t0_queries": 11184,
+        "origin_target_truth_exact_match": true
+      }
+    ]
+  },
+  "data_firewall": {
+    "pandas_read_csv_nrows": 3007,
+    "prefix_rows_read": 3007,
+    "post_read_filter": "bin_end_ophrs2_h < 1819.997738",
+    "development_rows": 3005,
+    "development_prefix_fingerprint_sha256": "e7470dec603689595b03c3b06a1a3509a2a74b4cc4f68c985992f914ebc29f2e",
+    "full_causal_file_hash_computed": false,
+    "full_causal_file_read_detected": false,
+    "test_accessed": false,
+    "test_rows_read": 0,
+    "test_targets_read": 0
+  },
+  "device": "cuda",
+  "cuda_available": true,
+  "legal_width_combinations": [
+    {
+      "hidden_size": 16,
+      "hidden_continuous_size": 8
+    },
+    {
+      "hidden_size": 16,
+      "hidden_continuous_size": 16
+    },
+    {
+      "hidden_size": 32,
+      "hidden_continuous_size": 8
+    },
+    {
+      "hidden_size": 32,
+      "hidden_continuous_size": 16
+    },
+    {
+      "hidden_size": 32,
+      "hidden_continuous_size": 32
+    },
+    {
+      "hidden_size": 64,
+      "hidden_continuous_size": 8
+    },
+    {
+      "hidden_size": 64,
+      "hidden_continuous_size": 16
+    },
+    {
+      "hidden_size": 64,
+      "hidden_continuous_size": 32
+    }
+  ],
+  "test_accessed": false
+}

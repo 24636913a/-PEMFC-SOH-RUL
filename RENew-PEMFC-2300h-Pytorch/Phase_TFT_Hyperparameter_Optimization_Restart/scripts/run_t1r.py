@@ -16,6 +16,7 @@ from t1r_common import PHASE, T1RFailure, load_protocol, load_t0_model, safe_dev
 from t1r_decision import INSUFFICIENT, PENDING, multiseed_decision, seed42_decision
 from t1r_evaluation import load_frozen_t0_metrics, load_frozen_t0_query_universe, validate_multiseed_identity, validate_pair_rows
 from t1r_optuna import assert_new_study_path, audit_study
+from t1r_execution_identity import verify_manifest
 
 
 FOLDS = ("fold_1", "fold_2", "fold_3")
@@ -62,11 +63,12 @@ def verify_execution_authorization(token: str, protocol_sha: str) -> dict[str, A
 
 def validate_authorization_payload(auth: dict[str, Any], protocol_sha: str) -> None:
     """Pure production validation, also exercised with tampered payload tests."""
-    required = {"protocol_sha256", "runner_sha256", "allowed_phase", "study_namespace", "development_scope"}
+    required = {"protocol_sha256", "runner_sha256", "execution_identity_sha256", "allowed_phase", "study_namespace", "development_scope"}
     if not isinstance(auth, dict) or required - set(auth):
         raise PipelineFailure("AUTHORIZATION_FILE_SCHEMA_INVALID")
     if auth["protocol_sha256"] != protocol_sha or auth["runner_sha256"] != runner_sha256():
         raise PipelineFailure("AUTHORIZATION_IDENTITY_MISMATCH")
+    verify_manifest(str(auth['execution_identity_sha256']))
     if auth["allowed_phase"] != PHASE.name or auth["study_namespace"] != "T1R" or auth["development_scope"] != "DEVELOPMENT_ONLY":
         raise PipelineFailure("AUTHORIZATION_SCOPE_MISMATCH")
 
@@ -113,7 +115,8 @@ def execute_pipeline(*, cfg: dict[str, Any], protocol_sha: str, adapter: Depende
     result: dict[str, Any] = {"states": states, "trial_audits": audits, "selected": selected, "seed42": decision42, "synthetic": synthetic, "model_training_performed": False if synthetic else None, "test_accessed": False}
     if decision42["status"] != PENDING:
         result["final_status"] = decision42["status"]
-        if hasattr(adapter,"persist_result"): adapter.persist_result(result)
+        if hasattr(adapter,"persist_result"):
+            adapter.persist_result(result); result['artifact_audit']=adapter.audit_artifacts(); adapter.persist_result(result)
         return result
     all_rows = list(seed42_rows)
     metrics_by_seed = {42: {**seed42_metrics["C"], "b_rmse": seed42_metrics["B"]["rmse"]}}
@@ -131,7 +134,8 @@ def execute_pipeline(*, cfg: dict[str, Any], protocol_sha: str, adapter: Depende
     final = multiseed_decision(decision42, multi_identity, metrics_by_seed, cfg=cfg)
     states += ["FINAL_DECISION"]
     result.update({"multiseed_identity": multi_identity, "multiseed_metrics": metrics_by_seed, "final_decision": final, "final_status": final["status"]})
-    if hasattr(adapter,"persist_result"): adapter.persist_result(result)
+    if hasattr(adapter,"persist_result"):
+        adapter.persist_result(result); result['artifact_audit']=adapter.audit_artifacts(); adapter.persist_result(result)
     return result
 
 

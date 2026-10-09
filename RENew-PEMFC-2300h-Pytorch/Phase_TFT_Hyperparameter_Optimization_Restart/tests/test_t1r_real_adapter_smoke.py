@@ -20,8 +20,8 @@ class RealAdapterSmoke(unittest.TestCase):
         audits={f:__import__('t1r_optuna').audit_study(adapter.study(f),cfg) for f in adapter.folds}; adapter.freeze_selected(audits)
         rows,_=adapter.evaluate(42,{f:{'params':a['best_params'],'best_epoch':a['best_epoch']} for f,a in audits.items()}); metrics=adapter.metrics(rows,'B')
         self.assertEqual(len(rows),288); self.assertTrue(np.isfinite(metrics['rmse'])); self.assertTrue((adapter.root/'T1R_predictions_seed42.csv').is_file()); self.assertTrue((adapter.root/'T1R_SELECTED_CONFIGURATIONS.json').is_file())
-        adapter.persist_result({'final_status':'SMOKE_ONLY'}); self.assertTrue(adapter.audit_artifacts()['pass'])
+        adapter.persist_result({'final_status':'SMOKE_ONLY','test_accessed':False}); self.assertTrue(adapter.audit_artifacts(strict=False)['pass'])
         (adapter.root/'T1R_FINAL_DECISION.json').unlink()
-        with self.assertRaises(Exception): adapter.audit_artifacts()
+        with self.assertRaises(Exception): adapter.audit_artifacts(strict=False)
 
 if __name__=='__main__': unittest.main()

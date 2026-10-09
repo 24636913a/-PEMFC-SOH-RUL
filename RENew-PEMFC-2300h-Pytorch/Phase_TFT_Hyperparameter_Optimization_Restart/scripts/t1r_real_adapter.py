@@ -72,7 +72,19 @@ class RealAdapter:
         return {'rmse':float(np.mean([m['rmse_mV'] for m in fold_metrics])),'fold3_rmse':float(fold_metrics[2]['rmse_mV']),'p99':float(np.mean([m['p99_abs_error_mV'] for m in fold_metrics])),'target_equal_rmse':float(np.mean([m['target_time_equal_rmse_mV'] for m in fold_metrics]))}
     def persist_result(self,result):
         (self.root/'T1R_FINAL_DECISION.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
-    def audit_artifacts(self):
-        needed=[self.root/'T1R_SELECTED_CONFIGURATIONS.json',self.root/'T1R_FINAL_DECISION.json',self.root/'T1R_predictions_seed42.csv']
-        if not all(p.is_file() for p in needed): raise T1RFailure('T1R_PERSISTED_ARTIFACT_MISSING')
-        return {'pass':True,'artifacts':[str(p) for p in needed]}
+    def audit_artifacts(self,strict=True):
+        from t1r_evaluation import validate_pair_rows
+        needed=[self.root/'T1R_SELECTED_CONFIGURATIONS.json',self.root/'T1R_FINAL_DECISION.json',self.root/'T1R_predictions_seed42.csv',*[self.root/f'optuna_T1R_{f}.db' for f in self.folds]]
+        if not all(p.is_file() and p.stat().st_size>0 for p in needed): raise T1RFailure('T1R_PERSISTED_ARTIFACT_MISSING')
+        frozen=json.loads((self.root/'T1R_SELECTED_CONFIGURATIONS.json').read_text(encoding='utf-8'))
+        if frozen.get('protocol_sha256')!=self.protocol_sha or set(frozen.get('folds',{}))!=set(self.folds): raise T1RFailure('T1R_SELECTED_CONFIG_ARTIFACT_INVALID')
+        final=json.loads((self.root/'T1R_FINAL_DECISION.json').read_text(encoding='utf-8'))
+        if final.get('test_accessed') is not False or not final.get('final_status'): raise T1RFailure('T1R_FINAL_DECISION_ARTIFACT_INVALID')
+        checked=[]
+        for seed_path in sorted(self.root.glob('T1R_predictions_seed*.csv')):
+            rows=pd.read_csv(seed_path).to_dict(orient='records')
+            if strict: validate_pair_rows(rows,self.protocol_sha,self.t0_queries())
+            elif not rows: raise T1RFailure('T1R_PREDICTION_CACHE_EMPTY')
+            checked.append({'path':str(seed_path),'rows':len(rows)})
+        if not checked: raise T1RFailure('T1R_PREDICTION_CACHE_MISSING')
+        return {'pass':True,'artifacts':[str(p) for p in needed],'prediction_caches':checked}

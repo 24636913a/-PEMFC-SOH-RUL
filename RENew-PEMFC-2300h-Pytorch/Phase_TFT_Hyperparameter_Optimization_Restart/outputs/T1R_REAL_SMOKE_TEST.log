@@ -1,0 +1,14 @@
+test_real_canonical_tft_fit_stopper_predict_metrics_and_artifacts (RENew-PEMFC-2300h-Pytorch.Phase_TFT_Hyperparameter_Optimization_Restart.tests.test_t1r_real_adapter_smoke.RealAdapterSmoke.test_real_canonical_tft_fit_stopper_predict_metrics_and_artifacts) ... [I 2026-10-09 22:47:52,031] A new study created in RDB with name: T1R_fold_1
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+[I 2026-10-09 22:47:52,256] Trial 0 finished with value: 0.04909976199269295 and parameters: {}. Best is trial 0 with value: 0.04909976199269295.
+[I 2026-10-09 22:47:52,365] A new study created in RDB with name: T1R_fold_2
+[I 2026-10-09 22:47:52,571] Trial 0 finished with value: 0.0428067222237587 and parameters: {}. Best is trial 0 with value: 0.0428067222237587.
+[I 2026-10-09 22:47:52,674] A new study created in RDB with name: T1R_fold_3
+[I 2026-10-09 22:47:52,983] Trial 0 finished with value: 0.029638562351465225 and parameters: {}. Best is trial 0 with value: 0.029638562351465225.
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 5.600s
+
+OK

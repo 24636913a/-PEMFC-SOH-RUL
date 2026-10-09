@@ -77,9 +77,9 @@ def audit_study(study: Any, cfg: dict[str, Any], *, expected_study_prefix: str =
     return {"pass": True, "study_name": study_name, "attempted": len(trials), "completed": len(completed), "best_trial_id": _trial_number(best), "best_params": dict(best_attrs["resolved_params"]), "best_epoch": int(best_attrs["best_epoch"])}
 
 
-def create_authorized_study(*, optuna_module: Any, storage_path: Path, fold: str, cfg: dict[str, Any]) -> Any:
+def create_authorized_study(*, optuna_module: Any, storage_path: Path, fold: str, cfg: dict[str, Any], test_only: bool = False) -> Any:
     """Create a new isolated study. Called only after the runner authorization gate."""
-    assert_new_study_path(storage_path, Path(__file__).resolve().parents[1], Path(__file__).resolve().parents[2] / "Phase_TFT_Hyperparameter_Optimization")
+    if not test_only: assert_new_study_path(storage_path, Path(__file__).resolve().parents[1], Path(__file__).resolve().parents[2] / "Phase_TFT_Hyperparameter_Optimization")
     study_name = f"{cfg['search']['study_name_prefix']}_{fold}"
     sampler = optuna_module.samplers.TPESampler(seed=int(cfg["search"]["sampler_seed"]))
     return optuna_module.create_study(study_name=study_name, direction="minimize", sampler=sampler, storage=f"sqlite:///{storage_path}", load_if_exists=False)

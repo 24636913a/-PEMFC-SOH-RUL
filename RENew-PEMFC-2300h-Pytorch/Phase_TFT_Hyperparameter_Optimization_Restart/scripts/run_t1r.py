@@ -113,6 +113,7 @@ def execute_pipeline(*, cfg: dict[str, Any], protocol_sha: str, adapter: Depende
     result: dict[str, Any] = {"states": states, "trial_audits": audits, "selected": selected, "seed42": decision42, "synthetic": synthetic, "model_training_performed": False if synthetic else None, "test_accessed": False}
     if decision42["status"] != PENDING:
         result["final_status"] = decision42["status"]
+        if hasattr(adapter,"persist_result"): adapter.persist_result(result)
         return result
     all_rows = list(seed42_rows)
     metrics_by_seed = {42: {**seed42_metrics["C"], "b_rmse": seed42_metrics["B"]["rmse"]}}
@@ -130,6 +131,7 @@ def execute_pipeline(*, cfg: dict[str, Any], protocol_sha: str, adapter: Depende
     final = multiseed_decision(decision42, multi_identity, metrics_by_seed, cfg=cfg)
     states += ["FINAL_DECISION"]
     result.update({"multiseed_identity": multi_identity, "multiseed_metrics": metrics_by_seed, "final_decision": final, "final_status": final["status"]})
+    if hasattr(adapter,"persist_result"): adapter.persist_result(result)
     return result
 
 

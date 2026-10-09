@@ -26,9 +26,9 @@
   },
   "protocol_preserved": true,
   "protocol_sha256": "c9f58b01c74dc82b3d35f264cc320f7c800a7b3b43d038437df166ead53eb183",
-  "real_adapter_sha256": "54574d4e3270665b32b7e7470950a526dec9c1702e5c3348c46e20862a017b90",
-  "runner_sha256": "b96c8813814520e91c01189cdf87b5f2b6d9354e8d3525286c082ca658a9a042",
-  "status": "T1R_REAL_ADAPTER_READY_FOR_AUTHORIZATION",
+  "real_adapter_sha256": "4df79722c86c7da3523462f6fedf6d11db4651a933a6ef2e3cd244b7c8cae5f2",
+  "runner_sha256": "1cc354c2e1bdcdbf55c4ec0f04c54d241f9ead42fa8aeac7c9dd035dacea9369",
+  "status": "T1R_REAL_SMOKE_TEST_PASS",
   "t0_query_universe_match_required": true,
   "test_accessed": false,
   "tests": {
@@ -36,7 +36,7 @@
     "failures": 0,
     "passed": true,
     "synthetic_only": true,
-    "tests_run": 19
+    "tests_run": 20
   },
   "trial_budget_source": "persisted Optuna study.trials only"
 }

@@ -1,0 +1,23 @@
+{
+  "status": "T1R_READY_FOR_SEPARATE_EXECUTION",
+  "protocol_sha256": "c9f58b01c74dc82b3d35f264cc320f7c800a7b3b43d038437df166ead53eb183",
+  "original_t1": {
+    "protocol_sha256": "c119ec2df9a6c5d5a5ffea81ed959507eafd664135e29f869fa805d7bc7282cf",
+    "runner_sha256": "abeeee10b1acb8f289a555d43a8d3e9876b1a25d9e5158f81c52482edee91147",
+    "database_sha256": "2bb56377aedec88169ede6ccbcb724c4c958f12eafe1a991cfe809c7b1804f8c",
+    "archive_sha256": "2bb56377aedec88169ede6ccbcb724c4c958f12eafe1a991cfe809c7b1804f8c",
+    "archive_exists": true
+  },
+  "data_firewall": {
+    "nrows": 3007,
+    "development_rows": 3005,
+    "full_file_hash": false,
+    "test_accessed": false
+  },
+  "new_trials_created": false,
+  "model_training_performed": false,
+  "test_accessed": false,
+  "old_t1_runner_imported": false,
+  "study_prefix": "T1R",
+  "database_path_template": "outputs/optuna_T1R_{fold}.db"
+}

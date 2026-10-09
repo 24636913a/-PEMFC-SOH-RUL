@@ -1,0 +1,100 @@
+phase: Phase_TFT_Hyperparameter_Optimization_Restart
+run_identifier: T1R
+status: FROZEN_BEFORE_SEPARATE_EXECUTION
+base_commit: 05335761809510e803a8ec975357032d8b172ff8
+study_type: development_only_nested_optuna_tpe_canonical_tft_restart
+
+historical_context:
+  original_t1_status: T1_ORIGINAL_RUN_INVALIDATED
+  invalidation_reason: POST_START_PROTOCOL_AND_DECISION_LOGIC_DEFECT
+  original_protocol_sha256: c119ec2df9a6c5d5a5ffea81ed959507eafd664135e29f869fa805d7bc7282cf
+  original_runner_sha256: abeeee10b1acb8f289a555d43a8d3e9876b1a25d9e5158f81c52482edee91147
+  original_trial_metadata_only: [{trial: 0, state: COMPLETE}, {trial: 1, state: COMPLETE}, {trial: 2, state: RUNNING}]
+  original_database_sha256: 2bb56377aedec88169ede6ccbcb724c4c958f12eafe1a991cfe809c7b1804f8c
+  original_database_reuse: prohibited
+  original_trial_values_parameters_and_sampler_state: prohibited
+
+scope:
+  dataset: RealHyFC_2300h
+  development_only: true
+  test_access: prohibited
+  raw_f2_only: true
+  backbone_search_reopened: false
+  model_identity: Canonical_Architecture_TFT_Strict_History
+  future_actual_covariates: prohibited
+  filters_decomposition_physics_loss_SOH_RUL: prohibited
+
+data_firewall:
+  source_relative_path: Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  pandas_read_csv_nrows: 3007
+  required_post_read_filter: bin_end_ophrs2_h < 1819.997738
+  expected_prefix_rows: 3007
+  expected_development_rows: 3005
+  full_file_hash_prohibited: true
+  full_file_read_prohibited: true
+  test_rows_targets_predictions_or_metrics: prohibited
+
+task: {resolution_h: 0.5, lookback_steps: 48, horizon_steps: 24, input_shape: [batch, 48, 14], output_shape: [batch, 24], target: cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t}
+architecture: {implementation: pytorch_forecasting.models.temporal_fusion_transformer.TemporalFusionTransformer, package_version: 1.8.0, attention_head_size: 4, lstm_layers: 1, causal_attention: true, decoder_actual_covariates: prohibited, output_size: 1}
+
+folds:
+  - {fold: fold_1, train_start_h: 72.788690, train_end_h: 946.393214, validation_start_h: 946.393214, validation_end_h: 1164.794345}
+  - {fold: fold_2, train_start_h: 72.788690, train_end_h: 1164.794345, validation_start_h: 1164.794345, validation_end_h: 1383.195476}
+  - {fold: fold_3, train_start_h: 72.788690, train_end_h: 1383.195476, validation_start_h: 1383.195476, validation_end_h: 1819.997738}
+
+search:
+  method: Optuna_TPE
+  sampler_seed: 27491
+  study_name_prefix: T1R
+  database_relative_path: outputs/optuna_T1R_{fold}.db
+  attempted_trials_per_outer_fold: 16
+  minimum_completed_trials_per_outer_fold: 12
+  fixed_trial_0: {learning_rate: 0.001, weight_decay: 0.00001, dropout: 0.1, hidden_size: 32, hidden_continuous_size: 16, batch_size: 64}
+  learning_rate: {low: 0.0001, high: 0.002, log: true}
+  weight_decay: {low: 0.000001, high: 0.001, log: true}
+  dropout: [0.05, 0.1, 0.2]
+  width_combinations: [[16, 8], [16, 16], [32, 8], [32, 16], [32, 32], [64, 8], [64, 16], [64, 32]]
+  batch_size: [32, 64]
+  pruner: none_except_documented_technical_failure
+
+training: {optimizer: AdamW, max_epochs: 450, patience: 40, gradient_clip_norm: 1.0, seed: 42, chronological_inner_stopper_fraction: 0.15, loss: standardized_deltaV_MSE, dataloader: one_per_independent_fit_reused_across_epochs}
+
+comparators:
+  A_frozen_t0: {RMSE_mV: 26.157945690978693, fold3_RMSE_mV: 33.4533564032138}
+  raw_timesnet_RMSE_mV: 14.206557830029526
+  B_matched_budget: original_T0_hyperparameters_with_T1R_budget
+  C_optuna: fold_specific_inner_train_selected_T1R_configuration
+
+decision:
+  seed42_optuna_conditions:
+    c_strictly_beats_b: true
+    c_vs_a_relative_improvement_min: 0.15
+    c_rmse_mV_max: 19.8892
+    c_fold3_rmse_mV_max: 33.4534
+    c_p99_vs_b_multiplier_max: 1.10
+    c_target_time_equal_vs_b_multiplier_max: 1.10
+    required_audits_pass: true
+  extended_budget_descriptive_conditions:
+    b_vs_a_relative_improvement_min: 0.15
+    b_rmse_mV_max: 19.8892
+    b_fold3_rmse_mV_max: 33.4534
+    b_p99_vs_a_multiplier_max: 1.10
+    b_target_time_equal_vs_a_multiplier_max: 1.10
+  multiseed:
+    seeds: [2024, 3407]
+    per_seed_c_rmse_mV_max: 19.889180962041335
+    median_c_rmse_mV_max: 19.889180962041335
+    median_fold3_rmse_mV_max: 33.4533564032138
+    min_paired_c_beats_b: 2
+    median_c_strictly_beats_b: true
+  statuses: [SEED42_GATE_PASS_PENDING_MULTISEED, TFT_OPTUNA_ADVANCE, TFT_EXTENDED_BUDGET_CONFIG_ADVANCE, TFT_OPTUNA_INSUFFICIENT_GAIN, TFT_T1_TECHNICAL_FAILURE]
+
+isolation:
+  import_original_t1_runner: prohibited
+  original_t1_database_path: prohibited
+  original_t1_trials_checkpoints_curves_optimizer_and_sampler_state: prohibited
+  zero_initialization_from_original_t1: required
+
+execution_authorization:
+  current: PREPARATION_ONLY_NO_MODEL_TRAINING
+  future_runner_token_required: EXECUTE_T1R_SEPARATE_TRAINING

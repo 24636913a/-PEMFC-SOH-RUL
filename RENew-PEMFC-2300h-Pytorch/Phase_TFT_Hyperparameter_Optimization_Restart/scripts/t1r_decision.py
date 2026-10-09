@@ -19,11 +19,12 @@ def _finite_metrics(metrics: dict[str, Any], keys: tuple[str, ...]) -> bool:
         return False
 
 
-def check_trial_budget(attempted: int, completed: int, minimum_completed: int = 12, budget: int = 16) -> dict[str, Any]:
-    if attempted > budget or attempted < 0 or completed < 0 or completed > attempted:
-        return {"pass": False, "reason": "TRIAL_BUDGET_OR_COUNT_INVALID"}
-    if completed < minimum_completed:
-        return {"pass": False, "reason": "INSUFFICIENT_COMPLETED_TRIALS"}
+def check_trial_budget(attempted: int, completed: int, states: list[str] | None = None, minimum_completed: int = 12, budget: int = 16) -> dict[str, Any]:
+    states = states or []
+    if attempted != budget or completed < minimum_completed or completed > budget or len(states) not in {0, attempted}:
+        return {"pass": False, "reason": "TRIAL_BUDGET_NOT_CLOSED"}
+    if any(state in {"RUNNING", "WAITING"} for state in states):
+        return {"pass": False, "reason": "UNRESOLVED_TRIAL_STATE"}
     return {"pass": True, "reason": "PASS"}
 
 

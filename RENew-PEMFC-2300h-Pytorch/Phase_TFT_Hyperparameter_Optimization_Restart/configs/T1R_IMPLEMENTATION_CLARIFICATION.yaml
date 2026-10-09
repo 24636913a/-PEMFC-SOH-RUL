@@ -1,0 +1,9 @@
+status: FROZEN_STATIC_IMPLEMENTATION_CLARIFICATION
+parent_protocol_sha256: c9f58b01c74dc82b3d35f264cc320f7c800a7b3b43d038437df166ead53eb183
+clarifications:
+  attempted_trial_closure: attempted_must_equal_16_and_completed_must_be_at_least_12
+  unresolved_trial_states: [RUNNING, WAITING]
+  dataloader_semantics: one_loader_per_independent_fit_reused_across_epochs
+  execution_authorization: separate_file_required_and_absent_in_this_static_phase
+  seed_identity: exact_set_42_2024_3407_with_complete_paired_B_C_fold_records
+  old_T1_database: prohibited_as_T1R_study_or_recovery_source

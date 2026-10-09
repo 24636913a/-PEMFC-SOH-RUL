@@ -1,0 +1,28 @@
+{
+  "phase": "Phase_TFT_Original_Baseline",
+  "status": "CANONICAL_TFT_BASELINE_ESTABLISHED",
+  "protocol_sha256": "c5dbc3ab6b528f7058a3e9cb670bcf465da258f7ebbc87229a493beff327a3bf",
+  "model": "Canonical_Architecture_TFT_Strict_History",
+  "seed": 42,
+  "three_fold_equal_forecast_query_weighted_RMSE_mV": 26.157945690978693,
+  "three_fold_equal_MAE_mV": 12.10780267260698,
+  "fold_RMSE_mV": {
+    "fold_1": 26.655705145790066,
+    "fold_2": 18.36477552393221,
+    "fold_3": 33.4533564032138
+  },
+  "fold_MAE_mV": {
+    "fold_1": 13.132090984215534,
+    "fold_2": 9.856511761638542,
+    "fold_3": 13.334805271966866
+  },
+  "test_accessed": false,
+  "future_actual_covariates_used": false,
+  "training_complete": true,
+  "stage0_status": "T0_STAGE0_PASS",
+  "frozen_context_only": {
+    "RawF2_TimesNet_seed42_RMSE_mV": 14.206557830029526,
+    "EMDFeature_TimesNet_seed42_RMSE_mV": 13.334967291809761,
+    "historical_StrictHistoryTFT_seed42_RMSE_mV": 19.9142
+  }
+}

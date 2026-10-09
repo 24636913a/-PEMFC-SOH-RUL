@@ -1,0 +1,121 @@
+{
+  "status": "T0_STAGE0_PASS",
+  "protocol_sha256": "c5dbc3ab6b528f7058a3e9cb670bcf465da258f7ebbc87229a493beff327a3bf",
+  "resolved_config_sha256": "a077326059307be46bc897cd7ed8c458e051284deb4a0c37673e408e6a0db124",
+  "source": {
+    "pytorch_forecasting_version": "1.8.0",
+    "torch_version": "2.6.0+cu124",
+    "cuda_version": "12.4",
+    "python_version": "3.11.9",
+    "platform": "Windows-10-10.0.22631-SP0",
+    "cuda_available": true,
+    "cuda_device_name": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "source_paths": {
+      "_tft.py_sha256": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\_tft.py",
+      "sub_modules.py_sha256": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py"
+    },
+    "source_hashes": {
+      "_tft.py_sha256": "6ad5f6c806d314cfec53851ce0914c6d3476c4b05bd136a2764f4a562f1b7343",
+      "sub_modules.py_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    }
+  },
+  "data_firewall": {
+    "pandas_read_csv_nrows": 3007,
+    "prefix_rows_read": 3007,
+    "post_read_filter": "bin_end_ophrs2_h < 1819.997738",
+    "development_rows": 3005,
+    "rows_after_prefix_read": 0,
+    "full_causal_file_hash_computed": false,
+    "full_causal_file_read_detected": false,
+    "development_prefix_fingerprint_sha256": "e7470dec603689595b03c3b06a1a3509a2a74b4cc4f68c985992f914ebc29f2e",
+    "test_accessed": false,
+    "test_rows_read": 0,
+    "test_targets_read": 0
+  },
+  "folds": [
+    {
+      "fold": "fold_1",
+      "outer_train_origins": 1048,
+      "outer_validation_origins": 233
+    },
+    {
+      "fold": "fold_2",
+      "outer_train_origins": 1281,
+      "outer_validation_origins": 245
+    },
+    {
+      "fold": "fold_3",
+      "outer_train_origins": 1526,
+      "outer_validation_origins": 466
+    }
+  ],
+  "architecture_components": {
+    "historical_variable_selection_network": "VariableSelectionNetwork",
+    "continuous_embeddings": "ModuleDict",
+    "gated_residual_network": "GatedResidualNetwork",
+    "lstm_encoder": "LSTM",
+    "lstm_decoder": "LSTM",
+    "encoder_to_decoder_state_handoff": true,
+    "static_enrichment": "GatedResidualNetwork",
+    "static_covariates": "none_zero_information_context",
+    "interpretable_multihead_attention": "InterpretableMultiHeadAttention",
+    "causal_attention": true,
+    "gate_add_norm": "GateAddNorm",
+    "position_wise_feedforward": "GatedResidualNetwork",
+    "multi_horizon_output": [
+      64,
+      24
+    ],
+    "extractable_encoder_vsn": [
+      64,
+      48,
+      1,
+      15
+    ],
+    "extractable_decoder_vsn": [
+      64,
+      24,
+      1,
+      1
+    ],
+    "extractable_encoder_attention": [
+      64,
+      24,
+      4,
+      48
+    ],
+    "extractable_decoder_attention": [
+      64,
+      24,
+      4,
+      24
+    ]
+  },
+  "synthetic_forward_backward": {
+    "input_shape": [
+      64,
+      48,
+      14
+    ],
+    "output_shape": [
+      64,
+      24
+    ],
+    "loss_finite": true,
+    "gradient_norm": 12.367392539978027,
+    "parameter_count": 86883
+  },
+  "decoder_information_set": {
+    "known_future": "relative_forecast_step",
+    "future_actual_covariates": false,
+    "static_covariates": false,
+    "future_mutation_invariance": true
+  },
+  "gpu": {
+    "device": "cuda",
+    "peak_memory_MiB": 90.72412109375,
+    "batch_size": 64,
+    "oom": false
+  },
+  "test_accessed": false
+}

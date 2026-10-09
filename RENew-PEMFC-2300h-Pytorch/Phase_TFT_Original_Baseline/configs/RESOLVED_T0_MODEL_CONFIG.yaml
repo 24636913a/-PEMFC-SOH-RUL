@@ -1,0 +1,49 @@
+status: FROZEN_AFTER_STAGE0_BEFORE_TRAINING
+protocol_sha256: c5dbc3ab6b528f7058a3e9cb670bcf465da258f7ebbc87229a493beff327a3bf
+runtime:
+  pytorch_forecasting_version: 1.8.0
+  torch_version: 2.6.0+cu124
+  cuda_version: '12.4'
+  python_version: 3.11.9
+  platform: Windows-10-10.0.22631-SP0
+  cuda_available: true
+  cuda_device_name: NVIDIA GeForce RTX 3070 Laptop GPU
+  source_paths:
+    _tft.py_sha256: C:\Users\1\AppData\Roaming\Python\Python311\site-packages\pytorch_forecasting\models\temporal_fusion_transformer\_tft.py
+    sub_modules.py_sha256: C:\Users\1\AppData\Roaming\Python\Python311\site-packages\pytorch_forecasting\models\temporal_fusion_transformer\sub_modules.py
+  source_hashes:
+    _tft.py_sha256: 6ad5f6c806d314cfec53851ce0914c6d3476c4b05bd136a2764f4a562f1b7343
+    sub_modules.py_sha256: 9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e
+model:
+  class: pytorch_forecasting.models.temporal_fusion_transformer.TemporalFusionTransformer
+  adapter: CanonicalStrictHistoryTFT
+  hidden_size: 32
+  hidden_continuous_size: 16
+  attention_head_size: 4
+  lstm_layers: 1
+  dropout: 0.1
+  causal_attention: true
+  output_size: 1
+  encoder_reals:
+  - raw_f2_00
+  - raw_f2_01
+  - raw_f2_02
+  - raw_f2_03
+  - raw_f2_04
+  - raw_f2_05
+  - raw_f2_06
+  - raw_f2_07
+  - raw_f2_08
+  - raw_f2_09
+  - raw_f2_10
+  - raw_f2_11
+  - raw_f2_12
+  - raw_f2_13
+  - relative_forecast_step
+  decoder_reals:
+  - relative_forecast_step
+  static_reals: []
+  static_categoricals: []
+  decoder_actual_measurements: prohibited
+  decoder_raw_placeholder_channels: fixed_tensor_schema_only_not_selected
+  target_contract: standardized_deltaV_point_forecast

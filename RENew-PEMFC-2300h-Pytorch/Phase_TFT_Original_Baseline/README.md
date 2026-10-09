@@ -13,3 +13,18 @@ SOH/RUL, or Test data.
 
 The executed protocol is frozen in
 `configs/PREREGISTERED_T0_PROTOCOL.yaml` before results are produced.
+
+## Reproduction order
+
+```powershell
+python scripts\run_stage0_preflight.py
+python -m unittest discover -s tests -v
+python scripts\run_t0_baseline.py
+python scripts\generate_t0_reports.py
+```
+
+The completed Seed-42 Development baseline is recorded in
+`outputs/T0_FINAL_SUMMARY.json` and
+`reports/FINAL_STAGE_T0_DECISION.md`.  The reported status is
+`CANONICAL_TFT_BASELINE_ESTABLISHED`; it establishes a canonical architecture
+control and is not a new backbone-selection result.

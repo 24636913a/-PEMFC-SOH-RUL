@@ -1,0 +1,30 @@
+{
+  "phase": "Phase_TFT_Original_Baseline",
+  "protocol_sha256": "c5dbc3ab6b528f7058a3e9cb670bcf465da258f7ebbc87229a493beff327a3bf",
+  "model": "Canonical_Architecture_TFT_Strict_History",
+  "seed": 42,
+  "three_fold_equal_RMSE_mV": 26.15794569097869,
+  "three_fold_equal_MAE_mV": 12.10780267260698,
+  "fold_RMSE_mV": {
+    "fold_1": 26.655705145790062,
+    "fold_2": 18.364775523932206,
+    "fold_3": 33.453356403213796
+  },
+  "data_firewall": {
+    "pandas_read_csv_nrows": 3007,
+    "prefix_rows_read": 3007,
+    "post_read_filter": "bin_end_ophrs2_h < 1819.997738",
+    "development_rows": 3005,
+    "rows_after_prefix_read": 0,
+    "full_causal_file_hash_computed": false,
+    "full_causal_file_read_detected": false,
+    "development_prefix_fingerprint_sha256": "e7470dec603689595b03c3b06a1a3509a2a74b4cc4f68c985992f914ebc29f2e",
+    "test_accessed": false,
+    "test_rows_read": 0,
+    "test_targets_read": 0
+  },
+  "test_accessed": false,
+  "future_actual_covariates_used": false,
+  "static_covariates_used": false,
+  "training_complete": true
+}

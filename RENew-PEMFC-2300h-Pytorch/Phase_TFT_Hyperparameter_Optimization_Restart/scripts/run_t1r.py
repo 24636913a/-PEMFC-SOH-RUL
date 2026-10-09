@@ -9,13 +9,12 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Protocol
 
 from t1r_common import PHASE, T1RFailure, load_protocol, load_t0_model, safe_development
 from t1r_decision import INSUFFICIENT, PENDING, multiseed_decision, seed42_decision
-from t1r_evaluation import load_frozen_t0_query_universe, validate_multiseed_identity, validate_pair_rows
+from t1r_evaluation import load_frozen_t0_metrics, load_frozen_t0_query_universe, validate_multiseed_identity, validate_pair_rows
 from t1r_optuna import assert_new_study_path, audit_study
 
 
@@ -33,26 +32,6 @@ class DependencyAdapter(Protocol):
     def evaluate(self, seed: int, selected: dict[str, dict[str, Any]]) -> tuple[list[dict[str, Any]], dict[str, dict[str, float]]]: ...
     def t0_queries(self) -> list[dict[str, Any]]: ...
     def metrics(self, rows: list[dict[str, Any]], model: str) -> dict[str, float]: ...
-
-
-@dataclass
-class RealAdapter:
-    """Explicitly incomplete adapter until a separately authorized real runner is reviewed.
-
-    It is deliberately impossible to accidentally train through the current
-    repository state. Future implementation must call t1r_training.fit and the
-    persisted Optuna studies only after :func:`verify_execution_authorization`.
-    """
-    def study(self, fold: str) -> Any:
-        raise PipelineFailure("REAL_EXECUTION_ADAPTER_NOT_IMPLEMENTED")
-    def freeze_selected(self, audits: dict[str, dict[str, Any]]) -> None:
-        raise PipelineFailure("REAL_EXECUTION_ADAPTER_NOT_IMPLEMENTED")
-    def evaluate(self, seed: int, selected: dict[str, dict[str, Any]]) -> tuple[list[dict[str, Any]], dict[str, dict[str, float]]]:
-        raise PipelineFailure("REAL_EXECUTION_ADAPTER_NOT_IMPLEMENTED")
-    def t0_queries(self) -> list[dict[str, Any]]:
-        return load_frozen_t0_query_universe(PHASE.parent / "Phase_TFT_Original_Baseline" / "outputs" / "TFT_SEED42_PREDICTIONS.csv")
-    def metrics(self, rows: list[dict[str, Any]], model: str) -> dict[str, float]:
-        raise PipelineFailure("REAL_EXECUTION_ADAPTER_NOT_IMPLEMENTED")
 
 
 def runner_sha256() -> str:
@@ -93,10 +72,12 @@ def validate_authorization_payload(auth: dict[str, Any], protocol_sha: str) -> N
 
 
 def assert_development_only_paths(paths: list[str | Path]) -> None:
-    """Reject Test/late-life inputs before a future adapter can open them."""
-    forbidden = ("test", "2000", "2300", "afterairair", "elte")
-    if any(any(token in str(path).lower() for token in forbidden) for path in paths):
-        raise PipelineFailure("TEST_OR_LATE_LIFE_PATH_REFERENCE")
+    """Whitelist concrete inputs; the project directory name itself is irrelevant."""
+    allowed_files = {str((PHASE.parent / "Phase_N1_Data_Foundation" / "outputs" / "causal_feature_tables" / "causal_features_30min.csv").resolve()), str((PHASE.parent / "Phase_TFT_Original_Baseline" / "outputs" / "TFT_SEED42_PREDICTIONS.csv").resolve()), str((PHASE.parent / "Phase_TFT_Original_Baseline" / "outputs" / "TFT_SEED42_PER_FOLD_RESULTS.csv").resolve())}
+    for path in paths:
+        value = str(Path(path).resolve())
+        if value not in allowed_files:
+            raise PipelineFailure("TEST_OR_UNREGISTERED_PATH_REFERENCE")
 
 
 def check_authorization(token: str) -> None:
@@ -126,12 +107,12 @@ def execute_pipeline(*, cfg: dict[str, Any], protocol_sha: str, adapter: Depende
     seed42_rows, _ = adapter.evaluate(42, selected)
     seed42_identity = validate_pair_rows(seed42_rows, protocol_sha, t0)
     seed42_metrics = _fold_metrics(seed42_rows, adapter)
-    a = {"rmse": float(cfg["comparators"]["A_frozen_t0"]["RMSE_mV"]), "fold3_rmse": float(cfg["comparators"]["A_frozen_t0"]["fold3_RMSE_mV"]), "p99": seed42_metrics["B"]["p99"], "target_equal_rmse": seed42_metrics["B"]["target_equal_rmse"]}
+    a = load_frozen_t0_metrics(PHASE.parent / "Phase_TFT_Original_Baseline" / "outputs" / "TFT_SEED42_PER_FOLD_RESULTS.csv") if not synthetic else {"rmse": float(cfg["comparators"]["A_frozen_t0"]["RMSE_mV"]), "fold3_rmse": float(cfg["comparators"]["A_frozen_t0"]["fold3_RMSE_mV"]), "p99": 10.0, "target_equal_rmse": 10.0}
     decision42 = seed42_decision(a, seed42_metrics["B"], seed42_metrics["C"], cfg=cfg, identity_audited=bool(seed42_identity["pass"]))
     states += ["SEED42_BC_OUTER_EVALUATION", "SEED42_DECISION"]
     result: dict[str, Any] = {"states": states, "trial_audits": audits, "selected": selected, "seed42": decision42, "synthetic": synthetic, "model_training_performed": False if synthetic else None, "test_accessed": False}
     if decision42["status"] != PENDING:
-        result["final_status"] = "FINAL_INSUFFICIENT_GAIN"
+        result["final_status"] = decision42["status"]
         return result
     all_rows = list(seed42_rows)
     metrics_by_seed = {42: {**seed42_metrics["C"], "b_rmse": seed42_metrics["B"]["rmse"]}}
@@ -174,7 +155,8 @@ def main() -> None:
     safe_development(cfg); load_t0_model()
     # This remains unreachable in this no-training acceptance phase because no
     # valid authorization file is created or shipped.
-    execute_pipeline(cfg=cfg, protocol_sha=protocol_sha, adapter=RealAdapter(), authorization_verified=True)
+    from t1r_real_adapter import RealAdapter
+    execute_pipeline(cfg=cfg, protocol_sha=protocol_sha, adapter=RealAdapter(cfg, protocol_sha), authorization_verified=True)
 
 
 if __name__ == "__main__":

@@ -30,7 +30,13 @@ def seed42_decision(a: dict[str, Any], b: dict[str, Any], c: dict[str, Any], *, 
         return {"status": TECHNICAL, "reason": "AUDIT_OR_METRIC_FAILURE"}
     t = thresholds(cfg)
     conditions = {"c_beats_b_strict": c["rmse"] < b["rmse"], "c_improves_a": c["rmse"] <= t["a_rmse"] * (1 - t["improve"]), "c_competitive": c["rmse"] <= t["competitive"], "c_fold3": c["fold3_rmse"] <= t["fold3"], "c_p99": c["p99"] <= b["p99"] * t["p99_mult"], "c_target_equal": c["target_equal_rmse"] <= b["target_equal_rmse"] * t["target_mult"]}
-    return {"status": PENDING if all(conditions.values()) else INSUFFICIENT, "reason": "ALL_SEED42_OPTUNA_CONDITIONS_PASS" if all(conditions.values()) else "SEED42_FULL_OPTUNA_GATE_NOT_MET", "conditions": conditions}
+    if all(conditions.values()):
+        return {"status": PENDING, "reason": "ALL_SEED42_OPTUNA_CONDITIONS_PASS", "conditions": conditions}
+    ext = cfg["decision"]["extended_budget_descriptive_conditions"]
+    extended = {"b_improves_a": b["rmse"] <= t["a_rmse"] * (1 - float(ext["b_vs_a_relative_improvement_min"])), "b_competitive": b["rmse"] <= float(ext["b_rmse_mV_max"]), "b_fold3": b["fold3_rmse"] <= float(ext["b_fold3_rmse_mV_max"]), "b_p99": b["p99"] <= a["p99"] * float(ext["b_p99_vs_a_multiplier_max"]), "b_target_equal": b["target_equal_rmse"] <= a["target_equal_rmse"] * float(ext["b_target_time_equal_vs_a_multiplier_max"]), "c_not_better_than_b": not conditions["c_beats_b_strict"]}
+    if all(extended.values()):
+        return {"status": EXTENDED, "reason": "EXTENDED_BUDGET_CONFIGURATION_DESCRIPTIVE_ADVANCE", "conditions": {**conditions, **extended}}
+    return {"status": INSUFFICIENT, "reason": "SEED42_FULL_OPTUNA_GATE_NOT_MET", "conditions": {**conditions, **extended}}
 
 
 def multiseed_decision(seed42: dict[str, Any], identity: dict[str, Any], metrics_by_seed: dict[int, dict[str, float]], *, cfg: dict[str, Any]) -> dict[str, Any]:

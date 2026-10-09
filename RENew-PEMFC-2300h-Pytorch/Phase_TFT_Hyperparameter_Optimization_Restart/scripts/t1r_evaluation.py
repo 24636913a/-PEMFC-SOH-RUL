@@ -23,6 +23,14 @@ def load_frozen_t0_query_universe(t0_prediction_path: Path) -> list[dict[str, An
     return frame.to_dict(orient="records")
 
 
+def load_frozen_t0_metrics(t0_per_fold_path: Path) -> dict[str, float]:
+    """Recover A only from frozen T0 formal metrics, never from B/C outputs."""
+    frame = pd.read_csv(t0_per_fold_path)
+    if set(frame["fold"].astype(str)) != {"fold_1", "fold_2", "fold_3"} or len(frame) != 3:
+        raise EvaluationIdentityError("FROZEN_T0_METRICS_INVALID")
+    return {"rmse": float(frame["rmse_mV"].mean()), "fold3_rmse": float(frame.loc[frame.fold.eq("fold_3"), "rmse_mV"].iloc[0]), "p99": float(frame["p99_abs_error_mV"].mean()), "target_equal_rmse": float(frame["target_time_equal_rmse_mV"].mean())}
+
+
 def query_key(row: dict[str, Any]) -> tuple[Any, ...]:
     return (str(row["fold"]), int(row["origin_row"]), int(row["target_row"]), int(row["horizon_step"]))
 
@@ -44,16 +52,17 @@ def validate_pair_rows(rows: list[dict[str, Any]], protocol_sha: str, t0_query_r
     if not frozen:
         raise EvaluationIdentityError("FROZEN_T0_QUERY_UNIVERSE_MISSING")
     by_model = {model: [r for r in rows if r["model"] == model] for model in ("B", "C")}
-    truth_by_key: dict[tuple[Any, ...], float] = {}
+    truth_by_key: dict[tuple[Any, ...], float] = {query_key(r): float(r["y_true_delta_V"]) for r in t0_query_rows}
+    if len(truth_by_key) != len(frozen):
+        raise EvaluationIdentityError("FROZEN_T0_QUERY_KEY_NOT_UNIQUE")
     for model_rows in by_model.values():
         keys = [query_key(r) for r in model_rows]
         if len(keys) != len(set(keys)) or set(keys) != frozen:
             raise EvaluationIdentityError("PAIR_QUERY_UNIVERSE_MISMATCH")
         for row in model_rows:
             key, truth = query_key(row), float(row["y_true_delta_V"])
-            if key in truth_by_key and truth_by_key[key] != truth:
+            if abs(truth_by_key[key] - truth) > 1e-12:
                 raise EvaluationIdentityError("PAIR_TRUTH_MISMATCH")
-            truth_by_key[key] = truth
     counts = {fold: len({k[1] for k in frozen if k[0] == fold}) for fold in ("fold_1", "fold_2", "fold_3")}
     required = {"fold_1": 233, "fold_2": 245, "fold_3": 466}
     if counts != required:

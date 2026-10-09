@@ -15,7 +15,8 @@ class Study:
     def best_trial(self):
         done=[t for t in self.trials if t.state=='COMPLETE']; return min(done,key=lambda t:t.value) if done else None
 def good(cfg):
-    ts=[Trial(i,value=float(16-i),params=(dict(cfg['search']['fixed_trial_0']) if i==0 else {'learning_rate':.001})) for i in range(16)]
+    resolved=dict(cfg['search']['fixed_trial_0'])
+    ts=[Trial(i,value=float(16-i),params=(dict(resolved) if i==0 else {'learning_rate':.001}),user_attrs={'best_epoch':4,'run_namespace':'T1R','resolved_params':dict(resolved)}) for i in range(16)]
     return Study(ts)
 
 class OptunaBudgetTests(unittest.TestCase):
@@ -25,7 +26,7 @@ class OptunaBudgetTests(unittest.TestCase):
         cases=[]; cases.append(Study(good(self.cfg).trials[:12]))
         low=good(self.cfg); [setattr(t,'state','FAILED') for t in low.trials[11:]]; [t.user_attrs.update({'failure_reason':'x'}) for t in low.trials[11:]]; cases.append(low)
         run=good(self.cfg); run.trials[-1].state='RUNNING'; cases.append(run)
-        zero=good(self.cfg); zero.trials[0].params['batch_size']=32; cases.append(zero)
+        zero=good(self.cfg); zero.trials[0].user_attrs['resolved_params']['batch_size']=32; cases.append(zero)
         old=good(self.cfg); old.study_name='T1_fold_1'; cases.append(old)
         for study in cases:
             with self.subTest(study=study.study_name):

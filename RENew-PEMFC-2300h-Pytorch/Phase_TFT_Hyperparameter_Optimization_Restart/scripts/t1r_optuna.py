@@ -57,13 +57,15 @@ def audit_study(study: Any, cfg: dict[str, Any], *, expected_study_prefix: str =
         raise OptunaContractError("INSUFFICIENT_COMPLETED_TRIALS")
     trial0 = next(t for t in trials if _trial_number(t) == 0)
     expected0 = fixed_trial_zero(cfg)
-    params0 = dict(getattr(trial0, "params", {}))
+    params0 = dict(getattr(trial0, "user_attrs", {}).get("resolved_params", {}))
     if _state_name(trial0) != "COMPLETE" or any(params0.get(k) != v for k, v in expected0.items()):
         raise OptunaContractError("FIXED_TRIAL_ZERO_IDENTITY_FAILURE")
     for trial in completed:
         value = getattr(trial, "value", None)
         attrs = dict(getattr(trial, "user_attrs", {}))
-        if value is None or not math.isfinite(float(value)) or "best_epoch" not in attrs or "run_namespace" not in attrs:
+        resolved = attrs.get("resolved_params", {})
+        required_params = {"learning_rate", "weight_decay", "dropout", "hidden_size", "hidden_continuous_size", "batch_size"}
+        if value is None or not math.isfinite(float(value)) or "best_epoch" not in attrs or "run_namespace" not in attrs or required_params - set(resolved):
             raise OptunaContractError("COMPLETE_TRIAL_METADATA_INVALID")
     for trial, state in zip(trials, states):
         if state in {"FAILED", "PRUNED"} and not dict(getattr(trial, "user_attrs", {})).get("failure_reason"):
@@ -71,7 +73,8 @@ def audit_study(study: Any, cfg: dict[str, Any], *, expected_study_prefix: str =
     best = getattr(study, "best_trial", None)
     if best is None or _state_name(best) != "COMPLETE":
         raise OptunaContractError("BEST_TRIAL_MISSING")
-    return {"pass": True, "study_name": study_name, "attempted": len(trials), "completed": len(completed), "best_trial_id": _trial_number(best), "best_params": dict(getattr(best, "params", {})), "best_epoch": int(dict(getattr(best, "user_attrs", {}))["best_epoch"])}
+    best_attrs = dict(getattr(best, "user_attrs", {}))
+    return {"pass": True, "study_name": study_name, "attempted": len(trials), "completed": len(completed), "best_trial_id": _trial_number(best), "best_params": dict(best_attrs["resolved_params"]), "best_epoch": int(best_attrs["best_epoch"])}
 
 
 def create_authorized_study(*, optuna_module: Any, storage_path: Path, fold: str, cfg: dict[str, Any]) -> Any:
@@ -85,11 +88,15 @@ def create_authorized_study(*, optuna_module: Any, storage_path: Path, fold: str
 def suggest_trial_params(trial: Any, cfg: dict[str, Any]) -> dict[str, Any]:
     """The only future trial-parameter route: trial 0 fixed, 1--15 TPE space."""
     if _trial_number(trial) == 0:
-        return fixed_trial_zero(cfg)
+        params = fixed_trial_zero(cfg)
+        trial.set_user_attr("resolved_params", params)
+        return params
     search = cfg["search"]
     width_index = trial.suggest_int("width_index", 0, len(search["width_combinations"]) - 1)
     width = search["width_combinations"][int(width_index)]
-    return {"learning_rate": trial.suggest_float("learning_rate", **search["learning_rate"]), "weight_decay": trial.suggest_float("weight_decay", **search["weight_decay"]), "dropout": trial.suggest_categorical("dropout", list(search["dropout"])), "hidden_size": int(width[0]), "hidden_continuous_size": int(width[1]), "batch_size": trial.suggest_categorical("batch_size", list(search["batch_size"]))}
+    params = {"learning_rate": trial.suggest_float("learning_rate", **search["learning_rate"]), "weight_decay": trial.suggest_float("weight_decay", **search["weight_decay"]), "dropout": trial.suggest_categorical("dropout", list(search["dropout"])), "hidden_size": int(width[0]), "hidden_continuous_size": int(width[1]), "batch_size": trial.suggest_categorical("batch_size", list(search["batch_size"]))}
+    trial.set_user_attr("resolved_params", params)
+    return params
 
 
 def run_search(study: Any, cfg: dict[str, Any], objective_factory: Callable[[int], Callable[[Any], float]]) -> dict[str, Any]:

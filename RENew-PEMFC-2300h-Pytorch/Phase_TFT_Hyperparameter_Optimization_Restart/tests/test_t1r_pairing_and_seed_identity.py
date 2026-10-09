@@ -6,7 +6,7 @@ from t1r_common import load_protocol
 from t1r_evaluation import EvaluationIdentityError, validate_multiseed_identity, validate_pair_rows
 
 def universe():
-    counts={'fold_1':233,'fold_2':245,'fold_3':466}; return [{'fold':f,'origin_row':i,'target_row':i+1,'horizon_step':1} for f,n in counts.items() for i in range(n)]
+    counts={'fold_1':233,'fold_2':245,'fold_3':466}; return [{'fold':f,'origin_row':i,'target_row':i+1,'horizon_step':1,'y_true_delta_V':.1} for f,n in counts.items() for i in range(n)]
 def rows(sha,seed=42):
     return [{**q,'seed':seed,'model':model,'y_true_delta_V':.1,'y_pred_delta_V':.1,'protocol_sha256':sha,'run_id':'fake'} for model in ('B','C') for q in universe()]
 class PairingTests(unittest.TestCase):
@@ -14,6 +14,9 @@ class PairingTests(unittest.TestCase):
     def test_exact_t0_pairing(self): self.assertTrue(validate_pair_rows(rows(self.sha),self.sha,self.t0)['pass'])
     def test_shared_omission_duplicate_nan_and_wrong_model_fail(self):
         bad=rows(self.sha); bad=[r for r in bad if r['origin_row']!=0]
+        with self.assertRaises(EvaluationIdentityError): validate_pair_rows(bad,self.sha,self.t0)
+    def test_shared_wrong_t0_truth_fails_even_when_b_and_c_agree(self):
+        bad=rows(self.sha); [r.update(y_true_delta_V=.2) for r in bad if r['origin_row']==0]
         with self.assertRaises(EvaluationIdentityError): validate_pair_rows(bad,self.sha,self.t0)
         bad=rows(self.sha); bad.append(dict(bad[0]))
         with self.assertRaises(EvaluationIdentityError): validate_pair_rows(bad,self.sha,self.t0)

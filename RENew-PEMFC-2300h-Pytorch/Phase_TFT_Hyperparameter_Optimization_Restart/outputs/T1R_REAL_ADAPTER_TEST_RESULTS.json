@@ -1,0 +1,42 @@
+{
+  "authorization_file_created": false,
+  "model_training_performed": false,
+  "multiseed_identity_required": true,
+  "new_trials_created": false,
+  "old_t1_integrity": {
+    "archive_exists": true,
+    "archive_sha256": "2bb56377aedec88169ede6ccbcb724c4c958f12eafe1a991cfe809c7b1804f8c",
+    "database_contents_read": false,
+    "database_sha256": "2bb56377aedec88169ede6ccbcb724c4c958f12eafe1a991cfe809c7b1804f8c"
+  },
+  "outer_predictions_created": false,
+  "preflight": {
+    "authorization_file_present": false,
+    "canonical_tft_loaded": "CanonicalStrictHistoryTFT",
+    "data_audit": {
+      "development_rows": 3005,
+      "full_file_hash": false,
+      "nrows": 3007,
+      "test_accessed": false
+    },
+    "model_training_performed": false,
+    "protocol_sha256": "c9f58b01c74dc82b3d35f264cc320f7c800a7b3b43d038437df166ead53eb183",
+    "status": "T1R_FULL_PIPELINE_READY",
+    "test_accessed": false
+  },
+  "protocol_preserved": true,
+  "protocol_sha256": "c9f58b01c74dc82b3d35f264cc320f7c800a7b3b43d038437df166ead53eb183",
+  "real_adapter_sha256": "54574d4e3270665b32b7e7470950a526dec9c1702e5c3348c46e20862a017b90",
+  "runner_sha256": "b96c8813814520e91c01189cdf87b5f2b6d9354e8d3525286c082ca658a9a042",
+  "status": "T1R_REAL_ADAPTER_READY_FOR_AUTHORIZATION",
+  "t0_query_universe_match_required": true,
+  "test_accessed": false,
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "passed": true,
+    "synthetic_only": true,
+    "tests_run": 19
+  },
+  "trial_budget_source": "persisted Optuna study.trials only"
+}

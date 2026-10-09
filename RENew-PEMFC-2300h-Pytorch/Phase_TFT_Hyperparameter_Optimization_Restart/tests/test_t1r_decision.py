@@ -23,8 +23,8 @@ class DecisionContractTests(unittest.TestCase):
         self.assertEqual(multiseed_decision(first, {"pass": True}, data, cfg=self.cfg)["status"], ADVANCE)
         self.assertEqual(multiseed_decision(first, {"pass": False}, data, cfg=self.cfg)["status"], "TFT_T1_TECHNICAL_FAILURE")
         self.assertEqual(multiseed_decision(first, {"pass": True}, {42: data[42]}, cfg=self.cfg)["status"], "TFT_T1_TECHNICAL_FAILURE")
-    def test_seed42_failure_does_not_progress(self):
-        self.assertEqual(seed42_decision(m(26), m(18), m(19), cfg=self.cfg, identity_audited=True)["status"], INSUFFICIENT)
+    def test_seed42_extended_branch_is_preserved(self):
+        self.assertEqual(seed42_decision(m(26), m(18), m(19), cfg=self.cfg, identity_audited=True)["status"], "TFT_EXTENDED_BUDGET_CONFIG_ADVANCE")
 
 
 if __name__ == "__main__": unittest.main()

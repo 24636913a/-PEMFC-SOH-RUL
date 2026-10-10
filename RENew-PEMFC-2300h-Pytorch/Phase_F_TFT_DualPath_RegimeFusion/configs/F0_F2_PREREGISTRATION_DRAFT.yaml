@@ -1,0 +1,69 @@
+phase: Phase_F_TFT_DualPath_RegimeFusion
+status: DESIGN_FREEZE_NOT_EXECUTION_AUTHORIZATION
+base_commit_observed: f0ee738284c262397405f66c8563304b3ee9f2af
+scope:
+  development_only: true
+  test_access: prohibited
+  training_in_this_phase: prohibited
+  optuna: prohibited
+  backbone_search: prohibited
+data_firewall:
+  causal_table_read: pd.read_csv(nrows=3007)
+  development_filter: bin_end_ophrs2_h < 1819.997738
+  expected_development_rows: 3005
+  full_causal_file_read_or_hash: prohibited
+split:
+  train_rows: [0, 2103]
+  validation_rows: [2103, 2404]
+  assessment_rows: [2404, 3005]
+  expected_legal_windows: {train: 1380, validation: 205, assessment: 378}
+task:
+  resolution_h: 0.5
+  lookback_steps: 48
+  horizon_steps: 24
+  target: cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t
+  input_schema_channels: 14
+  feature_condition: Spearman_Top10_standardized_zero_mask
+  history_filter: causal_EWMA_alpha_0_3_on_cell_voltage_mean
+  decoder_actual_covariates: prohibited
+shared_training_contract:
+  source: Phase_E_T1R_fold2_frozen_configuration
+  optimizer: AdamW
+  loss: MSE
+  seed: 42
+  common_scaler: train_only_unfiltered_legal_histories
+  primary_metric: assessment_RMSE_mV
+  secondary_metrics: [MAE_mV, R2]
+stages:
+  F0: CanonicalStrictHistoryTFT_fresh_same_stage_baseline
+  F1:
+    native_encoder: unchanged
+    added_branch: depthwise_causal_conv_k3_d1_and_k3_d4_over_encoder_VSN
+    fusion: fixed_equal_mean
+    downstream_TFT: unchanged
+  F2:
+    branch: identical_to_F1
+    fusion: scalar_history_regime_gate
+    regime_features: [load_transition_count, zero_current_fraction, actual_current_density_A_cm2_std, actual_current_A_std, actual_current_density_A_cm2_mean]
+    gate: temporal_mean_then_MLP_5_8_1_sigmoid
+    gate_final_layer_initialization: zeros_to_start_g_equals_0_5
+frozen_exclusions:
+  - new_features
+  - changed_EWMA_alpha
+  - changed_lookback_or_horizon
+  - changed_head_or_loss
+  - future_covariates
+  - model_selection_on_assessment
+  - PINN_or_physics_loss
+  - SOH_or_RUL
+required_audits:
+  - native_source_hashes
+  - common_scaler_and_label_fingerprint
+  - data_access_audit
+  - initialization_hash
+  - fixed_batch_forward_hash
+  - checkpoint_reload_parity
+  - causal_branch_perturbation_test
+  - decoder_firewall_test
+  - prediction_key_truth_alignment
+  - parameter_compute_memory_time_ledger

@@ -7,6 +7,17 @@ scope:
   training_in_this_phase: prohibited
   optuna: prohibited
   backbone_search: prohibited
+  timesnet_freeze_preserved: true
+  phase_f_tft_architecture_exploration_only: true
+interpretation_limits:
+  inherited_selection_bias_status: PHASE_F_ASSESSMENT_INHERITED_SELECTION_BIAS
+  inherited_selection_evidence:
+    phase_e_E2_assessment_rmse_mV: 7.785821
+    phase_e_E2_validation_rmse_mV: 6.064596
+    phase_e_E0_validation_rmse_mV: 4.797507
+  historical_reproducibility_status: C1_D0_E0_REPRODUCIBILITY_UNRESOLVED
+  historical_top10_raw_rmse_mV: {C1: 11.445854, D0: 13.169241, E0: 19.318765}
+  allowed_claim: Development_exploratory_architecture_evidence_only
 data_firewall:
   causal_table_read: pd.read_csv(nrows=3007)
   development_filter: bin_end_ophrs2_h < 1819.997738
@@ -67,3 +78,8 @@ required_audits:
   - decoder_firewall_test
   - prediction_key_truth_alignment
   - parameter_compute_memory_time_ledger
+  - F0_native_parity_with_disabled_dual_path
+  - native_encoder_decoder_hidden_cell_handoff
+  - F1_branch_positionwise_causality
+  - F2_gate_initialization_and_gradient
+  - synthetic_checkpoint_reload

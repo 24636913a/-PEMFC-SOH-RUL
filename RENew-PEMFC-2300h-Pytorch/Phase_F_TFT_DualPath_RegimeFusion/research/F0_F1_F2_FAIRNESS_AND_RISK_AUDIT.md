@@ -2,6 +2,14 @@
 
 ## Frozen common experiment
 
+### Inherited selection and reproducibility limitations
+
+`PHASE_F_ASSESSMENT_INHERITED_SELECTION_BIAS`: Phase E chose the Top10+EWMA(alpha=0.3) input condition after Development Assessment had been exposed. E2's Assessment RMSE was 7.785821 mV, while its Validation RMSE was 6.064596 mV and E0 Top10 Raw's Validation RMSE was 4.797507 mV. Re-running F0–F2 with that inherited input can test the frozen architecture contrast, but cannot turn this preprocessing choice into independent validation evidence.
+
+`C1_D0_E0_REPRODUCIBILITY_UNRESOLVED`: existing same-key, same-truth Top10-Raw records are 11.445854 mV (C1), 13.169241 mV (D0), and 19.318765 mV (E0). The available code/configuration/log evidence does not verify one causal explanation. In particular, it is not established that a scaler, CUDA nondeterminism, or environment difference explains any pair. No F0–F2 report may use cross-stage numerical differences as a scientific effect.
+
+`PHASE_F_TFT_ARCHITECTURE_EXPLORATION_ONLY`: TimesNet's frozen main route and backbone-search closure remain in force. F0–F2 is an authorized TFT architecture branch with no automatic replacement or cross-protocol ranking consequence.
+
 All three stages must independently train only after a future implementation authorization, using:
 
 - the physical mixed causal table read only as `pd.read_csv(nrows=3007)`, then `bin_end_ophrs2_h < 1819.997738`, yielding exactly 3005 Development rows;

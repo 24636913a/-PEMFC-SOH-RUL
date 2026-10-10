@@ -1,0 +1,27 @@
+{
+  "assessment_model_inference": false,
+  "cuda": "12.4",
+  "cuda_available": true,
+  "expected_source_sha256": {
+    "_tft.py": "6ad5f6c806d314cfec53851ce0914c6d3476c4b05bd136a2764f4a562f1b7343",
+    "sub_modules.py": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+  },
+  "formal_training_performed": false,
+  "frozen_feature_schema_data_read": false,
+  "frozen_feature_schema_sha256": "b17794132351454d93debfc67943dc14db73a5287fef1966ba748967e9852332",
+  "frozen_feature_schema_source": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\configs\\PREREGISTERED_E_COMPARISON.yaml",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "pytorch_forecasting": "1.8.0",
+  "realhyfc_data_read": false,
+  "synthetic_checkpoint_only": true,
+  "test_accessed": false,
+  "torch": "2.6.0+cu124",
+  "upstream_source_paths": {
+    "_tft.py": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\_tft.py",
+    "sub_modules.py": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py"
+  },
+  "upstream_source_sha256": {
+    "_tft.py": "6ad5f6c806d314cfec53851ce0914c6d3476c4b05bd136a2764f4a562f1b7343",
+    "sub_modules.py": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+  }
+}

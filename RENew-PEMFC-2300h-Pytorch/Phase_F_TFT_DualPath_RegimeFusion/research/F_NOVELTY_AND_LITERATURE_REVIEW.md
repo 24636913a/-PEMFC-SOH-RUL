@@ -11,7 +11,7 @@
 
 The audited TFT already performs time-varying variable selection, local recurrent processing, temporal self-attention, and multiple gates/GRNs. Hence a manuscript must not call “using TFT gates”, “using attention”, “using feature selection”, or merely “combining local and global time scales” a new contribution.
 
-Nor is a BiLSTM-TFT-style replacement appropriate here: bidirectional processing is incompatible with the strict-history forecasting information set when it makes a representation for a historical time depend on later history in a way not available at that time. The proposed F1 retains a causal recurrent path and a causal convolution branch; it is a within-TFT encoder augmentation, not a second forecaster or a generic LSTM substitution.
+BiLSTM is not intrinsically a future-data leak when it encodes only the wholly observed origin window `[t-47,t]`: all values in that window are then available at origin `t`. It remains outside this phase because F1 tests the specific complementarity of the native TFT LSTM and a causal multi-scale convolution, preserving the existing encoder-to-decoder state handoff and avoiding a reopened encoder-replacement search. The proposed F1 is a within-TFT encoder augmentation, not a second forecaster or a generic LSTM substitution.
 
 ## Defensible, conditional contribution framing
 
@@ -20,7 +20,7 @@ If and only if the frozen F0–F2 experiment supports it, the paper may frame tw
 1. **Dual-path temporal encoding hypothesis:** an additional causal multi-scale convolution over TFT's VSN-selected history can improve 48→24 DeltaV prediction beyond the same-stage native strict-history TFT.
 2. **Regime-conditioned fusion hypothesis:** an observed-past operating-regime summary can control the fixed F1 mixture and add value without giving the decoder future physical covariates.
 
-These are method hypotheses, not established contributions at Phase F design time. The method is not a PINN, does not identify PEMFC degradation mechanisms from gates, and must not be marketed as novel solely because it combines familiar blocks. The potential novelty lies in the constrained integration, strict information firewall, and controlled F0→F1→F2 evaluation on dynamic PEMFC voltage forecasting.
+These are method hypotheses, not established contributions at Phase F design time. The method is not a PINN, does not identify PEMFC degradation mechanisms from gates, and must not be marketed as novel solely because it combines familiar blocks. The potential novelty lies in the constrained integration, strict information firewall, and controlled F0→F1→F2 evaluation on dynamic PEMFC voltage forecasting. This TFT branch is explicitly exploratory and does not alter the pre-existing TimesNet freeze or backbone-search closure.
 
 ## Literature limitation
 

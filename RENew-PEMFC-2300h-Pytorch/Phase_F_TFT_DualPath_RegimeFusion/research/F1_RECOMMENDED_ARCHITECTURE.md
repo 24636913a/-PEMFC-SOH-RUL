@@ -70,4 +70,4 @@ Use PyTorch's declared Conv1d initialization, initialize the new LayerNorm with 
 - F1 minus F0 tests the fixed dual-path encoder, not a condition gate.
 - F2 minus F1 tests only the gate described in `F2_REGIME_AWARE_FUSION_DESIGN.md`.
 
-No Assessment result may select the candidate, branch width, kernels, dilation, gate dimension, or fusion type. Those choices are frozen here before F0–F2 execution.
+No Assessment result may select the candidate, branch width, kernels, dilation, gate dimension, or fusion type. Those choices are frozen here before F0–F2 execution. The inherited Top10+EWMA preprocessing choice nevertheless has `PHASE_F_ASSESSMENT_INHERITED_SELECTION_BIAS`; F0–F2 can only produce Development-exploratory architecture evidence.

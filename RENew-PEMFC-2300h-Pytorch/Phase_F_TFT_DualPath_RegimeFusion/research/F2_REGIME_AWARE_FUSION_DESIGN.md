@@ -32,7 +32,7 @@ Initialize `W2` and `b2` to zero so `g=0.5` at initialization. This ensures the 
 
 A channel gate `[B,64]` or time-step gate `[B,48,1]` is more expressive but creates an additional feature/temporal-selection mechanism whose effect cannot be cleanly separated from VSN and attention in this small-sample setting. The scalar gate answers a narrower question: does the observed historical operating regime change the relative value of the native LSTM and causal-convolution histories?
 
-This is not a physical constraint or a PINN. Gate values are data-driven mixing weights. They may be summarized after training (mean, standard deviation, 5th/50th/95th percentiles and fraction below 0.1/above 0.9) only as diagnostics. They cannot be called degradation mechanisms.
+This is not a physical constraint or a PINN. Gate values are data-driven mixing weights. They may be summarized after training (mean, standard deviation, 5th/50th/95th percentiles and fraction below 0.1/above 0.9) only as diagnostics. They cannot be called degradation mechanisms. This F2 delta is an exploratory TFT architecture change and does not reopen the frozen TimesNet/main-backbone route.
 
 ## Failure diagnostics, not tuning rules
 

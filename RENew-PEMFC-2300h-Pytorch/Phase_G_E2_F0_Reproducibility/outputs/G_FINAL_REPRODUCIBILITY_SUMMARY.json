@@ -1,0 +1,39 @@
+{
+  "status": "PHASE_G_EXECUTION_BLOCKED",
+  "base_commit": "11f5d23fe075ee68288bf34bce6277644c963d09",
+  "protocol_sha256": "21e27f8fb99d93f77d1ff1e098476a4d0050ccad442bb077a8380ca12961febb",
+  "historical_first_divergence_epoch": 4,
+  "historical_train_MSE_absolute_difference_at_epoch4": 6.773255289971303e-09,
+  "historical_validation_standardized_RMSE_absolute_difference_at_epoch4": 2.980232238769531e-07,
+  "regression_tests_passed": 7,
+  "completed_replay_epochs": 0,
+  "optimizer_updates": 0,
+  "blocked_trajectory": "G-E-A",
+  "blocked_epoch": 1,
+  "blocked_batch_zero_based": 0,
+  "failure_stage": "BACKWARD",
+  "failure_operator": "upsample_linear1d_backward_out_cuda",
+  "strict_determinism_preserved": true,
+  "within_path_repeat_evidence": "NOT_AVAILABLE",
+  "between_path_repeat_evidence": "NOT_AVAILABLE",
+  "historical_root_cause": "UNRESOLVED",
+  "historical_source_and_execution_code_hashes_reverified": true,
+  "full_N1_hash_performed": false,
+  "read_nrows": 3007,
+  "development_rows_after_filter": 3005,
+  "ledger": {
+    "status": "PHASE_G_EXECUTION_BLOCKED",
+    "trajectories": {
+      "G-E-A": {
+        "status": "BLOCKED",
+        "returncode": 1
+      }
+    },
+    "max_epochs": 48,
+    "test_accessed": false,
+    "new_assessment_inference": false
+  },
+  "no_extra_training": true,
+  "new_assessment_inference": false,
+  "test_accessed": false
+}

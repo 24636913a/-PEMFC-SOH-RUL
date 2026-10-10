@@ -1,0 +1,7 @@
+{
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_common_loader_bounded (test_replay_safeguards.Safeguards.test_common_loader_bounded) ... ok\ntest_full_n1_hash_rejected (test_replay_safeguards.Safeguards.test_full_n1_hash_rejected) ... ok\ntest_hash_no_rng_mutation (test_replay_safeguards.Safeguards.test_hash_no_rng_mutation) ... ok\ntest_historical_write_rejected (test_replay_safeguards.Safeguards.test_historical_write_rejected) ... ok\ntest_no_assessment_builder_calls (test_replay_safeguards.Safeguards.test_no_assessment_builder_calls) ... ok\ntest_production_comparison_first_divergence (test_replay_safeguards.Safeguards.test_production_comparison_first_divergence) ... ok\ntest_trace_preserves_arity_rng_and_sampler (test_replay_safeguards.Safeguards.test_trace_preserves_arity_rng_and_sampler) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.248s\n\nOK\n",
+  "synthetic_only": true,
+  "test_data_accessed": false
+}

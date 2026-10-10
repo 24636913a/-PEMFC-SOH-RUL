@@ -1,0 +1,31 @@
+{
+  "base_commit": "11f5d23fe075ee68288bf34bce6277644c963d09",
+  "source_sha256": {
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py": "f479d4cd64a6a9351dd2d863f38dd4828017dc48ffa8b4e986a3c240a5574099",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/scripts/run_f_training.py": "e928521e16d66d97186d7f9e81b0f055931713f5a5d21e4a220f514cc354a9a4",
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_SingleSplit_Feature_Filter_Ablation/scripts/run_c_ablation.py": "e0053c63d6b942166362a09b2fce0166d9d29130fc0d5624eeaa0dcf32a65ce1",
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/configs/PREREGISTERED_E_COMPARISON.yaml": "b17794132351454d93debfc67943dc14db73a5287fef1966ba748967e9852332",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/configs/F0_F2_EXECUTION_PROTOCOL.yaml": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/training_logs/E2_seed42.json": "2475e35ab6e8228b09b415d88c4865bae610ce9502fb3013989a4824280e36d9",
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/E_PRETRAIN_AUDIT.json": "a5d40e6cb90328b08bb139d718ba63280903f6e0187644505c3e1fd6d5bb3c7a",
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/E_COMMON_SCALER.json": "969233228590c11f3c14f4eb364acbcbc638b70fa35a44ba72926ecb7a616ab4",
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/checkpoints/E2_Top10_EWMA_seed42.pt": "b67142e10ceae5d9d35e37c5e8c9a4db122bbfcb3389d51676f9bf2ca10d78b6",
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/E2_predictions_seed42.csv": "dc790f1eee3f29376772b3cc77ffa021aaddef326a0e305aad1dd786923cb7c0",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/audits/F_ENVIRONMENT.json": "4594900a8ef6c0275c343d6aa6c8d8b751b730762071d16782b6eee7a73a7fac",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/audits/F_COMMON_SCALER.json": "16df6461caf739d570d38b5c78cec690a973c297522792a9cb03efa57ef269a1",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/audits/F_DATA_ACCESS_AUDIT.json": "e4aa7472464f6268c53de18f7059e09668539fe960a85f547ec69e63cb5273b4",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/audits/F_FORMAL_INITIALIZATION_AUDIT.json": "209cd43d53315a374f4f36c5bcdc04fc9947f890a49a29f69c9e187250c6cbe9",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/audits/F0_FIRST_BATCH.json": "3988e8cbae3f47a005691cf043d18554fb559b589ecc8148e8648d1a07a8f8a6",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/training_logs/F0_epochs_seed42.csv": "47cd71ac23910ca257e2bac203aef607395767c2f601e9d680f265b4f8e4677e",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/training_logs/F0_run_seed42.json": "c6a27b7ae32a639149bde807bfd51f4c618259f4dadeefae5aac27a4839f137c",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/checkpoints/F0_best_seed42.pt": "1f01151780e3e72439b3da462d420f0726909b3d514a0275811c512aab008e68",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/predictions/F0_assessment_seed42.csv": "ccabd81606b9e905c3e90438d2f5d6d1995b5f3177f0a15fe9a57b48556ca2b9",
+    "RENew-PEMFC-2300h-Pytorch/Phase_G_E2_F0_Reproducibility/scripts/analyze_replay.py": "464734c240e47738403a716646a1e394966f88c896318db1f3e0587f271618ad",
+    "RENew-PEMFC-2300h-Pytorch/Phase_G_E2_F0_Reproducibility/scripts/audit_historical_e2_f0.py": "67329a38ef12234e059d4b124cbd3ba3881a25dc6dbef6d1546a03122fb23c54",
+    "RENew-PEMFC-2300h-Pytorch/Phase_G_E2_F0_Reproducibility/scripts/g_common.py": "6320fc77e63752ebca8faf0515adf15996cebb984a20c0b459dbd1eb5817783b",
+    "RENew-PEMFC-2300h-Pytorch/Phase_G_E2_F0_Reproducibility/scripts/run_controlled_replay.py": "15187b85d447c7ea34f01ae383adb54368498f95908beceffc9d1802f77d4610",
+    "RENew-PEMFC-2300h-Pytorch/Phase_G_E2_F0_Reproducibility/tests/test_replay_safeguards.py": "ff28313ba558184fc54d5a6f619a0ae6b280a28459573f91a9e8bd9f1e5fd57f"
+  },
+  "test_accessed": false
+}

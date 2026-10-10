@@ -1,0 +1,4 @@
+comparison,consistency_status,first_divergence_batch,reason
+G-E-A vs G-E-B,NOT_EVALUABLE,NOT_AVAILABLE,G-E-A strict deterministic Backward failed; G-E-B not run
+G-F-A vs G-F-B,NOT_EVALUABLE,NOT_AVAILABLE,Both trajectories not run
+G-E-A vs G-F-A,NOT_EVALUABLE,NOT_AVAILABLE,No completed comparable trajectories

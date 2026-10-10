@@ -1,0 +1,345 @@
+parameter,module,shape,numel,max_abs_difference,l2_difference,exactly_equal
+prescalers.raw_f2_00.weight,prescalers,"(32, 1)",32,0.17445266246795654,0.32705828035221846,False
+prescalers.raw_f2_00.bias,prescalers,"(32,)",32,0.1505860686302185,0.3114568392196521,False
+prescalers.raw_f2_01.weight,prescalers,"(32, 1)",32,0.0,0.0,True
+prescalers.raw_f2_01.bias,prescalers,"(32,)",32,0.07537305355072021,0.2295620718629131,False
+prescalers.raw_f2_02.weight,prescalers,"(32, 1)",32,0.0,0.0,True
+prescalers.raw_f2_02.bias,prescalers,"(32,)",32,0.06601378321647644,0.17471068784217078,False
+prescalers.raw_f2_03.weight,prescalers,"(32, 1)",32,0.10558819770812988,0.3206414571875508,False
+prescalers.raw_f2_03.bias,prescalers,"(32,)",32,0.07812228798866272,0.16793548918395199,False
+prescalers.raw_f2_04.weight,prescalers,"(32, 1)",32,0.09514105319976807,0.24936869303946713,False
+prescalers.raw_f2_04.bias,prescalers,"(32,)",32,0.05850023031234741,0.14507281178122697,False
+prescalers.raw_f2_05.weight,prescalers,"(32, 1)",32,0.0,0.0,True
+prescalers.raw_f2_05.bias,prescalers,"(32,)",32,0.09973964095115662,0.2551167632044527,False
+prescalers.raw_f2_06.weight,prescalers,"(32, 1)",32,0.0822402834892273,0.23387792439809332,False
+prescalers.raw_f2_06.bias,prescalers,"(32,)",32,0.16130000352859497,0.29677142009859536,False
+prescalers.raw_f2_07.weight,prescalers,"(32, 1)",32,0.11791445314884186,0.26685475062836983,False
+prescalers.raw_f2_07.bias,prescalers,"(32,)",32,0.08945701643824577,0.1561328224470896,False
+prescalers.raw_f2_08.weight,prescalers,"(32, 1)",32,0.1525576412677765,0.398180311277074,False
+prescalers.raw_f2_08.bias,prescalers,"(32,)",32,0.10150408744812012,0.258737746112253,False
+prescalers.raw_f2_09.weight,prescalers,"(32, 1)",32,0.13667789101600647,0.2252407534939919,False
+prescalers.raw_f2_09.bias,prescalers,"(32,)",32,0.07245999574661255,0.17033444648703677,False
+prescalers.raw_f2_10.weight,prescalers,"(32, 1)",32,0.11137594282627106,0.2287346258788338,False
+prescalers.raw_f2_10.bias,prescalers,"(32,)",32,0.13051235396414995,0.23806107246613847,False
+prescalers.raw_f2_11.weight,prescalers,"(32, 1)",32,0.19937527179718018,0.6022963359306004,False
+prescalers.raw_f2_11.bias,prescalers,"(32,)",32,0.12343400716781616,0.22584127189413755,False
+prescalers.raw_f2_12.weight,prescalers,"(32, 1)",32,0.0,0.0,True
+prescalers.raw_f2_12.bias,prescalers,"(32,)",32,0.0732058584690094,0.17279860166174876,False
+prescalers.raw_f2_13.weight,prescalers,"(32, 1)",32,0.0864289402961731,0.29274033013454825,False
+prescalers.raw_f2_13.bias,prescalers,"(32,)",32,0.05481451749801636,0.11097247212869328,False
+prescalers.relative_forecast_step.weight,prescalers,"(32, 1)",32,0.07474038004875183,0.14961306824226242,False
+prescalers.relative_forecast_step.bias,prescalers,"(32,)",32,0.051508307456970215,0.1011179968127395,False
+encoder_variable_selection.flattened_grn.resample_norm.mask,encoder_variable_selection,"(15,)",15,0.11083316802978516,0.22303594579135008,False
+encoder_variable_selection.flattened_grn.resample_norm.norm.weight,encoder_variable_selection,"(15,)",15,0.12330818176269531,0.30714528358499715,False
+encoder_variable_selection.flattened_grn.resample_norm.norm.bias,encoder_variable_selection,"(15,)",15,0.14002825319766998,0.3022811077093619,False
+encoder_variable_selection.flattened_grn.fc1.weight,encoder_variable_selection,"(15, 480)",7200,0.45585880149155855,4.455642426575352,False
+encoder_variable_selection.flattened_grn.fc1.bias,encoder_variable_selection,"(15,)",15,0.0847414880990982,0.11659499777592823,False
+encoder_variable_selection.flattened_grn.context.weight,encoder_variable_selection,"(15, 64)",960,0.14484205096960068,1.0868411899260724,False
+encoder_variable_selection.flattened_grn.fc2.weight,encoder_variable_selection,"(15, 15)",225,0.19393005967140198,0.8939162854955686,False
+encoder_variable_selection.flattened_grn.fc2.bias,encoder_variable_selection,"(15,)",15,0.05643010139465332,0.1149585500730812,False
+encoder_variable_selection.flattened_grn.gate_norm.glu.fc.weight,encoder_variable_selection,"(30, 15)",450,0.39896686375141144,1.6585369697687276,False
+encoder_variable_selection.flattened_grn.gate_norm.glu.fc.bias,encoder_variable_selection,"(30,)",30,0.19629516825079918,0.3453182749899668,False
+encoder_variable_selection.flattened_grn.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(15,)",15,0.131117045879364,0.2621235094219464,False
+encoder_variable_selection.flattened_grn.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(15,)",15,0.06624264270067215,0.12001507988192946,False
+encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.18553737550973892,0.44820922570893734,False
+encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.18864202499389648,0.46094411404404834,False
+encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.16243109107017517,0.4134386604805287,False
+encoder_variable_selection.single_variable_grns.raw_f2_00.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.13908126950263977,1.3150781632543587,False
+encoder_variable_selection.single_variable_grns.raw_f2_00.fc1.bias,encoder_variable_selection,"(32,)",32,0.08272851631045341,0.16254676546679903,False
+encoder_variable_selection.single_variable_grns.raw_f2_00.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.1638025939464569,1.575085057801167,False
+encoder_variable_selection.single_variable_grns.raw_f2_00.fc2.bias,encoder_variable_selection,"(32,)",32,0.07767771556973457,0.23018809957768394,False
+encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.31658030301332474,3.9183870254695576,False
+encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.3104915227741003,0.7995844738235547,False
+encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.34024035930633545,0.6245776377428335,False
+encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.08925648033618927,0.23688207582840534,False
+encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.19505948573350906,0.32811949072695223,False
+encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.1852319836616516,0.35528905789493087,False
+encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.10534074902534485,0.2748522850909668,False
+encoder_variable_selection.single_variable_grns.raw_f2_01.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.07991983741521835,0.8026455147614273,False
+encoder_variable_selection.single_variable_grns.raw_f2_01.fc1.bias,encoder_variable_selection,"(32,)",32,0.05594914895482361,0.1406762817117518,False
+encoder_variable_selection.single_variable_grns.raw_f2_01.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.21123646199703217,1.2527076414603648,False
+encoder_variable_selection.single_variable_grns.raw_f2_01.fc2.bias,encoder_variable_selection,"(32,)",32,0.06335900817066431,0.1645957235843344,False
+encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.3139428421854973,3.7161382636526774,False
+encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.14695778116583824,0.6453420644323867,False
+encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.22549974918365479,0.5459029805524975,False
+encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.0818893127143383,0.27031143693699383,False
+encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.12370308302342892,0.303717308213883,False
+encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.12258875370025635,0.30077162966080306,False
+encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.12342917546629906,0.28991850916185546,False
+encoder_variable_selection.single_variable_grns.raw_f2_02.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.08329182118177414,0.39948158703604525,False
+encoder_variable_selection.single_variable_grns.raw_f2_02.fc1.bias,encoder_variable_selection,"(32,)",32,0.026200413703918457,0.05684736915753135,False
+encoder_variable_selection.single_variable_grns.raw_f2_02.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.20269621908664703,1.8222230495845977,False
+encoder_variable_selection.single_variable_grns.raw_f2_02.fc2.bias,encoder_variable_selection,"(32,)",32,0.04761179629713297,0.12176452303421195,False
+encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.3895634114742279,4.015181476783918,False
+encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.283953458070755,0.9369951825341557,False
+encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.22628700733184814,0.5001401988275274,False
+encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.12878312170505524,0.24838535934140993,False
+encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.12067602947354317,0.28196714648220833,False
+encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.13815653324127197,0.30240499337976323,False
+encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.07253380119800568,0.21980573537070158,False
+encoder_variable_selection.single_variable_grns.raw_f2_03.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.1571124792098999,1.1219855231804052,False
+encoder_variable_selection.single_variable_grns.raw_f2_03.fc1.bias,encoder_variable_selection,"(32,)",32,0.0867701917886734,0.17454402423861867,False
+encoder_variable_selection.single_variable_grns.raw_f2_03.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.16345371305942535,1.3508079386080103,False
+encoder_variable_selection.single_variable_grns.raw_f2_03.fc2.bias,encoder_variable_selection,"(32,)",32,0.09866386651992798,0.22347345964569326,False
+encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.2323630228638649,3.733753028627407,False
+encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.1340012215077877,0.6091283403316627,False
+encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.23995715379714966,0.5543517045945526,False
+encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.09522900357842445,0.21739524238371455,False
+encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.3060239106416702,0.762316477938234,False
+encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.3146446943283081,0.7729121211025829,False
+encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.19342589005827904,0.6167229365936163,False
+encoder_variable_selection.single_variable_grns.raw_f2_04.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.2181440331041813,1.5473666948397906,False
+encoder_variable_selection.single_variable_grns.raw_f2_04.fc1.bias,encoder_variable_selection,"(32,)",32,0.12256083264946938,0.20115901705876452,False
+encoder_variable_selection.single_variable_grns.raw_f2_04.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.21534383296966553,2.041056820511885,False
+encoder_variable_selection.single_variable_grns.raw_f2_04.fc2.bias,encoder_variable_selection,"(32,)",32,0.09431413933634758,0.24732913619239766,False
+encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.4118886739015579,6.369740446944419,False
+encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.3140888512134552,1.208370370544881,False
+encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.358731746673584,0.8468684624887399,False
+encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.16183310188353062,0.3528669553910684,False
+encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.10303344577550888,0.24250404534293743,False
+encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.11527204513549805,0.24686965262090255,False
+encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.1141776591539383,0.23614484449973683,False
+encoder_variable_selection.single_variable_grns.raw_f2_05.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.0959415144752711,0.9355219965135639,False
+encoder_variable_selection.single_variable_grns.raw_f2_05.fc1.bias,encoder_variable_selection,"(32,)",32,0.09310097619891167,0.17474795805489848,False
+encoder_variable_selection.single_variable_grns.raw_f2_05.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.1526547148823738,1.2409886181915026,False
+encoder_variable_selection.single_variable_grns.raw_f2_05.fc2.bias,encoder_variable_selection,"(32,)",32,0.09382505062967539,0.23305211655826683,False
+encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.206968130543828,2.8623322146582626,False
+encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.13156457245349884,0.39649493575538636,False
+encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.11320799589157104,0.27195490857147764,False
+encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.0752324778586626,0.21225869513263385,False
+encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.1900155171751976,0.6359096716844437,False
+encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.20436209440231323,0.6567563490140742,False
+encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.15246009826660156,0.533427002026935,False
+encoder_variable_selection.single_variable_grns.raw_f2_06.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.4448513835668564,1.9982284137480435,False
+encoder_variable_selection.single_variable_grns.raw_f2_06.fc1.bias,encoder_variable_selection,"(32,)",32,0.04253022000193596,0.11317328148121233,False
+encoder_variable_selection.single_variable_grns.raw_f2_06.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.2823081910610199,2.2429573935560914,False
+encoder_variable_selection.single_variable_grns.raw_f2_06.fc2.bias,encoder_variable_selection,"(32,)",32,0.13699087128043175,0.2847237156210305,False
+encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.42140282690525055,6.54916238010734,False
+encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.32472123205661774,1.076275236006307,False
+encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.5407058000564575,1.1643275170676959,False
+encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.07414660416543484,0.21777471558705475,False
+encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.2054641991853714,0.4780176158742,False
+encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.18453681468963623,0.45997808708856774,False
+encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.0939913485199213,0.34058441819028706,False
+encoder_variable_selection.single_variable_grns.raw_f2_07.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.3675529360771179,1.522674877616242,False
+encoder_variable_selection.single_variable_grns.raw_f2_07.fc1.bias,encoder_variable_selection,"(32,)",32,0.14554217085242271,0.22000513510698666,False
+encoder_variable_selection.single_variable_grns.raw_f2_07.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.19753673672676086,1.5475793227268673,False
+encoder_variable_selection.single_variable_grns.raw_f2_07.fc2.bias,encoder_variable_selection,"(32,)",32,0.09858850762248039,0.23336551490461752,False
+encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.4239432280883193,5.234058311170395,False
+encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.30334896594285965,0.8659530021097531,False
+encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.21560508012771606,0.6805800229320365,False
+encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.09131534397602081,0.22146108296500047,False
+encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.29007883463054895,0.5493860893151774,False
+encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.22289103269577026,0.5315745541772178,False
+encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.1318691410124302,0.34123564720454636,False
+encoder_variable_selection.single_variable_grns.raw_f2_08.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.21113184094429016,1.3474604157135217,False
+encoder_variable_selection.single_variable_grns.raw_f2_08.fc1.bias,encoder_variable_selection,"(32,)",32,0.06344842817634344,0.15244332037146413,False
+encoder_variable_selection.single_variable_grns.raw_f2_08.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.22122355550527573,1.8170073277718832,False
+encoder_variable_selection.single_variable_grns.raw_f2_08.fc2.bias,encoder_variable_selection,"(32,)",32,0.09308800101280212,0.22786343440865753,False
+encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.40161167085170746,5.542859112697547,False
+encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.2000424526631832,0.8787564770367501,False
+encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.2600221037864685,0.8400125320423835,False
+encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.10682172141969204,0.2748733053141373,False
+encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.2007770612835884,0.54171403881273,False
+encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.1549484133720398,0.5238111331912003,False
+encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.13024748861789703,0.42616853894532397,False
+encoder_variable_selection.single_variable_grns.raw_f2_09.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.30814221501350403,1.597340366951667,False
+encoder_variable_selection.single_variable_grns.raw_f2_09.fc1.bias,encoder_variable_selection,"(32,)",32,0.08994892239570618,0.15226964201582938,False
+encoder_variable_selection.single_variable_grns.raw_f2_09.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.24310359358787537,1.827416040572996,False
+encoder_variable_selection.single_variable_grns.raw_f2_09.fc2.bias,encoder_variable_selection,"(32,)",32,0.08985797315835953,0.23970247252831053,False
+encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.7137990817427635,7.7171814658005875,False
+encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.3151944912970066,1.1522750225015277,False
+encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.3364889621734619,1.0149492090198151,False
+encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.09488504007458687,0.26426772076541144,False
+encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.16991237550973892,0.4622036710762019,False
+encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.15780013799667358,0.4617504189720106,False
+encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.08434914995450526,0.2911361333408309,False
+encoder_variable_selection.single_variable_grns.raw_f2_10.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.21586918830871582,1.7912064723170336,False
+encoder_variable_selection.single_variable_grns.raw_f2_10.fc1.bias,encoder_variable_selection,"(32,)",32,0.12115709483623505,0.25407396992011877,False
+encoder_variable_selection.single_variable_grns.raw_f2_10.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.3076701024547219,2.1006736147707654,False
+encoder_variable_selection.single_variable_grns.raw_f2_10.fc2.bias,encoder_variable_selection,"(32,)",32,0.12046809121966362,0.2987237823463109,False
+encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.5002318471670151,6.8174006280983415,False
+encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.2510278970003128,0.9426461011765003,False
+encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.3231373429298401,0.9826439082502534,False
+encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.10208986699581146,0.2768408041843443,False
+encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.15006952732801437,0.43168523748717336,False
+encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.15431439876556396,0.41842062013144776,False
+encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.15808143466711044,0.32755942410158656,False
+encoder_variable_selection.single_variable_grns.raw_f2_11.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.25037989020347595,1.7568664590573502,False
+encoder_variable_selection.single_variable_grns.raw_f2_11.fc1.bias,encoder_variable_selection,"(32,)",32,0.09182644262909889,0.1715330589433612,False
+encoder_variable_selection.single_variable_grns.raw_f2_11.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.381824754178524,2.11761856387017,False
+encoder_variable_selection.single_variable_grns.raw_f2_11.fc2.bias,encoder_variable_selection,"(32,)",32,0.089898313395679,0.24813287178568302,False
+encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.38393719494342804,5.577585295254757,False
+encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.25075095146894455,0.9580864500314897,False
+encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.23249012231826782,0.6683287012352565,False
+encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.10005581937730312,0.26493243615643325,False
+encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.2064637616276741,0.32928379564238824,False
+encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.10271710157394409,0.26983144188192876,False
+encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.09694273769855499,0.24217567051440608,False
+encoder_variable_selection.single_variable_grns.raw_f2_12.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.08018873631954193,0.31753084909197343,False
+encoder_variable_selection.single_variable_grns.raw_f2_12.fc1.bias,encoder_variable_selection,"(32,)",32,0.01670203427784145,0.04116148751957214,False
+encoder_variable_selection.single_variable_grns.raw_f2_12.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.2595505192875862,2.176893856049678,False
+encoder_variable_selection.single_variable_grns.raw_f2_12.fc2.bias,encoder_variable_selection,"(32,)",32,0.027210230939090252,0.06448979193880815,False
+encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.32923753559589386,3.4453084906252007,False
+encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.32817114889621735,1.0969875458291243,False
+encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.28962773084640503,0.5083639547260785,False
+encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.086703110486269,0.235373428557731,False
+encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.12326754257082939,0.3344766932690465,False
+encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.14872145652770996,0.34977210570846434,False
+encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.11634942749515176,0.23601564222393284,False
+encoder_variable_selection.single_variable_grns.raw_f2_13.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.13933080434799194,1.3777439773991644,False
+encoder_variable_selection.single_variable_grns.raw_f2_13.fc1.bias,encoder_variable_selection,"(32,)",32,0.090541185811162,0.2142529751749388,False
+encoder_variable_selection.single_variable_grns.raw_f2_13.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.12902871682308614,1.369105458729272,False
+encoder_variable_selection.single_variable_grns.raw_f2_13.fc2.bias,encoder_variable_selection,"(32,)",32,0.09224870800971985,0.2237182382316624,False
+encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.3285222798585892,3.9231806367636035,False
+encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.19439032673835754,0.635434419774227,False
+encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.3800092339515686,0.7151822745826911,False
+encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.08447843417525291,0.23591893835009126,False
+encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.mask,encoder_variable_selection,"(64,)",64,0.18395251035690308,0.38612918513745825,False
+encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.2567654848098755,0.5859481530191208,False
+encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.08345191180706024,0.22868421364120317,False
+encoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.weight,encoder_variable_selection,"(32, 32)",1024,0.40754568576812744,2.1994412950230013,False
+encoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.bias,encoder_variable_selection,"(32,)",32,0.09512192755937576,0.20161811666638996,False
+encoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.weight,encoder_variable_selection,"(32, 32)",1024,0.2393997758626938,1.8651953934761187,False
+encoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.bias,encoder_variable_selection,"(32,)",32,0.06594172865152359,0.15577037006451266,False
+encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.weight,encoder_variable_selection,"(128, 32)",4096,0.3583146706223488,4.690326802862251,False
+encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.bias,encoder_variable_selection,"(128,)",128,0.15044169127941132,0.5856214878993281,False
+encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.weight,encoder_variable_selection,"(64,)",64,0.19926798343658447,0.5093993558614962,False
+encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.bias,encoder_variable_selection,"(64,)",64,0.09905757755041122,0.22954363423243856,False
+encoder_variable_selection.prescalers.raw_f2_00.weight,encoder_variable_selection,"(32, 1)",32,0.17445266246795654,0.32705828035221846,False
+encoder_variable_selection.prescalers.raw_f2_00.bias,encoder_variable_selection,"(32,)",32,0.1505860686302185,0.3114568392196521,False
+encoder_variable_selection.prescalers.raw_f2_01.weight,encoder_variable_selection,"(32, 1)",32,0.0,0.0,True
+encoder_variable_selection.prescalers.raw_f2_01.bias,encoder_variable_selection,"(32,)",32,0.07537305355072021,0.2295620718629131,False
+encoder_variable_selection.prescalers.raw_f2_02.weight,encoder_variable_selection,"(32, 1)",32,0.0,0.0,True
+encoder_variable_selection.prescalers.raw_f2_02.bias,encoder_variable_selection,"(32,)",32,0.06601378321647644,0.17471068784217078,False
+encoder_variable_selection.prescalers.raw_f2_03.weight,encoder_variable_selection,"(32, 1)",32,0.10558819770812988,0.3206414571875508,False
+encoder_variable_selection.prescalers.raw_f2_03.bias,encoder_variable_selection,"(32,)",32,0.07812228798866272,0.16793548918395199,False
+encoder_variable_selection.prescalers.raw_f2_04.weight,encoder_variable_selection,"(32, 1)",32,0.09514105319976807,0.24936869303946713,False
+encoder_variable_selection.prescalers.raw_f2_04.bias,encoder_variable_selection,"(32,)",32,0.05850023031234741,0.14507281178122697,False
+encoder_variable_selection.prescalers.raw_f2_05.weight,encoder_variable_selection,"(32, 1)",32,0.0,0.0,True
+encoder_variable_selection.prescalers.raw_f2_05.bias,encoder_variable_selection,"(32,)",32,0.09973964095115662,0.2551167632044527,False
+encoder_variable_selection.prescalers.raw_f2_06.weight,encoder_variable_selection,"(32, 1)",32,0.0822402834892273,0.23387792439809332,False
+encoder_variable_selection.prescalers.raw_f2_06.bias,encoder_variable_selection,"(32,)",32,0.16130000352859497,0.29677142009859536,False
+encoder_variable_selection.prescalers.raw_f2_07.weight,encoder_variable_selection,"(32, 1)",32,0.11791445314884186,0.26685475062836983,False
+encoder_variable_selection.prescalers.raw_f2_07.bias,encoder_variable_selection,"(32,)",32,0.08945701643824577,0.1561328224470896,False
+encoder_variable_selection.prescalers.raw_f2_08.weight,encoder_variable_selection,"(32, 1)",32,0.1525576412677765,0.398180311277074,False
+encoder_variable_selection.prescalers.raw_f2_08.bias,encoder_variable_selection,"(32,)",32,0.10150408744812012,0.258737746112253,False
+encoder_variable_selection.prescalers.raw_f2_09.weight,encoder_variable_selection,"(32, 1)",32,0.13667789101600647,0.2252407534939919,False
+encoder_variable_selection.prescalers.raw_f2_09.bias,encoder_variable_selection,"(32,)",32,0.07245999574661255,0.17033444648703677,False
+encoder_variable_selection.prescalers.raw_f2_10.weight,encoder_variable_selection,"(32, 1)",32,0.11137594282627106,0.2287346258788338,False
+encoder_variable_selection.prescalers.raw_f2_10.bias,encoder_variable_selection,"(32,)",32,0.13051235396414995,0.23806107246613847,False
+encoder_variable_selection.prescalers.raw_f2_11.weight,encoder_variable_selection,"(32, 1)",32,0.19937527179718018,0.6022963359306004,False
+encoder_variable_selection.prescalers.raw_f2_11.bias,encoder_variable_selection,"(32,)",32,0.12343400716781616,0.22584127189413755,False
+encoder_variable_selection.prescalers.raw_f2_12.weight,encoder_variable_selection,"(32, 1)",32,0.0,0.0,True
+encoder_variable_selection.prescalers.raw_f2_12.bias,encoder_variable_selection,"(32,)",32,0.0732058584690094,0.17279860166174876,False
+encoder_variable_selection.prescalers.raw_f2_13.weight,encoder_variable_selection,"(32, 1)",32,0.0864289402961731,0.29274033013454825,False
+encoder_variable_selection.prescalers.raw_f2_13.bias,encoder_variable_selection,"(32,)",32,0.05481451749801636,0.11097247212869328,False
+encoder_variable_selection.prescalers.relative_forecast_step.weight,encoder_variable_selection,"(32, 1)",32,0.07474038004875183,0.14961306824226242,False
+encoder_variable_selection.prescalers.relative_forecast_step.bias,encoder_variable_selection,"(32,)",32,0.051508307456970215,0.1011179968127395,False
+decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.mask,decoder_variable_selection,"(64,)",64,0.10074682533740997,0.24988352402073793,False
+decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.weight,decoder_variable_selection,"(64,)",64,0.11926960945129395,0.2882651647237444,False
+decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.bias,decoder_variable_selection,"(64,)",64,0.10553846508264542,0.22030938674792874,False
+decoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.weight,decoder_variable_selection,"(32, 32)",1024,0.07718300819396973,0.548620081031142,False
+decoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.bias,decoder_variable_selection,"(32,)",32,0.018650878220796585,0.04786081030937035,False
+decoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.weight,decoder_variable_selection,"(32, 32)",1024,0.2377796769142151,1.4031824126449424,False
+decoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.bias,decoder_variable_selection,"(32,)",32,0.027879374276380986,0.06644286915017675,False
+decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.weight,decoder_variable_selection,"(128, 32)",4096,0.2828132938593626,3.470957767234177,False
+decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.bias,decoder_variable_selection,"(128,)",128,0.2942894697189331,0.8246829816368748,False
+decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.weight,decoder_variable_selection,"(64,)",64,0.24291110038757324,0.6407329459342773,False
+decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.bias,decoder_variable_selection,"(64,)",64,0.151657372713089,0.46034674896200817,False
+decoder_variable_selection.prescalers.relative_forecast_step.weight,decoder_variable_selection,"(32, 1)",32,0.07474038004875183,0.14961306824226242,False
+decoder_variable_selection.prescalers.relative_forecast_step.bias,decoder_variable_selection,"(32,)",32,0.051508307456970215,0.1011179968127395,False
+static_context_variable_selection.fc1.weight,static_context_variable_selection,"(64, 64)",4096,0.0,0.0,True
+static_context_variable_selection.fc1.bias,static_context_variable_selection,"(64,)",64,0.09372215159237385,0.350107931872854,False
+static_context_variable_selection.fc2.weight,static_context_variable_selection,"(64, 64)",4096,0.18667980283498764,2.7103694090980075,False
+static_context_variable_selection.fc2.bias,static_context_variable_selection,"(64,)",64,0.07164397463202477,0.2266637784662653,False
+static_context_variable_selection.gate_norm.glu.fc.weight,static_context_variable_selection,"(128, 64)",8192,0.21783847361803055,4.835308861939295,False
+static_context_variable_selection.gate_norm.glu.fc.bias,static_context_variable_selection,"(128,)",128,0.11728056706488132,0.4512292627235264,False
+static_context_variable_selection.gate_norm.add_norm.norm.weight,static_context_variable_selection,"(64,)",64,0.09770029783248901,0.3697077157648863,False
+static_context_variable_selection.gate_norm.add_norm.norm.bias,static_context_variable_selection,"(64,)",64,0.06989105138927698,0.215547168206779,False
+static_context_initial_hidden_lstm.fc1.weight,static_context_initial_hidden_lstm,"(64, 64)",4096,0.0,0.0,True
+static_context_initial_hidden_lstm.fc1.bias,static_context_initial_hidden_lstm,"(64,)",64,0.31903305649757385,0.8453097063215389,False
+static_context_initial_hidden_lstm.fc2.weight,static_context_initial_hidden_lstm,"(64, 64)",4096,0.5934698581695557,6.792034614226841,False
+static_context_initial_hidden_lstm.fc2.bias,static_context_initial_hidden_lstm,"(64,)",64,0.3096560463309288,0.6683764454714358,False
+static_context_initial_hidden_lstm.gate_norm.glu.fc.weight,static_context_initial_hidden_lstm,"(128, 64)",8192,0.4140411224216223,9.840210708958637,False
+static_context_initial_hidden_lstm.gate_norm.glu.fc.bias,static_context_initial_hidden_lstm,"(128,)",128,0.28054942935705185,1.0658403084945032,False
+static_context_initial_hidden_lstm.gate_norm.add_norm.norm.weight,static_context_initial_hidden_lstm,"(64,)",64,0.2254924178123474,0.7699573085437238,False
+static_context_initial_hidden_lstm.gate_norm.add_norm.norm.bias,static_context_initial_hidden_lstm,"(64,)",64,0.2903820127248764,0.8863306540656237,False
+static_context_initial_cell_lstm.fc1.weight,static_context_initial_cell_lstm,"(64, 64)",4096,0.0,0.0,True
+static_context_initial_cell_lstm.fc1.bias,static_context_initial_cell_lstm,"(64,)",64,0.17131169204367325,0.5773292388193539,False
+static_context_initial_cell_lstm.fc2.weight,static_context_initial_cell_lstm,"(64, 64)",4096,0.5063314735889435,6.609983904437848,False
+static_context_initial_cell_lstm.fc2.bias,static_context_initial_cell_lstm,"(64,)",64,0.298220731317997,0.6965336166904226,False
+static_context_initial_cell_lstm.gate_norm.glu.fc.weight,static_context_initial_cell_lstm,"(128, 64)",8192,0.43007631599903107,10.521445352459077,False
+static_context_initial_cell_lstm.gate_norm.glu.fc.bias,static_context_initial_cell_lstm,"(128,)",128,0.2626738026738167,1.1932558031686005,False
+static_context_initial_cell_lstm.gate_norm.add_norm.norm.weight,static_context_initial_cell_lstm,"(64,)",64,0.4564360976219177,1.2257718824296007,False
+static_context_initial_cell_lstm.gate_norm.add_norm.norm.bias,static_context_initial_cell_lstm,"(64,)",64,0.4762715473771095,1.4861366525086435,False
+static_context_enrichment.fc1.weight,static_context_enrichment,"(64, 64)",4096,0.0,0.0,True
+static_context_enrichment.fc1.bias,static_context_enrichment,"(64,)",64,0.05397726595401764,0.1503907085999434,False
+static_context_enrichment.fc2.weight,static_context_enrichment,"(64, 64)",4096,0.21477899327874184,2.437758030709117,False
+static_context_enrichment.fc2.bias,static_context_enrichment,"(64,)",64,0.06195104867219925,0.18094230473301098,False
+static_context_enrichment.gate_norm.glu.fc.weight,static_context_enrichment,"(128, 64)",8192,0.4115312844514847,6.274817200993966,False
+static_context_enrichment.gate_norm.glu.fc.bias,static_context_enrichment,"(128,)",128,0.11306549981236458,0.40473934618248664,False
+static_context_enrichment.gate_norm.add_norm.norm.weight,static_context_enrichment,"(64,)",64,0.1366497278213501,0.4367338732462434,False
+static_context_enrichment.gate_norm.add_norm.norm.bias,static_context_enrichment,"(64,)",64,0.12010321021080017,0.2828217684132092,False
+lstm_encoder.weight_ih_l0,lstm_encoder,"(256, 64)",16384,0.6704344004392624,11.829790797482046,False
+lstm_encoder.weight_hh_l0,lstm_encoder,"(256, 64)",16384,0.7771411538124084,14.260708797056113,False
+lstm_encoder.bias_ih_l0,lstm_encoder,"(256,)",256,0.30098625272512436,0.9893888598841586,False
+lstm_encoder.bias_hh_l0,lstm_encoder,"(256,)",256,0.30098819732666016,0.9893889296160374,False
+lstm_decoder.weight_ih_l0,lstm_decoder,"(256, 64)",16384,0.36439527571201324,6.8716533180985335,False
+lstm_decoder.weight_hh_l0,lstm_decoder,"(256, 64)",16384,1.058998640626669,16.117345795802507,False
+lstm_decoder.bias_ih_l0,lstm_decoder,"(256,)",256,0.15159711241722107,0.6362162236693144,False
+lstm_decoder.bias_hh_l0,lstm_decoder,"(256,)",256,0.15159684419631958,0.6362158454432582,False
+post_lstm_gate_encoder.fc.weight,post_lstm_gate_encoder,"(128, 64)",8192,1.2496928051114082,14.153113018327431,False
+post_lstm_gate_encoder.fc.bias,post_lstm_gate_encoder,"(128,)",128,0.24244889616966248,0.9130861281577054,False
+post_lstm_gate_decoder.fc.weight,post_lstm_gate_decoder,"(128, 64)",8192,1.2496928051114082,14.153113018327431,False
+post_lstm_gate_decoder.fc.bias,post_lstm_gate_decoder,"(128,)",128,0.24244889616966248,0.9130861281577054,False
+post_lstm_add_norm_encoder.norm.weight,post_lstm_add_norm_encoder,"(64,)",64,0.20052850246429443,0.5436287794585279,False
+post_lstm_add_norm_encoder.norm.bias,post_lstm_add_norm_encoder,"(64,)",64,0.103844890370965,0.2540786127534523,False
+post_lstm_add_norm_decoder.norm.weight,post_lstm_add_norm_decoder,"(64,)",64,0.20052850246429443,0.5436287794585279,False
+post_lstm_add_norm_decoder.norm.bias,post_lstm_add_norm_decoder,"(64,)",64,0.103844890370965,0.2540786127534523,False
+static_enrichment.fc1.weight,static_enrichment,"(64, 64)",4096,0.5845243521034718,6.481692972509365,False
+static_enrichment.fc1.bias,static_enrichment,"(64,)",64,0.07344194129109383,0.25012319445853864,False
+static_enrichment.context.weight,static_enrichment,"(64, 64)",4096,0.17887687438633293,2.8674637183288483,False
+static_enrichment.fc2.weight,static_enrichment,"(64, 64)",4096,0.4170907214283943,5.6941044346958005,False
+static_enrichment.fc2.bias,static_enrichment,"(64,)",64,0.12334664165973663,0.3842677462538804,False
+static_enrichment.gate_norm.glu.fc.weight,static_enrichment,"(128, 64)",8192,0.772712167352438,11.774415610708122,False
+static_enrichment.gate_norm.glu.fc.bias,static_enrichment,"(128,)",128,0.4719730392098427,1.3709043274299428,False
+static_enrichment.gate_norm.add_norm.norm.weight,static_enrichment,"(64,)",64,0.24792933464050293,0.7238415562051707,False
+static_enrichment.gate_norm.add_norm.norm.bias,static_enrichment,"(64,)",64,0.20114335557445884,0.4058445816987796,False
+multihead_attn.v_layer.weight,multihead_attn,"(16, 64)",1024,0.4264983460307121,3.511402299185268,False
+multihead_attn.v_layer.bias,multihead_attn,"(16,)",16,0.12622203677892685,0.21479996453998557,False
+multihead_attn.q_layers.0.weight,multihead_attn,"(16, 64)",1024,0.45576536655426025,3.777892232526212,False
+multihead_attn.q_layers.0.bias,multihead_attn,"(16,)",16,0.22958163730800152,0.41385665212338385,False
+multihead_attn.q_layers.1.weight,multihead_attn,"(16, 64)",1024,0.6656685471534729,4.829313172663085,False
+multihead_attn.q_layers.1.bias,multihead_attn,"(16,)",16,0.18757229298353195,0.46090772923891543,False
+multihead_attn.q_layers.2.weight,multihead_attn,"(16, 64)",1024,0.3956976532936096,3.6173564693376306,False
+multihead_attn.q_layers.2.bias,multihead_attn,"(16,)",16,0.1590006877668202,0.3358973889189033,False
+multihead_attn.q_layers.3.weight,multihead_attn,"(16, 64)",1024,0.5074693858623505,4.188195775476939,False
+multihead_attn.q_layers.3.bias,multihead_attn,"(16,)",16,0.17402909696102142,0.31411884084537206,False
+multihead_attn.k_layers.0.weight,multihead_attn,"(16, 64)",1024,0.47995325922966003,4.009230405059471,False
+multihead_attn.k_layers.0.bias,multihead_attn,"(16,)",16,0.00212595981429331,0.004340169972248264,False
+multihead_attn.k_layers.1.weight,multihead_attn,"(16, 64)",1024,0.5142098888754845,4.769360719612666,False
+multihead_attn.k_layers.1.bias,multihead_attn,"(16,)",16,0.0011834033066406846,0.002316473296627402,False
+multihead_attn.k_layers.2.weight,multihead_attn,"(16, 64)",1024,0.46896470338106155,3.670883536174389,False
+multihead_attn.k_layers.2.bias,multihead_attn,"(16,)",16,0.0022240922642140504,0.004758127640843984,False
+multihead_attn.k_layers.3.weight,multihead_attn,"(16, 64)",1024,0.45351074635982513,3.9303783276180257,False
+multihead_attn.k_layers.3.bias,multihead_attn,"(16,)",16,0.0018393947248114273,0.002709001179110008,False
+multihead_attn.w_h.weight,multihead_attn,"(64, 16)",1024,0.2825247049331665,2.65772881514859,False
+post_attn_gate_norm.glu.fc.weight,post_attn_gate_norm,"(128, 64)",8192,1.0350082069635391,12.507007320226766,False
+post_attn_gate_norm.glu.fc.bias,post_attn_gate_norm,"(128,)",128,0.45082278549671173,1.5116900260539765,False
+post_attn_gate_norm.add_norm.norm.weight,post_attn_gate_norm,"(64,)",64,0.23380351066589355,0.7427549885272625,False
+post_attn_gate_norm.add_norm.norm.bias,post_attn_gate_norm,"(64,)",64,0.1303570196032524,0.37374493602138703,False
+pos_wise_ff.fc1.weight,pos_wise_ff,"(64, 64)",4096,0.6178346574306488,8.680104156639057,False
+pos_wise_ff.fc1.bias,pos_wise_ff,"(64,)",64,0.15038728341460228,0.5243168411692788,False
+pos_wise_ff.fc2.weight,pos_wise_ff,"(64, 64)",4096,0.44977959990501404,6.990749443020574,False
+pos_wise_ff.fc2.bias,pos_wise_ff,"(64,)",64,0.1404741369187832,0.5105742868200299,False
+pos_wise_ff.gate_norm.glu.fc.weight,pos_wise_ff,"(128, 64)",8192,0.7644871473312378,12.98868525659988,False
+pos_wise_ff.gate_norm.glu.fc.bias,pos_wise_ff,"(128,)",128,0.36480378545820713,1.3239331434126236,False
+pos_wise_ff.gate_norm.add_norm.norm.weight,pos_wise_ff,"(64,)",64,0.38855600357055664,1.1478553199492296,False
+pos_wise_ff.gate_norm.add_norm.norm.bias,pos_wise_ff,"(64,)",64,0.1302371323108673,0.4442485335962429,False
+pre_output_gate_norm.glu.fc.weight,pre_output_gate_norm,"(128, 64)",8192,0.7376782819628716,13.263454402461093,False
+pre_output_gate_norm.glu.fc.bias,pre_output_gate_norm,"(128,)",128,0.26498145097866654,0.786367372276353,False
+pre_output_gate_norm.add_norm.norm.weight,pre_output_gate_norm,"(64,)",64,0.5971372574567795,1.066670018860655,False
+pre_output_gate_norm.add_norm.norm.bias,pre_output_gate_norm,"(64,)",64,0.36846350133419037,0.45989685521203794,False
+output_layer.weight,output_layer,"(1, 64)",64,0.07985246274620295,0.23686150365152778,False
+output_layer.bias,output_layer,"(1,)",1,0.002344932407140732,0.002344932407140732,False

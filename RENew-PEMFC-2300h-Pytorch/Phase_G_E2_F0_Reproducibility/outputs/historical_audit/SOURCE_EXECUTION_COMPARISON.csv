@@ -1,0 +1,12 @@
+stage,E2_execution,F0_execution,classification
+model,e.make_model → c.load_model_module/c.make_model,F.make_model F0 → same canonical class,same mathematical architecture
+seed,e.set_seed(42),e.set_seed(42),same Python/NumPy/Torch seeds
+dataset,"TensorDataset(x,y)","TensorDataset(x,y,ids)",extra ids do not enter model
+loader,generator42 shuffle workers0 batch32,generator42 shuffle workers0 batch32,same sampler settings
+forward_loss,"MSE(model.predict_delta(x),y)","MSE(model.predict_delta(x),y)",same operations
+backward_clip_step,backward → clip_grad_norm_1 → AdamW.step,"same, plus finite gradient check","same math, added host synchronization"
+validation,e.predict → c.predict; numpy RMSE,e.predict → c.predict; numpy RMSE,same eval/no_grad batch32
+best_state,CPU clone held in memory; save once after training,CPU state saved on every improvement,"different control/I/O timing, not yet causal"
+early_stop,strict best−1e-12 patience40,strict best−1e-12 patience40,same criterion
+CPU_threads,no explicit torch.set_num_threads,torch.set_num_threads(1),historical E2 actual value unknown
+initial_hash,one state digest,state digest plus initialization/first batch audits,"hash/timing differences, not training math"

@@ -1,0 +1,76 @@
+phase: Phase_TFT_SingleSplit_Feature_Filter_Ablation
+status: FROZEN_BEFORE_SEED42_TRAINING
+base_commit: 79bb271a51f3a809df742fb269cfd93978742ec2
+scope:
+  development_only: true
+  test_access: prohibited
+  optuna_rerun: prohibited
+  seed: 42
+data_firewall:
+  source_relative_path: Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  pandas_read_csv_nrows: 3007
+  development_filter: bin_end_ophrs2_h < 1819.997738
+  expected_development_rows: 3005
+  full_file_read_or_hash: prohibited
+split:
+  name: chronological_7_1_2_development_exploratory
+  train_rows: [0, 2103]
+  validation_rows: [2103, 2404]
+  assessment_rows: [2404, 3005]
+task:
+  resolution_h: 0.5
+  lookback_steps: 48
+  horizon_steps: 24
+  target: cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t
+  raw_f2_feature_order:
+    - cell_voltage_mean
+    - cell_voltage_std
+    - cell_voltage_range
+    - cell_voltage_min
+    - cell_voltage_max
+    - actual_current_A_mean
+    - actual_current_A_std
+    - actual_current_A_peak_to_peak
+    - actual_current_density_A_cm2_mean
+    - actual_current_density_A_cm2_std
+    - actual_current_density_A_cm2_peak_to_peak
+    - load_transition_count
+    - operation_point_transitions
+    - zero_current_fraction
+architecture:
+  implementation: CanonicalStrictHistoryTFT
+  attention_heads: 4
+  lstm_layers: 1
+  decoder_actual_covariates: prohibited
+hyperparameters:
+  source: Phase_TFT_Hyperparameter_Optimization_Restart/outputs/T1R_SELECTED_CONFIGURATIONS.json#fold_2
+  fallback_source: fold_1_only_if_fold2_training_precedes_new_train_end
+  learning_rate: 0.0009605449687795866
+  weight_decay: 6.95942232671908e-06
+  dropout: 0.1
+  hidden_size: 64
+  hidden_continuous_size: 32
+  batch_size: 32
+  max_epochs: 450
+  patience: 40
+  gradient_clip_norm: 1.0
+feature_selection:
+  method: train_window_origin_spearman_to_each_horizon_mean_absolute
+  top_k: 10
+  mandatory_feature: cell_voltage_mean
+  ties: stable_raw_feature_order
+  masking: standardized_space_zero_mask
+filter_selection:
+  candidates:
+    - {name: EWMA_alpha_0_3, alpha: 0.3}
+    - {name: OneSidedSG_window_7_order_2, window: 7, order: 2}
+  selector: validation_RMSE_mV_lower_is_better_stable_candidate_order_tiebreak
+models:
+  C0: Raw_F2_Canonical_TFT
+  C1: Train_Spearman_Top10_standardized_mask_Canonical_TFT
+  C2: Validation_selected_causal_filter_on_cell_voltage_mean_Canonical_TFT
+  C3: C1_mask_plus_C2_filter_Canonical_TFT
+evaluation:
+  assessment_only: true
+  independent_prediction_cache_recalculation: required
+  metrics: [RMSE_mV, MAE_mV, R2, endpoint_RMSE_mV, P95_mV, P99_mV, max_abs_error_mV, target_time_equal_RMSE_mV]

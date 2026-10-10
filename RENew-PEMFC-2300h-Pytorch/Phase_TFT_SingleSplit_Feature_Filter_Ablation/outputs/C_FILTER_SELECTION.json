@@ -1,0 +1,28 @@
+{
+  "protocol_sha256": "6853f32e41f838f0900f97e4a402bcb762ed36be3a851bfa1b67f61a2a7eeb8e",
+  "candidates": {
+    "EWMA_alpha_0_3": {
+      "RMSE_mV": 8.069613901941773,
+      "MAE_mV": 5.714592885244166,
+      "R2": 0.9982888009443165,
+      "endpoint_RMSE_mV": 11.328962372011246,
+      "P95_mV": 14.980363473296173,
+      "P99_mV": 24.064333289861686,
+      "max_abs_error_mV": 115.06551131606102,
+      "target_time_equal_RMSE_mV": 8.986010590759834
+    },
+    "OneSidedSG_window_7_order_2": {
+      "RMSE_mV": 9.254632777668048,
+      "MAE_mV": 5.442980905018558,
+      "R2": 0.9977493218161001,
+      "endpoint_RMSE_mV": 22.170440130719392,
+      "P95_mV": 14.796296320855623,
+      "P99_mV": 23.086166083812778,
+      "max_abs_error_mV": 297.15062119066715,
+      "target_time_equal_RMSE_mV": 23.414660937284125
+    }
+  },
+  "selected_filter": "EWMA_alpha_0_3",
+  "selection_split": "validation_only",
+  "assessment_used_for_selection": false
+}

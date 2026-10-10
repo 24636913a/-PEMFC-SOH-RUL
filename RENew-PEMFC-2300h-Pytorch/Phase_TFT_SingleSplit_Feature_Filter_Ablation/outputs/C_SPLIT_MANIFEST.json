@@ -1,0 +1,60 @@
+{
+  "protocol_sha256": "6853f32e41f838f0900f97e4a402bcb762ed36be3a851bfa1b67f61a2a7eeb8e",
+  "data_access": {
+    "causal_features_read_nrows": 3007,
+    "development_rows": 3005,
+    "post_read_filter": "bin_end_ophrs2_h < 1819.997738",
+    "full_causal_file_hash_computed": false,
+    "test_accessed": false
+  },
+  "segments": {
+    "train": {
+      "rows": [
+        0,
+        2103
+      ],
+      "n_rows": 2103,
+      "start_h": 72.5,
+      "end_h": 1310.0,
+      "legal_windows": 1380
+    },
+    "validation": {
+      "rows": [
+        2103,
+        2404
+      ],
+      "n_rows": 301,
+      "start_h": 1310.0,
+      "end_h": 1460.5,
+      "legal_windows": 205
+    },
+    "assessment": {
+      "rows": [
+        2404,
+        3005
+      ],
+      "n_rows": 601,
+      "start_h": 1460.5,
+      "end_h": 1819.5,
+      "legal_windows": 378
+    }
+  },
+  "hyperparameter_source": "T1R_SELECTED_CONFIGURATIONS.json#fold_2",
+  "fold2_historical_train_end_h": 1164.794345,
+  "feature_order": [
+    "cell_voltage_mean",
+    "cell_voltage_std",
+    "cell_voltage_range",
+    "cell_voltage_min",
+    "cell_voltage_max",
+    "actual_current_A_mean",
+    "actual_current_A_std",
+    "actual_current_A_peak_to_peak",
+    "actual_current_density_A_cm2_mean",
+    "actual_current_density_A_cm2_std",
+    "actual_current_density_A_cm2_peak_to_peak",
+    "load_transition_count",
+    "operation_point_transitions",
+    "zero_current_fraction"
+  ]
+}

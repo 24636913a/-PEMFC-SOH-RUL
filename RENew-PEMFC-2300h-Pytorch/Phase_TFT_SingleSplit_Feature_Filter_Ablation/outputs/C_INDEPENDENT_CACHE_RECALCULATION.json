@@ -1,0 +1,171 @@
+{
+  "cache_recalculation_pass": true,
+  "assessment_target_rows_only": [
+    2404,
+    3004
+  ],
+  "diagnostic_target_split_before_row": 2704,
+  "results": [
+    {
+      "experiment_group": "C0",
+      "independent_RMSE_mV": 27.1117855440694,
+      "independent_MAE_mV": 7.513565889485455,
+      "rows": 9072,
+      "early_assessment_MAE_mV": 5.588113086181813,
+      "late_assessment_MAE_mV": 8.949873638832052,
+      "top5_abs_error_events": [
+        {
+          "origin_row": 2937,
+          "target_row": 2952,
+          "horizon_step": 15,
+          "abs_mV": 315.51278755068773
+        },
+        {
+          "origin_row": 2935,
+          "target_row": 2952,
+          "horizon_step": 17,
+          "abs_mV": 313.8684947043657
+        },
+        {
+          "origin_row": 2934,
+          "target_row": 2952,
+          "horizon_step": 18,
+          "abs_mV": 311.36605516076077
+        },
+        {
+          "origin_row": 2946,
+          "target_row": 2952,
+          "horizon_step": 6,
+          "abs_mV": 310.6507249176502
+        },
+        {
+          "origin_row": 2936,
+          "target_row": 2952,
+          "horizon_step": 16,
+          "abs_mV": 310.1467303931712
+        }
+      ]
+    },
+    {
+      "experiment_group": "C1",
+      "independent_RMSE_mV": 11.445854178233546,
+      "independent_MAE_mV": 4.219628226916246,
+      "rows": 9072,
+      "early_assessment_MAE_mV": 4.1928135090879435,
+      "late_assessment_MAE_mV": 4.2396308917165735,
+      "top5_abs_error_events": [
+        {
+          "origin_row": 2948,
+          "target_row": 2952,
+          "horizon_step": 4,
+          "abs_mV": 308.6449314723722
+        },
+        {
+          "origin_row": 2942,
+          "target_row": 2952,
+          "horizon_step": 10,
+          "abs_mV": 307.6551917474717
+        },
+        {
+          "origin_row": 2949,
+          "target_row": 2952,
+          "horizon_step": 3,
+          "abs_mV": 306.8652674555778
+        },
+        {
+          "origin_row": 2940,
+          "target_row": 2952,
+          "horizon_step": 12,
+          "abs_mV": 305.7751462329179
+        },
+        {
+          "origin_row": 2950,
+          "target_row": 2952,
+          "horizon_step": 2,
+          "abs_mV": 304.45756018161774
+        }
+      ]
+    },
+    {
+      "experiment_group": "C2",
+      "independent_RMSE_mV": 11.297564943794997,
+      "independent_MAE_mV": 6.37042151097621,
+      "rows": 9072,
+      "early_assessment_MAE_mV": 5.701637569823938,
+      "late_assessment_MAE_mV": 6.869306529433906,
+      "top5_abs_error_events": [
+        {
+          "origin_row": 2950,
+          "target_row": 2952,
+          "horizon_step": 2,
+          "abs_mV": 295.80886662006367
+        },
+        {
+          "origin_row": 2951,
+          "target_row": 2952,
+          "horizon_step": 1,
+          "abs_mV": 293.6697006225586
+        },
+        {
+          "origin_row": 2950,
+          "target_row": 2953,
+          "horizon_step": 3,
+          "abs_mV": 273.2527032494544
+        },
+        {
+          "origin_row": 2951,
+          "target_row": 2953,
+          "horizon_step": 2,
+          "abs_mV": 260.2347442880273
+        },
+        {
+          "origin_row": 2938,
+          "target_row": 2953,
+          "horizon_step": 15,
+          "abs_mV": 229.13020104169848
+        }
+      ]
+    },
+    {
+      "experiment_group": "C3",
+      "independent_RMSE_mV": 15.384488456709171,
+      "independent_MAE_mV": 5.094180106474302,
+      "rows": 9072,
+      "early_assessment_MAE_mV": 4.249949082490996,
+      "late_assessment_MAE_mV": 5.723941355311733,
+      "top5_abs_error_events": [
+        {
+          "origin_row": 2950,
+          "target_row": 2952,
+          "horizon_step": 2,
+          "abs_mV": 311.2061023712158
+        },
+        {
+          "origin_row": 2944,
+          "target_row": 2952,
+          "horizon_step": 8,
+          "abs_mV": 308.597158640623
+        },
+        {
+          "origin_row": 2946,
+          "target_row": 2952,
+          "horizon_step": 6,
+          "abs_mV": 307.1204014122486
+        },
+        {
+          "origin_row": 2949,
+          "target_row": 2952,
+          "horizon_step": 3,
+          "abs_mV": 305.4648861289024
+        },
+        {
+          "origin_row": 2945,
+          "target_row": 2952,
+          "horizon_step": 7,
+          "abs_mV": 304.1120974812656
+        }
+      ]
+    }
+  ],
+  "test_accessed": false
+}

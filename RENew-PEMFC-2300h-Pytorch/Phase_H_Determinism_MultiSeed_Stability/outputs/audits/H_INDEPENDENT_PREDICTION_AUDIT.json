@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "runs": 11,
+  "method": "scalar math.fsum from round-trip CSV",
+  "records_per_run": 4920,
+  "exact_keys_and_truth": true,
+  "metric_tolerance": 1e-10,
+  "test_accessed": false
+}

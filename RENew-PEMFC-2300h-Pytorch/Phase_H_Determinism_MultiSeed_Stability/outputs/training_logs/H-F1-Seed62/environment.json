@@ -1,0 +1,19 @@
+{
+  "python": "3.11.9",
+  "torch": "2.6.0+cu124",
+  "pytorch_forecasting": "1.8.0",
+  "CUDA": "12.4",
+  "cuDNN": 90100,
+  "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "CPU_threads": 1,
+  "cudnn_deterministic": true,
+  "cudnn_benchmark": false,
+  "torch_deterministic_algorithms": false,
+  "warn_only": false,
+  "TF32_matmul": false,
+  "TF32_cudnn": true,
+  "CUBLAS_WORKSPACE_CONFIG": null,
+  "seed": 62,
+  "base_commit": "dea436c7520ca9962e7aa3005af1faaedbc786f2",
+  "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1"
+}

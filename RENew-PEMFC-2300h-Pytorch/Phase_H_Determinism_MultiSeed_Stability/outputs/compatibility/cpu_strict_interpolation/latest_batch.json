@@ -1,0 +1,31 @@
+{
+  "run_id": "strict_cpu_interpolation",
+  "stages": [
+    "BATCH_STARTED",
+    "FORWARD_COMPLETED",
+    "LOSS_COMPUTED",
+    "BACKWARD_STARTED",
+    "BACKWARD_COMPLETED"
+  ],
+  "epoch": 1,
+  "batch": 0,
+  "input_sha256": "0b3368f38b2f09047a18c9282fab6ae696590ffc1abdb95265f8a349a05987f1",
+  "label_sha256": "4ce35056df210f38493217b28eebfe6ae745b11376c261990bfcaf6070856eea",
+  "model_state_sha256": "OPERATOR_ONLY",
+  "rng": {
+    "cpu": "0dc4e35329e2a46fa74b4fdffc9ae216d69c18b3558e2f18f7df9c1c22076cfc",
+    "cuda": "8078874c8df1241d9b11fa5f872baeebb557dd0b31d2cae91b7008d89765f90f",
+    "loader": null,
+    "numpy": "169b75cfa3a8dea9d497610d6489cfb92f2b40fb5292f4b5c307b576448cb92f",
+    "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf"
+  },
+  "stage": "BACKWARD_COMPLETED",
+  "sequence": 5,
+  "output_sha256": "606c19fd9f2fa786ef1edcfab55a6e501bb27b9c90e170dbfad2e379d1ae3afc",
+  "output_shape": [
+    2,
+    1,
+    64
+  ],
+  "loss": 1.4599896669387817
+}

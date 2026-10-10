@@ -1,0 +1,52 @@
+{
+  "status": "PHASE_H_MULTISEED_VALIDATION_COMPLETED",
+  "runs": {
+    "H-F0-Repeat-A": {
+      "status": "COMPLETED",
+      "RMSE_mV": 8.76148906172451
+    },
+    "H-F0-Repeat-B": {
+      "status": "COMPLETED",
+      "RMSE_mV": 8.094854266394512
+    },
+    "H-F0-Seed42": {
+      "status": "COMPLETED",
+      "RMSE_mV": 8.307160723546348
+    },
+    "H-F0-Seed52": {
+      "status": "COMPLETED",
+      "RMSE_mV": 10.38154418028464
+    },
+    "H-F0-Seed62": {
+      "status": "COMPLETED",
+      "RMSE_mV": 8.513984865858916
+    },
+    "H-F1-Seed42": {
+      "status": "COMPLETED",
+      "RMSE_mV": 9.212743228039118
+    },
+    "H-F1-Seed52": {
+      "status": "COMPLETED",
+      "RMSE_mV": 8.005450730286757
+    },
+    "H-F1-Seed62": {
+      "status": "COMPLETED",
+      "RMSE_mV": 10.248600211409459
+    },
+    "H-F2-Seed42": {
+      "status": "COMPLETED",
+      "RMSE_mV": 6.265169199159184
+    },
+    "H-F2-Seed52": {
+      "status": "COMPLETED",
+      "RMSE_mV": 7.034632416751345
+    },
+    "H-F2-Seed62": {
+      "status": "COMPLETED",
+      "RMSE_mV": 8.436398939225588
+    }
+  },
+  "formal_runs_started": 11,
+  "test_accessed": false,
+  "new_assessment_inference": false
+}

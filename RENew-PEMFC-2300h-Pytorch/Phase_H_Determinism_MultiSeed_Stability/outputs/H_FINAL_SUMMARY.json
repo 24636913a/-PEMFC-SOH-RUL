@@ -1,0 +1,150 @@
+{
+  "status": "PHASE_H_MULTISEED_VALIDATION_COMPLETED",
+  "base_commit": "dea436c7520ca9962e7aa3005af1faaedbc786f2",
+  "protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+  "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1",
+  "completed_runs": 11,
+  "formal_runs_started": 11,
+  "repeatability": {
+    "2": {
+      "RMSE_values_mV": [
+        8.76148906172451,
+        8.094854266394512
+      ],
+      "absolute_spread_mV": 0.6666347953299976,
+      "relative_spread": 0.07909601535203027,
+      "threshold_mV": 0.8428171664059511,
+      "pass": true
+    },
+    "3": {
+      "RMSE_values_mV": [
+        8.76148906172451,
+        8.094854266394512,
+        8.307160723546348
+      ],
+      "absolute_spread_mV": 0.6666347953299976,
+      "relative_spread": 0.0794763869882277,
+      "threshold_mV": 0.8387834683888458,
+      "pass": true
+    }
+  },
+  "new_assessment_inference": false,
+  "formal_test_accessed": false,
+  "architecture_modification": false,
+  "hyperparameter_search": false,
+  "train_accessed": true,
+  "validation_accessed": true,
+  "CUDA_STRICT_BITWISE_DETERMINISM_NOT_CLAIMED": true,
+  "multi_seed_primary_complete": true,
+  "architecture_signal": "F2_VALIDATION_MULTISEED_GAIN_OBSERVED",
+  "registered_seeds": [
+    42,
+    52,
+    62
+  ],
+  "multi_seed_statistics": [
+    {
+      "model": "F0",
+      "n_seeds": 3,
+      "RMSE_mean_mV": 9.067563256563302,
+      "RMSE_sample_std_mV": 1.1426300614759441,
+      "RMSE_median_mV": 8.513984865858916,
+      "RMSE_min_mV": 8.307160723546348,
+      "RMSE_max_mV": 10.38154418028464,
+      "MAE_mean_mV": 5.58650522389652,
+      "MAE_sample_std_mV": 1.990077726790124,
+      "R2_mean": 0.9978165182960878,
+      "R2_sample_std": 0.0005636350186527541,
+      "best_epochs": [
+        277,
+        213,
+        353
+      ],
+      "training_time_mean_s": 1378.3558478000002,
+      "total_training_time_s": 4135.0675434
+    },
+    {
+      "model": "F1",
+      "n_seeds": 3,
+      "RMSE_mean_mV": 9.155598056578446,
+      "RMSE_sample_std_mV": 1.1226660574860245,
+      "RMSE_median_mV": 9.212743228039118,
+      "RMSE_min_mV": 8.005450730286757,
+      "RMSE_max_mV": 10.248600211409459,
+      "MAE_mean_mV": 4.984478755643664,
+      "MAE_sample_std_mV": 0.688548950583004,
+      "R2_mean": 0.9977751532396408,
+      "R2_sample_std": 0.000538021380840233,
+      "best_epochs": [
+        204,
+        125,
+        176
+      ],
+      "training_time_mean_s": 900.8842668333333,
+      "total_training_time_s": 2702.6528005
+    },
+    {
+      "model": "F2",
+      "n_seeds": 3,
+      "RMSE_mean_mV": 7.245400185045372,
+      "RMSE_sample_std_mV": 1.1008528217481848,
+      "RMSE_median_mV": 7.034632416751345,
+      "RMSE_min_mV": 6.265169199159184,
+      "RMSE_max_mV": 8.436398939225588,
+      "MAE_mean_mV": 4.274253417112507,
+      "MAE_sample_std_mV": 1.0428846795176014,
+      "R2_mean": 0.998599275530605,
+      "R2_sample_std": 0.0004283101738692466,
+      "best_epochs": [
+        204,
+        223,
+        324
+      ],
+      "training_time_mean_s": 1279.0311233000004,
+      "total_training_time_s": 3837.0933699000016
+    }
+  ],
+  "paired_differences": [
+    {
+      "seed": 42,
+      "D10_F1_minus_F0_mV": 0.9055825044927701,
+      "D21_F2_minus_F1_mV": -2.9475740288799344,
+      "D20_F2_minus_F0_mV": -2.0419915243871642
+    },
+    {
+      "seed": 52,
+      "D10_F1_minus_F0_mV": -2.3760934499978834,
+      "D21_F2_minus_F1_mV": -0.9708183135354123,
+      "D20_F2_minus_F0_mV": -3.3469117635332957
+    },
+    {
+      "seed": 62,
+      "D10_F1_minus_F0_mV": 1.7346153455505426,
+      "D21_F2_minus_F1_mV": -1.81220127218387,
+      "D20_F2_minus_F0_mV": -0.07758592663332742
+    }
+  ],
+  "paired_statistics": [
+    {
+      "comparison": "D10_F1_minus_F0_mV",
+      "mean_difference_mV": 0.08803480001514312,
+      "sample_std_mV": 2.173883595612303,
+      "improved_seed_count": 1,
+      "max_degradation_mV": 1.7346153455505426
+    },
+    {
+      "comparison": "D21_F2_minus_F1_mV",
+      "mean_difference_mV": -1.9101978715330723,
+      "sample_std_mV": 0.9920147628184847,
+      "improved_seed_count": 3,
+      "max_degradation_mV": 0
+    },
+    {
+      "comparison": "D20_F2_minus_F0_mV",
+      "mean_difference_mV": -1.8221630715179291,
+      "sample_std_mV": 1.645711477894464,
+      "improved_seed_count": 3,
+      "max_degradation_mV": 0
+    }
+  ]
+}

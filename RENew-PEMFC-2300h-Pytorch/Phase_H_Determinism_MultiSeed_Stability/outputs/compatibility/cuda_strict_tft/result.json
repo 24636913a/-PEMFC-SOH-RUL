@@ -1,0 +1,39 @@
+{
+  "synthetic_only": true,
+  "device": "cuda",
+  "kind": "tft",
+  "forward_pass": true,
+  "backward_pass": false,
+  "optimizer_step_performed": false,
+  "exception": "RuntimeError(\"upsample_linear1d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.\")",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_H_Determinism_MultiSeed_Stability\\scripts\\probe_determinism.py\", line 35, in strict_probe\n    try:loss.backward()\n        ^^^^^^^^^^^^^^^\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\_tensor.py\", line 626, in backward\n    torch.autograd.backward(\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\autograd\\__init__.py\", line 347, in backward\n    _engine_run_backward(\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\autograd\\graph.py\", line 823, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: upsample_linear1d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.\n",
+  "input_shape": [
+    2,
+    48,
+    14
+  ],
+  "output_shape": [
+    2,
+    24
+  ],
+  "loss": 1.9989309310913086,
+  "input_sha256": "3b36db43c9ef6a78a983bcee30e63c744e63a46394d62703a5b75a6aeec7ec9c",
+  "output_sha256": "d4dab8e9dbb44378f7b185f5350f24e3669626731d2194dadd65963f4e6fd22a",
+  "status": "CUDA_STRICT_DETERMINISM_UNSUPPORTED",
+  "environment": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": true,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  }
+}

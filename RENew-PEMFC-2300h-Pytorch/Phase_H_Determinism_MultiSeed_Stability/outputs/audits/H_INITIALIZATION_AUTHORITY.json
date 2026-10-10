@@ -1,0 +1,24 @@
+{
+  "initialization_sha256": {
+    "42": {
+      "F0": "09240b30338895eaec891f91fbcf26cf5d4929a64c3670b646ac187a649bd5ca",
+      "F1": "7d17a7276261ddedba3d864ba9eab15716dd70bc20c792315d46aacd281c6dee",
+      "F2": "40de6d314f816c3895c1955d0c3f327180d8e20f6e6daa7a9ef1eb26bd8d534b"
+    },
+    "52": {
+      "F0": "34834482bc214fa3744eae00025e2b5d838a3dd9e2d1c5836f09ec281882baba",
+      "F1": "ac9f7d5433189c1c978311b9e85dacb3eed098aa24c7e1af6754f024f2964a68",
+      "F2": "10b31f673200054118218084f3e673383e5a8237dbaa5706631e79b338f32208"
+    },
+    "62": {
+      "F0": "799d603963be99fe5862ab75d9137b1e0ef6cf167202a25b0a02ef84c8ff92ab",
+      "F1": "c00485893ea0efc78ee739b04cfa686e4ee6c3a20f1d114e3ef07908befb7bab",
+      "F2": "537f9a1c6d024fed7d3cb95290e77755c4f3948e5a1cd1e3b45b4928ad59040d"
+    }
+  },
+  "shared_native_equal": true,
+  "shared_branch_equal": true,
+  "F2_gate_half": true,
+  "F0_trainable_parameter_count": 323483,
+  "F0_state_dict_element_count": 332955
+}

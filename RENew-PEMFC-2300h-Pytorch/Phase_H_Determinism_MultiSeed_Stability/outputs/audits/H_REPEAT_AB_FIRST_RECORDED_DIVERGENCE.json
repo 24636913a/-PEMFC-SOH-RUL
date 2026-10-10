@@ -1,0 +1,28 @@
+{
+  "scope": "READ_ONLY_COMPARISON_OF_PERSISTED_REPEAT_A_B_EVIDENCE",
+  "run_A": "H-F0-Repeat-A",
+  "run_B": "H-F0-Repeat-B",
+  "first_batch_equal_fields": ["origins", "input_sha256", "label_sha256", "model_state_sha256", "rng"],
+  "common_epochs_compared": 227,
+  "sample_orders_identical_all_common_epochs": true,
+  "post_validation_rng_identical_all_common_epochs": true,
+  "journal_records_equal_before_first_saved_difference": 4079,
+  "first_saved_difference": {
+    "sequence": 4080,
+    "stage": "OPTIMIZER_STEP_COMPLETED",
+    "epoch": 16,
+    "batch": 19,
+    "field": "parameters_after_sha256",
+    "A": "14ad53d00b7775b03ccc8102cfd0e5a7050a9e61d4cda061b7f92583d9fdbc43",
+    "B": "f31ae0f0325fcfd0c64059c6a9c87ed9931fe8b41d4eae2cb3179f264d85c2b5"
+  },
+  "first_epoch_metric_difference": {
+    "epoch": 16,
+    "train_standardized_MSE_abs_difference": 3.2511624503683834e-08,
+    "validation_standardized_RMSE_abs_difference": 8.344650268554688e-06
+  },
+  "interpretation": "First difference in the recorded fields, not identification of the originating operation. Gradient tensors were not hashed; equal scalar gradient norms do not establish equal gradients. No unique cause is assigned to historical E2/F0 divergence.",
+  "new_model_inference": false,
+  "assessment_access": false,
+  "test_access": false
+}

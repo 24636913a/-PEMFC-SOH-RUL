@@ -1,0 +1,25 @@
+{
+  "run_id": "H-F0-Repeat-A",
+  "model": "F0",
+  "seed": 42,
+  "role": "REPEATABILITY_ONLY",
+  "RMSE_mV": 8.76148906172451,
+  "MAE_mV": 5.6090517908255775,
+  "R2": 0.997982791148852,
+  "best_epoch": 187,
+  "stop_epoch": 227,
+  "training_time_s": 1003.7596772000006,
+  "parameter_count": 323483,
+  "peak_GPU_memory_bytes": 97686016,
+  "initialization_sha256": "09240b30338895eaec891f91fbcf26cf5d4929a64c3670b646ac187a649bd5ca",
+  "checkpoint_reload": {
+    "pass": true,
+    "max_difference": 0.0,
+    "file_sha256": "6912e254cda367d7a189528c92a6a5f81cc9b66f3ad841222f606003dcc0778f"
+  },
+  "protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+  "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1",
+  "checkpoint": "outputs\\checkpoints\\H-F0-Repeat-A_best.pt",
+  "validation_prediction": "outputs\\validation_predictions\\H-F0-Repeat-A.csv",
+  "status": "COMPLETED"
+}

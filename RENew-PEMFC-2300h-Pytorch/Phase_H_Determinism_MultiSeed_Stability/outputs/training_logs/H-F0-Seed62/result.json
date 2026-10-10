@@ -1,0 +1,25 @@
+{
+  "run_id": "H-F0-Seed62",
+  "model": "F0",
+  "seed": 62,
+  "role": "MULTISEED_PRIMARY",
+  "RMSE_mV": 8.513984865858916,
+  "MAE_mV": 3.3162695032029377,
+  "R2": 0.9980951500686074,
+  "best_epoch": 353,
+  "stop_epoch": 393,
+  "training_time_s": 1673.9885457,
+  "parameter_count": 323483,
+  "peak_GPU_memory_bytes": 97686016,
+  "initialization_sha256": "799d603963be99fe5862ab75d9137b1e0ef6cf167202a25b0a02ef84c8ff92ab",
+  "checkpoint_reload": {
+    "pass": true,
+    "max_difference": 0.0,
+    "file_sha256": "10ab47ca4415465b4d11c14cdeca0bc33cee954038d8d0cd78346595eebb26b1"
+  },
+  "protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+  "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1",
+  "checkpoint": "outputs\\checkpoints\\H-F0-Seed62_best.pt",
+  "validation_prediction": "outputs\\validation_predictions\\H-F0-Seed62.csv",
+  "status": "COMPLETED"
+}

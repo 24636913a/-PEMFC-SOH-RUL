@@ -1,0 +1,32 @@
+{
+  "run_id": "strict_cuda_tft",
+  "stages": [
+    "BATCH_STARTED",
+    "FORWARD_COMPLETED",
+    "LOSS_COMPUTED",
+    "BACKWARD_STARTED",
+    "BACKWARD_FAILED"
+  ],
+  "epoch": 1,
+  "batch": 0,
+  "input_sha256": "3b36db43c9ef6a78a983bcee30e63c744e63a46394d62703a5b75a6aeec7ec9c",
+  "label_sha256": "39381f07624e36509ba2be345fa4a35c5183ac187fde7058e8fb9a24201428ee",
+  "model_state_sha256": "29550055c01bd45bc10ae812211794d34e3f6e94e12b11a9aed83be7a1c5105d",
+  "rng": {
+    "cpu": "8c84cbcc72de58b44fc9ea85957a2f54bbcb36c86abf15b8957dc6da3f7e4fe9",
+    "cuda": "3bfda7617320ace0f6dfe1a5f56e8f887fd3854aba19e35add5cf1de6e64a211",
+    "loader": null,
+    "numpy": "169b75cfa3a8dea9d497610d6489cfb92f2b40fb5292f4b5c307b576448cb92f",
+    "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf"
+  },
+  "stage": "BACKWARD_FAILED",
+  "sequence": 5,
+  "output_sha256": "d4dab8e9dbb44378f7b185f5350f24e3669626731d2194dadd65963f4e6fd22a",
+  "output_shape": [
+    2,
+    24
+  ],
+  "loss": 1.9989309310913086,
+  "exception": "RuntimeError(\"upsample_linear1d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.\")",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_H_Determinism_MultiSeed_Stability\\scripts\\probe_determinism.py\", line 35, in strict_probe\n    try:loss.backward()\n        ^^^^^^^^^^^^^^^\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\_tensor.py\", line 626, in backward\n    torch.autograd.backward(\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\autograd\\__init__.py\", line 347, in backward\n    _engine_run_backward(\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\autograd\\graph.py\", line 823, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: upsample_linear1d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.\n"
+}

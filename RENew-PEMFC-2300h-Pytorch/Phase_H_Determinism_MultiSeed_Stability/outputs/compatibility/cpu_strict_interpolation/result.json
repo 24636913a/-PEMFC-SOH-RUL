@@ -1,0 +1,40 @@
+{
+  "synthetic_only": true,
+  "device": "cpu",
+  "kind": "interpolation",
+  "forward_pass": true,
+  "backward_pass": true,
+  "optimizer_step_performed": false,
+  "exception": null,
+  "traceback": null,
+  "input_shape": [
+    2,
+    1,
+    32
+  ],
+  "output_shape": [
+    2,
+    1,
+    64
+  ],
+  "loss": 1.4599896669387817,
+  "input_sha256": "0b3368f38b2f09047a18c9282fab6ae696590ffc1abdb95265f8a349a05987f1",
+  "output_sha256": "606c19fd9f2fa786ef1edcfab55a6e501bb27b9c90e170dbfad2e379d1ae3afc",
+  "status": "PASS",
+  "environment": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": true,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  }
+}

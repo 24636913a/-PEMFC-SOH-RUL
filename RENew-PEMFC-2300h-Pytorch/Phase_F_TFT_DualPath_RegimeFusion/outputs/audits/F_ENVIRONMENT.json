@@ -1,0 +1,13 @@
+{
+  "python": "3.11.9",
+  "torch": "2.6.0+cu124",
+  "pytorch_forecasting": "1.8.0",
+  "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "device": "cuda",
+  "CUDA": "12.4",
+  "cuDNN": 90100,
+  "cudnn_deterministic": true,
+  "cudnn_benchmark": false,
+  "torch_deterministic_algorithms": false,
+  "CPU_threads": 1
+}

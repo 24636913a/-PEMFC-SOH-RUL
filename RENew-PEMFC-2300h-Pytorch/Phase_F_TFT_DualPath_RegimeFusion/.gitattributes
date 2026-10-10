@@ -1,0 +1,8 @@
+# Preserve the frozen execution protocol bytes on Windows and Unix checkouts.
+configs/F0_F2_EXECUTION_PROTOCOL.yaml text eol=lf
+configs/F0_F2_EXECUTION_PROTOCOL.sha256 text eol=lf
+scripts/run_f_training.py text eol=lf
+scripts/audit_f_predictions.py text eol=lf
+scripts/plot_f_results.py text eol=lf
+scripts/report_f_results.py text eol=lf
+tests_execution/*.py text eol=lf

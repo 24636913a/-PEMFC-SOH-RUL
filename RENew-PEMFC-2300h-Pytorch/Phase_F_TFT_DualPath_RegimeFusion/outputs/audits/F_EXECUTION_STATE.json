@@ -1,0 +1,157 @@
+{
+  "status": "COMPLETED",
+  "run_id": "PhaseF_20261010_225151",
+  "git_commit": "d7190bc86a1507015207c99702de6153b1006ee6",
+  "protocol_sha256": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+  "code_identity_sha256": "30ca5f34541e3db9a9dab219b4c963afeda1c73dd524127ab37af29209cebf2a",
+  "fingerprints": {
+    "development_prefix_fingerprint_sha256": "c0fe76c04611fc6cdc5a93f4a4da503ff2f82b11feb9ffdcca4cee5bea5abcb5",
+    "train_raw_x_sha256": "badf4ef92a51324c6f4c6d42eaaa0b8716c997c4aa3b7d3e86905d7aeaf1009a",
+    "train_y_sha256": "3719271f77e3f2d8fe40e7ac043b268545bcabf78315b5251164c68cccc7ab62",
+    "train_preprocessed_x_sha256": "94780be09efbee843b2d310b3d193ea10ee74a047cd541f7d5f0890963d6cf0c",
+    "validation_x_sha256": "6442150e1ef669eb30220af06509b35b8ee8daae490c4481a638ac23c0af780b",
+    "scaler_sha256": "e1edd6591a7046543be43a34feb241ef0648749faae15f6d51a4acf6118be0c4"
+  },
+  "groups": {
+    "F0": {
+      "status": "COMPLETED_CHECKPOINT_FROZEN",
+      "training": {
+        "run_id": "PhaseF_20261010_225151_F0_seed42",
+        "model": "F0",
+        "seed": 42,
+        "git_commit": "d7190bc86a1507015207c99702de6153b1006ee6",
+        "protocol_sha256": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+        "code_identity_sha256": "30ca5f34541e3db9a9dab219b4c963afeda1c73dd524127ab37af29209cebf2a",
+        "parameter_count": 323483,
+        "initialization_sha256": "09240b30338895eaec891f91fbcf26cf5d4929a64c3670b646ac187a649bd5ca",
+        "fingerprints": {
+          "development_prefix_fingerprint_sha256": "c0fe76c04611fc6cdc5a93f4a4da503ff2f82b11feb9ffdcca4cee5bea5abcb5",
+          "train_raw_x_sha256": "badf4ef92a51324c6f4c6d42eaaa0b8716c997c4aa3b7d3e86905d7aeaf1009a",
+          "train_y_sha256": "3719271f77e3f2d8fe40e7ac043b268545bcabf78315b5251164c68cccc7ab62",
+          "train_preprocessed_x_sha256": "94780be09efbee843b2d310b3d193ea10ee74a047cd541f7d5f0890963d6cf0c",
+          "validation_x_sha256": "6442150e1ef669eb30220af06509b35b8ee8daae490c4481a638ac23c0af780b",
+          "scaler_sha256": "e1edd6591a7046543be43a34feb241ef0648749faae15f6d51a4acf6118be0c4"
+        },
+        "best_epoch": 165,
+        "stop_epoch": 205,
+        "patience_early_stopped": true,
+        "validation_standardized_RMSE": 0.07120860368013382,
+        "training_time_s": 326.06961450000017,
+        "mean_epoch_time_s": 1.5881783136585377,
+        "peak_GPU_memory_bytes": 97682944
+      },
+      "checkpoint_reload": {
+        "pass": true,
+        "checkpoint": "outputs\\checkpoints\\F0_best_seed42.pt",
+        "file_sha256": "1f01151780e3e72439b3da462d420f0726909b3d514a0275811c512aab008e68",
+        "max_reload_difference": 0.0
+      }
+    },
+    "F1": {
+      "status": "COMPLETED_CHECKPOINT_FROZEN",
+      "training": {
+        "run_id": "PhaseF_20261010_225151_F1_seed42",
+        "model": "F1",
+        "seed": 42,
+        "git_commit": "d7190bc86a1507015207c99702de6153b1006ee6",
+        "protocol_sha256": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+        "code_identity_sha256": "30ca5f34541e3db9a9dab219b4c963afeda1c73dd524127ab37af29209cebf2a",
+        "parameter_count": 332379,
+        "initialization_sha256": "7d17a7276261ddedba3d864ba9eab15716dd70bc20c792315d46aacd281c6dee",
+        "fingerprints": {
+          "development_prefix_fingerprint_sha256": "c0fe76c04611fc6cdc5a93f4a4da503ff2f82b11feb9ffdcca4cee5bea5abcb5",
+          "train_raw_x_sha256": "badf4ef92a51324c6f4c6d42eaaa0b8716c997c4aa3b7d3e86905d7aeaf1009a",
+          "train_y_sha256": "3719271f77e3f2d8fe40e7ac043b268545bcabf78315b5251164c68cccc7ab62",
+          "train_preprocessed_x_sha256": "94780be09efbee843b2d310b3d193ea10ee74a047cd541f7d5f0890963d6cf0c",
+          "validation_x_sha256": "6442150e1ef669eb30220af06509b35b8ee8daae490c4481a638ac23c0af780b",
+          "scaler_sha256": "e1edd6591a7046543be43a34feb241ef0648749faae15f6d51a4acf6118be0c4"
+        },
+        "best_epoch": 204,
+        "stop_epoch": 244,
+        "patience_early_stopped": true,
+        "validation_standardized_RMSE": 0.06904224306344986,
+        "training_time_s": 397.55224510000016,
+        "mean_epoch_time_s": 1.626785939754075,
+        "peak_GPU_memory_bytes": 100760576
+      },
+      "checkpoint_reload": {
+        "pass": true,
+        "checkpoint": "outputs\\checkpoints\\F1_best_seed42.pt",
+        "file_sha256": "958337dd36074cc0997bf869e3d0bce7497ef82f2d46f02ec221a696c099b549",
+        "max_reload_difference": 0.0
+      }
+    },
+    "F2": {
+      "status": "COMPLETED_CHECKPOINT_FROZEN",
+      "training": {
+        "run_id": "PhaseF_20261010_225151_F2_seed42",
+        "model": "F2",
+        "seed": 42,
+        "git_commit": "d7190bc86a1507015207c99702de6153b1006ee6",
+        "protocol_sha256": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+        "code_identity_sha256": "30ca5f34541e3db9a9dab219b4c963afeda1c73dd524127ab37af29209cebf2a",
+        "parameter_count": 332436,
+        "initialization_sha256": "40de6d314f816c3895c1955d0c3f327180d8e20f6e6daa7a9ef1eb26bd8d534b",
+        "fingerprints": {
+          "development_prefix_fingerprint_sha256": "c0fe76c04611fc6cdc5a93f4a4da503ff2f82b11feb9ffdcca4cee5bea5abcb5",
+          "train_raw_x_sha256": "badf4ef92a51324c6f4c6d42eaaa0b8716c997c4aa3b7d3e86905d7aeaf1009a",
+          "train_y_sha256": "3719271f77e3f2d8fe40e7ac043b268545bcabf78315b5251164c68cccc7ab62",
+          "train_preprocessed_x_sha256": "94780be09efbee843b2d310b3d193ea10ee74a047cd541f7d5f0890963d6cf0c",
+          "validation_x_sha256": "6442150e1ef669eb30220af06509b35b8ee8daae490c4481a638ac23c0af780b",
+          "scaler_sha256": "e1edd6591a7046543be43a34feb241ef0648749faae15f6d51a4acf6118be0c4"
+        },
+        "best_epoch": 239,
+        "stop_epoch": 279,
+        "patience_early_stopped": true,
+        "validation_standardized_RMSE": 0.04200394079089165,
+        "training_time_s": 441.5799594,
+        "mean_epoch_time_s": 1.5801887806451744,
+        "peak_GPU_memory_bytes": 100760576
+      },
+      "checkpoint_reload": {
+        "pass": true,
+        "checkpoint": "outputs\\checkpoints\\F2_best_seed42.pt",
+        "file_sha256": "37c9804fa36757f05b14dab019eaae7acb9172677d6376357290a44e764c3a87",
+        "max_reload_difference": 0.0
+      }
+    }
+  },
+  "first_batch": {
+    "origins": [
+      1075,
+      392,
+      1281,
+      576,
+      376,
+      1268,
+      918,
+      785,
+      1881,
+      97,
+      1807,
+      1510,
+      339,
+      1232,
+      909,
+      1852,
+      147,
+      567,
+      1396,
+      1014,
+      1112,
+      561,
+      87,
+      868,
+      1256,
+      920,
+      893,
+      825,
+      906,
+      1900,
+      1294,
+      1877
+    ],
+    "x_sha256": "8622d8a94ae273da1822d3f956c32ff914292e6c7dabce502a6795c6e97d5fd3",
+    "y_sha256": "4b50769cf4f392d9f4b1e9944f77d721a96e2326c8eba474144600a43a730543"
+  }
+}

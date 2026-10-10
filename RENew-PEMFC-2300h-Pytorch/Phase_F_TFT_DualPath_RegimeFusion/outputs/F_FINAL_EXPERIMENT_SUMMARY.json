@@ -1,0 +1,47 @@
+{
+  "status": "PHASE_F_F0_F1_F2_DEVELOPMENT_EXPLORATION_COMPLETED",
+  "architecture_evidence": "SINGLE_SEED_DEVELOPMENT_STRUCTURAL_GAIN_OBSERVED",
+  "protocol_sha256": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+  "base_commit": "d7190bc86a1507015207c99702de6153b1006ee6",
+  "seed": 42,
+  "independent_metric_audit_pass": true,
+  "all_checkpoints_reloaded": true,
+  "test_accessed": false,
+  "comparisons": [
+    {
+      "comparison": "F1 minus F0",
+      "RMSE_difference_mV": {
+        "validation": -0.29636521989539943,
+        "assessment": 5.159223010161362
+      },
+      "assessment_relative_reduction_percent": -24.093588553369273,
+      "parameter_increase": 8896,
+      "training_time_ratio": 1.2192250593776193,
+      "both_splits_improved": false
+    },
+    {
+      "comparison": "F2 minus F1",
+      "RMSE_difference_mV": {
+        "validation": -3.698925829104037,
+        "assessment": -4.220779285489147
+      },
+      "assessment_relative_reduction_percent": 15.884022276451882,
+      "parameter_increase": 57,
+      "training_time_ratio": 1.1107469894653095,
+      "both_splits_improved": true
+    },
+    {
+      "comparison": "F2 minus F0",
+      "RMSE_difference_mV": {
+        "validation": -3.9952910489994364,
+        "assessment": 0.938443724672215
+      },
+      "assessment_relative_reduction_percent": -4.382535303903556,
+      "parameter_increase": 8953,
+      "training_time_ratio": 1.3542505641843539,
+      "both_splits_improved": false
+    }
+  ],
+  "interpretation_limits": "PHASE_F_ASSESSMENT_INHERITED_SELECTION_BIAS; C1_D0_E0_REPRODUCIBILITY_UNRESOLVED; PHASE_F_TFT_ARCHITECTURE_EXPLORATION_ONLY; TIMESNET_FREEZE; BACKBONE_SEARCH_CLOSED",
+  "further_research": "Human review of same-stage Validation/Assessment evidence only; no automatic search or training."
+}

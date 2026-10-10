@@ -1,0 +1,30 @@
+{
+  "files": {
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/__init__.py": "9aceeebef759152574ae45db9dddfacfb804eb8b0a7b81da3b13e00634299187",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/scripts/audit_f_model_implementation.py": "a0540e63fe2391ee67a2766538d5bb9432ac5d9658987867da9fa315f07930c6",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/scripts/audit_f_predictions.py": "257c2537c79573c58d578a9adee438256c3f297ee53f320a5d8bf8646e15e860",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/scripts/plot_f_results.py": "5442b418542c3cca740bbb9bdac2aa7724737d622aa89e26bf748b279a5bb704",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/scripts/report_f_results.py": "d290d61a21c6db6d8ce8c68e366912a39cfd1c32682b72d20676289f08049fad",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/scripts/run_f_training.py": "e928521e16d66d97186d7f9e81b0f055931713f5a5d21e4a220f514cc354a9a4",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/tests/__init__.py": "09af446efa1a48660a70167b583e92b5f809c1b59cf206639aff2a2ccfdcc034",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/tests/_forward_parity.py": "3136309213f68d32a408f2d517337f5d362083223d44a2effe94b2a2892319d0",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/tests/_support.py": "7a915167fecdc1aa94e6ebcfd46858029d1ff8d28a4cf4e290546ae26aba5332",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/tests/test_checkpoint_reload.py": "bdc6f107cc47737833cdd25804344dac3b5c2ecbb35289c0ab0d193fc6a720ca",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/tests/test_decoder_future_firewall.py": "94ac2e8d307ce741ea516cad387c942de6be9ce05d3f8e638aff81cc7170489d",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/tests/test_f0_parity.py": "1ba3ddbbdcbae337d9a4c904fda4d3052d68f1d94ce19eaca2b3f1e8c7274a10",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/tests/test_f1_enabled_forward_parity.py": "a14df68b0b9d3741fe31f1e24958f1890237f62b2b4b0ed68581327d9efb9636",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/tests/test_f1_shapes_and_causality.py": "a242aaf358323f97a75ef48ddccc505cc4b0368642c46b1100e5ea2f1e35477b",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/tests/test_f2_full_forward_initial_parity.py": "e8660dec37104bffc06275bb37d5ee070be4351a27f9d9473cbee6584096c19f",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/tests/test_f2_regime_gate.py": "4440cb18e8caf537e9c48f98b81a7885b9658a340ad0156844af4d8f7df836ab",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/tests/test_initialization_and_gradients.py": "b9d349031cc461f4be62c4084d632fb61c995b3d4bf57558af508db44a11cb92",
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/tests_execution/test_formal_execution.py": "391562e9b829a17fc37745011866df8f41115d499a0a67107729dcee119666c3",
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py": "f479d4cd64a6a9351dd2d863f38dd4828017dc48ffa8b4e986a3c240a5574099",
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_SingleSplit_Feature_Filter_Ablation/scripts/run_c_ablation.py": "e0053c63d6b942166362a09b2fce0166d9d29130fc0d5624eeaa0dcf32a65ce1"
+  },
+  "manifest_sha256": "30ca5f34541e3db9a9dab219b4c963afeda1c73dd524127ab37af29209cebf2a"
+}

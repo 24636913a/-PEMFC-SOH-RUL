@@ -1,0 +1,25 @@
+{
+  "pass": true,
+  "protocol_sha256": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+  "checkpoints": {
+    "F0": {
+      "pass": true,
+      "checkpoint": "outputs\\checkpoints\\F0_best_seed42.pt",
+      "file_sha256": "1f01151780e3e72439b3da462d420f0726909b3d514a0275811c512aab008e68",
+      "max_reload_difference": 0.0
+    },
+    "F1": {
+      "pass": true,
+      "checkpoint": "outputs\\checkpoints\\F1_best_seed42.pt",
+      "file_sha256": "958337dd36074cc0997bf869e3d0bce7497ef82f2d46f02ec221a696c099b549",
+      "max_reload_difference": 0.0
+    },
+    "F2": {
+      "pass": true,
+      "checkpoint": "outputs\\checkpoints\\F2_best_seed42.pt",
+      "file_sha256": "37c9804fa36757f05b14dab019eaae7acb9172677d6376357290a44e764c3a87",
+      "max_reload_difference": 0.0
+    }
+  },
+  "assessment_predictions_generated_before_freeze": false
+}

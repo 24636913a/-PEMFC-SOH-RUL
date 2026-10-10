@@ -1,0 +1,73 @@
+{
+  "pass": true,
+  "protocol_sha256": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+  "implementation": "independent_math_fsum_from_roundtrip_CSV",
+  "metric_tolerance": 1e-10,
+  "key_truth_equal": true,
+  "all_horizons_complete": true,
+  "assessment_records_per_group": 9072,
+  "assessment_origins": 378,
+  "test_accessed": false,
+  "results": [
+    {
+      "experiment_group": "F0",
+      "split": "validation",
+      "RMSE_mV": 9.741563621427261,
+      "MAE_mV": 5.945160113072242,
+      "R2": 0.9975062531679101,
+      "records": 4920,
+      "origins": 205,
+      "max_metric_difference": 0.0
+    },
+    {
+      "experiment_group": "F1",
+      "split": "validation",
+      "RMSE_mV": 9.44519840153186,
+      "MAE_mV": 4.679124349324616,
+      "R2": 0.9976556784014496,
+      "records": 4920,
+      "origins": 205,
+      "max_metric_difference": 0.0
+    },
+    {
+      "experiment_group": "F2",
+      "split": "validation",
+      "RMSE_mV": 5.746272572427823,
+      "MAE_mV": 4.3622134210779,
+      "R2": 0.9991323042617322,
+      "records": 4920,
+      "origins": 205,
+      "max_metric_difference": 0.0
+    },
+    {
+      "experiment_group": "F0",
+      "split": "assessment",
+      "RMSE_mV": 21.413261037197774,
+      "MAE_mV": 7.75655285309946,
+      "R2": 0.9880135992739897,
+      "records": 9072,
+      "origins": 378,
+      "max_metric_difference": 0.0
+    },
+    {
+      "experiment_group": "F1",
+      "split": "assessment",
+      "RMSE_mV": 26.572484047359133,
+      "MAE_mV": 7.06164298095124,
+      "R2": 0.9815418793553966,
+      "records": 9072,
+      "origins": 378,
+      "max_metric_difference": 0.0
+    },
+    {
+      "experiment_group": "F2",
+      "split": "assessment",
+      "RMSE_mV": 22.351704761869982,
+      "MAE_mV": 6.624242884444979,
+      "R2": 0.9869399609677951,
+      "records": 9072,
+      "origins": 378,
+      "max_metric_difference": 0.0
+    }
+  ]
+}

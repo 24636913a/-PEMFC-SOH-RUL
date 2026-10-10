@@ -1,0 +1,91 @@
+phase: Phase_F_TFT_DualPath_RegimeFusion
+status: FROZEN_BEFORE_FORMAL_SEED42_TRAINING
+base_commit: d7190bc86a1507015207c99702de6153b1006ee6
+authorization: USER_EXPLICIT_F0_F1_F2_DEVELOPMENT_TRAINING
+groups: [F0, F1, F2]
+scope:
+  development_only: true
+  test_access: prohibited
+  assessment: DEVELOPMENT_EXPLORATORY_REUSED_ASSESSMENT
+  assessment_after_all_three_checkpoint_freezes: true
+  optuna: prohibited
+  extra_seeds: prohibited
+  extra_models_or_retraining: prohibited
+data_firewall:
+  source_relative_path: Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  pandas_read_csv_nrows: 3007
+  development_filter: bin_end_ophrs2_h < 1819.997738
+  expected_development_rows: 3005
+  full_file_read_or_hash: prohibited
+split:
+  train_rows: [0, 2103]
+  validation_rows: [2103, 2404]
+  assessment_rows: [2404, 3005]
+  expected_legal_windows: {train: 1380, validation: 205, assessment: 378}
+task:
+  resolution_h: 0.5
+  lookback_steps: 48
+  horizon_steps: 24
+  raw_f2_feature_order: [cell_voltage_mean, cell_voltage_std, cell_voltage_range, cell_voltage_min, cell_voltage_max, actual_current_A_mean, actual_current_A_std, actual_current_A_peak_to_peak, actual_current_density_A_cm2_mean, actual_current_density_A_cm2_std, actual_current_density_A_cm2_peak_to_peak, load_transition_count, operation_point_transitions, zero_current_fraction]
+  target: cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t
+architecture:
+  F0: CanonicalStrictHistoryTFT
+  F1: DualPathStrictHistoryTFT
+  F2: RegimeAwareDualPathTFT
+  parameter_counts: {F0: 323483, F1: 332379, F2: 332436}
+  attention_heads: 4
+  lstm_layers: 1
+  decoder_actual_covariates: prohibited
+preprocessing:
+  authority: Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py
+  Top10_indices: [0, 3, 13, 11, 4, 9, 6, 7, 10, 8]
+  selection: train_window_origin_spearman_to_each_horizon_mean_absolute
+  ties: stable_raw_f2_order
+  mandatory_feature: cell_voltage_mean
+  mask: standardized_space_zero_mask
+  filter: per_window_causal_EWMA_alpha_0_3_voltage_only
+  common_scaler: unfiltered_train_legal_histories_only
+  target_scale: common_scaler.scale_0
+hyperparameters:
+  seed: 42
+  optimizer: AdamW
+  loss: MSE
+  learning_rate: 0.0009605449687795866
+  weight_decay: 0.00000695942232671908
+  batch_size: 32
+  max_epochs: 450
+  patience: 40
+  gradient_clip_norm: 1.0
+  dropout: 0.1
+  hidden_size: 64
+  hidden_continuous_size: 32
+dataloader: {shuffle: true, generator_seed: 42, num_workers: 0}
+early_stop: validation_standardized_RMSE_strict_less_than_best_minus_1e-12
+environment:
+  python: 3.11.9
+  torch: 2.6.0+cu124
+  pytorch_forecasting: 1.8.0
+  tft_sha256: 6ad5f6c806d314cfec53851ce0914c6d3476c4b05bd136a2764f4a562f1b7343
+  sub_modules_sha256: 9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e
+  cudnn_deterministic: true
+  cudnn_benchmark: false
+  torch_cpu_threads: 1
+evaluation:
+  primary: forecast_query_weighted_RMSE_mV
+  auxiliary: [MAE_mV, R2]
+  independent_recalculation_tolerance: 1.0e-10
+  diagnostic: [endpoint_12h_RMSE, P95, P99, max_error, target_time_equal_weight_RMSE, target_SSE, horizon_RMSE, gate_distribution]
+  target_time_equal_weight: average_squared_errors_within_target_then_average_targets_NOT_prediction_ensemble
+  gate_near_0_or_1: [0.05, 0.95]
+  gate_near_half_tolerance: 0.01
+  no_significance_claims_from_overlapping_queries: true
+interpretation_limits:
+  - PHASE_F_ASSESSMENT_INHERITED_SELECTION_BIAS
+  - C1_D0_E0_REPRODUCIBILITY_UNRESOLVED
+  - PHASE_F_TFT_ARCHITECTURE_EXPLORATION_ONLY
+  - TIMESNET_FREEZE
+  - BACKBONE_SEARCH_CLOSED
+stops:
+  technical: fail_closed_preserve_evidence_no_automatic_retraining
+  scientific_negative: complete_all_three_frozen_groups
+  completed: no_new_search_or_architecture

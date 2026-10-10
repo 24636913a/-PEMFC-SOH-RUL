@@ -8,7 +8,7 @@ Engineering implementation status: `PHASE_F_ENABLED_FORWARD_PARITY_PASS`.
 
 `READY_FOR_F0_F1_F2_TRAINING_AUTHORIZATION_REVIEW` is not a training authorization.
 
-This directory contains trainable F1/F2 model implementations and synthetic tests for the **Development-only** F0–F2 design. No formal RealHyFC training has been run; no formal training checkpoint, prediction cache, or Assessment result has been generated. Synthetic backward/reload evidence is engineering testing, not a scientific performance result.
+This directory contains trainable F1/F2 model implementations and synthetic tests for the **Development-only** F0–F2 design. The explicitly authorized Seed42 F0/F1/F2 Development training has now completed. Best checkpoints, Validation and Assessment caches, independent metric audits and reports are saved. Formal Test remains prohibited. Synthetic backward/reload evidence is engineering testing, not a scientific performance result.
 
 The synthetic suite contains 15 tests (13 original + 2 enabled full-forward tests). Disabled inheritance parity, enabled TEST-ONLY neutral-fusion parity, and F1/F2 initial full-forward parity are separately documented in `reports/F_IMPLEMENTATION_AUDIT.md` and `outputs/implementation_audit/F_ENABLED_FORWARD_PARITY_AUDIT.json`. Each enabled comparison covers two inputs/batch sizes in eval mode, all eight native output fields, exact shared-state alignment, and real branch/gate call evidence. Formal model code and architecture are unchanged.
 
@@ -48,4 +48,16 @@ The shared task is RealHyFC Development-only, 0.5 h resolution, Raw F2 `[B,48,14
 
 ## Explicit exclusions
 
-No training, Optuna, Test reading, backbone search, feature-count search, EWMA tuning, SOH, or RUL work is authorized by this phase. Historical phases and the installed third-party package remain unmodified.
+Only the explicitly frozen F0/F1/F2 Seed42 Development training was authorized by the subsequent user instruction. No additional training, Optuna, Test reading, backbone search, feature-count search, EWMA tuning, SOH, or RUL work is authorized. Historical phases and the installed third-party package remain unmodified.
+
+## Completed formal execution
+
+`PHASE_F_F0_F1_F2_DEVELOPMENT_EXPLORATION_COMPLETED`
+
+`SINGLE_SEED_DEVELOPMENT_STRUCTURAL_GAIN_OBSERVED`
+
+Run: `python -B scripts/run_f_training.py --run` (one-shot identity-guarded; completed runs cannot retrain). Independent cache verification: `python -B scripts/audit_f_predictions.py`. Results: `reports/F_FINAL_EXPERIMENT_SUMMARY.md`. Checkpoints: `outputs/checkpoints`. All three best checkpoints were frozen and reload-checked before unified Assessment. Test accessed: NO.
+
+The structural-gain label is limited to F2 versus F1. F1 and F2 do not beat F0 on the primary Assessment RMSE, despite improved Validation. Overall superiority over native F0 is not established. See the explicit eight-question handoff in the final report; no model was automatically promoted.
+
+The three ~1.45–1.49 MB `.pt` checkpoints are included in the Git delivery with file hashes and exact reload evidence. The local `.gitattributes` preserves frozen protocol bytes and new execution-source line endings across checkouts; it does not change any historical model or protocol.

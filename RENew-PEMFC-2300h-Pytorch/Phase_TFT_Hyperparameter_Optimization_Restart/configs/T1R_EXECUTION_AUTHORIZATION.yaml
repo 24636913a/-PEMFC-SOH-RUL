@@ -1,0 +1,7 @@
+# Explicit user authorization for the single frozen Development-only T1-R run.
+protocol_sha256: c9f58b01c74dc82b3d35f264cc320f7c800a7b3b43d038437df166ead53eb183
+runner_sha256: 4a1094ef33e8ce6510de9b7b3abc12cbc9cb3d8f40445584aca9d1c0667b289e
+execution_identity_sha256: a9f719ca7936db7907d9c448e6cace24ddc8913da2569ef0b81494adc9feb6fd
+allowed_phase: Phase_TFT_Hyperparameter_Optimization_Restart
+study_namespace: T1R
+development_scope: DEVELOPMENT_ONLY

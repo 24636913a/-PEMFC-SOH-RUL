@@ -1,0 +1,73 @@
+phase: Phase_TFT_FullFeature_CausalFilter_Comparison
+status: FROZEN_BEFORE_SEED42_TRAINING
+base_commit: 238e539bee5261f5608fa8359a7efaf004e8203e
+scope:
+  development_only: true
+  assessment_status: DEVELOPMENT_EXPLORATORY_REUSED_ASSESSMENT
+  test_access: prohibited
+  optuna_rerun: prohibited
+  seed: 42
+data_firewall:
+  source_relative_path: Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv
+  pandas_read_csv_nrows: 3007
+  development_filter: bin_end_ophrs2_h < 1819.997738
+  expected_development_rows: 3005
+  full_file_read_or_hash: prohibited
+split:
+  train_rows: [0, 2103]
+  validation_rows: [2103, 2404]
+  assessment_rows: [2404, 3005]
+  expected_legal_windows: {train: 1380, validation: 205, assessment: 378}
+task:
+  resolution_h: 0.5
+  lookback_steps: 48
+  horizon_steps: 24
+  target: cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t
+  raw_f2_feature_order: [cell_voltage_mean, cell_voltage_std, cell_voltage_range, cell_voltage_min, cell_voltage_max, actual_current_A_mean, actual_current_A_std, actual_current_A_peak_to_peak, actual_current_density_A_cm2_mean, actual_current_density_A_cm2_std, actual_current_density_A_cm2_peak_to_peak, load_transition_count, operation_point_transitions, zero_current_fraction]
+architecture:
+  implementation: CanonicalStrictHistoryTFT
+  attention_heads: 4
+  lstm_layers: 1
+  decoder_actual_covariates: prohibited
+hyperparameters:
+  source: Phase_TFT_Hyperparameter_Optimization_Restart/outputs/T1R_SELECTED_CONFIGURATIONS.json#fold_2
+  learning_rate: 0.0009605449687795866
+  weight_decay: 0.00000695942232671908
+  dropout: 0.1
+  hidden_size: 64
+  hidden_continuous_size: 32
+  batch_size: 32
+  max_epochs: 450
+  patience: 40
+  gradient_clip_norm: 1.0
+  optimizer: AdamW
+  loss: MSE
+feature_conditions:
+  Top10:
+    selection: train_window_origin_spearman_to_each_horizon_mean_absolute
+    ties: stable_raw_f2_order
+    mandatory_feature: cell_voltage_mean
+    mask: standardized_space_zero_mask
+  Raw14:
+    selection: none
+    mask: none
+filters:
+  Raw: {name: none}
+  SG: {name: OneSidedSG_window_7_order_2, input_feature: cell_voltage_mean, window_length: 7, polynomial_order: 2, future_values: prohibited}
+  EWMA: {name: EWMA_alpha_0_3, input_feature: cell_voltage_mean, alpha: 0.3, initialization: first_value_of_each_48_step_window, future_values: prohibited}
+common_scaler:
+  input_fit: unfiltered_train_legal_windows_only
+  target_scale: unfiltered_train_cell_voltage_mean_standard_deviation
+conditions:
+  E0: {features: Top10, filter: Raw}
+  E1: {features: Top10, filter: SG}
+  E2: {features: Top10, filter: EWMA}
+  E3: {features: Raw14, filter: Raw}
+  E4: {features: Raw14, filter: SG}
+  E5: {features: Raw14, filter: EWMA}
+evaluation:
+  split: assessment_only
+  primary_metric: RMSE_mV
+  auxiliary_metrics: [MAE_mV, R2]
+  independent_numpy_recalculation: required
+  assessment_selection_or_retuning: prohibited

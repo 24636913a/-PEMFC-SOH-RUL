@@ -1,0 +1,44 @@
+{
+  "protocol_sha256": "b17794132351454d93debfc67943dc14db73a5287fef1966ba748967e9852332",
+  "data_access": {
+    "causal_features_read_nrows": 3007,
+    "development_rows": 3005,
+    "post_read_filter": "bin_end_ophrs2_h < 1819.997738",
+    "full_causal_file_hash_computed": false,
+    "test_accessed": false
+  },
+  "segments": {
+    "train": {
+      "rows": [
+        0,
+        2103
+      ],
+      "n_rows": 2103,
+      "start_h": 72.5,
+      "end_h": 1310.0,
+      "legal_windows": 1380
+    },
+    "validation": {
+      "rows": [
+        2103,
+        2404
+      ],
+      "n_rows": 301,
+      "start_h": 1310.0,
+      "end_h": 1460.5,
+      "legal_windows": 205
+    },
+    "assessment": {
+      "rows": [
+        2404,
+        3005
+      ],
+      "n_rows": 601,
+      "start_h": 1460.5,
+      "end_h": 1819.5,
+      "legal_windows": 378
+    }
+  },
+  "target_sets_disjoint": true,
+  "assessment_status": "DEVELOPMENT_EXPLORATORY_REUSED_ASSESSMENT"
+}

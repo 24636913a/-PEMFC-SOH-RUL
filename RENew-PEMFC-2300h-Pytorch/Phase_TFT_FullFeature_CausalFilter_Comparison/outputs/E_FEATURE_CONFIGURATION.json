@@ -1,0 +1,45 @@
+{
+  "raw_f2_feature_order": [
+    "cell_voltage_mean",
+    "cell_voltage_std",
+    "cell_voltage_range",
+    "cell_voltage_min",
+    "cell_voltage_max",
+    "actual_current_A_mean",
+    "actual_current_A_std",
+    "actual_current_A_peak_to_peak",
+    "actual_current_density_A_cm2_mean",
+    "actual_current_density_A_cm2_std",
+    "actual_current_density_A_cm2_peak_to_peak",
+    "load_transition_count",
+    "operation_point_transitions",
+    "zero_current_fraction"
+  ],
+  "Top10_indices": [
+    0,
+    3,
+    13,
+    11,
+    4,
+    9,
+    6,
+    7,
+    10,
+    8
+  ],
+  "Top10_features": [
+    "cell_voltage_mean",
+    "cell_voltage_min",
+    "zero_current_fraction",
+    "load_transition_count",
+    "cell_voltage_max",
+    "actual_current_density_A_cm2_std",
+    "actual_current_A_std",
+    "actual_current_A_peak_to_peak",
+    "actual_current_density_A_cm2_peak_to_peak",
+    "actual_current_density_A_cm2_mean"
+  ],
+  "Top10_mask": "standardized_space_zero_mask",
+  "Raw14_mask": "none",
+  "test_accessed": false
+}

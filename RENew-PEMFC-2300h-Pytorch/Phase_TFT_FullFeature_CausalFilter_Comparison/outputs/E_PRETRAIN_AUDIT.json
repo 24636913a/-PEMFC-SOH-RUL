@@ -1,0 +1,46 @@
+{
+  "pass": true,
+  "protocol_sha256": "b17794132351454d93debfc67943dc14db73a5287fef1966ba748967e9852332",
+  "development_rows": 3005,
+  "read_nrows": 3007,
+  "full_causal_file_hash_computed": false,
+  "test_accessed": false,
+  "legal_windows": {
+    "train": 1380,
+    "validation": 205,
+    "assessment": 378
+  },
+  "target_isolation": true,
+  "top10_train_only": true,
+  "raw14_frozen": true,
+  "filter_causality": {
+    "future_mutation_start_index": 23,
+    "test_accessed": false,
+    "SG": {
+      "pass": true,
+      "shape": [
+        1,
+        48,
+        14
+      ]
+    },
+    "EWMA": {
+      "pass": true,
+      "shape": [
+        1,
+        48,
+        14
+      ]
+    },
+    "pass": true
+  },
+  "common_scaler_pass": true,
+  "common_target_scale_pass": true,
+  "common_scaler_target_scale_V": 0.13680318714138442,
+  "parameter_count": 323483,
+  "device": "cuda",
+  "torch_version": "2.6.0+cu124",
+  "cudnn_deterministic": true,
+  "cudnn_benchmark": false,
+  "all_six_configs_frozen": true
+}

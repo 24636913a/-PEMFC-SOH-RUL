@@ -1,0 +1,14 @@
+{
+  "status": "TOP10_EWMA_LOWEST_EXPLORATORY_RMSE",
+  "comparisons": [
+    "E0 vs E3 (Raw): Raw14−Top10 = +1.5816 mV",
+    "E1 vs E4 (SG): Raw14−Top10 = +6.3739 mV",
+    "E2 vs E5 (EWMA): Raw14−Top10 = +6.3792 mV",
+    "Top10 SG−Raw = +1.4164 mV; EWMA−Raw = -11.5329 mV",
+    "Raw14 SG−Raw = +6.2088 mV; EWMA−Raw = -6.7354 mV"
+  ],
+  "test_accessed": false,
+  "phase_complete": true,
+  "all_six_real_trainings_completed": true,
+  "independent_metric_audit_pass": true
+}

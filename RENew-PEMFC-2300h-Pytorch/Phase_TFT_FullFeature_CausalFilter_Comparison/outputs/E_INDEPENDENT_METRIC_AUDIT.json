@@ -1,0 +1,55 @@
+{
+  "pass": true,
+  "implementation": "independent_numpy_flattened_metrics",
+  "test_accessed": false,
+  "expected_records_per_group": 9072,
+  "groups": [
+    {
+      "experiment_group": "E0",
+      "RMSE_mV": 19.318764604954037,
+      "MAE_mV": 5.076276042053757,
+      "R2": 0.9902437735579963,
+      "records": 9072
+    },
+    {
+      "experiment_group": "E1",
+      "RMSE_mV": 20.735208333787543,
+      "MAE_mV": 5.213276381502648,
+      "R2": 0.9887606815442782,
+      "records": 9072
+    },
+    {
+      "experiment_group": "E2",
+      "RMSE_mV": 7.78582066799922,
+      "MAE_mV": 5.407335560639726,
+      "R2": 0.9984153550793134,
+      "records": 9072
+    },
+    {
+      "experiment_group": "E3",
+      "RMSE_mV": 20.90038690784024,
+      "MAE_mV": 5.564055732478701,
+      "R2": 0.9885809014264161,
+      "records": 9072
+    },
+    {
+      "experiment_group": "E4",
+      "RMSE_mV": 27.109139245633173,
+      "MAE_mV": 7.707634020750752,
+      "R2": 0.9807887940892657,
+      "records": 9072
+    },
+    {
+      "experiment_group": "E5",
+      "RMSE_mV": 14.165030341423133,
+      "MAE_mV": 5.402396339715882,
+      "R2": 0.9947548466678462,
+      "records": 9072
+    }
+  ],
+  "keys_and_truth_identical_across_groups": true,
+  "target_row_range": [
+    2404,
+    3004
+  ]
+}

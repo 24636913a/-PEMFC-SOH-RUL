@@ -1,0 +1,31 @@
+{
+  "pass": true,
+  "protocol_sha256": "5e2ab0ccb39735bad1352ed5df903e33a46e389d0cab973c45d153f3f8e3a30e",
+  "development_rows": 3005,
+  "read_nrows": 3007,
+  "full_causal_file_hash_computed": false,
+  "test_accessed": false,
+  "legal_windows": {
+    "train": 1380,
+    "validation": 205,
+    "assessment": 378
+  },
+  "target_isolation": true,
+  "top10_subset_top12": true,
+  "causal_sg": {
+    "pass": true,
+    "future_mutation_start_index": 19,
+    "short_prefix_degree_rule": "min(2,n-1)",
+    "test_accessed": false
+  },
+  "common_scaler_train_windows": 1380,
+  "common_scaler_flat_samples": 66240,
+  "common_target_scale_V": 0.13680318714138442,
+  "parameter_counts": [
+    323483,
+    323483,
+    323483,
+    323483
+  ],
+  "parameter_counts_equal": true
+}

@@ -2,9 +2,27 @@
 
 ## Result
 
-`PHASE_F_IMPLEMENTATION_READY_FOR_TRAINING_REVIEW`
+`PHASE_F_ENABLED_FORWARD_PARITY_PASS`
 
-All synthetic-only unit tests passed. No RealHyFC table, Assessment target, or formal Test source was opened. The suite exercised native parity, F1 shapes and causal convolution, F2 gate initialization/gradients, decoder placeholder firewall, native encoder-to-decoder state handoff, synthetic backward and synthetic checkpoint reload.
+`READY_FOR_F0_F1_F2_TRAINING_AUTHORIZATION_REVIEW` is engineering review readiness, not training authorization.
+
+Actual suite: 15 tests passed (13 original + 2 new). Full execution log: `outputs/implementation_audit/F_SYNTHETIC_TEST_LOG.txt`. No RealHyFC table, Assessment target, or formal Test source was opened. The original suite exercised disabled native parity, F1 shapes/causal convolution, F2 local gate/fusion gradients, decoder firewall, native state handoff, synthetic backward and checkpoint reload; it did not establish enabled full-forward parity. The two new tests close that coverage gap.
+
+## Three distinct forward comparisons
+
+Disabled parity delegates to native forward and is not evidence for custom forward. Enabled neutral-fusion parity uses a TEST-ONLY subclass returning the LSTM representation at fusion; the formal history branch still executes once per case. F1/F2 full parity runs both formal enabled models, including the gate once per case, with exact initial g=0.5. A patched inherited forward raises if either enabled candidate attempts native fallback. Each enabled comparison uses input seeds 219/731 and batch sizes 1/3.
+
+All shared named parameters and buffers are checked for identical initial values, names and shapes, explicitly copied and checked again. F0-to-F1 permits only history_branch extra state; F1-to-F2 permits only regime_gate extra state. VSN, LSTM encoder/decoder, GRN/GLU, attention, output head and shared convolution state are included. Complete key lists and hook counts are in `F_ENABLED_FORWARD_PARITY_AUDIT.json`. Formal model code and frozen architecture were unchanged.
+
+Predeclared float tolerances: atol=1e-06, rtol=1e-06; exact equality checked first, integer/length fields require exact equality. All measured full outputs are exactly equal; empty static_variables tensors are structurally equal with recorded max difference 0. Eval-only: additional dropout RNG consumption precludes a claim of training-mode bitwise parity.
+
+|Comparison (eval)|Input shape|prediction|encoder_attention|decoder_attention|encoder_variables|decoder_variables|static_variables|encoder_lengths|decoder_lengths|Result|
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+|Disabled path|[2, 48, 14]|0.0|0.0|0.0|0.0|0.0|0.0|0.0|0.0|PASS|
+|Enabled neutral fusion|[1, 48, 14]|0.0|0.0|0.0|0.0|0.0|0.0|0.0|0.0|PASS|
+|Enabled neutral fusion|[3, 48, 14]|0.0|0.0|0.0|0.0|0.0|0.0|0.0|0.0|PASS|
+|F1/F2 initial full forward|[1, 48, 14]|0.0|0.0|0.0|0.0|0.0|0.0|0.0|0.0|PASS|
+|F1/F2 initial full forward|[3, 48, 14]|0.0|0.0|0.0|0.0|0.0|0.0|0.0|0.0|PASS|
 
 ## Runtime
 
@@ -26,4 +44,10 @@ F1 adds a causal multi-scale branch; F2 adds 57 gate parameters. The upstream `f
 
 ## Engineering risks
 
-The main risk is upstream-source drift. A future run must fail closed if the recorded PTF hashes differ. F1/F2 also add parameters, so future RMSE differences cannot be assigned solely to a mechanism without the frozen parameter/compute ledger. READY means engineering review may be requested; it is not training authorization.
+The main risk is upstream-source drift. This generator fails closed on tests, dependency identity, parity or parameter-count failure and replaces its success status with BLOCKED. F1/F2 add parameters, so future differences cannot be assigned solely to a mechanism without the frozen parameter/compute ledger.
+
+Historical limits remain: `PHASE_F_ASSESSMENT_INHERITED_SELECTION_BIAS`, `C1_D0_E0_REPRODUCIBILITY_UNRESOLVED`, and `PHASE_F_TFT_ARCHITECTURE_EXPLORATION_ONLY`. TimesNet remains frozen and backbone search closed. Synthetic parity does not resolve historical numerical reproducibility or authorize formal training.
+
+## Reproduction
+
+Run `python -B scripts/audit_f_model_implementation.py` from this phase directory. It executes the entire unittest suite, repeats all parity comparisons, and regenerates this report and JSON evidence. No dataset/cache loaders are called.

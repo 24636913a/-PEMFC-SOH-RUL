@@ -4,9 +4,21 @@
 
 `PHASE_F_ARCHITECTURE_DESIGN_COMPLETED`
 
-Engineering implementation status: `PHASE_F_IMPLEMENTATION_READY_FOR_TRAINING_REVIEW`. This is not a training authorization.
+Engineering implementation status: `PHASE_F_ENABLED_FORWARD_PARITY_PASS`.
 
-This directory freezes an implementation-ready, **Development-only** design for the planned F0–F2 ablation. It records an audit of the installed `pytorch-forecasting` TFT implementation and does not contain a trainable Phase-F model, a trained checkpoint, a prediction cache, or an Assessment result.
+`READY_FOR_F0_F1_F2_TRAINING_AUTHORIZATION_REVIEW` is not a training authorization.
+
+This directory contains trainable F1/F2 model implementations and synthetic tests for the **Development-only** F0–F2 design. No formal RealHyFC training has been run; no formal training checkpoint, prediction cache, or Assessment result has been generated. Synthetic backward/reload evidence is engineering testing, not a scientific performance result.
+
+The synthetic suite contains 15 tests (13 original + 2 enabled full-forward tests). Disabled inheritance parity, enabled TEST-ONLY neutral-fusion parity, and F1/F2 initial full-forward parity are separately documented in `reports/F_IMPLEMENTATION_AUDIT.md` and `outputs/implementation_audit/F_ENABLED_FORWARD_PARITY_AUDIT.json`. Each enabled comparison covers two inputs/batch sizes in eval mode, all eight native output fields, exact shared-state alignment, and real branch/gate call evidence. Formal model code and architecture are unchanged.
+
+To reproduce tests and regenerate audit reports from this directory:
+
+```powershell
+python -B scripts/audit_f_model_implementation.py
+```
+
+The generator records complete test logs and fails closed on test, parity, parameter-count or dependency-identity failure. This does not resolve historical score reproducibility or authorize training.
 
 ## Frozen sequence
 

@@ -1,0 +1,39 @@
+{
+  "protocol_sha256": "5e2ab0ccb39735bad1352ed5df903e33a46e389d0cab973c45d153f3f8e3a30e",
+  "data_access": {
+    "read_nrows": 3007,
+    "development_rows": 3005,
+    "full_causal_file_hash_computed": false,
+    "test_accessed": false
+  },
+  "segments": {
+    "train": {
+      "rows": [
+        0,
+        2103
+      ],
+      "start_h": 72.5,
+      "end_h": 1310.0,
+      "legal_windows": 1380
+    },
+    "validation": {
+      "rows": [
+        2103,
+        2404
+      ],
+      "start_h": 1310.0,
+      "end_h": 1460.5,
+      "legal_windows": 205
+    },
+    "assessment": {
+      "rows": [
+        2404,
+        3005
+      ],
+      "start_h": 1460.5,
+      "end_h": 1819.5,
+      "legal_windows": 378
+    }
+  },
+  "target_sets_disjoint": true
+}

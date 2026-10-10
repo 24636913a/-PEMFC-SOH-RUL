@@ -1,0 +1,9 @@
+{
+  "D0_RMSE_mV": 13.169240973929488,
+  "historical_C1_RMSE_mV": 11.445854178233546,
+  "difference_D0_minus_C1_mV": 1.7233867956959426,
+  "rank_window_scaler_and_seed_audited": true,
+  "strict_numeric_reproduction_established": false,
+  "rerun_or_hyperparameter_change_performed": false,
+  "explanation_boundary": "The existing evidence confirms matching task, windows, ranking, common raw Train scaling rule, Seed42 and TFT configuration. It does not isolate the remaining execution-level numerical divergence without an unregistered rerun."
+}

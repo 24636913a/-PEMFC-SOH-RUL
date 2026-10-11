@@ -1,0 +1,19 @@
+{
+  "command": [
+    "D:\\ruanjian\\python3.11.9\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "timestamp_utc": "2026-10-11T09:18:14.657065+00:00",
+  "returncode": 0,
+  "production_audit_sha256": "8b3e6e8700e2d28149bf96be6f86e3b2fc0da11d17fc774163c9f941767913f9",
+  "test_module_sha256": "6531522dc5b1a435fa55afc9712ee736307afec8bae2ef3e9bbe37e9472b2d5d",
+  "stdout": "",
+  "stderr": "test_exact_line_read_does_not_touch_suffix (test_readonly_firewall.ReadonlyFirewallTests.test_exact_line_read_does_not_touch_suffix) ... ok\ntest_mixed_anchor_full_hash_denied (test_readonly_firewall.ReadonlyFirewallTests.test_mixed_anchor_full_hash_denied) ... ok\ntest_mixed_feature_table_denied (test_readonly_firewall.ReadonlyFirewallTests.test_mixed_feature_table_denied) ... ok\ntest_no_unbounded_numeric_data_reader_or_model_import (test_readonly_firewall.ReadonlyFirewallTests.test_no_unbounded_numeric_data_reader_or_model_import) ... ok\ntest_prefix_suffix_invariance (test_readonly_firewall.ReadonlyFirewallTests.test_prefix_suffix_invariance) ... ok\ntest_test_or_boundary_anchor_is_denied_by_production_parser (test_readonly_firewall.ReadonlyFirewallTests.test_test_or_boundary_anchor_is_denied_by_production_parser) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.013s\n\nOK\n",
+  "scope": "synthetic access-control checks only; no model or scientific metrics"
+}

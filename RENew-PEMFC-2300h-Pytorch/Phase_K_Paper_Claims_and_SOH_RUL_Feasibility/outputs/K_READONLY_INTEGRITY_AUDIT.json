@@ -1,0 +1,245 @@
+{
+  "status": "PASS",
+  "phase": "Phase_K_Paper_Claims_and_SOH_RUL_Feasibility",
+  "base_commit": "469c06531a1d1c7fbd0a071f75204a983026cc8a",
+  "execution_head": "469c06531a1d1c7fbd0a071f75204a983026cc8a",
+  "branch": "main",
+  "method": "explicit allowlist + exact bounded lines + base Git blobs + byte identity hashes + Git status",
+  "not_an_os_level_global_IO_monitor": true,
+  "allowed_document_count": 30,
+  "source_identity_unchanged": true,
+  "checkpoint_identity_count": 9,
+  "nine_checkpoints_unchanged": true,
+  "production_firewall_test_exitcode": 0,
+  "test_evidence": "outputs/K_FIREWALL_TEST_RESULTS.json",
+  "checkpoint_model_load_performed": false,
+  "bounded_anchor_prefix": {
+    "fingerprint_type": "ALLOWED_DEVELOPMENT_ANCHOR_LOGICAL_PREFIX",
+    "row_count": 8,
+    "nominal_count": 7,
+    "column_order": [
+      "ageing_hour",
+      "checkpoint",
+      "jstar_A_cm2",
+      "voltage_anchor_V",
+      "reference_voltage_V",
+      "normalized_health_value",
+      "soh_candidate_A",
+      "hi_candidate_B",
+      "configuration",
+      "air_air_start_status",
+      "split",
+      "uncertainty_std_V",
+      "valid_sample_count",
+      "test_use_restriction",
+      "filename"
+    ],
+    "serialization": "ordered compact JSON / UTF-8",
+    "logical_prefix_fingerprint_sha256": "9a5ac8f48a8e780a45bad6a29a01ecfb9c82744e08d5f5fed88209ebfc022d39",
+    "full_file_hash_performed": false
+  },
+  "mixed_anchor_full_file_hash": false,
+  "causal_features_file_opened": false,
+  "raw_data_opened": false,
+  "Test_numerical_rows_read": false,
+  "Test_polarization_values_read": false,
+  "Test_labels_read": false,
+  "historical_Test_metadata_may_be_documented": true,
+  "new_training": false,
+  "new_inference": false,
+  "new_Assessment_inference": false,
+  "model_imports": false,
+  "seed_selection": false,
+  "SOH_labels_created": false,
+  "EOL_defined": false,
+  "RUL_labels_created": false,
+  "historical_phase_files_changed": false,
+  "working_changes": [
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/.gitattributes",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/README.md",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/configs/K_READONLY_ACCESS_PROTOCOL.json",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/evidence/K_SOURCE_EVIDENCE_LEDGER.md",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/outputs/K_FIREWALL_TEST_RESULTS.json",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/outputs/K_READONLY_INTEGRITY_AUDIT.json",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/outputs/K_SOURCE_MANIFEST.json",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/reports/K_DEGRADATION_REPRESENTATION_EVIDENCE.md",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/reports/K_EOL_AND_CENSORING_FEASIBILITY.md",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/reports/K_FINAL_RESEARCH_RECOMMENDATION.md",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/reports/K_FUTURE_EXPERIMENT_PLAN.md",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/reports/K_INNOVATION_EVIDENCE_MATRIX.md",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/reports/K_INNOVATION_STRATEGY_COMPARISON.md",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/reports/K_PAPER_SCOPE_OPTIONS.md",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/reports/K_SOH_GROUND_TRUTH_FEASIBILITY.md",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/reports/K_TASK_FEASIBILITY_MATRIX.md",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/scripts/audit_k_readonly.py",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/scripts/run_k_firewall_tests.py",
+    "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/tests/test_readonly_firewall.py"
+  ],
+  "source_manifest_sha256": "bad6eb2513332620d4cf5e114bdbd174884c395cd724e560e0e44281b6b5156f",
+  "audit_script_sha256": "8b3e6e8700e2d28149bf96be6f86e3b2fc0da11d17fc774163c9f941767913f9",
+  "data_access_events": [
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Hyperparameter_Optimization_Restart/outputs/T1R_FINAL_DECISION.json",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/reports/E_SERIES_EXPERIMENT_REPORT.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/reports/F_FINAL_EXPERIMENT_SUMMARY.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/reports/H_FINAL_CONCLUSION.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_I2_Frozen_Assessment_Evaluation/reports/I2_FINAL_SCIENTIFIC_CONCLUSION.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/reports/J_FINAL_ARCHITECTURE_DECISION.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/J_SUMMARY.json",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/integrity_audit/J_FINAL_READONLY_AUDIT.json",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/configs/PREREGISTERED_E_COMPARISON.yaml",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/configs/F0_F2_EXECUTION_PROTOCOL.yaml",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/soh_anchor_analysis/SOH_ANCHOR_SELECTION.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/soh_anchor_analysis/soh_selection_summary.json",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/soh_anchor_analysis/polarization_configuration_compatibility.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_HA_EMD_Health_Representation_Audit/reports/FINAL_HEALTH_REPRESENTATION_AUDIT.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_HA_EMD_Health_Representation_Audit/reports/POST_ANALYSIS_REPORTING_CLARIFICATION.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_RUL90_Data_Feasibility/04_OFFICIAL_EOL_AUDIT.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/PHASE_N1_RESULTS.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_CSTL_Chronology_Safe_Pretrained_TimesNet_Health_Transfer/reports/PRETRAINED_TIMESNET_HEALTH_TRANSFER_REPORT.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_SingleSplit_Feature_Filter_Ablation/scripts/run_c_ablation.py",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/checkpoint_identity/J_NINE_CHECKPOINT_IDENTITY.json",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/reports/J_INNOVATION_EVIDENCE_MATRIX.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/reports/J_SCIENTIFIC_LIMITATIONS.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/reports/J_CACHE_ONLY_INTERFACE_CORRECTION.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/reports/F_IMPLEMENTATION_AUDIT.md",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F0-Seed42_best.pt",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F0-Seed52_best.pt",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F0-Seed62_best.pt",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F1-Seed42_best.pt",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F1-Seed52_best.pt",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F1-Seed62_best.pt",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F2-Seed42_best.pt",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F2-Seed52_best.pt",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F2-Seed62_best.pt",
+      "mode": "allowlisted_file_bytes_identity_only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/soh_anchor_analysis/soh_reference_anchors.csv",
+      "mode": "unbuffered_exact_9_lines",
+      "data_records": 8,
+      "full_file_hash": false
+    }
+  ],
+  "automatic_next_phase": false
+}

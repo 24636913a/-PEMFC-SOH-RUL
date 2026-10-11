@@ -1,0 +1,151 @@
+{
+  "base_commit": "469c06531a1d1c7fbd0a071f75204a983026cc8a",
+  "scope": "READONLY_SCIENTIFIC_AUDIT_NO_MODEL_EXECUTION",
+  "full_read_allowlist": [
+    {
+      "id": "E01",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Hyperparameter_Optimization_Restart/outputs/T1R_FINAL_DECISION.json"
+    },
+    {
+      "id": "E02",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/reports/E_SERIES_EXPERIMENT_REPORT.md"
+    },
+    {
+      "id": "E03",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/reports/F_FINAL_EXPERIMENT_SUMMARY.md"
+    },
+    {
+      "id": "E04",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/reports/H_FINAL_CONCLUSION.md"
+    },
+    {
+      "id": "E05",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_I2_Frozen_Assessment_Evaluation/reports/I2_FINAL_SCIENTIFIC_CONCLUSION.md"
+    },
+    {
+      "id": "E06",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/reports/J_FINAL_ARCHITECTURE_DECISION.md"
+    },
+    {
+      "id": "E07",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/J_SUMMARY.json"
+    },
+    {
+      "id": "E08",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/integrity_audit/J_FINAL_READONLY_AUDIT.json"
+    },
+    {
+      "id": "E09",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/configs/PREREGISTERED_E_COMPARISON.yaml"
+    },
+    {
+      "id": "E10",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py"
+    },
+    {
+      "id": "E11",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/configs/F0_F2_EXECUTION_PROTOCOL.yaml"
+    },
+    {
+      "id": "E12",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py"
+    },
+    {
+      "id": "E13",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py"
+    },
+    {
+      "id": "E14",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py"
+    },
+    {
+      "id": "E15",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/soh_anchor_analysis/SOH_ANCHOR_SELECTION.md"
+    },
+    {
+      "id": "E16",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/soh_anchor_analysis/soh_selection_summary.json"
+    },
+    {
+      "id": "E17",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/soh_anchor_analysis/polarization_configuration_compatibility.md"
+    },
+    {
+      "id": "E19",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_HA_EMD_Health_Representation_Audit/reports/FINAL_HEALTH_REPRESENTATION_AUDIT.md"
+    },
+    {
+      "id": "E20",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_HA_EMD_Health_Representation_Audit/reports/POST_ANALYSIS_REPORTING_CLARIFICATION.md"
+    },
+    {
+      "id": "E21",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_RUL90_Data_Feasibility/04_OFFICIAL_EOL_AUDIT.md"
+    },
+    {
+      "id": "E22",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/PHASE_N1_RESULTS.md"
+    },
+    {
+      "id": "E23",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_CSTL_Chronology_Safe_Pretrained_TimesNet_Health_Transfer/reports/PRETRAINED_TIMESNET_HEALTH_TRANSFER_REPORT.md"
+    },
+    {
+      "id": "E24",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_SingleSplit_Feature_Filter_Ablation/scripts/run_c_ablation.py"
+    },
+    {
+      "id": "E25",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py"
+    },
+    {
+      "id": "E26",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py"
+    },
+    {
+      "id": "E27",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/checkpoint_identity/J_NINE_CHECKPOINT_IDENTITY.json"
+    },
+    {
+      "id": "E28",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/reports/J_INNOVATION_EVIDENCE_MATRIX.md"
+    },
+    {
+      "id": "E29",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/reports/J_SCIENTIFIC_LIMITATIONS.md"
+    },
+    {
+      "id": "E30",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/reports/J_CACHE_ONLY_INTERFACE_CORRECTION.md"
+    },
+    {
+      "id": "E31",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/reports/F_IMPLEMENTATION_AUDIT.md"
+    }
+  ],
+  "bounded_anchor_source": {
+    "id": "E18",
+    "path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/soh_anchor_analysis/soh_reference_anchors.csv",
+    "maximum_data_records": 8,
+    "maximum_age_h_exclusive": 1819.997738,
+    "allowed_splits": [
+      "train",
+      "validation"
+    ],
+    "file_sha256_prohibited": true,
+    "git_blob_content_prohibited": true
+  },
+  "checkpoint_map_id": "E27",
+  "scope_note": "Source documents may mention historical Test metadata; only the explicitly bounded Development anchor prefix is read from a mixed numeric CSV. No feature tables, prediction arrays, raw data, Test targets or model imports.",
+  "required_reports": [
+    "K_INNOVATION_EVIDENCE_MATRIX.md",
+    "K_INNOVATION_STRATEGY_COMPARISON.md",
+    "K_SOH_GROUND_TRUTH_FEASIBILITY.md",
+    "K_DEGRADATION_REPRESENTATION_EVIDENCE.md",
+    "K_EOL_AND_CENSORING_FEASIBILITY.md",
+    "K_TASK_FEASIBILITY_MATRIX.md",
+    "K_PAPER_SCOPE_OPTIONS.md",
+    "K_FUTURE_EXPERIMENT_PLAN.md",
+    "K_FINAL_RESEARCH_RECOMMENDATION.md"
+  ]
+}

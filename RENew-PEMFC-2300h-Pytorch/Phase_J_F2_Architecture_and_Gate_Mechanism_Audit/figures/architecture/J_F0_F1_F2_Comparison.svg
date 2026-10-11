@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="977.4pt" height="507.605625pt" viewBox="0 0 977.4 507.605625" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-11T16:06:32.099604</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 507.605625
+L 977.4 507.605625
+L 977.4 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 31.14 373.3236
+L 276.66 373.3236
+Q 283.635 373.3236 283.635 363.6216
+L 283.635 130.7736
+Q 283.635 121.0716 276.66 121.0716
+L 31.14 121.0716
+Q 24.165 121.0716 24.165 130.7736
+L 24.165 363.6216
+Q 24.165 373.3236 31.14 373.3236
+z
+" clip-path="url(#pf4b9aab61b)" style="fill: #cfcece; stroke: #4d4d4d; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 17px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif; text-anchor: middle" x="153.9" y="99.7272" transform="rotate(-0 153.9 99.7272)">F0: native TFT</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif" transform="translate(75.035625 223.763062)">Encoder VSN -&gt; native LSTM</text>
+    <text style="font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif" transform="translate(63.081563 242.467875)">GLU + AddNorm -&gt; native TFT tail</text>
+    <text style="font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif" transform="translate(50.844375 261.172687)">No convolution branch; no regime gate</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 17px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif; text-anchor: middle" x="153.9" y="398.5488" transform="rotate(-0 153.9 398.5488)">323,483 parameters</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_3">
+    <path d="M 365.94 373.3236
+L 611.46 373.3236
+Q 618.435 373.3236 618.435 363.6216
+L 618.435 130.7736
+Q 618.435 121.0716 611.46 121.0716
+L 365.94 121.0716
+Q 358.965 121.0716 358.965 130.7736
+L 358.965 363.6216
+Q 358.965 373.3236 365.94 373.3236
+z
+" clip-path="url(#p16a1b5bcb0)" style="fill: #ddf3de; stroke: #4d4d4d; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 17px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif; text-anchor: middle" x="488.7" y="99.7272" transform="rotate(-0 488.7 99.7272)">F1: fixed dual path</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif" transform="translate(381.152812 223.5555)">Encoder VSN -&gt; LSTM and causal Conv</text>
+    <text style="font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif" transform="translate(416.50125 242.538187)">0.5 H_LSTM + 0.5 H_Conv</text>
+    <text style="font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif" transform="translate(389.311875 261.520875)">Native decoder / attention / output tail</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 17px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif; text-anchor: middle" x="488.7" y="398.5488" transform="rotate(-0 488.7 398.5488)">332,379 parameters</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_4">
+    <path d="M 700.74 373.3236
+L 946.26 373.3236
+Q 953.235 373.3236 953.235 363.6216
+L 953.235 130.7736
+Q 953.235 121.0716 946.26 121.0716
+L 700.74 121.0716
+Q 693.765 121.0716 693.765 130.7736
+L 693.765 363.6216
+Q 693.765 373.3236 700.74 373.3236
+z
+" clip-path="url(#p9c6d3c18a9)" style="fill: #dce8f3; stroke: #4d4d4d; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 17px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif; text-anchor: middle" x="823.5" y="99.7272" transform="rotate(-0 823.5 99.7272)">F2: regime-aware dual path</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif" transform="translate(733.962188 214.028625)">F1 branches + historical context z</text>
+    <text style="font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif" transform="translate(755.130937 232.801125)">5 -&gt; 8 -&gt; 1 sigmoid gate g</text>
+    <text style="font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif" transform="translate(751.978125 251.924437)">g H_LSTM + (1-g) H_Conv</text>
+    <text style="font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif" transform="translate(724.111875 271.04775)">Native decoder / attention / output tail</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 17px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif; text-anchor: middle" x="823.5" y="398.5488" transform="rotate(-0 823.5 398.5488)">332,436 parameters</text>
+   </g>
+  </g>
+  <g id="text_10">
+   <text style="font-size: 18px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif; text-anchor: middle" x="473.4" y="27.503437" transform="rotate(-0 473.4 27.503437)">Matched implementation contrast; fusion is not output averaging</text>
+  </g>
+  <g id="text_11">
+   <text style="font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', sans-serif; text-anchor: middle" x="473.4" y="490.68" transform="rotate(-0 473.4 490.68)">F1 adds 8,896 parameters; F2 adds 57. Original LSTM encoder h/c still seeds native decoder.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pf4b9aab61b">
+   <rect x="14.4" y="64.8" width="279" height="388.08"/>
+  </clipPath>
+  <clipPath id="p16a1b5bcb0">
+   <rect x="349.2" y="64.8" width="279" height="388.08"/>
+  </clipPath>
+  <clipPath id="p9c6d3c18a9">
+   <rect x="684" y="64.8" width="279" height="388.08"/>
+  </clipPath>
+ </defs>
+</svg>

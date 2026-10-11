@@ -1,0 +1,18 @@
+flowchart TD
+ Raw["48 x 14 observed Raw F2 history"] --> Prep["Train-only frozen Top10; voltage causal EWMA alpha .3; saved scaler; mask"]
+ Prep --> VSN["Native TFT prescalers + encoder VSN; relative historical coordinate"]
+ VSN --> LSTM["LSTM encoder -> GLU + AddNorm: H_LSTM"]
+ VSN --> Conv["Depthwise k3 d1 / d4 -> concat -> pointwise -> dropout + VSN residual -> LayerNorm: H_Conv"]
+ Prep --> Context["48-step mean of five retained standardized operating variables"]
+ Context --> Gate["Linear 5-8; ELU; Linear 8-1; sigmoid; one g per origin"]
+ LSTM --> Fuse["g H_LSTM + (1-g) H_Conv: historical representation only"]
+ Conv --> Fuse
+ Gate --> Fuse
+ LSTM -. "Original encoder h/c, before fusion" .-> Decoder["Native LSTM decoder; deterministic relative steps only -> GLU + AddNorm"]
+ Relative["Known relative forecast coordinate; no future measured conditions"] --> Decoder
+ Fuse --> Cat["Concat fused encoder and native decoder; static enrichment"]
+ Decoder --> Cat
+ Cat --> Attention["Native causal interpretable attention; decoder queries; history+decoder K/V"]
+ Attention --> Head["GateNorm; position-wise GRN; pre-output GateNorm; scalar projection at each of 24 steps"]
+ Decoder -. "native decoder residual" .-> Head
+ Head --> Delta["DeltaV standardized -> frozen voltage-scale inverse transform"]

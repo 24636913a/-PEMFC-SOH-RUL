@@ -1,0 +1,16 @@
+Actual command:
+python -B -m unittest discover -s cache_completion -p test_saved_cache_audit.py -v
+
+test_Test_source_rejected_before_io (test_saved_cache_audit.CacheAuditTest.test_Test_source_rejected_before_io) ... ok
+test_incorrect_primary_value_fails (test_saved_cache_audit.CacheAuditTest.test_incorrect_primary_value_fails) ... ok
+test_original_prediction_mutation_fails (test_saved_cache_audit.CacheAuditTest.test_original_prediction_mutation_fails) ... ok
+test_original_target_key_mutation_fails (test_saved_cache_audit.CacheAuditTest.test_original_target_key_mutation_fails) ... ok
+test_primary_three_columns_and_secondary_cache_recalculation (test_saved_cache_audit.CacheAuditTest.test_primary_three_columns_and_secondary_cache_recalculation) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.031s
+
+OK
+
+Exit code: 0
+These tests executed production cache validators and used no model inference.

@@ -1,0 +1,945 @@
+model,name,shape,parameters
+F0,prescalers.raw_f2_00.weight,"(32, 1)",32
+F0,prescalers.raw_f2_00.bias,"(32,)",32
+F0,prescalers.raw_f2_01.weight,"(32, 1)",32
+F0,prescalers.raw_f2_01.bias,"(32,)",32
+F0,prescalers.raw_f2_02.weight,"(32, 1)",32
+F0,prescalers.raw_f2_02.bias,"(32,)",32
+F0,prescalers.raw_f2_03.weight,"(32, 1)",32
+F0,prescalers.raw_f2_03.bias,"(32,)",32
+F0,prescalers.raw_f2_04.weight,"(32, 1)",32
+F0,prescalers.raw_f2_04.bias,"(32,)",32
+F0,prescalers.raw_f2_05.weight,"(32, 1)",32
+F0,prescalers.raw_f2_05.bias,"(32,)",32
+F0,prescalers.raw_f2_06.weight,"(32, 1)",32
+F0,prescalers.raw_f2_06.bias,"(32,)",32
+F0,prescalers.raw_f2_07.weight,"(32, 1)",32
+F0,prescalers.raw_f2_07.bias,"(32,)",32
+F0,prescalers.raw_f2_08.weight,"(32, 1)",32
+F0,prescalers.raw_f2_08.bias,"(32,)",32
+F0,prescalers.raw_f2_09.weight,"(32, 1)",32
+F0,prescalers.raw_f2_09.bias,"(32,)",32
+F0,prescalers.raw_f2_10.weight,"(32, 1)",32
+F0,prescalers.raw_f2_10.bias,"(32,)",32
+F0,prescalers.raw_f2_11.weight,"(32, 1)",32
+F0,prescalers.raw_f2_11.bias,"(32,)",32
+F0,prescalers.raw_f2_12.weight,"(32, 1)",32
+F0,prescalers.raw_f2_12.bias,"(32,)",32
+F0,prescalers.raw_f2_13.weight,"(32, 1)",32
+F0,prescalers.raw_f2_13.bias,"(32,)",32
+F0,prescalers.relative_forecast_step.weight,"(32, 1)",32
+F0,prescalers.relative_forecast_step.bias,"(32,)",32
+F0,encoder_variable_selection.flattened_grn.resample_norm.mask,"(15,)",15
+F0,encoder_variable_selection.flattened_grn.resample_norm.norm.weight,"(15,)",15
+F0,encoder_variable_selection.flattened_grn.resample_norm.norm.bias,"(15,)",15
+F0,encoder_variable_selection.flattened_grn.fc1.weight,"(15, 480)",7200
+F0,encoder_variable_selection.flattened_grn.fc1.bias,"(15,)",15
+F0,encoder_variable_selection.flattened_grn.context.weight,"(15, 64)",960
+F0,encoder_variable_selection.flattened_grn.fc2.weight,"(15, 15)",225
+F0,encoder_variable_selection.flattened_grn.fc2.bias,"(15,)",15
+F0,encoder_variable_selection.flattened_grn.gate_norm.glu.fc.weight,"(30, 15)",450
+F0,encoder_variable_selection.flattened_grn.gate_norm.glu.fc.bias,"(30,)",30
+F0,encoder_variable_selection.flattened_grn.gate_norm.add_norm.norm.weight,"(15,)",15
+F0,encoder_variable_selection.flattened_grn.gate_norm.add_norm.norm.bias,"(15,)",15
+F0,encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_00.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_00.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_00.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_00.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_01.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_01.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_01.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_01.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_02.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_02.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_02.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_02.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_03.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_03.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_03.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_03.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_04.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_04.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_04.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_04.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_05.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_05.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_05.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_05.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_06.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_06.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_06.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_06.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_07.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_07.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_07.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_07.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_08.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_08.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_08.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_08.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_09.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_09.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_09.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_09.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_10.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_10.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_10.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_10.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_11.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_11.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_11.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_11.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_12.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_12.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_12.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_12.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_13.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_13.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_13.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.raw_f2_13.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.mask,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.bias,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.weight,"(32, 32)",1024
+F0,encoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.bias,"(32,)",32
+F0,encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.bias,"(128,)",128
+F0,encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.mask,"(64,)",64
+F0,decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.weight,"(64,)",64
+F0,decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.bias,"(64,)",64
+F0,decoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.weight,"(32, 32)",1024
+F0,decoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.bias,"(32,)",32
+F0,decoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.weight,"(32, 32)",1024
+F0,decoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.bias,"(32,)",32
+F0,decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.weight,"(128, 32)",4096
+F0,decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.bias,"(128,)",128
+F0,decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,static_context_variable_selection.fc1.weight,"(64, 64)",4096
+F0,static_context_variable_selection.fc1.bias,"(64,)",64
+F0,static_context_variable_selection.fc2.weight,"(64, 64)",4096
+F0,static_context_variable_selection.fc2.bias,"(64,)",64
+F0,static_context_variable_selection.gate_norm.glu.fc.weight,"(128, 64)",8192
+F0,static_context_variable_selection.gate_norm.glu.fc.bias,"(128,)",128
+F0,static_context_variable_selection.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,static_context_variable_selection.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,static_context_initial_hidden_lstm.fc1.weight,"(64, 64)",4096
+F0,static_context_initial_hidden_lstm.fc1.bias,"(64,)",64
+F0,static_context_initial_hidden_lstm.fc2.weight,"(64, 64)",4096
+F0,static_context_initial_hidden_lstm.fc2.bias,"(64,)",64
+F0,static_context_initial_hidden_lstm.gate_norm.glu.fc.weight,"(128, 64)",8192
+F0,static_context_initial_hidden_lstm.gate_norm.glu.fc.bias,"(128,)",128
+F0,static_context_initial_hidden_lstm.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,static_context_initial_hidden_lstm.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,static_context_initial_cell_lstm.fc1.weight,"(64, 64)",4096
+F0,static_context_initial_cell_lstm.fc1.bias,"(64,)",64
+F0,static_context_initial_cell_lstm.fc2.weight,"(64, 64)",4096
+F0,static_context_initial_cell_lstm.fc2.bias,"(64,)",64
+F0,static_context_initial_cell_lstm.gate_norm.glu.fc.weight,"(128, 64)",8192
+F0,static_context_initial_cell_lstm.gate_norm.glu.fc.bias,"(128,)",128
+F0,static_context_initial_cell_lstm.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,static_context_initial_cell_lstm.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,static_context_enrichment.fc1.weight,"(64, 64)",4096
+F0,static_context_enrichment.fc1.bias,"(64,)",64
+F0,static_context_enrichment.fc2.weight,"(64, 64)",4096
+F0,static_context_enrichment.fc2.bias,"(64,)",64
+F0,static_context_enrichment.gate_norm.glu.fc.weight,"(128, 64)",8192
+F0,static_context_enrichment.gate_norm.glu.fc.bias,"(128,)",128
+F0,static_context_enrichment.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,static_context_enrichment.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,lstm_encoder.weight_ih_l0,"(256, 64)",16384
+F0,lstm_encoder.weight_hh_l0,"(256, 64)",16384
+F0,lstm_encoder.bias_ih_l0,"(256,)",256
+F0,lstm_encoder.bias_hh_l0,"(256,)",256
+F0,lstm_decoder.weight_ih_l0,"(256, 64)",16384
+F0,lstm_decoder.weight_hh_l0,"(256, 64)",16384
+F0,lstm_decoder.bias_ih_l0,"(256,)",256
+F0,lstm_decoder.bias_hh_l0,"(256,)",256
+F0,post_lstm_gate_encoder.fc.weight,"(128, 64)",8192
+F0,post_lstm_gate_encoder.fc.bias,"(128,)",128
+F0,post_lstm_add_norm_encoder.norm.weight,"(64,)",64
+F0,post_lstm_add_norm_encoder.norm.bias,"(64,)",64
+F0,static_enrichment.fc1.weight,"(64, 64)",4096
+F0,static_enrichment.fc1.bias,"(64,)",64
+F0,static_enrichment.context.weight,"(64, 64)",4096
+F0,static_enrichment.fc2.weight,"(64, 64)",4096
+F0,static_enrichment.fc2.bias,"(64,)",64
+F0,static_enrichment.gate_norm.glu.fc.weight,"(128, 64)",8192
+F0,static_enrichment.gate_norm.glu.fc.bias,"(128,)",128
+F0,static_enrichment.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,static_enrichment.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,multihead_attn.v_layer.weight,"(16, 64)",1024
+F0,multihead_attn.v_layer.bias,"(16,)",16
+F0,multihead_attn.q_layers.0.weight,"(16, 64)",1024
+F0,multihead_attn.q_layers.0.bias,"(16,)",16
+F0,multihead_attn.q_layers.1.weight,"(16, 64)",1024
+F0,multihead_attn.q_layers.1.bias,"(16,)",16
+F0,multihead_attn.q_layers.2.weight,"(16, 64)",1024
+F0,multihead_attn.q_layers.2.bias,"(16,)",16
+F0,multihead_attn.q_layers.3.weight,"(16, 64)",1024
+F0,multihead_attn.q_layers.3.bias,"(16,)",16
+F0,multihead_attn.k_layers.0.weight,"(16, 64)",1024
+F0,multihead_attn.k_layers.0.bias,"(16,)",16
+F0,multihead_attn.k_layers.1.weight,"(16, 64)",1024
+F0,multihead_attn.k_layers.1.bias,"(16,)",16
+F0,multihead_attn.k_layers.2.weight,"(16, 64)",1024
+F0,multihead_attn.k_layers.2.bias,"(16,)",16
+F0,multihead_attn.k_layers.3.weight,"(16, 64)",1024
+F0,multihead_attn.k_layers.3.bias,"(16,)",16
+F0,multihead_attn.w_h.weight,"(64, 16)",1024
+F0,post_attn_gate_norm.glu.fc.weight,"(128, 64)",8192
+F0,post_attn_gate_norm.glu.fc.bias,"(128,)",128
+F0,post_attn_gate_norm.add_norm.norm.weight,"(64,)",64
+F0,post_attn_gate_norm.add_norm.norm.bias,"(64,)",64
+F0,pos_wise_ff.fc1.weight,"(64, 64)",4096
+F0,pos_wise_ff.fc1.bias,"(64,)",64
+F0,pos_wise_ff.fc2.weight,"(64, 64)",4096
+F0,pos_wise_ff.fc2.bias,"(64,)",64
+F0,pos_wise_ff.gate_norm.glu.fc.weight,"(128, 64)",8192
+F0,pos_wise_ff.gate_norm.glu.fc.bias,"(128,)",128
+F0,pos_wise_ff.gate_norm.add_norm.norm.weight,"(64,)",64
+F0,pos_wise_ff.gate_norm.add_norm.norm.bias,"(64,)",64
+F0,pre_output_gate_norm.glu.fc.weight,"(128, 64)",8192
+F0,pre_output_gate_norm.glu.fc.bias,"(128,)",128
+F0,pre_output_gate_norm.add_norm.norm.weight,"(64,)",64
+F0,pre_output_gate_norm.add_norm.norm.bias,"(64,)",64
+F0,output_layer.weight,"(1, 64)",64
+F0,output_layer.bias,"(1,)",1
+F1,prescalers.raw_f2_00.weight,"(32, 1)",32
+F1,prescalers.raw_f2_00.bias,"(32,)",32
+F1,prescalers.raw_f2_01.weight,"(32, 1)",32
+F1,prescalers.raw_f2_01.bias,"(32,)",32
+F1,prescalers.raw_f2_02.weight,"(32, 1)",32
+F1,prescalers.raw_f2_02.bias,"(32,)",32
+F1,prescalers.raw_f2_03.weight,"(32, 1)",32
+F1,prescalers.raw_f2_03.bias,"(32,)",32
+F1,prescalers.raw_f2_04.weight,"(32, 1)",32
+F1,prescalers.raw_f2_04.bias,"(32,)",32
+F1,prescalers.raw_f2_05.weight,"(32, 1)",32
+F1,prescalers.raw_f2_05.bias,"(32,)",32
+F1,prescalers.raw_f2_06.weight,"(32, 1)",32
+F1,prescalers.raw_f2_06.bias,"(32,)",32
+F1,prescalers.raw_f2_07.weight,"(32, 1)",32
+F1,prescalers.raw_f2_07.bias,"(32,)",32
+F1,prescalers.raw_f2_08.weight,"(32, 1)",32
+F1,prescalers.raw_f2_08.bias,"(32,)",32
+F1,prescalers.raw_f2_09.weight,"(32, 1)",32
+F1,prescalers.raw_f2_09.bias,"(32,)",32
+F1,prescalers.raw_f2_10.weight,"(32, 1)",32
+F1,prescalers.raw_f2_10.bias,"(32,)",32
+F1,prescalers.raw_f2_11.weight,"(32, 1)",32
+F1,prescalers.raw_f2_11.bias,"(32,)",32
+F1,prescalers.raw_f2_12.weight,"(32, 1)",32
+F1,prescalers.raw_f2_12.bias,"(32,)",32
+F1,prescalers.raw_f2_13.weight,"(32, 1)",32
+F1,prescalers.raw_f2_13.bias,"(32,)",32
+F1,prescalers.relative_forecast_step.weight,"(32, 1)",32
+F1,prescalers.relative_forecast_step.bias,"(32,)",32
+F1,encoder_variable_selection.flattened_grn.resample_norm.mask,"(15,)",15
+F1,encoder_variable_selection.flattened_grn.resample_norm.norm.weight,"(15,)",15
+F1,encoder_variable_selection.flattened_grn.resample_norm.norm.bias,"(15,)",15
+F1,encoder_variable_selection.flattened_grn.fc1.weight,"(15, 480)",7200
+F1,encoder_variable_selection.flattened_grn.fc1.bias,"(15,)",15
+F1,encoder_variable_selection.flattened_grn.context.weight,"(15, 64)",960
+F1,encoder_variable_selection.flattened_grn.fc2.weight,"(15, 15)",225
+F1,encoder_variable_selection.flattened_grn.fc2.bias,"(15,)",15
+F1,encoder_variable_selection.flattened_grn.gate_norm.glu.fc.weight,"(30, 15)",450
+F1,encoder_variable_selection.flattened_grn.gate_norm.glu.fc.bias,"(30,)",30
+F1,encoder_variable_selection.flattened_grn.gate_norm.add_norm.norm.weight,"(15,)",15
+F1,encoder_variable_selection.flattened_grn.gate_norm.add_norm.norm.bias,"(15,)",15
+F1,encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_00.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_00.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_00.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_00.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_01.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_01.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_01.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_01.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_02.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_02.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_02.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_02.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_03.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_03.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_03.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_03.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_04.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_04.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_04.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_04.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_05.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_05.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_05.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_05.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_06.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_06.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_06.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_06.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_07.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_07.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_07.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_07.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_08.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_08.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_08.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_08.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_09.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_09.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_09.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_09.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_10.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_10.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_10.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_10.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_11.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_11.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_11.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_11.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_12.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_12.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_12.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_12.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_13.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_13.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_13.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.raw_f2_13.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.mask,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.bias,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.weight,"(32, 32)",1024
+F1,encoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.bias,"(32,)",32
+F1,encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.bias,"(128,)",128
+F1,encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.mask,"(64,)",64
+F1,decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.weight,"(64,)",64
+F1,decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.bias,"(64,)",64
+F1,decoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.weight,"(32, 32)",1024
+F1,decoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.bias,"(32,)",32
+F1,decoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.weight,"(32, 32)",1024
+F1,decoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.bias,"(32,)",32
+F1,decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.weight,"(128, 32)",4096
+F1,decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.bias,"(128,)",128
+F1,decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,static_context_variable_selection.fc1.weight,"(64, 64)",4096
+F1,static_context_variable_selection.fc1.bias,"(64,)",64
+F1,static_context_variable_selection.fc2.weight,"(64, 64)",4096
+F1,static_context_variable_selection.fc2.bias,"(64,)",64
+F1,static_context_variable_selection.gate_norm.glu.fc.weight,"(128, 64)",8192
+F1,static_context_variable_selection.gate_norm.glu.fc.bias,"(128,)",128
+F1,static_context_variable_selection.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,static_context_variable_selection.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,static_context_initial_hidden_lstm.fc1.weight,"(64, 64)",4096
+F1,static_context_initial_hidden_lstm.fc1.bias,"(64,)",64
+F1,static_context_initial_hidden_lstm.fc2.weight,"(64, 64)",4096
+F1,static_context_initial_hidden_lstm.fc2.bias,"(64,)",64
+F1,static_context_initial_hidden_lstm.gate_norm.glu.fc.weight,"(128, 64)",8192
+F1,static_context_initial_hidden_lstm.gate_norm.glu.fc.bias,"(128,)",128
+F1,static_context_initial_hidden_lstm.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,static_context_initial_hidden_lstm.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,static_context_initial_cell_lstm.fc1.weight,"(64, 64)",4096
+F1,static_context_initial_cell_lstm.fc1.bias,"(64,)",64
+F1,static_context_initial_cell_lstm.fc2.weight,"(64, 64)",4096
+F1,static_context_initial_cell_lstm.fc2.bias,"(64,)",64
+F1,static_context_initial_cell_lstm.gate_norm.glu.fc.weight,"(128, 64)",8192
+F1,static_context_initial_cell_lstm.gate_norm.glu.fc.bias,"(128,)",128
+F1,static_context_initial_cell_lstm.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,static_context_initial_cell_lstm.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,static_context_enrichment.fc1.weight,"(64, 64)",4096
+F1,static_context_enrichment.fc1.bias,"(64,)",64
+F1,static_context_enrichment.fc2.weight,"(64, 64)",4096
+F1,static_context_enrichment.fc2.bias,"(64,)",64
+F1,static_context_enrichment.gate_norm.glu.fc.weight,"(128, 64)",8192
+F1,static_context_enrichment.gate_norm.glu.fc.bias,"(128,)",128
+F1,static_context_enrichment.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,static_context_enrichment.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,lstm_encoder.weight_ih_l0,"(256, 64)",16384
+F1,lstm_encoder.weight_hh_l0,"(256, 64)",16384
+F1,lstm_encoder.bias_ih_l0,"(256,)",256
+F1,lstm_encoder.bias_hh_l0,"(256,)",256
+F1,lstm_decoder.weight_ih_l0,"(256, 64)",16384
+F1,lstm_decoder.weight_hh_l0,"(256, 64)",16384
+F1,lstm_decoder.bias_ih_l0,"(256,)",256
+F1,lstm_decoder.bias_hh_l0,"(256,)",256
+F1,post_lstm_gate_encoder.fc.weight,"(128, 64)",8192
+F1,post_lstm_gate_encoder.fc.bias,"(128,)",128
+F1,post_lstm_add_norm_encoder.norm.weight,"(64,)",64
+F1,post_lstm_add_norm_encoder.norm.bias,"(64,)",64
+F1,static_enrichment.fc1.weight,"(64, 64)",4096
+F1,static_enrichment.fc1.bias,"(64,)",64
+F1,static_enrichment.context.weight,"(64, 64)",4096
+F1,static_enrichment.fc2.weight,"(64, 64)",4096
+F1,static_enrichment.fc2.bias,"(64,)",64
+F1,static_enrichment.gate_norm.glu.fc.weight,"(128, 64)",8192
+F1,static_enrichment.gate_norm.glu.fc.bias,"(128,)",128
+F1,static_enrichment.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,static_enrichment.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,multihead_attn.v_layer.weight,"(16, 64)",1024
+F1,multihead_attn.v_layer.bias,"(16,)",16
+F1,multihead_attn.q_layers.0.weight,"(16, 64)",1024
+F1,multihead_attn.q_layers.0.bias,"(16,)",16
+F1,multihead_attn.q_layers.1.weight,"(16, 64)",1024
+F1,multihead_attn.q_layers.1.bias,"(16,)",16
+F1,multihead_attn.q_layers.2.weight,"(16, 64)",1024
+F1,multihead_attn.q_layers.2.bias,"(16,)",16
+F1,multihead_attn.q_layers.3.weight,"(16, 64)",1024
+F1,multihead_attn.q_layers.3.bias,"(16,)",16
+F1,multihead_attn.k_layers.0.weight,"(16, 64)",1024
+F1,multihead_attn.k_layers.0.bias,"(16,)",16
+F1,multihead_attn.k_layers.1.weight,"(16, 64)",1024
+F1,multihead_attn.k_layers.1.bias,"(16,)",16
+F1,multihead_attn.k_layers.2.weight,"(16, 64)",1024
+F1,multihead_attn.k_layers.2.bias,"(16,)",16
+F1,multihead_attn.k_layers.3.weight,"(16, 64)",1024
+F1,multihead_attn.k_layers.3.bias,"(16,)",16
+F1,multihead_attn.w_h.weight,"(64, 16)",1024
+F1,post_attn_gate_norm.glu.fc.weight,"(128, 64)",8192
+F1,post_attn_gate_norm.glu.fc.bias,"(128,)",128
+F1,post_attn_gate_norm.add_norm.norm.weight,"(64,)",64
+F1,post_attn_gate_norm.add_norm.norm.bias,"(64,)",64
+F1,pos_wise_ff.fc1.weight,"(64, 64)",4096
+F1,pos_wise_ff.fc1.bias,"(64,)",64
+F1,pos_wise_ff.fc2.weight,"(64, 64)",4096
+F1,pos_wise_ff.fc2.bias,"(64,)",64
+F1,pos_wise_ff.gate_norm.glu.fc.weight,"(128, 64)",8192
+F1,pos_wise_ff.gate_norm.glu.fc.bias,"(128,)",128
+F1,pos_wise_ff.gate_norm.add_norm.norm.weight,"(64,)",64
+F1,pos_wise_ff.gate_norm.add_norm.norm.bias,"(64,)",64
+F1,pre_output_gate_norm.glu.fc.weight,"(128, 64)",8192
+F1,pre_output_gate_norm.glu.fc.bias,"(128,)",128
+F1,pre_output_gate_norm.add_norm.norm.weight,"(64,)",64
+F1,pre_output_gate_norm.add_norm.norm.bias,"(64,)",64
+F1,output_layer.weight,"(1, 64)",64
+F1,output_layer.bias,"(1,)",1
+F1,history_branch.short.conv.weight,"(64, 1, 3)",192
+F1,history_branch.short.conv.bias,"(64,)",64
+F1,history_branch.medium.conv.weight,"(64, 1, 3)",192
+F1,history_branch.medium.conv.bias,"(64,)",64
+F1,history_branch.pointwise.weight,"(64, 128, 1)",8192
+F1,history_branch.pointwise.bias,"(64,)",64
+F1,history_branch.norm.weight,"(64,)",64
+F1,history_branch.norm.bias,"(64,)",64
+F2,prescalers.raw_f2_00.weight,"(32, 1)",32
+F2,prescalers.raw_f2_00.bias,"(32,)",32
+F2,prescalers.raw_f2_01.weight,"(32, 1)",32
+F2,prescalers.raw_f2_01.bias,"(32,)",32
+F2,prescalers.raw_f2_02.weight,"(32, 1)",32
+F2,prescalers.raw_f2_02.bias,"(32,)",32
+F2,prescalers.raw_f2_03.weight,"(32, 1)",32
+F2,prescalers.raw_f2_03.bias,"(32,)",32
+F2,prescalers.raw_f2_04.weight,"(32, 1)",32
+F2,prescalers.raw_f2_04.bias,"(32,)",32
+F2,prescalers.raw_f2_05.weight,"(32, 1)",32
+F2,prescalers.raw_f2_05.bias,"(32,)",32
+F2,prescalers.raw_f2_06.weight,"(32, 1)",32
+F2,prescalers.raw_f2_06.bias,"(32,)",32
+F2,prescalers.raw_f2_07.weight,"(32, 1)",32
+F2,prescalers.raw_f2_07.bias,"(32,)",32
+F2,prescalers.raw_f2_08.weight,"(32, 1)",32
+F2,prescalers.raw_f2_08.bias,"(32,)",32
+F2,prescalers.raw_f2_09.weight,"(32, 1)",32
+F2,prescalers.raw_f2_09.bias,"(32,)",32
+F2,prescalers.raw_f2_10.weight,"(32, 1)",32
+F2,prescalers.raw_f2_10.bias,"(32,)",32
+F2,prescalers.raw_f2_11.weight,"(32, 1)",32
+F2,prescalers.raw_f2_11.bias,"(32,)",32
+F2,prescalers.raw_f2_12.weight,"(32, 1)",32
+F2,prescalers.raw_f2_12.bias,"(32,)",32
+F2,prescalers.raw_f2_13.weight,"(32, 1)",32
+F2,prescalers.raw_f2_13.bias,"(32,)",32
+F2,prescalers.relative_forecast_step.weight,"(32, 1)",32
+F2,prescalers.relative_forecast_step.bias,"(32,)",32
+F2,encoder_variable_selection.flattened_grn.resample_norm.mask,"(15,)",15
+F2,encoder_variable_selection.flattened_grn.resample_norm.norm.weight,"(15,)",15
+F2,encoder_variable_selection.flattened_grn.resample_norm.norm.bias,"(15,)",15
+F2,encoder_variable_selection.flattened_grn.fc1.weight,"(15, 480)",7200
+F2,encoder_variable_selection.flattened_grn.fc1.bias,"(15,)",15
+F2,encoder_variable_selection.flattened_grn.context.weight,"(15, 64)",960
+F2,encoder_variable_selection.flattened_grn.fc2.weight,"(15, 15)",225
+F2,encoder_variable_selection.flattened_grn.fc2.bias,"(15,)",15
+F2,encoder_variable_selection.flattened_grn.gate_norm.glu.fc.weight,"(30, 15)",450
+F2,encoder_variable_selection.flattened_grn.gate_norm.glu.fc.bias,"(30,)",30
+F2,encoder_variable_selection.flattened_grn.gate_norm.add_norm.norm.weight,"(15,)",15
+F2,encoder_variable_selection.flattened_grn.gate_norm.add_norm.norm.bias,"(15,)",15
+F2,encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_00.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_00.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_00.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_00.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_00.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_01.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_01.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_01.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_01.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_01.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_02.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_02.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_02.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_02.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_02.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_03.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_03.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_03.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_03.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_03.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_04.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_04.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_04.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_04.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_04.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_05.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_05.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_05.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_05.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_05.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_06.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_06.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_06.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_06.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_06.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_07.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_07.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_07.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_07.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_07.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_08.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_08.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_08.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_08.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_08.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_09.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_09.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_09.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_09.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_09.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_10.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_10.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_10.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_10.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_10.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_11.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_11.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_11.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_11.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_11.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_12.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_12.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_12.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_12.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_12.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_13.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_13.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_13.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.raw_f2_13.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.raw_f2_13.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.mask,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.bias,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.weight,"(32, 32)",1024
+F2,encoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.bias,"(32,)",32
+F2,encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.bias,"(128,)",128
+F2,encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,encoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.mask,"(64,)",64
+F2,decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.weight,"(64,)",64
+F2,decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.norm.bias,"(64,)",64
+F2,decoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.weight,"(32, 32)",1024
+F2,decoder_variable_selection.single_variable_grns.relative_forecast_step.fc1.bias,"(32,)",32
+F2,decoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.weight,"(32, 32)",1024
+F2,decoder_variable_selection.single_variable_grns.relative_forecast_step.fc2.bias,"(32,)",32
+F2,decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.weight,"(128, 32)",4096
+F2,decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.glu.fc.bias,"(128,)",128
+F2,decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,decoder_variable_selection.single_variable_grns.relative_forecast_step.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,static_context_variable_selection.fc1.weight,"(64, 64)",4096
+F2,static_context_variable_selection.fc1.bias,"(64,)",64
+F2,static_context_variable_selection.fc2.weight,"(64, 64)",4096
+F2,static_context_variable_selection.fc2.bias,"(64,)",64
+F2,static_context_variable_selection.gate_norm.glu.fc.weight,"(128, 64)",8192
+F2,static_context_variable_selection.gate_norm.glu.fc.bias,"(128,)",128
+F2,static_context_variable_selection.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,static_context_variable_selection.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,static_context_initial_hidden_lstm.fc1.weight,"(64, 64)",4096
+F2,static_context_initial_hidden_lstm.fc1.bias,"(64,)",64
+F2,static_context_initial_hidden_lstm.fc2.weight,"(64, 64)",4096
+F2,static_context_initial_hidden_lstm.fc2.bias,"(64,)",64
+F2,static_context_initial_hidden_lstm.gate_norm.glu.fc.weight,"(128, 64)",8192
+F2,static_context_initial_hidden_lstm.gate_norm.glu.fc.bias,"(128,)",128
+F2,static_context_initial_hidden_lstm.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,static_context_initial_hidden_lstm.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,static_context_initial_cell_lstm.fc1.weight,"(64, 64)",4096
+F2,static_context_initial_cell_lstm.fc1.bias,"(64,)",64
+F2,static_context_initial_cell_lstm.fc2.weight,"(64, 64)",4096
+F2,static_context_initial_cell_lstm.fc2.bias,"(64,)",64
+F2,static_context_initial_cell_lstm.gate_norm.glu.fc.weight,"(128, 64)",8192
+F2,static_context_initial_cell_lstm.gate_norm.glu.fc.bias,"(128,)",128
+F2,static_context_initial_cell_lstm.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,static_context_initial_cell_lstm.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,static_context_enrichment.fc1.weight,"(64, 64)",4096
+F2,static_context_enrichment.fc1.bias,"(64,)",64
+F2,static_context_enrichment.fc2.weight,"(64, 64)",4096
+F2,static_context_enrichment.fc2.bias,"(64,)",64
+F2,static_context_enrichment.gate_norm.glu.fc.weight,"(128, 64)",8192
+F2,static_context_enrichment.gate_norm.glu.fc.bias,"(128,)",128
+F2,static_context_enrichment.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,static_context_enrichment.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,lstm_encoder.weight_ih_l0,"(256, 64)",16384
+F2,lstm_encoder.weight_hh_l0,"(256, 64)",16384
+F2,lstm_encoder.bias_ih_l0,"(256,)",256
+F2,lstm_encoder.bias_hh_l0,"(256,)",256
+F2,lstm_decoder.weight_ih_l0,"(256, 64)",16384
+F2,lstm_decoder.weight_hh_l0,"(256, 64)",16384
+F2,lstm_decoder.bias_ih_l0,"(256,)",256
+F2,lstm_decoder.bias_hh_l0,"(256,)",256
+F2,post_lstm_gate_encoder.fc.weight,"(128, 64)",8192
+F2,post_lstm_gate_encoder.fc.bias,"(128,)",128
+F2,post_lstm_add_norm_encoder.norm.weight,"(64,)",64
+F2,post_lstm_add_norm_encoder.norm.bias,"(64,)",64
+F2,static_enrichment.fc1.weight,"(64, 64)",4096
+F2,static_enrichment.fc1.bias,"(64,)",64
+F2,static_enrichment.context.weight,"(64, 64)",4096
+F2,static_enrichment.fc2.weight,"(64, 64)",4096
+F2,static_enrichment.fc2.bias,"(64,)",64
+F2,static_enrichment.gate_norm.glu.fc.weight,"(128, 64)",8192
+F2,static_enrichment.gate_norm.glu.fc.bias,"(128,)",128
+F2,static_enrichment.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,static_enrichment.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,multihead_attn.v_layer.weight,"(16, 64)",1024
+F2,multihead_attn.v_layer.bias,"(16,)",16
+F2,multihead_attn.q_layers.0.weight,"(16, 64)",1024
+F2,multihead_attn.q_layers.0.bias,"(16,)",16
+F2,multihead_attn.q_layers.1.weight,"(16, 64)",1024
+F2,multihead_attn.q_layers.1.bias,"(16,)",16
+F2,multihead_attn.q_layers.2.weight,"(16, 64)",1024
+F2,multihead_attn.q_layers.2.bias,"(16,)",16
+F2,multihead_attn.q_layers.3.weight,"(16, 64)",1024
+F2,multihead_attn.q_layers.3.bias,"(16,)",16
+F2,multihead_attn.k_layers.0.weight,"(16, 64)",1024
+F2,multihead_attn.k_layers.0.bias,"(16,)",16
+F2,multihead_attn.k_layers.1.weight,"(16, 64)",1024
+F2,multihead_attn.k_layers.1.bias,"(16,)",16
+F2,multihead_attn.k_layers.2.weight,"(16, 64)",1024
+F2,multihead_attn.k_layers.2.bias,"(16,)",16
+F2,multihead_attn.k_layers.3.weight,"(16, 64)",1024
+F2,multihead_attn.k_layers.3.bias,"(16,)",16
+F2,multihead_attn.w_h.weight,"(64, 16)",1024
+F2,post_attn_gate_norm.glu.fc.weight,"(128, 64)",8192
+F2,post_attn_gate_norm.glu.fc.bias,"(128,)",128
+F2,post_attn_gate_norm.add_norm.norm.weight,"(64,)",64
+F2,post_attn_gate_norm.add_norm.norm.bias,"(64,)",64
+F2,pos_wise_ff.fc1.weight,"(64, 64)",4096
+F2,pos_wise_ff.fc1.bias,"(64,)",64
+F2,pos_wise_ff.fc2.weight,"(64, 64)",4096
+F2,pos_wise_ff.fc2.bias,"(64,)",64
+F2,pos_wise_ff.gate_norm.glu.fc.weight,"(128, 64)",8192
+F2,pos_wise_ff.gate_norm.glu.fc.bias,"(128,)",128
+F2,pos_wise_ff.gate_norm.add_norm.norm.weight,"(64,)",64
+F2,pos_wise_ff.gate_norm.add_norm.norm.bias,"(64,)",64
+F2,pre_output_gate_norm.glu.fc.weight,"(128, 64)",8192
+F2,pre_output_gate_norm.glu.fc.bias,"(128,)",128
+F2,pre_output_gate_norm.add_norm.norm.weight,"(64,)",64
+F2,pre_output_gate_norm.add_norm.norm.bias,"(64,)",64
+F2,output_layer.weight,"(1, 64)",64
+F2,output_layer.bias,"(1,)",1
+F2,history_branch.short.conv.weight,"(64, 1, 3)",192
+F2,history_branch.short.conv.bias,"(64,)",64
+F2,history_branch.medium.conv.weight,"(64, 1, 3)",192
+F2,history_branch.medium.conv.bias,"(64,)",64
+F2,history_branch.pointwise.weight,"(64, 128, 1)",8192
+F2,history_branch.pointwise.bias,"(64,)",64
+F2,history_branch.norm.weight,"(64,)",64
+F2,history_branch.norm.bias,"(64,)",64
+F2,regime_gate.hidden.weight,"(8, 5)",40
+F2,regime_gate.hidden.bias,"(8,)",8
+F2,regime_gate.output.weight,"(1, 8)",8
+F2,regime_gate.output.bias,"(1,)",1

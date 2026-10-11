@@ -1,0 +1,42 @@
+{
+  "pass": true,
+  "parameters": [
+    {
+      "model": "F0",
+      "class": "CanonicalStrictHistoryTFT",
+      "parameters": 323483,
+      "branch_parameters": 0,
+      "gate_parameters": 0
+    },
+    {
+      "model": "F1",
+      "class": "DualPathStrictHistoryTFT",
+      "parameters": 332379,
+      "branch_parameters": 8896,
+      "gate_parameters": 0
+    },
+    {
+      "model": "F2",
+      "class": "RegimeAwareDualPathTFT",
+      "parameters": 332436,
+      "branch_parameters": 8896,
+      "gate_parameters": 57
+    }
+  ],
+  "gate_hidden": [
+    5,
+    8
+  ],
+  "gate_output": [
+    8,
+    1
+  ],
+  "gate_broadcast": "[B,1,1] shared across history features/time",
+  "conv_input": "encoder VSN [B,48,64]",
+  "conv_output": "[B,48,64]",
+  "fusion_lstm_input": "post-LSTM encoder GLU+AddNorm [B,48,64]",
+  "decoder_state_handoff": "original LSTM encoder h/c; fusion does not change h/c",
+  "decoder_input": "deterministic relative step only; 14 physical placeholders zero and excluded from decoder VSN",
+  "convolution_activation": "none before dropout/residual/LayerNorm",
+  "new_architecture": false
+}

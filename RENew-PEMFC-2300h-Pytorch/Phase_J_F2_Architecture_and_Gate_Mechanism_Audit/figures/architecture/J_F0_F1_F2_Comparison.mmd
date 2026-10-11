@@ -1,0 +1,3 @@
+flowchart LR
+ F0["F0: native encoder representation; 323483 params"] --> F1["F1: causal multiscale branch; fixed .5 encoder fusion; +8896 params"]
+ F1 --> F2["F2: replace fixed fusion with historical 5-8-1 gate; +57 params; 332436 total"]

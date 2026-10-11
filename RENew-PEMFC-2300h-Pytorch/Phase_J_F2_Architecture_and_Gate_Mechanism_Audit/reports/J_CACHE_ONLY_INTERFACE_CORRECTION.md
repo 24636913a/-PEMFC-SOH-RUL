@@ -1,0 +1,11 @@
+# Cache-only report interface correction
+
+The original inference protocol, all original J scripts/tests, original blocked wrapper ledger, nine successful stage tokens, checkpoints and historical phases remain unchanged.
+
+All 3 fixed32 parities, all 3 passive captures and all 3 fixed-.5/restoration stages completed before the report error. The original `audit_j_readonly.py` tried to read `endpoint_RMSE_mV` from the H primary table, which actually stores only RMSE/MAE/R2. The exception was additionally masked on stdout by GBK/UTF-8 decoding in the original wrapper. Logs and the BLOCKED record are preserved, not rewritten.
+
+A separately SHA-registered cache-only completion program consumes the already saved J outputs and three original H Validation prediction CSVs. Their exact expected SHA values come from the immutable, already-frozen H metric table. It validates all 4920 original keys/truth/predictions per Seed and recomputes all eight metrics from the original cache; the three stored primary fields must also match. This is not a tolerance relaxation or silent removal of checks.
+
+No J inference stage or original wrapper is retried. The model, input, thresholds, scientific decision rules and original protocol/code SHA stay fixed. All additional code/tests and input hashes are registered before cache-only completion in `configs/J_CACHE_ONLY_COMPLETION_MANIFEST.yaml`. The complete execution identity includes original frozen code and this explicit extension. Completion status is separate from the preserved original wrapper BLOCKED history.
+
+Historical registration used `python -B cache_completion/complete_saved_cache_audit.py --freeze` exactly once; that manifest is now frozen and must not be regenerated. Reproduction from the delivered package: `python -B -m unittest discover -s cache_completion -p test_saved_cache_audit.py -v`; then `python -B cache_completion/complete_saved_cache_audit.py --complete`. Remaining original analysis/figure/report scripts run from audited caches only; regenerated report drafts do not replace the final explanatory amendment history without review. No forward, backward, optimizer, Assessment or Test access is permitted in the completion step.

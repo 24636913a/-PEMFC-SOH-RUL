@@ -1,0 +1,29 @@
+{
+  "pass": true,
+  "seed": 42,
+  "origins": 205,
+  "state_dict_unchanged": true,
+  "requires_grad_unchanged": true,
+  "all_grad_None": true,
+  "hooks_removed": true,
+  "normal_prediction_exactly_restored": true,
+  "fixed_gate": 0.5,
+  "environment": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": false,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "new_training": false,
+  "new_checkpoint_saved": false
+}

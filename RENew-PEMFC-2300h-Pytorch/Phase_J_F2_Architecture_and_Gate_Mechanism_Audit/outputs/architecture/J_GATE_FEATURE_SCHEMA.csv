@@ -1,0 +1,6 @@
+feature,raw_f2_index,Top10_retained,aggregation,scaler,raw_unit
+load_transition_count,11,True,mean of 48 standardized masked historical bins,"frozen E_COMMON_SCALER, unfiltered Train histories",count/bin
+zero_current_fraction,13,True,mean of 48 standardized masked historical bins,"frozen E_COMMON_SCALER, unfiltered Train histories",fraction
+actual_current_density_A_cm2_std,9,True,mean of 48 standardized masked historical bins,"frozen E_COMMON_SCALER, unfiltered Train histories",A/cm^2
+actual_current_A_std,6,True,mean of 48 standardized masked historical bins,"frozen E_COMMON_SCALER, unfiltered Train histories",A
+actual_current_density_A_cm2_mean,8,True,mean of 48 standardized masked historical bins,"frozen E_COMMON_SCALER, unfiltered Train histories",A/cm^2

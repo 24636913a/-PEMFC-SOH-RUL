@@ -1,0 +1,30 @@
+{
+  "pass": true,
+  "seed": 62,
+  "stage": "parity",
+  "origins": 32,
+  "no_hook_exact_H_reference": true,
+  "passive_hook_exact": true,
+  "max_context_difference_standardized": 1.9868214934382067e-08,
+  "max_context_inverse_difference_raw": 6.717121010524352e-07,
+  "state_dict_unchanged": true,
+  "requires_grad_unchanged": true,
+  "all_grad_None": true,
+  "hooks_removed": true,
+  "environment": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": false,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  }
+}

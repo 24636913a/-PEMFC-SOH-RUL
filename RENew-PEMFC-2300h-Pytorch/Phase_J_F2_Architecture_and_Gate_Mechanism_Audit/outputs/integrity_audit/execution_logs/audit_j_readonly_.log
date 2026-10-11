@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "D:\ruanjian\python3.11.9\Lib\site-packages\pandas\core\indexes\base.py", line 3641, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 168, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 197, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7668, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7676, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'endpoint_RMSE_mV'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\��ũ�ŵ�\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_J_F2_Architecture_and_Gate_Mechanism_Audit\scripts\audit_j_readonly.py", line 60, in <module>
+    if __name__=='__main__':audit()
+                            ^^^^^^^
+  File "E:\��ũ�ŵ�\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_J_F2_Architecture_and_Gate_Mechanism_Audit\scripts\audit_j_readonly.py", line 42, in audit
+    if abs(value-float(old[key]))>1e-10: raise RuntimeError('H_FULL_VALIDATION_METRIC_CHANGED:'+key)
+                       ~~~^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\site-packages\pandas\core\series.py", line 959, in __getitem__
+    return self._get_value(key)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\site-packages\pandas\core\series.py", line 1046, in _get_value
+    loc = self.index.get_loc(label)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\site-packages\pandas\core\indexes\base.py", line 3648, in get_loc
+    raise KeyError(key) from err
+KeyError: 'endpoint_RMSE_mV'

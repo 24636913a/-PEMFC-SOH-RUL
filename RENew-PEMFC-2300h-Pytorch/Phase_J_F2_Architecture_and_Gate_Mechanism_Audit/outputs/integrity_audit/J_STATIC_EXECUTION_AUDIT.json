@@ -1,0 +1,281 @@
+{
+  "pass": true,
+  "banned_calls": [
+    "Adam",
+    "AdamW",
+    "SGD",
+    "backward",
+    "create_study",
+    "fit",
+    "inference_mode",
+    "predict_frozen",
+    "prepare",
+    "prepare_data",
+    "requires_grad_",
+    "spearman_scores",
+    "step",
+    "top10_scores",
+    "train"
+  ],
+  "allowed_inherited_calls": [
+    {
+      "file": "analyze_j_gate_behavior.py",
+      "line": 11,
+      "call": "read_csv"
+    },
+    {
+      "file": "analyze_j_gate_behavior.py",
+      "line": 12,
+      "call": "read_csv"
+    },
+    {
+      "file": "analyze_j_gate_behavior.py",
+      "line": 13,
+      "call": "read_csv"
+    },
+    {
+      "file": "analyze_j_gate_behavior.py",
+      "line": 50,
+      "call": "read_csv"
+    },
+    {
+      "file": "analyze_j_gate_behavior.py",
+      "line": 51,
+      "call": "read_csv"
+    },
+    {
+      "file": "analyze_j_gate_behavior.py",
+      "line": 30,
+      "call": "read_csv"
+    },
+    {
+      "file": "analyze_j_gate_behavior.py",
+      "line": 31,
+      "call": "read_csv"
+    },
+    {
+      "file": "analyze_j_gate_behavior.py",
+      "line": 61,
+      "call": "digest"
+    },
+    {
+      "file": "audit_j_architecture.py",
+      "line": 59,
+      "call": "read_dev"
+    },
+    {
+      "file": "audit_j_architecture.py",
+      "line": 60,
+      "call": "build_windows"
+    },
+    {
+      "file": "audit_j_architecture.py",
+      "line": 60,
+      "call": "build_windows"
+    },
+    {
+      "file": "audit_j_architecture.py",
+      "line": 92,
+      "call": "digest"
+    },
+    {
+      "file": "audit_j_architecture.py",
+      "line": 93,
+      "call": "digest"
+    },
+    {
+      "file": "audit_j_architecture.py",
+      "line": 114,
+      "call": "digest"
+    },
+    {
+      "file": "audit_j_architecture.py",
+      "line": 113,
+      "call": "digest"
+    },
+    {
+      "file": "audit_j_readonly.py",
+      "line": 8,
+      "call": "read_csv"
+    },
+    {
+      "file": "audit_j_readonly.py",
+      "line": 11,
+      "call": "read_csv"
+    },
+    {
+      "file": "audit_j_readonly.py",
+      "line": 18,
+      "call": "read_csv"
+    },
+    {
+      "file": "audit_j_readonly.py",
+      "line": 55,
+      "call": "digest"
+    },
+    {
+      "file": "audit_j_readonly.py",
+      "line": 31,
+      "call": "read_csv"
+    },
+    {
+      "file": "audit_j_readonly.py",
+      "line": 21,
+      "call": "digest"
+    },
+    {
+      "file": "collect_j_gate_outputs.py",
+      "line": 17,
+      "call": "digest"
+    },
+    {
+      "file": "collect_j_gate_outputs.py",
+      "line": 23,
+      "call": "predict"
+    },
+    {
+      "file": "collect_j_gate_outputs.py",
+      "line": 60,
+      "call": "digest"
+    },
+    {
+      "file": "collect_j_gate_outputs.py",
+      "line": 54,
+      "call": "digest"
+    },
+    {
+      "file": "j_common.py",
+      "line": 61,
+      "call": "read_csv"
+    },
+    {
+      "file": "j_common.py",
+      "line": 183,
+      "call": "read_csv"
+    },
+    {
+      "file": "j_common.py",
+      "line": 188,
+      "call": "digest"
+    },
+    {
+      "file": "j_common.py",
+      "line": 77,
+      "call": "digest"
+    },
+    {
+      "file": "j_common.py",
+      "line": 89,
+      "call": "digest"
+    },
+    {
+      "file": "j_common.py",
+      "line": 97,
+      "call": "digest"
+    },
+    {
+      "file": "j_common.py",
+      "line": 150,
+      "call": "predict"
+    },
+    {
+      "file": "j_common.py",
+      "line": 158,
+      "call": "predict"
+    },
+    {
+      "file": "j_common.py",
+      "line": 83,
+      "call": "digest"
+    },
+    {
+      "file": "j_common.py",
+      "line": 199,
+      "call": "digest"
+    },
+    {
+      "file": "plot_j_figures.py",
+      "line": 92,
+      "call": "read_csv"
+    },
+    {
+      "file": "plot_j_figures.py",
+      "line": 105,
+      "call": "read_csv"
+    },
+    {
+      "file": "plot_j_figures.py",
+      "line": 114,
+      "call": "read_csv"
+    },
+    {
+      "file": "run_j_audit.py",
+      "line": 21,
+      "call": "digest"
+    },
+    {
+      "file": "run_j_audit.py",
+      "line": 27,
+      "call": "digest"
+    },
+    {
+      "file": "run_j_audit.py",
+      "line": 32,
+      "call": "digest"
+    },
+    {
+      "file": "run_j_fixed_gate_diagnostic.py",
+      "line": 15,
+      "call": "digest"
+    },
+    {
+      "file": "run_j_fixed_gate_diagnostic.py",
+      "line": 24,
+      "call": "predict"
+    },
+    {
+      "file": "run_j_fixed_gate_diagnostic.py",
+      "line": 34,
+      "call": "digest"
+    },
+    {
+      "file": "write_j_reports.py",
+      "line": 13,
+      "call": "read_csv"
+    },
+    {
+      "file": "write_j_reports.py",
+      "line": 13,
+      "call": "read_csv"
+    },
+    {
+      "file": "write_j_reports.py",
+      "line": 14,
+      "call": "read_csv"
+    },
+    {
+      "file": "write_j_reports.py",
+      "line": 14,
+      "call": "read_csv"
+    },
+    {
+      "file": "write_j_reports.py",
+      "line": 15,
+      "call": "read_csv"
+    },
+    {
+      "file": "write_j_reports.py",
+      "line": 16,
+      "call": "read_csv"
+    },
+    {
+      "file": "write_j_reports.py",
+      "line": 17,
+      "call": "digest"
+    }
+  ],
+  "Assessment_windows_constructed": false,
+  "Assessment_inference": false,
+  "training": false,
+  "Test_accessed": false
+}

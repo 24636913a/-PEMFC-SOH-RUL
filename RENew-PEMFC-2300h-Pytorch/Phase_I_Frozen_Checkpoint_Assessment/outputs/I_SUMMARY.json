@@ -1,0 +1,33 @@
+{
+  "phase": "Phase_I_Frozen_Checkpoint_Assessment",
+  "base_commit": "1b83d05b94a4952d0a41df00142db710278830b4",
+  "execution_status": "BLOCKED",
+  "scientific_status": "PHASE_I_EXECUTION_BLOCKED",
+  "failure_stage": "PREPARED",
+  "exception": "RuntimeError('FROZEN_VALIDATION_RELOAD_MISMATCH:I_F0_Seed42')",
+  "protocol_sha256": "a7117b3064b46124a036e214834f02150ed0911aadf606bf162b86143361e088",
+  "code_identity_sha256": "1ba613ea39d652e1d38c09474075e6047e2af01601473c79aca3bac4295e7dd9",
+  "metadata_frozen_checkpoints": 9,
+  "regression_tests": 22,
+  "regression_tests_pass": true,
+  "assessment_completed_runs": 0,
+  "assessment_prediction_files": 0,
+  "assessment_prediction_records": 0,
+  "new_assessment_inference": false,
+  "fixed_validation_precheck_attempted": true,
+  "new_training": false,
+  "formal_test_accessed": false,
+  "scaler_refitted": false,
+  "architecture_modified": false,
+  "new_seed_selection": false,
+  "complete_model_ranking_generated": false,
+  "automatic_second_execution_allowed": false,
+  "cause_not_confirmed": "Mismatch cannot by itself prove checkpoint corruption; numeric difference not persisted before exception",
+  "history_limits": [
+    "TIMESNET_FREEZE",
+    "BACKBONE_SEARCH_CLOSED",
+    "PHASE_F_ASSESSMENT_INHERITED_SELECTION_BIAS",
+    "C1_D0_E0_REPRODUCIBILITY_UNRESOLVED",
+    "F2_VALIDATION_MULTISEED_GAIN_OBSERVED"
+  ]
+}

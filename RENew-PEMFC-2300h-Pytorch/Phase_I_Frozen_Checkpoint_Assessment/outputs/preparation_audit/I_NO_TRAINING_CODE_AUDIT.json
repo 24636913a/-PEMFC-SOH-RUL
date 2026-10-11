@@ -1,0 +1,26 @@
+{
+  "pass": true,
+  "scope": "all Phase I production scripts; inherited modules imported read-only, only explicitly called bounded/preprocess/model APIs",
+  "forbidden_calls": [
+    "backward",
+    "fit",
+    "fit_condition",
+    "pretrain_audit",
+    "step",
+    "top10_scores",
+    "train",
+    "train_model"
+  ],
+  "inference_calls": [
+    {
+      "file": "i_common.py",
+      "line": 148,
+      "call": "load_state_dict"
+    },
+    {
+      "file": "i_common.py",
+      "line": 165,
+      "call": "predict_delta"
+    }
+  ]
+}

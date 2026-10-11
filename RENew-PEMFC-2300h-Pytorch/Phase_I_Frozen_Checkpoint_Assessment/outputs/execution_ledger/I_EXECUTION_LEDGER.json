@@ -1,0 +1,23 @@
+{
+  "state": "BLOCKED",
+  "started_utc": "2026-10-11T01:54:32.866501+00:00",
+  "protocol_sha256": "a7117b3064b46124a036e214834f02150ed0911aadf606bf162b86143361e088",
+  "code_identity_sha256": "1ba613ea39d652e1d38c09474075e6047e2af01601473c79aca3bac4295e7dd9",
+  "completed_runs": [],
+  "transitions": [
+    {
+      "state": "PREPARED",
+      "utc": "2026-10-11T01:54:32.866501+00:00"
+    },
+    {
+      "state": "BLOCKED",
+      "utc": "2026-10-11T01:54:40.411716+00:00"
+    }
+  ],
+  "formal_test_accessed": false,
+  "new_training": false,
+  "exception": "RuntimeError('FROZEN_VALIDATION_RELOAD_MISMATCH:I_F0_Seed42')",
+  "failure_stage": "PREPARED",
+  "scientific_status": "PHASE_I_EXECUTION_BLOCKED",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_I_Frozen_Checkpoint_Assessment\\scripts\\run_i_assessment.py\", line 28, in execute\n    if not np.array_equal(val,saved):raise RuntimeError('FROZEN_VALIDATION_RELOAD_MISMATCH:'+spec['run_id'])\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: FROZEN_VALIDATION_RELOAD_MISMATCH:I_F0_Seed42\n"
+}

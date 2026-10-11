@@ -1,0 +1,14 @@
+{
+  "command": [
+    "D:\\ruanjian\\python3.11.9\\python.exe",
+    "-B",
+    "scripts/run_ir_validation_parity.py",
+    "--worker",
+    "H-F2-Seed52",
+    "--path",
+    "A"
+  ],
+  "returncode": 0,
+  "stdout": "H-F2-Seed52 A exact=True max_diff_mV=0.0\n",
+  "stderr": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\lightning\\pytorch\\utilities\\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.\nC:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\lightning\\pytorch\\utilities\\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.\n"
+}

@@ -1,0 +1,27 @@
+{
+  "historical_fingerprints": {
+    "validation_x_sha256": "6442150e1ef669eb30220af06509b35b8ee8daae490c4481a638ac23c0af780b",
+    "validation_y_sha256": "cd37780af64f32f526570464ba809c48f655d976572d68640dc6675be4a7d71a",
+    "validation_origins_sha256": "94cb7c23616e47cdc631a45423aa7cf8c2013c8f72ea42fc8191678eef61f9ff",
+    "validation_target_rows_sha256": "fc4b87a1ee076feb69e1fb348c8a7684933cbb0ed12dfac76048a25c1a162871",
+    "scaler_sha256": "e1edd6591a7046543be43a34feb241ef0648749faae15f6d51a4acf6118be0c4",
+    "development_prefix_fingerprint_sha256": "c0fe76c04611fc6cdc5a93f4a4da503ff2f82b11feb9ffdcca4cee5bea5abcb5"
+  },
+  "fixed_input_sha256": "b0e121f23c83cac721fc938b123cac534589e8a61013b65656df2d78d54e3a22",
+  "fixed_origins_sha256": "1c9767fdf65ee9bcdd16d9d4a6ff807717b9c5cd0251c90a05375523f22ced4d",
+  "fixed_targets_sha256": "ea1d057044459b9ab159b19f8bec4f0ca58954abf233d28e27546e7e6954bcbe",
+  "read_nrows": 3007,
+  "development_rows": 3005,
+  "access": [
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "nrows": 3007
+    }
+  ],
+  "target_scale_V": 0.13680318714138442,
+  "scaler_refitted": false,
+  "Assessment_windows_constructed": false,
+  "Assessment_prediction_cache_read": false,
+  "Test_accessed": false,
+  "full_N1_hash": false
+}

@@ -1,0 +1,51 @@
+{
+  "phase": "Phase_IR_Validation_Reload_Parity_Audit",
+  "base_commit": "27d3001f0838d7fa8ee311516c5eaf9bdb2c63ec",
+  "primary_status": "PHASE_IR_H_AUTHORITY_PARITY_VERIFIED",
+  "additional_statuses": [
+    "PHASE_IR_I_EXECUTION_SEMANTICS_DIFFERENCE_OBSERVED"
+  ],
+  "path_exact_counts": {
+    "A": 9,
+    "B": 9,
+    "C": 0,
+    "D": 9,
+    "E": 0
+  },
+  "path_to_path_exact_counts": {
+    "A-A": 9,
+    "B-A": 9,
+    "B-E": 0,
+    "C-A": 0,
+    "C-E": 9,
+    "D-A": 9,
+    "D-E": 0,
+    "E-A": 0
+  },
+  "root_cause_evidence": "CONTROLLED_FACTOR_IDENTIFIED_REQUIRES_GRAD_FLAGS: disabling parameter gradient flags alone reproduces the full Path E numerical output in 9/9 checkpoints; no_grad/inference_mode alone and CPU-to-CUDA alone do not change outputs. This identifies an execution-context cause, not the unique internal CUDA/cuDNN kernel.",
+  "observations": [
+    "no_grad -> inference_mode alone: 0/9 outputs differ from Path A (exact comparison).",
+    "requires_grad=False alone: 9/9 outputs differ from Path A (exact comparison).",
+    "CPU construct/load -> CUDA alone: 0/9 outputs differ from Path A (exact comparison)."
+  ],
+  "max_all_path_difference_mV": 9.784926448444207e-05,
+  "max_Phase_I_PathE_difference_mV": 9.784926448444207e-05,
+  "PathE_unequal_fraction_min": 0.6432291666666666,
+  "PathE_unequal_fraction_max": 0.7096354166666666,
+  "state_entries_changed": 0,
+  "new_Assessment_protocol_technical_conditions": true,
+  "recommended_interface": "unmodified frozen H e.predict(model, fixed_preprocessed_inputs, 32, cuda); eval plus no_grad; preserve original requires_grad flags",
+  "new_protocol_required": true,
+  "new_code_identity_required": true,
+  "original_I_status": "PHASE_I_EXECUTION_BLOCKED",
+  "original_I_ledger_modified": false,
+  "original_checkpoint_modified": false,
+  "new_training": false,
+  "new_Assessment_inference": false,
+  "formal_Test_accessed": false,
+  "protocol_sha256": "ada4fbfcc016de3616346e32151ea42110fee618fa88ca99c28dd39437f340af",
+  "code_identity_sha256": "3c2f27fead7c1ce3cb6de1dae3d84d38df958a5c4a5c78ed7fb14153ed110d53",
+  "fixed_window_scope": "32 Validation origins x 24 steps, not full 205-origin Validation or Assessment",
+  "full_N1_hash": false,
+  "automatic_Phase_I_restart": false
+}

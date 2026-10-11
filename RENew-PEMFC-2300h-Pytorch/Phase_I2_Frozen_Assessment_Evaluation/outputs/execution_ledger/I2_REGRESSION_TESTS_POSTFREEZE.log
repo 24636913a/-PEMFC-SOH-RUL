@@ -1,0 +1,28 @@
+test_code_identity_mutation_rejected (test_i2_firewall_and_metrics.I2Guards.test_code_identity_mutation_rejected) ... ok
+test_duplicate_key (test_i2_firewall_and_metrics.I2Guards.test_duplicate_key) ... ok
+test_full_n1_digest_denied (test_i2_firewall_and_metrics.I2Guards.test_full_n1_digest_denied) ... ok
+test_hash_mutation_in_complete_path_set (test_i2_firewall_and_metrics.I2Guards.test_hash_mutation_in_complete_path_set) ... ok
+test_missing_cache_fails_closed (test_i2_firewall_and_metrics.I2Guards.test_missing_cache_fails_closed) ... ok
+test_missing_key (test_i2_firewall_and_metrics.I2Guards.test_missing_key) ... ok
+test_nonfinite_prediction (test_i2_firewall_and_metrics.I2Guards.test_nonfinite_prediction) ... ok
+test_old_phase_write_denied (test_i2_firewall_and_metrics.I2Guards.test_old_phase_write_denied) ... ok
+test_one_shot_guard (test_i2_firewall_and_metrics.I2Guards.test_one_shot_guard) ... ok
+test_prefix_suffix_invariance_and_development_mutation (test_i2_firewall_and_metrics.I2Guards.test_prefix_suffix_invariance_and_development_mutation) ... ok
+test_production_static_no_training_or_semantics_change (test_i2_firewall_and_metrics.I2Guards.test_production_static_no_training_or_semantics_change) ... ok
+test_project_independent_metrics_and_quantiles (test_i2_firewall_and_metrics.I2Guards.test_project_independent_metrics_and_quantiles) ... ok
+test_scientific_rule_and_negative_difference_semantics (test_i2_firewall_and_metrics.I2Guards.test_scientific_rule_and_negative_difference_semantics) ... ok
+test_state_mutation_and_flags_production_guard (test_i2_firewall_and_metrics.I2Guards.test_state_mutation_and_flags_production_guard) ... ok
+test_target_age_boundary (test_i2_firewall_and_metrics.I2Guards.test_target_age_boundary) ... ok
+test_target_equal_not_prediction_ensemble (test_i2_firewall_and_metrics.I2Guards.test_target_equal_not_prediction_ensemble) ... ok
+test_target_sse_and_horizon_decomposition (test_i2_firewall_and_metrics.I2Guards.test_target_sse_and_horizon_decomposition) ... ok
+test_test_and_raw_paths_denied (test_i2_firewall_and_metrics.I2Guards.test_test_and_raw_paths_denied) ... ok
+test_truth_mutation (test_i2_firewall_and_metrics.I2Guards.test_truth_mutation) ... ok
+test_unbounded_inherited_reader_rejected (test_i2_firewall_and_metrics.I2Guards.test_unbounded_inherited_reader_rejected) ... ok
+test_valid_full_frame_and_shuffled_alignment (test_i2_firewall_and_metrics.I2Guards.test_valid_full_frame_and_shuffled_alignment) ... ok
+test_wrong_seed (test_i2_firewall_and_metrics.I2Guards.test_wrong_seed) ... ok
+test_wrong_target_row (test_i2_firewall_and_metrics.I2Guards.test_wrong_target_row) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 1.419s
+
+OK

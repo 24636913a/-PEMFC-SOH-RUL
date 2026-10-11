@@ -1,0 +1,11 @@
+*.py text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf
+*.sha256 text eol=lf
+*.csv -text
+*.json -text
+*.npz -text
+*.log binary
+*.png -text
+*.pdf -text
+/.gitattributes text eol=lf

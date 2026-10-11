@@ -1,0 +1,15 @@
+{
+  "pass": true,
+  "banned_calls": [
+    "backward",
+    "fit",
+    "inference_mode",
+    "load_development",
+    "predict_frozen",
+    "prepare",
+    "requires_grad_",
+    "step",
+    "train"
+  ],
+  "inherited_prefix_reader": "i.prepare_data -> i.read_dev -> c.load_development(nrows=3007)"
+}

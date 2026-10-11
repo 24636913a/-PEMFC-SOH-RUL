@@ -1,0 +1,56 @@
+{
+  "state": "COMPLETED",
+  "started_utc": "2026-10-11T04:04:01.689325+00:00",
+  "protocol_sha256": "d9d5dd2ad31e7fe8a6a28aaa19d706bea0a7ad16092b6de449171172bb239307",
+  "code_identity_sha256": "e1945efba676202247bf0600de00be7f3b11f9487ac6ed8827f1ec175398f2c3",
+  "completed_validation": [
+    "I2_F0_Seed42",
+    "I2_F0_Seed52",
+    "I2_F0_Seed62",
+    "I2_F1_Seed42",
+    "I2_F1_Seed52",
+    "I2_F1_Seed62",
+    "I2_F2_Seed42",
+    "I2_F2_Seed52",
+    "I2_F2_Seed62"
+  ],
+  "completed_assessment": [
+    "I2_F0_Seed42",
+    "I2_F0_Seed52",
+    "I2_F0_Seed62",
+    "I2_F1_Seed42",
+    "I2_F1_Seed52",
+    "I2_F1_Seed62",
+    "I2_F2_Seed42",
+    "I2_F2_Seed52",
+    "I2_F2_Seed62"
+  ],
+  "transitions": [
+    {
+      "state": "ASSESSMENT_RUNNING",
+      "utc": "2026-10-11T04:07:22.550727+00:00"
+    }
+  ],
+  "formal_test_accessed": false,
+  "new_training": false,
+  "retry_allowed": false,
+  "completed_utc": "2026-10-11T04:10:45.352886+00:00",
+  "artifact_integrity": {
+    "pass": true,
+    "runs": 9,
+    "validation_exact": 9,
+    "records": 81648,
+    "metric_checks": 72,
+    "max_metric_absolute_difference": 3.552713678800501e-15,
+    "all_raw_CSV_predictions_exact": true,
+    "keys_truth_age_equal": true,
+    "state_entries_changed": 0,
+    "protocol_sha256": "d9d5dd2ad31e7fe8a6a28aaa19d706bea0a7ad16092b6de449171172bb239307",
+    "code_identity_sha256": "e1945efba676202247bf0600de00be7f3b11f9487ac6ed8827f1ec175398f2c3",
+    "full_N1_hash": false,
+    "formal_test_accessed": false,
+    "new_training": false,
+    "gate_capture": "NOT_COLLECTED"
+  },
+  "scientific_status": "F2_REUSED_ASSESSMENT_MULTISEED_GAIN_OBSERVED"
+}

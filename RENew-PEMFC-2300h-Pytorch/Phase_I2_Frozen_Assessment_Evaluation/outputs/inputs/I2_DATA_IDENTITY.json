@@ -1,0 +1,48 @@
+{
+  "fingerprints": {
+    "assessment_raw_x_sha256": "c305a1cc0cd6e60d3f6f21a5182b384e5c60a44e8bc76ce9879caec6cb36ee6b",
+    "assessment_input_sha256": "84cca110bb3cf718c58cb7827c54c0ae2b003e11a96b31669a776bf60b1aaf1b",
+    "assessment_labels_sha256": "ae4de6949d2f56b9def0634c3e7fc23de19500549e5f4fc3a4896a1e62b1c1d3",
+    "assessment_origins_sha256": "8ddc820af627f0ff2d0ccbb63862daedb8158d43e34bdafa0c94e84ca30d1196",
+    "assessment_target_rows_sha256": "45cdd7e1bb693016bba142d3f12874ffb57c6fddbe8c6960a3b780a7c8e47f9e",
+    "validation_x_sha256": "6442150e1ef669eb30220af06509b35b8ee8daae490c4481a638ac23c0af780b",
+    "validation_y_sha256": "cd37780af64f32f526570464ba809c48f655d976572d68640dc6675be4a7d71a",
+    "scaler_sha256": "e1edd6591a7046543be43a34feb241ef0648749faae15f6d51a4acf6118be0c4",
+    "development_prefix_fingerprint_sha256": "c0fe76c04611fc6cdc5a93f4a4da503ff2f82b11feb9ffdcca4cee5bea5abcb5",
+    "read_nrows": 3007,
+    "development_rows": 3005,
+    "assessment_origins": 378,
+    "records_per_checkpoint": 9072,
+    "target_scale_V": 0.13680318714138442,
+    "scaler_refitted": false,
+    "full_N1_hash_performed": false,
+    "formal_test_accessed": false
+  },
+  "prefix_access": [
+    {
+      "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "nrows": 3007
+    }
+  ],
+  "historical_truth_audit": [
+    {
+      "source": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/predictions/F0_assessment_seed42.csv",
+      "keys_exact": true,
+      "max_truth_difference_V": 0.0,
+      "max_age_difference_h": 0.0
+    },
+    {
+      "source": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/predictions/F1_assessment_seed42.csv",
+      "keys_exact": true,
+      "max_truth_difference_V": 0.0,
+      "max_age_difference_h": 0.0
+    },
+    {
+      "source": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/predictions/F2_assessment_seed42.csv",
+      "keys_exact": true,
+      "max_truth_difference_V": 0.0,
+      "max_age_difference_h": 0.0
+    }
+  ],
+  "scale": 0.13680318714138442
+}

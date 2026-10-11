@@ -1,0 +1,305 @@
+{
+  "base_commit": "1fe9ce87ecc33ac297ff0e4a14cd4ca7a8ada3a6",
+  "protocol_sha256": "3d04886648a78658a642898225475bc2fe24dabf00ed1b61c4800b63321eee28",
+  "code_and_config": [
+    {
+      "id": "N1_CODE",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/scripts/phase_n1_build_foundation.py",
+      "scope": "static_source",
+      "sha256": "785b37d3302698377443c1f0cb7591fb78b1de1c5ee578fbfda5db61a651f58e",
+      "base_blob_sha256": "3e61e3cbb15a7f000dbcf0e45cdc777a3e157d5f73b471dc7266bdb672a6d960",
+      "git_blob": "513328b75126fc7a635de70e77c70725d0ef9a7c",
+      "source_last_commit": "458dc529245433aee7cfc4a3547598823d735e21",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "RUL_CODE",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_RUL90_Data_Feasibility/scripts/run_rul90_feasibility.py",
+      "scope": "static_source",
+      "sha256": "27c65ac0caebdada08aaaa99505024521acb78cc53a0e29157667a6b2afdf8c6",
+      "base_blob_sha256": "27c65ac0caebdada08aaaa99505024521acb78cc53a0e29157667a6b2afdf8c6",
+      "git_blob": "720fe22187670a0465ff190b7da53278066ca09b",
+      "source_last_commit": "2950160fdb762511138c1bf4a159c6c898a9d193",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "AHC_RUN",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/run_ahc_tv_one_shot.py",
+      "scope": "static_source",
+      "sha256": "e51a95ab6c2dd5c627dde899a5f76060c8b0d9b40837292dfc6b5d93aaea8ffa",
+      "base_blob_sha256": "e51a95ab6c2dd5c627dde899a5f76060c8b0d9b40837292dfc6b5d93aaea8ffa",
+      "git_blob": "a582866f2b0cf901d036a62171ba6bb6600b5557",
+      "source_last_commit": "50d0964ed7c8b288b6440529ca71b269eeec4bc4",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "AHC_STATE",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/ahc_tv_one_shot_ledger.py",
+      "scope": "static_source",
+      "sha256": "d4415220591f8244b59c805951083358f85d308c5f1e25bb07f559ff7b7b1f57",
+      "base_blob_sha256": "d4415220591f8244b59c805951083358f85d308c5f1e25bb07f559ff7b7b1f57",
+      "git_blob": "ebf3d42f2b8fd6f0f9330c9fd2dc41969c78d2a4",
+      "source_last_commit": "9b2c9a995ea93667fb76a46da9c2401d1954a0e5",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "AHC_P",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/ahc_tv_stage_p.py",
+      "scope": "static_source",
+      "sha256": "b25523bd27f6626d9d7d4f07d9c1a9d89bd7fca26605f7f66a96181637cf8e3d",
+      "base_blob_sha256": "b25523bd27f6626d9d7d4f07d9c1a9d89bd7fca26605f7f66a96181637cf8e3d",
+      "git_blob": "4316fee17ef0eec175ab1b075d0b464a47721056",
+      "source_last_commit": "50d0964ed7c8b288b6440529ca71b269eeec4bc4",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "AHC_RAW",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_One_Time_Late_Life_Test_Protocol/scripts/ahc_tv_raw_alignment_core.py",
+      "scope": "static_source",
+      "sha256": "988b67e9af8d381d4008e589689c859261f7fba2b9ce28310ef19f25e15cb984",
+      "base_blob_sha256": "988b67e9af8d381d4008e589689c859261f7fba2b9ce28310ef19f25e15cb984",
+      "git_blob": "7320f915994f1a553e913324b9d6407590947db8",
+      "source_last_commit": "f497a93a4653da28016e4b8665c966bd759e5053",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "PM_CODE",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_Target_Blind_Alignment_Postmortem/scripts/run_target_blind_alignment_postmortem.py",
+      "scope": "static_source",
+      "sha256": "c45f7ce83e57f220f32ab02e1df0ce2ad2c0a78ff7527734b3ca2900ce7c9611",
+      "base_blob_sha256": "c45f7ce83e57f220f32ab02e1df0ce2ad2c0a78ff7527734b3ca2900ce7c9611",
+      "git_blob": "dfa26ee04cfc94e43ed061b1612695be3e9fa39d",
+      "source_last_commit": "d275110f79816fd66badb0ab90bf1dc8adb5f20f",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "DRIFT_CODE",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_AHC_TV_Late_Life_Operating_Condition_Support_Drift_Audit/scripts/run_late_life_support_drift_audit.py",
+      "scope": "static_source",
+      "sha256": "d8536997019ee415e7c3785916ed40c02bab5e875e1407fb6b6dea851e88db87",
+      "base_blob_sha256": "d8536997019ee415e7c3785916ed40c02bab5e875e1407fb6b6dea851e88db87",
+      "git_blob": "8f462f542478a4809ba735039425bc71c121a45b",
+      "source_last_commit": "d83aa909a687915ef24ebae8cddaae374111b99d",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "ELTE_CODE",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_ELTE_Exploratory_Late_Life_Target_Evaluation/scripts/run_elte_one_shot.py",
+      "scope": "static_source",
+      "sha256": "ae1d493748022776fb0a1a5fa994ea29620cebecfaf511dece4625d837ede04d",
+      "base_blob_sha256": "ae1d493748022776fb0a1a5fa994ea29620cebecfaf511dece4625d837ede04d",
+      "git_blob": "8d76b856add97a72cf097e5080da1c0ce6c7588f",
+      "source_last_commit": "85d0d6027de5949ff1ad13177a1041d64d54dd0a",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "H_CONFIG",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.yaml",
+      "scope": "development_protocol",
+      "sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "base_blob_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "git_blob": "fdf8cc29dee314160a14d4d2db5f723cc57366bb",
+      "source_last_commit": "1b83d05b94a4952d0a41df00142db710278830b4",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "H_COMMON",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/h_common.py",
+      "scope": "static_source",
+      "sha256": "c88974ade24909adc793a0dab7433d838d2b1b3ed7dd526702028d259fc14cbb",
+      "base_blob_sha256": "c88974ade24909adc793a0dab7433d838d2b1b3ed7dd526702028d259fc14cbb",
+      "git_blob": "6238b822bceefcecc3a135246cc4377ea6088c4b",
+      "source_last_commit": "1b83d05b94a4952d0a41df00142db710278830b4",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "H_TRAIN",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/run_h_training.py",
+      "scope": "static_source",
+      "sha256": "27476a7967b841abfbf846a7cf41c5c5fb641074fb5bf6b85cc96253a616ca30",
+      "base_blob_sha256": "27476a7967b841abfbf846a7cf41c5c5fb641074fb5bf6b85cc96253a616ca30",
+      "git_blob": "2161da29f97652360e2a982340b917566feb75bb",
+      "source_last_commit": "1b83d05b94a4952d0a41df00142db710278830b4",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "TFT",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py",
+      "scope": "static_source",
+      "sha256": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+      "base_blob_sha256": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+      "git_blob": "dd7587a6ab1bcb29b90f1865f51e620527155a3a",
+      "source_last_commit": "63f77863525976b2845ca178b1230e9eeed8a251",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "F_CONFIG",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/configs/F0_F2_EXECUTION_PROTOCOL.yaml",
+      "scope": "development_protocol",
+      "sha256": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+      "base_blob_sha256": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+      "git_blob": "0943902b4fd0ddf0888d5442c966056c61c14593",
+      "source_last_commit": "11f5d23fe075ee68288bf34bce6277644c963d09",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "F_SCHEMA",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py",
+      "scope": "static_source",
+      "sha256": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+      "base_blob_sha256": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+      "git_blob": "f35eb393e7e4fefdf74ebd3b9185df5d1fd6286a",
+      "source_last_commit": "cb25f61526d2e551b3c7e2f4d18f12f7d326d3b9",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "F_CONV",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py",
+      "scope": "static_source",
+      "sha256": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+      "base_blob_sha256": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+      "git_blob": "2aa6004aca48f75693a9da58d4473c155835a414",
+      "source_last_commit": "cb25f61526d2e551b3c7e2f4d18f12f7d326d3b9",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "F1",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py",
+      "scope": "static_source",
+      "sha256": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+      "base_blob_sha256": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+      "git_blob": "84e87845e08ce7db4111945f669cde55eec98454",
+      "source_last_commit": "cb25f61526d2e551b3c7e2f4d18f12f7d326d3b9",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "F2",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py",
+      "scope": "static_source",
+      "sha256": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+      "base_blob_sha256": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+      "git_blob": "0a2c27e5640edb86c551ce75b091e5581b7af9c8",
+      "source_last_commit": "cb25f61526d2e551b3c7e2f4d18f12f7d326d3b9",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "E_CODE",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py",
+      "scope": "static_source",
+      "sha256": "f479d4cd64a6a9351dd2d863f38dd4828017dc48ffa8b4e986a3c240a5574099",
+      "base_blob_sha256": "f479d4cd64a6a9351dd2d863f38dd4828017dc48ffa8b4e986a3c240a5574099",
+      "git_blob": "3a50fed2d7a0de740202f06c63376e616f6acb57",
+      "source_last_commit": "f0ee738284c262397405f66c8563304b3ee9f2af",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "E_SCALER",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/E_COMMON_SCALER.json",
+      "scope": "frozen_train_only_scaler",
+      "sha256": "969233228590c11f3c14f4eb364acbcbc638b70fa35a44ba72926ecb7a616ab4",
+      "base_blob_sha256": "ce730989874edd7afad7bc7a059a43edb65d8244773110eb8ee6f062d2b04498",
+      "git_blob": "4ebd56484da5cc24e87aedf5ed7ea52993b57247",
+      "source_last_commit": "f0ee738284c262397405f66c8563304b3ee9f2af",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "C_CODE",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_SingleSplit_Feature_Filter_Ablation/scripts/run_c_ablation.py",
+      "scope": "static_source",
+      "sha256": "e0053c63d6b942166362a09b2fce0166d9d29130fc0d5624eeaa0dcf32a65ce1",
+      "base_blob_sha256": "e0053c63d6b942166362a09b2fce0166d9d29130fc0d5624eeaa0dcf32a65ce1",
+      "git_blob": "d27e2a57ec91e40fd1f30e7a133622542eb12b5c",
+      "source_last_commit": "f7e40ad9ea7e9fb9df09da2e0be94a205620a65a",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "IR_COMMON",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_IR_Validation_Reload_Parity_Audit/scripts/ir_common.py",
+      "scope": "static_source",
+      "sha256": "a16d086dd443c39a077a5b446e7027ec1c4a2bb92fd67a3c940671cb882445f8",
+      "base_blob_sha256": "a16d086dd443c39a077a5b446e7027ec1c4a2bb92fd67a3c940671cb882445f8",
+      "git_blob": "50c5c621969e80c6dcbae8d8a30ad5be42308631",
+      "source_last_commit": "58ae0657f2b953a684178da6724c2e44203b114c",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "I_METRIC",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_I_Frozen_Checkpoint_Assessment/scripts/i_metrics.py",
+      "scope": "static_source",
+      "sha256": "d30df21741e799ab871c0b422d583f288f9cdc80b3146fe557fbd54638e61f27",
+      "base_blob_sha256": "d30df21741e799ab871c0b422d583f288f9cdc80b3146fe557fbd54638e61f27",
+      "git_blob": "ad82368949944b53fd4f41ec605169d4855372ed",
+      "source_last_commit": "27d3001f0838d7fa8ee311516c5eaf9bdb2c63ec",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "I2_COMMON",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_I2_Frozen_Assessment_Evaluation/scripts/i2_common.py",
+      "scope": "static_source",
+      "sha256": "666e8947fba96c91137d572372c4539b3d7df479d0d1978e0dbf9a97e2db1a11",
+      "base_blob_sha256": "666e8947fba96c91137d572372c4539b3d7df479d0d1978e0dbf9a97e2db1a11",
+      "git_blob": "1e8f5f36a303a66581a9bb1ac673f991accd321f",
+      "source_last_commit": "427d4dc402f083a5b9e094b12981c5e231df8100",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    },
+    {
+      "id": "I2_RUN",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_I2_Frozen_Assessment_Evaluation/scripts/run_i2_assessment.py",
+      "scope": "static_source",
+      "sha256": "1cd9e742a2c23432fe8aa97aa2c2f2eb43bf4ccdb0f66ae16cd43a8c6b75712d",
+      "base_blob_sha256": "1cd9e742a2c23432fe8aa97aa2c2f2eb43bf4ccdb0f66ae16cd43a8c6b75712d",
+      "git_blob": "cafa0efd3cf7dee67aa7f6de425dcff7b6a94c64",
+      "source_last_commit": "427d4dc402f083a5b9e094b12981c5e231df8100",
+      "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+    }
+  ],
+  "historical_environment_authority": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "batch_size": 32,
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "strict_bitwise_determinism_claimed": false
+  },
+  "installed_metadata_without_model_import": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.22631-SP0",
+    "torch": "2.6.0+cu124",
+    "pytorch-forecasting": "1.8.0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.1"
+  },
+  "current_GPU_runtime_probed": false,
+  "current_historical_inference_parity_tested": false,
+  "inference": {
+    "path": "original H Path A -> e.predict -> c.predict",
+    "CUDA_construct": true,
+    "load_state_dict": "strict",
+    "model_eval": true,
+    "grad_context": "torch.no_grad",
+    "requires_grad": "preserve original flags",
+    "batch_size": 32,
+    "original_I_predict_frozen": "PROHIBITED; observed semantics differ"
+  },
+  "common_scaler_authority": {
+    "id": "E_SCALER",
+    "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/E_COMMON_SCALER.json",
+    "scope": "frozen_train_only_scaler",
+    "sha256": "969233228590c11f3c14f4eb364acbcbc638b70fa35a44ba72926ecb7a616ab4",
+    "base_blob_sha256": "ce730989874edd7afad7bc7a059a43edb65d8244773110eb8ee6f062d2b04498",
+    "git_blob": "4ebd56484da5cc24e87aedf5ed7ea52993b57247",
+    "source_last_commit": "f0ee738284c262397405f66c8563304b3ee9f2af",
+    "line_ending_contract": "local byte SHA; base text equality permits CRLF-to-LF only"
+  },
+  "scaler_refitted": false,
+  "external_library_code_hashes": "preserved as historical H_CONFIG records; no new library content execution",
+  "full_new_runtime_ready": false
+}

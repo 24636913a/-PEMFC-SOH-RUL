@@ -1,0 +1,7 @@
+# Preserve the byte-hashed audit script and generated evidence on Windows.
+# This applies only within Phase M; no historical attributes are changed.
+*.py -text
+*.json -text
+*.csv -text
+*.txt -text
+*.md text eol=lf

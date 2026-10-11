@@ -1,0 +1,25 @@
+test_aggregate_time_order_cannot_certify_dwell (test_m1_firewall.FirewallTests.test_aggregate_time_order_cannot_certify_dwell) ... ok
+test_boundary_row_count_rejected (test_m1_firewall.FirewallTests.test_boundary_row_count_rejected) ... ok
+test_constant_collapses_order_loss (test_m1_firewall.FirewallTests.test_constant_collapses_order_loss) ... ok
+test_duplicate_header_fails (test_m1_firewall.FirewallTests.test_duplicate_header_fails) ... ok
+test_exact_stop_and_quoted_newline (test_m1_firewall.FirewallTests.test_exact_stop_and_quoted_newline) ... ok
+test_irregular_schema_fails (test_m1_firewall.FirewallTests.test_irregular_schema_fails) ... ok
+test_missing_aux_channel_fail_closed (test_m1_firewall.FirewallTests.test_missing_aux_channel_fail_closed) ... ok
+test_missing_terminator_fails (test_m1_firewall.FirewallTests.test_missing_terminator_fails) ... ok
+test_no_model_import_or_unbounded_csv_read (test_m1_firewall.FirewallTests.test_no_model_import_or_unbounded_csv_read) ... ok
+test_no_raw_or_real_data_call_in_stage0 (test_m1_firewall.FirewallTests.test_no_raw_or_real_data_call_in_stage0) ... ok
+test_production_runner_does_not_import_old_loaders (test_m1_firewall.FirewallTests.test_production_runner_does_not_import_old_loaders) ... ok
+test_short_prefix_fails (test_m1_firewall.FirewallTests.test_short_prefix_fails) ... ok
+test_suffix_mutation_invariant (test_m1_firewall.FirewallTests.test_suffix_mutation_invariant) ... ok
+test_train_boundary_or_order_breach_rejected (test_m1_firewall.FirewallTests.test_train_boundary_or_order_breach_rejected) ... ok
+test_train_mutation_sensitive (test_m1_firewall.FirewallTests.test_train_mutation_sensitive) ... ok
+test_unallowlisted_raw_denied (test_m1_firewall.FirewallTests.test_unallowlisted_raw_denied) ... ok
+test_voltage_and_all_descendants_excluded (test_m1_firewall.FirewallTests.test_voltage_and_all_descendants_excluded) ... ok
+test_whole_mixed_hash_denied_even_if_allowlisted (test_m1_firewall.FirewallTests.test_whole_mixed_hash_denied_even_if_allowlisted) ... ok
+test_wrong_record_budget_fails (test_m1_firewall.FirewallTests.test_wrong_record_budget_fails) ... ok
+test_zero_candidates_not_evidence (test_m1_firewall.FirewallTests.test_zero_candidates_not_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.044s
+
+OK

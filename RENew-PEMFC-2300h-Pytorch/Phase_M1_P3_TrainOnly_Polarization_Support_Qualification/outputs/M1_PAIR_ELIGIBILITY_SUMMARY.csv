@@ -1,0 +1,10 @@
+stage,denominator_before,exclusions,remaining,evidence_level
+coverage_ge_0p8,2103,9,2094,BIN_METADATA_ONLY_NOT_DWELL
+bin_valid,2094,4,2090,BIN_METADATA_ONLY_NOT_DWELL
+positive_current_no_zero,2090,436,1654,BIN_METADATA_ONLY_NOT_DWELL
+no_load_or_operation_transition,1654,1654,0,BIN_METADATA_ONLY_NOT_DWELL
+one_operation_point,0,0,0,BIN_METADATA_ONLY_NOT_DWELL
+no_startup_shutdown_internal_gap,0,0,0,BIN_METADATA_ONLY_NOT_DWELL
+not_segment_return_bin,0,0,0,BIN_METADATA_ONLY_NOT_DWELL
+all_14_condition_variables_finite,0,0,0,BIN_METADATA_ONLY_NOT_DWELL
+raw_dwell_and_state_certification,0,,,NOT_IDENTIFIABLE_NO_RAW_CERTIFICATE; not a numeric zero

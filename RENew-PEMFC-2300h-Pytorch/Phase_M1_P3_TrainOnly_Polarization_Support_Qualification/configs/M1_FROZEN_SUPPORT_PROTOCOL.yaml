@@ -1,0 +1,113 @@
+{
+  "phase": "Phase_M1_P3_TrainOnly_Polarization_Support_Qualification",
+  "frozen_at_utc": "2026-10-11T17:56:51.168402+00:00",
+  "task": "P3 qualification only; original F2 48x14 ->24 DeltaV unchanged",
+  "calibration_rows": [
+    0,
+    1051
+  ],
+  "evidence_rows": [
+    1051,
+    2103
+  ],
+  "calibration_rule": "condition-only IQR scale; std fallback; zero scale -> exact equality. No outcome-based adjustment",
+  "bin_screen": "coverage>=0.8; valid; j>0; zero fraction=0; no transition; one op; no start/shutdown/internal gap; not gap-return; all conditions finite",
+  "bin_screen_certifies_dwell": false,
+  "mandatory_dwell_evidence": "raw source identity/time interval + verified stabilization, duration and scan/hold protocol; not 30min means",
+  "conditions": [
+    "actual_anode_inlet_temperature_C_mean",
+    "actual_anode_outlet_temperature_C_mean",
+    "actual_cathode_inlet_temperature_C_mean",
+    "actual_cathode_outlet_temperature_C_mean",
+    "actual_anode_inlet_rh_pct_mean",
+    "actual_cathode_inlet_rh_pct_mean",
+    "actual_anode_inlet_pressure_kPag_mean",
+    "actual_anode_outlet_pressure_kPag_mean",
+    "actual_cathode_inlet_pressure_kPag_mean",
+    "actual_cathode_outlet_pressure_kPag_mean",
+    "actual_anode_hydrogen_flow_nl_min_mean",
+    "actual_cathode_air_flow_nl_min_mean",
+    "actual_anode_stoichiometry_mean",
+    "actual_cathode_stoichiometry_mean"
+  ],
+  "mandatory_state_evidence": [
+    "same 10-cell configuration",
+    "same operating protocol",
+    "neighbor temporal segment",
+    "scan direction or independently supported absence of hysteresis",
+    "no characterization/intervention/recovery",
+    "material-state proximity",
+    "membrane-water/thermal-state comparability"
+  ],
+  "prospective_matching": {
+    "max_temporal_distance_h": 0.5,
+    "min_delta_j_A_cm2": 0.2,
+    "per_variable_caliper_IQR_fraction": 0.1,
+    "joint_standardized_distance_max": 0.5,
+    "threshold_basis": "PROJECT_ANALYSIS_DESIGN: adjacent 0.5h bins, conservative 0.2 A/cm2 separation; not sensor precision or universal electrochemical tolerance. Physical certification still mandatory",
+    "calibration_outcome_access": false,
+    "matching": "deterministic joint calipers then nearest without dwell reuse; ties source row IDs",
+    "sensitivity_IQR_fractions": [
+      0.05,
+      0.2
+    ],
+    "sensitivity_never_selects_primary": true
+  },
+  "minimum_support": {
+    "nonshared_dwell_pairs_per_domain": 20,
+    "distinct_load_levels": 3,
+    "independent_segments": 2,
+    "basis": "PROJECT_ANALYSIS_DESIGN feasibility floor, not power/significance or proof of physics"
+  },
+  "trigger_for_real_voltage_pair_statistics": "all raw dwell, state, joint support, independent amplitude and isolation prerequisites PASS",
+  "empirical_metrics": [
+    "pair DeltaV V/mV distribution",
+    "violation fraction",
+    "unique dwells/segments",
+    "repeat measurement noise",
+    "hysteresis/scan",
+    "segment and batch summaries",
+    "no overlapping-pair independence claim"
+  ],
+  "isolation": {
+    "auxiliary_view": "all-time voltage-free 9 nonvoltage channels, no age/curve/cycle identity",
+    "visible_channels": [
+      "actual_current_A_mean",
+      "actual_current_A_std",
+      "actual_current_A_peak_to_peak",
+      "actual_current_density_A_cm2_mean",
+      "actual_current_density_A_cm2_std",
+      "actual_current_density_A_cm2_peak_to_peak",
+      "load_transition_count",
+      "operation_point_transitions",
+      "zero_current_fraction"
+    ],
+    "all_voltage_descendants_excluded": true,
+    "original_f2_input_unchanged": true,
+    "nonphysical_control_same_view": true,
+    "data_lineage_scope": "synthetic + schema; no encoder or auxiliary model instantiated"
+  },
+  "amplitude_supervision": "independent measured dwell voltages with labels excluded from auxiliary view, calibration/evidence time isolated, no shared dwell; not certified until qualified raw pair evidence",
+  "constant_checks": [
+    "constant voltage",
+    "fixed decreasing j-only line",
+    "ignore conditions/state",
+    "memorize curve identity",
+    "voltage descendant copy"
+  ],
+  "stops": [
+    "Train firewall failure -> P3_TRAIN_ACCESS_BLOCKED",
+    "missing quasi-steady/state evidence -> no pair relation computation",
+    "isolation or amplitude failure -> no training eligibility",
+    "no automatic next phase"
+  ],
+  "allowed_final_statuses": [
+    "P3_TRAIN_SUPPORT_AND_AUXILIARY_ISOLATION_QUALIFIED",
+    "P3_COMMON_SUPPORT_INSUFFICIENT",
+    "P3_QUASI_STEADY_OR_STATE_COMPARABILITY_UNRESOLVED",
+    "P3_AUXILIARY_ISOLATION_FAILED",
+    "P3_NONDEGENERATE_SUPERVISION_NOT_ESTABLISHED",
+    "P3_TRAIN_ACCESS_BLOCKED",
+    "P3_SCIENTIFIC_QUALIFICATION_UNRESOLVED"
+  ]
+}

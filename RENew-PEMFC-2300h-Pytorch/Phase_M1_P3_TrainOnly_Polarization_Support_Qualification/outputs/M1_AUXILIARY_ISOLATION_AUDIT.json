@@ -1,0 +1,31 @@
+{
+  "auxiliary_view": "PROPOSED_AND_COLUMN_LINEAGE_TESTED; no model built",
+  "visible_columns": [
+    "actual_current_A_mean",
+    "actual_current_A_std",
+    "actual_current_A_peak_to_peak",
+    "actual_current_density_A_cm2_mean",
+    "actual_current_density_A_cm2_std",
+    "actual_current_density_A_cm2_peak_to_peak",
+    "load_transition_count",
+    "operation_point_transitions",
+    "zero_current_fraction"
+  ],
+  "visible_voltage_columns": [],
+  "all_times_voltage_excluded": true,
+  "raw_cells_excluded": true,
+  "exported_average_excluded": true,
+  "EWMA_and_all_voltage_descendants_excluded": true,
+  "neighbor_voltage_excluded": true,
+  "matched_condition_voltage_excluded": true,
+  "pretrained_latent_excluded": true,
+  "age_cycle_curve_identifiers_excluded": true,
+  "train_scaler_voltage_reference_excluded": true,
+  "original_f2_view_modified": false,
+  "nonphysical_control_requires_same_view": true,
+  "bounded_train_voltage_perturbation_invariance_pass": true,
+  "real_label_dwell_to_aux_window_source_join": "NOT_EXECUTED: raw dwell identity unavailable",
+  "isolation_scientifically_qualified": false,
+  "reason": "Complete actual-label time/source lineage not established",
+  "status": "P3_AUXILIARY_TARGET_LEAKAGE_RISK_UNRESOLVED"
+}

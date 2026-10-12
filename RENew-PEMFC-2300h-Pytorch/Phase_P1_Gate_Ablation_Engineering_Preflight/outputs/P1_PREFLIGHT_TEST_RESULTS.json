@@ -1,0 +1,70 @@
+{
+  "tests": [
+    {
+      "test": "test_gate_parameter_identity.GateParameterIdentity.test_core_tampering_rejected_by_production_validator",
+      "status": "PASS"
+    },
+    {
+      "test": "test_gate_parameter_identity.GateParameterIdentity.test_gate_requires_grad_tampering_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_gate_parameter_identity.GateParameterIdentity.test_real_three_seed_parameter_and_context_contracts",
+      "status": "PASS"
+    },
+    {
+      "test": "test_rng_and_sampler_parity.RNGAndSamplerParity.test_all_seed_cpu_cuda_numpy_python_loader_dropout_parity",
+      "status": "PASS"
+    },
+    {
+      "test": "test_rng_and_sampler_parity.RNGAndSamplerParity.test_early_stop_exact_standardized_threshold",
+      "status": "PASS"
+    },
+    {
+      "test": "test_rng_and_sampler_parity.RNGAndSamplerParity.test_two_actual_loader_epochs_full_order_shared",
+      "status": "PASS"
+    },
+    {
+      "test": "test_synthetic_reload_and_prediction.SyntheticReloadAndPrediction.test_nine_real_synthetic_reloads_exact_and_initial_parity",
+      "status": "PASS"
+    },
+    {
+      "test": "test_synthetic_reload_and_prediction.SyntheticReloadAndPrediction.test_predict_rejects_batch_and_numeric_mode_changes",
+      "status": "PASS"
+    },
+    {
+      "test": "test_synthetic_reload_and_prediction.SyntheticReloadAndPrediction.test_wrong_checkpoint_seed_rejected_before_forward",
+      "status": "PASS"
+    },
+    {
+      "test": "test_synthetic_reload_and_prediction.SyntheticReloadAndPrediction.test_wrong_protocol_sha_rejected_before_forward",
+      "status": "PASS"
+    },
+    {
+      "test": "test_training_firewall.TrainingFirewall.test_historical_checkpoint_rejected_before_deserialization",
+      "status": "PASS"
+    },
+    {
+      "test": "test_training_firewall.TrainingFirewall.test_legacy_source_writes_denied",
+      "status": "PASS"
+    },
+    {
+      "test": "test_training_firewall.TrainingFirewall.test_n1_assessment_raw_and_historical_weights_denied_on_actual_open",
+      "status": "PASS"
+    },
+    {
+      "test": "test_training_firewall.TrainingFirewall.test_optimizer_update_cannot_execute",
+      "status": "PASS"
+    },
+    {
+      "test": "test_training_firewall.TrainingFirewall.test_real_training_entry_always_rejects",
+      "status": "PASS"
+    }
+  ],
+  "tests_run": 15,
+  "passed": true,
+  "failure_count": 0,
+  "error_count": 0,
+  "test_data": "SYNTHETIC_ONLY",
+  "real_optimizer_steps": 0
+}

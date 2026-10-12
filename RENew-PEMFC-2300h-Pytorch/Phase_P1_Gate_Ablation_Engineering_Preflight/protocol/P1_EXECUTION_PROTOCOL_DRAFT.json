@@ -1,0 +1,336 @@
+{
+  "phase": "Phase_P1_Gate_Ablation_Engineering_Preflight",
+  "base_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+  "mode": "ENGINEERING_PREFLIGHT_ONLY",
+  "training_authorized": false,
+  "optimizer_steps_allowed": 0,
+  "real_data_load_allowed": false,
+  "assessment_access_allowed": false,
+  "test_access_allowed": false,
+  "historical_checkpoint_load_allowed": false,
+  "paper_body_authorized": false,
+  "H_protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+  "P_protocol_sha256": "32bb21f37c7ad0d8fd634ed881df0fe0a21895bd801e1fd27bb92da37c5fa8c5",
+  "groups": {
+    "G0": {
+      "fusion": "fixed_0.5",
+      "trainable_gate_parameters": 0,
+      "expected_trainable_parameters": 332379
+    },
+    "G1": {
+      "fusion": "globally_shared_learned_weight",
+      "gate": "same_5_to_8_to_1_ELU_sigmoid_as_G2",
+      "gate_context": "fixed_dimensionless_ones_5_vector_for_all_windows",
+      "trainable_gate_parameters": 57,
+      "expected_trainable_parameters": 332436
+    },
+    "G2": {
+      "fusion": "frozen_F2_historical_regime_gate",
+      "gate_context": "mean_48_scaled_masked_historical_five_regime_variables",
+      "trainable_gate_parameters": 57,
+      "expected_trainable_parameters": 332436
+    }
+  },
+  "task": {
+    "resolution_h": 0.5,
+    "lookback_steps": 48,
+    "horizon_steps": 24,
+    "raw_f2_feature_order": [
+      "cell_voltage_mean",
+      "cell_voltage_std",
+      "cell_voltage_range",
+      "cell_voltage_min",
+      "cell_voltage_max",
+      "actual_current_A_mean",
+      "actual_current_A_std",
+      "actual_current_A_peak_to_peak",
+      "actual_current_density_A_cm2_mean",
+      "actual_current_density_A_cm2_std",
+      "actual_current_density_A_cm2_peak_to_peak",
+      "load_transition_count",
+      "operation_point_transitions",
+      "zero_current_fraction"
+    ],
+    "target": "cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t"
+  },
+  "data": {
+    "read_nrows": 3007,
+    "filter": "bin_end_ophrs2_h < 1819.997738",
+    "development_rows": 3005,
+    "train_rows": [
+      0,
+      2103
+    ],
+    "validation_rows": [
+      2103,
+      2404
+    ],
+    "train_windows": 1380,
+    "validation_windows": 205,
+    "full_N1_hash": "PROHIBITED",
+    "Top10_selection": "consume frozen Train-derived indices; no new selection"
+  },
+  "preprocessing": {
+    "authority": "Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py",
+    "Top10_indices": [
+      0,
+      3,
+      13,
+      11,
+      4,
+      9,
+      6,
+      7,
+      10,
+      8
+    ],
+    "selection": "train_window_origin_spearman_to_each_horizon_mean_absolute",
+    "ties": "stable_raw_f2_order",
+    "mandatory_feature": "cell_voltage_mean",
+    "mask": "standardized_space_zero_mask",
+    "filter": "per_window_causal_EWMA_alpha_0_3_voltage_only",
+    "common_scaler": "unfiltered_train_legal_histories_only",
+    "target_scale": "common_scaler.scale_0"
+  },
+  "hyperparameters": {
+    "seed": 42,
+    "optimizer": "AdamW",
+    "loss": "MSE",
+    "learning_rate": 0.0009605449687795866,
+    "weight_decay": 6.95942232671908e-06,
+    "batch_size": 32,
+    "max_epochs": 450,
+    "patience": 40,
+    "gradient_clip_norm": 1.0,
+    "dropout": 0.1,
+    "hidden_size": 64,
+    "hidden_continuous_size": 32
+  },
+  "normal_runtime": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": false,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": null,
+    "claim": "CUDA_STRICT_BITWISE_DETERMINISM_NOT_CLAIMED"
+  },
+  "dataloader": {
+    "shuffle": true,
+    "batch_size": 32,
+    "num_workers": 0,
+    "generator_seed": "run seed"
+  },
+  "seeds": [
+    42,
+    52,
+    62
+  ],
+  "early_stopping": {
+    "monitor": "validation_standardized_RMSE",
+    "improves": "validation_standardized_RMSE < best - 1e-12",
+    "patience": 40,
+    "max_epochs": 450,
+    "scheduler": null,
+    "each_group_own_best_checkpoint": true,
+    "P_vague_monitor_clarified_without_editing_P": true
+  },
+  "prediction": {
+    "entry": "AST-extracted original E.predict -> original C.predict; H batch32",
+    "eval": true,
+    "grad_mode": "torch.no_grad",
+    "batch_size": 32,
+    "dtype": "float32",
+    "inference_mode": false,
+    "AMP": false,
+    "requires_grad_mutation": false,
+    "initial_group_atol_standardized": 1e-07,
+    "initial_group_rtol": 0.0,
+    "synthetic_reload": "np.array_equal EXACT"
+  },
+  "initialization": {
+    "fresh_core_template": "G0 constructed in isolated RNG seeded run seed",
+    "fresh_gate_template": "original G2 gate constructed in isolated RNG seeded run seed + 100000",
+    "template_source": "FRESH_SYNTHETIC_INITIALIZATION_NOT_HISTORICAL_WEIGHTS",
+    "full_CPU_CUDA_Python_NumPy_RNG_restored": true,
+    "shared_core_within_seed": true,
+    "shared_G1_G2_gate": true,
+    "initial_gate_output": 0.5,
+    "no_change_to_requires_grad": true
+  },
+  "synthetic_checks": {
+    "input_shape": [
+      65,
+      48,
+      14
+    ],
+    "output_shape": [
+      65,
+      24
+    ],
+    "input_generator_seed": 991,
+    "mask_zero_indices": [
+      1,
+      2,
+      5,
+      12
+    ],
+    "index_sample_count": 1380,
+    "index_sampling_epochs": 2,
+    "optimizer_created": false,
+    "backward_only": true,
+    "synthetic_checkpoint_directory": "runtime/",
+    "manual_gate_weight_fixture_only": "synthetic context response diagnostic; never optimizer update"
+  },
+  "future_execution_requirements": {
+    "separate_explicit_authorization_required": true,
+    "runs": 9,
+    "per_epoch_actual_origin_order_log_required": true,
+    "common_epoch_orders_must_match": true,
+    "same_seed_initial_CPU_CUDA_Python_NumPy_loader_and_dropout_required": true,
+    "N1_contract": "read_csv(nrows=3007), then bin_end_ophrs2_h < 1819.997738 yields 3005",
+    "N1_loaded_here": false
+  },
+  "success_criteria_inherited_unchanged": {
+    "G2_vs_each_G0_G1_mean_RMSE_gain_at_least": "max(0.5mV,0.05*control_mean)",
+    "same_seed_formal_wins_vs_both_controls": "3/3",
+    "each_seed_endpoint_and_target_equal_max_ratio": 1.05,
+    "mean_MAE_and_P99_max_ratio": 1.05,
+    "threshold_type": "PROJECT_EXPERIMENT_DESIGN_NOT_LITERATURE_STANDARD",
+    "changes_after_new_results": "PROHIBITED"
+  },
+  "evaluation_inherited_unchanged": {
+    "primary": "FORMAL_QUERY_WEIGHTED_RMSE_mV",
+    "aggregation": "equal_seed_mean_and_sample_SD_not_pooled",
+    "required": [
+      "MAE",
+      "all_24_horizons",
+      "12h_endpoint",
+      "P95",
+      "P99",
+      "max_abs_error",
+      "target_time_equal_RMSE_SSE_first",
+      "target_SSE_top1_top5_top10",
+      "parameter_count",
+      "training_time"
+    ],
+    "outlier_exclusion": false,
+    "seed_selection": false,
+    "significance_testing": false
+  },
+  "scientific_boundaries": [
+    "validation reused: exploratory, not independent confirmation",
+    "57 parameters do not imply equal effective functional degrees",
+    "engineering thresholds are not statistical significance or electrochemical causality"
+  ],
+  "frozen_source_identity": {
+    "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.yaml": {
+      "sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.sha256": {
+      "sha256": "e976c4998dda4746d20152fa1b76f44bd7fae44220dab08b78b513fa34213fd5",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/run_h_training.py": {
+      "sha256": "27476a7967b841abfbf846a7cf41c5c5fb641074fb5bf6b85cc96253a616ca30",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/h_common.py": {
+      "sha256": "c88974ade24909adc793a0dab7433d838d2b1b3ed7dd526702028d259fc14cbb",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/__init__.py": {
+      "sha256": "9aceeebef759152574ae45db9dddfacfb804eb8b0a7b81da3b13e00634299187",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py": {
+      "sha256": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py": {
+      "sha256": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py": {
+      "sha256": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py": {
+      "sha256": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py": {
+      "sha256": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/configs/PREREGISTERED_E_COMPARISON.yaml": {
+      "sha256": "b17794132351454d93debfc67943dc14db73a5287fef1966ba748967e9852332",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py": {
+      "sha256": "f479d4cd64a6a9351dd2d863f38dd4828017dc48ffa8b4e986a3c240a5574099",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_TFT_SingleSplit_Feature_Filter_Ablation/scripts/run_c_ablation.py": {
+      "sha256": "e0053c63d6b942166362a09b2fce0166d9d29130fc0d5624eeaa0dcf32a65ce1",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_P_Final_Innovation_and_Experiment_Planning/protocol/P_PROPOSED_GATE_PROTOCOL.json": {
+      "sha256": "32bb21f37c7ad0d8fd634ed881df0fe0a21895bd801e1fd27bb92da37c5fa8c5",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_P_Final_Innovation_and_Experiment_Planning/protocol/P_PROPOSED_GATE_PROTOCOL.sha256": {
+      "sha256": "2391ef8b07a3413fa8f74ead5eabe0171f19118b6b20d405f380df8797685b89",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "RENew-PEMFC-2300h-Pytorch/Phase_L_Test_Eligibility_and_Reproducibility_Freeze/manifests/L_FROZEN_MODEL_MANIFEST.json": {
+      "sha256": "0c7452cc338cb05757d2216820037c1b6147fdca8e939a667ea11c9ca2b77007",
+      "source_commit": "f4a47e51fd733878873fc5bbdea9e7caec1c1055",
+      "kind": "STATIC_SOURCE_CONFIG_OR_METADATA_ONLY"
+    },
+    "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\_tft.py": {
+      "sha256": "6ad5f6c806d314cfec53851ce0914c6d3476c4b05bd136a2764f4a562f1b7343",
+      "kind": "INSTALLED_FROZEN_TFT_SOURCE"
+    },
+    "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py": {
+      "sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e",
+      "kind": "INSTALLED_FROZEN_TFT_SOURCE"
+    }
+  },
+  "P1_executed_code_identity": {
+    "scripts/gate_ablation_models.py": "62f67fcba5bcfc1f23d0e8441fa355233ea4f4468bafa3e169806463b44e6c16",
+    "scripts/p1_checks.py": "7025bf867d8cf0c4aac5ba32a3f09dec71ddd695f6b2bfa320982b417b9e7352",
+    "scripts/p1_safety.py": "ba83b0e2d1e020f4e1c330b9975b9967dfb88f4889a7390bf882c10b76e971ac",
+    "scripts/run_p1_preflight.py": "7ceafb3c8471983e190593c0226b67d26f06a7b45e8cda5709f1dc78de575831",
+    "tests/p1_test_context.py": "e80b102a842cacbe48165367806625de81fa2927fdf5e4679d84f88c9dbc7582",
+    "tests/test_gate_parameter_identity.py": "af23bbe4ba25c2ceb7235ec3508c1f3ad14d644318e25da284d3891958f6eb5f",
+    "tests/test_rng_and_sampler_parity.py": "68cbf52fda0480caecc4942a803ecb2c6129ddaf8a8567308391bd643f1980b4",
+    "tests/test_synthetic_reload_and_prediction.py": "af655909deb3defa58bec6d7376956b94fd2585573381e3ec4475f4a8a6ea143",
+    "tests/test_training_firewall.py": "e3045a25280589b4b1b89e18a0b2c5485834f52e087a1b40d0bc835b4252bcfd"
+  },
+  "stop": "technical PASS permits asking for authorization only; no automatic real training or paper writing"
+}

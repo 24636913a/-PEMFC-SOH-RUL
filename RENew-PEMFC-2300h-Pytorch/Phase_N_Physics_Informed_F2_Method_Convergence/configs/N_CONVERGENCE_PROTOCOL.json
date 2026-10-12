@@ -1,0 +1,83 @@
+{
+  "phase": "Phase_N_Physics_Informed_F2_Method_Convergence",
+  "base_commit": "42d8b4587be715e5a55b034e6d5351126b8350cd",
+  "mode": "STATIC_MATHEMATICAL_LITERATURE_SYNTHETIC_ONLY",
+  "training_enabled": false,
+  "real_data_read_allowed": false,
+  "checkpoint_load_allowed": false,
+  "physics_parameter_fit_allowed": false,
+  "prediction_allowed": false,
+  "test_access_allowed": false,
+  "source_whitelist": [
+    "Phase_G_STOP_Physics_Consistent_Future_Conditions/PHYSICAL_RELATION_AUDIT.md",
+    "Phase_G_STOP_Physics_Consistent_Future_Conditions/FUTURE_CONDITION_FORECAST_AUDIT.md",
+    "Phase_POT_Physics_Optimized_TimesNet/reports/STAGE0_PHYSICAL_FEASIBILITY_REPORT.md",
+    "Phase_POT_Physics_Optimized_TimesNet/reports/FINAL_RESEARCH_DECISION.md",
+    "Phase_H_Determinism_MultiSeed_Stability/reports/H_FINAL_CONCLUSION.md",
+    "Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.yaml",
+    "Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/reports/J_FINAL_ARCHITECTURE_DECISION.md",
+    "Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/reports/K_FINAL_RESEARCH_RECOMMENDATION.md",
+    "Phase_L_Test_Eligibility_and_Reproducibility_Freeze/reports/L_FINAL_EVALUATION_READINESS_DECISION.md",
+    "Phase_L_Test_Eligibility_and_Reproducibility_Freeze/reports/L_WINDOW_AND_INFORMATION_SET_CONTRACT.md",
+    "Phase_M_F2_PINN_Physics_Feasibility/reports/M_FINAL_PHYSICS_RESEARCH_DECISION.md",
+    "Phase_M_F2_PINN_Physics_Feasibility/reports/M_EQUATION_IDENTIFIABILITY_AUDIT.md",
+    "Phase_M_F2_PINN_Physics_Feasibility/reports/M_PHYSICAL_VARIABLE_AVAILABILITY.md",
+    "Phase_M_F2_PINN_Physics_Feasibility/evidence/M_PHYSICS_LITERATURE_LEDGER.md",
+    "Phase_M1_P3_TrainOnly_Polarization_Support_Qualification/reports/M1_FINAL_P3_RESEARCH_DECISION.md",
+    "Phase_M2_P3_TrainOnly_Raw_Dwell_Qualification/reports/M2_FINAL_P3_RESEARCH_DECISION.md",
+    "Phase_M2_P3_TrainOnly_Raw_Dwell_Qualification/reports/M2_STAGE1_SUPPORT_LIMITATION_ADDENDUM.md",
+    "Phase_M2_P3_TrainOnly_Raw_Dwell_Qualification/reports/M2_SENSOR_QUALITY_AND_PHYSICAL_DOMAIN.md",
+    "Phase_M2_P3_TrainOnly_Raw_Dwell_Qualification/reports/M2_STATE_AND_HYSTERESIS_AUDIT.md",
+    "Phase_M2_P3_TrainOnly_Raw_Dwell_Qualification/reports/M2_AUXILIARY_IDENTIFIABILITY.md",
+    "Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py",
+    "Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py",
+    "Phase_TFT_Original_Baseline/models/canonical_tft.py",
+    "Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/E_COMMON_SCALER.json",
+    "Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/E_SPLIT_MANIFEST.json"
+  ],
+  "inherited_states": [
+    "NO_ADMISSIBLE_PINN_CONSTRAINT_YET",
+    "M2_STATE_COMPARABILITY_UNRESOLVED",
+    "RAW_DWELL_EVIDENCE_SUPPORT_INSUFFICIENT",
+    "PHASE_J_F2_ARCHITECTURE_FROZEN",
+    "PHASE_L_CONFIRMATORY_TEST_NOT_ELIGIBLE"
+  ],
+  "conditional_future_design": {
+    "status": "DESIGN_ONLY_NOT_EXECUTABLE",
+    "task": "48_to_24_DeltaV_future_unknown",
+    "resolution_h": 0.5,
+    "seeds": [42, 52, 62],
+    "train_rows_half_open": [0, 2103],
+    "validation_rows_half_open": [2103, 2404],
+    "assessment_rows_half_open": [2404, 3005],
+    "scaler": "frozen E_COMMON_SCALER, unfiltered Train legal histories",
+    "target_scale_V": 0.13680318714138442,
+    "arms": ["F0", "F2", "F2-Control", "Physics-F2"],
+    "inference": "original masked 14-slot history48 plus deterministic relative horizon only",
+    "teacher_future_actual": "only extra Train supervision, absent from all student inference and validation input",
+    "crossfit": "chronological preceding Train blocks; complete source dependency disjointness; no teacher fit on receiving targets",
+    "teacher_scientific_qualification": "UNRESOLVED",
+    "physics_lambda": null,
+    "parameterization": "UNRESOLVED",
+    "primary_metric": "forecast_query_weighted_RMSE_mV; equal-seed mean",
+    "sensitivity_metric": "target_time_equal_weight_RMSE_mV; mean SSE within target before root",
+    "assessment_role": "reused exploratory; no iterative selection",
+    "late_test_confirmatory_eligible": false
+  },
+  "gate_evidence": {
+    "A": {
+      "equation": false, "identifiability": false, "realhyfc_domain": false,
+      "information_contract_design": true, "crossfit_real_evidence": false,
+      "nontrivial_gradient_mathematical": true, "independent_physical_prior": false
+    },
+    "B": {
+      "equation_closed_for_forecast": false, "identifiability": false,
+      "realhyfc_domain": false, "inference_information_closed": false,
+      "nontrivial_gradient_mathematical": true, "independent_physical_prior": false
+    }
+  },
+  "route_A_concept": "CONDITIONALLY_ADMISSIBLE",
+  "route_A_current": "PHYSICAL_PARAMETER_NOT_IDENTIFIABLE",
+  "route_B_current": "NOT_ADMISSIBLE",
+  "final_status": "NO_PHYSICS_F2_TRAINING_ROUTE_QUALIFIED"
+}

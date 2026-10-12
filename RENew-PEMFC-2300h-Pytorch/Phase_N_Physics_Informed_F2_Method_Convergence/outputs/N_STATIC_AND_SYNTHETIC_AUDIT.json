@@ -1,0 +1,33 @@
+{
+  "technical_audit": "PASS",
+  "scientific_status": "NO_PHYSICS_F2_TRAINING_ROUTE_QUALIFIED",
+  "execution_head": "42d8b4587be715e5a55b034e6d5351126b8350cd",
+  "base_commit": "42d8b4587be715e5a55b034e6d5351126b8350cd",
+  "protocol_sha256": "22dfa2a2fc5692f6b68d9c61169782fb3c1324921fe6412ccdc1dfaa1db5d461",
+  "code_sha256": {
+    "scripts/n_math_contracts.py": "7983d3ce1c914880a4dbc01cf85a05a3ed73f643de1f645fd725c096be8c8788",
+    "scripts/run_n_static_audit.py": "d0ab38fb304f157a2a434c1e0311127faf5d021b13a1002c3201ade80340c45e",
+    "tests/test_n_contracts.py": "99c1e5c9cc55321d06b9f788f3f9ea8d851cfbcac2e6a334027e3b9b31d2872e"
+  },
+  "source_count": 25,
+  "synthetic_tests_run": 19,
+  "synthetic_failures": 0,
+  "synthetic_errors": 0,
+  "inherited_states": [
+    "NO_ADMISSIBLE_PINN_CONSTRAINT_YET",
+    "M2_STATE_COMPARABILITY_UNRESOLVED",
+    "RAW_DWELL_EVIDENCE_SUPPORT_INSUFFICIENT",
+    "PHASE_J_F2_ARCHITECTURE_FROZEN",
+    "PHASE_L_CONFIRMATORY_TEST_NOT_ELIGIBLE"
+  ],
+  "training_qualified": false,
+  "test_numeric_content_read": false,
+  "new_real_timeseries_read": false,
+  "mixed_source_hash_performed": false,
+  "checkpoints_loaded_or_modified": false,
+  "neural_training_or_forward": false,
+  "physical_parameter_fitting": false,
+  "audit_access_scope": "closed static whitelist; own files; git metadata/whitelisted base blobs",
+  "access_audit_limit": "Not an OS-wide historical I/O forensic claim",
+  "command": "python -B RENew-PEMFC-2300h-Pytorch/Phase_N_Physics_Informed_F2_Method_Convergence/scripts/run_n_static_audit.py"
+}

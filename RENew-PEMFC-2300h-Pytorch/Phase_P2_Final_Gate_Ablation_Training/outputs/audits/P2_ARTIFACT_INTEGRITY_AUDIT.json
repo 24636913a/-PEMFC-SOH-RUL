@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "completed_runs": 9,
+  "require_all_nine": true,
+  "runs": [
+    {
+      "run_id": "P2-G0-Seed42",
+      "status": "PASS",
+      "queries": 4920,
+      "origins": 205,
+      "target_rows": 251,
+      "cache_metric_recalculation": true,
+      "checkpoint_hash": true,
+      "sampler_epochs": 170
+    },
+    {
+      "run_id": "P2-G1-Seed42",
+      "status": "PASS",
+      "queries": 4920,
+      "origins": 205,
+      "target_rows": 251,
+      "cache_metric_recalculation": true,
+      "checkpoint_hash": true,
+      "sampler_epochs": 413
+    },
+    {
+      "run_id": "P2-G2-Seed42",
+      "status": "PASS",
+      "queries": 4920,
+      "origins": 205,
+      "target_rows": 251,
+      "cache_metric_recalculation": true,
+      "checkpoint_hash": true,
+      "sampler_epochs": 179
+    },
+    {
+      "run_id": "P2-G1-Seed52",
+      "status": "PASS",
+      "queries": 4920,
+      "origins": 205,
+      "target_rows": 251,
+      "cache_metric_recalculation": true,
+      "checkpoint_hash": true,
+      "sampler_epochs": 219
+    },
+    {
+      "run_id": "P2-G2-Seed52",
+      "status": "PASS",
+      "queries": 4920,
+      "origins": 205,
+      "target_rows": 251,
+      "cache_metric_recalculation": true,
+      "checkpoint_hash": true,
+      "sampler_epochs": 261
+    },
+    {
+      "run_id": "P2-G0-Seed52",
+      "status": "PASS",
+      "queries": 4920,
+      "origins": 205,
+      "target_rows": 251,
+      "cache_metric_recalculation": true,
+      "checkpoint_hash": true,
+      "sampler_epochs": 234
+    },
+    {
+      "run_id": "P2-G2-Seed62",
+      "status": "PASS",
+      "queries": 4920,
+      "origins": 205,
+      "target_rows": 251,
+      "cache_metric_recalculation": true,
+      "checkpoint_hash": true,
+      "sampler_epochs": 302
+    },
+    {
+      "run_id": "P2-G0-Seed62",
+      "status": "PASS",
+      "queries": 4920,
+      "origins": 205,
+      "target_rows": 251,
+      "cache_metric_recalculation": true,
+      "checkpoint_hash": true,
+      "sampler_epochs": 363
+    },
+    {
+      "run_id": "P2-G1-Seed62",
+      "status": "PASS",
+      "queries": 4920,
+      "origins": 205,
+      "target_rows": 251,
+      "cache_metric_recalculation": true,
+      "checkpoint_hash": true,
+      "sampler_epochs": 137
+    }
+  ],
+  "Test_accessed": false
+}

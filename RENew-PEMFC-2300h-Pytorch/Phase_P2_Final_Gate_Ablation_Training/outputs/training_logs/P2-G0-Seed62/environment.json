@@ -1,0 +1,22 @@
+{
+  "python": "3.11.9",
+  "torch": "2.6.0+cu124",
+  "pytorch_forecasting": "1.8.0",
+  "CUDA": "12.4",
+  "cuDNN": 90100,
+  "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "CPU_threads": 1,
+  "cudnn_deterministic": true,
+  "cudnn_benchmark": false,
+  "torch_deterministic_algorithms": false,
+  "warn_only": false,
+  "TF32_matmul": false,
+  "TF32_cudnn": true,
+  "CUBLAS_WORKSPACE_CONFIG": null,
+  "pure_function_AST_hashes": {
+    "H_environment_AST_sha256": "bf16631ce71bc12ba9f8e1017473afe96799037d4d5185f51183a48e5065c16f",
+    "H_configure_normal_AST_sha256": "e4ec8264d14754bb58955a53377cc02012a44f2103efb37dbd478b91181352f5",
+    "C_predict_AST_sha256": "aa0dec7a6134f30814be97e9b99b0fd90940c9950dac1634431845fb3b72db9c",
+    "E_predict_AST_sha256": "81228b4d600023dc5f29319291b60cd8ce36012d54bbee6476d84e66ecdaea79"
+  }
+}

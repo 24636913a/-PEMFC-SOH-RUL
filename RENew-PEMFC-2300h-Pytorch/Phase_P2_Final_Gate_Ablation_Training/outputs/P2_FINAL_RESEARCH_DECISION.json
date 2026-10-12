@@ -1,0 +1,56 @@
+{
+  "status": "NO_CONSISTENT_MEAN_GAIN_OVER_BOTH_CONTROLS",
+  "all_predefined_criteria_PASS": false,
+  "comparisons": {
+    "G0": {
+      "mean_RMSE_gain_mV": -0.7563862244069472,
+      "required_gain_mV": 0.5,
+      "mean_gain_PASS": false,
+      "paired_RMSE_wins": 1,
+      "endpoint_each_seed_PASS": false,
+      "target_time_equal_each_seed_PASS": false,
+      "mean_MAE_PASS": false,
+      "mean_P99_PASS": true
+    },
+    "G1": {
+      "mean_RMSE_gain_mV": -0.7934980935982878,
+      "required_gain_mV": 0.5,
+      "mean_gain_PASS": false,
+      "paired_RMSE_wins": 1,
+      "endpoint_each_seed_PASS": false,
+      "target_time_equal_each_seed_PASS": false,
+      "mean_MAE_PASS": true,
+      "mean_P99_PASS": true
+    }
+  },
+  "group_means": {
+    "G0": {
+      "RMSE_mV": 8.387047734501627,
+      "MAE_mV": 4.367319220668041,
+      "P99_abs_error_mV": 17.967441578706115
+    },
+    "G1": {
+      "RMSE_mV": 8.349935865310286,
+      "MAE_mV": 5.72286244728091,
+      "P99_abs_error_mV": 27.537017968134133
+    },
+    "G2": {
+      "RMSE_mV": 9.143433958908574,
+      "MAE_mV": 4.713574515612925,
+      "P99_abs_error_mV": 18.77831397810952
+    }
+  },
+  "historical_condition_independent_value_supported": false,
+  "statistical_significance_claim": false,
+  "electrochemical_causality_claim": false,
+  "historical_F2_automatically_replaced": false,
+  "additional_model_or_training_authorized": false,
+  "physics_F2": "PAUSED",
+  "SOH_RUL_completed": false,
+  "Test_accessed": false,
+  "confirmation_eligibility": "NOT_ESTABLISHED_REUSED_DEVELOPMENT_VALIDATION",
+  "final_model_selection": "RESEARCH_OWNER_DECISION_REQUIRED",
+  "protocol_sha256": "e9a43791ea18d0bb0bb32d4b208cebedad52f75769feb1cccc22c832733d3960",
+  "code_identity_sha256": "9f3d8e84accc74d67a02864976674df1407e8abce3947397981307f14b47b7df",
+  "base_commit": "f3df7d99cb2fb1272fb14d3f78fca2329692b16a"
+}

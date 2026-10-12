@@ -1,0 +1,73 @@
+{
+  "phase": "Phase_M2_P3_TrainOnly_Raw_Dwell_Qualification",
+  "frozen_before_raw_read": true,
+  "discovery": "operation_point + set current rounded3; split gaps>5s/source boundary; never merge across files",
+  "hold_wall_duration_s_min": 120,
+  "window": "middle50%; settling wait=25% duration, at least30s",
+  "minimum_window_samples": 30,
+  "cross_bin_allowed": "only same frozen continuous Train segment, no missing intermediate bin",
+  "calibration_rows": [
+    0,
+    1051
+  ],
+  "evidence_rows": [
+    1051,
+    2103
+  ],
+  "domain_crossing_holds_excluded_from_formal_support": true,
+  "statistical_quiet_thresholds": "deterministic calibration P50 of eight within-dwell metrics; floor1e-8; no outcome/violation tuning",
+  "statistical_quiet_is_physical_quasi_steady": false,
+  "qualification_requires": [
+    "sensor domain/units",
+    "calibration accuracy or independently justified stabilization",
+    "membrane water/thermal/material comparability",
+    "scan/loading hysteresis/recovery control"
+  ],
+  "RH_gt100_policy": "retain and flag PENDING; do not clip or silently drop; do not infer oversaturation or calibration cause",
+  "M1_matching_design": {
+    "max_temporal_distance_h": 0.5,
+    "min_delta_j_A_cm2": 0.2,
+    "per_variable_caliper_IQR_fraction": 0.1,
+    "joint_standardized_distance_max": 0.5,
+    "threshold_basis": "PROJECT_ANALYSIS_DESIGN: adjacent 0.5h bins, conservative 0.2 A/cm2 separation; not sensor precision or universal electrochemical tolerance. Physical certification still mandatory",
+    "calibration_outcome_access": false,
+    "matching": "deterministic joint calipers then nearest without dwell reuse; ties source row IDs",
+    "sensitivity_IQR_fractions": [
+      0.05,
+      0.2
+    ],
+    "sensitivity_never_selects_primary": true
+  },
+  "M1_minimum_support": {
+    "nonshared_dwell_pairs_per_domain": 20,
+    "distinct_load_levels": 3,
+    "independent_segments": 2,
+    "basis": "PROJECT_ANALYSIS_DESIGN feasibility floor, not power/significance or proof of physics"
+  },
+  "time_conversion": {
+    "max_temporal_distance_h": 0.5,
+    "max_temporal_distance_s": 1800,
+    "min_delta_j_A_cm2": 0.2
+  },
+  "auxiliary_view": [
+    "actual_current_A_mean",
+    "actual_current_A_std",
+    "actual_current_A_peak_to_peak",
+    "actual_current_density_A_cm2_mean",
+    "actual_current_density_A_cm2_std",
+    "actual_current_density_A_cm2_peak_to_peak",
+    "load_transition_count",
+    "operation_point_transitions",
+    "zero_current_fraction"
+  ],
+  "no_added_T_RH_P_or_voltage_inputs": true,
+  "order_or_pair_amplitude_calculated_only_after_all_physical_gates": true,
+  "negative_controls": [
+    "constant voltage",
+    "fixed descending j-only line",
+    "ignore conditions",
+    "curve-ID memorization",
+    "voltage-copy"
+  ],
+  "stop": "Stage1 failure -> no Stage2 pair selection or Stage3 auxiliary certification; no model training; no automatic next phase"
+}

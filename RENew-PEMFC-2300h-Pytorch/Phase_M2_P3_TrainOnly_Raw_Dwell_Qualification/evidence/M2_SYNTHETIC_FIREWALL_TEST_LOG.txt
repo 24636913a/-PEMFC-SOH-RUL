@@ -1,0 +1,31 @@
+test_bom_quotes_embedded_newline_parser (test_m2_access.AccessTests.test_bom_quotes_embedded_newline_parser) ... ok
+test_chunk_reversal_rejected (test_m2_access.AccessTests.test_chunk_reversal_rejected) ... ok
+test_identity_hash_mismatch_production (test_m2_access.AccessTests.test_identity_hash_mismatch_production) ... ok
+test_invalid_quotes_fail_without_suffix_read (test_m2_access.AccessTests.test_invalid_quotes_fail_without_suffix_read) ... ok
+test_missing_exact_byte_denied (test_m2_access.AccessTests.test_missing_exact_byte_denied) ... ok
+test_missing_hash_denied (test_m2_access.AccessTests.test_missing_hash_denied) ... ok
+test_missing_range_provenance_denied (test_m2_access.AccessTests.test_missing_range_provenance_denied) ... ok
+test_mixed_or_nontrain_scope_denied (test_m2_access.AccessTests.test_mixed_or_nontrain_scope_denied) ... ok
+test_nontrain_record_rejected (test_m2_access.AccessTests.test_nontrain_record_rejected) ... ok
+test_plateau_reported_not_called_strict_age (test_m2_access.AccessTests.test_plateau_reported_not_called_strict_age) ... ok
+test_prefix_mutation_sensitive (test_m2_access.AccessTests.test_prefix_mutation_sensitive) ... ok
+test_stop_before_forbidden_byte (test_m2_access.AccessTests.test_stop_before_forbidden_byte) ... ok
+test_suffix_mutation_invariant (test_m2_access.AccessTests.test_suffix_mutation_invariant) ... ok
+test_time_boundary_rejected (test_m2_access.AccessTests.test_time_boundary_rejected) ... ok
+test_truncation_fails (test_m2_access.AccessTests.test_truncation_fails) ... ok
+test_unallowlisted_source_denied_before_open (test_m2_access.AccessTests.test_unallowlisted_source_denied_before_open) ... ok
+test_wrong_age_order_rejected (test_m2_access.AccessTests.test_wrong_age_order_rejected) ... ok
+test_wrong_timestamp_order_rejected (test_m2_access.AccessTests.test_wrong_timestamp_order_rejected) ... ok
+test_zero_or_negative_boundary_rejected (test_m2_access.AccessTests.test_zero_or_negative_boundary_rejected) ... ok
+test_RH_over100_retained_and_flagged (test_m2_dwells.DwellTests.test_RH_over100_retained_and_flagged) ... ok
+test_load_switch_splits (test_m2_dwells.DwellTests.test_load_switch_splits) ... ok
+test_no_encoder_imports_in_production (test_m2_dwells.DwellTests.test_no_encoder_imports_in_production) ... ok
+test_short_hold_not_a_dwell (test_m2_dwells.DwellTests.test_short_hold_not_a_dwell) ... ok
+test_stability_does_not_certify_physics (test_m2_dwells.DwellTests.test_stability_does_not_certify_physics) ... ok
+test_time_gap_splits (test_m2_dwells.DwellTests.test_time_gap_splits) ... ok
+test_true_measurement_record_window (test_m2_dwells.DwellTests.test_true_measurement_record_window) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.102s
+
+OK

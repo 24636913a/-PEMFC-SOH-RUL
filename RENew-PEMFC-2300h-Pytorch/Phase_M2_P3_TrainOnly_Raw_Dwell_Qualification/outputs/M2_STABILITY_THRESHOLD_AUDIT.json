@@ -1,0 +1,17 @@
+{
+  "algorithm": "P50 of each metric on time-isolated calibration holds; floor1e-8; conjunction",
+  "calibration_hold_count": 3726,
+  "thresholds": {
+    "j_std_A_cm2": 0.0004853043163808461,
+    "j_range_A_cm2": 0.002615987999999958,
+    "voltage_abs_slope_mV_per_min": 0.6522479924125459,
+    "temperature_max_range_C": 0.9968566899999871,
+    "RH_max_range_pct": 1.0878772800000007,
+    "pressure_max_range_kPag": 1.0113830000000235,
+    "flow_max_CV": 0.0021355768091788283,
+    "stoic_max_CV": 0.002234675522684476
+  },
+  "physical_tolerance_certified": false,
+  "no_voltage_order_used": true,
+  "thresholds_not_retuned": true
+}

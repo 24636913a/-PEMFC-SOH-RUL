@@ -1,0 +1,467 @@
+{
+  "base_commit": "7553fcf3ad5f2b10bcf1f590ce90d19d46468bb4",
+  "identity_status": "VALIDATION_CACHE_IDENTITY_PASS",
+  "robustness_status": "F2_ADVANTAGE_METRIC_DEPENDENT",
+  "evidence_status": "VALIDATION_EVIDENCE_COMPLETED",
+  "protocol_sha256": "bef566ddf6250001de0eb315c5e9313d8054c702fcac63d0e79f1d9eff6e926d",
+  "historical_protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+  "cache_checks": [
+    {
+      "run_id": "H-F0-Seed42",
+      "file_hash_pass": true,
+      "sha256": "20cafbd44d62c764f2857d4735d1a5509641788d2f3c7c6c3f8bcc679ed4761c",
+      "records": 4920,
+      "n_origins": 205,
+      "key_uniqueness": true,
+      "identity_pass": true,
+      "truth_max_abs_difference_V": 0.0
+    },
+    {
+      "run_id": "H-F0-Seed52",
+      "file_hash_pass": true,
+      "sha256": "c2942fd3a8d7121267ee40a226fe7e3be37a00fa582bc7d61bccd679090da58a",
+      "records": 4920,
+      "n_origins": 205,
+      "key_uniqueness": true,
+      "identity_pass": true,
+      "truth_max_abs_difference_V": 0.0
+    },
+    {
+      "run_id": "H-F0-Seed62",
+      "file_hash_pass": true,
+      "sha256": "d5eb73cb5fb4e3c806332b21a4e4deaf34d8130408cb9c82696121ff71c25615",
+      "records": 4920,
+      "n_origins": 205,
+      "key_uniqueness": true,
+      "identity_pass": true,
+      "truth_max_abs_difference_V": 0.0
+    },
+    {
+      "run_id": "H-F1-Seed42",
+      "file_hash_pass": true,
+      "sha256": "77ecb2ebb711878bf33c0a93d9812e51e8913878c0ec4961f7825253b6cc7e7e",
+      "records": 4920,
+      "n_origins": 205,
+      "key_uniqueness": true,
+      "identity_pass": true,
+      "truth_max_abs_difference_V": 0.0
+    },
+    {
+      "run_id": "H-F1-Seed52",
+      "file_hash_pass": true,
+      "sha256": "63b9c0b2788951954e9943d452200bfbfd6cb128acc3091238988de431318e2e",
+      "records": 4920,
+      "n_origins": 205,
+      "key_uniqueness": true,
+      "identity_pass": true,
+      "truth_max_abs_difference_V": 0.0
+    },
+    {
+      "run_id": "H-F1-Seed62",
+      "file_hash_pass": true,
+      "sha256": "f083d0eed066d2f9b61203365522521bc931a8905d0188d37267d2ac3b801578",
+      "records": 4920,
+      "n_origins": 205,
+      "key_uniqueness": true,
+      "identity_pass": true,
+      "truth_max_abs_difference_V": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed42",
+      "file_hash_pass": true,
+      "sha256": "6f599d1790814a05f1b518bfaffcd8aca618ab33c9dd67b678dd5ce93f31d532",
+      "records": 4920,
+      "n_origins": 205,
+      "key_uniqueness": true,
+      "identity_pass": true,
+      "truth_max_abs_difference_V": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed52",
+      "file_hash_pass": true,
+      "sha256": "3663ec152c6213f75bc1d2b919512e594d3ba2725e4a87790de6c79fd35be6d7",
+      "records": 4920,
+      "n_origins": 205,
+      "key_uniqueness": true,
+      "identity_pass": true,
+      "truth_max_abs_difference_V": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed62",
+      "file_hash_pass": true,
+      "sha256": "dfa8255f5fef420456cd4fed083830af16879f93710ebaf037f8f8738a47ec9c",
+      "records": 4920,
+      "n_origins": 205,
+      "key_uniqueness": true,
+      "identity_pass": true,
+      "truth_max_abs_difference_V": 0.0
+    }
+  ],
+  "hist_metric_differences": [
+    {
+      "run_id": "H-F0-Seed42",
+      "source": "H",
+      "metric": "RMSE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F0-Seed42",
+      "source": "H",
+      "metric": "MAE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F0-Seed52",
+      "source": "H",
+      "metric": "RMSE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F0-Seed52",
+      "source": "H",
+      "metric": "MAE_mV",
+      "difference_mV": 8.881784197001252e-16
+    },
+    {
+      "run_id": "H-F0-Seed62",
+      "source": "H",
+      "metric": "RMSE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F0-Seed62",
+      "source": "H",
+      "metric": "MAE_mV",
+      "difference_mV": 4.440892098500626e-16
+    },
+    {
+      "run_id": "H-F1-Seed42",
+      "source": "H",
+      "metric": "RMSE_mV",
+      "difference_mV": 1.7763568394002505e-15
+    },
+    {
+      "run_id": "H-F1-Seed42",
+      "source": "H",
+      "metric": "MAE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F1-Seed52",
+      "source": "H",
+      "metric": "RMSE_mV",
+      "difference_mV": 1.7763568394002505e-15
+    },
+    {
+      "run_id": "H-F1-Seed52",
+      "source": "H",
+      "metric": "MAE_mV",
+      "difference_mV": -8.881784197001252e-16
+    },
+    {
+      "run_id": "H-F1-Seed62",
+      "source": "H",
+      "metric": "RMSE_mV",
+      "difference_mV": -1.7763568394002505e-15
+    },
+    {
+      "run_id": "H-F1-Seed62",
+      "source": "H",
+      "metric": "MAE_mV",
+      "difference_mV": 8.881784197001252e-16
+    },
+    {
+      "run_id": "H-F2-Seed42",
+      "source": "H",
+      "metric": "RMSE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed42",
+      "source": "H",
+      "metric": "MAE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed52",
+      "source": "H",
+      "metric": "RMSE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed52",
+      "source": "H",
+      "metric": "MAE_mV",
+      "difference_mV": -8.881784197001252e-16
+    },
+    {
+      "run_id": "H-F2-Seed62",
+      "source": "H",
+      "metric": "RMSE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed62",
+      "source": "H",
+      "metric": "MAE_mV",
+      "difference_mV": 4.440892098500626e-16
+    },
+    {
+      "run_id": "H-F2-Seed42",
+      "source": "J learned",
+      "metric": "RMSE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed42",
+      "source": "J learned",
+      "metric": "MAE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed42",
+      "source": "J learned",
+      "metric": "P95_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed42",
+      "source": "J learned",
+      "metric": "P99_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed42",
+      "source": "J learned",
+      "metric": "endpoint_RMSE_mV",
+      "difference_mV": 8.881784197001252e-16
+    },
+    {
+      "run_id": "H-F2-Seed42",
+      "source": "J learned",
+      "metric": "max_abs_error_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed42",
+      "source": "J learned",
+      "metric": "target_time_equal_RMSE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed52",
+      "source": "J learned",
+      "metric": "RMSE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed52",
+      "source": "J learned",
+      "metric": "MAE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed52",
+      "source": "J learned",
+      "metric": "P95_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed52",
+      "source": "J learned",
+      "metric": "P99_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed52",
+      "source": "J learned",
+      "metric": "endpoint_RMSE_mV",
+      "difference_mV": 1.7763568394002505e-15
+    },
+    {
+      "run_id": "H-F2-Seed52",
+      "source": "J learned",
+      "metric": "max_abs_error_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed52",
+      "source": "J learned",
+      "metric": "target_time_equal_RMSE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed62",
+      "source": "J learned",
+      "metric": "RMSE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed62",
+      "source": "J learned",
+      "metric": "MAE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed62",
+      "source": "J learned",
+      "metric": "P95_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed62",
+      "source": "J learned",
+      "metric": "P99_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed62",
+      "source": "J learned",
+      "metric": "endpoint_RMSE_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed62",
+      "source": "J learned",
+      "metric": "max_abs_error_mV",
+      "difference_mV": 0.0
+    },
+    {
+      "run_id": "H-F2-Seed62",
+      "source": "J learned",
+      "metric": "target_time_equal_RMSE_mV",
+      "difference_mV": 0.0
+    }
+  ],
+  "numeric_tolerance_mV": 1e-10,
+  "exact_shared_keys_and_truth": true,
+  "unique_targets_statistically_independent": false,
+  "historical_J_exact_query_identity_report_verified": true,
+  "J_prediction_cache_read": false,
+  "all_queries_retained": true,
+  "seed_selected": false,
+  "training_performed": false,
+  "model_forward_calls": 0,
+  "checkpoint_bytes_read": false,
+  "assessment_point_predictions_read": false,
+  "test_numeric_accessed": false,
+  "raw_N1_read_or_hash": false,
+  "new_model_predictions": false,
+  "formal_metric_unchanged": "FORMAL_QUERY_WEIGHTED_RMSE",
+  "no_significance_testing": true,
+  "synthetic_tests": {
+    "pass": true,
+    "tests_run": 15,
+    "failures": 0,
+    "errors": 0,
+    "scope": "production cache-validation/metric functions with synthetic data only"
+  },
+  "source_hashes_rechecked_after_run": true,
+  "saved_metric_table_round_trip_audit": [
+    {
+      "path": "outputs/O1_NINE_MODEL_VALIDATION_METRICS.csv",
+      "rows": 9,
+      "sha256": "dad7fec27c2c0c4b8e0177be1af3a2fa708230898c8fec4fc52a7b874b46189e",
+      "round_trip_pass": true
+    },
+    {
+      "path": "outputs/O1_HORIZON_METRICS.csv",
+      "rows": 216,
+      "sha256": "c74214115c1d1524fede08b610f6b87834cb4d1fd126df44234d227121f02c2c",
+      "round_trip_pass": true
+    },
+    {
+      "path": "outputs/O1_TARGET_SSE_CONCENTRATION.csv",
+      "rows": 2259,
+      "sha256": "5da59fefab1bd931c4ec117500c9bba828f3432998f56da03e7521a202b4a4be",
+      "round_trip_pass": true
+    },
+    {
+      "path": "outputs/O1_PAIRED_MODEL_COMPARISON.csv",
+      "rows": 9,
+      "sha256": "0f0d2c3cbee45266f99ee43fcc210ab47bba7087463cf6c1f377aa8236adc456",
+      "round_trip_pass": true
+    },
+    {
+      "path": "outputs/O1_PAIRED_HORIZON_COMPARISON.csv",
+      "rows": 216,
+      "sha256": "9fae92fa4d1fb76051bb3a5f43cff3297eee51b5007dae006193fc00a00b6ca3",
+      "round_trip_pass": true
+    },
+    {
+      "path": "outputs/O1_EQUAL_SEED_SUMMARY.csv",
+      "rows": 42,
+      "sha256": "f445f6a17b07e6ea14c024587b82111128d80656fd1374ca396a8a6d72266a7e",
+      "round_trip_pass": true
+    },
+    {
+      "path": "outputs/O1_HORIZON_SEED_SUMMARY.csv",
+      "rows": 360,
+      "sha256": "c59361b2b65ef83bad04c68baa36388ae50c08c1ee0f93f61a4bfbf9cdeefe59",
+      "round_trip_pass": true
+    },
+    {
+      "path": "outputs/O1_HISTORICAL_METRIC_DIFFERENCES.csv",
+      "rows": 39,
+      "sha256": "51386ce508dfe6f121192e3b2087521866061d7f8376f55ccf8c6a50df5e0170",
+      "round_trip_pass": true
+    }
+  ],
+  "figure_outputs": [
+    {
+      "path": "figures/Fig1_Validation_Horizon_RMSE_Three_Seeds.pdf",
+      "sha256": "bd749edad6a21974ffedd4147cbde35846783a9103d1ae1a69ddb97f161535ce"
+    },
+    {
+      "path": "figures/Fig1_Validation_Horizon_RMSE_Three_Seeds.png",
+      "sha256": "be3aba5c4088f3e6afa3b129b4f7ead7d6ad4db901f33b055010a59050afeb7a"
+    },
+    {
+      "path": "figures/Fig2_Validation_12h_Endpoint.pdf",
+      "sha256": "c5413f31ebd93cb12c1c2f772be536c3fc8210996ea7912e9776f9d258e4ef3e"
+    },
+    {
+      "path": "figures/Fig2_Validation_12h_Endpoint.png",
+      "sha256": "ca8156959adb8a1b1de958f378d5f0ec31ddee94206560731b33169a7aa996a9"
+    },
+    {
+      "path": "figures/Fig3_Formal_vs_Target_Time_Equal.pdf",
+      "sha256": "3718fef0000556894e692d4cc6bf7a753b3933c6e5b7c21772d995b1aabe032d"
+    },
+    {
+      "path": "figures/Fig3_Formal_vs_Target_Time_Equal.png",
+      "sha256": "99e34185b744e27aef0b78965c180720d7db8c3e69231adfe16a230c93889223"
+    },
+    {
+      "path": "figures/Fig4_Validation_Tail_and_Max_Error.pdf",
+      "sha256": "cac9187118728c19c729b1e995589df15f4d6080f427466cc26087582ab31cc0"
+    },
+    {
+      "path": "figures/Fig4_Validation_Tail_and_Max_Error.png",
+      "sha256": "68e8798c088f7b7378aef1d04bb6c4f5fe56bae7aa823bb1de8ee79baa625129"
+    },
+    {
+      "path": "figures/Fig5_Validation_Target_SSE_Concentration.pdf",
+      "sha256": "2b40642e116f79def868277b92df8b5b3ed316ba3ba5e3c2d4415d4575e29def"
+    },
+    {
+      "path": "figures/Fig5_Validation_Target_SSE_Concentration.png",
+      "sha256": "25a257dc0ee7bfb70d01eef48f45bd279dabf8f7156c28661d9a0ab9ef1601b6"
+    },
+    {
+      "path": "figures/Fig6_Validation_Horizon_Equal_Seed_Mean_SD.pdf",
+      "sha256": "345c22c51fe3e1d200264a7b77d3273380581e2eb20d5ab03b7a70dc7186eed2"
+    },
+    {
+      "path": "figures/Fig6_Validation_Horizon_Equal_Seed_Mean_SD.png",
+      "sha256": "dc7f8200acfc4e5b5f2fc9f0daa4b7c0f3937e7b245c0688b2501a80315cf203"
+    }
+  ],
+  "execution_code_sha256": {
+    "scripts\\run_o1_cache_audit.py": "8403ff700b24e6e60fb034569a0f550e398b5e65ba49dc37142787d900a025bc",
+    "scripts\\o1_figures_reports.py": "2a70c44f9f7a8d5338ed576b0eab2dcee5b91b7ae6209db46dace85e22cbe9e9",
+    "tests\\test_o1_synthetic_metrics.py": "5046dab295723850ae787e976ecff29f60d9b31af7dd059c2008647a340d75b6"
+  },
+  "source_access_scope": "closed allowlist and recorded tool trace; not OS-wide I/O instrumentation",
+  "utc": "2026-10-12T08:31:49.538276+00:00"
+}

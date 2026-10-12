@@ -1,0 +1,160 @@
+{
+  "base_commit": "7553fcf3ad5f2b10bcf1f590ce90d19d46468bb4",
+  "protocol_sha256": "bef566ddf6250001de0eb315c5e9313d8054c702fcac63d0e79f1d9eff6e926d",
+  "frozen_utc": "2026-10-12T08:20:23.225725+00:00",
+  "stage": "FROZEN_BEFORE_FORMAL_METRIC_RECOMPUTATION",
+  "metadata": [
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/metrics/H_VALIDATION_METRICS.csv",
+      "sha256": "6ebcdbc566e501d25845a2c6f238b9d9c67620dd000ac9ff6f378906b39b1e83"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.yaml",
+      "sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.sha256",
+      "sha256": "e976c4998dda4746d20152fa1b76f44bd7fae44220dab08b78b513fa34213fd5"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/audit_h_predictions.py",
+      "sha256": "201105a762348e8bd7357dda8fe1be57fd536fe84089ea35deee7f081120fe9f"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_L_Test_Eligibility_and_Reproducibility_Freeze/manifests/L_FROZEN_MODEL_MANIFEST.json",
+      "sha256": "0c7452cc338cb05757d2216820037c1b6147fdca8e939a667ea11c9ca2b77007"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/checkpoint_identity/J_NINE_CHECKPOINT_IDENTITY.json",
+      "sha256": "480a0ab2857a463c0094f02ee3748b9871faec30be6d8f2da140fe8cf207dd65"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/fixed_gate_diagnostic/J_VALIDATION_METRICS.csv",
+      "sha256": "014bbbea24fc6c3ba9b4b65c8c3b135fde741f5db145ef768496984d19fc6169"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/integrity_audit/J_ORIGINAL_H_FULL_VALIDATION_CACHE_AUDIT.csv",
+      "sha256": "5b2377e04a4289c5af3bbc2fe27301f6a80204e0bd56f29a3d8a0071ffef451e"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_O_F2_Paper_FullText_Novelty_Audit/reports/O_07_F2_EXPERIMENT_EVIDENCE_AUDIT.md",
+      "sha256": "2db467b2290eda8228555dfce7ed48d348fc3c5c34d10a991b637bde47fb437f"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_O_F2_Paper_FullText_Novelty_Audit/reports/O_10_FINAL_PUBLICATION_DECISION.md",
+      "sha256": "46fb5b14acc76f26d5be13b86f61c802d2932670ba83b4fe1b781afe38c177e8"
+    }
+  ],
+  "caches": [
+    {
+      "run_id": "H-F0-Seed42",
+      "model": "F0",
+      "seed": 42,
+      "role": "MULTISEED_PRIMARY",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F0-Seed42.csv",
+      "sha256": "20cafbd44d62c764f2857d4735d1a5509641788d2f3c7c6c3f8bcc679ed4761c",
+      "checkpoint_relative_to_H": "outputs\\checkpoints\\H-F0-Seed42_best.pt",
+      "protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1",
+      "expected_records": 4920
+    },
+    {
+      "run_id": "H-F0-Seed52",
+      "model": "F0",
+      "seed": 52,
+      "role": "MULTISEED_PRIMARY",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F0-Seed52.csv",
+      "sha256": "c2942fd3a8d7121267ee40a226fe7e3be37a00fa582bc7d61bccd679090da58a",
+      "checkpoint_relative_to_H": "outputs\\checkpoints\\H-F0-Seed52_best.pt",
+      "protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1",
+      "expected_records": 4920
+    },
+    {
+      "run_id": "H-F0-Seed62",
+      "model": "F0",
+      "seed": 62,
+      "role": "MULTISEED_PRIMARY",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F0-Seed62.csv",
+      "sha256": "d5eb73cb5fb4e3c806332b21a4e4deaf34d8130408cb9c82696121ff71c25615",
+      "checkpoint_relative_to_H": "outputs\\checkpoints\\H-F0-Seed62_best.pt",
+      "protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1",
+      "expected_records": 4920
+    },
+    {
+      "run_id": "H-F1-Seed42",
+      "model": "F1",
+      "seed": 42,
+      "role": "MULTISEED_PRIMARY",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F1-Seed42.csv",
+      "sha256": "77ecb2ebb711878bf33c0a93d9812e51e8913878c0ec4961f7825253b6cc7e7e",
+      "checkpoint_relative_to_H": "outputs\\checkpoints\\H-F1-Seed42_best.pt",
+      "protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1",
+      "expected_records": 4920
+    },
+    {
+      "run_id": "H-F1-Seed52",
+      "model": "F1",
+      "seed": 52,
+      "role": "MULTISEED_PRIMARY",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F1-Seed52.csv",
+      "sha256": "63b9c0b2788951954e9943d452200bfbfd6cb128acc3091238988de431318e2e",
+      "checkpoint_relative_to_H": "outputs\\checkpoints\\H-F1-Seed52_best.pt",
+      "protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1",
+      "expected_records": 4920
+    },
+    {
+      "run_id": "H-F1-Seed62",
+      "model": "F1",
+      "seed": 62,
+      "role": "MULTISEED_PRIMARY",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F1-Seed62.csv",
+      "sha256": "f083d0eed066d2f9b61203365522521bc931a8905d0188d37267d2ac3b801578",
+      "checkpoint_relative_to_H": "outputs\\checkpoints\\H-F1-Seed62_best.pt",
+      "protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1",
+      "expected_records": 4920
+    },
+    {
+      "run_id": "H-F2-Seed42",
+      "model": "F2",
+      "seed": 42,
+      "role": "MULTISEED_PRIMARY",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F2-Seed42.csv",
+      "sha256": "6f599d1790814a05f1b518bfaffcd8aca618ab33c9dd67b678dd5ce93f31d532",
+      "checkpoint_relative_to_H": "outputs\\checkpoints\\H-F2-Seed42_best.pt",
+      "protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1",
+      "expected_records": 4920
+    },
+    {
+      "run_id": "H-F2-Seed52",
+      "model": "F2",
+      "seed": 52,
+      "role": "MULTISEED_PRIMARY",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F2-Seed52.csv",
+      "sha256": "3663ec152c6213f75bc1d2b919512e594d3ba2725e4a87790de6c79fd35be6d7",
+      "checkpoint_relative_to_H": "outputs\\checkpoints\\H-F2-Seed52_best.pt",
+      "protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1",
+      "expected_records": 4920
+    },
+    {
+      "run_id": "H-F2-Seed62",
+      "model": "F2",
+      "seed": 62,
+      "role": "MULTISEED_PRIMARY",
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F2-Seed62.csv",
+      "sha256": "dfa8255f5fef420456cd4fed083830af16879f93710ebaf037f8f8738a47ec9c",
+      "checkpoint_relative_to_H": "outputs\\checkpoints\\H-F2-Seed62_best.pt",
+      "protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "code_identity_sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1",
+      "expected_records": 4920
+    }
+  ],
+  "no_prediction_file_parsed_during_freeze": true,
+  "expected_hash_source": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/metrics/H_VALIDATION_METRICS.csv"
+}

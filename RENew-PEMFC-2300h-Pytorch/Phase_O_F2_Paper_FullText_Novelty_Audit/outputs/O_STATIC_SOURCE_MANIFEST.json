@@ -1,0 +1,285 @@
+{
+  "base_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+  "sources": [
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/configs/F0_F2_EXECUTION_PROTOCOL.yaml",
+      "file_sha256": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+      "base_git_blob_sha256": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py",
+      "file_sha256": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+      "base_git_blob_sha256": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py",
+      "file_sha256": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+      "base_git_blob_sha256": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py",
+      "file_sha256": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+      "base_git_blob_sha256": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py",
+      "file_sha256": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+      "base_git_blob_sha256": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/implementation_audit/F_MODEL_PARAMETER_COUNTS.json",
+      "file_sha256": "e8b84696a4539710524239f82908b71bf82ce8e746d3f6df2b78f7b12ad82985",
+      "base_git_blob_sha256": "36b27902b71bcbd21f3c7bf2231f98dc4372e6fe9cd604561a6fff7c2ceb1b67",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.yaml",
+      "file_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "base_git_blob_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/metrics/H_MULTISEED_STATISTICS.csv",
+      "file_sha256": "d373679471ce73285fbb587f879b793419c52b15819cdcb6cdc6b8782ece0c8e",
+      "base_git_blob_sha256": "d373679471ce73285fbb587f879b793419c52b15819cdcb6cdc6b8782ece0c8e",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/metrics/H_VALIDATION_METRICS.csv",
+      "file_sha256": "6ebcdbc566e501d25845a2c6f238b9d9c67620dd000ac9ff6f378906b39b1e83",
+      "base_git_blob_sha256": "6ebcdbc566e501d25845a2c6f238b9d9c67620dd000ac9ff6f378906b39b1e83",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/reports/H_FINAL_CONCLUSION.md",
+      "file_sha256": "4bdf976c68e978babec2cc73ddecff1234ed0047038bda0073b84db10c226505",
+      "base_git_blob_sha256": "15f3a4c86888da170df42bbf2b317b11d02d6aa2a004956274e76d5d84d9a89a",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/reports/H_SAME_SEED_REPEATABILITY.md",
+      "file_sha256": "ab19f8429279eff4d456b77e3dbfcb5bba0897d4f7a785504d4550c4a6cd9961",
+      "base_git_blob_sha256": "61aa179b7e76003723679ad063300771bb15b39f5a7ecc687c961ad1bdc12531",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/h_common.py",
+      "file_sha256": "c88974ade24909adc793a0dab7433d838d2b1b3ed7dd526702028d259fc14cbb",
+      "base_git_blob_sha256": "c88974ade24909adc793a0dab7433d838d2b1b3ed7dd526702028d259fc14cbb",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_I2_Frozen_Assessment_Evaluation/outputs/checkpoint_manifest/I2_CHECKPOINT_MANIFEST.json",
+      "file_sha256": "e588857297241d3fbdbe65ea6a05db977df501cd130a7dbf8139f26d9f39ae75",
+      "base_git_blob_sha256": "e588857297241d3fbdbe65ea6a05db977df501cd130a7dbf8139f26d9f39ae75",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_I2_Frozen_Assessment_Evaluation/outputs/diagnostics/I2_ALL_HORIZON_METRICS.csv",
+      "file_sha256": "594dee81a9bffd1215b913d726d9f76e657a80a3afbdaa1fff6dd7274f176cb5",
+      "base_git_blob_sha256": "594dee81a9bffd1215b913d726d9f76e657a80a3afbdaa1fff6dd7274f176cb5",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_I2_Frozen_Assessment_Evaluation/outputs/metrics/I2_ASSESSMENT_METRICS.csv",
+      "file_sha256": "b0057356684383ad0c4351194734240fe936f9689f25f6c653ab2e08370ffd50",
+      "base_git_blob_sha256": "b0057356684383ad0c4351194734240fe936f9689f25f6c653ab2e08370ffd50",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_I2_Frozen_Assessment_Evaluation/outputs/metrics/I2_MULTISEED_SUMMARY.csv",
+      "file_sha256": "e7c014f3933ad5fd1245c43b76c7baf6acd893562864b6753ae187c12858a56c",
+      "base_git_blob_sha256": "e7c014f3933ad5fd1245c43b76c7baf6acd893562864b6753ae187c12858a56c",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/J_SUMMARY.json",
+      "file_sha256": "de9e02adabd61816d690172217999550dbe03abff02b79179f16f9fea187af48",
+      "base_git_blob_sha256": "de9e02adabd61816d690172217999550dbe03abff02b79179f16f9fea187af48",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/architecture/J_PARAMETER_COUNTS.csv",
+      "file_sha256": "c847a0278f5cf2999aa0baeb90dc1366a9f2639472df575ddeb52e675b3d4b5b",
+      "base_git_blob_sha256": "c847a0278f5cf2999aa0baeb90dc1366a9f2639472df575ddeb52e675b3d4b5b",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/checkpoint_identity/J_NINE_CHECKPOINT_IDENTITY.json",
+      "file_sha256": "480a0ab2857a463c0094f02ee3748b9871faec30be6d8f2da140fe8cf207dd65",
+      "base_git_blob_sha256": "480a0ab2857a463c0094f02ee3748b9871faec30be6d8f2da140fe8cf207dd65",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/fixed_gate_diagnostic/J_FIXED_GATE_COMPARISON.csv",
+      "file_sha256": "407b02482474a6653fef9956a5dfe0f7942c7eddc0286895558c0166639db9ea",
+      "base_git_blob_sha256": "407b02482474a6653fef9956a5dfe0f7942c7eddc0286895558c0166639db9ea",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/fixed_gate_diagnostic/J_VALIDATION_METRICS.csv",
+      "file_sha256": "014bbbea24fc6c3ba9b4b65c8c3b135fde741f5db145ef768496984d19fc6169",
+      "base_git_blob_sha256": "014bbbea24fc6c3ba9b4b65c8c3b135fde741f5db145ef768496984d19fc6169",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/gate_diagnostics/J_GATE_STATISTICS.csv",
+      "file_sha256": "a971180fa05d5d9ba4e735ed1a3a8e58fe7c4ac205308508fe6d12d3cd2bbb48",
+      "base_git_blob_sha256": "a971180fa05d5d9ba4e735ed1a3a8e58fe7c4ac205308508fe6d12d3cd2bbb48",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/integrity_audit/J_ORIGINAL_H_FULL_VALIDATION_CACHE_AUDIT.csv",
+      "file_sha256": "5b2377e04a4289c5af3bbc2fe27301f6a80204e0bd56f29a3d8a0071ffef451e",
+      "base_git_blob_sha256": "5b2377e04a4289c5af3bbc2fe27301f6a80204e0bd56f29a3d8a0071ffef451e",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/reports/J_FINAL_ARCHITECTURE_DECISION.md",
+      "file_sha256": "35b6dc5ae56f22d92ec40cd09b6c47ab56579878072f05a22ef8f7d69b82f8fd",
+      "base_git_blob_sha256": "35b6dc5ae56f22d92ec40cd09b6c47ab56579878072f05a22ef8f7d69b82f8fd",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_K_Paper_Claims_and_SOH_RUL_Feasibility/reports/K_FINAL_RESEARCH_RECOMMENDATION.md",
+      "file_sha256": "6203956b65e479b311374b719c904360be42ca3e99f2fa821eca68128ec539a5",
+      "base_git_blob_sha256": "6203956b65e479b311374b719c904360be42ca3e99f2fa821eca68128ec539a5",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_L_Test_Eligibility_and_Reproducibility_Freeze/manifests/L_FROZEN_MODEL_MANIFEST.json",
+      "file_sha256": "0c7452cc338cb05757d2216820037c1b6147fdca8e939a667ea11c9ca2b77007",
+      "base_git_blob_sha256": "0c7452cc338cb05757d2216820037c1b6147fdca8e939a667ea11c9ca2b77007",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_L_Test_Eligibility_and_Reproducibility_Freeze/outputs/L_FINAL_READONLY_INTEGRITY_AUDIT.json",
+      "file_sha256": "f91d61988227585acb828c8f9c54c0223c2340d9813807a1e20b43b95746d184",
+      "base_git_blob_sha256": "f91d61988227585acb828c8f9c54c0223c2340d9813807a1e20b43b95746d184",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_L_Test_Eligibility_and_Reproducibility_Freeze/reports/L_FINAL_EVALUATION_READINESS_DECISION.md",
+      "file_sha256": "760496ff2fbd18dce0a4fd2247a1afab41a0337d29b0df8f3b161678f9a930d8",
+      "base_git_blob_sha256": "760496ff2fbd18dce0a4fd2247a1afab41a0337d29b0df8f3b161678f9a930d8",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_M1_P3_TrainOnly_Polarization_Support_Qualification/reports/M1_FINAL_P3_RESEARCH_DECISION.md",
+      "file_sha256": "9cac965c42fe27bb084c11d3ddbab1da1e7f19d6642030060f39d9dc0f6f03ff",
+      "base_git_blob_sha256": "d45b7d5c42496dded1c6ae65624035e9dc573e36fcb022976c06b5a284f74340",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_M2_P3_TrainOnly_Raw_Dwell_Qualification/reports/M2_FINAL_P3_RESEARCH_DECISION.md",
+      "file_sha256": "eea33df82fc4fdf9e0b11ac1c7359b88a8840141a6cd1ebc8c5dbf25cbacf33a",
+      "base_git_blob_sha256": "eea33df82fc4fdf9e0b11ac1c7359b88a8840141a6cd1ebc8c5dbf25cbacf33a",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_M_F2_PINN_Physics_Feasibility/reports/M_FINAL_PHYSICS_RESEARCH_DECISION.md",
+      "file_sha256": "d0539ac07f09dc6c21799ff75f5cacff3b51ddb576f6b97354162a51d7767982",
+      "base_git_blob_sha256": "d0539ac07f09dc6c21799ff75f5cacff3b51ddb576f6b97354162a51d7767982",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N_Physics_Informed_F2_Method_Convergence/N_FINAL_TRAINING_READINESS_DECISION.md",
+      "file_sha256": "ce37b4d00fae67bbeef0a9f3096d58e4b24091520f8577333b03dab56244f77a",
+      "base_git_blob_sha256": "ce37b4d00fae67bbeef0a9f3096d58e4b24091520f8577333b03dab56244f77a",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/E_COMMON_SCALER.json",
+      "file_sha256": "969233228590c11f3c14f4eb364acbcbc638b70fa35a44ba72926ecb7a616ab4",
+      "base_git_blob_sha256": "ce730989874edd7afad7bc7a059a43edb65d8244773110eb8ee6f062d2b04498",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py",
+      "file_sha256": "f479d4cd64a6a9351dd2d863f38dd4828017dc48ffa8b4e986a3c240a5574099",
+      "base_git_blob_sha256": "f479d4cd64a6a9351dd2d863f38dd4828017dc48ffa8b4e986a3c240a5574099",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py",
+      "file_sha256": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+      "base_git_blob_sha256": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+      "source_commit": "9723ed75910594155b4c0ae4888d9bbe8519ec11",
+      "comparison": "byte identity except CRLF/LF checkout normalization",
+      "purpose": "static code/config/report/saved aggregate evidence only"
+    }
+  ]
+}

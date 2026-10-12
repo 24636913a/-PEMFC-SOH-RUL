@@ -1,0 +1,25 @@
+{
+  "phase": "Phase_P_Final_Innovation_and_Experiment_Planning",
+  "base_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+  "status": "DESIGN_FROZEN_FOR_REVIEW_NOT_EXECUTION_AUTHORIZATION",
+  "training_authorized": false,
+  "results_known_when_designing": ["H", "J", "O", "O1", "M2", "N"],
+  "data": {"resolution_h": 0.5, "lookback": 48, "horizon": 24, "raw_f2_slots": 14, "train_rows": [0,2103], "validation_rows": [2103,2404], "train_windows": 1380, "validation_windows": 205, "queries_per_run": 4920, "N1_future_read_contract": "nrows=3007 then end_age<1819.997738 gives 3005; no full hash"},
+  "groups": {
+    "G0": {"fusion": "fixed_0.5", "trainable_gate_parameters": 0, "expected_trainable_parameters": 332379},
+    "G1": {"fusion": "globally_shared_learned_weight", "gate": "same_5_to_8_to_1_ELU_sigmoid_as_G2", "gate_context": "fixed_dimensionless_ones_5_vector_for_all_windows", "trainable_gate_parameters": 57, "expected_trainable_parameters": 332436},
+    "G2": {"fusion": "frozen_F2_historical_regime_gate", "gate_context": "mean_48_scaled_masked_historical_five_regime_variables", "trainable_gate_parameters": 57, "expected_trainable_parameters": 332436}
+  },
+  "initialization": {"fresh_random_common_core_shared_within_seed": true, "historical_checkpoint_warm_start": false, "G1_G2_gate_initial_state_equal": true, "gate_output_weight_and_bias": "zeros", "initial_g_all_groups": 0.5, "isolate_gate_RNG": true},
+  "training": {"seeds": [42,52,62], "runs": 9, "optimizer": "AdamW", "learning_rate": 0.0009605449687795866, "weight_decay": 0.00000695942232671908, "batch_size": 32, "max_epochs": 450, "patience": 40, "gradient_clip_norm": 1.0, "loss": "standardized_DeltaV_MSE", "hidden_size": 64, "hidden_continuous_size": 32, "attention_heads": 4, "lstm_layers": 1, "dropout": 0.1, "early_stopping": "each_group_own_Validation_RMSE_improvement_gt_1e-12", "extra_refit": false, "group_order_per_seed": [["G0","G1","G2"],["G1","G2","G0"],["G2","G0","G1"]]},
+  "evaluation": {"primary": "FORMAL_QUERY_WEIGHTED_RMSE_mV", "aggregation": "equal_seed_mean_and_sample_SD_not_pooled", "required": ["MAE", "all_24_horizons", "12h_endpoint", "P95", "P99", "max_abs_error", "target_time_equal_RMSE_SSE_first", "target_SSE_top1_top5_top10", "parameter_count", "training_time"], "outlier_exclusion": false, "seed_selection": false, "significance_testing": false},
+  "success_proposal": {"G2_vs_each_G0_G1_mean_RMSE_gain_at_least": "max(0.5mV,0.05*control_mean)", "same_seed_formal_wins_vs_both_controls": "3/3", "each_seed_endpoint_and_target_equal_max_ratio": 1.05, "mean_MAE_and_P99_max_ratio": 1.05, "threshold_type": "PROJECT_EXPERIMENT_DESIGN_NOT_LITERATURE_STANDARD", "changes_after_new_results": "PROHIBITED"},
+  "cost": {"estimated_typical_GPU_hours": [2.3,3.2], "reserved_schedule_hours": [4,8], "maximum_epochs_all_runs": 4050, "maximum_optimizer_steps_all_runs": 178200, "measured_now": false},
+  "gate_decision": "GATE_ABLATION_READY_FOR_AUTHORIZATION",
+  "physics_decision": "NO_CREDIBLE_PHYSICS_LITE_ROUTE",
+  "physics_training_runs_authorized": 0,
+  "test_authorized": false,
+  "assessment_for_method_selection": false,
+  "paper_body_authorized": false,
+  "stop": "requester reads reports and separately decides authorization; no automatic training or manuscript drafting"
+}

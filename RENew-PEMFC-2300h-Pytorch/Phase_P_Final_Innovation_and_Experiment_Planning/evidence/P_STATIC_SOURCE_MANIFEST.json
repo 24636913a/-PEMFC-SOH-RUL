@@ -1,0 +1,165 @@
+{
+  "base_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+  "sources": [
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py",
+      "file_sha256": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+      "base_git_blob_sha256": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py",
+      "file_sha256": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+      "base_git_blob_sha256": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py",
+      "file_sha256": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+      "base_git_blob_sha256": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py",
+      "file_sha256": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+      "base_git_blob_sha256": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.yaml",
+      "file_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "base_git_blob_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/metrics/H_MULTISEED_STATISTICS.csv",
+      "file_sha256": "d373679471ce73285fbb587f879b793419c52b15819cdcb6cdc6b8782ece0c8e",
+      "base_git_blob_sha256": "d373679471ce73285fbb587f879b793419c52b15819cdcb6cdc6b8782ece0c8e",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/gate_diagnostics/J_GATE_STATISTICS.csv",
+      "file_sha256": "a971180fa05d5d9ba4e735ed1a3a8e58fe7c4ac205308508fe6d12d3cd2bbb48",
+      "base_git_blob_sha256": "a971180fa05d5d9ba4e735ed1a3a8e58fe7c4ac205308508fe6d12d3cd2bbb48",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/reports/J_FINAL_ARCHITECTURE_DECISION.md",
+      "file_sha256": "35b6dc5ae56f22d92ec40cd09b6c47ab56579878072f05a22ef8f7d69b82f8fd",
+      "base_git_blob_sha256": "35b6dc5ae56f22d92ec40cd09b6c47ab56579878072f05a22ef8f7d69b82f8fd",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/reports/J_FIXED_GATE_DIAGNOSTIC.md",
+      "file_sha256": "786996c1170900e0ae3710e89f0cb3ff789847c4de75103cf9c263b8a60f8097",
+      "base_git_blob_sha256": "786996c1170900e0ae3710e89f0cb3ff789847c4de75103cf9c263b8a60f8097",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_L_Test_Eligibility_and_Reproducibility_Freeze/manifests/L_FROZEN_MODEL_MANIFEST.json",
+      "file_sha256": "0c7452cc338cb05757d2216820037c1b6147fdca8e939a667ea11c9ca2b77007",
+      "base_git_blob_sha256": "0c7452cc338cb05757d2216820037c1b6147fdca8e939a667ea11c9ca2b77007",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_M2_P3_TrainOnly_Raw_Dwell_Qualification/reports/M2_FINAL_P3_RESEARCH_DECISION.md",
+      "file_sha256": "eea33df82fc4fdf9e0b11ac1c7359b88a8840141a6cd1ebc8c5dbf25cbacf33a",
+      "base_git_blob_sha256": "eea33df82fc4fdf9e0b11ac1c7359b88a8840141a6cd1ebc8c5dbf25cbacf33a",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_M_F2_PINN_Physics_Feasibility/reports/M_FINAL_PHYSICS_RESEARCH_DECISION.md",
+      "file_sha256": "d0539ac07f09dc6c21799ff75f5cacff3b51ddb576f6b97354162a51d7767982",
+      "base_git_blob_sha256": "d0539ac07f09dc6c21799ff75f5cacff3b51ddb576f6b97354162a51d7767982",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_N_Physics_Informed_F2_Method_Convergence/N_FINAL_TRAINING_READINESS_DECISION.md",
+      "file_sha256": "ce37b4d00fae67bbeef0a9f3096d58e4b24091520f8577333b03dab56244f77a",
+      "base_git_blob_sha256": "ce37b4d00fae67bbeef0a9f3096d58e4b24091520f8577333b03dab56244f77a",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_O1_Nine_Model_Validation_Robustness_Audit/outputs/O1_EQUAL_SEED_SUMMARY.csv",
+      "file_sha256": "f445f6a17b07e6ea14c024587b82111128d80656fd1374ca396a8a6d72266a7e",
+      "base_git_blob_sha256": "f445f6a17b07e6ea14c024587b82111128d80656fd1374ca396a8a6d72266a7e",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_O1_Nine_Model_Validation_Robustness_Audit/reports/O1_FINAL_RESEARCH_DECISION.md",
+      "file_sha256": "1128e322cf9d3144f2eebc7ba98b6ac97051a0fa193333c94be21ea7f7d3c0c3",
+      "base_git_blob_sha256": "1128e322cf9d3144f2eebc7ba98b6ac97051a0fa193333c94be21ea7f7d3c0c3",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_O1_Nine_Model_Validation_Robustness_Audit/reports/O1_SEED62_EXTREME_ERROR_ANALYSIS.md",
+      "file_sha256": "853aceeb31b3d8bd21a739085fbdb796c50b3b6ef521f0966dda32fea8ff77f0",
+      "base_git_blob_sha256": "853aceeb31b3d8bd21a739085fbdb796c50b3b6ef521f0966dda32fea8ff77f0",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_O_F2_Paper_FullText_Novelty_Audit/reports/O_03_PHYSICS_INFORMED_PRIOR_ART_COMPARISON.md",
+      "file_sha256": "5d29ba2a28b462a38314f0d115a48778b830bc36bc8e1fc9110af3b03d3f8132",
+      "base_git_blob_sha256": "5d29ba2a28b462a38314f0d115a48778b830bc36bc8e1fc9110af3b03d3f8132",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_O_F2_Paper_FullText_Novelty_Audit/reports/O_10_FINAL_PUBLICATION_DECISION.md",
+      "file_sha256": "46fb5b14acc76f26d5be13b86f61c802d2932670ba83b4fe1b781afe38c177e8",
+      "base_git_blob_sha256": "46fb5b14acc76f26d5be13b86f61c802d2932670ba83b4fe1b781afe38c177e8",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py",
+      "file_sha256": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+      "base_git_blob_sha256": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+      "source_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+      "use": "static code/report/config/saved aggregate only"
+    }
+  ],
+  "literature": [
+    {
+      "path": "参考论文/1-s2.0-S0378775326006919-main.pdf",
+      "sha256": "02aa3f525909f1590cf51be3a4fa7468143dfbed6756a0a291cbe2e0791ca18f",
+      "verified_pages": [
+        6
+      ],
+      "doi": "10.1016/j.jpowsour.2026.239941"
+    }
+  ],
+  "bounded_web_verification": [
+    {
+      "url": "https://doi.org/10.1038/s42254-021-00314-5",
+      "identity": "Karniadakis et al., 2021, Nature Reviews Physics 3,422-440",
+      "scope": "primary publisher indexed metadata/abstract; direct full-page redirect inaccessible; not a full-text review"
+    },
+    {
+      "url": "https://netl.doe.gov/sites/default/files/netl-file/FCHandbook7.pdf",
+      "identity": "DOE/NETL Fuel Cell Handbook, Seventh Edition, November 2004",
+      "scope": "official download and title/contents verified; subsequent method-page requests failed; not used as a newly verified equation source"
+    },
+    {
+      "url": "https://doi.org/10.1016/j.jpowsour.2026.239941",
+      "scope": "primary publisher identity plus local user-supplied original PDF p6 equations/visual check"
+    }
+  ],
+  "weight_identity_scope": "historical metadata only; no current weight byte hash/load"
+}

@@ -1,0 +1,66 @@
+{
+  "base_commit": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+  "execution_head": "ffcd9d836b1dfe12feeee220423f50be8f8ca241",
+  "utc": "2026-10-12T11:52:40.242936+00:00",
+  "technical_status": "STATIC_PLANNING_AUDIT_PASS",
+  "gate_decision": "GATE_ABLATION_READY_FOR_AUTHORIZATION",
+  "physics_decision": "NO_CREDIBLE_PHYSICS_LITE_ROUTE",
+  "proposed_training_runs": 9,
+  "training_runs_executed": 0,
+  "training_authorized": false,
+  "source_count": 19,
+  "proposed_protocol_sha256": "32bb21f37c7ad0d8fd634ed881df0fe0a21895bd801e1fd27bb92da37c5fa8c5",
+  "reports": [
+    {
+      "path": "P_CURRENT_RESEARCH_STATUS.md",
+      "sha256": "74f3bcc4c548caca95068987db07da1ab8a503c1788758f2e253084cdda52fad"
+    },
+    {
+      "path": "P_GATE_INDEPENDENT_ABLATION_PLAN.md",
+      "sha256": "5e914b7c23194430c32f3b029aa8b1a37ea9f31ca8f0455cfe760c8058073741"
+    },
+    {
+      "path": "P_PHYSICS_LITE_CANDIDATE_REVIEW.md",
+      "sha256": "5ddbdf21a6ec5e28b264ead2241e039808af931e86fdd1d1de2a0dde78892bd9"
+    },
+    {
+      "path": "P_PHYSICS_LITE_EQUATION_AND_INFORMATION_AUDIT.md",
+      "sha256": "17f5b43ad46c778d871b3737d05fefd223b426128e568646accfa68a630758b5"
+    },
+    {
+      "path": "P_MATCHED_EXPERIMENT_DESIGN.md",
+      "sha256": "3e518b6b4fa304d031215e523ae076458f40a3dd896f53d8c1fef163b5beae1a"
+    },
+    {
+      "path": "P_FINAL_GO_NO_GO_DECISION.md",
+      "sha256": "e954889109b5af9cc2bc58ad2ea1571c7eba99afc11b85a8b355d0c9f3fc0ea7"
+    },
+    {
+      "path": "P_SUPERVISOR_PRESENTATION_PREPARATION.md",
+      "sha256": "00e9e5b762cb06d04a37f11012d9cbd92960fa8f5e17f8d37166af342a81cfca"
+    }
+  ],
+  "historical_model_identities": 9,
+  "checkpoint_bytes_read": false,
+  "model_forward_calls": 0,
+  "prediction_cache_read": false,
+  "raw_N1_read_or_hash": false,
+  "new_performance_metrics": false,
+  "physics_parameters_fitted": false,
+  "test_numeric_accessed": false,
+  "assessment_used_for_new_selection": false,
+  "old_protocol_modified": false,
+  "paper_body_written": false,
+  "PPT_created": false,
+  "GPU_probed": false,
+  "document_guard_tests": {
+    "pass": true,
+    "tests_run": 7,
+    "failures": 0,
+    "errors": 0,
+    "scope": "document/design guard functions; no model training/inference/data loading"
+  },
+  "code_sha256": "a30a8fd1171bb66b5b161e5a9d9a5328aae0c5aadad1b740a905fa7ad0d77cc9",
+  "IO_scope": "closed-list script plus agent tool trace; not global OS monitoring",
+  "stop": "await separate human authorization; no training or paper drafting"
+}

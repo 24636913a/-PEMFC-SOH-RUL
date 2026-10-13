@@ -1,0 +1,36 @@
+{
+  "run_id": "P3-G2-Seed42",
+  "model": "G2",
+  "seed": 42,
+  "parameter_identity": {
+    "counts": {
+      "G0": 332379,
+      "G1": 332436,
+      "G2": 332436
+    },
+    "core_sha256": {
+      "G0": "3c58923a9649b2d99ebc4c1e1192cf3471c1625f119270ad1b6dd263be343e3f",
+      "G1": "3c58923a9649b2d99ebc4c1e1192cf3471c1625f119270ad1b6dd263be343e3f",
+      "G2": "3c58923a9649b2d99ebc4c1e1192cf3471c1625f119270ad1b6dd263be343e3f"
+    },
+    "gate_sha256": {
+      "G0": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "G1": "4f3a9e8019b29258efb5f19ce10678c601ec71f4643da2bf242892731da3cce4",
+      "G2": "4f3a9e8019b29258efb5f19ce10678c601ec71f4643da2bf242892731da3cce4"
+    },
+    "all_original_requires_grad_unchanged": true
+  },
+  "initial_model_sha256": "417fff8042b0c88c09d15ee05ebe04c6a5dc7b2feebfcc8dc79444c55c161dbd",
+  "initial_training_rng": {
+    "cpu": "07f4d531bbebef2db93714cf3eb4506f4aa135d3bbd2bf34770652739df9ba30",
+    "cuda": [
+      "8078874c8df1241d9b11fa5f872baeebb557dd0b31d2cae91b7008d89765f90f"
+    ],
+    "python": "a52169fac48aa2d80acadd41f776ce38656ab70adc3b32c80c1fb1f0ee56b71f",
+    "numpy": "cb42394b8a34cde92024cf4390be1f8f51519cc5eeeb763297532644da571df0",
+    "loader_generator": "07f4d531bbebef2db93714cf3eb4506f4aa135d3bbd2bf34770652739df9ba30"
+  },
+  "protocol_sha256": "b513da7468ddf2b22d7b6d92c90d0549d6c14e2571787bb9f416e617710c7467",
+  "code_identity_sha256": "a3dcc80324d6461724b6e7f0c86d9e609f3cfdc4f74e0f5931a128572fdb0d3b",
+  "no_historical_warm_start": true
+}

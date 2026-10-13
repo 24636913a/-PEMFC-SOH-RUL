@@ -1,0 +1,882 @@
+{
+  "artifacts": [
+    {
+      "run_id": "P3-G0-Seed42",
+      "role": "best",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G0-Seed42_best.pt",
+      "sha256": "7cd72bf231518fa0f8a84724d43c52b94d4c6e2b739d3cb6978807a46b3078b5",
+      "bytes": 1489776
+    },
+    {
+      "run_id": "P3-G0-Seed42",
+      "role": "best",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G0-Seed42_best.pt",
+      "sha256": "7cd72bf231518fa0f8a84724d43c52b94d4c6e2b739d3cb6978807a46b3078b5",
+      "bytes": 1489776
+    },
+    {
+      "run_id": "P3-G0-Seed42",
+      "role": "best",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G0-Seed42_best.csv",
+      "sha256": "e0591806249a1e1aaf5816107f991be9a84f74082ea4fe73c39734d55b1116be",
+      "bytes": 744065
+    },
+    {
+      "run_id": "P3-G0-Seed42",
+      "role": "last450",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G0-Seed42_last450.pt",
+      "sha256": "57051930f1046e2ec3fb78b161146ba280c5e39bb41c3b1e7943cbcce82f450a",
+      "bytes": 1489776
+    },
+    {
+      "run_id": "P3-G0-Seed42",
+      "role": "last450",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G0-Seed42_last450.pt",
+      "sha256": "57051930f1046e2ec3fb78b161146ba280c5e39bb41c3b1e7943cbcce82f450a",
+      "bytes": 1489776
+    },
+    {
+      "run_id": "P3-G0-Seed42",
+      "role": "last450",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G0-Seed42_last450.csv",
+      "sha256": "c3cdb6fe99d689b9fb20ab454bdc433d3c704a1908b6609ddd662d6e27ec1dd7",
+      "bytes": 758812
+    },
+    {
+      "run_id": "P3-G0-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed42\\batch_events.jsonl",
+      "sha256": "05ab1187cdc467caa5a99148211401b0412d474bc1efed37d29c3fd0796057ad",
+      "bytes": 31965983
+    },
+    {
+      "run_id": "P3-G0-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed42\\epochs.json",
+      "sha256": "8960e0bf0baf297843a79af035470f301fabef68ef0579ed9434488f94e0d9a1",
+      "bytes": 402604
+    },
+    {
+      "run_id": "P3-G0-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed42\\epochs.csv",
+      "sha256": "485c5f7f7f7d8373b9318be5deb44670d04f5475276e920b8aa6ecf469fa417b",
+      "bytes": 70572
+    },
+    {
+      "run_id": "P3-G0-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed42\\console.log",
+      "sha256": "c13ee9602ae635b8b867f2096fa2ca7f9db7d633ec354e5762aafed0f1d434e4",
+      "bytes": 33701
+    },
+    {
+      "run_id": "P3-G0-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed42\\initial.json",
+      "sha256": "388a2c709dd765b7ac4b9ac760354c2cfc2b718a26cf1eecf278fd1265c7427a",
+      "bytes": 1531
+    },
+    {
+      "run_id": "P3-G0-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed42\\environment.json",
+      "sha256": "b242c4798367be384aa178dee6e4e1d5acf0d489cdcb59720f39333707764e1e",
+      "bytes": 826
+    },
+    {
+      "run_id": "P3-G0-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed42\\data_access_audit.json",
+      "sha256": "6e94c9f10a533597739ac4c3d8c7a90e646cb30e13edf215c9d4be9ec49ad016",
+      "bytes": 47298972
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "role": "best",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G1-Seed42_best.pt",
+      "sha256": "f5391053f800b5c985895ec31c3839ebfa9ab1ad534ef35638a68db0bd48bf6f",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "role": "best",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G1-Seed42_best.pt",
+      "sha256": "f5391053f800b5c985895ec31c3839ebfa9ab1ad534ef35638a68db0bd48bf6f",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "role": "best",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G1-Seed42_best.csv",
+      "sha256": "f290c95438b19828b4c173ad0ae8d0900fcf2001ee83906238c6daeff12fb053",
+      "bytes": 744130
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "role": "last450",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G1-Seed42_last450.pt",
+      "sha256": "aedb4d36ab15b2f256077dfc5ae4aed21e79de20d87fd5fb36386054710cc5e5",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "role": "last450",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G1-Seed42_last450.pt",
+      "sha256": "aedb4d36ab15b2f256077dfc5ae4aed21e79de20d87fd5fb36386054710cc5e5",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "role": "last450",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G1-Seed42_last450.csv",
+      "sha256": "1beb8806f191b6749c4505c3b1d85d6924d36036782efc028464d1cd4567c886",
+      "bytes": 758858
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed42\\batch_events.jsonl",
+      "sha256": "6f2c4dc290564473568d1b3dfc8a1fe27f785a9e1604f59c37d47ffe894080b7",
+      "bytes": 31954783
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed42\\epochs.json",
+      "sha256": "1d50a58d171028e621c83a60dc400387a9f96490fcfdbb72df3448f9e984f214",
+      "bytes": 402569
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed42\\epochs.csv",
+      "sha256": "6c4265939395675ad8c34c57ded871f7323d01d16fe67f258b6d076f7bacf380",
+      "bytes": 70777
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed42\\console.log",
+      "sha256": "487e477e040fd4cb3837a611523feed1a3bba0007c14131d891f5d2f32afdf0d",
+      "bytes": 33804
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed42\\initial.json",
+      "sha256": "41eb46767cfd673a4ff67b3e25fc58b983b4cbe81640d0eaa0315a0f0c913097",
+      "bytes": 1531
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed42\\environment.json",
+      "sha256": "b242c4798367be384aa178dee6e4e1d5acf0d489cdcb59720f39333707764e1e",
+      "bytes": 826
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed42\\data_access_audit.json",
+      "sha256": "4d8ab78a4e148f50eec576b332ce09d6fa90a09fa1daca82a78e212430bc25bc",
+      "bytes": 47292644
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "role": "best",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G2-Seed42_best.pt",
+      "sha256": "5fd49ce9fd77da5d8ca204994fc384d7304d2f73a201612970dc318e4c7265bb",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "role": "best",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G2-Seed42_best.pt",
+      "sha256": "5fd49ce9fd77da5d8ca204994fc384d7304d2f73a201612970dc318e4c7265bb",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "role": "best",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G2-Seed42_best.csv",
+      "sha256": "308caaf8e7d0b50bfb6de865c5fdb6c1b0f998d07aec91cac198fe7086477169",
+      "bytes": 744155
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "role": "last450",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G2-Seed42_last450.pt",
+      "sha256": "7c08e74d69a49193f2ad9a9b5d5621f8b6af0b6dfe12587ceb7b66666c67eb96",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "role": "last450",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G2-Seed42_last450.pt",
+      "sha256": "7c08e74d69a49193f2ad9a9b5d5621f8b6af0b6dfe12587ceb7b66666c67eb96",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "role": "last450",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G2-Seed42_last450.csv",
+      "sha256": "38f65193a8e95b2eb9256334fca64c1ead39624b58528786afbc9ceaae0d9494",
+      "bytes": 758730
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed42\\batch_events.jsonl",
+      "sha256": "31ea5f4b079520505683d34012a2b3872c094696a1c8de18597dc1ec430749cd",
+      "bytes": 31965779
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed42\\epochs.json",
+      "sha256": "5016113cdad63eae6bda7e778fe6e88e909ca4e72c90fc87e31cd96a2be34036",
+      "bytes": 402500
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed42\\epochs.csv",
+      "sha256": "cc01c7b3f52b5a1a2aa45da4d5a27135cd8c39bd39ceae07c9231f420cb10245",
+      "bytes": 70504
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed42\\console.log",
+      "sha256": "fb898e41b35449334ea5961464611d3cffa26509256c8b1ffacb55fd7a8e0707",
+      "bytes": 33473
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed42\\initial.json",
+      "sha256": "7bc8b96a072f1ce369aa409ae1ddaece84cfbcf6b34a0799b9657b2db52e155a",
+      "bytes": 1531
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed42\\environment.json",
+      "sha256": "b242c4798367be384aa178dee6e4e1d5acf0d489cdcb59720f39333707764e1e",
+      "bytes": 826
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed42\\data_access_audit.json",
+      "sha256": "c6bef67654055e37ff4640f6fce225477880fc1d284baa0dd4b65a55046cb4e6",
+      "bytes": 47293779
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "role": "best",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G1-Seed52_best.pt",
+      "sha256": "938bf8935f1bd8cd453d745fae1c7a8d9c4f88d89fcc2d649eefcc9160204a98",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "role": "best",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G1-Seed52_best.pt",
+      "sha256": "938bf8935f1bd8cd453d745fae1c7a8d9c4f88d89fcc2d649eefcc9160204a98",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "role": "best",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G1-Seed52_best.csv",
+      "sha256": "5a0c282e74d0bd1c1d8dd4113a7afa4ff9728e26f336cf5e9be3487a10b12586",
+      "bytes": 744147
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "role": "last450",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G1-Seed52_last450.pt",
+      "sha256": "37c1b15d2de3a67528f6b90280ca74854239450bbc9331e2a85f26cd82209c06",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "role": "last450",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G1-Seed52_last450.pt",
+      "sha256": "37c1b15d2de3a67528f6b90280ca74854239450bbc9331e2a85f26cd82209c06",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "role": "last450",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G1-Seed52_last450.csv",
+      "sha256": "92e88aa8d0f4db98cdc87632d8883723cd852663a1befa850d52f4170be3f3db",
+      "bytes": 758862
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed52\\batch_events.jsonl",
+      "sha256": "25409b263831a1e8dbcd6bb14aabffa9914a027cd60d67c4daed575d461f8e88",
+      "bytes": 31964680
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed52\\epochs.json",
+      "sha256": "783f63420ad7e636ffadcd1147fbf2a9be937996027094d6cfad3f1f355da9a8",
+      "bytes": 402614
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed52\\epochs.csv",
+      "sha256": "55394f7105f75fe525b6dd5118e82ee0fb6ee1cc8666d939df0c1ed9a543c95a",
+      "bytes": 69862
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed52\\console.log",
+      "sha256": "8fc5908b5102154bf8afa31a1f4374501d1007166df6ac0bc3194ac52362c526",
+      "bytes": 33397
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed52\\initial.json",
+      "sha256": "c95884bf08de924362cb50212ce4775591d20f65e0d6921d52f331c04d6eaa6c",
+      "bytes": 1531
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed52\\environment.json",
+      "sha256": "b242c4798367be384aa178dee6e4e1d5acf0d489cdcb59720f39333707764e1e",
+      "bytes": 826
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed52\\data_access_audit.json",
+      "sha256": "ab272cd202cd26ebb92654e7715a7661908350102b1811f5fcfa21bd25802c07",
+      "bytes": 47297610
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "role": "best",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G2-Seed52_best.pt",
+      "sha256": "5b597bd16c0ebc0e5872107475314e9d5173fbe031010bc00651d2afd35019b9",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "role": "best",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G2-Seed52_best.pt",
+      "sha256": "5b597bd16c0ebc0e5872107475314e9d5173fbe031010bc00651d2afd35019b9",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "role": "best",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G2-Seed52_best.csv",
+      "sha256": "c1866e31278f289e9b1ea1c7b25b3556d55c42348b761994cb203813e533c5c7",
+      "bytes": 744085
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "role": "last450",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G2-Seed52_last450.pt",
+      "sha256": "e0c109be0a37c8b71a23c69d839ef4e8670466935991f88266fbf1802711973c",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "role": "last450",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G2-Seed52_last450.pt",
+      "sha256": "e0c109be0a37c8b71a23c69d839ef4e8670466935991f88266fbf1802711973c",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "role": "last450",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G2-Seed52_last450.csv",
+      "sha256": "b2516f406d5b83355cdab03cbcb5f4fa99324f27b7c1d4c0463624febb84d2ca",
+      "bytes": 758785
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed52\\batch_events.jsonl",
+      "sha256": "30f13bb3e1d53a3bbfeb96ef45a0c0b4e5135975ccf9a1c35a82a94987904a3a",
+      "bytes": 31962366
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed52\\epochs.json",
+      "sha256": "c3b780cdefaddeee113d340021e4f756451d3e9b23760e1aab66ca6640a2bb27",
+      "bytes": 402543
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed52\\epochs.csv",
+      "sha256": "3cc5dc5d5b9bdd15eadb82f4cad91091114c0fb17ca3840ab7c9d22aa49b7395",
+      "bytes": 70337
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed52\\console.log",
+      "sha256": "2690ffbcb71b2d4b66c30dee7c0b828b2819d0b324bf5c60b06ef1874e3839b0",
+      "bytes": 33584
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed52\\initial.json",
+      "sha256": "a8dd8aaa49fe1a6a7a26a2f84fcba10a86e8a2a5c7b4ed5af431a32fa3284812",
+      "bytes": 1531
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed52\\environment.json",
+      "sha256": "b242c4798367be384aa178dee6e4e1d5acf0d489cdcb59720f39333707764e1e",
+      "bytes": 826
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed52\\data_access_audit.json",
+      "sha256": "974ee0936ab28f5e1f3fbe70a1bf27d561a9ca7677a955b871ca00efac18f5b5",
+      "bytes": 47291736
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "role": "best",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G0-Seed52_best.pt",
+      "sha256": "30a2f494629676f13e6b6eb2a7bcdf19201f461043362067baa1253fe49e49b8",
+      "bytes": 1489776
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "role": "best",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G0-Seed52_best.pt",
+      "sha256": "30a2f494629676f13e6b6eb2a7bcdf19201f461043362067baa1253fe49e49b8",
+      "bytes": 1489776
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "role": "best",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G0-Seed52_best.csv",
+      "sha256": "0815976490369b2832df0658b306ce7b91bc22e99a31e55e989da8891262c944",
+      "bytes": 744062
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "role": "last450",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G0-Seed52_last450.pt",
+      "sha256": "51788b0740e579ae77724d3477df1dbfa46ae793498aa140dc55ae733e58592d",
+      "bytes": 1489776
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "role": "last450",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G0-Seed52_last450.pt",
+      "sha256": "51788b0740e579ae77724d3477df1dbfa46ae793498aa140dc55ae733e58592d",
+      "bytes": 1489776
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "role": "last450",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G0-Seed52_last450.csv",
+      "sha256": "3e14584d509cf0e20d964ec5542b816ea5b5541c6c57f9dec675baae6de0ac95",
+      "bytes": 758914
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed52\\batch_events.jsonl",
+      "sha256": "c85bce5d44fd8967861bbd0b87e7dd5ca8b6362cd13b302c94798087a60fdb78",
+      "bytes": 31965125
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed52\\epochs.json",
+      "sha256": "2fd440061ce5a37593dae9fa8e2130a034aa0eaafcaf2e7015a402fda0e068c8",
+      "bytes": 402415
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed52\\epochs.csv",
+      "sha256": "fcbbbde894dee6d83f62a1a380c1d61d56dc9d94f22e8cd7062ef7b4a82712dc",
+      "bytes": 70683
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed52\\console.log",
+      "sha256": "3da73da1fc3a7ba7eb07e30384928a5933cc8c7efe06c3eb0b869825c2009669",
+      "bytes": 33462
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed52\\initial.json",
+      "sha256": "a1d53440aa4eba2107cc1285cf986f701bb8d0cf60af6c05335dc69573bdb12b",
+      "bytes": 1531
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed52\\environment.json",
+      "sha256": "b242c4798367be384aa178dee6e4e1d5acf0d489cdcb59720f39333707764e1e",
+      "bytes": 826
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed52\\data_access_audit.json",
+      "sha256": "4cfe90acdcc4df170504eaa40b0c42d4b49393894aa5ff9d5e1085d0cf977a38",
+      "bytes": 47291736
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "role": "best",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G2-Seed62_best.pt",
+      "sha256": "2721aef354547b5ed841239625673c282d452d165493843f00d5b5a6f14dabd8",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "role": "best",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G2-Seed62_best.pt",
+      "sha256": "2721aef354547b5ed841239625673c282d452d165493843f00d5b5a6f14dabd8",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "role": "best",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G2-Seed62_best.csv",
+      "sha256": "252f90bb43a1170f68f0319dd6cd0f977bfffcf4c53b7d35f75ada101a74d18c",
+      "bytes": 744145
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "role": "last450",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G2-Seed62_last450.pt",
+      "sha256": "ef0925be38cd95cb42545c61366a3cc6ba292551963d0a354de6ec7ac931286e",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "role": "last450",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G2-Seed62_last450.pt",
+      "sha256": "ef0925be38cd95cb42545c61366a3cc6ba292551963d0a354de6ec7ac931286e",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "role": "last450",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G2-Seed62_last450.csv",
+      "sha256": "100da7aac6960bcf2a95fec42492f2b4d5bf27f05e1eef81b923c095e707bcf7",
+      "bytes": 758931
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed62\\batch_events.jsonl",
+      "sha256": "61ab01ea509b92b4b387e73687a2c19308faa431940848c87d8bc4282808ec6a",
+      "bytes": 31965395
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed62\\epochs.json",
+      "sha256": "9a175cdf87f5ab67426a384683b0adc1cf87118c77a212828edc4a5a2c4536c7",
+      "bytes": 402640
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed62\\epochs.csv",
+      "sha256": "9e1c196f4739793bc734745d5a7e9238dfd38c7865a97ae00df17a043fc697dd",
+      "bytes": 69462
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed62\\console.log",
+      "sha256": "8d5591aed53f42160090deb7f52088a2e22fbc5e0002c8007280d37c42994c22",
+      "bytes": 33500
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed62\\initial.json",
+      "sha256": "f834d2f4575a7a9d82805ac7fe653ee954e25920ed8d2b28ade19c34b34f4560",
+      "bytes": 1531
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed62\\environment.json",
+      "sha256": "b242c4798367be384aa178dee6e4e1d5acf0d489cdcb59720f39333707764e1e",
+      "bytes": 826
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G2-Seed62\\data_access_audit.json",
+      "sha256": "316ccf05a295c0b71e9070e31e83393d5b6da055b18af160bfabe411d3805cde",
+      "bytes": 47296248
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "role": "best",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G0-Seed62_best.pt",
+      "sha256": "ad66fc258f9b3b05ba0ba5acb11bfd6079795b928fba84b7eb30d7857b6f6b6a",
+      "bytes": 1489776
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "role": "best",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G0-Seed62_best.pt",
+      "sha256": "ad66fc258f9b3b05ba0ba5acb11bfd6079795b928fba84b7eb30d7857b6f6b6a",
+      "bytes": 1489776
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "role": "best",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G0-Seed62_best.csv",
+      "sha256": "dbd3ca6e77dd900b7353c7c15f216c9e5e29a3c6de278453170356c8d0431fd6",
+      "bytes": 744084
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "role": "last450",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G0-Seed62_last450.pt",
+      "sha256": "3c516e845508d8ec5e8b64ca3b6c33db349b36af72908cb64e5453f34009fe9b",
+      "bytes": 1489776
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "role": "last450",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G0-Seed62_last450.pt",
+      "sha256": "3c516e845508d8ec5e8b64ca3b6c33db349b36af72908cb64e5453f34009fe9b",
+      "bytes": 1489776
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "role": "last450",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G0-Seed62_last450.csv",
+      "sha256": "b6a057debc03fd2fc5a3a323c6053968a03b38dc1790a9381098c512a392c1d1",
+      "bytes": 758927
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed62\\batch_events.jsonl",
+      "sha256": "de29e719524ee4dbab2336d73ed0725b476591a41c1596e85c42329089646f31",
+      "bytes": 31966529
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed62\\epochs.json",
+      "sha256": "bba622e00f70d885aa039c77ab59bee6b32f3b4f748c6e142114cfd405005044",
+      "bytes": 402627
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed62\\epochs.csv",
+      "sha256": "dd02dbb919854fb444a8757350dfa7acff4834d506c1427191a87674c3e1d908",
+      "bytes": 69845
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed62\\console.log",
+      "sha256": "ae51a3ba933f7c4e3472b08374e83d48d9e3699d35d48592ca0e5ac5e7609254",
+      "bytes": 33456
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed62\\initial.json",
+      "sha256": "077307281fa2c1746e7b9a22a6c0eff2ecb291a501113ec2754f1e771c26dd5d",
+      "bytes": 1531
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed62\\environment.json",
+      "sha256": "b242c4798367be384aa178dee6e4e1d5acf0d489cdcb59720f39333707764e1e",
+      "bytes": 826
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G0-Seed62\\data_access_audit.json",
+      "sha256": "78793b7aaf66a15e39381abbc7b7d26d8d2ac7f8e68bcb73feccbd28f9425aad",
+      "bytes": 47295595
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "role": "best",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G1-Seed62_best.pt",
+      "sha256": "cb9640d10e4a2835b60c7d6b9c12ae064c9caade68b2bfb4ac09f839dd13610e",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "role": "best",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G1-Seed62_best.pt",
+      "sha256": "cb9640d10e4a2835b60c7d6b9c12ae064c9caade68b2bfb4ac09f839dd13610e",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "role": "best",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G1-Seed62_best.csv",
+      "sha256": "e14d930139a0be4ec3b8c2e11fcb1ae1a5d0db9b2e8fc47a3f72d48afa372d21",
+      "bytes": 744085
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "role": "last450",
+      "kind": "checkpoint",
+      "path": "outputs\\checkpoints\\P3-G1-Seed62_last450.pt",
+      "sha256": "1c906b1cb0afbe58f6dc295e63842f604c92c095239e24f11c363fb6272e8808",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "role": "last450",
+      "kind": "verified_backup",
+      "path": "backups\\checkpoints\\P3-G1-Seed62_last450.pt",
+      "sha256": "1c906b1cb0afbe58f6dc295e63842f604c92c095239e24f11c363fb6272e8808",
+      "bytes": 1491048
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "role": "last450",
+      "kind": "prediction",
+      "path": "outputs\\predictions\\P3-G1-Seed62_last450.csv",
+      "sha256": "a4d79f7712dee627d1722f94e3342081648daa6d8146ce02348ad6e93c895bad",
+      "bytes": 758856
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed62\\batch_events.jsonl",
+      "sha256": "e0e1bd01ea71573a39e9b5366b2a9b7a082faec2801d4d48b079262fbb89e95b",
+      "bytes": 31964866
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed62\\epochs.json",
+      "sha256": "43965692f2b4b0ffdd1fe0dbb354fcd725cf70047aa7e8550176d8d5a8accef3",
+      "bytes": 402591
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed62\\epochs.csv",
+      "sha256": "8aac67e4a9b5fe2a37a825cb423ae4d11ed7e0300705e2aa5f3739219795e387",
+      "bytes": 69989
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed62\\console.log",
+      "sha256": "bffaa234eeeabdcc64db23f645a103f54daff88387a629ec5238cbd06382754d",
+      "bytes": 33524
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed62\\initial.json",
+      "sha256": "6e7b663c2a42418e9a4b63add315314a4435523da065506c722ab24c6ff6cca1",
+      "bytes": 1531
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed62\\environment.json",
+      "sha256": "b242c4798367be384aa178dee6e4e1d5acf0d489cdcb59720f39333707764e1e",
+      "bytes": 826
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "kind": "log_or_audit",
+      "path": "outputs\\training_logs\\P3-G1-Seed62\\data_access_audit.json",
+      "sha256": "e02f48fe970b76e88b234d449e27822977eb698fe65037b2744814ba9c453157",
+      "bytes": 47291963
+    }
+  ],
+  "backup_count": 18,
+  "all_backup_hashes_verified": true,
+  "same_E_volume": true,
+  "off_device_backup": false,
+  "sole_copy_deleted": false
+}

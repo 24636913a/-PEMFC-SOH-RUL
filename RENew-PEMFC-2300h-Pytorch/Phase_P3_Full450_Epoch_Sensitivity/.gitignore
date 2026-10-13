@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+outputs/checkpoints/
+backups/checkpoints/
+outputs/training_logs/*/batch_events.jsonl
+outputs/training_logs/*/latest_batch.json
+outputs/training_logs/*/data_access_audit.json
+outputs/training_logs/*/*.writing

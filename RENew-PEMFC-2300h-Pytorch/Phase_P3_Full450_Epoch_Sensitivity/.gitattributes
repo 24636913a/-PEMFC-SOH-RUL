@@ -1,0 +1,10 @@
+# Preserve exact frozen local text bytes in this stage on checkout.
+*.py text eol=lf
+*.json text eol=lf
+*.sha256 text eol=lf
+*.csv text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+# Frozen execution files retain their registered terminal blank lines.
+# Continue checking trailing spaces and space-before-tab; EOF blank lines are style-allowed.
+scripts/*.py whitespace=blank-at-eol,space-before-tab,-blank-at-eof

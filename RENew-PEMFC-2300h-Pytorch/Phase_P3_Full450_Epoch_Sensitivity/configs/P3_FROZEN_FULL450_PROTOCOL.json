@@ -1,0 +1,491 @@
+{
+  "phase": "Phase_P3_Full450_Epoch_Sensitivity",
+  "base_commit": "c9b7ecce5e76c9fcdcc74dac414ea0c7ad1d85c0",
+  "authorization": "USER_EXPLICIT_P3_NINE_RUN_TRAINING",
+  "training_authorized": true,
+  "maximum_runs": 9,
+  "frozen_UTC": "2026-10-13T02:44:05.294827+00:00",
+  "H": {
+    "phase": "Phase_H_Determinism_MultiSeed_Stability",
+    "base_commit": "dea436c7520ca9962e7aa3005af1faaedbc786f2",
+    "authorization": "USER_EXPLICIT_PHASE_H_FULL_EXECUTION",
+    "status": "FROZEN_BEFORE_PROBES_AND_FORMAL_TRAINING",
+    "scope": {
+      "train_validation_only": true,
+      "test_access": "PROHIBITED",
+      "new_assessment_inference": "PROHIBITED",
+      "assessment_windows": "PROHIBITED",
+      "architecture_modification": "PROHIBITED",
+      "hyperparameter_search": "PROHIBITED",
+      "new_backbone": "PROHIBITED"
+    },
+    "task": {
+      "resolution_h": 0.5,
+      "lookback_steps": 48,
+      "horizon_steps": 24,
+      "raw_f2_feature_order": [
+        "cell_voltage_mean",
+        "cell_voltage_std",
+        "cell_voltage_range",
+        "cell_voltage_min",
+        "cell_voltage_max",
+        "actual_current_A_mean",
+        "actual_current_A_std",
+        "actual_current_A_peak_to_peak",
+        "actual_current_density_A_cm2_mean",
+        "actual_current_density_A_cm2_std",
+        "actual_current_density_A_cm2_peak_to_peak",
+        "load_transition_count",
+        "operation_point_transitions",
+        "zero_current_fraction"
+      ],
+      "target": "cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t"
+    },
+    "preprocessing": {
+      "authority": "Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py",
+      "Top10_indices": [
+        0,
+        3,
+        13,
+        11,
+        4,
+        9,
+        6,
+        7,
+        10,
+        8
+      ],
+      "selection": "train_window_origin_spearman_to_each_horizon_mean_absolute",
+      "ties": "stable_raw_f2_order",
+      "mandatory_feature": "cell_voltage_mean",
+      "mask": "standardized_space_zero_mask",
+      "filter": "per_window_causal_EWMA_alpha_0_3_voltage_only",
+      "common_scaler": "unfiltered_train_legal_histories_only",
+      "target_scale": "common_scaler.scale_0"
+    },
+    "hyperparameters": {
+      "seed": 42,
+      "optimizer": "AdamW",
+      "loss": "MSE",
+      "learning_rate": 0.0009605449687795866,
+      "weight_decay": 6.95942232671908e-06,
+      "batch_size": 32,
+      "max_epochs": 450,
+      "patience": 40,
+      "gradient_clip_norm": 1.0,
+      "dropout": 0.1,
+      "hidden_size": 64,
+      "hidden_continuous_size": 32
+    },
+    "data": {
+      "read_nrows": 3007,
+      "filter": "bin_end_ophrs2_h < 1819.997738",
+      "development_rows": 3005,
+      "train_rows": [
+        0,
+        2103
+      ],
+      "validation_rows": [
+        2103,
+        2404
+      ],
+      "train_windows": 1380,
+      "validation_windows": 205,
+      "full_N1_hash": "PROHIBITED",
+      "Top10_selection": "consume frozen Train-derived indices; no new selection"
+    },
+    "normal_runtime": {
+      "python": "3.11.9",
+      "torch": "2.6.0+cu124",
+      "pytorch_forecasting": "1.8.0",
+      "CUDA": "12.4",
+      "cuDNN": 90100,
+      "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+      "CPU_threads": 1,
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "torch_deterministic_algorithms": false,
+      "warn_only": false,
+      "TF32_matmul": false,
+      "TF32_cudnn": true,
+      "CUBLAS_WORKSPACE_CONFIG": null,
+      "claim": "CUDA_STRICT_BITWISE_DETERMINISM_NOT_CLAIMED"
+    },
+    "strict_probes": {
+      "separate_processes": true,
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "torch_deterministic_algorithms": true,
+      "warn_only": false,
+      "optimizer_step": false,
+      "known_cuda_interpolation_failure_does_not_block_normal_training": true
+    },
+    "formal_runs": [
+      {
+        "run_id": "H-F0-Repeat-A",
+        "model": "F0",
+        "seed": 42
+      },
+      {
+        "run_id": "H-F0-Repeat-B",
+        "model": "F0",
+        "seed": 42
+      },
+      {
+        "run_id": "H-F0-Seed42",
+        "model": "F0",
+        "seed": 42
+      },
+      {
+        "run_id": "H-F0-Seed52",
+        "model": "F0",
+        "seed": 52
+      },
+      {
+        "run_id": "H-F0-Seed62",
+        "model": "F0",
+        "seed": 62
+      },
+      {
+        "run_id": "H-F1-Seed42",
+        "model": "F1",
+        "seed": 42
+      },
+      {
+        "run_id": "H-F1-Seed52",
+        "model": "F1",
+        "seed": 52
+      },
+      {
+        "run_id": "H-F1-Seed62",
+        "model": "F1",
+        "seed": 62
+      },
+      {
+        "run_id": "H-F2-Seed42",
+        "model": "F2",
+        "seed": 42
+      },
+      {
+        "run_id": "H-F2-Seed52",
+        "model": "F2",
+        "seed": 52
+      },
+      {
+        "run_id": "H-F2-Seed62",
+        "model": "F2",
+        "seed": 62
+      }
+    ],
+    "maximum_formal_runs": 11,
+    "seeds": [
+      42,
+      52,
+      62
+    ],
+    "dataloader": {
+      "shuffle": true,
+      "batch_size": 32,
+      "num_workers": 0,
+      "generator_seed": "run seed"
+    },
+    "early_stopping": "validation_standardized_RMSE < best - 1e-12; patience40; max450",
+    "repeat_gate": {
+      "difference": "max(values)-min(values)",
+      "threshold_mV": "max(0.5,0.10*mean(values))",
+      "two_repeat_failure": "PHASE_H_SAME_SEED_MATERIAL_INSTABILITY",
+      "three_repeat_failure": "PHASE_H_F0_SEED42_REPEATABILITY_BLOCKED",
+      "failure_stops_all_remaining_runs": true
+    },
+    "multi_seed_statistics": {
+      "include": "only nine designated F0/F1/F2 Seed42/52/62 runs",
+      "exclude": "Repeat-A/B from n=3",
+      "RMSE_std": "sample ddof=1",
+      "no_significance_claims": true,
+      "paired_difference_direction": "F1-F0; F2-F1; F2-F0; negative means minuend/new model better"
+    },
+    "architecture_decision": {
+      "all3_F2_better_F0_and_F1": "F2_VALIDATION_MULTISEED_GAIN_OBSERVED",
+      "majority_F2_better_F1_but_not_all3_both": "F2_VS_F1_MULTISEED_SIGNAL_ONLY",
+      "otherwise": "F2_STRUCTURAL_GAIN_NOT_STABLE"
+    },
+    "prediction_audit": {
+      "records_per_run": 4920,
+      "exact_keys_truth": true,
+      "metric_absolute_tolerance": 1e-10,
+      "checkpoint_reload_fixed_validation_exact": true
+    },
+    "crash_recorder": "every batch stage; fsync journal, fsynced temporary state + atomic replace; no unbounded tensor copies",
+    "stops": [
+      "data/truth/model mismatch",
+      "nonfinite loss or gradient",
+      "normal CUDA failure or OOM",
+      "reload or cache audit failure",
+      "repeat threshold exceeded",
+      "Test access",
+      "interrupted run requires review; no automatic reinitialization"
+    ],
+    "history_limits": [
+      "TIMESNET_FREEZE",
+      "BACKBONE_SEARCH_CLOSED",
+      "PHASE_F_ASSESSMENT_INHERITED_SELECTION_BIAS",
+      "C1_D0_E0_REPRODUCIBILITY_UNRESOLVED"
+    ],
+    "code_identity": {
+      "files": {
+        "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py": "f479d4cd64a6a9351dd2d863f38dd4828017dc48ffa8b4e986a3c240a5574099",
+        "RENew-PEMFC-2300h-Pytorch/Phase_TFT_SingleSplit_Feature_Filter_Ablation/scripts/run_c_ablation.py": "e0053c63d6b942166362a09b2fce0166d9d29130fc0d5624eeaa0dcf32a65ce1",
+        "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/configs/F0_F2_EXECUTION_PROTOCOL.yaml": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+        "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/E_COMMON_SCALER.json": "969233228590c11f3c14f4eb364acbcbc638b70fa35a44ba72926ecb7a616ab4",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/audits/F_DATA_ACCESS_AUDIT.json": "e4aa7472464f6268c53de18f7059e09668539fe960a85f547ec69e63cb5273b4",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/audits/F_FORMAL_INITIALIZATION_AUDIT.json": "209cd43d53315a374f4f36c5bcdc04fc9947f890a49a29f69c9e187250c6cbe9",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/__init__.py": "9aceeebef759152574ae45db9dddfacfb804eb8b0a7b81da3b13e00634299187",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/analyze_h_stability.py": "9ddb43a58efa19748a16a8c43b5b5573be0f586e94163f01c49ab22eb5a29209",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/audit_h_predictions.py": "201105a762348e8bd7357dda8fe1be57fd536fe84089ea35deee7f081120fe9f",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/crash_safe_recorder.py": "884e19bfb494235e6ae74881d04cc661efd09ab8d874b792afd7e8e65026f726",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/h_common.py": "c88974ade24909adc793a0dab7433d838d2b1b3ed7dd526702028d259fc14cbb",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/probe_determinism.py": "fa47a49880c633393bfa7496dba64e715aff2a46e2ecde8e895954b1419c705b",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/run_h_training.py": "27476a7967b841abfbf846a7cf41c5c5fb641074fb5bf6b85cc96253a616ca30",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/tests/test_h_firewall_and_recorder.py": "7c25793c9ab796311f1785abbd1871f197cc62e2af0b74bd9385442aca53183e",
+        "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\_tft.py": "6ad5f6c806d314cfec53851ce0914c6d3476c4b05bd136a2764f4a562f1b7343",
+        "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+      },
+      "sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1"
+    }
+  },
+  "P1_protocol_sha256": "8df7299df4cc9e3e2f9ad63a513f5e520434f82111cd012424150ff48b192f51",
+  "groups": {
+    "G0": {
+      "fusion": "fixed_0.5",
+      "trainable_gate_parameters": 0,
+      "expected_trainable_parameters": 332379
+    },
+    "G1": {
+      "fusion": "globally_shared_learned_weight",
+      "gate": "same_5_to_8_to_1_ELU_sigmoid_as_G2",
+      "gate_context": "fixed_dimensionless_ones_5_vector_for_all_windows",
+      "trainable_gate_parameters": 57,
+      "expected_trainable_parameters": 332436
+    },
+    "G2": {
+      "fusion": "frozen_F2_historical_regime_gate",
+      "gate_context": "mean_48_scaled_masked_historical_five_regime_variables",
+      "trainable_gate_parameters": 57,
+      "expected_trainable_parameters": 332436
+    }
+  },
+  "runs": [
+    {
+      "run_id": "P3-G0-Seed42",
+      "model": "G0",
+      "seed": 42
+    },
+    {
+      "run_id": "P3-G1-Seed42",
+      "model": "G1",
+      "seed": 42
+    },
+    {
+      "run_id": "P3-G2-Seed42",
+      "model": "G2",
+      "seed": 42
+    },
+    {
+      "run_id": "P3-G1-Seed52",
+      "model": "G1",
+      "seed": 52
+    },
+    {
+      "run_id": "P3-G2-Seed52",
+      "model": "G2",
+      "seed": 52
+    },
+    {
+      "run_id": "P3-G0-Seed52",
+      "model": "G0",
+      "seed": 52
+    },
+    {
+      "run_id": "P3-G2-Seed62",
+      "model": "G2",
+      "seed": 62
+    },
+    {
+      "run_id": "P3-G0-Seed62",
+      "model": "G0",
+      "seed": 62
+    },
+    {
+      "run_id": "P3-G1-Seed62",
+      "model": "G1",
+      "seed": 62
+    }
+  ],
+  "initialization": {
+    "fresh_core_template": "G0 constructed in isolated RNG seeded run seed",
+    "fresh_gate_template": "original G2 gate constructed in isolated RNG seeded run seed + 100000",
+    "template_source": "FRESH_SYNTHETIC_INITIALIZATION_NOT_HISTORICAL_WEIGHTS",
+    "full_CPU_CUDA_Python_NumPy_RNG_restored": true,
+    "shared_core_within_seed": true,
+    "shared_G1_G2_gate": true,
+    "initial_gate_output": 0.5,
+    "no_change_to_requires_grad": true
+  },
+  "prediction": {
+    "entry": "AST-extracted original E.predict -> original C.predict; H batch32",
+    "eval": true,
+    "grad_mode": "torch.no_grad",
+    "batch_size": 32,
+    "dtype": "float32",
+    "inference_mode": false,
+    "AMP": false,
+    "requires_grad_mutation": false,
+    "initial_group_atol_standardized": 1e-07,
+    "initial_group_rtol": 0.0,
+    "synthetic_reload": "np.array_equal EXACT"
+  },
+  "early_stopping": {
+    "monitor": "validation_standardized_RMSE",
+    "improves": "validation_standardized_RMSE < best - 1e-12",
+    "patience": 40,
+    "max_epochs": 450,
+    "scheduler": null,
+    "each_group_own_best_checkpoint": true,
+    "P_vague_monitor_clarified_without_editing_P": true,
+    "break_on_patience": false,
+    "record_first_hypothetical_patience40": true
+  },
+  "experiment_nature": "POST_P2_EXPLORATORY_EPOCH_SENSITIVITY",
+  "required_epochs_each_run": 450,
+  "checkpoint_roles": [
+    "Best-of-450",
+    "Last-450"
+  ],
+  "P2_authority_sha256": "e9a43791ea18d0bb0bb32d4b208cebedad52f75769feb1cccc22c832733d3960",
+  "CUDA_strict_bitwise_determinism_claimed": false,
+  "success_criteria": {
+    "G2_vs_each_G0_G1_mean_RMSE_gain_at_least": "max(0.5mV,0.05*control_mean)",
+    "same_seed_formal_wins_vs_both_controls": "3/3",
+    "each_seed_endpoint_and_target_equal_max_ratio": 1.05,
+    "mean_MAE_and_P99_max_ratio": 1.05,
+    "threshold_type": "PROJECT_EXPERIMENT_DESIGN_NOT_LITERATURE_STANDARD",
+    "changes_after_new_results": "PROHIBITED"
+  },
+  "evaluation": {
+    "primary": "FORMAL_QUERY_WEIGHTED_RMSE_mV",
+    "aggregation": "equal_seed_mean_and_sample_SD_not_pooled",
+    "required": [
+      "MAE",
+      "all_24_horizons",
+      "12h_endpoint",
+      "P95",
+      "P99",
+      "max_abs_error",
+      "target_time_equal_RMSE_SSE_first",
+      "target_SSE_top1_top5_top10",
+      "parameter_count",
+      "training_time"
+    ],
+    "outlier_exclusion": false,
+    "seed_selection": false,
+    "significance_testing": false
+  },
+  "scope": {
+    "train_validation_only": true,
+    "Assessment": "PROHIBITED",
+    "Test": "PROHIBITED",
+    "historical_checkpoint_load": "PROHIBITED",
+    "maximum_training_runs": 9,
+    "retries": "PROHIBITED",
+    "optimizer_search": false,
+    "new_gate_or_backbone": false,
+    "Physics_F2": "PAUSED",
+    "SOH_RUL": "NOT_AUTHORIZED"
+  },
+  "stop_rules": [
+    "source/data/scaler/truth/key mismatch",
+    "nonfinite loss/gradient/predictions",
+    "CUDA/OOM failure",
+    "checkpoint/reload/cache/artifact failure",
+    "common epoch sampler mismatch",
+    "interruption: preserve and stop"
+  ],
+  "checkpoint_policy": {
+    "directory": "outputs/checkpoints",
+    "atomic_fsync_save": true,
+    "sole_copy_never_deleted": true,
+    "git_large_weight_policy": "local ignored files; all path/hash/backup status recorded; no deletion",
+    "backup_status": "VERIFIED_INDEPENDENT_DIRECTORY_SAME_VOLUME_BACKUP_REQUIRED"
+  },
+  "code_identity": {
+    "files": {
+      "RENew-PEMFC-2300h-Pytorch/Phase_P1_Gate_Ablation_Engineering_Preflight/scripts/gate_ablation_models.py": "62f67fcba5bcfc1f23d0e8441fa355233ea4f4468bafa3e169806463b44e6c16",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P1_Gate_Ablation_Engineering_Preflight/scripts/p1_checks.py": "7025bf867d8cf0c4aac5ba32a3f09dec71ddd695f6b2bfa320982b417b9e7352",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P1_Gate_Ablation_Engineering_Preflight/protocol/P1_EXECUTION_PROTOCOL_DRAFT.json": "8df7299df4cc9e3e2f9ad63a513f5e520434f82111cd012424150ff48b192f51",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P1_Gate_Ablation_Engineering_Preflight/protocol/P1_EXECUTION_PROTOCOL_DRAFT.sha256": "98e4f34c4c98727edfcb5b0d48886078f2974f12fce4e16cf3392eb9f057e763",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P1_Gate_Ablation_Engineering_Preflight/outputs/P1_EXECUTION_AUDIT.json": "15cd03afe76f5516127b6b82d624f8f9445549e50ef1da7a3757a29e2973513f",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P1_Gate_Ablation_Engineering_Preflight/outputs/P1_SYNTHETIC_MODEL_EVIDENCE.json": "fcb66b911a514362937125634d72e6429a9b58480db7ad5e5d28af7b87c1e7f0",
+      "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.yaml": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.sha256": "e976c4998dda4746d20152fa1b76f44bd7fae44220dab08b78b513fa34213fd5",
+      "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/h_common.py": "c88974ade24909adc793a0dab7433d838d2b1b3ed7dd526702028d259fc14cbb",
+      "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/run_h_training.py": "27476a7967b841abfbf846a7cf41c5c5fb641074fb5bf6b85cc96253a616ca30",
+      "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/crash_safe_recorder.py": "884e19bfb494235e6ae74881d04cc661efd09ab8d874b792afd7e8e65026f726",
+      "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py": "f479d4cd64a6a9351dd2d863f38dd4828017dc48ffa8b4e986a3c240a5574099",
+      "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/configs/PREREGISTERED_E_COMPARISON.yaml": "b17794132351454d93debfc67943dc14db73a5287fef1966ba748967e9852332",
+      "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/configs/PREREGISTERED_E_COMPARISON.sha256": "1807e915802e98cb7f1db9fffcb75cf518c908b422be7dd4d60f859db52a72d7",
+      "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/E_COMMON_SCALER.json": "969233228590c11f3c14f4eb364acbcbc638b70fa35a44ba72926ecb7a616ab4",
+      "RENew-PEMFC-2300h-Pytorch/Phase_TFT_SingleSplit_Feature_Filter_Ablation/scripts/run_c_ablation.py": "e0053c63d6b942166362a09b2fce0166d9d29130fc0d5624eeaa0dcf32a65ce1",
+      "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/audits/F_DATA_ACCESS_AUDIT.json": "e4aa7472464f6268c53de18f7059e09668539fe960a85f547ec69e63cb5273b4",
+      "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P_Final_Innovation_and_Experiment_Planning/protocol/P_PROPOSED_GATE_PROTOCOL.json": "32bb21f37c7ad0d8fd634ed881df0fe0a21895bd801e1fd27bb92da37c5fa8c5",
+      "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/__init__.py": "9aceeebef759152574ae45db9dddfacfb804eb8b0a7b81da3b13e00634299187",
+      "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+      "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+      "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+      "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/configs/P2_FROZEN_EXECUTION_PROTOCOL.json": "e9a43791ea18d0bb0bb32d4b208cebedad52f75769feb1cccc22c832733d3960",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/configs/P2_FROZEN_EXECUTION_PROTOCOL.sha256": "4791a7ce7af98cd89fe06be0245a4c1759e1c980bf9e22e43818aeee44d9ae8b",
+      "RENew-PEMFC-2300h-Pytorch/Phase_O1_Nine_Model_Validation_Robustness_Audit/reports/O1_FINAL_RESEARCH_DECISION.md": "1128e322cf9d3144f2eebc7ba98b6ac97051a0fa193333c94be21ea7f7d3c0c3",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G0-Seed42/initial.json": "2f616b3ab9251a932c0755adf7d94bce834744c5fe1557a55f2d907916da3cb3",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G0-Seed42/result.json": "1d85639141d0773f3db917f5cdf72366dd28bf077fdb9656e919226c2bafd810",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G0-Seed42/epochs.json": "763d06fd6b0dcb32359ad63cca3f7d8aa9cfafc28e59e120d4873d70fba89327",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G1-Seed42/initial.json": "e97e3cc5466aa4be4c84c00524f2e8211911d603b6a5d38d78c330354661d7a0",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G1-Seed42/result.json": "cb0da473cf4d54d83b55b69601e98f024bd8746e6c4cc316f5aa6e11393e9fa2",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G1-Seed42/epochs.json": "5e435c05322bf219faac5ec637e3a69133dde18495b6df287a5d64ea7c3b9e42",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G2-Seed42/initial.json": "896f6e2b70e710eb54b675b597cf4c935edc26a4285dde0c4f149b8d8227fb41",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G2-Seed42/result.json": "8c780a377215bf86c6c8a6d31aee675296fdb8185dc45e10fb500a921a9fbf3c",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G2-Seed42/epochs.json": "353aa7142533d7ebd0090602d9d7b3bee9db402afa4417452aec2d5992b1654c",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G1-Seed52/initial.json": "a9462ca95464164cdc71b45e247cae7bc68db372c40f5ce1f30256187bef8cc4",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G1-Seed52/result.json": "a7eade7a792acca4f576f933bd068d1ce8837a1fe25e6a13e734897481c9d603",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G1-Seed52/epochs.json": "09cb7c3929c8bba9b5fc376e780fd0ba5ff2f5c917f2769b8d1a90a75dc8b888",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G2-Seed52/initial.json": "c4f578258444f6c9e0d158f68eb1ff38a0f670b48c136aa23e1d09a5ec378f5d",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G2-Seed52/result.json": "7637161d093ee44eff51263fe979831066633c64344d39168759b206efe752e2",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G2-Seed52/epochs.json": "3ba08d119e9795ceefae1d9afb7685cbf0fd1e1c87d21bf4d88d746c9bb8e070",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G0-Seed52/initial.json": "490c5cdd4e427410ac0ce04a34c207b01a47b81713736e1a6dd86c8daec64edc",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G0-Seed52/result.json": "c4e8dc82f060f688da726920dbea9454bb92e7593ec95ebaf2208f036f53c382",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G0-Seed52/epochs.json": "4b2b46d5ed7ddba50be0dbf088c3e8cd3db5b6c4552e4af2fb186ab7317cea00",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G2-Seed62/initial.json": "e678781635dbe70e84f07d5e55017ffd6a0eb54cfea26f5a779e66b3c60b92a4",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G2-Seed62/result.json": "c9f286116a7236eb0086452ec567b42ff15e5c7d7e493b0bea92d5a010e77cd8",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G2-Seed62/epochs.json": "6e695f64640f5d188e14049a33bbc3f9b013ea7b3a3d5b3a94d2ea017dfae449",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G0-Seed62/initial.json": "7059431ed58fb9673580cc9e240ea2c10331853ce93d92073a1cde1b14507b3e",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G0-Seed62/result.json": "faa92d6a2191dbd3ca336e8a52f758b56477220e5981041b51b36b31fe901bab",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G0-Seed62/epochs.json": "2aaa8791c0b367f12be3b1ba75017e2649e4baf1f9885f32f1d88b7a65f9b8f4",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G1-Seed62/initial.json": "8f8ae743a7a94c8e2a4676f35099d416459c813b646296f4c0635a1b29666f7a",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G1-Seed62/result.json": "958a4b76aeeb076f9ed39eb8d4be55fd67098f233328ccfe2e41905b44b08f15",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/training_logs/P2-G1-Seed62/epochs.json": "f9daa98b327b57219e344dc787fc65e2df3954b2ccc61022a918a97c81479948",
+      "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\_tft.py": "6ad5f6c806d314cfec53851ce0914c6d3476c4b05bd136a2764f4a562f1b7343",
+      "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P3_Full450_Epoch_Sensitivity/scripts/analyze_p3_results.py": "283cebe12b09ac5ec4bb80243666ab6f835798ea8c444c7519d8db9f8081d86f",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P3_Full450_Epoch_Sensitivity/scripts/audit_p3_predictions.py": "58cf475d2fe276342a609de033b16a299e048a108e0aa63f279ab537807b2b59",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P3_Full450_Epoch_Sensitivity/scripts/p3_common.py": "d412b1e641a1ed1c765a547b64c7bb8ac780d72df3cd0f8e4b49a83aa096ce29",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P3_Full450_Epoch_Sensitivity/scripts/run_p3_tests.py": "60c31e4e2048bd4f8cc44cd9e417dd69ff15aa35e8385b5a0a7e000a0c64e3cc",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P3_Full450_Epoch_Sensitivity/scripts/run_p3_training.py": "c00af9ca4cf4d15ef9d4eb22eedff8f885b7964aecd810f11efb9823559f896a",
+      "RENew-PEMFC-2300h-Pytorch/Phase_P3_Full450_Epoch_Sensitivity/tests/test_p3_execution_guards.py": "79063184d6f91b184d985bf1998cde5682b74a446ea09d67db9a4462173dcaa9"
+    },
+    "sha256": "a3dcc80324d6461724b6e7f0c86d9e609f3cfdc4f74e0f5931a128572fdb0d3b"
+  }
+}

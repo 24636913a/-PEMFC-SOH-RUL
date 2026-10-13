@@ -1,0 +1,50 @@
+{
+  "status": "P3_NINE_RUNS_COMPLETED",
+  "runs": {
+    "P3-G0-Seed42": {
+      "status": "COMPLETED",
+      "RMSE_mV": 8.426760804851314
+    },
+    "P3-G1-Seed42": {
+      "status": "COMPLETED",
+      "RMSE_mV": 7.7089703689862
+    },
+    "P3-G2-Seed42": {
+      "status": "COMPLETED",
+      "RMSE_mV": 6.058107109669862
+    },
+    "P3-G1-Seed52": {
+      "status": "COMPLETED",
+      "RMSE_mV": 4.349331369694175
+    },
+    "P3-G2-Seed52": {
+      "status": "COMPLETED",
+      "RMSE_mV": 8.033945839123211
+    },
+    "P3-G0-Seed52": {
+      "status": "COMPLETED",
+      "RMSE_mV": 4.5216498896875
+    },
+    "P3-G2-Seed62": {
+      "status": "COMPLETED",
+      "RMSE_mV": 8.412698054255031
+    },
+    "P3-G0-Seed62": {
+      "status": "COMPLETED",
+      "RMSE_mV": 7.394893172347096
+    },
+    "P3-G1-Seed62": {
+      "status": "COMPLETED",
+      "RMSE_mV": 8.346741217667285
+    }
+  },
+  "formal_runs_started": 9,
+  "formal_runs_completed": 9,
+  "Test_accessed": false,
+  "Assessment_accessed": false,
+  "created_UTC": "2026-10-13T02:44:25.423353+00:00",
+  "protocol_sha256": "b513da7468ddf2b22d7b6d92c90d0549d6c14e2571787bb9f416e617710c7467",
+  "code_identity_sha256": "a3dcc80324d6461724b6e7f0c86d9e609f3cfdc4f74e0f5931a128572fdb0d3b",
+  "active_run": null,
+  "completed_UTC": "2026-10-13T09:27:11.650617+00:00"
+}

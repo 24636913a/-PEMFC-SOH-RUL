@@ -17,13 +17,19 @@ def verify_a():
  for _,r in met.iterrows():
   z=out[out.horizon.eq(r.horizon)&out.model.eq(r.model)];e=(z.predicted_SOH-z.true_SOH).to_numpy()*100
   assert len(e)==r.n;assert abs(np.abs(e).mean()-r.MAE_SOH_pp)<1e-12;assert abs(np.sqrt(np.mean(e*e))-r.RMSE_SOH_pp)<1e-12
- original=[]
+ original=[];commonkeys=None;commontruth=None
  for model in ['F0','F1','F2']:
   for seed in [42,52,62]:
    d=source(f'{model}_{seed}');v=(d.y_pred_delta_V-d.y_true_delta_V).to_numpy()*1000
+   keys=d[['origin_row','target_row','horizon_step']].to_numpy();truth=d.y_true_delta_V.to_numpy()
+   if commonkeys is None:commonkeys=keys;commontruth=truth
+   else:assert np.array_equal(keys,commonkeys) and np.array_equal(truth,commontruth)
    rmse=float(np.sqrt(np.mean(v*v)));mae=float(np.abs(v).mean());ref=source('o1metrics');row=ref[ref.model.eq(model)&ref.seed.eq(seed)].iloc[0]
+   target_equal=float(np.sqrt(pd.DataFrame({'target':d.target_row,'SE':v*v}).groupby('target').SE.mean().mean()))
+   end=v[d.horizon_step.to_numpy()==24];endpoint=float(np.sqrt(np.mean(end*end)));tail=float(np.max(np.abs(v)))
+   assert abs(target_equal-row.target_time_equal_RMSE_mV)<1e-9 and abs(endpoint-row.endpoint_RMSE_mV)<1e-9 and abs(tail-row.max_abs_error_mV)<1e-9
    assert abs(rmse-row.RMSE_mV)<1e-9 and abs(mae-row.MAE_mV)<1e-9
-   original.append({'model':model,'seed':seed,'RMSE_mV':rmse,'MAE_mV':mae,'source':'H Validation cache; independently recomputed'})
+   original.append({'model':model,'seed':seed,'RMSE_mV':rmse,'MAE_mV':mae,'target_time_equal_RMSE_mV':target_equal,'endpoint_RMSE_mV':endpoint,'max_abs_error_mV':tail,'source':'H Validation cache; independently recomputed'})
  cs('outputs/RECOMPUTED_DYNAMIC_METRICS.csv',pd.DataFrame(original))
  p=source('preds');fm=source('p1folds');check=[]
  for (h,f,m),z in p.groupby(['horizon','fold','model']):
@@ -44,6 +50,10 @@ def verify_final():
   if slope<0:assert abs(expected-r.conditional_crossing_calendar_h)<1e-6
   else:assert pd.isna(r.conditional_crossing_calendar_h)
  decision=json.loads((P/'outputs/FINAL_RESEARCH_DECISION.json').read_text());assert decision['GPU_training_runs']==0 and decision['real_RUL_accuracy'] is None
+ band=pd.read_csv(P/'outputs/CONDITIONAL_TRAJECTORY_SENSITIVITY_ENVELOPE.csv');loo=pd.read_csv(P/'outputs/CONDITIONAL_SLOPE_SENSITIVITY.csv')
+ all_slopes=np.r_[slopes.slope_SOH_per_calendar_h.to_numpy(),loo.slope_SOH_per_calendar_h.to_numpy()]
+ np.testing.assert_allclose(band.low_SOH,y+all_slopes.min()*band.elapsed_calendar_h,atol=1e-14,rtol=0)
+ np.testing.assert_allclose(band.high_SOH,y+all_slopes.max()*band.elapsed_calendar_h,atol=1e-14,rtol=0)
  js('outputs/INDEPENDENT_VERIFICATION.json',{'PASS':True,'A_verified':True,'B_identifiability_and_matched_smoothing_verified':True,'C_scenario_algebra_verified':True,'all_source_hashes_unchanged':True,'no_training_repeated':True,'no_Test':True})
  print('Final independent recomputation PASS')
 if __name__=='__main__':

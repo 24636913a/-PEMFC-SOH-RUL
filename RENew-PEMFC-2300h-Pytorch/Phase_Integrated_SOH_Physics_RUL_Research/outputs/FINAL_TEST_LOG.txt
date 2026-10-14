@@ -1,0 +1,24 @@
+test_calibration_excludes_future_and_bol (test_contracts.Contracts.test_calibration_excludes_future_and_bol) ... ok
+test_early_refs_not_manufactured (test_contracts.Contracts.test_early_refs_not_manufactured) ... ok
+test_exact_forecast_keys_and_labels (test_contracts.Contracts.test_exact_forecast_keys_and_labels) ... ok
+test_metric_units (test_contracts.Contracts.test_metric_units) ... ok
+test_no_continuous_soh_labels (test_contracts.Contracts.test_no_continuous_soh_labels) ... ok
+test_no_online_claim (test_contracts.Contracts.test_no_online_claim) ... ok
+test_no_retraining (test_contracts.Contracts.test_no_retraining) ... ok
+test_protocol_source_identities (test_contracts.Contracts.test_protocol_source_identities) ... ok
+test_separate_normalizations (test_contracts.Contracts.test_separate_normalizations) ... ok
+test_tft_parameter_availability (test_contracts.Contracts.test_tft_parameter_availability) ... ok
+test_equivalent_nonphysical_control (test_physics_and_lifetime.Qualification.test_equivalent_nonphysical_control) ... ok
+test_flat_no_crossing (test_physics_and_lifetime.Qualification.test_flat_no_crossing) ... ok
+test_flat_trivial_solution (test_physics_and_lifetime.Qualification.test_flat_trivial_solution) ... ok
+test_no_training_permission_from_formula_only (test_physics_and_lifetime.Qualification.test_no_training_permission_from_formula_only) ... ok
+test_physics_unavailable_is_na (test_physics_and_lifetime.Qualification.test_physics_unavailable_is_na) ... ok
+test_real_recovery_present (test_physics_and_lifetime.Qualification.test_real_recovery_present) ... ok
+test_smoothing_finite_difference (test_physics_and_lifetime.Qualification.test_smoothing_finite_difference) ... ok
+test_state_gauge_nullspace (test_physics_and_lifetime.Qualification.test_state_gauge_nullspace) ... ok
+test_thresholds_not_eol (test_physics_and_lifetime.Qualification.test_thresholds_not_eol) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.070s
+
+OK

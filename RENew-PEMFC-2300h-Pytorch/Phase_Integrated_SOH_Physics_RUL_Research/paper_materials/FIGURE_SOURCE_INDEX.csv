@@ -1,0 +1,9 @@
+figure,source_csv,script,meaning
+F1_dynamic_existing_results,outputs/RECOMPUTED_DYNAMIC_METRICS.csv,scripts/render_results.py,"Formal query RMSE and MAE, points are seeds; metric dependence retained"
+F2_P1S_actual_forecasts,paper_materials/P1S_FIGURE_SOURCE.csv,scripts/render_results.py,Historical legal Validation predictions; disconnected fold sections shown as measurements
+F3_SOH_event_predictions,outputs/SOH_EVENT_PREDICTIONS.csv,scripts/render_results.py,Actual sparse references and past-only forecasts; unknown release prohibits online claim
+F4_SOH_event_errors,outputs/SOH_EVENT_PREDICTIONS.csv,scripts/render_results.py,No comparison of different event populations
+F5_physics_identifiability_and_gradients,outputs/PHYSICS_GRADIENT_DIAGNOSTIC.csv;outputs/PHYSICS_STATE_DECOMPOSITION.csv,scripts/render_results.py,"Non-identifiability and exact smoothing equivalence, not trained physics improvement"
+F6_conditional_calendar_trajectories,outputs/CONDITIONAL_CALENDAR_TRAJECTORIES.csv;outputs/CONDITIONAL_TRAJECTORY_SENSITIVITY_ENVELOPE.csv,scripts/render_results.py,Calendar-time assumptions; no operating-hour RUL or confidence interval
+F7_integrated_evidence_flow,outputs/EVIDENCE_MATRIX.csv;configs/FROZEN_PROTOCOL.json,scripts/render_results.py,Only supported mathematical/data links shown; not an end-to-end network
+F8_dynamic_robustness_limits,outputs/RECOMPUTED_DYNAMIC_METRICS.csv,scripts/render_results.py,O1 metric dependence and Seed62 extreme retained; no universal robustness claim

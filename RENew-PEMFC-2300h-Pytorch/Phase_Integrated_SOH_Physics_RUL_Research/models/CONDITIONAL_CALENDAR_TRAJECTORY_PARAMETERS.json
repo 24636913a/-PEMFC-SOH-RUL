@@ -1,0 +1,26 @@
+{
+  "start_reference_nominal_h": 1750,
+  "start_SOH": 0.97178490991039,
+  "start_calendar_measurement_completed": "2025-06-10 19:10:50.005",
+  "origin_assumption": "After last measurement completion, assuming result released; actual release unknown",
+  "slope_historical_time_covariate": "Reference measurement start calendars; future elapsed clock starts after completed latest measurement",
+  "slopes": [
+    {
+      "model": "post_BoL_all_past_OLS",
+      "slope_SOH_per_calendar_h": -3.7877048189731338e-06,
+      "training_events": "300,600,850,1150,1500,1750"
+    },
+    {
+      "model": "last3_past_OLS",
+      "slope_SOH_per_calendar_h": -2.501235054895146e-07,
+      "training_events": "1150,1500,1750"
+    },
+    {
+      "model": "zero_slope_recovery_sensitivity",
+      "slope_SOH_per_calendar_h": 0.0,
+      "training_events": "explicit flat/recovery sensitivity assumption"
+    }
+  ],
+  "units": "SOH/calendar h",
+  "not_validated_RUL": true
+}

@@ -54,17 +54,27 @@ def render_bc():
  ax[1].set_xlabel('Available operating h');ax[1].set_ylabel('Retention / latent state');ax[1].legend(fontsize=8);ax[1].set_title('Two decompositions, identical observed values')
  save(fig,'F5_physics_identifiability_and_gradients','outputs/PHYSICS_GRADIENT_DIAGNOSTIC.csv;outputs/PHYSICS_STATE_DECOMPOSITION.csv','Non-identifiability and exact smoothing equivalence, not trained physics improvement')
  z=pd.read_csv(P/'outputs/CONDITIONAL_CALENDAR_TRAJECTORIES.csv');fig,ax=plt.subplots(figsize=(7.5,4),layout='constrained')
+ band=pd.read_csv(P/'outputs/CONDITIONAL_TRAJECTORY_SENSITIVITY_ENVELOPE.csv')
+ ax.fill_between(band.elapsed_calendar_h/24,band.low_SOH*100,band.high_SOH*100,color='#D3D3D3',alpha=.6,label='Slope sensitivity envelope (not CI)')
  for j,(m,d) in enumerate(z.groupby('model',sort=False)):ax.plot(d.elapsed_calendar_h/24,d.projected_SOH*100,color=COLORS[j],label=m)
- for y in config()['scenario_thresholds']:ax.axhline(y*100,ls='--',color='gray',lw=.7);ax.text(367,y*100,f'{y*100:g}% assumption',fontsize=8,va='center')
- ax.set_xlim(0,420);ax.set_xlabel('Calendar days after latest Development reference');ax.set_ylabel('Projected reference retention (%)');ax.set_title('Conditional extrapolation; no failure validation');ax.legend(fontsize=7)
- save(fig,'F6_conditional_calendar_trajectories','outputs/CONDITIONAL_CALENDAR_TRAJECTORIES.csv','Calendar-time assumptions; no operating-hour RUL or confidence interval')
- fig,ax=plt.subplots(figsize=(10,5));ax.set_axis_off()
- nodes=[(.03,.62,'48 steps / 24 h history\nFrozen F2 -> 12 h dynamic voltage'),(.03,.20,'96 h P1S history\nFrozen Ridge -> H1 / H3 cycles'),(.40,.20,'Past reference anchors\nM2_NC affine -> sparse future SOH'),(.40,.62,'TFT health increment\nAlignment / parameter-time gate failed'),(.75,.20,'Health trajectory scenarios\nCalendar lifetime, no true RUL'),(.75,.62,'Soft physics qualification\nP1 unidentifiable / P2 uncertified')]
+ for y in config()['scenario_thresholds']:ax.hlines(y*100,0,365,ls='--',color='gray',lw=.7);ax.text(367,y*100,f'{y*100:g}% assumption',fontsize=8,va='center')
+ ax.set_xlim(0,420);ax.set_xlabel('Calendar days after latest Development reference');ax.set_ylabel('Projected reference retention (%)');ax.set_title('Conditional extrapolation; no failure validation');ax.legend(fontsize=7,framealpha=1,facecolor='white')
+ save(fig,'F6_conditional_calendar_trajectories','outputs/CONDITIONAL_CALENDAR_TRAJECTORIES.csv;outputs/CONDITIONAL_TRAJECTORY_SENSITIVITY_ENVELOPE.csv','Calendar-time assumptions; no operating-hour RUL or confidence interval')
+ fig,ax=plt.subplots(figsize=(11,5));ax.set_axis_off()
+ nodes=[(.03,.62,'48 steps / 24 h history\nFrozen F2\n12 h dynamic voltage'),(.03,.20,'96 h P1S history\nFrozen Ridge\nH1 / H3 physical cycles'),(.36,.20,'Past reference calibration\nM2_NC affine\nSparse future SOH replay'),(.36,.62,'TFT health increment\nParameter-time gate failed\nNo matched gain evidence'),(.70,.20,'Past observed references\nCalendar lifetime scenarios\nNo validated true RUL'),(.70,.62,'Soft physics qualification\nP1 unidentifiable\nP2 uncertified')]
  for x,y,s in nodes:
-  ax.add_patch(FancyBboxPatch((x,y),.22,.22,boxstyle='round,pad=.01',transform=ax.transAxes,facecolor='#eef2f8',edgecolor=COLORS[0]));ax.text(x+.11,y+.11,s,transform=ax.transAxes,ha='center',va='center',fontsize=8)
- for start,end in [((.25,.31),(.40,.31)),((.62,.31),(.75,.31))]:ax.annotate('',xy=end,xytext=start,xycoords='axes fraction',arrowprops={'arrowstyle':'->','color':COLORS[0]})
+  ax.add_patch(FancyBboxPatch((x,y),.25,.22,boxstyle='round,pad=.01',transform=ax.transAxes,facecolor='#eef2f8',edgecolor=COLORS[0]));ax.text(x+.125,y+.11,s,transform=ax.transAxes,ha='center',va='center',fontsize=8)
+ ax.annotate('',xy=(.36,.31),xytext=(.28,.31),xycoords='axes fraction',arrowprops={'arrowstyle':'->','color':COLORS[0]})
+ ax.annotate('',xy=(.70,.31),xytext=(.61,.31),xycoords='axes fraction',arrowprops={'arrowstyle':'->','linestyle':'--','color':'gray'})
+ ax.text(.655,.10,'Unvalidated\ninterface only',transform=ax.transAxes,ha='center',fontsize=7,color='gray')
  ax.text(.5,.94,'Actual information flow and blocked interfaces',transform=ax.transAxes,ha='center',fontsize=12)
  save(fig,'F7_integrated_evidence_flow','outputs/EVIDENCE_MATRIX.csv;configs/FROZEN_PROTOCOL.json','Only supported mathematical/data links shown; not an end-to-end network')
+ d=pd.read_csv(P/'outputs/RECOMPUTED_DYNAMIC_METRICS.csv');fig,ax=plt.subplots(1,2,figsize=(9.5,3.6),layout='constrained')
+ for k,metric in enumerate(['target_time_equal_RMSE_mV','max_abs_error_mV']):
+  for j,model in enumerate(['F0','F1','F2']):
+   z=d[d.model.eq(model)].sort_values('seed');ax[k].plot(z.seed,z[metric],color=[COLORS[2],COLORS[1],COLORS[0]][j],marker=['s','^','o'][j],label=model)
+  ax[k].set_xticks([42,52,62]);ax[k].set_xlabel('Frozen seed');ax[k].set_ylabel('RMSE (mV)' if k==0 else 'Max absolute error (mV)');ax[k].set_title('Equal target-time weighting' if k==0 else 'Tail error retained');ax[k].legend()
+ save(fig,'F8_dynamic_robustness_limits','outputs/RECOMPUTED_DYNAMIC_METRICS.csv','O1 metric dependence and Seed62 extreme retained; no universal robustness claim')
  old=pd.read_csv(P/'paper_materials/FIGURE_SOURCE_INDEX_A.csv');cs('paper_materials/FIGURE_SOURCE_INDEX.csv',pd.concat([old,pd.DataFrame(INDEX)],ignore_index=True))
 if __name__=='__main__':
  firewall();{'a':render_a,'bc':render_bc}[sys.argv[1]]();print('Rendered real results')

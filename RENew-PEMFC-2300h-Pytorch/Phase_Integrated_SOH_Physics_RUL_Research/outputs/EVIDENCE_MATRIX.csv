@@ -1,0 +1,12 @@
+claim,status,evidence_and_limit
+TFT_complete_F2_Validation_RMSE,SUPPORTED,7.245400mV vs F0 9.067563mV; O1 metric dependence and Seed62 tail retained
+gate_independent_gain,NOT_SUPPORTED,P2/P3 paired controls fail stable independent gain
+96h_future_P1S,EXPLORATORY,H1/H3 threefold MAE gain10.64/10.42%; Development selected after prior results
+future_reference_SOH_replay,EXPLORATORY,"3 events/horizon; H1 MAE0.079730,H3 0.032385 vs M0 .281172SOHpp; release and scheduling assumptions"
+strict_online_future_SOH,NOT_EVALUABLE,Unknown reference release and exact operating age; scheduled-event retrospective selector
+TFT_extra_health_information,NOT_EVALUABLE,No causal cached post-selection predictors and insufficient future reference train/holdout events
+real_physics_optimization,NOT_EVALUABLE,P1 nullspace and smoothing equivalence; P2 no certified HFR/ASR; no qualified A/B/C training
+physics_beyond_nonphysical_smoothing,NOT_SUPPORTED,P1 objective and gradient algebraically identical to matching ordinary smoothing
+true_RUL,NOT_EVALUABLE,No verified reference EOL/failure/censor label; no accuracy
+conditional_lifetime_scenarios,EXPLORATORY,"Calendar-time assumed slopes and thresholds only, leave-one-out sensitivity and flat scenario"
+single_dataset_stability,EXPLORATORY,"3 seeds for historical dynamic branch; 3 Development folds P1S; only3 SOH events, no physical/RUL validation"

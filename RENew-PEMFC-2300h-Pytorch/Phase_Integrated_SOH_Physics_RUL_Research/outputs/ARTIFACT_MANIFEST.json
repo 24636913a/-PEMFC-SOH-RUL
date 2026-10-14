@@ -1,0 +1,386 @@
+{
+  ".gitattributes": {
+    "bytes": 101,
+    "sha256": "1f4275dd19a688a1991e6002c9449ec20af24f0d050f16d2740c4c0a343a0c88"
+  },
+  ".gitignore": {
+    "bytes": 53,
+    "sha256": "b87badaeb3e1227fadb543bb0d4f3aa9eb932a2210ad32d430109ef79fd8dd76"
+  },
+  "configs/BC_CODE_IDENTITY.json": {
+    "bytes": 360,
+    "sha256": "f133423d550636e6ec2e29d03406623d7bc336e1accdffada7a241c291e35099"
+  },
+  "configs/FROZEN_PROTOCOL.json": {
+    "bytes": 8493,
+    "sha256": "bf2bf40decd6cd7ced132651d7df164daa162186af27857fd2b260e93a1c6eb7"
+  },
+  "configs/FROZEN_PROTOCOL.sha256": {
+    "bytes": 66,
+    "sha256": "c28c8fe1f1cb98409c10e7c92a113ec6d6e9e4490e4530df6368d94117db3bf3"
+  },
+  "configs/INPUT_REQUEST_IDENTITY.json": {
+    "bytes": 257,
+    "sha256": "45d6b2882b184f05d60627e3041ea2a497e0c29ffaa018be48e0f20a94b5cb8b"
+  },
+  "configs/TRAJECTORY_SENSITIVITY_CODE_IDENTITY.json": {
+    "bytes": 235,
+    "sha256": "158280955bd4ec1c6beb0a630a872712910f9a9f79975555842f3188391cb289"
+  },
+  "data_contracts/NEAREST_COMPLETE_CALIBRATION_PAIRS.csv": {
+    "bytes": 738,
+    "sha256": "ee3a0727870114130b5454c4cc017ebb6c03414f836fa932b2b263b727635925"
+  },
+  "data_contracts/PHYSICS_USED_TRAIN_SAMPLES.csv": {
+    "bytes": 15022,
+    "sha256": "1819c5edb0f96988b1cce2d04aa33996006fd3488425784ce50a782d107df5e3"
+  },
+  "data_contracts/SOURCE_IDENTITY.csv": {
+    "bytes": 8001,
+    "sha256": "140138a25f05204b04cf95d64bdc2ee6a3307d13c84e9ed6132aa382732d31e2"
+  },
+  "figures/F1_dynamic_existing_results.pdf": {
+    "bytes": 14915,
+    "sha256": "94a706cbc6e4f3617b0fbe7e1c9181eb88f1da5f9b57e3d75a1851cca05952e7"
+  },
+  "figures/F1_dynamic_existing_results.png": {
+    "bytes": 71547,
+    "sha256": "41721d2a6397d8d6b94b1e74a838318f1f0549a3d0d1a700f99b406ef4dd89d8"
+  },
+  "figures/F2_P1S_actual_forecasts.pdf": {
+    "bytes": 32886,
+    "sha256": "50b620bd35054a9f9f6e7d42bf070cdf35c3e940ccf2ebf3d2ab0c05e68b4cdb"
+  },
+  "figures/F2_P1S_actual_forecasts.png": {
+    "bytes": 397778,
+    "sha256": "96867df0627bba89a575a8c87235ffc88fb9c7871eb16bc82f3373999ac088ed"
+  },
+  "figures/F3_SOH_event_predictions.pdf": {
+    "bytes": 16325,
+    "sha256": "ebbdd8e686951fccbb02d60b8faf45fc7bb6d16f591b113992ade0333d419d5f"
+  },
+  "figures/F3_SOH_event_predictions.png": {
+    "bytes": 205446,
+    "sha256": "d9d2aea4ac78a4f443171b652a3335e8300aa3ffd728c0afdc4a421f0e435e88"
+  },
+  "figures/F4_SOH_event_errors.pdf": {
+    "bytes": 11805,
+    "sha256": "e6726f9c71f5181c32675596da6e47d83d387b6d7a174e5517746885d3b2d797"
+  },
+  "figures/F4_SOH_event_errors.png": {
+    "bytes": 74931,
+    "sha256": "df202b7c8cf74f5d6dff345bfe123156594f60ae9153d98e65a9fa954ec8945e"
+  },
+  "figures/F5_physics_identifiability_and_gradients.pdf": {
+    "bytes": 18363,
+    "sha256": "3372db38a2a508d2a2261a5721484925dc2cba42e40dfad702945936038bb5b4"
+  },
+  "figures/F5_physics_identifiability_and_gradients.png": {
+    "bytes": 232765,
+    "sha256": "0b0a683c8b2561d0d7d8907e37a06cb0749b2c4ba7405098611f2c0a77643cd7"
+  },
+  "figures/F6_conditional_calendar_trajectories.pdf": {
+    "bytes": 19770,
+    "sha256": "3b32af37c4d4e3551ba8081b17606b6feb89f331c59c8da5696e82583a817dd4"
+  },
+  "figures/F6_conditional_calendar_trajectories.png": {
+    "bytes": 164574,
+    "sha256": "6e5685b11c1f8db3b1460c10eb0b70c9bd8d1680a721231a9c4d8cc7aa99ccfa"
+  },
+  "figures/F7_integrated_evidence_flow.pdf": {
+    "bytes": 14720,
+    "sha256": "c0d8efe9ce0544cf840a9360a9eb89087724f67d4c722dd26f376c9714672a73"
+  },
+  "figures/F7_integrated_evidence_flow.png": {
+    "bytes": 147295,
+    "sha256": "aca549bf4f6efeb07fe862c9422b93ee120639ac4cde6091763bde9b826831dd"
+  },
+  "figures/F8_dynamic_robustness_limits.pdf": {
+    "bytes": 15077,
+    "sha256": "8f3c6eef1384d9366ccd18962a391cce05e8017a2543a45cdfc75299e63220dd"
+  },
+  "figures/F8_dynamic_robustness_limits.png": {
+    "bytes": 201255,
+    "sha256": "9caa0b612044c35f7112e6c779871e54963ed2b5be473bb32174b3a9b499fdd2"
+  },
+  "models/CONDITIONAL_CALENDAR_TRAJECTORY_PARAMETERS.json": {
+    "bytes": 983,
+    "sha256": "77d63bf0db78b097727c638cee6b05963ff7a864eb7a830e3cc6a5b7bba0156c"
+  },
+  "models/PAST_ONLY_AFFINE_PARAMETERS.json": {
+    "bytes": 2320,
+    "sha256": "8915453d7af0c2cb47e34722a8d2e993e2700588c7e41868c9349e17b2cbab02"
+  },
+  "outputs/CONDITIONAL_CALENDAR_LIFETIME_SCENARIOS.csv": {
+    "bytes": 1381,
+    "sha256": "8675dde1a9321a1b18e77567e2a0d928c3a1b2a30001b9b763fba3c889a2151b"
+  },
+  "outputs/CONDITIONAL_CALENDAR_TRAJECTORIES.csv": {
+    "bytes": 118405,
+    "sha256": "55b6259a02ced9c54f779f2ac994b4b26c8c6c1ab0aa88b7541c0d1f5a8564a0"
+  },
+  "outputs/CONDITIONAL_SLOPE_SENSITIVITY.csv": {
+    "bytes": 215,
+    "sha256": "7dd5e3c0a149e2d992bcdf4d2038cdc8b61ccc7728060f9fab8f57746bbf07b9"
+  },
+  "outputs/CONDITIONAL_TRAJECTORY_SENSITIVITY_ENVELOPE.csv": {
+    "bytes": 18635,
+    "sha256": "b53ad49786ce8b1e313ea225f46320ea97e47c987773130414d33ddd528c8d92"
+  },
+  "outputs/CONDITIONAL_TRAJECTORY_SLOPES.csv": {
+    "bytes": 258,
+    "sha256": "3ef5ab82a7596ab1c1107d6f31a1d6653ecf74d754023a53c693d66443d1134b"
+  },
+  "outputs/EVIDENCE_MATRIX.csv": {
+    "bytes": 1389,
+    "sha256": "839b0507019a0895787b2d508bd51248d6eae8036fe6c93da9c4f635614db776"
+  },
+  "outputs/FINAL_CODE_IDENTITY.json": {
+    "bytes": 809,
+    "sha256": "c1c1567a8955a31e6fd28e4e7fd290c3cdcc4926a20f339434161db3a3fe4d39"
+  },
+  "outputs/FINAL_RESEARCH_DECISION.json": {
+    "bytes": 705,
+    "sha256": "dd470f3aa12b09e2289b32bbf6775e6031828453608c5986f2a5d09a5162fbfe"
+  },
+  "outputs/FINAL_TEST_LOG.txt": {
+    "bytes": 2032,
+    "sha256": "275d5c94f1996031b9c8b9cc3e0e7fb87339ba4b95cf5fa30ed94142a44e90ba"
+  },
+  "outputs/FINAL_VERIFICATION_LOG.txt": {
+    "bytes": 64,
+    "sha256": "574d915e2b051199c012134c549b1e13efb252bf6c2a895b415f796157926600"
+  },
+  "outputs/INDEPENDENT_VERIFICATION.json": {
+    "bytes": 239,
+    "sha256": "5ebf1901e63431a69198985664b40d606a0cb2916cb527202fe81b8f7b1b7e86"
+  },
+  "outputs/LONG_TRAJECTORY_CALENDAR_BACKTEST.csv": {
+    "bytes": 586,
+    "sha256": "e82c2ce739ae0f80610a12897b45ac9d35904e7e32f30a4868dcc4cf93986a44"
+  },
+  "outputs/LONG_TRAJECTORY_CALENDAR_BACKTEST_METRICS.csv": {
+    "bytes": 156,
+    "sha256": "1b91e170978dc6197f4c02b5f94b74ed05ae24d01a65c41caf2bc3b5b641b62c"
+  },
+  "outputs/P1S_TO_SOH_EXACT_FORECAST_LINKS.csv": {
+    "bytes": 2574,
+    "sha256": "5505c4391b84ea4e4098fe7c426115eab5ff35ba3354964a17589212460343ce"
+  },
+  "outputs/P2_EIS_REUSE_QUALIFICATION.json": {
+    "bytes": 311,
+    "sha256": "b76081032e859fd7230b051abf119ca8b648f6c59b53d7aaef78e70913213309"
+  },
+  "outputs/PAST_DYNAMIC_AND_P1S_INFORMATION.csv": {
+    "bytes": 1191,
+    "sha256": "63a23e2654687bfe14c2bcbc8807d214be746fae599ec0543584bccfbf7d390b"
+  },
+  "outputs/PHYSICS_CPU_DIAGNOSTICS.json": {
+    "bytes": 1471,
+    "sha256": "451ea35949f13011c10038d98788f49a9966469a041eecfab3da73a07447b8e2"
+  },
+  "outputs/PHYSICS_CPU_QUALIFICATION.csv": {
+    "bytes": 977,
+    "sha256": "bb7998847cbed2c01562f5a63af9e8de29ac23c0f8273dd225abb57c580dd91b"
+  },
+  "outputs/PHYSICS_GRADIENT_DIAGNOSTIC.csv": {
+    "bytes": 2890,
+    "sha256": "5bfa6328f9c5499eb6f0b1e083eba1aed8870d9570bc21bda7ee02d13e812f81"
+  },
+  "outputs/PHYSICS_STATE_DECOMPOSITION.csv": {
+    "bytes": 5704,
+    "sha256": "ca07ca056c5a07117a51752af5daf78377fffb05fc48ca85ced8a7efdeb84595"
+  },
+  "outputs/RECOMPUTED_DYNAMIC_METRICS.csv": {
+    "bytes": 1403,
+    "sha256": "680d5dd4e16cd8553cb105743d86c163b984d0c9450a14d09191f19011d7e4c5"
+  },
+  "outputs/RECOMPUTED_P1S_FOLD_METRICS.csv": {
+    "bytes": 820,
+    "sha256": "f8402774a71f128aadd674723242be68822e2e262944a3f64b08a85517546bb1"
+  },
+  "outputs/RUL_EOL_AND_CENSORING_ELIGIBILITY.csv": {
+    "bytes": 594,
+    "sha256": "a9666c7849c89c55611c914c7d66265f966b0fa72e67feea5a1083e8e0161ff4"
+  },
+  "outputs/SOH_EVENT_EXCLUSIONS.csv": {
+    "bytes": 612,
+    "sha256": "6f3749a27796cec7a4316a92c713c4b08dfa9e045dbe140c01fd726342b436de"
+  },
+  "outputs/SOH_EVENT_LEVEL_ELIGIBILITY.csv": {
+    "bytes": 3818,
+    "sha256": "08ad1cc6e855b6a076b3e3a13d7f434a3015c99da973b4c763a9f1f1a76a2fc9"
+  },
+  "outputs/SOH_EVENT_METRICS.csv": {
+    "bytes": 774,
+    "sha256": "1e30caceafe66f0a8062ae150f69dec3a7cf00fa2a4b55a94750592b54765a4a"
+  },
+  "outputs/SOH_EVENT_PREDICTIONS.csv": {
+    "bytes": 3570,
+    "sha256": "f56dd1db87d7eba22d5c43a77ea9289ae5bc4b726df83e36b628152c8e4a1a18"
+  },
+  "outputs/STAGE_A_COMPLETE.json": {
+    "bytes": 306,
+    "sha256": "b8de40d7ebf41e536be0d5d11c2b87ce3519d5562e00dfa44b89aa78a4f12982"
+  },
+  "outputs/STAGE_A_INDEPENDENT_VERIFICATION.json": {
+    "bytes": 276,
+    "sha256": "62d502b393335e2f89ca85c63a670be3fec8b6d58fe385642ecf77c65725124f"
+  },
+  "outputs/STAGE_A_READ_LEDGER.json": {
+    "bytes": 6371,
+    "sha256": "fa23436591d485f8fdfff9fb73716a9901a80c79cfad17dd27e471f720bcdae7"
+  },
+  "outputs/STAGE_A_RUN.log": {
+    "bytes": 786,
+    "sha256": "15545f6b48b301da1b464881f70acb99a81870303f28f3099359399e85c1f393"
+  },
+  "outputs/STAGE_A_TEST_LOG.txt": {
+    "bytes": 1036,
+    "sha256": "93e1ae969e4af0441ae5d71c0275b548960fb0053e86cd53456a6e874ccdeb73"
+  },
+  "outputs/STAGE_BC_COMPLETE.json": {
+    "bytes": 125,
+    "sha256": "79e3551ab1202efed71586183badb012674dad0b9ce609e91f899cedaa833c0f"
+  },
+  "outputs/STAGE_BC_READ_LEDGER.json": {
+    "bytes": 5801,
+    "sha256": "2779325739e1412da00ca54ddd751a2b5719c4e60cb7ea61eaa324b0bf652e98"
+  },
+  "outputs/STAGE_BC_RUN.log": {
+    "bytes": 126,
+    "sha256": "c6a6b58aef9f5fb71bd25149ca14c94671009ee14d3c0cb9ee3a609bbc1b43e0"
+  },
+  "outputs/TFT_PAST_INFORMATION_AND_PARAMETER_AVAILABILITY.csv": {
+    "bytes": 2402,
+    "sha256": "74d31a9f28f4a23b64a434edd936428d28e10711cb95e2a4d49035ed12a2f9d3"
+  },
+  "outputs/TRAJECTORY_SENSITIVITY_COMPLETE.json": {
+    "bytes": 301,
+    "sha256": "17f71abfd164690943e4362aa45ade082d1cd9fccd8d54a900e9e35003127ac9"
+  },
+  "paper_materials/CLAIM_BOUNDARIES.md": {
+    "bytes": 270,
+    "sha256": "ef0fd7ee9716ed1477bd6a2dd4243a0f372f1874c2138fb1843116cf0ec0b5e8"
+  },
+  "paper_materials/FIGURE_SOURCE_INDEX.csv": {
+    "bytes": 1505,
+    "sha256": "3eafc20b1186bc079316c1415487f6783569897577beafae78eb5ce0f9e98261"
+  },
+  "paper_materials/FIGURE_SOURCE_INDEX_A.csv": {
+    "bytes": 677,
+    "sha256": "e8ce07b6e8159f3cbe3d45d5f0bd126c118157b62b7718c13b499a3e79d16136"
+  },
+  "paper_materials/P1S_FIGURE_SOURCE.csv": {
+    "bytes": 72824,
+    "sha256": "95e1f23c813c74a255216eb38f73dfbc2dddaa7ba4640038b6dd3254fb7693d2"
+  },
+  "README.md": {
+    "bytes": 1107,
+    "sha256": "5abb6560ef1464d1f44a8544172b591fa99f51a87983a85618f18d89c9145df7"
+  },
+  "reports/00_整体研究总结_通俗版.md": {
+    "bytes": 1051,
+    "sha256": "829ec756c8782c30e0daebdd6d622bdf4d35fd172ac98938dbe45a9a8ebde9e1"
+  },
+  "reports/01_单数据集统一实验协议.md": {
+    "bytes": 641,
+    "sha256": "f157401f46a6dc27c62399a9029fd3c16cfb346e626f975565b520fceacb26b5"
+  },
+  "reports/01_统一时间与健康参考协议.md": {
+    "bytes": 1510,
+    "sha256": "bd655c7dcdef0cbe1b8afe920b24774c3d862e2d8731af3d3d87a417682329af"
+  },
+  "reports/02_历史成果复用与模型关系.md": {
+    "bytes": 743,
+    "sha256": "34cd88bbd4f22f4e49e6f1ad66b6f9c48bdac8f369cc411209a062842060ac9e"
+  },
+  "reports/02_合法事件与预测起点.md": {
+    "bytes": 1501,
+    "sha256": "4004477b548b57b8cacc5f2dc40643614c9a1bc46806e5a9189a18c44d8cb3d0"
+  },
+  "reports/03_未来SOH基线与实际实验.md": {
+    "bytes": 1810,
+    "sha256": "b26fea39774de677908e33f507b787f678f40f426196493939f22eb3d63fa617"
+  },
+  "reports/03_未来SOH实验与合法时间对齐.md": {
+    "bytes": 1271,
+    "sha256": "c065b95ba0a04aa3db7da8d2238f1109017eece5db9ea10425d3ccd1ea395db4"
+  },
+  "reports/04_TFT对SOH的独立信息价值.md": {
+    "bytes": 477,
+    "sha256": "baef77dbab5908322d05dbc212c69d095daf022b370add91a5f2051d5e5ff700"
+  },
+  "reports/04_TFT辅助健康信息增益.md": {
+    "bytes": 1658,
+    "sha256": "c211135397187c78a2b8d5dbb5cd68a2bc1fe4b604a858dadf6906736f3e6c66"
+  },
+  "reports/05_第一阶段研究判断.md": {
+    "bytes": 477,
+    "sha256": "4a6a52f3e1a97b70e68759b6b3d509b44a4c13275fbba96e5e817d9974ce7212"
+  },
+  "reports/05_软物理约束及物理依据.md": {
+    "bytes": 975,
+    "sha256": "204f37fcd94c596ffa06cba9ca077a21f25a39c31c94c115355d6bfd6ba98cbb"
+  },
+  "reports/06_物理约束实际实验与消融.md": {
+    "bytes": 751,
+    "sha256": "4050b8afd3dfcd2643101a4dd2a51d4888ed631c91848019f97c1115d81f71fa"
+  },
+  "reports/07_健康轨迹与RUL资格判断.md": {
+    "bytes": 3050,
+    "sha256": "ab9c9b5f9abb63b08bfc44308847da8603122d99eb2cd7d0b82c4209620770d9"
+  },
+  "reports/08_一体化论文方法框架.md": {
+    "bytes": 599,
+    "sha256": "3abe8ef4708df2753069f11cc7191c2ec79fb4389eb0f4ad88e8e01427f17d1f"
+  },
+  "reports/09_最终实验指标总表.md": {
+    "bytes": 1777,
+    "sha256": "052cd4242ca9c6d0899e96c3756d39554a10851a3b6647d0af1c235bb134d1e7"
+  },
+  "reports/10_投稿资格及缺口.md": {
+    "bytes": 967,
+    "sha256": "2fb60aa2c51e6852d70333c52c1ac1d3cddcd67eeb8e8208d1c9dde9be054034"
+  },
+  "scripts/common.py": {
+    "bytes": 5037,
+    "sha256": "a66bcfc86d58dd008dca26d771cc3b73ace3ac8635c9ce03ff99ec1151c7e880"
+  },
+  "scripts/render_results.py": {
+    "bytes": 9122,
+    "sha256": "a5f3ffd32cfc646efcfd9b04ec0e423ebc7376ffc602ed1ce658c619d0a5c1a9"
+  },
+  "scripts/run_stage_a.py": {
+    "bytes": 13817,
+    "sha256": "8b9f77ec993df8fc72dba6713fb6dc7c44d1aee5577f44676b4c53fb8b6153b9"
+  },
+  "scripts/run_stage_bc.py": {
+    "bytes": 12594,
+    "sha256": "1dc330bc919ffc9c0698321986f91818926afe9fc86e2b89fdcf9bf333d80694"
+  },
+  "scripts/seal_delivery.py": {
+    "bytes": 2802,
+    "sha256": "bf45cdcceb3018e2e6a087690e7e47a5f8d6a5047c77fd0e04b07475cabde092"
+  },
+  "scripts/supplement_trajectory_uncertainty.py": {
+    "bytes": 1731,
+    "sha256": "ffaee5e8188de0e2e1de2dcc09d1e578dc95f065f808357625f41911fa487558"
+  },
+  "scripts/verify_results.py": {
+    "bytes": 5637,
+    "sha256": "429f46ef1375606c49616091437e46e37a31b4e34d7c026bb9e57034d517093d"
+  },
+  "scripts/write_reports.py": {
+    "bytes": 16789,
+    "sha256": "eb515c401c853b663b1e1569d3d4cbb782afa7cc3336ea39770a46b291f1b8e2"
+  },
+  "tests/test_contracts.py": {
+    "bytes": 2180,
+    "sha256": "345ad1a7fe6f5ac3a14b4a4bfcd2c2e73441a36e4b16ba9a1ed9e97a9bba1519"
+  },
+  "tests/test_physics_and_lifetime.py": {
+    "bytes": 2224,
+    "sha256": "ea24a7758e5c54f2df953528f96bf3eaeb5f56db7c4181544bec4321427b2a44"
+  }
+}

@@ -1,0 +1,5 @@
+figure,source_csv,script,meaning
+F1_dynamic_existing_results,outputs/RECOMPUTED_DYNAMIC_METRICS.csv,scripts/render_results.py,"Formal query RMSE and MAE, points are seeds; metric dependence retained"
+F2_P1S_actual_forecasts,paper_materials/P1S_FIGURE_SOURCE.csv,scripts/render_results.py,Historical legal Validation predictions; disconnected fold sections shown as measurements
+F3_SOH_event_predictions,outputs/SOH_EVENT_PREDICTIONS.csv,scripts/render_results.py,Actual sparse references and past-only forecasts; unknown release prohibits online claim
+F4_SOH_event_errors,outputs/SOH_EVENT_PREDICTIONS.csv,scripts/render_results.py,No comparison of different event populations

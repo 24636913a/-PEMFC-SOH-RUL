@@ -1,0 +1,7 @@
+      horizon                    model            evaluation_class  n  MAE_SOH_pp  RMSE_SOH_pp  P95_abs_SOH_pp  max_abs_SOH_pp
+           H1 M0_REFERENCE_PERSISTENCE Exploratory calendar replay  3    0.281172     0.326803        0.481309        0.511696
+           H1         M1_RIDGE96_M2_NC Exploratory calendar replay  3    0.079730     0.088721        0.112877        0.114368
+           H3 M0_REFERENCE_PERSISTENCE Exploratory calendar replay  3    0.281172     0.326803        0.481309        0.511696
+           H3         M1_RIDGE96_M2_NC Exploratory calendar replay  3    0.032385     0.042905        0.065893        0.070714
+M0_ALL_EVENTS M0_REFERENCE_PERSISTENCE Exploratory calendar replay  6    0.511582     0.702806        1.280001        1.536103
+STAGE_A_COMPLETE

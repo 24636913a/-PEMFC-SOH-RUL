@@ -1,0 +1,573 @@
+{
+  "read_nrows": 3007,
+  "development_filter": "bin_end_ophrs2_h < 1819.997738",
+  "development_rows": 3005,
+  "bounded_reads": [
+    {
+      "read_nrows": 3007,
+      "parsed_rows": 3007
+    }
+  ],
+  "full_N1_hash": false,
+  "new_Test_access": false,
+  "Assessment_windows_built": false,
+  "Validation_windows_built_for_qualification": false,
+  "new_polarization_or_health_target_read": false,
+  "events": [
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\configs\\DDP_SOFT_PHYSICS_FROZEN_PROTOCOL.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\configs\\DDP_SOFT_PHYSICS_FROZEN_PROTOCOL.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\configs\\DDP_SOFT_PHYSICS_FROZEN_PROTOCOL.sha256",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\configs\\P3_FROZEN_FULL450_PROTOCOL.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\configs\\P3_FROZEN_FULL450_PROTOCOL.sha256",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\audits\\P3_DATA_AUTHORITY.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P1_Gate_Ablation_Engineering_Preflight\\scripts\\gate_ablation_models.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\scripts\\run_e_comparison.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_SingleSplit_Feature_Filter_Ablation\\scripts\\run_c_ablation.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\configs\\PREREGISTERED_E_COMPARISON.yaml",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\configs\\PREREGISTERED_E_COMPARISON.sha256",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\outputs\\E_COMMON_SCALER.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_H_Determinism_MultiSeed_Stability\\scripts\\h_common.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_Original_Baseline\\models\\canonical_tft.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\__init__.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\causal_multiscale_branch.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\dualpath_strict_history_tft.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\frozen_feature_schema.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\regime_aware_dualpath_tft.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed42\\initial.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\audits\\sampler_authority\\seed42_epoch001.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed42\\best_result.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed42\\last450_result.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed52\\initial.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\audits\\sampler_authority\\seed52_epoch001.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed52\\best_result.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed52\\last450_result.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed62\\initial.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\audits\\sampler_authority\\seed62_epoch001.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed62\\best_result.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed62\\last450_result.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\scripts\\ddp_common.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\scripts\\run_soft_physics_qualification.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\scripts\\run_synthetic_tests.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\scripts\\soft_physics.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\tests\\test_soft_physics_and_firewall.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\checkpoints\\P3-G2-Seed42_best.pt",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\checkpoints\\P3-G2-Seed42_last450.pt",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\checkpoints\\P3-G2-Seed52_best.pt",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\checkpoints\\P3-G2-Seed52_last450.pt",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\checkpoints\\P3-G2-Seed62_best.pt",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\checkpoints\\P3-G2-Seed62_last450.pt",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\SYNTHETIC_TEST_RESULTS.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P1_Gate_Ablation_Engineering_Preflight\\scripts\\__pycache__\\gate_ablation_models.cpython-311.pyc",
+      "writing": false,
+      "action": "DENIED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P1_Gate_Ablation_Engineering_Preflight\\scripts\\gate_ablation_models.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\__pycache__\\__init__.cpython-311.pyc",
+      "writing": false,
+      "action": "DENIED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\__init__.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\__pycache__\\causal_multiscale_branch.cpython-311.pyc",
+      "writing": false,
+      "action": "DENIED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\causal_multiscale_branch.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\__pycache__\\dualpath_strict_history_tft.cpython-311.pyc",
+      "writing": false,
+      "action": "DENIED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\dualpath_strict_history_tft.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_Original_Baseline\\models\\__pycache__\\canonical_tft.cpython-311.pyc",
+      "writing": false,
+      "action": "DENIED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_Original_Baseline\\models\\canonical_tft.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\runtime\\matplotlib\\fontlist-v390.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\__pycache__\\regime_aware_dualpath_tft.cpython-311.pyc",
+      "writing": false,
+      "action": "DENIED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\regime_aware_dualpath_tft.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\__pycache__\\frozen_feature_schema.cpython-311.pyc",
+      "writing": false,
+      "action": "DENIED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models\\frozen_feature_schema.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\configs\\PREREGISTERED_E_COMPARISON.yaml",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_SingleSplit_Feature_Filter_Ablation\\scripts\\run_c_ablation.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\scripts\\run_e_comparison.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\scripts\\__pycache__\\run_e_comparison.cpython-311.pyc",
+      "writing": false,
+      "action": "DENIED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\scripts\\run_e_comparison.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_SingleSplit_Feature_Filter_Ablation\\scripts\\__pycache__\\run_c_ablation.cpython-311.pyc",
+      "writing": false,
+      "action": "DENIED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_SingleSplit_Feature_Filter_Ablation\\scripts\\run_c_ablation.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_H_Determinism_MultiSeed_Stability\\scripts\\h_common.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_H_Determinism_MultiSeed_Stability\\scripts\\h_common.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\configs\\PREREGISTERED_E_COMPARISON.yaml",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\configs\\PREREGISTERED_E_COMPARISON.sha256",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\configs\\PREREGISTERED_E_COMPARISON.yaml",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_FullFeature_CausalFilter_Comparison\\outputs\\E_COMMON_SCALER.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\audits\\P3_DATA_AUTHORITY.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\TRAIN_DATA_AUTHORITY.json.writing",
+      "writing": true,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P1_Gate_Ablation_Engineering_Preflight\\scripts\\gate_ablation_models.py",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed42\\initial.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\audits\\sampler_authority\\seed42_epoch001.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed42\\best_result.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\checkpoints\\P3-G2-Seed42_best.pt",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\configs\\P3_FROZEN_FULL450_PROTOCOL.sha256",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed42\\last450_result.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\checkpoints\\P3-G2-Seed42_last450.pt",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\configs\\P3_FROZEN_FULL450_PROTOCOL.sha256",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\TRAIN_PHYSICS_ACTIVITY.json.writing",
+      "writing": true,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\TRAIN_PHYSICS_ACTIVITY.json.writing",
+      "writing": true,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\TRAIN_PHYSICS_ACTIVITY.json.writing",
+      "writing": true,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed52\\initial.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\audits\\sampler_authority\\seed52_epoch001.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed52\\best_result.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\checkpoints\\P3-G2-Seed52_best.pt",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\configs\\P3_FROZEN_FULL450_PROTOCOL.sha256",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed52\\last450_result.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\checkpoints\\P3-G2-Seed52_last450.pt",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\configs\\P3_FROZEN_FULL450_PROTOCOL.sha256",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\TRAIN_PHYSICS_ACTIVITY.json.writing",
+      "writing": true,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\TRAIN_PHYSICS_ACTIVITY.json.writing",
+      "writing": true,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\TRAIN_PHYSICS_ACTIVITY.json.writing",
+      "writing": true,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed62\\initial.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\audits\\sampler_authority\\seed62_epoch001.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed62\\best_result.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\checkpoints\\P3-G2-Seed62_best.pt",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\configs\\P3_FROZEN_FULL450_PROTOCOL.sha256",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\training_logs\\P3-G2-Seed62\\last450_result.json",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\outputs\\checkpoints\\P3-G2-Seed62_last450.pt",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_P3_Full450_Epoch_Sensitivity\\configs\\P3_FROZEN_FULL450_PROTOCOL.sha256",
+      "writing": false,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\TRAIN_PHYSICS_ACTIVITY.json.writing",
+      "writing": true,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\TRAIN_PHYSICS_ACTIVITY.json.writing",
+      "writing": true,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\TRAIN_PHYSICS_ACTIVITY.json.writing",
+      "writing": true,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\QUALIFICATION_DECISION.json.writing",
+      "writing": true,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\TRAIN_PHYSICS_ACTIVITY.csv",
+      "writing": true,
+      "action": "ALLOWED"
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_DDP_SoftPhysics_Overnight_Experiment\\outputs\\RUNTIME_DATA_ACCESS_AUDIT.json.writing",
+      "writing": true,
+      "action": "ALLOWED"
+    }
+  ]
+}

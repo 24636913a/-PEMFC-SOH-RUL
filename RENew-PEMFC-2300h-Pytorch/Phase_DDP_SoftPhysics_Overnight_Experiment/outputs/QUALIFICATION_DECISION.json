@@ -1,0 +1,71 @@
+{
+  "status": "SOFT_PHYSICS_NOT_QUALIFIED",
+  "reasons": [
+    "PHYSICS_LOSS_INACTIVE",
+    "NO_CERTIFIED_NONTRIVIAL_ELECTROCHEMICAL_ENVELOPE"
+  ],
+  "formal_training_admitted": false,
+  "formal_runs_started": 0,
+  "epochs_trained": 0,
+  "source_identity_pass": true,
+  "physical_domain_pass": false,
+  "train_activity_pass": false,
+  "weight_balance_pass": true,
+  "model_parity_pass": true,
+  "protocol_sha256": "39003814b9af339765b90177cac8a4bf1586f65f1e90ba28aadaac9a66ff4ed8",
+  "execution_identity_sha256": "cecfb9ab3fb040596a0a7e0979d011f4d903f048fbeb85c82e7f376f9972e738",
+  "initialization_evidence": [
+    {
+      "seed": 42,
+      "initial_weight_match": true,
+      "initial_RNG_match": true,
+      "parameter_count": 332436,
+      "first_epoch_sampler_match": true
+    },
+    {
+      "seed": 52,
+      "initial_weight_match": true,
+      "initial_RNG_match": true,
+      "parameter_count": 332436,
+      "first_epoch_sampler_match": true
+    },
+    {
+      "seed": 62,
+      "initial_weight_match": true,
+      "initial_RNG_match": true,
+      "parameter_count": 332436,
+      "first_epoch_sampler_match": true
+    }
+  ],
+  "runtime_environment": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": false,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "AST_identity": {
+    "H_environment_AST_sha256": "bf16631ce71bc12ba9f8e1017473afe96799037d4d5185f51183a48e5065c16f",
+    "H_configure_normal_AST_sha256": "e4ec8264d14754bb58955a53377cc02012a44f2103efb37dbd478b91181352f5",
+    "C_predict_AST_sha256": "aa0dec7a6134f30814be97e9b99b0fd90940c9950dac1634431845fb3b72db9c",
+    "E_predict_AST_sha256": "81228b4d600023dc5f29319291b60cd8ce36012d54bbee6476d84e66ecdaea79"
+  },
+  "Train_forward_checks": 9,
+  "Train_predictions_per_check": 33120,
+  "all_train_forward_checks_zero": true,
+  "qualification_time_s": 16.99282889999995,
+  "Test_accessed": false,
+  "Assessment_accessed": false,
+  "new_validation_forward": false,
+  "neural_optimizer_steps": 0,
+  "completed_UTC": "2026-10-14T01:29:04.407957+00:00"
+}

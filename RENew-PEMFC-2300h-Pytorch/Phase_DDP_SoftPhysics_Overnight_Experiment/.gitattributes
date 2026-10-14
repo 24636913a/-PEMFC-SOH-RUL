@@ -1,0 +1,8 @@
+*.py text eol=lf
+*.json text eol=lf
+*.sha256 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.md text eol=lf
+*.log -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+.gitattributes -text
+.gitignore -text

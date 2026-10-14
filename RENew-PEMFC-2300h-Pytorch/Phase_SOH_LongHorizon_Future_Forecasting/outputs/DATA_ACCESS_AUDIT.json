@@ -1,0 +1,103 @@
+{
+  "historical_open_events": [
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model\\inputs\\CHM_SPARSE_ANCHOR_TARGETS.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model\\inputs\\CHM_FROZEN_ANCHOR_INTERVAL_MAPPING.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_AHC_Sparse_Anchor_Affine_Health_Calibration\\outputs\\B2_CHRONOLOGICAL_PREFIX_EVALUATION.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_CTAE_P1S_Reference_Availability_Erratum\\outputs\\P1S_REFERENCE_AVAILABILITY_AUDIT.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_PAA_P1_StateToken_PreAnchor_Alignment\\outputs\\P1S_COMPLETE_CYCLE_MEASUREMENTS.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_PAV_PAA_Anchor_Validity_Qualification\\outputs\\POLARIZATION_TIME_PROVENANCE.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_CPRF_H1_Causal_P1S_Retention_Forecasting\\outputs\\P1S_RAW_MEASUREMENT_INTERVAL_RECONSTRUCTION.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_PHI_P1S_B2_Health_Index_Consolidation\\outputs\\P1S_B2_FULL_HEALTH_TRAJECTORY.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\soh_anchor_analysis\\soh_reference_anchors.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model\\inputs\\CHM_SPARSE_ANCHOR_TARGETS.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_CHM_Cycle_Aligned_Sparse_Anchor_Health_Model\\inputs\\CHM_FROZEN_ANCHOR_INTERVAL_MAPPING.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_AHC_Sparse_Anchor_Affine_Health_Calibration\\outputs\\B2_CHRONOLOGICAL_PREFIX_EVALUATION.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_CTAE_P1S_Reference_Availability_Erratum\\outputs\\P1S_REFERENCE_AVAILABILITY_AUDIT.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_PAA_P1_StateToken_PreAnchor_Alignment\\outputs\\P1S_COMPLETE_CYCLE_MEASUREMENTS.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_PAV_PAA_Anchor_Validity_Qualification\\outputs\\POLARIZATION_TIME_PROVENANCE.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_CPRF_H1_Causal_P1S_Retention_Forecasting\\outputs\\P1S_RAW_MEASUREMENT_INTERVAL_RECONSTRUCTION.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_PHI_P1S_B2_Health_Index_Consolidation\\outputs\\P1S_B2_FULL_HEALTH_TRAJECTORY.csv",
+      "writing": false,
+      "allowed": true
+    },
+    {
+      "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\soh_anchor_analysis\\soh_reference_anchors.csv",
+      "writing": false,
+      "allowed": true
+    }
+  ],
+  "small_derived_inputs_only": true,
+  "raw_files_opened": 0,
+  "late_target_files_opened": 0,
+  "GPU_calls": 0,
+  "mixed_feature_table_read": false,
+  "BoL_read_contract": "CSV header and FIRST data record only; no mixed anchor file hash",
+  "posterior_PHI_columns_used_as_model_input": false,
+  "PHI_full_file_hashed_but_only_identity_columns_parsed": true,
+  "history_modified": false
+}

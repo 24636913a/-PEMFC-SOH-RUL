@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_SOH_LongHorizon_Future_Forecasting\scripts\verify_saved_results.py", line 71, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_SOH_LongHorizon_Future_Forecasting\scripts\verify_saved_results.py", line 60, in main
+    assert abs(check['M0']-.2812)<.0001 and abs(check['M1']-.7714)<.0002
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

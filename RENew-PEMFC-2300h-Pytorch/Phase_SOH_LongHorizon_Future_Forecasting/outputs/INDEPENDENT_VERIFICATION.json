@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "independent_solver": "numpy.linalg.lstsq; runner uses centered covariance",
+  "max_absolute_prediction_difference": 6.661338147750939e-16,
+  "all_12_predictions_verified": true,
+  "all_targets_retained": true,
+  "checks": [
+    {
+      "task_id": "SOH-F1",
+      "latest_cycle": "COMPLETE_074",
+      "window_n": 11,
+      "mapping_n": 3,
+      "verified": true
+    },
+    {
+      "task_id": "SOH-F2",
+      "latest_cycle": "COMPLETE_100",
+      "window_n": 11,
+      "mapping_n": 4,
+      "verified": true
+    },
+    {
+      "task_id": "SOH-F3",
+      "latest_cycle": "COMPLETE_125",
+      "window_n": 11,
+      "mapping_n": 5,
+      "verified": true
+    }
+  ],
+  "M0_M1_selfcheck_MAE_pp": {
+    "M0": 0.2811724894230168,
+    "M1": 0.7711708884682644
+  },
+  "strict_online_CLEAR_GAIN_claim": false,
+  "historical_tracked_diff": [],
+  "approximate_user_reference_delta_pp": {
+    "M0": -2.7510576983191815e-05,
+    "M1": -0.00022911153173554855
+  },
+  "audit_repair_note": "Original audit completed independent numerical checks, then stopped on too-tight approximate M1 reference. This separate post-run audit keeps original frozen sources and predictions unchanged."
+}

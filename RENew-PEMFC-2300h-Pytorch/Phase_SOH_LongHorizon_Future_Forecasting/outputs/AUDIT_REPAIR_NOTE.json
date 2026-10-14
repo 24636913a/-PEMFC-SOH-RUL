@@ -1,0 +1,6 @@
+{
+  "scope": "Post-run independent audit repair only; no forecast rerun or model change",
+  "original_frozen_verifier_sha256": "4b22b24fdc9cb9502a1f83638fbef57db05326f5e727b8d39a208f77fed93715",
+  "replacement_verifier_sha256": "a5ca2b66c9ec8cc55b1e1214cd4e89e2c0767508a8b747cb5cff65146a817ef7",
+  "change": "Treat supplied approximate M0/M1 values as diagnostics instead of fixed answers; all independently computed predictions and metric comparisons retained."
+}

@@ -1,0 +1,19 @@
+test_affine_constant_predictor (test_soh_forecasting.MathTests.test_affine_constant_predictor) ... ok
+test_affine_positive_and_constrained_negative (test_soh_forecasting.MathTests.test_affine_positive_and_constrained_negative) ... ok
+test_ols_bad_data_rejected (test_soh_forecasting.MathTests.test_ols_bad_data_rejected) ... ok
+test_ols_exact_line_and_positive_slope (test_soh_forecasting.MathTests.test_ols_exact_line_and_positive_slope) ... ok
+test_threshold_all_cases (test_soh_forecasting.MathTests.test_threshold_all_cases) ... ok
+test_unit_percentage_points (test_soh_forecasting.MathTests.test_unit_percentage_points) ... ok
+test_bol_and_causal_count (test_soh_forecasting.ProductionIsolationTests.test_bol_and_causal_count) ... ok
+test_future_p1s_suffix_mutation_no_prediction_change (test_soh_forecasting.ProductionIsolationTests.test_future_p1s_suffix_mutation_no_prediction_change) ... ok
+test_future_target_and_mapping_mutation_no_prediction_change (test_soh_forecasting.ProductionIsolationTests.test_future_target_and_mapping_mutation_no_prediction_change) ... ok
+test_m2_m3_share_affine_and_no_future_R (test_soh_forecasting.ProductionIsolationTests.test_m2_m3_share_affine_and_no_future_R) ... ok
+test_missing_cycles_m3_not_fabricated (test_soh_forecasting.ProductionIsolationTests.test_missing_cycles_m3_not_fabricated) ... ok
+test_nominal_850_not_actual_850 (test_soh_forecasting.ProductionIsolationTests.test_nominal_850_not_actual_850) ... ok
+test_prefix_only_matches_full_filtered_history (test_soh_forecasting.ProductionIsolationTests.test_prefix_only_matches_full_filtered_history) ... ok
+test_window_96h_and_unique_cycles_and_mapping (test_soh_forecasting.ProductionIsolationTests.test_window_96h_and_unique_cycles_and_mapping) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.139s
+
+OK

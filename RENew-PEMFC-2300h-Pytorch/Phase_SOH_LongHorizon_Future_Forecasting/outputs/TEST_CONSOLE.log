@@ -1,0 +1,27 @@
+test_affine_constant_predictor (test_soh_forecasting.MathTests.test_affine_constant_predictor) ... ok
+test_affine_positive_and_constrained_negative (test_soh_forecasting.MathTests.test_affine_positive_and_constrained_negative) ... ok
+test_ols_bad_data_rejected (test_soh_forecasting.MathTests.test_ols_bad_data_rejected) ... ok
+test_ols_exact_line_and_positive_slope (test_soh_forecasting.MathTests.test_ols_exact_line_and_positive_slope) ... ok
+test_threshold_all_cases (test_soh_forecasting.MathTests.test_threshold_all_cases) ... ok
+test_unit_percentage_points (test_soh_forecasting.MathTests.test_unit_percentage_points) ... ok
+setUpClass (test_soh_forecasting.ProductionIsolationTests) ... ERROR
+
+======================================================================
+ERROR: setUpClass (test_soh_forecasting.ProductionIsolationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_SOH_LongHorizon_Future_Forecasting\tests\test_soh_forecasting.py", line 30, in setUpClass
+    def setUpClass(cls):cls.refs,cls.mapping,cls.p1s,cls.timing,cls.bol,cls.ahc=load_sources()
+                                                                                ^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_SOH_LongHorizon_Future_Forecasting\scripts\soh_sources.py", line 60, in load_sources
+    bol=get_bol()
+        ^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_SOH_LongHorizon_Future_Forecasting\scripts\soh_sources.py", line 48, in get_bol
+    if row['checkpoint']!='BoL' or float(row['jstar_A_cm2'])!=1. or float(row['ageing_hour'])!=0.:
+                                                                          ~~~^^^^^^^^^^^^^^^
+KeyError: 'ageing_hour'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.023s
+
+FAILED (errors=1)

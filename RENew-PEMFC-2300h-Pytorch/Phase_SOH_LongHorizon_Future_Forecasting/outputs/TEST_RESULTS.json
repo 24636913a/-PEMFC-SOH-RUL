@@ -1,0 +1,8 @@
+{
+  "initial_pre_freeze_test_attempt": "TEST_CONSOLE.log (BOM reader failure, retained)",
+  "final_test_attempt": "TEST_CONSOLE_ATTEMPT2.log",
+  "tests_passed": 14,
+  "production_predictions_runs": 1,
+  "source_reader_fix": "utf-8-sig for existing BoL table",
+  "GPU_used": false
+}

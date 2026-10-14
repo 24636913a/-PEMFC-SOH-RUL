@@ -1,0 +1,434 @@
+{
+  "phase": "Phase_TFT_P1S96_HealthAware_Fusion",
+  "UTC": "2026-10-14T05:28:05.873882+00:00",
+  "base_commit": "4c2b8ab8b489465023b5d02047a9660cb53b73ba",
+  "authorization": "USER_EXPLICIT_NINE_MODEL_SEED_TRAINING",
+  "H": {
+    "phase": "Phase_H_Determinism_MultiSeed_Stability",
+    "base_commit": "dea436c7520ca9962e7aa3005af1faaedbc786f2",
+    "authorization": "USER_EXPLICIT_PHASE_H_FULL_EXECUTION",
+    "status": "FROZEN_BEFORE_PROBES_AND_FORMAL_TRAINING",
+    "scope": {
+      "train_validation_only": true,
+      "test_access": "PROHIBITED",
+      "new_assessment_inference": "PROHIBITED",
+      "assessment_windows": "PROHIBITED",
+      "architecture_modification": "PROHIBITED",
+      "hyperparameter_search": "PROHIBITED",
+      "new_backbone": "PROHIBITED"
+    },
+    "task": {
+      "resolution_h": 0.5,
+      "lookback_steps": 48,
+      "horizon_steps": 24,
+      "raw_f2_feature_order": [
+        "cell_voltage_mean",
+        "cell_voltage_std",
+        "cell_voltage_range",
+        "cell_voltage_min",
+        "cell_voltage_max",
+        "actual_current_A_mean",
+        "actual_current_A_std",
+        "actual_current_A_peak_to_peak",
+        "actual_current_density_A_cm2_mean",
+        "actual_current_density_A_cm2_std",
+        "actual_current_density_A_cm2_peak_to_peak",
+        "load_transition_count",
+        "operation_point_transitions",
+        "zero_current_fraction"
+      ],
+      "target": "cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t"
+    },
+    "preprocessing": {
+      "authority": "Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py",
+      "Top10_indices": [
+        0,
+        3,
+        13,
+        11,
+        4,
+        9,
+        6,
+        7,
+        10,
+        8
+      ],
+      "selection": "train_window_origin_spearman_to_each_horizon_mean_absolute",
+      "ties": "stable_raw_f2_order",
+      "mandatory_feature": "cell_voltage_mean",
+      "mask": "standardized_space_zero_mask",
+      "filter": "per_window_causal_EWMA_alpha_0_3_voltage_only",
+      "common_scaler": "unfiltered_train_legal_histories_only",
+      "target_scale": "common_scaler.scale_0"
+    },
+    "hyperparameters": {
+      "seed": 42,
+      "optimizer": "AdamW",
+      "loss": "MSE",
+      "learning_rate": 0.0009605449687795866,
+      "weight_decay": 6.95942232671908e-06,
+      "batch_size": 32,
+      "max_epochs": 450,
+      "patience": 40,
+      "gradient_clip_norm": 1.0,
+      "dropout": 0.1,
+      "hidden_size": 64,
+      "hidden_continuous_size": 32
+    },
+    "data": {
+      "read_nrows": 3007,
+      "filter": "bin_end_ophrs2_h < 1819.997738",
+      "development_rows": 3005,
+      "train_rows": [
+        0,
+        2103
+      ],
+      "validation_rows": [
+        2103,
+        2404
+      ],
+      "train_windows": 1380,
+      "validation_windows": 205,
+      "full_N1_hash": "PROHIBITED",
+      "Top10_selection": "consume frozen Train-derived indices; no new selection"
+    },
+    "normal_runtime": {
+      "python": "3.11.9",
+      "torch": "2.6.0+cu124",
+      "pytorch_forecasting": "1.8.0",
+      "CUDA": "12.4",
+      "cuDNN": 90100,
+      "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+      "CPU_threads": 1,
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "torch_deterministic_algorithms": false,
+      "warn_only": false,
+      "TF32_matmul": false,
+      "TF32_cudnn": true,
+      "CUBLAS_WORKSPACE_CONFIG": null,
+      "claim": "CUDA_STRICT_BITWISE_DETERMINISM_NOT_CLAIMED"
+    },
+    "strict_probes": {
+      "separate_processes": true,
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "torch_deterministic_algorithms": true,
+      "warn_only": false,
+      "optimizer_step": false,
+      "known_cuda_interpolation_failure_does_not_block_normal_training": true
+    },
+    "formal_runs": [
+      {
+        "run_id": "H-F0-Repeat-A",
+        "model": "F0",
+        "seed": 42
+      },
+      {
+        "run_id": "H-F0-Repeat-B",
+        "model": "F0",
+        "seed": 42
+      },
+      {
+        "run_id": "H-F0-Seed42",
+        "model": "F0",
+        "seed": 42
+      },
+      {
+        "run_id": "H-F0-Seed52",
+        "model": "F0",
+        "seed": 52
+      },
+      {
+        "run_id": "H-F0-Seed62",
+        "model": "F0",
+        "seed": 62
+      },
+      {
+        "run_id": "H-F1-Seed42",
+        "model": "F1",
+        "seed": 42
+      },
+      {
+        "run_id": "H-F1-Seed52",
+        "model": "F1",
+        "seed": 52
+      },
+      {
+        "run_id": "H-F1-Seed62",
+        "model": "F1",
+        "seed": 62
+      },
+      {
+        "run_id": "H-F2-Seed42",
+        "model": "F2",
+        "seed": 42
+      },
+      {
+        "run_id": "H-F2-Seed52",
+        "model": "F2",
+        "seed": 52
+      },
+      {
+        "run_id": "H-F2-Seed62",
+        "model": "F2",
+        "seed": 62
+      }
+    ],
+    "maximum_formal_runs": 11,
+    "seeds": [
+      42,
+      52,
+      62
+    ],
+    "dataloader": {
+      "shuffle": true,
+      "batch_size": 32,
+      "num_workers": 0,
+      "generator_seed": "run seed"
+    },
+    "early_stopping": "validation_standardized_RMSE < best - 1e-12; patience40; max450",
+    "repeat_gate": {
+      "difference": "max(values)-min(values)",
+      "threshold_mV": "max(0.5,0.10*mean(values))",
+      "two_repeat_failure": "PHASE_H_SAME_SEED_MATERIAL_INSTABILITY",
+      "three_repeat_failure": "PHASE_H_F0_SEED42_REPEATABILITY_BLOCKED",
+      "failure_stops_all_remaining_runs": true
+    },
+    "multi_seed_statistics": {
+      "include": "only nine designated F0/F1/F2 Seed42/52/62 runs",
+      "exclude": "Repeat-A/B from n=3",
+      "RMSE_std": "sample ddof=1",
+      "no_significance_claims": true,
+      "paired_difference_direction": "F1-F0; F2-F1; F2-F0; negative means minuend/new model better"
+    },
+    "architecture_decision": {
+      "all3_F2_better_F0_and_F1": "F2_VALIDATION_MULTISEED_GAIN_OBSERVED",
+      "majority_F2_better_F1_but_not_all3_both": "F2_VS_F1_MULTISEED_SIGNAL_ONLY",
+      "otherwise": "F2_STRUCTURAL_GAIN_NOT_STABLE"
+    },
+    "prediction_audit": {
+      "records_per_run": 4920,
+      "exact_keys_truth": true,
+      "metric_absolute_tolerance": 1e-10,
+      "checkpoint_reload_fixed_validation_exact": true
+    },
+    "crash_recorder": "every batch stage; fsync journal, fsynced temporary state + atomic replace; no unbounded tensor copies",
+    "stops": [
+      "data/truth/model mismatch",
+      "nonfinite loss or gradient",
+      "normal CUDA failure or OOM",
+      "reload or cache audit failure",
+      "repeat threshold exceeded",
+      "Test access",
+      "interrupted run requires review; no automatic reinitialization"
+    ],
+    "history_limits": [
+      "TIMESNET_FREEZE",
+      "BACKBONE_SEARCH_CLOSED",
+      "PHASE_F_ASSESSMENT_INHERITED_SELECTION_BIAS",
+      "C1_D0_E0_REPRODUCIBILITY_UNRESOLVED"
+    ],
+    "code_identity": {
+      "files": {
+        "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py": "f479d4cd64a6a9351dd2d863f38dd4828017dc48ffa8b4e986a3c240a5574099",
+        "RENew-PEMFC-2300h-Pytorch/Phase_TFT_SingleSplit_Feature_Filter_Ablation/scripts/run_c_ablation.py": "e0053c63d6b942166362a09b2fce0166d9d29130fc0d5624eeaa0dcf32a65ce1",
+        "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/configs/F0_F2_EXECUTION_PROTOCOL.yaml": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+        "RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/E_COMMON_SCALER.json": "969233228590c11f3c14f4eb364acbcbc638b70fa35a44ba72926ecb7a616ab4",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/audits/F_DATA_ACCESS_AUDIT.json": "e4aa7472464f6268c53de18f7059e09668539fe960a85f547ec69e63cb5273b4",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/outputs/audits/F_FORMAL_INITIALIZATION_AUDIT.json": "209cd43d53315a374f4f36c5bcdc04fc9947f890a49a29f69c9e187250c6cbe9",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/__init__.py": "9aceeebef759152574ae45db9dddfacfb804eb8b0a7b81da3b13e00634299187",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+        "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/analyze_h_stability.py": "9ddb43a58efa19748a16a8c43b5b5573be0f586e94163f01c49ab22eb5a29209",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/audit_h_predictions.py": "201105a762348e8bd7357dda8fe1be57fd536fe84089ea35deee7f081120fe9f",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/crash_safe_recorder.py": "884e19bfb494235e6ae74881d04cc661efd09ab8d874b792afd7e8e65026f726",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/h_common.py": "c88974ade24909adc793a0dab7433d838d2b1b3ed7dd526702028d259fc14cbb",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/probe_determinism.py": "fa47a49880c633393bfa7496dba64e715aff2a46e2ecde8e895954b1419c705b",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/run_h_training.py": "27476a7967b841abfbf846a7cf41c5c5fb641074fb5bf6b85cc96253a616ca30",
+        "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/tests/test_h_firewall_and_recorder.py": "7c25793c9ab796311f1785abbd1871f197cc62e2af0b74bd9385442aca53183e",
+        "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\_tft.py": "6ad5f6c806d314cfec53851ce0914c6d3476c4b05bd136a2764f4a562f1b7343",
+        "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+      },
+      "sha256": "b45b2bdcc14c0b2ef366bc765cfe456c68f62746a9affcb0b74f6cc8fc8087f1"
+    }
+  },
+  "model_names": [
+    "F2_MATCHED",
+    "F2_CAPACITY_CONTROL",
+    "F2_P1S96_HEALTH_AWARE"
+  ],
+  "seeds": [
+    42,
+    52,
+    62
+  ],
+  "formal_runs": [
+    [
+      "F2_MATCHED_seed42",
+      "F2_MATCHED",
+      42
+    ],
+    [
+      "F2_CAPACITY_CONTROL_seed42",
+      "F2_CAPACITY_CONTROL",
+      42
+    ],
+    [
+      "F2_P1S96_HEALTH_AWARE_seed42",
+      "F2_P1S96_HEALTH_AWARE",
+      42
+    ],
+    [
+      "F2_MATCHED_seed52",
+      "F2_MATCHED",
+      52
+    ],
+    [
+      "F2_CAPACITY_CONTROL_seed52",
+      "F2_CAPACITY_CONTROL",
+      52
+    ],
+    [
+      "F2_P1S96_HEALTH_AWARE_seed52",
+      "F2_P1S96_HEALTH_AWARE",
+      52
+    ],
+    [
+      "F2_MATCHED_seed62",
+      "F2_MATCHED",
+      62
+    ],
+    [
+      "F2_CAPACITY_CONTROL_seed62",
+      "F2_CAPACITY_CONTROL",
+      62
+    ],
+    [
+      "F2_P1S96_HEALTH_AWARE_seed62",
+      "F2_P1S96_HEALTH_AWARE",
+      62
+    ]
+  ],
+  "max_formal_runs": 9,
+  "health": {
+    "window_h": 96,
+    "minimum_observations": 5,
+    "minimum_span_h": 67.2,
+    "reference_V": 0.71383023635,
+    "reference_available_h": 171.82091,
+    "availability": "conservative_available_end_h <= origin bin_end_ophrs2_h; window uses actual measurement end",
+    "standardization": "matched Train only",
+    "features": [
+      "latest R",
+      "96h mean",
+      "96h population std",
+      "slope on actual hours",
+      "latest minus median"
+    ]
+  },
+  "minimum_evaluation": {
+    "train": 100,
+    "validation": 30,
+    "unique_validation_targets": 24
+  },
+  "matched_counts": {
+    "train": 870,
+    "validation": 178,
+    "unique_validation_targets": 224
+  },
+  "preprocessing": "Exact H full-Train unfiltered scaler, per-window EWMA .3, frozen Top10, original target scale; subset afterwards",
+  "architecture": "Read-only subclass F2; A gate5-8-1; B/C gate10-8-1; no changes to either branch or decoder",
+  "initialization": "Original F2 common state from seed; expanded health columns from isolated seed+100000; B/C identical; original gate-output zero => .5 initial fusion",
+  "paired_rng": "Reset Python/NumPy/CPU/CUDA seed before training; DataLoader generator per seed; every common epoch order fingerprint must match",
+  "stopping": "validation standardized RMSE < best - 1e-12; patience 40; max450, best checkpoint evaluation",
+  "success": {
+    "mean_RMSE_reduction_vs_each_control_at_least": 0.05,
+    "paired_seeds_improve_over_both_at_least": 2,
+    "endpoint": "No obvious deterioration, judged qualitatively with all paired endpoint values disclosed; no extra numerical zero-worsening threshold",
+    "target_time_and_tail": "Report all target-equal RMSE, P95/P99/max; no hidden extreme targets",
+    "validation": "Exploratory reused Development; not Test or significance"
+  },
+  "source_sha256": {
+    "Phase_CTAE_P1S_Reference_Availability_Erratum/reports/CTA_REFERENCE_AVAILABILITY_ERRATUM.md": "e0766246827e76c0f2972ec8498e21a33245d79df3a9d719efb37fcea3e1cf99",
+    "Phase_F_TFT_DualPath_RegimeFusion/configs/F0_F2_EXECUTION_PROTOCOL.yaml": "c8ee4be440b9828cad04b615ddd19c15781033fdb22bbadeb1df18a59cf74cbf",
+    "Phase_F_TFT_DualPath_RegimeFusion/models/__init__.py": "9aceeebef759152574ae45db9dddfacfb804eb8b0a7b81da3b13e00634299187",
+    "Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+    "Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+    "Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+    "Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+    "Phase_F_TFT_DualPath_RegimeFusion/outputs/audits/F_DATA_ACCESS_AUDIT.json": "e4aa7472464f6268c53de18f7059e09668539fe960a85f547ec69e63cb5273b4",
+    "Phase_F_TFT_DualPath_RegimeFusion/reports/F_FINAL_EXPERIMENT_SUMMARY.md": "f31027fc3fb19db06b1cc39449ea25f9694d8d5742345f16958cb398fb9e4641",
+    "Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.yaml": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+    "Phase_H_Determinism_MultiSeed_Stability/reports/H_FINAL_CONCLUSION.md": "4bdf976c68e978babec2cc73ddecff1234ed0047038bda0073b84db10c226505",
+    "Phase_H_Determinism_MultiSeed_Stability/scripts/analyze_h_stability.py": "9ddb43a58efa19748a16a8c43b5b5573be0f586e94163f01c49ab22eb5a29209",
+    "Phase_H_Determinism_MultiSeed_Stability/scripts/audit_h_predictions.py": "201105a762348e8bd7357dda8fe1be57fd536fe84089ea35deee7f081120fe9f",
+    "Phase_H_Determinism_MultiSeed_Stability/scripts/crash_safe_recorder.py": "884e19bfb494235e6ae74881d04cc661efd09ab8d874b792afd7e8e65026f726",
+    "Phase_H_Determinism_MultiSeed_Stability/scripts/h_common.py": "c88974ade24909adc793a0dab7433d838d2b1b3ed7dd526702028d259fc14cbb",
+    "Phase_H_Determinism_MultiSeed_Stability/scripts/probe_determinism.py": "fa47a49880c633393bfa7496dba64e715aff2a46e2ecde8e895954b1419c705b",
+    "Phase_H_Determinism_MultiSeed_Stability/scripts/run_h_training.py": "27476a7967b841abfbf846a7cf41c5c5fb641074fb5bf6b85cc96253a616ca30",
+    "Phase_P1_Gate_Ablation_Engineering_Preflight/reports/P1_FINAL_TRAINING_READINESS_DECISION.md": "6e3d8a497d5d263fb2aa04fce90bc880c085609470fb8f19e01d7eda1c83673b",
+    "Phase_P1_Gate_Ablation_Engineering_Preflight/scripts/gate_ablation_models.py": "62f67fcba5bcfc1f23d0e8441fa355233ea4f4468bafa3e169806463b44e6c16",
+    "Phase_P1_Gate_Ablation_Engineering_Preflight/scripts/p1_checks.py": "7025bf867d8cf0c4aac5ba32a3f09dec71ddd695f6b2bfa320982b417b9e7352",
+    "Phase_P1_Gate_Ablation_Engineering_Preflight/scripts/p1_safety.py": "ba83b0e2d1e020f4e1c330b9975b9967dfb88f4889a7390bf882c10b76e971ac",
+    "Phase_P1_Gate_Ablation_Engineering_Preflight/scripts/run_p1_preflight.py": "7ceafb3c8471983e190593c0226b67d26f06a7b45e8cda5709f1dc78de575831",
+    "Phase_P1S_96h_ThreeFold_Comparison/00_实验总结.md": "c19cd7a8efd35f12358a705d1c86a13529805326aaa92dc8d456512e8a341360",
+    "Phase_P1S_96h_ThreeFold_Comparison/configs/FROZEN_PROTOCOL.json": "a6fc71a9d5384b2c472968de90039e2eac7c20e5b2f5f533c066d97e973f1bc7",
+    "Phase_P1S_LongHistory_ShortHorizon_Forecasting/00_研究结论_通俗中文版.md": "07759cbadc692c1a030413cae70ec45e2ca7e280ca8a878e29a1e3f4842b877b",
+    "Phase_P1S_LongHistory_ShortHorizon_Forecasting/configs/FROZEN_LONG_HISTORY_PROTOCOL.json": "8d8d965d5b8c20f76d5a20a73b881a31b4679585b8e305c6079a537dd3956bf0",
+    "Phase_P1S_LongHistory_ShortHorizon_Forecasting/inputs/CAUSAL_P1S_ACTUAL_MEASUREMENT_IDENTITY.csv": "4e1e07443f7a5450d0b0238929532c47cef2eb0698b977d23325dcc667c650e5",
+    "Phase_P2_Final_Gate_Ablation_Training/configs/P2_FROZEN_EXECUTION_PROTOCOL.json": "e9a43791ea18d0bb0bb32d4b208cebedad52f75769feb1cccc22c832733d3960",
+    "Phase_P2_Final_Gate_Ablation_Training/reports/P2_FINAL_RESEARCH_DECISION.md": "201c6ec38dfa1da9ca1259b4da84fa3e36f4b25bfd0d39830a03f10e5d4aeed3",
+    "Phase_P2_Final_Gate_Ablation_Training/scripts/analyze_p2_results.py": "f48835d39024407f39c4aa850b1f1d680c0714f3f93681be5ea422b53f0bb3a0",
+    "Phase_P2_Final_Gate_Ablation_Training/scripts/audit_p2_predictions.py": "2d1dbbbd2485fe0283edb6171e0736b3bcec75730ebfa73bc6f3b4153f9d5d07",
+    "Phase_P2_Final_Gate_Ablation_Training/scripts/p2_common.py": "aafb8260fa30f3d914e232a2820a527ec37f556e73d976f8c18a750a1a4bfb6a",
+    "Phase_P2_Final_Gate_Ablation_Training/scripts/run_p2_tests.py": "97d9fefc83a6849c8218bee57ff1ca61a238944f1c0ba88714dcce69500794b9",
+    "Phase_P2_Final_Gate_Ablation_Training/scripts/run_p2_training.py": "66e2210980612d2dd4c4d7217e83c9f61584cf0beae684ffed9a834dbe2dcff0",
+    "Phase_P3_Full450_Epoch_Sensitivity/configs/P3_FROZEN_FULL450_PROTOCOL.json": "b513da7468ddf2b22d7b6d92c90d0549d6c14e2571787bb9f416e617710c7467",
+    "Phase_P3_Full450_Epoch_Sensitivity/reports/P3_SUPERVISOR_ONE_PAGE_SUMMARY.md": "2a1535d4c4e588309cacbcd9058334bfd8f76484d4ad0c0f6b882ced3fd1bfc2",
+    "Phase_PAA_P1_StateToken_PreAnchor_Alignment/reports/FINAL_P1S_PREANCHOR_AUDIT.md": "47eb0b0f6b7f2eeb32659d371dd75752bc13df833345e94c99a1cd0f77342cc1",
+    "Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_CYCLE_CATALOG.csv": "8d1a8b9e17b179fbc99776f4006a61e5758006bd73e1a55bb96ffed38fa0f3d8",
+    "Phase_TFT_FullFeature_CausalFilter_Comparison/outputs/E_COMMON_SCALER.json": "969233228590c11f3c14f4eb364acbcbc638b70fa35a44ba72926ecb7a616ab4",
+    "Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py": "f479d4cd64a6a9351dd2d863f38dd4828017dc48ffa8b4e986a3c240a5574099",
+    "Phase_TFT_Original_Baseline/models/canonical_tft.py": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+    "Phase_TFT_SingleSplit_Feature_Filter_Ablation/scripts/run_c_ablation.py": "e0053c63d6b942166362a09b2fce0166d9d29130fc0d5624eeaa0dcf32a65ce1"
+  },
+  "execution_code_sha256": {
+    "models/health_fusion.py": "01f474df21c205e00168e6b83b61ead783d7c24fbcbe3d96f142ca0ccb994464",
+    "scripts/data_alignment.py": "475c98447e3f50b70510a26b4571364457b10f18f3d1d793bb86a991f5ce5871",
+    "scripts/frozen_data_functions.py": "6cd1b423e2481eb67c0c2161db2f843742c87f4278a983980d4fca67911ec816",
+    "scripts/metrics.py": "97812fdb29c767d8fdbacaa3490ff2824d5ea2359f6dd5255bd6fd09093bc6ad",
+    "scripts/run_training.py": "4196696d9454ef1d29a97d5c25a64795b773c4525694b30d57b02114b97d9772",
+    "scripts/runtime_common.py": "9609ce90d0cdf954609bb2d7bd9f08ff064a1497b81371743c331eff7b1d24e3",
+    "scripts/verify_results.py": "7db67826439888f8555df24d31421a0efda9300ca7e3cee12d2923cb032399c3",
+    "tests/test_health_fusion.py": "dcdd67b5ba3e9234a06a078d4557351c96e0848b2cc8044edc4373032c4463a0"
+  },
+  "upstream_sha256": {
+    "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\_tft.py": "6ad5f6c806d314cfec53851ce0914c6d3476c4b05bd136a2764f4a562f1b7343",
+    "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+  },
+  "input_fingerprints": {
+    "train_x": "e23f0dc91653fa0cde11ff739db120b659901f3ba67469b8f4044d5b03cc3c0f",
+    "validation_x": "9960474c3f622101590ff9b5147a39b3a50076976a1cf0d6266fa0facd1ff2f3",
+    "train_y": "545b878d966e8d39acc4fefaff1583ea6bce1d077590dcac69eb2a7a879089ab",
+    "validation_y": "ca8a2461c2e5c830e2233e4087cd8787100ee0b9960cf287a121f93b12cb7569",
+    "train_health": "3f132c654a4ca8ab6f97e50de7add487d97ed22de444801a91424156ccc05afb",
+    "validation_health": "0fa7af02e40de1290d13d5c2d0c02e031322424b8f26e885552092dae6e35da5",
+    "train_health_raw": "cf3a97100fa13929d9931b2decc544f635a42468d4330b70d94a1ee8a18054b9",
+    "validation_health_raw": "44f68ec680fbceb99a37aac2c457446d7aa82024c7f31963344437d0f3bcb8ac",
+    "train_origins": "09e7266acd193b700ff2afb7207b28da56b4152de7371694dd041329c82ca7ec",
+    "validation_origins": "999ff1eae3ba202071af9f586c880fdf4e7a5b464d0ef680a37ff8b0adcf2ef4",
+    "train_targets": "445dae5ace10a5eecbcb95bbfc35c941e356a055d42917b660edb7757a060762",
+    "validation_targets": "3eef1c42f877b8e3ec8f8751160785025df9ebbfad15b39ab5cc7c855bd5107f",
+    "train_ages": "1a70203b60ca881e78355c187cdad48440c27fc690d4e952d737ddff30c9adb1",
+    "validation_ages": "a8516970f9f7d735481e40e37d8d37573cf17dc00dce90905b401c3929b38d04",
+    "validation_target_times": "07b168e0adb2d7953124b5e53e4903d7a3a3fc69aa9e24ec3369f5a390ed15bd",
+    "target_scale_V": "7f64088d52109066cd5359d0a2a3e194332f74f0341c69bd916ded1d425d2060"
+  },
+  "no_M2_or_physics_or_SOH_head": true,
+  "no_Assessment_or_Test": true,
+  "no_Optuna_or_feature_selection": true,
+  "failures": "Record and stop, no automatic fresh retries"
+}

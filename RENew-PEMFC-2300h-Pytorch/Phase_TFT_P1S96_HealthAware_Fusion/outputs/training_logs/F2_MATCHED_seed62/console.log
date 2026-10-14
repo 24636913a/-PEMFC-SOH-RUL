@@ -1,0 +1,30 @@
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+F2_MATCHED_seed62 epoch=1 best=1 stale=0 validation_RMSE_mV=193.880539
+F2_MATCHED_seed62 epoch=10 best=10 stale=0 validation_RMSE_mV=132.254876
+F2_MATCHED_seed62 epoch=20 best=20 stale=0 validation_RMSE_mV=115.934989
+F2_MATCHED_seed62 epoch=30 best=27 stale=3 validation_RMSE_mV=94.321203
+F2_MATCHED_seed62 epoch=40 best=40 stale=0 validation_RMSE_mV=71.556645
+F2_MATCHED_seed62 epoch=50 best=48 stale=2 validation_RMSE_mV=91.154622
+F2_MATCHED_seed62 epoch=60 best=59 stale=1 validation_RMSE_mV=67.997594
+F2_MATCHED_seed62 epoch=70 best=66 stale=4 validation_RMSE_mV=46.217657
+F2_MATCHED_seed62 epoch=80 best=79 stale=1 validation_RMSE_mV=32.351982
+F2_MATCHED_seed62 epoch=90 best=90 stale=0 validation_RMSE_mV=24.324012
+F2_MATCHED_seed62 epoch=100 best=95 stale=5 validation_RMSE_mV=37.347446
+F2_MATCHED_seed62 epoch=110 best=106 stale=4 validation_RMSE_mV=20.982013
+F2_MATCHED_seed62 epoch=120 best=120 stale=0 validation_RMSE_mV=15.130667
+F2_MATCHED_seed62 epoch=130 best=130 stale=0 validation_RMSE_mV=14.380321
+F2_MATCHED_seed62 epoch=140 best=131 stale=9 validation_RMSE_mV=14.700122
+F2_MATCHED_seed62 epoch=150 best=131 stale=19 validation_RMSE_mV=13.523941
+F2_MATCHED_seed62 epoch=160 best=160 stale=0 validation_RMSE_mV=11.888591
+F2_MATCHED_seed62 epoch=170 best=160 stale=10 validation_RMSE_mV=13.020968
+F2_MATCHED_seed62 epoch=180 best=176 stale=4 validation_RMSE_mV=12.050767
+F2_MATCHED_seed62 epoch=190 best=176 stale=14 validation_RMSE_mV=19.366176
+F2_MATCHED_seed62 epoch=200 best=200 stale=0 validation_RMSE_mV=10.319584
+F2_MATCHED_seed62 epoch=210 best=200 stale=10 validation_RMSE_mV=11.741026
+F2_MATCHED_seed62 epoch=220 best=200 stale=20 validation_RMSE_mV=17.002376
+F2_MATCHED_seed62 epoch=230 best=200 stale=30 validation_RMSE_mV=16.216229
+F2_MATCHED_seed62 epoch=240 best=200 stale=40 validation_RMSE_mV=10.539623
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+COMPLETED F2_MATCHED_seed62 10.319583385943664

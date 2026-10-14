@@ -1,0 +1,3 @@
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+FROZEN fdca094e43f098cce14336d655400ef801436eeaa5a913dd6a67ef165db429fc

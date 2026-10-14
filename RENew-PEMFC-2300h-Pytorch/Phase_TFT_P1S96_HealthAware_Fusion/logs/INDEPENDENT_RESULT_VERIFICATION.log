@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "formal_runs": 9,
+  "all_queries_verified": 38448,
+  "shared_seed_sampling_and_rng_verified": true,
+  "all_prediction_keys_and_truth_exact": true,
+  "checkpoint_hashes_and_reload_verified": true,
+  "all_frozen_sources_and_training_code_unchanged": true,
+  "Assessment_Test_accessed": false,
+  "runs": [
+    {
+      "run_id": "F2_MATCHED_seed42",
+      "status": "PASS",
+      "queries": 4272,
+      "checkpoint_reload_exact": true
+    },
+    {
+      "run_id": "F2_CAPACITY_CONTROL_seed42",
+      "status": "PASS",
+      "queries": 4272,
+      "checkpoint_reload_exact": true
+    },
+    {
+      "run_id": "F2_P1S96_HEALTH_AWARE_seed42",
+      "status": "PASS",
+      "queries": 4272,
+      "checkpoint_reload_exact": true
+    },
+    {
+      "run_id": "F2_MATCHED_seed52",
+      "status": "PASS",
+      "queries": 4272,
+      "checkpoint_reload_exact": true
+    },
+    {
+      "run_id": "F2_CAPACITY_CONTROL_seed52",
+      "status": "PASS",
+      "queries": 4272,
+      "checkpoint_reload_exact": true
+    },
+    {
+      "run_id": "F2_P1S96_HEALTH_AWARE_seed52",
+      "status": "PASS",
+      "queries": 4272,
+      "checkpoint_reload_exact": true
+    },
+    {
+      "run_id": "F2_MATCHED_seed62",
+      "status": "PASS",
+      "queries": 4272,
+      "checkpoint_reload_exact": true
+    },
+    {
+      "run_id": "F2_CAPACITY_CONTROL_seed62",
+      "status": "PASS",
+      "queries": 4272,
+      "checkpoint_reload_exact": true
+    },
+    {
+      "run_id": "F2_P1S96_HEALTH_AWARE_seed62",
+      "status": "PASS",
+      "queries": 4272,
+      "checkpoint_reload_exact": true
+    }
+  ]
+}

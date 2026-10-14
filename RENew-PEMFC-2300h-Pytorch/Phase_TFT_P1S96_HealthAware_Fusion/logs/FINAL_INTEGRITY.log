@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "formal_runs": 9,
+  "formal_failures": 0,
+  "formal_retries": 0,
+  "total_epochs": 3050,
+  "train_origins": 870,
+  "validation_origins": 178,
+  "validation_distinct_target_rows": 224,
+  "prediction_queries_verified": 38448,
+  "healthy_vectors_independently_verified": 1048,
+  "all_report_primary_tables_match_actual_CSV": true,
+  "all_checkpoints_and_predictions_hashes_match": true,
+  "all_frozen_sources_and_execution_code_unchanged": true,
+  "figures_visually_checked": 7,
+  "all_required_reports_present": true,
+  "Assessment_Test_accessed": false,
+  "original_models_and_Ridge_preserved": true,
+  "decision": "HEALTH_CONTEXT_NO_CLEAR_GAIN",
+  "preflight_repair_archived": true,
+  "neural_training_stopped": true
+}

@@ -1,0 +1,25 @@
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+test_01_future_P1S_features_and_predictions (test_health_fusion.Contracts.test_01_future_P1S_features_and_predictions) ... C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+ok
+test_02_future_targets_not_in_input_or_forward (test_health_fusion.Contracts.test_02_future_targets_not_in_input_or_forward) ... ok
+test_03_count_insufficient_excluded (test_health_fusion.Contracts.test_03_count_insufficient_excluded) ... ok
+test_04_span_insufficient_excluded (test_health_fusion.Contracts.test_04_span_insufficient_excluded) ... ok
+test_05_reference_unavailable_excluded (test_health_fusion.Contracts.test_05_reference_unavailable_excluded) ... ok
+test_06_available_end_not_start_or_measured_end (test_health_fusion.Contracts.test_06_available_end_not_start_or_measured_end) ... ok
+test_07_no_duplicate_cycle (test_health_fusion.Contracts.test_07_no_duplicate_cycle) ... ok
+test_08_shared_core_and_gate_initialization_all_seeds (test_health_fusion.Contracts.test_08_shared_core_and_gate_initialization_all_seeds) ... C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+ok
+test_09_initial_gate_and_predictions_same (test_health_fusion.Contracts.test_09_initial_gate_and_predictions_same) ... ok
+test_10_capacity_ignores_real_health (test_health_fusion.Contracts.test_10_capacity_ignores_real_health) ... ok
+test_11_health_scaler_train_only (test_health_fusion.Contracts.test_11_health_scaler_train_only) ... ok
+test_12_role_and_label_time_isolation (test_health_fusion.Contracts.test_12_role_and_label_time_isolation) ... ok
+test_13_no_historical_core_override (test_health_fusion.Contracts.test_13_no_historical_core_override) ... ok
+test_14_capacity_columns_have_no_data_gradient (test_health_fusion.Contracts.test_14_capacity_columns_have_no_data_gradient) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.757s
+
+OK

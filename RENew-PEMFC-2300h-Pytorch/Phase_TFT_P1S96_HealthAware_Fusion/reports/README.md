@@ -1,0 +1,7 @@
+# 结果入口
+
+七份中文交付报告位于本阶段根目录，从00_最终实验总结.md开始阅读。
+
+本轮结论：HEALTH_CONTEXT_NO_CLEAR_GAIN。九组真实训练均完成，健康模型平均误差更高；不将其升级为已证有效创新，不覆盖旧TFT或96h Ridge。
+
+冻结、预检修复及逐运行日志分别保存在configs、logs和outputs/training_logs；所有真实预测、指标和checkpoint保留。独立数值/身份核验见outputs/INDEPENDENT_VERIFICATION.json及HEALTH_INPUT_INDEPENDENT_VERIFICATION.json。

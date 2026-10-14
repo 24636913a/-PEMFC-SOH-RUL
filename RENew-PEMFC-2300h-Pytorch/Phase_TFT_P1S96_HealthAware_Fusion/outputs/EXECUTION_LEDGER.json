@@ -1,0 +1,47 @@
+{
+  "status": "NINE_RUNS_COMPLETED",
+  "protocol_sha256": "fdca094e43f098cce14336d655400ef801436eeaa5a913dd6a67ef165db429fc",
+  "started_UTC": "2026-10-14T05:28:50.828411+00:00",
+  "formal_started": 9,
+  "formal_completed": 9,
+  "runs": {
+    "F2_MATCHED_seed42": {
+      "status": "COMPLETED",
+      "RMSE_mV": 6.5578676587836435
+    },
+    "F2_CAPACITY_CONTROL_seed42": {
+      "status": "COMPLETED",
+      "RMSE_mV": 7.664547072734297
+    },
+    "F2_P1S96_HEALTH_AWARE_seed42": {
+      "status": "COMPLETED",
+      "RMSE_mV": 7.313527608738889
+    },
+    "F2_MATCHED_seed52": {
+      "status": "COMPLETED",
+      "RMSE_mV": 9.327467834536717
+    },
+    "F2_CAPACITY_CONTROL_seed52": {
+      "status": "COMPLETED",
+      "RMSE_mV": 10.440401116784557
+    },
+    "F2_P1S96_HEALTH_AWARE_seed52": {
+      "status": "COMPLETED",
+      "RMSE_mV": 9.820168102428646
+    },
+    "F2_MATCHED_seed62": {
+      "status": "COMPLETED",
+      "RMSE_mV": 10.319583385943664
+    },
+    "F2_CAPACITY_CONTROL_seed62": {
+      "status": "COMPLETED",
+      "RMSE_mV": 6.676995648564005
+    },
+    "F2_P1S96_HEALTH_AWARE_seed62": {
+      "status": "COMPLETED",
+      "RMSE_mV": 14.972940742000542
+    }
+  },
+  "active_run": null,
+  "completed_UTC": "2026-10-14T10:11:07.736027+00:00"
+}

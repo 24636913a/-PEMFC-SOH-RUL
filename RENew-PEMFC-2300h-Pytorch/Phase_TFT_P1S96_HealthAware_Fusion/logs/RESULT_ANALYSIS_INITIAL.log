@@ -1,0 +1,26 @@
+{
+  "status": "HEALTH_CONTEXT_NO_CLEAR_GAIN",
+  "mean_RMSE_reduction_vs_controls": {
+    "A": -0.22521411346837206,
+    "B": -0.2955657015019635
+  },
+  "paired_seed_wins_over_both": 0,
+  "fixed_5_percent_and_2_seeds_pass": false,
+  "endpoint_assessment": "unreviewed",
+  "endpoint_note": "",
+  "endpoint_mean_improvement_vs_controls": {
+    "A": -0.2766573588153338,
+    "B": -1.2776887843964846
+  },
+  "exploratory_Development_only": true,
+  "independent_Test_claim": false,
+  "no_statistical_significance_claim": true
+}
+                model  Seed42_RMSE_mV  Seed52_RMSE_mV  Seed62_RMSE_mV  mean_RMSE_mV  sample_SD_mV
+           F2_MATCHED        6.557868        9.327468       10.319583      8.734973      1.949593
+  F2_CAPACITY_CONTROL        7.664547       10.440401        6.676996      8.260648      1.951232
+F2_P1S96_HEALTH_AWARE        7.313528        9.820168       14.972941     10.702212      3.905145
+ seed  A_endpoint_12h_RMSE_mV  B_endpoint_12h_RMSE_mV  C_endpoint_12h_RMSE_mV
+   42                6.886512                9.353851                7.628693
+   52               31.233999               15.963217               31.541505
+   62               23.585606                9.269558               39.607370

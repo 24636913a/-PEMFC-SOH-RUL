@@ -1,0 +1,18 @@
+{
+  "status": "HEALTH_CONTEXT_NO_CLEAR_GAIN",
+  "mean_RMSE_reduction_vs_controls": {
+    "A": -0.22521411346837206,
+    "B": -0.2955657015019635
+  },
+  "paired_seed_wins_over_both": 0,
+  "fixed_5_percent_and_2_seeds_pass": false,
+  "endpoint_assessment": "fail",
+  "endpoint_note": "12h末端三Seed均值由原F2的20.568706mV升至26.259189mV，恶化27.67%；相对零输入对照11.528875mV恶化127.77%。健康模型三个Seed的末端误差均高于原F2，Seed62由23.585606升至39.607370mV，存在明显恶化。目标时刻等权误差、P95/P99及最大误差均完整公开，不以个别Seed优于参数对照替代失败的主指标。",
+  "endpoint_mean_improvement_vs_controls": {
+    "A": -0.2766573588153338,
+    "B": -1.2776887843964846
+  },
+  "exploratory_Development_only": true,
+  "independent_Test_claim": false,
+  "no_statistical_significance_claim": true
+}

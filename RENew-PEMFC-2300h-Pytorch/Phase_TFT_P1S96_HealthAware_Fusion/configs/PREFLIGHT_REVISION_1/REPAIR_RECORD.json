@@ -1,0 +1,7 @@
+{
+  "stage": "synthetic GPU preflight only; zero formal runs",
+  "fault": "Windows os.fsync on read-only rb descriptor raises EBADF",
+  "repair": "Reopen completed checkpoint rb+ for write-capable fsync; no model/data/hyperparameter/criterion change",
+  "original_protocol_sha256": "09e392ead5679c0ca2a4da94aef5d64be89cf74acab3758c60220554c89c10f5",
+  "formal_run_retries": 0
+}

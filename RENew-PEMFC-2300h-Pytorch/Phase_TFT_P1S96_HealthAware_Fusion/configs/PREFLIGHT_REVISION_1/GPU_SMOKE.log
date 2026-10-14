@@ -1,0 +1,11 @@
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_TFT_P1S96_HealthAware_Fusion\scripts\run_training.py", line 174, in <module>
+    {'freeze':freeze,'smoke':smoke,'run':run_all,'worker':lambda:worker(sys.argv[2])}[sys.argv[1]]()
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_TFT_P1S96_HealthAware_Fusion\scripts\run_training.py", line 77, in smoke
+    checkpoint(destination,dict(state_dict={k:v.detach().cpu().clone() for k,v in m.state_dict().items()},synthetic_only=True))
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_TFT_P1S96_HealthAware_Fusion\scripts\run_training.py", line 83, in checkpoint
+    with tmp.open('rb') as f:os.fsync(f.fileno())
+                             ^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 9] Bad file descriptor

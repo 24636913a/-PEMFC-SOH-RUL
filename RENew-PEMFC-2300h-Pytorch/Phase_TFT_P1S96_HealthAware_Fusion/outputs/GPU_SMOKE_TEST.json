@@ -1,0 +1,55 @@
+{
+  "environment": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": false,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "free_GPU_bytes": 7463763968,
+  "total_GPU_bytes": 8589410304,
+  "models": {
+    "F2_MATCHED": {
+      "status": "PASS",
+      "forward_shape": [
+        32,
+        24
+      ],
+      "backward": true,
+      "optimizer_step": true,
+      "checkpoint_round_trip": true,
+      "synthetic_only": true
+    },
+    "F2_CAPACITY_CONTROL": {
+      "status": "PASS",
+      "forward_shape": [
+        32,
+        24
+      ],
+      "backward": true,
+      "optimizer_step": true,
+      "checkpoint_round_trip": true,
+      "synthetic_only": true
+    },
+    "F2_P1S96_HEALTH_AWARE": {
+      "status": "PASS",
+      "forward_shape": [
+        32,
+        24
+      ],
+      "backward": true,
+      "optimizer_step": true,
+      "checkpoint_round_trip": true,
+      "synthetic_only": true
+    }
+  }
+}

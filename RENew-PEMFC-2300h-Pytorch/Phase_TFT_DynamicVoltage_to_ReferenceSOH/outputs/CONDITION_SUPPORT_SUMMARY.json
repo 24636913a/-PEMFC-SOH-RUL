@@ -1,0 +1,18 @@
+{
+  "distinct_target_bins": 251,
+  "j_near_reference_bins": 54,
+  "independently_condition_certified_bins": 0,
+  "j_min": 0.1196470132547349,
+  "j_max": 1.0127050212666666,
+  "target_anode_RH_gt100_bins": 0,
+  "P1S_j_min": 0.789229989,
+  "P1S_j_max": 0.789229989,
+  "P1S_temporal_bin_landings": 14,
+  "P1S_equivalent_proxy_targets": 0,
+  "hidden_state_missing": [
+    "membrane hydration",
+    "catalyst-interface reactant activities",
+    "independent quasi-steady certification"
+  ],
+  "halfhour_operator": "Dynamic whole-bin average, raw P1S uses selected stable dwell subset"
+}

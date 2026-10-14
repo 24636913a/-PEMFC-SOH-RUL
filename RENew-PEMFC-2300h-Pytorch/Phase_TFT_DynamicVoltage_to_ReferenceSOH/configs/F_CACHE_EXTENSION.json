@@ -1,0 +1,12 @@
+{
+  "code_sha256": "b74086f68a4f86d71fd925141cf06e48911113c01777a5d5f27f3436d8f6719e",
+  "source_sha256": {
+    "Phase_F_TFT_DualPath_RegimeFusion/outputs/predictions/F2_validation_seed42.csv": "b71412399d6287911015526e73d77dac195fc4117a5404d407a6f5d330d8ba48",
+    "Phase_F_TFT_DualPath_RegimeFusion/outputs/predictions/F2_assessment_seed42.csv": "41262b94e11ffeea76b165df6abe4b7ade279a2a06a7acfcf55318ecc4c36fc3"
+  },
+  "parent_protocol_sha256": "042e77473659b7bccffcf1a78e4baa19f7c1ee7e225c31d5460cb33afca0230f",
+  "rules_changed": false,
+  "reason": "Cover original F2 saved Development Assessment as well as Validation; no new Assessment inference or selection",
+  "no_new_fit": true,
+  "no_Test": true
+}

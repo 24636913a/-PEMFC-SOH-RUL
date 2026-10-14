@@ -1,0 +1,30 @@
+{
+  "status": "TFT_TO_SOH_INSUFFICIENT_SUPPORT",
+  "prediction_records_audited": 41568,
+  "cache_files": 8,
+  "dynamic_origins_not_independent_health_samples": true,
+  "reference_rows": 7,
+  "post_BoL_reference_events": 6,
+  "calendar_overlap_bins_total": 0,
+  "legal_common_reference_events": 0,
+  "legal_proxy_equivalent_events": 0,
+  "SOH_mapping_fits": 0,
+  "new_SOHPredictions": 0,
+  "SOH_MAE_percentage_points": null,
+  "improvement_percent": null,
+  "primary_blockers": [
+    "No precisely linked characterization OpHrs2 / release identity",
+    "No qualified dynamic-to-reference condition/measurement mapping"
+  ],
+  "reference_labels_exist_but_not_matched": true,
+  "voltage_error_is_separately_audited": true,
+  "test_accessed": false,
+  "neural_training": false,
+  "protocol_sha256": "042e77473659b7bccffcf1a78e4baa19f7c1ee7e225c31d5460cb33afca0230f",
+  "distinct_target_bins": 698,
+  "j_near_reference_bins": 148,
+  "P1S_temporal_bin_landings": 33,
+  "F_existing_Development_assessment_read": true,
+  "new_assessment_inference": false,
+  "qualification_rules_changed": false
+}

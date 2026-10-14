@@ -1,0 +1,3 @@
+# 身份审查入口
+
+完整结论见02_EIS测量对象与电堆身份审查.md及outputs/EIS_STACK_IDENTITY_MATRIX.csv。名义BoL/1150h为CONFIGURATION_CONDITIONAL，新鲜BoL敏感性/老化堆为DIFFERENT_STACK_CONFIRMED；不宣称同堆老化。

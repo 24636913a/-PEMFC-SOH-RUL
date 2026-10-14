@@ -1,0 +1,23 @@
+test_LFS_pointer_not_data (test_eis_contracts.EIS.test_LFS_pointer_not_data) ... ok
+test_exact_allowlist_excludes_Test (test_eis_contracts.EIS.test_exact_allowlist_excludes_Test) ... ok
+test_frequency_revisit_is_not_average (test_eis_contracts.EIS.test_frequency_revisit_is_not_average) ... ok
+test_highest_frequency_not_intercept (test_eis_contracts.EIS.test_highest_frequency_not_intercept) ... ok
+test_magnitude_phase_degrees (test_eis_contracts.EIS.test_magnitude_phase_degrees) ... ok
+test_real_results_are_not_fake_HFR (test_eis_contracts.EIS.test_real_results_are_not_fake_HFR) ... ok
+test_rectangular_sign_never_flipped (test_eis_contracts.EIS.test_rectangular_sign_never_flipped) ... ok
+test_resistance_units_and_circuit_limit (test_eis_contracts.EIS.test_resistance_units_and_circuit_limit) ... ok
+test_source_line_count_checked (test_eis_contracts.EIS.test_source_line_count_checked) ... FAIL
+test_unknown_columns_stop (test_eis_contracts.EIS.test_unknown_columns_stop) ... ok
+
+======================================================================
+FAIL: test_source_line_count_checked (test_eis_contracts.EIS.test_source_line_count_checked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_RealHyFC_EIS_HFR_Physics_Foundation\tests\test_eis_contracts.py", line 22, in test_source_line_count_checked
+    with self.assertRaises(AssertionError):parse(t)
+AssertionError: AssertionError not raised
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.063s
+
+FAILED (failures=1)

@@ -1,0 +1,39 @@
+{
+  "base_commit": "1af4176283c9bdeb0350071bc142919dddafc68a",
+  "source_manifest_sha256": "f4f7fa01810c45c79f9a59cf548d210f99bce7beb091640bf45e7f8986b42925",
+  "source_whitelist_sha256": "21ef83d59d03f0176b225452589dea34d1a3aa058945c3575466225a1bfc40b3",
+  "code_sha256": {
+    "common.py": "036edeb7e86d0bc870f647964afb85ba75c60796d2c0ff59dc83959a01cdcaf6",
+    "eis_math.py": "5e4de2d4ea9abf29f9917e4bc8651d85d163857d55378f525996dac141759d65",
+    "run_data_analysis.py": "741b2fcf1405b9ba839935adb08918166763901a3bebf70eba32a93bbaaaabf9"
+  },
+  "scope": "65 core spectra full numerical parsing;201 fresh-BoL sensitivity files header-only;7 exact Development nominal curves",
+  "HFR_rule": "Highest-frequency real value is never HFR. Report observed >=1000Hz sign-crossing intercepts as apparent only; parasitics not certified",
+  "circuit": "One literature-defined R0 + R1/(1+(i*w*tau1)^alpha1) + R2/(1+(i*w*tau2)^alpha2), log-resistance/log-time parameterization",
+  "fit_frequency": "Descending nonduplicate branch,0.1<=f<=1026Hz; published single-cell artifact exclusion; no new model or band search",
+  "fit_role": "Effective circuit diagnostics, not independent identification of irreversible physical parameters or measured HFR",
+  "fixed_initial_starts": 3,
+  "max_nfev_per_start": 2000,
+  "objective": "Unchanged relative complex least squares, divided by measured |Z|",
+  "CPE_alpha_bounds": [
+    0.1,
+    1.0
+  ],
+  "bound_role": "Broad numerical parameter domain, not measured RealHyFC parameter values",
+  "profile_sources": "Filename01 at BoL low/high load and1150 high load;spatial reference00 at BoL/1150",
+  "profile_factors": [
+    0.5,
+    0.75,
+    0.9,
+    1.0,
+    1.1,
+    1.25,
+    1.5
+  ],
+  "profile_interpretation": "Nuisance-optimized sensitivity, no statistical confidence interval / independent repeated lifetime claims",
+  "polarization": "Descriptive stable-setpoint middle50 dwell >=120 records;keep hysteresis; frozen referenceSOH imported only; no reference-current selection",
+  "identity": "Unknown serial/wiring remains UNKNOWN; instrument unit IDs do not identify a stack",
+  "Test_numeric_access": false,
+  "old_models_modified": false,
+  "no_automatic_RUL": true
+}

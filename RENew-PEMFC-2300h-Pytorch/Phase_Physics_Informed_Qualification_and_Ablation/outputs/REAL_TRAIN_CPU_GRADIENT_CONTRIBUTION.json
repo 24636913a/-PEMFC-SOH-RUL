@@ -1,0 +1,28 @@
+{
+  "device": "cpu",
+  "real_train_origins": [
+    371,
+    372,
+    373,
+    374,
+    375,
+    376,
+    377,
+    378
+  ],
+  "forecast_outputs": 192,
+  "optimizer_steps": 0,
+  "data_MSE_dimensionless": 0.0012120938627049327,
+  "data_gradient_L2": 0.05011248216032982,
+  "fail_closed_empty_domain_loss": 0.0,
+  "fail_closed_empty_domain_gradient_L2": 0.0,
+  "real_physics_residual_evaluated": false,
+  "real_physics_loss": null,
+  "real_physics_activation_fraction": null,
+  "weighted_real_physics_to_data_ratio": null,
+  "eligible_train_domain_records": 0,
+  "note": "Zero gated contribution is engineering empty-domain behavior, NOT a measured physical residual/inactivity",
+  "inference_future_actual_inputs": false,
+  "cpu_elapsed_s": 5.909617600002093,
+  "loaded_checkpoint_source": "Original H-F2 Seed42; no weight updates"
+}

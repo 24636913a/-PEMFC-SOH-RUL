@@ -1,0 +1,29 @@
+{
+  "status": "PHYSICS_ROUTE_NOT_QUALIFIED",
+  "candidates_reviewed": [
+    "C1_STATE_DEPENDENT_NERNST_UPPER_ENVELOPE",
+    "C2_QUANTITATIVE_ELECTROCHEMICAL_AMPLITUDE_RESIDUAL"
+  ],
+  "certified_candidates": 0,
+  "candidate_C1": "Missing certified reaction state / target-time state; no defensible Nernst envelope",
+  "candidate_C2": "Polarization parameters and common state not identified; no independent physical teacher",
+  "synthetic_equation_and_gradient_checks": "PASS",
+  "real_admissible_parameter_gradient": false,
+  "synthetic_gradient_not_real_gain": true,
+  "formal_GPU_runs": 0,
+  "small_GPU_probes": 0,
+  "GPU_not_started_reason": "Physical state / parameter / measurement gates fail before GPU",
+  "actual_physics_loss": null,
+  "activation_fraction": null,
+  "physical_consistency_improvement_percent": null,
+  "prediction_accuracy_improvement_percent": null,
+  "formal_lambda": null,
+  "extra_model_parameters": 0,
+  "optimizer_steps": 0,
+  "no_future_inference_inputs": true,
+  "Test": false,
+  "recommendation": "First identify a pure electrochemical model with independent synchronized Train measurements; reassess training-only supervision afterward",
+  "stopped": true,
+  "protocol_sha256": "bcda61dbab5b2c6ce27c2d7ac6fedd22c5fadedd4741c7aa30c6f82b5d3a8905",
+  "CPU_probe_dependency_amended": true
+}

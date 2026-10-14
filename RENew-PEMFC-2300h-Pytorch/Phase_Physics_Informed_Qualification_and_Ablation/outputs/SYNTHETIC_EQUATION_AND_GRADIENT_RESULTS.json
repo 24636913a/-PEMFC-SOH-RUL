@@ -1,0 +1,35 @@
+{
+  "synthetic_only": true,
+  "nernst_fixture_E_V": 1.1844085830460438,
+  "nernst_dEdT_V_K": 1.266288394670044e-05,
+  "upper_loss": 0.10537909695817822,
+  "upper_output_gradient": [
+    0.0,
+    0.45908408153230107
+  ],
+  "upper_finite_difference_max_error": 1.0171807840464453e-10,
+  "amplitude_loss": 1.2855395687928823,
+  "amplitude_output_gradient": [
+    -0.6475237035856403,
+    -0.4750009223867669,
+    -0.3390458045291494,
+    -0.2548741601648387,
+    -0.17269184540476945,
+    -0.04876666549864157
+  ],
+  "amplitude_fd_max_error": 2.6242408246446303e-10,
+  "fixture_jacobian_singular_values": [
+    16.84842639798652,
+    1.230296119202223,
+    0.16562135991323726,
+    0.034498156428817366,
+    0.00026559460106712556,
+    5.2595179618972583e-17
+  ],
+  "fixture_parameter_count": 6,
+  "fixture_jacobian_rank": 5,
+  "E_logj0_symmetry_max_difference_V": 2.220446049250313e-16,
+  "nonlinear_aggregation_difference_V": 0.011290272570743776,
+  "no_real_parameters_fitted": true,
+  "RealHyFC_physical_gain_proven": false
+}

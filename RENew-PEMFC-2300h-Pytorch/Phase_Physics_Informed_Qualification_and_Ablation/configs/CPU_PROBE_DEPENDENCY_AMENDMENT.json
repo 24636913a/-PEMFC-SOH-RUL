@@ -1,0 +1,17 @@
+{
+  "parent_protocol_sha256": "bcda61dbab5b2c6ce27c2d7ac6fedd22c5fadedd4741c7aa30c6f82b5d3a8905",
+  "resume_code_sha256": "76db2b4eab7c0e5011bdbcf8755cd290c581eb0e7bda7a22e469264c0d92e391",
+  "static_dependency_sha256": {
+    "Phase_TFT_FullFeature_CausalFilter_Comparison/configs/PREREGISTERED_E_COMPARISON.yaml": "b17794132351454d93debfc67943dc14db73a5287fef1966ba748967e9852332"
+  },
+  "completed_artifact_sha256": {
+    "outputs/SYNTHETIC_EQUATION_AND_GRADIENT_RESULTS.json": "5244d2a192fc482d390f9e88b47d46bb0a63ec5dd82398128d36f5e27cff724d",
+    "inputs/TRAIN_BIN_CONDITIONS.csv": "96f449e7c14dc9df3558c190b82bf7cd667dab4cb797a7581c47d06f4d3a7605",
+    "outputs/REAL_TRAIN_PHYSICS_DOMAIN_AND_REJECTIONS.csv": "d085f9ef3cb6bc0b1c09bf0b0fb7da53e62b7104dace5c88cb11d0b8fc363690"
+  },
+  "reason": "Original read guard correctly denied an unlisted static feature-schema YAML dependency before model construction/forward",
+  "science_rules_changed": false,
+  "original_freeze_preserved": true,
+  "previous_real_model_forwards": 0,
+  "optimizer_steps": 0
+}

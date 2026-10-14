@@ -1,0 +1,105 @@
+{
+  "phase": "Phase_P1S_LongHistory_ShortHorizon_Forecasting",
+  "frozen_UTC": "2026-10-14T03:43:18.563757+00:00",
+  "base_commit": "b8bad92d77d9c2eabf7dd14e80ff107c23e477ab",
+  "horizons": {
+    "primary": "H1",
+    "secondary": "H3"
+  },
+  "target": "DeltaR=R_target-R_origin; raw CTAE P1S proxy",
+  "Vref_V": 0.71383023635,
+  "reference_available_after_h": 171.82091,
+  "warmup_excluded": true,
+  "development_boundary_h": 1819.997738,
+  "folds": {
+    "fold_1": [
+      72.78869,
+      946.393214,
+      1164.794345
+    ],
+    "fold_2": [
+      72.78869,
+      1164.794345,
+      1383.195476
+    ],
+    "fold_3": [
+      72.78869,
+      1383.195476,
+      1819.997738
+    ]
+  },
+  "histories_h": [
+    96,
+    192
+  ],
+  "minimum_observations": {
+    "96": 5,
+    "192": 10
+  },
+  "minimum_span_fraction": 0.7,
+  "feature_names": [
+    "origin_R",
+    "history_mean_R",
+    "history_std_R",
+    "history_slope_R_per_h",
+    "origin_minus_median_R"
+  ],
+  "std_ddof": 0,
+  "slope_time": "actual reconstructed middle_50 measurement end OpHrs2",
+  "models": [
+    "M0",
+    "M96",
+    "M192"
+  ],
+  "alpha_grid": [
+    0.0001,
+    0.01,
+    1.0,
+    100.0
+  ],
+  "inner_last_fraction": 0.15,
+  "inner_count_rule": "ceil(0.15*N)",
+  "inner_scaler_scope": "inner fit only",
+  "final_scaler_scope": "final outer train only",
+  "target_scaled": false,
+  "same_train_and_validation_samples_for_all_methods": true,
+  "outer_purge": "train labels end <= first common validation origin; if none, use first original validation origin",
+  "inner_purge": "inner fit labels end <= first inner selection origin",
+  "purges_apply_to_both_histories": true,
+  "fixed_tie_rule": "minimum inner MAE, then smallest alpha",
+  "solver": "sklearn Ridge cholesky float64 with intercept",
+  "primary_metric": "three-fold equal mean MAE mV equivalent; MISSING FOLD => NOT_EVALUABLE, not imputed",
+  "partial_fold_aggregate": "descriptive only, explicitly exclude missing folds from denominator",
+  "gain_gate": {
+    "H1_M192_vs_M96_minimum_relative_reduction": 0.05,
+    "H1_minimum_fold_wins": 2,
+    "H1_M192_below_M0": true,
+    "all_three_folds_required": true
+  },
+  "no_further_window_or_model": true,
+  "CPU_only": true,
+  "future_lead_feature": false,
+  "new_Test_or_raw_access": false,
+  "SOH_bridge": "require >=3 past reference anchors with actual release evidence; current source release UNKNOWN, no auxiliary numeric SOH",
+  "source_sha256": {
+    "availability": "aaa90129b08bc5c4638a3b7b77da4e84da9650599f42a7d735010ab364872ace",
+    "reconstruction": "239e6f3c6033687998a86386c5d9e92ea9535efe0d539351aef89d6b34d8cb0b",
+    "identity": "fbc9c2f0f9831d8da63426b33c241730d00cce409b7e1fc37b9bcfaa93ebc32a",
+    "catalog": "8d1a8b9e17b179fbc99776f4006a61e5758006bd73e1a55bb96ffed38fa0f3d8",
+    "complete": "f962d5f4807348c3089aa2c6a6203b874c7e19b37199f07c703bcd9651138e74",
+    "H1_authority": "acd04be6b3ae8202af1e63a534580cf28cb97161d39293c4fd72a4a03bc697bd",
+    "H3_authority": "518acfbb83b53226d973127d29a85225b9a254bfc191e21e3a2960d9c7482ed6",
+    "H1_persistence": "29607c64b9fd5d799ba26ac5f9f4121979d3d2aa0b762eeb6196b13566205787",
+    "H3_persistence": "333bf749c3c40698416b73b4195878347bd285ff7dbe8437889b11856e46c616",
+    "H1_protocol": "e6c920dd5d2ab11b0246433706b270ed0ceeeccb9b252ab186531bf04d63a9df",
+    "H3_protocol": "6d8731857156e6cd03b9fd0134481df0c2b13ebe48d56a4ec88957986a042203"
+  },
+  "execution_code_sha256": {
+    "scripts/health_common.py": "425f9604d23b42f553f9b5b320178fa1c591f872193fb906bc96303b18ef8639",
+    "scripts/history_models.py": "ca1ec32053229380516787dd203b2c2de6818dbdd20302d64f3ae81637a3cddb",
+    "scripts/render_long_history.py": "083074c2db63760d0e32f8932a74a533cd66186d7155f2c22c6afa025aa846ae",
+    "scripts/run_long_history.py": "e3ef9e3d6c353714ac77f18b218624a427a43e6e21bbed82c9cf62454df7fa3e",
+    "scripts/verify_long_history_results.py": "b16c9a36dae5aa7ec354cae48622f38a3548f2929191b3398cabb344a2df38ea",
+    "tests/test_long_history.py": "b4d0854e842883809b025fd432a7e469648785aca385dbc8e81bd97918ea980c"
+  }
+}

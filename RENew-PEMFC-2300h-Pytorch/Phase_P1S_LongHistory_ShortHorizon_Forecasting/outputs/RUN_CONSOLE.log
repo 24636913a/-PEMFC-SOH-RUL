@@ -1,0 +1,8 @@
+horizon model  available_folds  descriptive_available_fold_equal_MAE_mV  fold3_MAE_mV
+     H1    M0                2                                 0.167743      0.115866
+     H1   M96                2                                 0.152370      0.105807
+     H1  M192                2                                 0.188114      0.094593
+     H3    M0                2                                 0.459754      0.290355
+     H3   M96                2                                 0.438815      0.242926
+     H3  M192                2                                 0.506406      0.233750
+{"H1": {"formal_status": "NOT_EVALUABLE", "available_folds": 2, "missing_folds": ["fold_2"], "diagnostic_M192_vs_M96_relative_improvement_percent": -23.45857443470032, "diagnostic_fold_wins_M192_vs_M96": 1, "diagnostic_M192_below_M0": false, "formal_gain_claim": false}, "H3": {"formal_status": "NOT_EVALUABLE", "available_folds": 2, "missing_folds": ["fold_2"], "diagnostic_M192_vs_M96_relative_improvement_percent": -15.40294699949674, "diagnostic_fold_wins_M192_vs_M96": 1, "diagnostic_M192_below_M0": false, "formal_gain_claim": false}}

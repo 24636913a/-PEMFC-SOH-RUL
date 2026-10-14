@@ -1,0 +1,18 @@
+{
+  "status": "COMPLETED_WITH_MISSING_FOLD",
+  "completed_UTC": "2026-10-14T03:43:22.684856+00:00",
+  "elapsed_seconds": 1.322606600000654,
+  "CPU_only": true,
+  "Python": "3.11.9",
+  "numpy": "2.4.6",
+  "pandas": "3.0.1",
+  "sklearn": "1.8.0",
+  "final_ridge_models": 12,
+  "ridge_fits_including_inner_grid": 60,
+  "validation_prediction_rows": 246,
+  "protocol_sha256": "8d8d965d5b8c20f76d5a20a73b881a31b4679585b8e305c6079a537dd3956bf0",
+  "missing_validation_scopes": [
+    "H1_fold_2",
+    "H3_fold_2"
+  ]
+}

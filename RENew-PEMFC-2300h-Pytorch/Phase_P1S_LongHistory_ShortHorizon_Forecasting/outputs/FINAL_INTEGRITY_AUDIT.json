@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "frozen_source_files": 11,
+  "unchanged_execution_code_files": 6,
+  "tests_passed": 14,
+  "independent_feature_vectors_verified": 1080,
+  "independent_alpha_scores_verified": 48,
+  "verified_prediction_rows": 246,
+  "formal_experiment_runs": 1,
+  "final_ridge_models": 12,
+  "Ridge_fits_including_inner_grid": 60,
+  "GPU_training_runs": 0,
+  "figures_PNG": 6,
+  "figures_PDF": 6,
+  "reports": 8,
+  "complete_evaluable_three_fold_comparisons": 0,
+  "missing_validation_scopes": [
+    "H1_fold_2",
+    "H3_fold_2"
+  ],
+  "missing_scores_not_imputed": true,
+  "scope_restricted_diagnostics_only": true,
+  "M2_auxiliary_actual_time_qualified_outputs": 0,
+  "true_SOH_MAE_claimed": false,
+  "historical_tracked_diff": [],
+  "Test_or_new_raw_access": false,
+  "future_lead_feature": false,
+  "visual_QA": "All six PNGs inspected; labels/legends readable, empty folds clearly marked, actual P1S points distinguished from predictions; PDF signatures verified"
+}

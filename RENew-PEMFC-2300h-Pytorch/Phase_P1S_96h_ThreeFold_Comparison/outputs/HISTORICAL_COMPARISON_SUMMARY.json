@@ -1,0 +1,162 @@
+[
+  {
+    "horizon": "H1",
+    "historical_model": "PERSISTENCE",
+    "seed": "-1",
+    "intersection_n": 50,
+    "fold_n": {
+      "fold_1": 16,
+      "fold_2": 6,
+      "fold_3": 28
+    },
+    "three_fold_evaluable": true,
+    "current_equal_fold_MAE_mV": 0.1312110637800569,
+    "historical_equal_fold_MAE_mV": 0.14683663442461237,
+    "current_improvement_fraction": 0.10641466079487005,
+    "comparison_class": "same deterministic formula and targets, verified"
+  },
+  {
+    "horizon": "H1",
+    "historical_model": "RIDGE_CAUSAL_STATE",
+    "seed": "-1",
+    "intersection_n": 46,
+    "fold_n": {
+      "fold_1": 16,
+      "fold_2": 6,
+      "fold_3": 24
+    },
+    "three_fold_evaluable": true,
+    "current_equal_fold_MAE_mV": 0.12539177451289815,
+    "historical_equal_fold_MAE_mV": 0.1198711596952956,
+    "current_improvement_fraction": -0.046054570854537236,
+    "comparison_class": "historical actual future lead reference only"
+  },
+  {
+    "horizon": "H1",
+    "historical_model": "TIMESNET",
+    "seed": "2024",
+    "intersection_n": 50,
+    "fold_n": {
+      "fold_1": 16,
+      "fold_2": 6,
+      "fold_3": 28
+    },
+    "three_fold_evaluable": true,
+    "current_equal_fold_MAE_mV": 0.1312110637800569,
+    "historical_equal_fold_MAE_mV": 1.4742965918787376,
+    "current_improvement_fraction": 0.911000904090234,
+    "comparison_class": "exact-target descriptive; information and training conditions differ"
+  },
+  {
+    "horizon": "H1",
+    "historical_model": "TIMESNET",
+    "seed": "3407",
+    "intersection_n": 50,
+    "fold_n": {
+      "fold_1": 16,
+      "fold_2": 6,
+      "fold_3": 28
+    },
+    "three_fold_evaluable": true,
+    "current_equal_fold_MAE_mV": 0.1312110637800569,
+    "historical_equal_fold_MAE_mV": 1.8467083260409944,
+    "current_improvement_fraction": 0.9289486802383409,
+    "comparison_class": "exact-target descriptive; information and training conditions differ"
+  },
+  {
+    "horizon": "H1",
+    "historical_model": "TIMESNET",
+    "seed": "42",
+    "intersection_n": 50,
+    "fold_n": {
+      "fold_1": 16,
+      "fold_2": 6,
+      "fold_3": 28
+    },
+    "three_fold_evaluable": true,
+    "current_equal_fold_MAE_mV": 0.1312110637800569,
+    "historical_equal_fold_MAE_mV": 1.6401065511088184,
+    "current_improvement_fraction": 0.9199984515083184,
+    "comparison_class": "exact-target descriptive; information and training conditions differ"
+  },
+  {
+    "horizon": "H3",
+    "historical_model": "PERSISTENCE",
+    "seed": "-1",
+    "intersection_n": 44,
+    "fold_n": {
+      "fold_1": 16,
+      "fold_2": 4,
+      "fold_3": 24
+    },
+    "three_fold_evaluable": true,
+    "current_equal_fold_MAE_mV": 0.3065000223953648,
+    "historical_equal_fold_MAE_mV": 0.3421540006944257,
+    "current_improvement_fraction": 0.10420447584040715,
+    "comparison_class": "same deterministic formula and targets, verified"
+  },
+  {
+    "horizon": "H3",
+    "historical_model": "RIDGE_MATCHED_CONTEXT",
+    "seed": "-1",
+    "intersection_n": 44,
+    "fold_n": {
+      "fold_1": 16,
+      "fold_2": 4,
+      "fold_3": 24
+    },
+    "three_fold_evaluable": true,
+    "current_equal_fold_MAE_mV": 0.3065000223953648,
+    "historical_equal_fold_MAE_mV": 0.697669682800015,
+    "current_improvement_fraction": 0.5606803191371839,
+    "comparison_class": "exact-target descriptive; information and training conditions differ"
+  },
+  {
+    "horizon": "H3",
+    "historical_model": "TIMESNET_ORIGIN_CONDITIONED",
+    "seed": "2024",
+    "intersection_n": 44,
+    "fold_n": {
+      "fold_1": 16,
+      "fold_2": 4,
+      "fold_3": 24
+    },
+    "three_fold_evaluable": true,
+    "current_equal_fold_MAE_mV": 0.3065000223953648,
+    "historical_equal_fold_MAE_mV": 0.4011303725075846,
+    "current_improvement_fraction": 0.2359092120615488,
+    "comparison_class": "exact-target descriptive; information and training conditions differ"
+  },
+  {
+    "horizon": "H3",
+    "historical_model": "TIMESNET_ORIGIN_CONDITIONED",
+    "seed": "3407",
+    "intersection_n": 44,
+    "fold_n": {
+      "fold_1": 16,
+      "fold_2": 4,
+      "fold_3": 24
+    },
+    "three_fold_evaluable": true,
+    "current_equal_fold_MAE_mV": 0.3065000223953648,
+    "historical_equal_fold_MAE_mV": 0.3966328481275594,
+    "current_improvement_fraction": 0.2272449852746623,
+    "comparison_class": "exact-target descriptive; information and training conditions differ"
+  },
+  {
+    "horizon": "H3",
+    "historical_model": "TIMESNET_ORIGIN_CONDITIONED",
+    "seed": "42",
+    "intersection_n": 44,
+    "fold_n": {
+      "fold_1": 16,
+      "fold_2": 4,
+      "fold_3": 24
+    },
+    "three_fold_evaluable": true,
+    "current_equal_fold_MAE_mV": 0.3065000223953648,
+    "historical_equal_fold_MAE_mV": 0.3543764677498278,
+    "current_improvement_fraction": 0.13510052080619928,
+    "comparison_class": "exact-target descriptive; information and training conditions differ"
+  }
+]

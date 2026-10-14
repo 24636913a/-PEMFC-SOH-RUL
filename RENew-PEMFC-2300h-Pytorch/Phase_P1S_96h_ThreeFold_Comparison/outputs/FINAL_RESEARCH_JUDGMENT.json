@@ -1,0 +1,19 @@
+{
+  "H1": {
+    "status": "96H_SHORT_HORIZON_SIGNAL_SUPPORTED",
+    "basis": "Original user criteria, including qualitative no obvious major/tail deterioration",
+    "three_fold_evaluable": true,
+    "mean_MAE_improvement_fraction": 0.10641466079487027,
+    "fold_wins": 2,
+    "tail_P95_and_max_improve_in_all_folds": true,
+    "qualitative_major_error_assessment": "Fold 2 MAE rises 0.292677%, RMSE rises 0.534939%; absolute increases 0.000307380 mV and 0.000645331 mV. Disclosed as small deterioration, not obvious major/tail worsening.",
+    "frozen_extra_strict_screen_status": "96H_SHORT_HORIZON_MIXED",
+    "discrepancy": "Agent-added every-fold RMSE non-increase is stricter than requested. It triggered MIXED, but cannot replace original qualitative criterion. Original 5% threshold and all frozen training/prediction artifacts remain unchanged."
+  },
+  "H3": {
+    "status": "96H_SHORT_HORIZON_SIGNAL_SUPPORTED",
+    "auxiliary_only": true,
+    "mean_MAE_improvement_fraction": 0.10420447584040715
+  },
+  "evidence_scope": "exploratory Development analysis after earlier results; no independent confirmation or statistical significance claim"
+}

@@ -1,0 +1,24 @@
+{
+  "H1": {
+    "status": "96H_SHORT_HORIZON_MIXED",
+    "Persistence_equal_fold_MAE_mV": 0.1468366344246124,
+    "Ridge_equal_fold_MAE_mV": 0.1312110637800569,
+    "improvement_fraction": 0.10641466079487027,
+    "fold_wins": 2,
+    "at_least_5_percent": true,
+    "at_least_two_fold_wins": true,
+    "conservative_tail_screen_pass": false,
+    "three_fold_evaluable": true
+  },
+  "H3": {
+    "status": "96H_SHORT_HORIZON_SIGNAL_SUPPORTED",
+    "Persistence_equal_fold_MAE_mV": 0.3421540006944257,
+    "Ridge_equal_fold_MAE_mV": 0.3065000223953648,
+    "improvement_fraction": 0.10420447584040715,
+    "fold_wins": 3,
+    "at_least_5_percent": true,
+    "at_least_two_fold_wins": true,
+    "conservative_tail_screen_pass": true,
+    "three_fold_evaluable": true
+  }
+}

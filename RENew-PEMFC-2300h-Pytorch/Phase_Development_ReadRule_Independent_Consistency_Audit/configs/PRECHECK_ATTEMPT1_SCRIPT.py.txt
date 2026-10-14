@@ -1,0 +1,160 @@
+"""Independent sample/serialization audit. No models, fitting, or Test value parsing."""
+import hashlib,io,json,os,sys,subprocess
+from pathlib import Path
+import numpy as np
+import pandas as pd
+import yaml
+
+P=Path(__file__).resolve().parents[1];ROOT=P.parent
+A=ROOT/'Phase_TFT_DynamicVoltage_to_ReferenceSOH';B=ROOT/'Phase_Physics_Informed_Qualification_and_Ablation'
+N1=ROOT/'Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv'
+H=ROOT/'Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.yaml'
+META=['bin_start_ophrs2_h','bin_end_ophrs2_h','first_datetime','last_datetime','split','bin_valid_for_windows']
+IDENTITY=set(META)|{'internal_datetime_gap_count','maximum_internal_datetime_gap_s'}
+CUTOFF=1819.997738
+
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def js(name,obj):
+ q=P/name;q.parent.mkdir(parents=True,exist_ok=True);q.write_bytes((json.dumps(obj,ensure_ascii=False,indent=2,allow_nan=False)+'\n').encode('utf-8'))
+def cs(name,frame):frame.to_csv(P/name,index=False,float_format='%.17g',lineterminator='\n')
+def text_file(name,s):(P/name).write_bytes((s.strip()+'\n').encode('utf-8'))
+def same_numeric(a,b):
+ a=np.asarray(a,dtype=np.float64);b=np.asarray(b,dtype=np.float64)
+ return (a.view(np.uint64)==b.view(np.uint64))|(np.isnan(a)&np.isnan(b))
+def independent_selector(meta):
+ if len(meta)!=3007:raise ValueError('Historical logical prefix requires exactly3007 metadata rows')
+ return np.flatnonzero(meta.bin_end_ophrs2_h.to_numpy()<CUTOFF)
+def guarded_feature_extent(ids,meta):
+ # This is a separate no-Test gate. Do not silently skip a Test row inside the mask.
+ if len(ids)==0 or meta.iloc[ids]['split'].astype(str).str.contains('test',case=False).any():raise PermissionError('Test row would enter numeric parser')
+ if not np.array_equal(ids,np.arange(len(ids))):raise PermissionError('Noncontiguous mask: requires an explicitly reviewed selective reader, not a prefix assumption')
+ return len(ids)
+def legal_origins(frame,cfg,start,end):
+ # Independent window-identity implementation; no tensor/window values constructed.
+ valid=frame.bin_valid_for_windows.to_numpy().astype(bool);segment=frame.temporal_segment_id.to_numpy()
+ age=frame.bin_end_ophrs2_h.to_numpy();features=frame[cfg['task']['raw_f2_feature_order']].to_numpy()
+ output=[]
+ for o in range(start,end-24):
+  f=o-47;l=o+24
+  if f<0 or l>=end:continue
+  sl=slice(f,l+1)
+  if valid[sl].all() and (segment[sl]==segment[o]).all() and np.allclose(np.diff(age[sl]),.5,atol=1e-6,rtol=0) and np.isfinite(features[sl]).all():output.append(o)
+ return output
+
+def run():
+ assert not (P/'outputs/FINAL_AUDIT.json').exists(),'Completed audit; use verify instead of repeating source reads'
+ for name in ['configs','inputs','outputs','reports','tests']: (P/name).mkdir(parents=True,exist_ok=True)
+ text_file('.gitignore','__pycache__/\n*.pyc\noutputs/GIT_RECEIPT.local.json')
+ text_file('.gitattributes','* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol')
+ protected={str(f.relative_to(ROOT)).replace('\\','/'):sha(f) for phase in [A,B] for f in phase.rglob('*') if f.is_file() and 'runtime' not in f.relative_to(phase).parts and f.name!='GIT_RECEIPT.local.json'}
+ js('inputs/ORIGINAL_STAGE_SHA_BEFORE.json',protected)
+ head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT.parent,text=True).strip();assert head=='30c3b2eec700c3c13451be667fbc2cc56513456b'
+ cfg=yaml.safe_load(H.read_text(encoding='utf-8'));assert cfg['data']['read_nrows']==3007 and cfg['data']['development_rows']==3005
+ audit_config=dict(base_commit=head,original_H_protocol_sha256=sha(H),audit_code_sha256=sha(__file__),
+  historical_selection='First3007 logical row identities; bin_end_ophrs2_h <1819.997738; reset row index',
+  restriction='Do not parse excluded Test numeric values. Determine exact historical mask from metadata first; numeric read only for proven retained non-Test rows',
+  strict_identity='Exact row order, numeric bit equality, exact calendar strings and nanosecond timestamps; no tolerance for comparison',
+  numeric_comparison='Float64 bit equality with equal missing masks; report all unequal values, absolute/relative/ULP-scale differences',
+  no_old_code_imported=True,no_Test_numeric_values=True,no_training=True,no_GPU=True,no_SOH_reconstruction=True)
+ js('configs/INDEPENDENT_AUDIT_PROTOCOL.json',audit_config)
+ allowed={N1.resolve(),H.resolve()}|{(ROOT/f).resolve() for f in protected}
+ def guard(event,args):
+  if event!='open' or isinstance(args[0],int):return
+  q=Path(os.fsdecode(args[0])).resolve();mode=args[1];flags=args[2]
+  writing=(isinstance(mode,str) and any(c in mode for c in 'wax+')) or (isinstance(flags,int) and flags&(os.O_WRONLY|os.O_RDWR|os.O_CREAT|os.O_TRUNC))
+  if q.is_relative_to(ROOT.parent) and not q.is_relative_to(P) and (writing or q not in allowed):raise PermissionError('Historical mutation/unlisted data blocked: '+str(q))
+ sys.addaudithook(guard)
+ # No voltage or condition columns from the two excluded rows are parsed.
+ meta=pd.read_csv(N1,nrows=3007,usecols=META);meta.insert(0,'source_row',np.arange(len(meta)))
+ ids=independent_selector(meta);n=guarded_feature_extent(ids,meta)
+ cs('outputs/HISTORICAL_MASK_3007_METADATA.csv',meta.assign(retained=np.isin(np.arange(len(meta)),ids)))
+ cs('outputs/EXCLUDED_PREFIX_ROW_IDENTITIES.csv',meta.iloc[np.setdiff1d(np.arange(len(meta)),ids)])
+ # Default pandas numeric conversion matches the historical production reader.
+ # All original columns, rather than the new stage's selected usecols, are parsed.
+ source=pd.read_csv(N1,nrows=n)
+ assert np.array_equal(ids,np.arange(3005)) and len(source)==3005
+ assert (source.bin_end_ophrs2_h<CUTOFF).all() and not source['split'].str.contains('test',case=False).any()
+ snapshot=pd.read_csv(A/'inputs/DEVELOPMENT_BIN_IDENTITY_AND_CONDITIONS.csv',float_precision='round_trip')
+ fields=list(snapshot.columns);assert all(f in source for f in fields)
+ reference=source[fields].reset_index(drop=True);cs('inputs/HISTORICAL_RULE_DEVELOPMENT_COMMON_FIELDS.csv',reference)
+ # Record the exact original Development bytes, not a whole mixed-file hash.
+ with N1.open('rb') as stream:prefix=b''.join(stream.readline() for _ in range(n+1))
+ old=json.loads((A/'configs/FROZEN_PROTOCOL.json').read_text());prefix_sha=hashlib.sha256(prefix).hexdigest()
+ assert prefix_sha==old['n1_prefix_sha256'],'N1 retained source prefix changed'
+ if len(snapshot)!=len(reference):raise RuntimeError('Row count mismatch; refusing positional-only comparison')
+ rows=[];diffs=[];strict_pass=True;all_pass=True
+ for f in fields:
+  a=reference[f];b=snapshot[f];numeric=pd.api.types.is_numeric_dtype(a) and pd.api.types.is_numeric_dtype(b)
+  if numeric:
+   av=a.to_numpy(dtype=np.float64);bv=b.to_numpy(dtype=np.float64);equal=same_numeric(av,bv)
+   finite=np.isfinite(av)&np.isfinite(bv);absdiff=np.zeros(len(a));absdiff[finite]=abs(av[finite]-bv[finite]);maxabs=float(absdiff.max())
+   rel=np.zeros(len(a));np.divide(absdiff,np.abs(av),out=rel,where=finite&(av!=0))
+   ulp=np.zeros(len(a));np.divide(absdiff,np.abs(np.spacing(av)),out=ulp,where=finite)
+   detail=dict(max_absolute_difference=maxabs,max_relative_difference=float(rel.max()),max_spacing_units=float(ulp.max()),
+    missing_mask_equal=bool(np.array_equal(a.isna(),b.isna())),source_dtype=str(a.dtype),snapshot_dtype=str(b.dtype))
+  else:
+   equal=((a==b)|(a.isna()&b.isna())).to_numpy();detail=dict(max_absolute_difference=None,max_relative_difference=None,max_spacing_units=None,missing_mask_equal=bool(np.array_equal(a.isna(),b.isna())),source_dtype=str(a.dtype),snapshot_dtype=str(b.dtype))
+  if f in ['first_datetime','last_datetime']:
+   ns_equal=pd.to_datetime(a).astype('int64').to_numpy()==pd.to_datetime(b).astype('int64').to_numpy();detail['calendar_nanoseconds_equal']=bool(ns_equal.all());equal&=ns_equal
+  count=int((~equal).sum());all_pass&=count==0
+  if f in IDENTITY:strict_pass&=count==0
+  rows.append(dict(field=f,strict_identity=f in IDENTITY,rows=len(a),unequal_values=count,exact_PASS=count==0,**detail))
+  for i in np.flatnonzero(~equal):
+   diffs.append(dict(row=int(i),source_row=int(ids[i]),field=f,strict_identity=f in IDENTITY,
+    expected=str(a.iloc[i]),saved=str(b.iloc[i]),expected_start_h=float(reference.bin_start_ophrs2_h.iloc[i]),saved_start_h=float(snapshot.bin_start_ophrs2_h.iloc[i]),
+    absolute_difference=float(absdiff[i]) if numeric and finite[i] else np.nan,
+    cause='Different finite numeric value/bit pattern' if numeric else 'Different identity string/calendar or missing pattern'))
+ cs('outputs/ALL_COMMON_FIELD_PRECISION.csv',pd.DataFrame(rows))
+ cs('outputs/ALL_MISMATCH_RECORDS.csv',pd.DataFrame(diffs,columns=['row','source_row','field','strict_identity','expected','saved','expected_start_h','saved_start_h','absolute_difference','cause']))
+ cs('outputs/ROW_IDENTITY_MATCH.csv',meta.iloc[ids].assign(snapshot_row=np.arange(n),snapshot_start_h=snapshot.bin_start_ophrs2_h,snapshot_end_h=snapshot.bin_end_ophrs2_h,
+  row_identity_exact=bool(strict_pass)))
+ origins=legal_origins(source,cfg,0,2103);val=legal_origins(source,cfg,2103,2404)
+ cs('outputs/INDEPENDENT_WINDOW_IDENTITIES.csv',pd.DataFrame([dict(role=role,origin_row=int(o),first_history_row=o-47,last_target_row=o+24,
+  origin_h=float(source.bin_end_ophrs2_h.iloc[o]),first_target_h=float(source.bin_end_ophrs2_h.iloc[o+1]),last_target_h=float(source.bin_end_ophrs2_h.iloc[o+24]),temporal_segment_id=source.temporal_segment_id.iloc[o]) for role,items in [('Train',origins),('Validation',val)] for o in items]))
+ # Recount existing cached identities/statistics only; no model or experiment rerun.
+ predkeys=[];bad=[]
+ for filename in ['USED_DYNAMIC_PREDICTIONS_AUDIT_ONLY.csv','F_ORIGINAL_USED_PREDICTIONS_AUDIT_ONLY.csv']:
+  d=pd.read_csv(A/'outputs'/filename,usecols=['cache_source','origin_row','target_row','horizon_step','origin_actual_h','target_actual_h','origin_available_calendar','target_first_calendar','target_last_calendar'])
+  for f,rowcol,sourcecol,calendar in [('origin_actual_h','origin_row','bin_end_ophrs2_h',False),('target_actual_h','target_row','bin_end_ophrs2_h',False),
+   ('origin_available_calendar','origin_row','last_datetime',True),('target_first_calendar','target_row','first_datetime',True),('target_last_calendar','target_row','last_datetime',True)]:
+   expected=source[sourcecol].to_numpy()[d[rowcol].to_numpy(int)]
+   eq=(pd.to_datetime(expected).astype('int64')==pd.to_datetime(d[f]).astype('int64').to_numpy()) if calendar else same_numeric(expected,d[f].to_numpy())
+   for i in np.flatnonzero(~eq):bad.append(dict(file=filename,record=int(i),field=f,expected=str(expected[i]),saved=str(d[f].iloc[i])))
+  assert (d.target_row-d.origin_row==d.horizon_step).all() and d.target_row.max()<n
+  assert set(d.loc[d.origin_row<2404,'origin_row']).issubset(set(val))
+  predkeys.append(d[['origin_row','target_row']])
+ cs('outputs/PREDICTION_IDENTITY_MISMATCHES.csv',pd.DataFrame(bad,columns=['file','record','field','expected','saved']))
+ keys=pd.concat(predkeys);targets=source.iloc[sorted(keys.target_row.unique())];train=source.iloc[:2103]
+ event=pd.read_csv(A/'outputs/ALL_REFERENCE_EVENT_MATCH_AND_REJECTIONS.csv');matches=[]
+ for _,e in event.loc[event.nominal_checkpoint_h>0].iterrows():
+  count=int(((pd.to_datetime(targets.first_datetime)<=pd.Timestamp(e.reference_last_calendar))&(pd.to_datetime(targets.last_datetime)>=pd.Timestamp(e.reference_first_calendar))).sum())
+  matches.append(dict(checkpoint=int(e.nominal_checkpoint_h),expected=count,saved=int(e.overlapping_target_bins),exact_equal=count==e.overlapping_target_bins))
+ cs('outputs/REFERENCE_OVERLAP_COUNT_RECHECK.csv',pd.DataFrame(matches))
+ p1=pd.read_csv(A/'outputs/ALL_P1S_EVENT_BIN_LANDING_AUDIT.csv',usecols=['measurement_end_h','matched_target_bin_row']);landings=sum(((targets.bin_start_ophrs2_h<t)&(targets.bin_end_ophrs2_h>=t)).any() for t in p1.measurement_end_h)
+ comparisons=[('audited_prediction_records',len(keys),41568),('distinct_target_bins',len(targets),698),('target_j_near_1',int(targets.actual_current_density_A_cm2_mean.between(.95,1.05).sum()),148),
+  ('P1S_temporal_landings',int(landings),33),('reference_calendar_overlap_bins',sum(r['expected'] for r in matches),0),('Train_bins',len(train),2103),('Train_legal_windows',len(origins),1380),('Validation_legal_windows',len(val),205),
+  ('Train_j_near_1',int(train.actual_current_density_A_cm2_mean.between(.95,1.05).sum()),468),('Train_RH_mean_gt100',int((train.actual_anode_inlet_rh_pct_mean>100).sum()),11)]
+ cs('outputs/CONCLUSION_STATISTICS_RECHECK.csv',pd.DataFrame([dict(statistic=name,recomputed=a,previous=b,exact_equal=a==b) for name,a,b in comparisons]))
+ physical=pd.read_csv(B/'inputs/TRAIN_BIN_CONDITIONS.csv',float_precision='round_trip')
+ physical_equal=all((same_numeric(train[f],physical[f]).all() if pd.api.types.is_numeric_dtype(train[f]) else ((train[f]==physical[f])|(train[f].isna()&physical[f].isna())).all()) for f in physical)
+ unchanged=all(sha(ROOT/f)==h for f,h in protected.items())
+ stats_pass=all(a==b for _,a,b in comparisons) and all(r['exact_equal'] for r in matches)
+ result=dict(status='PASS_EXACT' if all_pass and strict_pass and not bad and stats_pass and physical_equal and unchanged else 'MISMATCH_REVIEW_REQUIRED',
+  historical_metadata_prefix_rows=3007,retained_rows=n,retained_source_rows_first=int(ids[0]),retained_source_rows_last=int(ids[-1]),
+  first3005_equal_filtered3007_sample_ids=bool(np.array_equal(ids,np.arange(3005))),snapshot_rows=len(snapshot),common_fields=len(fields),compared_cells=n*len(fields),
+  strict_identity_PASS=bool(strict_pass),all_common_fields_bit_exact=bool(all_pass),numeric_unequal_cells=len(diffs),prediction_identity_records_checked=len(keys),prediction_identity_mismatches=len(bad),
+  statistics_recheck_PASS=stats_pass,physical_Train_snapshot_exact=bool(physical_equal),original_stage_bytes_unchanged=unchanged,
+  maximum_numeric_absolute_difference=max(r['max_absolute_difference'] or 0 for r in rows),
+  numeric_parser='Historical default pandas conversion on all columns of proven selected source records; snapshot round_trip restores saved float64 values',
+  actual_full3007_numeric_parser_executed=False,
+  Test_metadata_row_found=3006,excluded_Test_numeric_fields_parsed=False,
+  interpretation='Historical selector proven exactly equivalent. Literal all-column3007 parse would include one excluded Test row, so it was not rerun under the no-Test instruction',
+  retained_source_prefix_sha256=prefix_sha,original_snapshot_sha256=sha(A/'inputs/DEVELOPMENT_BIN_IDENTITY_AND_CONDITIONS.csv'),
+  unchanged_SOH_decision='TFT_TO_SOH_INSUFFICIENT_SUPPORT' if stats_pass and all_pass else None,
+  unchanged_physics_decision='PHYSICS_ROUTE_NOT_QUALIFIED' if physical_equal and all_pass else None,
+  scientific_performance_not_reevaluated=True,trained=False,GPU=False,new_SOH=False)
+ js('outputs/FINAL_AUDIT.json',result)
+ js('outputs/ORIGINAL_STAGE_SHA_AFTER.json',{f:sha(ROOT/f) for f in protected})
+ print(json.dumps(result,ensure_ascii=False))
+
+if __name__=='__main__':run()

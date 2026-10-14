@@ -1,0 +1,14 @@
+{
+  "base_commit": "30c3b2eec700c3c13451be667fbc2cc56513456b",
+  "original_H_protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+  "audit_code_sha256": "74d1d15400ec0f42c8f98de2cdaebecb3cb34f36d2dd72f885392c65c1612849",
+  "historical_selection": "First3007 logical row identities; bin_end_ophrs2_h <1819.997738; reset row index",
+  "restriction": "Do not parse excluded Test numeric values. Determine exact historical mask from metadata first; numeric read only for proven retained non-Test rows",
+  "strict_identity": "Exact row order, numeric bit equality, exact calendar strings and nanosecond timestamps; no tolerance for comparison",
+  "numeric_comparison": "Float64 bit equality with equal missing masks; report all unequal values, absolute/relative/ULP-scale differences",
+  "no_old_code_imported": true,
+  "no_Test_numeric_values": true,
+  "no_training": true,
+  "no_GPU": true,
+  "no_SOH_reconstruction": true
+}

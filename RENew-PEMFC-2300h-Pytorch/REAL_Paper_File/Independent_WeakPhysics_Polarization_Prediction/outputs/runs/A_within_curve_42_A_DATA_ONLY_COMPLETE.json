@@ -1,0 +1,24 @@
+{
+  "runid": "A_within_curve_42_A_DATA_ONLY",
+  "task": "A",
+  "fold": "within_curve",
+  "seed": 42,
+  "arm": "A_DATA_ONLY",
+  "status": "COMPLETED",
+  "optimizer_steps": 2500,
+  "physics_positive_loss_and_gradient_epochs": 5,
+  "weighted_physics_active_epochs": 0,
+  "physics_inactive_entire_training": false,
+  "seconds_current_session": 3.826142100006109,
+  "train_n": 58,
+  "validation_n": 43,
+  "validation_label_used_for_selection": false,
+  "weights_SHA256": "79d9f7f596bc33cc9d7f1ade99ddb63b6c5caab22a7175010d4f4ca48357853f",
+  "metrics": {
+    "n": 43,
+    "MAE_mV": 1.0575804370481057,
+    "RMSE_mV": 1.474115498037473,
+    "P95_mV": 3.0421849462072603,
+    "max_mV": 3.943700229943503
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "runid": "A_within_curve_42_B_PHYSICS",
+  "task": "A",
+  "fold": "within_curve",
+  "seed": 42,
+  "arm": "B_PHYSICS",
+  "status": "COMPLETED",
+  "optimizer_steps": 2500,
+  "physics_positive_loss_and_gradient_epochs": 5,
+  "weighted_physics_active_epochs": 5,
+  "physics_inactive_entire_training": false,
+  "seconds_current_session": 7.2881907999981195,
+  "train_n": 58,
+  "validation_n": 43,
+  "validation_label_used_for_selection": false,
+  "weights_SHA256": "261afce1134fb3b4675e18f7bff59496d8e25d5c69b123178d903e3e505ed5f8",
+  "metrics": {
+    "n": 43,
+    "MAE_mV": 1.0578221625604638,
+    "RMSE_mV": 1.4743129450090553,
+    "P95_mV": 3.0422777091463904,
+    "max_mV": 3.9428599577563395
+  }
+}

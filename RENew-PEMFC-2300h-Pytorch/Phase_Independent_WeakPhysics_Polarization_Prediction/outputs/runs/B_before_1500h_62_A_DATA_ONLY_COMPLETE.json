@@ -1,0 +1,24 @@
+{
+  "runid": "B_before_1500h_62_A_DATA_ONLY",
+  "task": "B",
+  "fold": "before_1500h",
+  "seed": 62,
+  "arm": "A_DATA_ONLY",
+  "status": "COMPLETED",
+  "optimizer_steps": 2500,
+  "physics_positive_loss_and_gradient_epochs": 8,
+  "weighted_physics_active_epochs": 0,
+  "physics_inactive_entire_training": false,
+  "seconds_current_session": 7.507059299998218,
+  "train_n": 50,
+  "validation_n": 13,
+  "validation_label_used_for_selection": false,
+  "weights_SHA256": "467575d9ecad6c0d791453222a4a4033d31aaf3ee78425cf03aa3291c86f2ae5",
+  "metrics": {
+    "n": 13,
+    "MAE_mV": 1.8196113553544753,
+    "RMSE_mV": 1.8622468358301982,
+    "P95_mV": 2.3270277523199208,
+    "max_mV": 2.5172209476328478
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "runid": "B_before_1500h_52_B_PHYSICS",
+  "task": "B",
+  "fold": "before_1500h",
+  "seed": 52,
+  "arm": "B_PHYSICS",
+  "status": "COMPLETED",
+  "optimizer_steps": 2500,
+  "physics_positive_loss_and_gradient_epochs": 5,
+  "weighted_physics_active_epochs": 5,
+  "physics_inactive_entire_training": false,
+  "seconds_current_session": 8.120326399992337,
+  "train_n": 50,
+  "validation_n": 13,
+  "validation_label_used_for_selection": false,
+  "weights_SHA256": "f47d966ba9e9f32bb5473d27b30a13584abb5b44160a4d13dc42d5a27854ab9d",
+  "metrics": {
+    "n": 13,
+    "MAE_mV": 1.8118598838820714,
+    "RMSE_mV": 1.8557345259258398,
+    "P95_mV": 2.3754894146238654,
+    "max_mV": 2.6085013715497762
+  }
+}

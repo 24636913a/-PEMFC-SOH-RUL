@@ -1,0 +1,21 @@
+test_B_origins_past_labels (test_autograd.DerivativeTests.test_B_origins_past_labels) ... ok
+test_MLP_slope_finite_difference (test_autograd.DerivativeTests.test_MLP_slope_finite_difference) ... ok
+test_fixed_lambda_budget_no_validation_selection (test_autograd.DerivativeTests.test_fixed_lambda_budget_no_validation_selection) ... ok
+test_inactive_loss_true_zero (test_autograd.DerivativeTests.test_inactive_loss_true_zero) ... ok
+test_nontrivial_parameter_gradient (test_autograd.DerivativeTests.test_nontrivial_parameter_gradient) ... ok
+test_physics_probes_unlabeled_train_context (test_autograd.DerivativeTests.test_physics_probes_unlabeled_train_context) ... ok
+test_platform_no_label_leak (test_autograd.DerivativeTests.test_platform_no_label_leak) ... ok
+test_same_capacity_same_initial_state (test_autograd.DerivativeTests.test_same_capacity_same_initial_state) ... ok
+test_train_only_scalers (test_autograd.DerivativeTests.test_train_only_scalers) ... ok
+test_units_chain_rule (test_autograd.DerivativeTests.test_units_chain_rule) ... ok
+test_actual_physics_activation_not_falsely_inactive (test_completed_runs.CompletedExperimentTests.test_actual_physics_activation_not_falsely_inactive) ... ok
+test_all_runids_once_and_fixed_steps (test_completed_runs.CompletedExperimentTests.test_all_runids_once_and_fixed_steps) ... ok
+test_completed_run_guard_does_not_touch_weights (test_completed_runs.CompletedExperimentTests.test_completed_run_guard_does_not_touch_weights) ... ok
+test_independent_models_and_gradients_verified (test_completed_runs.CompletedExperimentTests.test_independent_models_and_gradients_verified) ... ok
+test_no_claim_of_increment_when_both_final_monotone (test_completed_runs.CompletedExperimentTests.test_no_claim_of_increment_when_both_final_monotone) ... ok
+test_same_initial_state_each_AB (test_completed_runs.CompletedExperimentTests.test_same_initial_state_each_AB) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.083s
+
+OK

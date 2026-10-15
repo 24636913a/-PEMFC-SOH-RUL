@@ -1,0 +1,10 @@
+module,x,y,w,h,label,color
+independent,0.20000000000000001,1.7,3.2999999999999998,1.1000000000000001,"Independent MLP: j, direction, context
+V(j); actual autodiff weak loss
+A/B complete: no clear increment",#FFF4DF
+ridge,4.2000000000000002,1.7,3.1000000000000001,1.1000000000000001,"Frozen Ridge96 H1/H2/H3
+Past-only M2_NC replay retained
+No weight or label changes",#EAF3F7
+interfaces,8.1999999999999993,1.7,3.3999999999999999,1.1000000000000001,"P1: TFT auxiliary teacher
+P2: reference SOH readout
+Unverified; no integration training",#FAEEEE

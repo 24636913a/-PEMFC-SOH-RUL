@@ -1,0 +1,69 @@
+test_B_origins_past_labels (__main__.DerivativeTests.test_B_origins_past_labels) ... ok
+test_MLP_slope_finite_difference (__main__.DerivativeTests.test_MLP_slope_finite_difference) ... ok
+test_fixed_lambda_budget_no_validation_selection (__main__.DerivativeTests.test_fixed_lambda_budget_no_validation_selection) ... ERROR
+test_inactive_loss_true_zero (__main__.DerivativeTests.test_inactive_loss_true_zero) ... ok
+test_nontrivial_parameter_gradient (__main__.DerivativeTests.test_nontrivial_parameter_gradient) ... ok
+test_physics_probes_unlabeled_train_context (__main__.DerivativeTests.test_physics_probes_unlabeled_train_context) ... ERROR
+test_platform_no_label_leak (__main__.DerivativeTests.test_platform_no_label_leak) ... ok
+test_same_capacity_same_initial_state (__main__.DerivativeTests.test_same_capacity_same_initial_state) ... ok
+test_train_only_scalers (__main__.DerivativeTests.test_train_only_scalers) ... ERROR
+test_units_chain_rule (__main__.DerivativeTests.test_units_chain_rule) ... ok
+
+======================================================================
+ERROR: test_fixed_lambda_budget_no_validation_selection (__main__.DerivativeTests.test_fixed_lambda_budget_no_validation_selection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_Independent_WeakPhysics_Polarization_Prediction\tests\test_autograd.py", line 45, in test_fixed_lambda_budget_no_validation_selection
+    c=json.loads((P/'configs/FROZEN_PROTOCOL.json').read_text());self.assertEqual(c['lambda'],1.);self.assertEqual(c['epochs'],2500);self.assertEqual(c['seeds'],[42,52,62]);self.assertTrue(c['early_stopping'].startswith('NONE'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\pathlib.py", line 1058, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_Independent_WeakPhysics_Polarization_Prediction\\configs\\FROZEN_PROTOCOL.json'
+
+======================================================================
+ERROR: test_physics_probes_unlabeled_train_context (__main__.DerivativeTests.test_physics_probes_unlabeled_train_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_Independent_WeakPhysics_Polarization_Prediction\tests\test_autograd.py", line 41, in test_physics_probes_unlabeled_train_context
+    d=pd.read_csv(P/'data_contracts/ALL_LEGAL_SAMPLES.csv');ph=pd.read_csv(P/'data_contracts/UNLABELED_TRAIN_PHYSICS_PROBES.csv');self.assertTrue(ph.no_voltage_label.all());self.assertNotIn('true_V',ph)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\site-packages\pandas\io\parsers\readers.py", line 873, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\site-packages\pandas\io\parsers\readers.py", line 300, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\site-packages\pandas\io\parsers\readers.py", line 1645, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\site-packages\pandas\io\parsers\readers.py", line 1904, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\site-packages\pandas\io\common.py", line 926, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_Independent_WeakPhysics_Polarization_Prediction\\data_contracts\\UNLABELED_TRAIN_PHYSICS_PROBES.csv'
+
+======================================================================
+ERROR: test_train_only_scalers (__main__.DerivativeTests.test_train_only_scalers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_Independent_WeakPhysics_Polarization_Prediction\tests\test_autograd.py", line 37, in test_train_only_scalers
+    d=pd.read_csv(P/'data_contracts/ALL_LEGAL_SAMPLES.csv',float_precision='round_trip');s=json.loads((P/'data_contracts/TRAIN_ONLY_SCALERS.json').read_text())
+                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\pathlib.py", line 1058, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ruanjian\python3.11.9\Lib\pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_Independent_WeakPhysics_Polarization_Prediction\\data_contracts\\TRAIN_ONLY_SCALERS.json'
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.183s
+
+FAILED (errors=3)

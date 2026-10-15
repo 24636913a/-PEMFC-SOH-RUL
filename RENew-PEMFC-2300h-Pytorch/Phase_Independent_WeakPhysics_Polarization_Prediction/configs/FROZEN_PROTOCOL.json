@@ -1,0 +1,127 @@
+{
+  "base_commit": "952f2f462f1834c4faaefc29c9dce4f8eb23c4c8",
+  "source_sha256": {
+    "dwells": "0d38941afa7c86e837839d59e3e2161077b0504f1b559777f0424eb1e2e24e39",
+    "metadata": "56bd5a46eeb49c3ef2ea36ce1bd52703b3489bc9163da8445ac8c03ee7bd3963",
+    "slopes": "e4e5a21985b1100291f644febaf1ff0528d627610058dd8357a676fb4967a81c",
+    "protocol": "34c1e4ea6ad0f75379a3c3df7f5088ec34f850ba1b6f9867e1a7754111b7b8ec",
+    "verification": "22dddc3672b00bf451e6bb048c84a06783c6302ebd7035e6d4438e72a148767b",
+    "measurement": "f962d5f4807348c3089aa2c6a6203b874c7e19b37199f07c703bcd9651138e74",
+    "identity": "4e1e07443f7a5450d0b0238929532c47cef2eb0698b977d23325dcc667c650e5",
+    "h_contract": "5d6fef91df045c6ec99622d129e2402a8e2867ea58e0783a91a503a524e9d0eb",
+    "h_preds": "6564afb3b5d128bf41152a391970c23e4b474025818376b26f6db82940e26eb8",
+    "h_sources": "793040a0ac3969b7f0ca8a71c82696017e5de885233e3aa3ee607266cd5ac452",
+    "tft_arch": "98b0bf2edda7ca4c58bd9b529ae04c5954defe611e2be4bcb2c9a46f13c49b4a",
+    "F2_seed42": "0b28f576e1f5172875203849ad452a40e702040d0c3609b12074a506dbeea974",
+    "F2_seed52": "8100c0199fe43e967a082fb78b6222b9a2ec73d40bedb845098e4fe3b7d3d4ed",
+    "F2_seed62": "bd727a697fc99cd6fd3391bd6ae347b3d077ec19941db28b4ad62cd223cd36f5",
+    "F2_original": "37c9804fa36757f05b14dab019eaae7acb9172677d6376357290a44e764c3a87"
+  },
+  "source_paths": {
+    "dwells": "Phase_Polarization_Physics_to_Health_Qualification/outputs/POLARIZATION_DWELLS.csv",
+    "metadata": "Phase_Polarization_Physics_to_Health_Qualification/outputs/POLARIZATION_QUALIFICATION.csv",
+    "slopes": "Phase_Polarization_Physics_to_Health_Qualification/outputs/NUMERICAL_SLOPES.csv",
+    "protocol": "Phase_Polarization_Physics_to_Health_Qualification/configs/FROZEN_PROTOCOL.json",
+    "verification": "Phase_Polarization_Physics_to_Health_Qualification/outputs/INDEPENDENT_VERIFICATION.json",
+    "measurement": "Phase_PAA_P1_StateToken_PreAnchor_Alignment/outputs/P1S_COMPLETE_CYCLE_MEASUREMENTS.csv",
+    "identity": "Phase_P1S_LongHistory_ShortHorizon_Forecasting/inputs/CAUSAL_P1S_ACTUAL_MEASUREMENT_IDENTITY.csv",
+    "h_contract": "REAL_Paper_File/Integrated_Research_Route_Closure/H123_FREEZE.json",
+    "h_preds": "REAL_Paper_File/Integrated_Research_Route_Closure/H123_PREDICTIONS.csv",
+    "h_sources": "REAL_Paper_File/Integrated_Research_Route_Closure/SOURCE_INDEX.csv",
+    "tft_arch": "Phase_F_TFT_DualPath_RegimeFusion/diagrams/F2_REGIME_FUSION_ARCHITECTURE.md",
+    "F2_seed42": "Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F2-Seed42_best.pt",
+    "F2_seed52": "Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F2-Seed52_best.pt",
+    "F2_seed62": "Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F2-Seed62_best.pt",
+    "F2_original": "Phase_F_TFT_DualPath_RegimeFusion/outputs/checkpoints/F2_best_seed42.pt"
+  },
+  "code_sha256": {
+    "scripts/common.py": "7a5a6e770cc51be1343527e50804d8651d4451069641c23f528684bbc3e0b5de",
+    "scripts/network.py": "765c193797ea77ce544d8a604cf1330dc1ecb888bdc07f97d35a9a8c09d1f11b",
+    "scripts/prepare.py": "c37eba366f9cadf541aadcde465b06886d697679b049b87f9ea065c3b0e4bed8",
+    "scripts/train.py": "f43b56153ad47886e632c599e47267ad5f83d64e4638c6c69fc6ddefffb1da88"
+  },
+  "data_contract_sha256": {
+    "data_contracts/ALL_154_PLATFORM_QUALIFICATION.csv": "168df7e51968556634e8fb43f3c02db19369a71d816519ff06702e550e2bfb8b",
+    "data_contracts/ALL_LEGAL_SAMPLES.csv": "bca6973e679f9267efa9f69f65858a136fe5f584bf9c8c1e768091807a6c6fec",
+    "data_contracts/A_SAMPLES.csv": "462e31288fcbbcb502a69b846ed82046ed2766fd15543e7e951056fe5b71612d",
+    "data_contracts/B_EVENT_ORIGIN_IDENTITY.csv": "4c38839b1cd78e267b9b7869eacea5e37c82ba95e7be6686ca97fb63c1e42d2e",
+    "data_contracts/B_SAMPLES.csv": "93133036acb1d254bba880080a410f34e67a36f4accb9b97d6276595fb3833a3",
+    "data_contracts/EXCLUDED_PLATFORM_RECORDS.csv": "47c87a2803f3d89f75070f8afee86e09e2dec0b1c3d38556626b177cfbe3783a",
+    "data_contracts/LEGAL_105_PLATFORMS.csv": "46fc2db7dc31ab0819f2ad607c4cf578811e6f2f17bf01fbd296925c6a9e7b7e",
+    "data_contracts/TRAIN_ONLY_SCALERS.json": "9b882b08a61b1f5f51b447c7b8886b7d7c847ecc69a65b16cb7abfcf296febb7",
+    "data_contracts/UNLABELED_TRAIN_PHYSICS_PROBES.csv": "1424af86d384ded671b792277323acc176b147987dada7c516d51a4d8819961e"
+  },
+  "CPU_only": true,
+  "features": [
+    "j_design_A_cm2",
+    "direction_ascending",
+    "context"
+  ],
+  "input_j": "Commanded current/280cm2; scheduled target setpoints known, never futureactualcurrent. Actualj disagreement<=0.005 checked. Continuousj derivative uses physicalcommandeddensity units.",
+  "conditions": "No futureactualenvironment input; target is nominalprotocol conditional mean voltage; observedT/dewpoint/pressure/stoic only predeclared eligibility/supportaudit. Not a condition-normalized universalvoltage model.",
+  "A": "Within measuredcheckpoint reconstruction. GlobalMLP j,direction,knowntraininganchorV atj0.36. Exactplatformholdout allwindows; origins atmeasurementcompletion, not futureforecast. Require heldpoint bracketed sameeventbranchTrain.",
+  "A_training_setpoints_A": [
+    100.8,
+    151.2,
+    218.4,
+    302.4,
+    403.2,
+    504.0
+  ],
+  "A_holdout_setpoints_A": [
+    126.0,
+    201.6,
+    252.0,
+    352.8,
+    453.6
+  ],
+  "B": "Next scheduled Developmentevent backtest. Expandingpast300/600/850 etc; zfirstnormalP1S after priorcurveend before target. Prescribedtargetj/direction, no futureactualconditions/targetcalendar/actuallead/Rtargets. ModelTrainlabelsend before validationorigin. Measurementcompletion assumption, publicationtime unknown, not strictonlineSOH.",
+  "B_targets": [
+    "1150h",
+    "1500h",
+    "1750h"
+  ],
+  "B_reference_support_tolerances": {
+    "T.Si.A [°C]_mean": 0.5,
+    "T.Si.C [°C]_mean": 0.5,
+    "DPT.Si.A [°C]_mean": 0.5,
+    "DPT.Si.C [°C]_mean": 0.5,
+    "p.So.A [kPag]_mean": 2.0,
+    "p.So.C [kPag]_mean": 2.0,
+    "Stoic.S.A [-]_mean": 0.1,
+    "Stoic.S.C [-]_mean": 0.1
+  },
+  "B_failure_rule": "If origin/state/comparableTraincurrent or>=4Valpoints/2branches unavailable -> no Btraining, FUTURE_POLARIZATION_FORECAST_NOT_EVALUABLE",
+  "architecture": {
+    "hidden": [
+      32,
+      32
+    ],
+    "activation": "SiLU",
+    "output": 1,
+    "parameters": 1217,
+    "dtype": "float64"
+  },
+  "seeds": [
+    42,
+    52,
+    62
+  ],
+  "epochs": 2500,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "weight_decay": 0,
+  "batch": "full",
+  "early_stopping": "NONE; fixedterminalepoch; no Validation-basedselection",
+  "lambda": 1.0,
+  "loss_data": "mean((Vpred-Vtrue)/Train_y_scale)^2",
+  "loss_phys": "mean(relu(dV/dj * Train_j_scale/Train_y_scale)^2). Equal to mean(relu(dnormalizedV/dnormalizedj)^2); rawloss units(ohm cm2)^2 also recorded.",
+  "autograd": "create_graph=True onnormalizedj; restore dV/dj=y_scale/x_j_scale*dnetwork/dx_j; gradient through networkparameters. Context/direction heldfixed; no time-monotonicconstraint.",
+  "probes": "17uniformj per training eventbranch withinTrain-only support/context; unlabeled, never newmeasuredlabels; A/B shareexactprobes and architectureinitialweights and optimizersteps.",
+  "training_monitor": "Everyepoch realLphys, violationrate, dVdjmax, actualdata/physicalparametergradientL2, weightedgradientratio. True inactive loss/gradient may mathematically be0; invalid valuesNA, never fabricated0.",
+  "primary": "TaskA checkpoint-equal MAE acrossalllegalheldplatforms, seeds paired. B event-equal acrossqualified3events separately. No pvalues/IIDlifetimes.",
+  "success": "For eachtask separately: >=2/3seedreductions in violationrate or violationRMS by>=50% relative (baseline>1e-8); seedmean MAE andRMSE notworse (1e-9mV tolerance), MAE gain>=2% and>=2/3seedMAE wins; no eventseedmeanMAE >20%worse. Allrequired, else no clearincrement. These are fixedexploratory decisioncriteria, not significance.",
+  "inactive": "If Btraining never has Lphys>1e-16 AND parametergradientnorm>1e-12, PHYSICS_CONSTRAINT_INACTIVE. No lambda/probe/modelchanges afterscores.",
+  "interfaces": "No TFT/SOHtraining. Reconstructioncontext unavailable beforefutureevent; Bconditionalnominalvoltage not referenceSOH label. No certification of SOH/RUL orTFTincrement.",
+  "stop": "Each runID once, checkpointresume technicalinterruptions only. No rescuegrid/newseed/lambda/backbone. Exportverifiedexploratoryartifacts only, preserveTFTandHseries."
+}

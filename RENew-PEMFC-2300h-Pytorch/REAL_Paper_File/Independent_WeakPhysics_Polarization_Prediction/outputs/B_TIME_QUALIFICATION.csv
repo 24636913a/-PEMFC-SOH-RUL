@@ -1,0 +1,4 @@
+task,fold,target_event,qualified,Train_events,Train_n,Validation_n,domain_by_branch,status,strict_online_release_certified
+B,before_1150h,1150h,True,300h|600h|850h,40,13,"{'ascending': [0.36, 1.08], 'descending': [0.36, 1.08]}",QUALIFIED_CONDITIONAL_NOMINAL_PROTOCOL_REPLAY,False
+B,before_1500h,1500h,True,300h|600h|850h|1150h,50,13,"{'ascending': [0.36, 0.9], 'descending': [0.36, 1.08]}",QUALIFIED_CONDITIONAL_NOMINAL_PROTOCOL_REPLAY,False
+B,before_1750h,1750h,True,300h|600h|850h|1150h|1500h,63,13,"{'ascending': [0.36, 0.9], 'descending': [0.36, 1.08]}",QUALIFIED_CONDITIONAL_NOMINAL_PROTOCOL_REPLAY,False

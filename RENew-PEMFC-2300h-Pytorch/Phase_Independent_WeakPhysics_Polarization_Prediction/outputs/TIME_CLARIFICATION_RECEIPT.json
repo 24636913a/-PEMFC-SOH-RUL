@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "source_files_added": [
+    {
+      "path": "data_contracts/A_RECONSTRUCTION_MODEL_TIME_IDENTITY.csv",
+      "SHA256": "7e5d355d15dfcef2618fa43466800364c7580cfba3aa2114f1d555f5f683cdaf"
+    },
+    {
+      "path": "configs/A_RECONSTRUCTION_TIME_CLARIFICATION.json",
+      "SHA256": "6e9b5b2a7270731417c1505d794b6beea6ef62c226e1be68218a4b36a46b32f6"
+    },
+    {
+      "path": "reports/00a_A重建时间身份补充_请先读.md",
+      "SHA256": "5c215292491cb1e16b5659fb80c53cb260579b73351c8742621b2779f70f5480"
+    },
+    {
+      "path": "scripts/clarify_reconstruction_clock.py",
+      "SHA256": "226dd11df76286eeb2ae2a2051c7a27d7acc405c712ccc5e0f56abcb7924307c"
+    }
+  ],
+  "paper_copies_added": [
+    {
+      "source": "data_contracts/A_RECONSTRUCTION_MODEL_TIME_IDENTITY.csv",
+      "copy": "data_contracts/A_RECONSTRUCTION_MODEL_TIME_IDENTITY.csv",
+      "SHA256": "7e5d355d15dfcef2618fa43466800364c7580cfba3aa2114f1d555f5f683cdaf"
+    },
+    {
+      "source": "configs/A_RECONSTRUCTION_TIME_CLARIFICATION.json",
+      "copy": "configs/A_RECONSTRUCTION_TIME_CLARIFICATION.json",
+      "SHA256": "6e9b5b2a7270731417c1505d794b6beea6ef62c226e1be68218a4b36a46b32f6"
+    },
+    {
+      "source": "reports/00a_A重建时间身份补充_请先读.md",
+      "copy": "reports/00a_A重建时间身份补充_请先读.md",
+      "SHA256": "5c215292491cb1e16b5659fb80c53cb260579b73351c8742621b2779f70f5480"
+    },
+    {
+      "source": "scripts/clarify_reconstruction_clock.py",
+      "copy": "scripts/clarify_reconstruction_clock.py",
+      "SHA256": "226dd11df76286eeb2ae2a2051c7a27d7acc405c712ccc5e0f56abcb7924307c"
+    },
+    {
+      "source": "reports/00a_A重建时间身份补充_请先读.md",
+      "copy": "00_READ_FIRST_A_TIME_CLARIFICATION.md",
+      "SHA256": "5c215292491cb1e16b5659fb80c53cb260579b73351c8742621b2779f70f5480"
+    }
+  ],
+  "original_phase_manifest_preserved": true,
+  "original_paper_files_untouched": true,
+  "training_and_evaluation_not_rerun": true
+}

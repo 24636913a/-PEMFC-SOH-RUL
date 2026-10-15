@@ -1,0 +1,38 @@
+{
+  "task_decisions": [
+    {
+      "task": "A",
+      "status": "PHYSICS_DESCRIPTIVE_ONLY_NO_INCREMENT",
+      "MAE_gain_percent": 0.007246940769327231,
+      "MAE_seed_wins": 1,
+      "physics_reduction_seed_passes": 0,
+      "mean_MAE_RMSE_nonworse": false,
+      "any_event_mean_MAE_worsens_over20percent": false,
+      "physics_weighted_active_epochs": 16,
+      "constraint_activity_status": "PHYSICS_ACTIVATED_DURING_TRAINING",
+      "ordinary_final_all_monotone": true,
+      "scope": "Measuredcurveinterpolation/reconstruction"
+    },
+    {
+      "task": "B",
+      "status": "PHYSICS_DESCRIPTIVE_ONLY_NO_INCREMENT",
+      "MAE_gain_percent": 0.011744123794986787,
+      "MAE_seed_wins": 2,
+      "physics_reduction_seed_passes": 0,
+      "mean_MAE_RMSE_nonworse": true,
+      "any_event_mean_MAE_worsens_over20percent": false,
+      "physics_weighted_active_epochs": 54,
+      "constraint_activity_status": "PHYSICS_ACTIVATED_DURING_TRAINING",
+      "ordinary_final_all_monotone": true,
+      "scope": "Nextscheduledcheckpoint conditionalnominalprotocol backtest; measurementcompletionassumption, not strictonlineSOH"
+    }
+  ],
+  "integration_decision": "RETAIN_DESCRIPTIVE_PHYSICS_ONLY",
+  "TFT_integration_qualified": false,
+  "SOH_integration_qualified": false,
+  "reason": "No incremental evidence -> retain diagnostics/ablation only. Only a promising conditionalfuturetask would justify separateSOHinterfacequalification research, never automaticfusiontraining. Bothinterfaces require past-only crossfit/independentSOHlabels and certifiedtargetconditions.",
+  "H1_H2_H3_changed": false,
+  "TFT_changed": false,
+  "new_RUL_training": 0,
+  "statistical_significance_claim": false
+}

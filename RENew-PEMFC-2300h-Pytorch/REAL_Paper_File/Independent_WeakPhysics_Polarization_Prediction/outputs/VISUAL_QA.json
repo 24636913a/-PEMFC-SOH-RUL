@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "reviewer": "Codex visual inspection",
+  "figures": 6,
+  "PNG_SHA256": {
+    "F1_real_polarization_support.png": "d191d21998d05863162baa6ce56e919db152a619f0bef18614829270204b8c7e",
+    "F2_AB_reconstructed_curves.png": "d3c8c877f697027d94dcccabf5cb135f24de6200ef012659bdd2ffa5ddda9cd3",
+    "F3_holdout_errors_and_tiny_AB_differences.png": "073de4a81b5c04d85ff3f98a304cc0aa36c0e2d1f119302a29ee3871aa791eac",
+    "F4_real_physics_activity_and_gradients.png": "6d9cfa1e4e5f4573f3764a3970e90748b3230f7f31ef6cd6f8069aefcc96f663",
+    "F5_future_event_errors_and_final_violations.png": "3d97708262a9ab99d1048d218e10b3703278696419d8ce627db524758bc9ca74",
+    "F6_frozen_dual_path_TFT_and_independent_branch.png": "0b52c2f79c7c86906cce764cc9c98c6aaf6d5d3c265c8d343f7b805e7d1cbbb0"
+  },
+  "PDF_SHA256": {
+    "F1_real_polarization_support.pdf": "c4caec09be275550ec3f051ff0bf62ea4006f05c4c9fe6025fbc9014680391dd",
+    "F2_AB_reconstructed_curves.pdf": "e05bd79f59d99ae5a0d1cd17bd67d0cfdce3d6068c0e2d2cd0fb1c71246ce364",
+    "F3_holdout_errors_and_tiny_AB_differences.pdf": "16ccd8567ddae57e2130c611524699300613f94918b692e63fbc0e3f04173cf2",
+    "F4_real_physics_activity_and_gradients.pdf": "93852708b3ce2d30c5d68f7511a9c1d41aa266854ef2fbb8e6c07f9371501bcb",
+    "F5_future_event_errors_and_final_violations.pdf": "60e2415e74ca5b8c52e145ded39a7a4636d17d2ea8e286e836a6d7fba1b8d07b",
+    "F6_frozen_dual_path_TFT_and_independent_branch.pdf": "faeab922f7a81ea0963c741e09ea1634a87c7388238953beb4b9e0b1e5e89a64"
+  },
+  "plot_code_SHA256": "c53330e42ccaa485945bde4c2c0668091a8b3a2433d75011ab24a36a773c9fd2",
+  "checks": [
+    "all6PNG inspected; axes legends and texts legible",
+    "all6PDF valid singlepage with vector text",
+    "ABoverlappingcurves and tinyerrors explained",
+    "truezeroviolation not fabricatedpositive",
+    "seedSD not CI",
+    "futureB explicitlyconditional",
+    "dualpathTFT LSTM+causalConv+historicalgate retained; fusioninterfaces dashed"
+  ]
+}

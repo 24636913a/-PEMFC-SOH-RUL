@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "historical_sources_unchanged": 34,
+  "all_candidate_dwell_count": 10680,
+  "all_QC_gates_recomputed": 10680,
+  "historical_dwell_numeric_replays": 3796,
+  "historical_dwell_max_abs_difference_V": 2.220446049250313e-16,
+  "frozen_141cycle_max_abs_difference_V": 2.220446049250313e-16,
+  "exact_dwell_to_bin_assignments": 3503,
+  "window_label_count_checks": 1585,
+  "overlapping_query_label_pairs_checked": 24221,
+  "raw_independent_spot_checks": 9,
+  "raw_spot_check_scope": "First/middle/last QC complete dwell of each of3current states; csv+datetime+statistics; other states counts and gates replayed from summaries",
+  "complete_cycle_points": 146,
+  "dynamic_history_qualification_replays": 616,
+  "strict_calendar_purges_recomputed": 2,
+  "independent_life_trajectories": 1,
+  "no_dense_native_fixed_target": true,
+  "no_new_training": true,
+  "no_GPU": true,
+  "no_Test_numeric_values": true
+}

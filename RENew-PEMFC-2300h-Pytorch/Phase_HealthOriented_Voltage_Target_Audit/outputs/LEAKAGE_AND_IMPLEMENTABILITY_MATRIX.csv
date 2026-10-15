@@ -1,0 +1,12 @@
+item,status,evidence
+Full-cycle grouping,PASS,N1 Train/Validation supervised target cycle overlap0; cycles crossing split boundaries excluded
+Future target vs history,PASS,Only measured windows strictly after origin; input ends at latest available N1bin; future conditions not inputs
+Reference availability,CONDITIONAL,"0.71383023635 is first10cycle median, available171.82091h; earlier retention not prospective; rawV labels do not need denominator"
+Test-driven state selection,PASS,All long positive state tokens selected from frozen metadata before new voltages; no Test numbers
+Model-selection timing,NOT_EXECUTED,No new model; future fits must finish before first origin. Two equal-time labels need stricter purge
+Train-only scaler,NOT_EXECUTED,"No new scaler fitted; future protocol Train-only, including inner split"
+Polarization object and protocol,PARTIAL,"Same nominal stack,10active cells/280cm2; sweep/time/conditions differ, publication and exact durability clocks unknown"
+Independent validation events,LIMITED,"T1bin151labels but14cycle blocks; H1 with48input Val13/6/22, one life trajectory"
+Within-cycle observations,DEPENDENT,"3503times/146cycles, not3503independent health states"
+Retrospective physical QC,AUDIT_ONLY,Uses observed target drift/temperature for measurement-quality audit; not an origin-known condition plan
+Cycle completeness identity,RETROSPECTIVE_CATALOG,Last observedP1window can precede cycle completion; future operational protocol must define completion confirmation before using complete-cycle identity

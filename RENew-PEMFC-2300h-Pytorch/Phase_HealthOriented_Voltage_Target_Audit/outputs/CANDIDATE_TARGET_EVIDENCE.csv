@@ -1,0 +1,6 @@
+candidate,target,independent_life_trajectories,real_primary_cycle_observations,true_reference_events,authenticated_BoL,new_performance_MAE,new_training,original_TFT_score_transfer_allowed,original_dense48_to24_contract,status
+T0,Dynamic half-hour DeltaV,1,,,False,,False,True,True,FROZEN_DYNAMIC_VALIDATION_EVIDENCE
+T1_cycle,Fixed0.78923 cycle voltage,1,146,,False,,False,False,False,DATA_AVAILABLE_NEW_TASK_NOT_YET_TRAINING_QUALIFIED
+T1_bin,Fixed0.78923 half-hour sparse observation,1,,,False,,False,False,False,DATA_AVAILABLE_NEW_TASK_NOT_YET_TRAINING_QUALIFIED
+T2_fixed,Same0.78923 state with frozen reference,1,146,,False,,False,False,False,DATA_AVAILABLE_NEW_TASK_NOT_YET_TRAINING_QUALIFIED
+T2_pol,Polarization j1.0,1,,7,True,,False,False,False,SEVEN_EVENTS_INSUFFICIENT_FOR_ORIGINAL_SEQUENCE

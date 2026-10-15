@@ -1,0 +1,8 @@
+{
+  "status": "FAILED_REPRODUCTION_PRESERVED",
+  "phase": "First141cycle reconstruction check",
+  "max_cycle_difference_V": 1.0724449999832686e-05,
+  "max_dwell_difference_V": 5.800719999982107e-05,
+  "cause": "Original PAA/RHA jointly construct middle50 and last25. side=right assigns the75percent boundary sample to last25, so original primary is half-open [25%,75%). New extraction initially used an inclusive75percent endpoint.",
+  "repair": "Use original half-open membership. Re-read only certified Development prefixes; retain inclusive output as failure evidence. No thresholds or historical data changed."
+}

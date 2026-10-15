@@ -1,0 +1,16 @@
+{
+  "status": "FAILED_PRESERVED",
+  "completed_numeric_prefix_files": 8,
+  "no_Test_features_read": true,
+  "no_completed_labels_written": true,
+  "causes": [
+    "Datetime matching compared nanosecond windows with pandas microsecond parsed timestamps: zero selections, caught before accepting outputs",
+    "pandas low_memory metadata-only parser IndexError on file9 mixed-format age column"
+  ],
+  "repairs": [
+    "Explicit datetime64[ns] matching and exact microsecond storage",
+    "String dtype and low_memory=False for metadata-only age prefix"
+  ],
+  "protocol_or_threshold_change": false,
+  "training": false
+}

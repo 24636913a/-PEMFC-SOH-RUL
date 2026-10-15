@@ -1,0 +1,10 @@
+figure,CSV_sources,code,scope
+figures/F1_real_fixed_state_voltage.png,outputs/STATE_CYCLE_OBSERVATIONS.csv,scripts/render_figures.py,Nonmonotonic true measurements; different current states remain separate
+figures/F1_real_fixed_state_voltage.pdf,outputs/STATE_CYCLE_OBSERVATIONS.csv,scripts/render_figures.py,Nonmonotonic true measurements; different current states remain separate
+figures/F2_voltage_and_condition_context.png,outputs/FIXED_PRIMARY_CYCLE_OBSERVATIONS.csv,scripts/render_figures.py,Development; cold/humid operation and voltage recovery retained
+figures/F2_voltage_and_condition_context.pdf,outputs/FIXED_PRIMARY_CYCLE_OBSERVATIONS.csv,scripts/render_figures.py,Development; cold/humid operation and voltage recovery retained
+figures/F3_native_target_coverage.png,outputs/T0_T1_SPLIT_COUNTS.csv;outputs/T0_T1_WINDOW_QUALIFICATION.csv,scripts/render_figures.py,"Observed labels only, not independent forecast samples"
+figures/F3_native_target_coverage.pdf,outputs/T0_T1_SPLIT_COUNTS.csv;outputs/T0_T1_WINDOW_QUALIFICATION.csv,scripts/render_figures.py,"Observed labels only, not independent forecast samples"
+figures/F4_recommended_route.png,outputs/FINAL_DECISION.json;outputs/SAMPLE_UNIT_LEDGER.csv,scripts/render_figures.py,"Dashed connection is calibration context, not established TFT-to-SOH bridge"
+figures/F4_recommended_route.pdf,outputs/FINAL_DECISION.json;outputs/SAMPLE_UNIT_LEDGER.csv,scripts/render_figures.py,"Dashed connection is calibration context, not established TFT-to-SOH bridge"
+figures/F4_recommended_route.svg,outputs/FINAL_DECISION.json;outputs/SAMPLE_UNIT_LEDGER.csv,scripts/render_figures.py,"Dashed connection is calibration context, not established TFT-to-SOH bridge"

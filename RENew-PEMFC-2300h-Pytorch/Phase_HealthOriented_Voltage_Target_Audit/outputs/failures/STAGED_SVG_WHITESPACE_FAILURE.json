@@ -1,0 +1,15 @@
+{
+  "status": "FORMATTING_FAILURE_PRESERVED",
+  "returncode": 2,
+  "trailing_whitespace_reports": 1163,
+  "sample": [
+    "RENew-PEMFC-2300h-Pytorch/Phase_HealthOriented_Voltage_Target_Audit/figures/F4_recommended_route.svg:24: trailing whitespace.",
+    "+   <path d=\"M 0 363.739062 ",
+    "RENew-PEMFC-2300h-Pytorch/Phase_HealthOriented_Voltage_Target_Audit/figures/F4_recommended_route.svg:25: trailing whitespace.",
+    "+L 684 363.739062 ",
+    "RENew-PEMFC-2300h-Pytorch/Phase_HealthOriented_Voltage_Target_Audit/figures/F4_recommended_route.svg:26: trailing whitespace.",
+    "+L 684 -0 "
+  ],
+  "cause": "Matplotlib SVG path serialization has trailing spaces; no numerical or shape defect.",
+  "repair": "Strip line-end whitespace in SVG exporter and existing new-stage SVG; XML token structure verified unchanged."
+}

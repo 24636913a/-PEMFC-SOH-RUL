@@ -1,0 +1,7 @@
+{
+  "status": "FAILED_VERIFIER_PRESERVED",
+  "exception": "AttributeError: numpy.int64 object has no attribute split",
+  "location": "verify_independent.py window count replay, raw_cycle_ids.split",
+  "cause": "CSV had exactly one cycle ID per bin and pandas inferred integer dtype",
+  "repair": "Explicit str(raw_cycle_ids).split; no source, label, parameter, threshold or result changes"
+}

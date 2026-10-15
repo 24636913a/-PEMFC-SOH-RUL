@@ -1,0 +1,23 @@
+{
+  "recommendation": "C_RETAIN_DYNAMIC_TFT_AND_RIDGE96_AUXILIARY",
+  "reason": "Fixed-state observations are real and more interpretable, but denser dwell measurements are not additional life trajectories; native24-step dense target and causal physical comparability are not established for a replacement health task",
+  "original_frozen_cycle_observations": 141,
+  "new_audit_reconstructed_cycles": 146,
+  "audit_only_extra_cycles": [
+    152,
+    153,
+    154,
+    155,
+    156
+  ],
+  "complete_primary_dwells": 3503,
+  "complete_primary_QC_dwells": 2703,
+  "independent_life_trajectories": 1,
+  "reference_events": 7,
+  "original_sequence_48cycle_24cycle_legal": 0,
+  "fixed_state_fully_physical_SOH_qualified": false,
+  "new_GPU_training_recommended_now": false,
+  "train_new_model": false,
+  "Test_numeric_values": false,
+  "protocol_sha256": "4e4c187235c72aedcbf9dc8c5bbce288a2c1be98e539fa26c7ac440293bc9aa1"
+}

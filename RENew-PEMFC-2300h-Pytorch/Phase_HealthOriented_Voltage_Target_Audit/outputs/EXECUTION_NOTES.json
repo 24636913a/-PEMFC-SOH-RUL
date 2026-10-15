@@ -1,0 +1,25 @@
+{
+  "final_recommendation": "C_RETAIN_DYNAMIC_TFT_AND_RIDGE96_AUXILIARY",
+  "preserved_failures": [
+    "outputs/FIRST_EXTRACTION_FAILURE.json",
+    "outputs/FIRST_FAILED_EXTRACTION_PROGRESS.csv",
+    "outputs/failures/WINDOW_BOUNDARY_FAILURE.json",
+    "outputs/failures/INCLUSIVE75_BOUNDARY_RAW_FIXED_STATE_DWELL_MEASUREMENTS.csv"
+  ],
+  "additional_verifier_repair": "raw_cycle_ids may deserialize as integer when only one ID; explicit string conversion fixed the initial verifier AttributeError, no scientific results changed",
+  "raw_iterator": "Independent raw check uses bounded zip(range(certified_count),csvReader); no conversion of numerical feature values outside prefix",
+  "warnings": "Constant-current Spearman undefined yields NA and NumPy RuntimeWarning in condition audit; no zero substitute",
+  "reference_initial75boundary_failure_does_not_change_frozen_protocol": true,
+  "raw_retries": "Only technical parsing/unit/boundary repairs. No threshold/model/state selection tuning. Failed output retained separately",
+  "figure_QA": "Four PNG sets inspected: units, realN, Development scope, no invented labels; route has explicit auxiliary/unknown interface",
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "numpy": "2.4.6",
+    "pandas": "3.0.1",
+    "platform": "Windows-10-10.0.22631-SP0"
+  },
+  "original_models_and_results_unchanged": true,
+  "trained": false,
+  "GPU": false,
+  "Test_numeric_values": false
+}

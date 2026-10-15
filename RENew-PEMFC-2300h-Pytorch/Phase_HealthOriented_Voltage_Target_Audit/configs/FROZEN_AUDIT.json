@@ -1,0 +1,39 @@
+{
+  "base_commit": "bd5b79392b1a38f4fbf7c3b43ba666ecb9a2877c",
+  "mode": "ONE_PASS_DATA_AND_METHOD_AUDIT_NO_TRAINING",
+  "selection": "All positive non-stop state tokens with frozen duration>=120s, no voltage/trend selection",
+  "window": "Original PAA middle50% of dwell; last25% retained only as window sensitivity, never extra independent labels",
+  "identity": "operation_point+set_current token, complete raw cycle IDs preserved, no cycle rediscovery",
+  "raw_firewall": "Only first certified development_rows_retained records per source from existing RCR timeline; pre-verify age-only prefix, then read numeric columns with nrows bound; no later source files",
+  "raw_prefix_max_h": 1819.997738,
+  "raw_Tail_Test_numeric_reads": false,
+  "primary_state": "221||221.200",
+  "frozen_reference_V": 0.71383023635,
+  "reference_BoL_certified": false,
+  "electrical_stability_diagnostic": {
+    "j_std_max_A_cm2": 0.005,
+    "absolute_V_OLS_drift_max_mV_per_min": 2.0,
+    "max_T_span_C": 2.0,
+    "minimum_samples": 30
+  },
+  "stability_basis": "Pre-existing polarization qualification current/std and voltage-drift/temperature-span criteria, now explicit diagnostic on fixed-load windows; not new certified sensor accuracy",
+  "environment": "Record RH/pressure/range/within-window variation, no post-hoc calipers and no claim of hydration/irreversible-aging equivalence",
+  "new_raw_cycle_medians": "Audit-only all146 complete-cycle reconstruction from raw dwells, compare existing141; never overwrite or refit Ridge on extra5",
+  "sample_units": [
+    "raw points",
+    "nonoverlapping dwells",
+    "complete cycles",
+    "distinct observation times",
+    "one durability trajectory"
+  ],
+  "task_T0": "Frozen48 half-hour raw14 histories ->24 dynamic half-hour DeltaV outputs",
+  "task_T1a": "Same48 half-hour inputs and24 future bins; actual fixed-state dwell medians in each bin, missing labels stay missing",
+  "task_T1b": "Cycle-level original fixed-state voltages, H1/H2/H3; inspect48half-hour-input availability without fitting",
+  "task_T2": "Same real0.78923 fixed state reference, not independent labels fromT1; j1.0 polarization has7 real events only",
+  "split": "Original N1 Train rows[0,2103), Validation[2103,2404); exclude full cycles crossing split boundaries from supervised labels; Train labels before first Validation origin; past feature reuse is explicit not label reuse",
+  "candidate_counts": "Report dense24/24 and masked coverage separately; no interpolation, no arbitrary neural minimum sample threshold",
+  "chronological_selection": "Any future fit must finish before validation origin, Train-only scaler and inner model selection; current frozen F2 cache not a prospective health model",
+  "no_global_retrospective_B2_or_isotonic_targets": true,
+  "decisions": "A only if comparable new target fits current task; B if usable target requires a genuinely new task with justified independent validation; C if neural qualification not established. No GPU this round under any decision",
+  "stop": "One fixed audit, no threshold tuning, no model fitting, no test values, no new paper-mirror export"
+}

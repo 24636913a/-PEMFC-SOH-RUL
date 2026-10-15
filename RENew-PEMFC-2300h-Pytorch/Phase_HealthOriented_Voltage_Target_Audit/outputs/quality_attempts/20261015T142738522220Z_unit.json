@@ -1,0 +1,16 @@
+{
+  "name": "unit",
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_141_original_values_preserved (test_audit.AuditTests.test_141_original_values_preserved) ... ok\ntest_more_observations_are_not_more_lifetimes (test_audit.AuditTests.test_more_observations_are_not_more_lifetimes) ... ok\ntest_no_interpolated_native_targets (test_audit.AuditTests.test_no_interpolated_native_targets) ... ok\ntest_no_new_model_results (test_audit.AuditTests.test_no_new_model_results) ... ok\ntest_no_target_cycle_split_leak (test_audit.AuditTests.test_no_target_cycle_split_leak) ... ok\ntest_physical_cycles_not_halfhours (test_audit.AuditTests.test_physical_cycles_not_halfhours) ... ok\ntest_primary_window_boundary_provenance (test_audit.AuditTests.test_primary_window_boundary_provenance) ... ok\ntest_raw_boundary_is_strict (test_audit.AuditTests.test_raw_boundary_is_strict) ... ok\ntest_raw_file_extents_are_not_N1_rule (test_audit.AuditTests.test_raw_file_extents_are_not_N1_rule) ... ok\ntest_reference_first10_not_prospective_for_first10 (test_audit.AuditTests.test_reference_first10_not_prospective_for_first10) ... ok\ntest_strict_model_time_purges_kept_separate (test_audit.AuditTests.test_strict_model_time_purges_kept_separate) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.320s\n\nOK\n",
+  "command": [
+    "D:\\ruanjian\\python3.11.9\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ]
+}

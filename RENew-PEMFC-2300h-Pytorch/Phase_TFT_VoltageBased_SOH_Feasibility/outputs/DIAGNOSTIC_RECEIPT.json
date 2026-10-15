@@ -1,0 +1,20 @@
+{
+  "matched_unique_targets": 145,
+  "reference_cycles_min": 3,
+  "reference_cycles_max": 17,
+  "reference_cycle_SD_median_mV": 2.667345620606503,
+  "reference_cycle_SD_max_mV": 8.813079529753526,
+  "seed42_ratio_min_percent": 95.53835857879423,
+  "seed42_ratio_max_percent": 102.50325343907276,
+  "seed42_ratio_gt100_queries": 189,
+  "seed42_mean_vs_median_max_abs_pp": 0.5457874341926043,
+  "seed42_reference_range_width_median_pp": 1.0883620416141326,
+  "seed42_reference_range_width_max_pp": 3.0701009364074565,
+  "seed42_reference_SD_linear_sensitivity_median_pp": 0.3656493981324835,
+  "reference_spread_role": "Empirical between-cycle variability, NOT independent-sample confidence interval",
+  "fixed_12h_seed42_queries": 117,
+  "fixed_12h_seed42_upturns": 59,
+  "upturn_role": "Changes also change matching denominator/load; not proof of recovery or irreversible damage",
+  "denominator_sensitivity_is_not_label_uncertainty": true,
+  "physical_SOH_errors": null
+}

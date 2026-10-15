@@ -1,0 +1,16 @@
+{
+  "name": "unittest",
+  "command": [
+    "D:\\ruanjian\\python3.11.9\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_Test_identity_rejected (test_contract.ContractTests.test_Test_identity_rejected) ... ok\ntest_cutoff_strict_and_authority (test_contract.ContractTests.test_cutoff_strict_and_authority) ... ok\ntest_cycle_not_hour_identity (test_contract.ContractTests.test_cycle_not_hour_identity) ... ok\ntest_missing_authority_rows_rejected (test_contract.ContractTests.test_missing_authority_rows_rejected) ... ok\ntest_never_silently_prefix_on_noncontiguous_mask (test_contract.ContractTests.test_never_silently_prefix_on_noncontiguous_mask) ... ok\ntest_no_training_dependencies (test_contract.ContractTests.test_no_training_dependencies) ... ok\ntest_no_unqualified_ratios (test_contract.ContractTests.test_no_unqualified_ratios) ... ok\ntest_no_voltage_in_matching_fields (test_contract.ContractTests.test_no_voltage_in_matching_fields) ... ok\ntest_only_qualified_reference_cycles_in_denominator (test_contract.ContractTests.test_only_qualified_reference_cycles_in_denominator) ... ok\ntest_unsupported_comparisons_not_zero_errors (test_contract.ContractTests.test_unsupported_comparisons_not_zero_errors) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.169s\n\nOK\n"
+}

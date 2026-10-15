@@ -1,0 +1,24 @@
+{
+  "numerical_analysis_once": true,
+  "prepare_once": true,
+  "freeze_once": true,
+  "observed_warnings": [
+    "pandas PerformanceWarning for fragmented 214-column snapshot on analyze.py insert; no numerical failure; retained in this note"
+  ],
+  "failed_scientific_gates": [
+    "Authenticated BoL",
+    "Physically certified equivalent dynamic measurements",
+    "Strict online model/plan availability",
+    "Reference polarization SOH comparison",
+    "Common-origin equivalent cycle/dynamic target"
+  ],
+  "scientific_gate_failure_is_not_missing_data_filled_with_zero": true,
+  "figure_review": "Four PNGs visually inspected; labels, units, n, retrospective stage and non-SOH status visible",
+  "env": {
+    "Python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.22631-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.1"
+  },
+  "original_phases_unchanged": true
+}

@@ -1,0 +1,7 @@
+{
+  "status": "FAIL_PRESERVED",
+  "action": "first quality_gate workspace-prefix check",
+  "reason": "Git default quoting escaped Chinese report names, producing a false outside-phase-change alarm. Both10tests and independent numeric verification had already passed. Fixed parser to porcelain -z UTF-8 NUL paths; no scientific outputs or thresholds changed.",
+  "exception": "AssertionError: Outside-phase changes exist",
+  "historical_changes_detected": false
+}

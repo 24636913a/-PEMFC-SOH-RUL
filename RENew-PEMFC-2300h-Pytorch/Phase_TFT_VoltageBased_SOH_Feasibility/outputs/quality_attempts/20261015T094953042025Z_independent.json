@@ -1,0 +1,11 @@
+{
+  "name": "independent",
+  "command": [
+    "D:\\ruanjian\\python3.11.9\\python.exe",
+    "-B",
+    "scripts/verify_independent.py"
+  ],
+  "returncode": 0,
+  "stdout": "{\"status\": \"PASS\", \"source_files_unchanged\": 32, \"strict_read_rule_cells\": 105175, \"restored_prediction_queries\": 14760, \"matching_target_caliper_checks\": 753, \"exact_match_pair_rows\": 11426, \"denominator_max_abs_difference_V\": 0.0, \"Decimal_ratio_values\": 8613, \"Decimal_ratio_max_abs_difference_pp\": \"2.099016227664418952070799163669784E-14\", \"recomputed_metric_max_abs_difference\": 2.220446049250313e-16, \"reference_uncertainty_rows\": 145, \"reference_uncertainty_max_abs_difference_V\": 0.0, \"sensitivity_points\": 8613, \"horizon_metric_rows\": 72, \"independent_rank_relationships\": 6, \"raw_voltage_float32_truth_roundoff_max_V\": 2.947748645176773e-08, \"no_BoL_HI_values\": true, \"no_online_SOH\": true, \"reference_events_reused_not_rematched\": true, \"training\": false, \"GPU\": false, \"Test_values\": false}\n",
+  "stderr": ""
+}

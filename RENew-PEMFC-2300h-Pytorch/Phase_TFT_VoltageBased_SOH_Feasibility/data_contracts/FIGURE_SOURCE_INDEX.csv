@@ -1,0 +1,9 @@
+figure,CSV_sources,plot_code,scope
+figures/F1_dynamic_voltage_by_load.png,outputs/RESTORED_F2_PREDICTIONS.csv;data_contracts/DEVELOPMENT.csv,scripts/render_figures.py,205 fixed12h queries; retrospective load grouping
+figures/F1_dynamic_voltage_by_load.pdf,outputs/RESTORED_F2_PREDICTIONS.csv;data_contracts/DEVELOPMENT.csv,scripts/render_figures.py,205 fixed12h queries; retrospective load grouping
+figures/F2_matching_coverage.png,outputs/COVERAGE_BY_LOAD.csv,scripts/render_figures.py,"251 unique targets, not independent life samples"
+figures/F2_matching_coverage.pdf,outputs/COVERAGE_BY_LOAD.csv,scripts/render_figures.py,"251 unique targets, not independent life samples"
+figures/F3_conditional_retention_and_error.png,outputs/FIXED_12H_ENDPOINT_DIAGNOSTIC.csv;outputs/CONDITIONAL_RETENTION_HORIZON_ERRORS.csv,scripts/render_figures.py,"145 supported targets,2871 dependent queries perseed; endpointsubset displayed"
+figures/F3_conditional_retention_and_error.pdf,outputs/FIXED_12H_ENDPOINT_DIAGNOSTIC.csv;outputs/CONDITIONAL_RETENTION_HORIZON_ERRORS.csv,scripts/render_figures.py,"145 supported targets,2871 dependent queries perseed; endpointsubset displayed"
+figures/F4_dynamic_and_cycle_context.png,outputs/FIXED_12H_ENDPOINT_DIAGNOSTIC.csv;outputs/FROZEN_CYCLE_PERFORMANCE_PREDICTIONS.csv,scripts/render_figures.py,"Two separate panels; no forced correlation, no shared SOH scale"
+figures/F4_dynamic_and_cycle_context.pdf,outputs/FIXED_12H_ENDPOINT_DIAGNOSTIC.csv;outputs/FROZEN_CYCLE_PERFORMANCE_PREDICTIONS.csv,scripts/render_figures.py,"Two separate panels; no forced correlation, no shared SOH scale"

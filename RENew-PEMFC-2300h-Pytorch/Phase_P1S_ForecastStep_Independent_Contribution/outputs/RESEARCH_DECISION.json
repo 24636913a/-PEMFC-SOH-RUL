@@ -1,0 +1,16 @@
+{
+  "status": "FORECAST_STEP_GAIN_IS_HORIZON_DEPENDENT_AND_CALIBRATION_ERROR_DEPENDENT",
+  "H1": "NEGLIGIBLE_MEAN_INCREMENT_ONLY_1_OF_3_WINS",
+  "H3": "LARGER_SOH_REPLAY_INCREMENT_3_OF_3_WINS_WITH_PROXY_ERROR_CANCELLATION",
+  "proven_better_future_P1S_on_these3_SOH_events": false,
+  "next_Ridge_forecast_candidate_to_retain": "H3 exploratory; H1 no clear independent SOH gain",
+  "current_primary_control": "Measured-origin P1S + frozen past-only M2_NC calibration",
+  "validated_primary_SOH_forecasting_method_established": false,
+  "unique_reference_events": 3,
+  "strict_online_SOH": false,
+  "no_statistical_significance_claim": true,
+  "new_training": 0,
+  "no_Test": true,
+  "no_GPU": true,
+  "historical_P1S_forecasting_result_overturned": false
+}

@@ -1,0 +1,5 @@
+figure,source_csv,script,caption
+F1_matched_SOH_three_method_control,SOH_METRICS.csv,scripts/render_paper_figures.py,"Three methods at the exact same origins/targets; H1 and H3 reuse the same3 reference events, not6 independent outcomes. Retrospective scheduling; unknown release times."
+F2_eventwise_forecast_step_increment,POINTWISE_WINS.csv,scripts/render_paper_figures.py,Increment relative to measured-origin P1S with identical frozen calibration. Panels use different y scales. No significance or noise-floor claim.
+F3_calibration_forecast_error_cancellation,ERROR_DECOMPOSITION.csv,scripts/render_paper_figures.py,"e_SOH=100(aR_target+b-Y)+100a(R_pred-R_target). Actual future R is used only in retrospective error diagnosis, never a prediction input or deployable competing model."
+F4_proxy_error_vs_SOH_error,H3_VS_H1_ERROR_CANCELLATION.csv,scripts/render_paper_figures.py,Same target and calibration per event; origins differ. All3 H3 proxy errors exceed H1 while SOH errors shrink through residual cancellation. No regression fit or6-event inference.

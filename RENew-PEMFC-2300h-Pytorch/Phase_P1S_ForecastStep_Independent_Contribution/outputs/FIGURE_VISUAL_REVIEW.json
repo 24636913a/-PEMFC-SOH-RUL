@@ -1,0 +1,22 @@
+{
+  "PASS": true,
+  "review": "All four PNGs visually inspected; no clipped labels; units, same3-events pairing, signed components and plot source identities checked",
+  "figures": {
+    "F1_matched_SOH_three_method_control": {
+      "png_sha256": "a837ffec106f57bb37ed1a1b28b1d3d77e70ddca3036fd240fb304827e8c7a5a",
+      "pdf_sha256": "68afe690e363e86c119b2832e3f878d407f77adf876b4825441b829c18f6ac9e"
+    },
+    "F2_eventwise_forecast_step_increment": {
+      "png_sha256": "39fd0fe32bff8219cf592d31c4feee319f2937ef3c7c8d9d96d642186a2ac81b",
+      "pdf_sha256": "111e6ab856bbf24352cf610a0b9920fa1b2b70c5853101bcb8eff2c04f1dc2f6"
+    },
+    "F3_calibration_forecast_error_cancellation": {
+      "png_sha256": "c51df1b227cf853f5f7e81085a8f51bb512023843255c5542b805f6b589812e4",
+      "pdf_sha256": "3bccfc928bb77cc9c62aca74c25cae9f7d7eb1c52bf5e7ef012c50cd4458df92"
+    },
+    "F4_proxy_error_vs_SOH_error": {
+      "png_sha256": "b58cee8a209dbca467a91bd1f6cf7a2651578642c10124e33fd3f781be7baa4a",
+      "pdf_sha256": "314b411d75ae8df2454fe5da1cf8901bed9173867d1ea0bfead43f4763d2e3c9"
+    }
+  }
+}

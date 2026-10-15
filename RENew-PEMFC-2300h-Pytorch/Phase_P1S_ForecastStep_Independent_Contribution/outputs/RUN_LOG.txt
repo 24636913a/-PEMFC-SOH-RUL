@@ -1,0 +1,15 @@
+horizon                   method  n_events  MAE_SOH_pp  RMSE_SOH_pp  max_abs_error_SOH_pp
+     H1 M0_REFERENCE_PERSISTENCE         3    0.281172     0.326803              0.511696
+     H1  M_ORIGIN_P1S_CALIBRATED         3    0.080190     0.089379              0.112850
+     H1   M_RIDGE_P1S_CALIBRATED         3    0.079730     0.088721              0.114368
+     H3 M0_REFERENCE_PERSISTENCE         3    0.281172     0.326803              0.511696
+     H3  M_ORIGIN_P1S_CALIBRATED         3    0.063077     0.067289              0.083364
+     H3   M_RIDGE_P1S_CALIBRATED         3    0.032385     0.042905              0.070714
+horizon  n_unique_events  M0_MAE_SOH_pp  Origin_MAE_SOH_pp  Ridge_MAE_SOH_pp  recent_P1S_and_calibration_MAE_reduction_SOH_pp  Ridge_forecast_step_MAE_reduction_SOH_pp  Ridge_step_relative_to_origin_percent  total_MAE_reduction_vs_M0_SOH_pp  Ridge_step_share_of_total_MAE_reduction_percent                                                                    attribution_limit
+     H1                3       0.281172           0.080190          0.079730                                         0.200982                                  0.000460                               0.573738                          0.201443                                         0.228393 Order-dependent descriptive MAE differences, not causal variance/feature attribution
+     H3                3       0.281172           0.063077          0.032385                                         0.218095                                  0.030692                              48.657746                          0.248787                                        12.336674 Order-dependent descriptive MAE differences, not causal variance/feature attribution
+ nominal_h  same_target_R  common_calibration_residual_SOH_pp  H1_proxy_AE_mV_equivalent  H3_proxy_AE_mV_equivalent  H1_SOH_AE_pp  H3_SOH_AE_pp  H1_signed_proxy_term_SOH_pp  H3_signed_proxy_term_SOH_pp  H3_error_cancellation
+      1150           True                           -0.117178                   0.101569                   0.648875      0.099452      0.003936                     0.017726                     0.113241                   True
+      1500           True                            0.028063                   0.016980                   0.035030      0.025369      0.022506                    -0.002694                    -0.005558                   True
+      1750           True                            0.115285                   0.005709                   0.277798      0.114368      0.070714                    -0.000916                    -0.044570                   True
+AUDIT_COMPLETE

@@ -1,0 +1,104 @@
+[
+  {
+    "nominal_h": 1150,
+    "horizon": "H1",
+    "a": 1.2457745051035287,
+    "b": -0.2556724645411039,
+    "training_events": [
+      300,
+      600,
+      850
+    ],
+    "R_input_forecast": 0.9851712390144489,
+    "past_only": true,
+    "min_prior_events": 3,
+    "proxy_operator": "nearest_complete; not AHC median3",
+    "model": "M2_NC_AFFINE"
+  },
+  {
+    "nominal_h": 1150,
+    "horizon": "H3",
+    "a": 1.2457745051035287,
+    "b": -0.2556724645411039,
+    "training_events": [
+      300,
+      600,
+      850
+    ],
+    "R_input_forecast": 0.9859379557134883,
+    "past_only": true,
+    "min_prior_events": 3,
+    "proxy_operator": "nearest_complete; not AHC median3",
+    "model": "M2_NC_AFFINE"
+  },
+  {
+    "nominal_h": 1500,
+    "horizon": "H1",
+    "a": 1.1325192240689559,
+    "b": -0.1431901420216004,
+    "training_events": [
+      300,
+      600,
+      850,
+      1150
+    ],
+    "R_input_forecast": 0.9865678290382787,
+    "past_only": true,
+    "min_prior_events": 3,
+    "proxy_operator": "nearest_complete; not AHC median3",
+    "model": "M2_NC_AFFINE"
+  },
+  {
+    "nominal_h": 1500,
+    "horizon": "H3",
+    "a": 1.1325192240689559,
+    "b": -0.1431901420216004,
+    "training_events": [
+      300,
+      600,
+      850,
+      1150
+    ],
+    "R_input_forecast": 0.9865425417641117,
+    "past_only": true,
+    "min_prior_events": 3,
+    "proxy_operator": "nearest_complete; not AHC median3",
+    "model": "M2_NC_AFFINE"
+  },
+  {
+    "nominal_h": 1750,
+    "horizon": "H1",
+    "a": 1.1452832796857424,
+    "b": -0.1558799920052233,
+    "training_events": [
+      300,
+      600,
+      850,
+      1150,
+      1500
+    ],
+    "R_input_forecast": 0.985615180921926,
+    "past_only": true,
+    "min_prior_events": 3,
+    "proxy_operator": "nearest_complete; not AHC median3",
+    "model": "M2_NC_AFFINE"
+  },
+  {
+    "nominal_h": 1750,
+    "horizon": "H3",
+    "a": 1.1452832796857424,
+    "b": -0.1558799920052233,
+    "training_events": [
+      300,
+      600,
+      850,
+      1150,
+      1500
+    ],
+    "R_input_forecast": 0.9852340143209497,
+    "past_only": true,
+    "min_prior_events": 3,
+    "proxy_operator": "nearest_complete; not AHC median3",
+    "model": "M2_NC_AFFINE"
+  }
+]

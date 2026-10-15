@@ -1,0 +1,7 @@
+# P1S预测步骤独立贡献：已核验论文候选包
+
+本包只包含核验与测试通过、图审通过且带明确主张边界的真实成果，不代表独立确认性在线SOH研究。H1/H3共用3参考事件；未来实测P1S只用于事后误差分解。
+
+在本包目录运行`python -B scripts/render_paper_figures.py`，从source_csv重绘所有PNG/PDF。完整数值核验、冻结输入及Python测试在研究主目录的Phase_P1S_ForecastStep_Independent_Contribution，README给出命令。来源CSV、绘图源码、源文件SHA与核验回执均保留。
+
+可写和不可写的科学主张见CLAIM_BOUNDARIES.md。H3可作为后续Ridge预测候选，不能据三个事件和误差抵消宣布其已成为可靠SOH主方法。保留起点实测P1S+固定校准作为必要主对照。

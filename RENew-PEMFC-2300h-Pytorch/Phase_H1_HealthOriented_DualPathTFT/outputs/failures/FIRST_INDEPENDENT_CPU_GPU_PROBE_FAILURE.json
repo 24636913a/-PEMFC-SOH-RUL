@@ -1,0 +1,8 @@
+{
+  "status": "CROSS_DEVICE_PRECISION_PROBE_FAILED_PRESERVED",
+  "run_id": "fold_2_F1_seed62",
+  "CPU_vs_GPU_difference_V": 2.009992557949758e-07,
+  "original_threshold_V": 2e-07,
+  "exception": "AssertionError: Crossdevice prediction precision, fold_2_F1_seed62",
+  "resolution": "Keep all CPU discrepancies and original threshold outcomes; independently reload all27weights on same GPU under frozen runtime settings and require exact standardized-output parity. No prediction/model/training/protocol change or threshold widening."
+}

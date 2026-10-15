@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "source_files_unchanged": 23,
+  "sample_time_identity_checks": 184,
+  "Train_only_preprocessors": 6,
+  "GPU_final_checkpoints_replayed": 27,
+  "crossdevice_max_abs_difference_V": 2.2014303768802534e-07,
+  "original_crossdevice_probe_V": 2e-07,
+  "crossdevice_probe_failures": 2,
+  "acceptance": "All27sameGPUreplays bit-exact; cross-device discrepancies retained as diagnostics, no tolerance widening",
+  "same_GPU_checkpoint_replays_exact": 27,
+  "data_identities_exact": true,
+  "closed_form_Ridge_max_abs_difference_V": 0.0,
+  "metric_rows": 33,
+  "metric_max_abs_difference_mV": 2.220446049250313e-16,
+  "Decimal_proxy_max_abs_difference_pp": "1.9341678111937545695139003619764502E-14",
+  "prediction_rows": 451,
+  "same_batch_order_across_models": true,
+  "optimizer_steps_in_verification": 0,
+  "Test": false
+}

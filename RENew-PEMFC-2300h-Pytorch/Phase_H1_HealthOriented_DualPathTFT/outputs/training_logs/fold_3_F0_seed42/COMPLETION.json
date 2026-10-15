@@ -1,0 +1,35 @@
+{
+  "status": "COMPLETE",
+  "run_id": "fold_3_F0_seed42",
+  "inner": {
+    "stage": "inner",
+    "optimizer_epochs": 67,
+    "selected_epoch": 27,
+    "fit_seconds": 9.919564299998456,
+    "initialization_sha256": "09240b30338895eaec891f91fbcf26cf5d4929a64c3670b646ac187a649bd5ca",
+    "checkpoint": "outputs/checkpoints/fold_3_F0_seed42_inner.pt",
+    "checkpoint_sha256": "e65035da402aa775c9c3465fadb1ae3640cac0f7242ee27a728fbdd2a7e3de13",
+    "selection": "Train_inner_only",
+    "best_inner_standardized_RMSE": 0.18390982031283606
+  },
+  "final": {
+    "stage": "final",
+    "optimizer_epochs": 27,
+    "selected_epoch": 27,
+    "fit_seconds": 3.721132700000453,
+    "initialization_sha256": "09240b30338895eaec891f91fbcf26cf5d4929a64c3670b646ac187a649bd5ca",
+    "checkpoint": "outputs/checkpoints/fold_3_F0_seed42_final.pt",
+    "checkpoint_sha256": "cc495cb3866a53b3cee1add58310eb7ea07c653ebd44e91cf7586b09ec43a3af",
+    "selection": "fixed_epoch_selected_in_inner; no_outer_validation_early_stop"
+  },
+  "voltage_queries": 22,
+  "total_training_seconds": 13.965673799997603,
+  "latest_Train_label_calendar": "2025-05-22 15:22:15.005000",
+  "replay_model_available_calendar": "2025-05-22 15:22:28.970673799",
+  "earliest_Validation_origin_calendar": "2025-05-24 02:55:51.005000",
+  "inner_model_replay_available_calendar": "2025-04-15 21:28:12.924564299",
+  "CPU_wall_UTC_is_not_historical_deployment": true,
+  "checkpoint_reload_exact": true,
+  "outer_used_for_selection": false,
+  "optimizer_fits": 2
+}

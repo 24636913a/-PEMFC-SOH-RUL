@@ -1,0 +1,24 @@
+{
+  "status": "H1_HEALTH_TFT_NO_GAIN",
+  "threefold_complete": true,
+  "neural_experiments": 27,
+  "GPU_optimizer_fit_passes": 54,
+  "CPU_Ridge_fit_passes": 15,
+  "F2_MAE_mV": 1.0029731638085024,
+  "Persistence_MAE_mV": 0.12398733303227366,
+  "F2_improvement_vs_Persistence_percent": -708.9319604506942,
+  "F2_better_F0_equal_fold_MAE": false,
+  "F2_better_F1_equal_fold_MAE": false,
+  "fold_wins": {
+    "H-F0": 2,
+    "H-F1": 2,
+    "Persistence": 0
+  },
+  "seed_wins_vs_Persistence": 0,
+  "tail_gate": false,
+  "F2_MAE_proxy_SOH_pp": 0.14050583916660153,
+  "reference_standard_SOH_qualified": false,
+  "historical_online_deployment_claimed": false,
+  "no_Test": true,
+  "rule_frozen_before_results": true
+}

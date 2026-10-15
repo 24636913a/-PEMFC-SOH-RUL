@@ -1,0 +1,11 @@
+figure,CSV_sources,code,scope
+figures/F1_H1_ablation_and_baselines.png,outputs/PRIMARY_EQUAL_FOLD_METRICS.csv;outputs/FOLD_THREE_SEED_MEANS.csv;outputs/THREE_SEED_STABILITY.csv,scripts/render_figures.py,Threefold equal-weight; baselines not3seed replicated fits
+figures/F1_H1_ablation_and_baselines.pdf,outputs/PRIMARY_EQUAL_FOLD_METRICS.csv;outputs/FOLD_THREE_SEED_MEANS.csv;outputs/THREE_SEED_STABILITY.csv,scripts/render_figures.py,Threefold equal-weight; baselines not3seed replicated fits
+figures/F2_real_voltage_and_TFT_predictions.png,outputs/ALL_POINT_PREDICTIONS.csv,scripts/render_figures.py,Seed42 predeclared; no interpolation across missing cycles
+figures/F2_real_voltage_and_TFT_predictions.pdf,outputs/ALL_POINT_PREDICTIONS.csv,scripts/render_figures.py,Seed42 predeclared; no interpolation across missing cycles
+figures/F3_voltage_SOH_proxy.png,outputs/ALL_POINT_PREDICTIONS.csv,scripts/render_figures.py,"All3seeds; no ensemble, monotonicity or calibration fitting"
+figures/F3_voltage_SOH_proxy.pdf,outputs/ALL_POINT_PREDICTIONS.csv,scripts/render_figures.py,"All3seeds; no ensemble, monotonicity or calibration fitting"
+figures/F4_seed_and_fold_stability.png,outputs/FOLD_SEED_METRICS.csv,scripts/render_figures.py,n=13/6/22 perseed; seed variation is not independent life variability
+figures/F4_seed_and_fold_stability.pdf,outputs/FOLD_SEED_METRICS.csv,scripts/render_figures.py,n=13/6/22 perseed; seed variation is not independent life variability
+figures/F5_change_tracking_and_controls.png,outputs/ALL_POINT_PREDICTIONS.csv,scripts/render_figures.py,"Same41targets; direction/lag diagnostic, not a fitted time delay"
+figures/F5_change_tracking_and_controls.pdf,outputs/ALL_POINT_PREDICTIONS.csv,scripts/render_figures.py,"Same41targets; direction/lag diagnostic, not a fitted time delay"

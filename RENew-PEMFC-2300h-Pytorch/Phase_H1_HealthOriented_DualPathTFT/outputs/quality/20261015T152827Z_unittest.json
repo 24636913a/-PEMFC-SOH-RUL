@@ -1,0 +1,16 @@
+{
+  "command": [
+    "D:\\ruanjian\\python3.11.9\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_H1_HealthOriented_DualPathTFT\\tests",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "returncode": 0,
+  "log": "outputs/quality/20261015T152827Z_unittest.log"
+}

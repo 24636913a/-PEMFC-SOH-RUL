@@ -1,5 +1,7 @@
 """Full-pool statistics and candid Chinese reports, never selects new seeds."""
 from screen_common import *
+from execution_paths import progress_path
+from reliable_io import js
 def md(name,text):
  f=P/name;f.parent.mkdir(parents=True,exist_ok=True);f.write_bytes((text.strip()+'\n').encode('utf-8'))
 def table(d,columns):
@@ -8,14 +10,17 @@ def table(d,columns):
   if pd.api.types.is_float_dtype(q[c]):q[c]=q[c].map(lambda x:f'{x:.6f}')
  return '| '+' | '.join(q.columns)+' |\n| '+' | '.join(['---']*len(q.columns))+' |\n'+'\n'.join('| '+' | '.join(map(str,r))+' |' for r in q.itertuples(index=False,name=None))
 def main():
- c=cfg();r=ranking();state=json.loads((P/'outputs/execution_ledger/PROGRESS_ENGINEERING_REPAIR.json').read_text());n=len(r);historical=json.loads((H/'outputs/H_FINAL_SUMMARY.json').read_text())
+ c=cfg();r=ranking();state=json.loads((progress_path()).read_text());n=len(r);historical=json.loads((H/'outputs/H_FINAL_SUMMARY.json').read_text())
  statuses=pd.DataFrame(list(state['seeds'].values()));cs('outputs/ALL_20_SEED_STATES.csv',statuses)
  identities=[]
+ previous=json.loads((P/'outputs/execution_ledger/PROGRESS_ENGINEERING_REPAIR.json').read_text());previous_complete={int(k) for k,v in previous['seeds'].items() if v['status']=='COMPLETED'}
  for seed in r.seed if len(r) else []:
   initial=json.loads((P/f'outputs/training_logs/seed_{seed}/initial.json').read_text())
+  actual_worker='scripts/train_seed_v2.py' if int(seed) in previous_complete else 'scripts/train_seed_v3.py'
   identities.append(dict(seed=int(seed),base_commit=c['base_commit'],model='Frozen Phase H RegimeAwareDualPathTFT',parameter_count=332436,
-   scientific_protocol_sha256=initial['protocol_sha256'],logger_amendment_sha256=sha(P/'configs/LOGGER_REPAIR_AMENDMENT.json'),actual_worker='scripts/train_seed_v2.py',
-   actual_worker_sha256=sha(P/'scripts/train_seed_v2.py'),initialization_sha256=initial['initialization_sha256'],environment=json.dumps(initial['environment'],sort_keys=True)))
+   scientific_protocol_sha256=initial['protocol_sha256'],logger_amendment_sha256=sha(P/'configs/LOGGER_REPAIR_AMENDMENT.json'),actual_worker=actual_worker,
+   actual_worker_sha256=sha(P/actual_worker),IO_repair_amendment_sha256=sha(P/'configs/WINDOWS_IO_REPAIR_AMENDMENT.json') if int(seed) not in previous_complete else None,
+   initialization_sha256=initial['initialization_sha256'],environment=json.dumps(initial['environment'],sort_keys=True)))
  cs('outputs/audits/RUN_IDENTITY_INDEX.csv',pd.DataFrame(identities))
  if not n:
   md('reports/01_通宵训练执行总结.md',f"# {state['status']}\n\n有效种子0；保留全部故障和未启动记录，禁止虚构排名/图表。\n\n{state.get('stop_reason','')}\n")
@@ -36,6 +41,13 @@ def main():
  cs('outputs/ALL_SEEDS_AT_GLOBAL_WORST_KEY.csv',pd.concat(samekey))
  stats=pd.DataFrame([dict(metric=k,n=n,mean=float(r[k].mean()),sample_std=float(r[k].std(ddof=1)) if n>1 else None,median=float(r[k].median()),minimum=float(r[k].min()),maximum=float(r[k].max())) for k in cols]);cs('outputs/F2_FULL_POOL_STATISTICS.csv',stats)
  top=r.head(5);best=r.iloc[0];horizon=rd(P/'outputs/F2_HORIZON_METRICS.csv');z=horizon.loc[horizon.seed.eq(int(best.seed))].sort_values('horizon_step')
+ top_horizon=[]
+ for seed in top.seed:
+  q=horizon.loc[horizon.seed.eq(int(seed))].sort_values('horizon_step');assert len(q)==24,('MISSING_COMPLETED_SEED_HORIZONS',int(seed))
+  firstq=q.iloc[0];lastq=q.iloc[-1];peakq=q.loc[q.RMSE_mV.idxmax()]
+  top_horizon.append(dict(seed=int(seed),step1_RMSE_mV=float(firstq.RMSE_mV),step24_RMSE_mV=float(lastq.RMSE_mV),step24_to_step1_ratio=float(lastq.RMSE_mV/firstq.RMSE_mV),
+   maximum_horizon_RMSE_mV=float(peakq.RMSE_mV),maximum_at_horizon_step=int(peakq.horizon_step),step1_MAE_mV=float(firstq.MAE_mV),step24_MAE_mV=float(lastq.MAE_mV)))
+ top_horizon=pd.DataFrame(top_horizon);cs('outputs/F2_TOP5_HORIZON_DIAGNOSTICS.csv',top_horizon)
  comparison=[]
  for old in historical['multi_seed_statistics']:comparison.append(dict(result_group=f"Historical {old['model']} all3seeds",n=3,RMSE_mV=old['RMSE_mean_mV'],sample_std_mV=old['RMSE_sample_std_mV'],selection='Frozen42/52/62, no new screening'))
  comparison.extend([dict(result_group='New F2 full valid pool',n=n,RMSE_mV=float(r.RMSE_mV.mean()),sample_std_mV=float(r.RMSE_mV.std(ddof=1)) if n>1 else None,selection='All completed predeclared candidates'),dict(result_group='New F2 selected best',n=1,RMSE_mV=float(best.RMSE_mV),sample_std_mV=None,selection='Selected on same Validation'),dict(result_group='New F2 selected Top5',n=len(top),RMSE_mV=float(top.RMSE_mV.mean()),sample_std_mV=float(top.RMSE_mV.std(ddof=1)) if len(top)>1 else None,selection='Selected on same Validation; optimistic')]);comparison=pd.DataFrame(comparison);cs('outputs/HISTORICAL_AND_NEW_COMPARISON.csv',comparison)
@@ -53,6 +65,8 @@ def main():
 
 种子101在首批日志序列化时发生duplicate epoch keyword错误，尚未执行前向/反向/optimizer step。完整原文件、原冻结配置、失败与原控制器ledger均保留；101不重跑。LOGGER_REPAIR_AMENDMENT仅修复dict日志合并并继续原列表中未启动种子，不改变训练数值逻辑、截止时间或种子池。八项测试包含新旧worker仅这些已登记差异的逐字符核验。每个完成种子从独立初始化训练，无热启动。
 
+种子151在已经执行部分训练后，更新run_state.json触发Windows WinError5，后续失败状态写入又成功，属于短暂文件替换冲突；没有证据指向CUDA或数据身份问题。151保留失败、逐epoch日志及未获正式资格的partial checkpoint，不重跑、不计入有效种子均值。前9个完整模型在事故后均通过独立同GPU精确重放。9结果快照位于outputs/partial_deliveries/after_seed151_IO_failure，对应本地提交079e16b36fd32fe0987dff968b93c67d36a422c8，首次推送连接重置记录保留。WINDOWS_IO_REPAIR_AMENDMENT只为原子文件替换增加有限重试；续做从原未启动157开始，11项测试验证模型训练数学逻辑完全不变，8小时起点仍为原时间。实际worker身份逐seed列于RUN_IDENTITY_INDEX.csv。
+
 8小时上限按第一次控制器start_UTC计时；剩余不足1小时不启动下一Seed，每Seed3300秒watchdog；遇关键有效性问题停止，不放宽条件。临时SetThreadExecutionState只抑制运行期间系统睡眠，finally恢复；不永久修改电源计划或代理配置。
 
 全部结果是Development Validation的模型/epoch筛选成绩，不是独立Test。CUDA沿用H普通运行协议，不声称跨训练严格逐位确定性；保存权重的同GPU推理由独立审计精确重放。''')
@@ -63,7 +77,11 @@ Top{len(top)}：{summary['top5']}。最佳Seed{number}：RMSE {best.RMSE_mV:.6f}
 
 Top{len(top)}平均RMSE {summary['top5_RMSE_mean_mV']:.6f}mV，属于同一Validation筛选后的乐观描述，不能冒充随机初始化的一般性能或独立泛化估计。
 
-最佳种子第1步RMSE {first:.6f}mV，第24步/12h {last:.6f}mV，比值{last/first:.3f}。完整24步误差见F2_HORIZON_METRICS.csv，是否单调随步长增长应直接阅读曲线，不只用端点推断。P95/P99/全局最大误差均保留，典型图使用预先固定的205个起点中位索引；另展示最佳种子最差窗口，不拼接重叠预测窗口。''')
+最佳种子第1步RMSE {first:.6f}mV，第24步/12h {last:.6f}mV，比值{last/first:.3f}。完整24步误差见F2_HORIZON_METRICS.csv，是否单调随步长增长应直接阅读曲线，不只用端点推断。P95/P99/全局最大误差均保留，典型图使用预先固定的205个起点中位索引；另展示最佳种子最差窗口，不拼接重叠预测窗口。
+
+{table(top_horizon,['seed','step1_RMSE_mV','step24_RMSE_mV','step24_to_step1_ratio','maximum_horizon_RMSE_mV','maximum_at_horizon_step'])}
+
+Top5按整体RMSE入选，不代表所有预测步都稳定。上表分别展示入选种子的起始、终点及最大逐步误差；不能以最佳Seed的较好终点掩盖其他Top5的长跨度失稳。此表只作描述，不改变冻结排名、不重新选Seed或调整训练条件。''')
  md('reports/04_多种子稳定性分析.md','# 全候选集合统计\n\n'+table(stats,['metric','n','mean','sample_std','median','minimum','maximum'])+f'\n\n达到450轮预算上限{int(convergence.reached450_epoch_budget.sum())}个，最终一轮仍为最优{int(convergence.best_at_final_epoch.sum())}个；逐seed记录见CONVERGENCE_AND_BUDGET_DIAGNOSTICS.csv。不能声称全部模型已经收敛，也不因此增加epoch预算。'+ '\n\n'+table(tails,['seed','origin_row','target_row','horizon_step','max_abs_error_mV','single_worst_point_SSE_percent','all_origins_at_same_target_SSE_percent'])+'\n\n上表是事后尾部集中度诊断，SSE占比用于解释RMSE的敏感性，不删除任何目标。全池最大误差键上所有seed的真实配对输出见ALL_SEEDS_AT_GLOBAL_WORST_KEY.csv。少数目标上的巨大误差可能主导种子排名；仅凭这些差异不能归因于门控机制，也不据此调整后续种子、超参数或训练预算。'+'\n\n样本标准差ddof=1；不足两个种子时标准差为NA。失败/超时没有用0填补。不同种子共享同一数据，不能视为独立电池或独立寿命轨迹，不进行伪重复统计显著性检验。种子101是已披露的零步工程失败；剩余未启动列表按真实预算或有效性停止原因保留。')
  md('reports/05_与历史F0_F1_F2比较.md','# 历史与本轮的不同统计身份\n\n'+table(comparison,['result_group','n','RMSE_mV','sample_std_mV','selection'])+'\n\n历史Phase H已经提供同42/52/62的F0/F1/F2配对证据。本次新增候选预算只给F2，不能用筛选后的最佳/Top5对比历史F0/F1三种子均值，宣称完成了新增公平结构优越性证明。历史缓存不重训、不重写，不访问已复用Assessment来挑选种子。')
  md('reports/06_论文可用图表索引.md',f'''# 图表与数据索引

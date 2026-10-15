@@ -1,0 +1,23 @@
+{
+  "scope": "LIVE_LAYOUT_PREVIEW_NOT_FINAL_SWEEP_RESULT",
+  "completed_seeds": [
+    103,
+    127,
+    109,
+    113,
+    107
+  ],
+  "GPU_used": false,
+  "optimizer_steps": 0,
+  "input_prediction_sha256": {
+    "103": "037ceb873a945efdfa3dd767d3e57937c2d5242645a698845fa7f13a58e17652",
+    "127": "0ed0d9a27ee69b63d8cd9ec33d07f173ca47db56ca183bffe687834a5cc07f6e",
+    "109": "dcbe00cb47f14a55ee4ecccaf5ecaea5c83a67f4702dfb74b5c60e77153a3d3c",
+    "113": "206229118f69576ba76a30b16d9e1c6e63b4792504e1f9ec67a41cbe3d3ba60a",
+    "107": "afb744007b344605d326cb9a2ed564e4e1d1e9ee1d7f8275289faa18e26bf5f1"
+  },
+  "figure_code_sha256": "55bcf7332fb029e9e879314e8bbf02f31ef4e35bb6a1fd1934933a5cf7d3e4ef",
+  "visual_review": "PASS: all six actual-cache figures inspected; readable units/sample scope, no clipping, no overlapping-window stitching; large adverse tail visible",
+  "review_UTC": "2026-10-15T18:30:57Z",
+  "final_sweep_regeneration_still_required": true
+}

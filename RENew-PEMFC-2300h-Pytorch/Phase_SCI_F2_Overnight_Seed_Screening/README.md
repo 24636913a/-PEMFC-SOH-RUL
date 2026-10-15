@@ -4,7 +4,11 @@
 
 第一次控制器在Seed101首批日志写入时失败，零前向、零反向、零优化步骤。原失败、原worker与原配置均保留，不重跑101。不可变LOGGER_REPAIR_AMENDMENT记录修复日志dict重复键，并从原列表未启动Seed103继续。原8小时截止时间不重置。不要删除ledger、覆盖权重或重复启动既有runID。
 
-实际运行状态见outputs/execution_ledger/PROGRESS_ENGINEERING_REPAIR.json；原PROGRESS.json是保留的首次故障现场。正常结束后自动执行9项测试、历史权重保护、独立逐点指标复算和保存权重同GPU重放、6组真实图表、中文报告。独立publisher等待控制器恢复临时防睡眠并退出，再封存、仅提交本阶段并普通推送main。网络失败保留本地提交，不修改代理配置、不强推。
+当前续做状态见outputs/execution_ledger/PROGRESS_IO_REPAIR.json；原PROGRESS.json与PROGRESS_ENGINEERING_REPAIR.json均保留。第二次事故是151更新状态文件时的WinError5；151的部分训练日志与partial checkpoint保留，不重跑、不进入完整结果排名。WINDOWS_IO_REPAIR_AMENDMENT登记有界原子重命名重试，worker v3仅改变日志持久化，11项测试证明训练数学逻辑不变。续做从157开始，原8小时截止不重置。监视程序采用UTF-8与FILE_SHARE_DELETE，允许原子替换，不持有阻止替换的读锁。
+
+前9结果的报告、图表、指标、SHA和推送失败记录已保存为outputs/partial_deliveries/after_seed151_IO_failure，对应本地提交079e16b36fd32fe0987dff968b93c67d36a422c8。其根目录封存文件属于当时9结果，将在最终汇总后重新生成；旧封存副本保持不变。9个完整权重/预测仍保留原路径与原SHA。
+
+正常结束后自动执行12项测试（含已保存9结果快照及权重不变性）、历史权重保护、独立逐点指标复算和保存权重同GPU重放、6组真实图表、中文报告。独立publisher等待控制器退出后封存、仅提交本阶段并普通推送main。防睡眠请求通过明确交接持续覆盖审计与推送，最后恢复；网络失败保留本地提交，不修改代理配置、不强推。
 
 完整排名F2_SEED_RANKING.csv、Top5、全池统计和FINAL_SUMMARY均在outputs。Top5/最佳是同一Validation筛选后的候选成绩，不能冒充随机初始化一般性能或公平结构优越性。R²沿用Phase H的ΔV口径。电压图使用原始起点V加ΔV（只恢复一次），各曲线仅对应一个起点的24步，不拼接重叠窗口。
 
@@ -18,6 +22,6 @@ D:\ruanjian\python3.11.9\python.exe -B scripts/protect_history.py
 D:\ruanjian\python3.11.9\python.exe -B scripts/audit_delivery.py --verify-local-journals
 ```
 
-训练中不得重放GPU独立审计争用设备。复算不执行optimizer；原始N1不是复算必需，合法冻结输入张量已保存。生成正式图表会重写本阶段图表字节，因此SHA核验应先针对交付原件。
+训练中不得重放GPU独立审计争用设备。复算不执行optimizer；原始N1不是复算必需，合法冻结输入张量已保存。生成正式图表会重写本阶段图表字节，因此SHA核验应先针对交付原件。只读监视可运行scripts/monitor_progress.py --once；不要用高频、未启用共享删除的文件读取持续占用正在原子替换的状态文件。
 
 正式checkpoint、预测、epoch日志计划随Git提交。完整batch_events.jsonl仅保留本地，不声称已备份；具体路径/大小/SHA/best epoch见LOCAL_ARTIFACT_INVENTORY.csv。提交与推送状态见仅本地outputs/GIT_RECEIPT.local.json；成功GitHub推送是已跟踪文件的备份证据，未跟踪完整batch日志仍未备份。

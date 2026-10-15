@@ -1,0 +1,24 @@
+{
+  "UTC": "2026-10-15T19:56:44Z",
+  "original_protocol_sha256": "0535806f72845f37e66ad343dc2082f46e0cff9edd0f0f12b19451216ec3637d",
+  "original_8h_start_UTC": "2026-10-15T16:24:19Z",
+  "failed_seed_not_retried": 151,
+  "failed_original_seed101_not_retried": true,
+  "scientific_configuration_changed": false,
+  "reason": "Transient WinError5 replacing run_state; failure-state replacement subsequently succeeded. Exact locking process unknown. Bounded atomic rename retry only; all model math, RNG, labels, hyperparameters and seed order unchanged.",
+  "replacement_retry_delays_s": [
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+  ],
+  "no_retry_of_failed_training": true,
+  "partial_snapshot_commit": "079e16b36fd32fe0987dff968b93c67d36a422c8",
+  "code_sha256": {
+    "scripts/reliable_io.py": "9f1473eb36aef299302aeb34a4fed5a1b211a25c4034e5917f60408efb81c66e",
+    "scripts/train_seed_v3.py": "fcd2553d3ec24815d97e9f6b91d2b9dbdb82606aa895ecdcbc18bf2d863aa3ba",
+    "scripts/resume_after_IO_repair.py": "63cca623089951f3403d9bce9523d48410cc8b62e18be0b6c9009282cec70d05"
+  }
+}

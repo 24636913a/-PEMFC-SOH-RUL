@@ -1,0 +1,28 @@
+{
+  "seed": 157,
+  "initialization_sha256": "beeb42c9dd20d6730b05e6a14e71a286dbb3a5665b2fa28c6a99e6ae0758267e",
+  "rng": {
+    "cpu": "acf2b5e6bbe62f3401d50c33d5615c54586cadc76c089a711b67f11aac5e5ee3",
+    "cuda": "4989136da91f17ae2534529f8a83d35ce292d7cdd74c24db4469a31884e78f5b",
+    "loader": "7ff961672640c6ed6aab4fffaa2334f1beb8c10f9735c129fc3400e8ffac039f",
+    "numpy": "25f8841ea4f04e10939dc8ff481d2b15ca765ca34e76d221085c6ce5ae83cb89",
+    "python": "f9ddd14194993dc8a8e36d64963d0f39e0a043db5dc16ca2a9b8258b0d422c1f"
+  },
+  "environment": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": false,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "protocol_sha256": "0535806f72845f37e66ad343dc2082f46e0cff9edd0f0f12b19451216ec3637d"
+}

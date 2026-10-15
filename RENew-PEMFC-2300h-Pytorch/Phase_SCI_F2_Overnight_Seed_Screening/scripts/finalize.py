@@ -1,10 +1,12 @@
 """After sweep only: tests, independent replay, plots, reports, publication handoff."""
 from screen_common import *
+from execution_paths import progress_path
+from reliable_io import js
 def main():
- state=json.loads((P/'outputs/execution_ledger/PROGRESS_ENGINEERING_REPAIR.json').read_text());assert state['status'].startswith('OVERNIGHT_')
+ state=json.loads((progress_path()).read_text());assert state['status'].startswith('OVERNIGHT_')
  folder=P/'outputs/audits';folder.mkdir(exist_ok=True)
  tests=subprocess.run([sys.executable,'-B','-m','unittest','discover','-s',str(P/'tests'),'-v'],cwd=REPO,capture_output=True)
- (folder/'FINAL_TESTS.log').write_bytes(tests.stdout+tests.stderr);js('outputs/audits/FINAL_TESTS.json',dict(returncode=tests.returncode,tests=9,optimizer_steps=0))
+ (folder/'FINAL_TESTS.log').write_bytes(tests.stdout+tests.stderr);js('outputs/audits/FINAL_TESTS.json',dict(returncode=tests.returncode,tests=12,optimizer_steps=0))
  assert tests.returncode==0,'FINAL_TESTS_FAILED'
  for script in ['protect_history.py','audit_seed_results.py']:
   subprocess.run([sys.executable,'-B',str(P/'scripts'/script)],cwd=REPO,check=True)

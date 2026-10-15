@@ -1,5 +1,7 @@
 """Read-only independent metric/key/scale/checkpoint audit. No optimizer."""
 from screen_common import *
+from execution_paths import progress_path
+from reliable_io import js,verify_IO_repair
 from repair_identity import verify_repair
 import math
 def independent(d):
@@ -12,8 +14,8 @@ def independent(d):
  return dict(RMSE_mV=1000*math.sqrt(math.fsum(se)/n),MAE_mV=math.fsum(ae)/n,R2=1-math.fsum(se)/math.fsum((x-mean)**2 for x in y),
   endpoint_RMSE_mV=1000*math.sqrt(math.fsum(e*e for e in end)/len(end)),target_time_equal_RMSE_mV=math.sqrt(math.fsum(math.fsum(a)/len(a) for a in target.values())/len(target)),P95_mV=quantile(.95),P99_mV=quantile(.99),max_abs_error_mV=ae[-1])
 def main():
- c=cfg();verify_repair();h.configure_normal(c);d=data();truth=rd(P/'outputs/audits/VALIDATION_KEY_TRUTH.csv');audit=[];horizon=[]
- progress=P/'outputs/execution_ledger/PROGRESS_ENGINEERING_REPAIR.json';state=json.loads(progress.read_text());assert not any(r['status']=='STARTED' for r in state['seeds'].values()),'TRAINING_NOT_TERMINAL'
+ c=cfg();verify_repair();verify_IO_repair();h.configure_normal(c);d=data();truth=rd(P/'outputs/audits/VALIDATION_KEY_TRUTH.csv');audit=[];horizon=[]
+ progress=progress_path();state=json.loads(progress.read_text());assert not any(r['status']=='STARTED' for r in state['seeds'].values()),'TRAINING_NOT_TERMINAL'
  scale=json.loads((P/'outputs/audits/SCALER.json').read_text())['target_scale_V']
  initializations=[]
  for seed in SEEDS:

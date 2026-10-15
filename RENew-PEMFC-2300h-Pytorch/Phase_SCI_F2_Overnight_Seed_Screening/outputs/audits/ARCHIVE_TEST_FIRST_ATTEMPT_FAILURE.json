@@ -1,0 +1,9 @@
+{
+  "status": "TEST_IMPLEMENTATION_ERROR_PRESERVED",
+  "test": "test_partial9_snapshot_and_completed_weights_preserved",
+  "exception": "NameError: name 'rd' is not defined",
+  "source_sha256_before_fix": "5bad6a3a122e91bac9674f97f544f4264034bcf3193d7cfaf50cc2bf32697d02",
+  "all_snapshot_file_hash_checks_had_passed": true,
+  "model_training_affected": false,
+  "repair": "Import existing read-only rd helper in test module; no training or data change"
+}

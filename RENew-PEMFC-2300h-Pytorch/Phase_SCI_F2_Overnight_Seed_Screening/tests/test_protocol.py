@@ -4,7 +4,7 @@ from unittest.mock import patch
 import numpy as np
 import pandas as pd
 P=Path(__file__).resolve().parents[1];sys.path.insert(0,str(P/'scripts'))
-from screen_common import cfg,data,h,sha,SEEDS
+from screen_common import cfg,data,h,sha,rd,SEEDS
 from repair_identity import verify_repair
 from train_seed_v2 import Recorder
 class ProtocolTests(unittest.TestCase):
@@ -54,4 +54,26 @@ class ProtocolTests(unittest.TestCase):
   for key in b:self.assertAlmostEqual(a[key],b[key],10)
   self.assertAlmostEqual(a['RMSE_mV'],np.sqrt(7.5),10);self.assertAlmostEqual(a['target_time_equal_RMSE_mV'],np.sqrt((1+6.5+16)/3),10)
   self.assertAlmostEqual(a['endpoint_RMSE_mV'],np.sqrt(10),10);self.assertAlmostEqual(a['P95_mV'],3.85,10)
+ def test_IO_repair_changes_only_persistence(self):
+  from reliable_io import verify_IO_repair
+  verify_IO_repair();old=(P/'scripts/train_seed_v2.py').read_text();new=(P/'scripts/train_seed_v3.py').read_text()
+  old=old.replace('from screen_common import *','from screen_common import *\nfrom reliable_io import js,verify_IO_repair',1).replace(' verify_repair()\n c=cfg();',' verify_repair()\n verify_IO_repair()\n c=cfg();',1)
+  self.assertEqual(old,new);self.assertTrue((P/'outputs/training_logs/seed_151/failure.json').exists());self.assertFalse((P/'outputs/metrics/seed_151.json').exists())
+ def test_atomic_writer_retries_permission_error(self):
+  import reliable_io,os,errno
+  original=os.replace;calls=[]
+  def flaky(a,b):
+   calls.append((a,b))
+   if len(calls)==1:raise PermissionError(errno.EACCES,'Synthetic sharing violation')
+   return original(a,b)
+  with tempfile.TemporaryDirectory(dir=P/'outputs/audits') as tmp:
+   f=Path(tmp)/'state.json'
+   with patch.object(reliable_io.os,'replace',side_effect=flaky),patch.object(reliable_io,'record_retry') as log:
+    reliable_io.js(f.relative_to(P),{'synthetic':True,'epoch':3});self.assertEqual(log.call_count,1)
+   self.assertEqual(len(calls),2);self.assertEqual(json.loads(f.read_text()),{'synthetic':True,'epoch':3})
+ def test_partial9_snapshot_and_completed_weights_preserved(self):
+  archive=P/'outputs/partial_deliveries/after_seed151_IO_failure';record=json.loads((archive/'PARTIAL_SNAPSHOT.json').read_text())
+  for row in record['files']:self.assertEqual(sha(archive/row['path']),row['sha256'])
+  for row in rd(archive/'outputs/F2_SEED_RANKING.csv').itertuples():
+   self.assertEqual(sha(P/row.checkpoint),row.checkpoint_sha256);self.assertEqual(sha(P/row.predictions),row.prediction_sha256)
 if __name__=='__main__':unittest.main()

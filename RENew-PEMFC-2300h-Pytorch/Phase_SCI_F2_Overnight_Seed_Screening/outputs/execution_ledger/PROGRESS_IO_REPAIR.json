@@ -1,0 +1,191 @@
+{
+  "status": "OVERNIGHT_F2_SEED_SCREENING_PARTIAL",
+  "PID": 49628,
+  "engineering_repair": true,
+  "original_controller_evidence": "outputs/execution_ledger/PROGRESS_ENGINEERING_REPAIR.json",
+  "IO_repair": true,
+  "prior_partial_commit": "079e16b36fd32fe0987dff968b93c67d36a422c8",
+  "start_UTC": "2026-10-15T16:24:19Z",
+  "protocol_sha256": "0535806f72845f37e66ad343dc2082f46e0cff9edd0f0f12b19451216ec3637d",
+  "seeds": {
+    "101": {
+      "status": "FAILED",
+      "seed": 101,
+      "started_UTC": "2026-10-15T16:24:19Z",
+      "returncode": 1
+    },
+    "103": {
+      "status": "COMPLETED",
+      "seed": 103,
+      "started_UTC": "2026-10-15T16:26:10Z",
+      "RMSE_mV": 4.995895779252742,
+      "best_epoch": 450,
+      "stop_epoch": 450,
+      "training_time_s": 2077.5641120999935
+    },
+    "107": {
+      "status": "COMPLETED",
+      "seed": 107,
+      "started_UTC": "2026-10-15T17:00:54Z",
+      "RMSE_mV": 10.109451141231457,
+      "best_epoch": 327,
+      "stop_epoch": 367,
+      "training_time_s": 1679.253978599998
+    },
+    "109": {
+      "status": "COMPLETED",
+      "seed": 109,
+      "started_UTC": "2026-10-15T17:29:01Z",
+      "RMSE_mV": 9.18352895742261,
+      "best_epoch": 156,
+      "stop_epoch": 196,
+      "training_time_s": 901.3097637999963
+    },
+    "113": {
+      "status": "COMPLETED",
+      "seed": 113,
+      "started_UTC": "2026-10-15T17:44:09Z",
+      "RMSE_mV": 9.671748833003713,
+      "best_epoch": 112,
+      "stop_epoch": 152,
+      "training_time_s": 700.6804963999966
+    },
+    "127": {
+      "status": "COMPLETED",
+      "seed": 127,
+      "started_UTC": "2026-10-15T17:55:57Z",
+      "RMSE_mV": 8.603695192569406,
+      "best_epoch": 365,
+      "stop_epoch": 405,
+      "training_time_s": 1863.731782499999
+    },
+    "131": {
+      "status": "COMPLETED",
+      "seed": 131,
+      "started_UTC": "2026-10-15T18:27:07Z",
+      "RMSE_mV": 9.759173422801323,
+      "best_epoch": 220,
+      "stop_epoch": 260,
+      "training_time_s": 1193.0139282000018
+    },
+    "137": {
+      "status": "COMPLETED",
+      "seed": 137,
+      "started_UTC": "2026-10-15T18:47:07Z",
+      "RMSE_mV": 7.6911575706996125,
+      "best_epoch": 133,
+      "stop_epoch": 173,
+      "training_time_s": 795.3126412999991
+    },
+    "139": {
+      "status": "COMPLETED",
+      "seed": 139,
+      "started_UTC": "2026-10-15T19:00:29Z",
+      "RMSE_mV": 10.858524063712036,
+      "best_epoch": 296,
+      "stop_epoch": 336,
+      "training_time_s": 1536.0838267000072
+    },
+    "149": {
+      "status": "COMPLETED",
+      "seed": 149,
+      "started_UTC": "2026-10-15T19:26:12Z",
+      "RMSE_mV": 8.190602817092113,
+      "best_epoch": 170,
+      "stop_epoch": 210,
+      "training_time_s": 960.1676938000019
+    },
+    "151": {
+      "status": "FAILED",
+      "seed": 151,
+      "started_UTC": "2026-10-15T19:42:18Z",
+      "returncode": 1
+    },
+    "157": {
+      "status": "COMPLETED",
+      "seed": 157,
+      "started_UTC": "2026-10-15T19:57:43Z",
+      "RMSE_mV": 10.672793383302194,
+      "best_epoch": 241,
+      "stop_epoch": 281,
+      "training_time_s": 1287.550311299994
+    },
+    "163": {
+      "status": "COMPLETED",
+      "seed": 163,
+      "started_UTC": "2026-10-15T20:19:17Z",
+      "RMSE_mV": 9.015127463178763,
+      "best_epoch": 272,
+      "stop_epoch": 312,
+      "training_time_s": 1439.0519789000027
+    },
+    "167": {
+      "status": "COMPLETED",
+      "seed": 167,
+      "started_UTC": "2026-10-15T20:43:23Z",
+      "RMSE_mV": 9.271700634004157,
+      "best_epoch": 298,
+      "stop_epoch": 338,
+      "training_time_s": 1552.2917294
+    },
+    "173": {
+      "status": "COMPLETED",
+      "seed": 173,
+      "started_UTC": "2026-10-15T21:09:22Z",
+      "RMSE_mV": 9.874680526188168,
+      "best_epoch": 257,
+      "stop_epoch": 297,
+      "training_time_s": 1368.4617667999992
+    },
+    "179": {
+      "status": "COMPLETED",
+      "seed": 179,
+      "started_UTC": "2026-10-15T21:32:17Z",
+      "RMSE_mV": 9.509192237387284,
+      "best_epoch": 217,
+      "stop_epoch": 257,
+      "training_time_s": 1186.3138580000013
+    },
+    "181": {
+      "status": "COMPLETED",
+      "seed": 181,
+      "started_UTC": "2026-10-15T21:52:11Z",
+      "RMSE_mV": 9.626560290319192,
+      "best_epoch": 153,
+      "stop_epoch": 193,
+      "training_time_s": 883.2524689000056
+    },
+    "191": {
+      "status": "COMPLETED",
+      "seed": 191,
+      "started_UTC": "2026-10-15T22:07:01Z",
+      "RMSE_mV": 6.8742779103573985,
+      "best_epoch": 328,
+      "stop_epoch": 368,
+      "training_time_s": 1691.8757471999998
+    },
+    "193": {
+      "status": "COMPLETED",
+      "seed": 193,
+      "started_UTC": "2026-10-15T22:35:20Z",
+      "RMSE_mV": 5.3954057374340225,
+      "best_epoch": 409,
+      "stop_epoch": 449,
+      "training_time_s": 2076.189143399999
+    },
+    "197": {
+      "status": "COMPLETED",
+      "seed": 197,
+      "started_UTC": "2026-10-15T23:10:11Z",
+      "RMSE_mV": 10.081043546152717,
+      "best_epoch": 279,
+      "stop_epoch": 319,
+      "training_time_s": 1473.1275404000044
+    }
+  },
+  "temporary_system_sleep_prevention": true,
+  "elapsed_s": 25878.97294105911,
+  "completed_seeds": 18,
+  "finalization_returncode": 0,
+  "temporary_sleep_prevention_restored": true
+}

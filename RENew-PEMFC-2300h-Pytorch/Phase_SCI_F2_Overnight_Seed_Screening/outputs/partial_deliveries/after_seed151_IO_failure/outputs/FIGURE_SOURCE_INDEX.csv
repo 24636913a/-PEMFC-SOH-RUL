@@ -1,0 +1,13 @@
+figure,data_csv,code,scope
+figures/F1_F2_seed_ranking.png,outputs/plot_data/F1_F2_seed_ranking.csv,scripts/generate_paper_figures.py,"All valid seeds, no failed-seed imputation"
+figures/F1_F2_seed_ranking.pdf,outputs/plot_data/F1_F2_seed_ranking.csv,scripts/generate_paper_figures.py,"All valid seeds, no failed-seed imputation"
+figures/F2_F2_full_seed_distribution.png,outputs/plot_data/F2_F2_full_seed_distribution.csv,scripts/generate_paper_figures.py,"SD over initialization seeds, not independent datasets"
+figures/F2_F2_full_seed_distribution.pdf,outputs/plot_data/F2_F2_full_seed_distribution.csv,scripts/generate_paper_figures.py,"SD over initialization seeds, not independent datasets"
+figures/F3_best_seed_single_origin.png,outputs/plot_data/F3_best_seed_single_origin.csv,scripts/generate_paper_figures.py,"Predeclared middle origin; one24step forecast, no overlapping-window stitching"
+figures/F3_best_seed_single_origin.pdf,outputs/plot_data/F3_best_seed_single_origin.csv,scripts/generate_paper_figures.py,"Predeclared middle origin; one24step forecast, no overlapping-window stitching"
+figures/F4_top5_same_origin.png,outputs/plot_data/F4_top5_same_origin.csv,scripts/generate_paper_figures.py,Top5 selection disclosure; exact same24 target rows for every curve
+figures/F4_top5_same_origin.pdf,outputs/plot_data/F4_top5_same_origin.csv,scripts/generate_paper_figures.py,Top5 selection disclosure; exact same24 target rows for every curve
+figures/F5_all24_horizon_errors.png,outputs/plot_data/F5_all24_horizon_errors.csv,scripts/generate_paper_figures.py,All24 horizons retained; seed range is not statistical uncertainty
+figures/F5_all24_horizon_errors.pdf,outputs/plot_data/F5_all24_horizon_errors.csv,scripts/generate_paper_figures.py,All24 horizons retained; seed range is not statistical uncertainty
+figures/F6_worst_window_retained.png,outputs/plot_data/F6_worst_window_retained.csv,scripts/generate_paper_figures.py,Original selected-best worst window retained; added full-pool global maximum error window; no target removed
+figures/F6_worst_window_retained.pdf,outputs/plot_data/F6_worst_window_retained.csv,scripts/generate_paper_figures.py,Original selected-best worst window retained; added full-pool global maximum error window; no target removed

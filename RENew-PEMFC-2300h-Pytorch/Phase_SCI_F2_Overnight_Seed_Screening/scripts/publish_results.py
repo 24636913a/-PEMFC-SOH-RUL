@@ -6,9 +6,11 @@ if __name__=='__main__' and os.name=='nt':
  assert _publish_awake,'PUBLICATION_TEMPORARY_POWER_GUARD_FAILED'
  print('PUBLISHER_TEMPORARY_POWER_GUARD_READY',flush=True)
 from screen_common import *
+from execution_paths import progress_path
+from reliable_io import js
 def git(*args,timeout=120):return subprocess.check_output(['git',*args],cwd=REPO,timeout=timeout)
 def main():
- statepath=P/'outputs/execution_ledger/PROGRESS_ENGINEERING_REPAIR.json'
+ statepath=progress_path()
  for _ in range(120):
   state=json.loads(statepath.read_text())
   if state.get('temporary_sleep_prevention_restored'):break
@@ -23,7 +25,12 @@ def main():
  assert all(not r or r[3:].startswith(prefix) for r in changed),'OTHER_UNCOMMITTED_CHANGES_NO_COMMIT'
  # Recorded as-of this inventory: no unverified backup claims. Successful Git
  # push receipt later proves tracked checkpoint/prediction delivery separately.
- inventory=[]
+ inventory=[];partial_epochs={}
+ for weight in (P/'outputs/checkpoints').glob('*.pt'):
+  import re
+  hit=re.search(r'seed_(\d+)',weight.name)
+  if hit and not (P/f'outputs/metrics/seed_{hit.group(1)}.json').exists():
+   partial_epochs[int(hit.group(1))]=torch.load(weight,map_location='cpu',weights_only=True).get('best_epoch')
  for folder in ['outputs/checkpoints','outputs/predictions','outputs/training_logs']:
   for f in sorted((P/folder).rglob('*')):
    if not f.is_file():continue
@@ -32,7 +39,7 @@ def main():
    match=re.search(r'seed_(\d+)',f.as_posix())
    if match:seed=int(match.group(1))
    metricfile=P/f'outputs/metrics/seed_{seed}.json';met=json.loads(metricfile.read_text()) if metricfile.exists() else {}
-   inventory.append(dict(path=f.relative_to(P).as_posix(),local_absolute_path=str(f),bytes=f.stat().st_size,sha256=sha(f),seed=seed,best_epoch=met.get('best_epoch'),
+   inventory.append(dict(path=f.relative_to(P).as_posix(),local_absolute_path=str(f),bytes=f.stat().st_size,sha256=sha(f),seed=seed,best_epoch=met.get('best_epoch',partial_epochs.get(seed)),artifact_status='COMPLETED' if met.get('status')=='COMPLETED' else 'FAILED_OR_PARTIAL_NOT_RANKED',
     backed_up_at_inventory_creation=False,Git_delivery_planned=f.name!='batch_events.jsonl' and f.suffix!='.writing',backup_note='Incomplete atomic write, local-only and unqualified' if f.suffix=='.writing' else 'Full batch journals local-only; never backed up by this task' if f.name=='batch_events.jsonl' else 'Git push pending; verify final receipt'))
  cs('outputs/LOCAL_ARTIFACT_INVENTORY.csv',pd.DataFrame(inventory))
  # Imported or locally developed code and every deliverable get file hashes.
@@ -54,7 +61,7 @@ def main():
  for row in artifacts:
   index=git('show',':'+prefix+row['path']);assert hashlib.sha256(index).hexdigest()==row['sha256'],('INDEX_BYTES_MISMATCH',row['path'])
  git('commit','-q','-m','Complete registered dynamic F2 seed screening with full-pool and selection audits',timeout=180)
- head=git('rev-parse','HEAD').decode().strip();receipt=dict(status='LOCAL_COMMIT_COMPLETE',commit=head,phase=P.name,only_new_phase_committed=True,proxy_settings_changed=False)
+ head=git('rev-parse','HEAD').decode().strip();receipt=dict(status='LOCAL_COMMIT_COMPLETE',commit=head,phase=P.name,execution_progress=progress_path().relative_to(P).as_posix(),only_new_phase_committed=True,proxy_settings_changed=False)
  js('outputs/GIT_RECEIPT.local.json',receipt)
  push=subprocess.run(['git','push','origin','main'],cwd=REPO,capture_output=True,timeout=900)
  receipt.update(push_returncode=push.returncode,push_stdout=push.stdout.decode(errors='replace'),push_stderr=push.stderr.decode(errors='replace'))
@@ -67,7 +74,7 @@ if __name__=='__main__':
  try:main()
  except Exception as exc:
   f=P/'outputs/GIT_RECEIPT.local.json';prior=json.loads(f.read_text()) if f.exists() else {}
-  prior.update(status='PUBLISH_FAILED_PRESERVED',exception=repr(exc),traceback=traceback.format_exc(),proxy_settings_changed=False);js('outputs/GIT_RECEIPT.local.json',prior);raise
+  prior.update(status='PUBLISH_FAILED_PRESERVED',execution_progress=progress_path().relative_to(P).as_posix(),exception=repr(exc),traceback=traceback.format_exc(),proxy_settings_changed=False);js('outputs/GIT_RECEIPT.local.json',prior);raise
  finally:
   if _publish_awake:
    ctypes.windll.kernel32.SetThreadExecutionState(0x80000000)

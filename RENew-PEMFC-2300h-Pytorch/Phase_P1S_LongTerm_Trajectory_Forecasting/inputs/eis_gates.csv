@@ -1,0 +1,7 @@
+gate,status,reason
+Parameter identity,FAIL,Measured HFR/ASR not certified;equivalent-circuit R0 is model-dependent;some boundary solutions
+Equation operating domain,FAIL,Nominal sparse EIS versus dynamic whole-bin mean;internal state and deembedding unresolved
+Origin-known information,FAIL,EIS lacks exact durability OpHrs2/release;future actual j/T/RH/P are not forecast inputs
+Real physical residual,FAIL,"ASR alone cannot determine E_rev/activation/concentration;not computable,NA"
+Actual model gradient contribution,FAIL,No valid real residual reachesF2/shared parameters;synthetic nonzero does not certify
+Matched control readiness,FAIL,Additional-info physical teacher not established;no instantiated fair training design

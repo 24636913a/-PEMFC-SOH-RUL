@@ -1,0 +1,38 @@
+1 fold_1 Train 45 Val 16 Ridge FROZEN_NATIVE_COEFFICIENT_REPLAY new sklearn fits 0
+1 fold_2 Train 62 Val 6 Ridge FROZEN_NATIVE_COEFFICIENT_REPLAY new sklearn fits 0
+1 fold_3 Train 68 Val 28 Ridge FROZEN_NATIVE_COEFFICIENT_REPLAY new sklearn fits 0
+3 fold_1 Train 34 Val 16 Ridge FROZEN_NATIVE_COEFFICIENT_REPLAY new sklearn fits 0
+3 fold_2 Train 52 Val 4 Ridge FROZEN_NATIVE_COEFFICIENT_REPLAY new sklearn fits 0
+3 fold_3 Train 55 Val 24 Ridge FROZEN_NATIVE_COEFFICIENT_REPLAY new sklearn fits 0
+6 fold_1 Train 21 Val 16 Ridge H6_NORMAL_EQUATION_RECOVERY new sklearn fits 0
+6 fold_2 Train 38 Val 1 Ridge H6_NORMAL_EQUATION_RECOVERY new sklearn fits 0
+6 fold_3 Train 38 Val 18 Ridge H6_NORMAL_EQUATION_RECOVERY new sklearn fits 0
+12 fold_1 Train 4 Val 11 Ridge INSUFFICIENT_INNER_TRAIN_LABEL_ISOLATION new sklearn fits 0
+12 fold_2 Train 15 Val 0 Ridge NO_VALIDATION new sklearn fits 0
+12 fold_3 Train 15 Val 7 Ridge NEW_H12_SINGLE_QUALIFIED_FOLD new sklearn fits 5
+                       scope  H        method  threefold_evaluable fold_counts  MAE_mVeq  RMSE_mVeq  P95_mVeq  max_mVeq
+common_origins_all4_horizons  1 LOCAL_TREND96                False       5|0|4       NaN        NaN       NaN       NaN
+common_origins_all4_horizons  1   PERSISTENCE                False       5|0|4       NaN        NaN       NaN       NaN
+common_origins_all4_horizons  1       RIDGE96                False       5|0|4       NaN        NaN       NaN       NaN
+common_origins_all4_horizons  3 LOCAL_TREND96                False       5|0|4       NaN        NaN       NaN       NaN
+common_origins_all4_horizons  3   PERSISTENCE                False       5|0|4       NaN        NaN       NaN       NaN
+common_origins_all4_horizons  3       RIDGE96                False       5|0|4       NaN        NaN       NaN       NaN
+common_origins_all4_horizons  6 LOCAL_TREND96                False       5|0|4       NaN        NaN       NaN       NaN
+common_origins_all4_horizons  6   PERSISTENCE                False       5|0|4       NaN        NaN       NaN       NaN
+common_origins_all4_horizons  6       RIDGE96                False       5|0|4       NaN        NaN       NaN       NaN
+common_origins_all4_horizons 12 LOCAL_TREND96                False       5|0|4       NaN        NaN       NaN       NaN
+common_origins_all4_horizons 12   PERSISTENCE                False       5|0|4       NaN        NaN       NaN       NaN
+common_origins_all4_horizons 12       RIDGE96                False       0|0|4       NaN        NaN       NaN       NaN
+          own_horizon_cohort  1 LOCAL_TREND96                 True     16|6|28  0.152222   0.183847  0.318463  0.371369
+          own_horizon_cohort  1   PERSISTENCE                 True     16|6|28  0.146837   0.179169  0.315377  0.367799
+          own_horizon_cohort  1       RIDGE96                 True     16|6|28  0.131211   0.164160  0.294741  0.345520
+          own_horizon_cohort  3 LOCAL_TREND96                 True     16|4|24  0.419375   0.497783  0.830900  0.877750
+          own_horizon_cohort  3   PERSISTENCE                 True     16|4|24  0.342154   0.423114  0.748295  0.858604
+          own_horizon_cohort  3       RIDGE96                 True     16|4|24  0.306500   0.357842  0.623254  0.712176
+          own_horizon_cohort  6 LOCAL_TREND96                 True     16|1|18  0.716365   0.794346  1.185696  1.351515
+          own_horizon_cohort  6   PERSISTENCE                 True     16|1|18  0.547429   0.654729  1.111957  1.287415
+          own_horizon_cohort  6       RIDGE96                 True     16|1|18  0.594674   0.675550  0.975735  1.046931
+          own_horizon_cohort 12 LOCAL_TREND96                False      11|0|7       NaN        NaN       NaN       NaN
+          own_horizon_cohort 12   PERSISTENCE                False      11|0|7       NaN        NaN       NaN       NaN
+          own_horizon_cohort 12       RIDGE96                False       0|0|7       NaN        NaN       NaN       NaN
+RESUME_COMPLETE

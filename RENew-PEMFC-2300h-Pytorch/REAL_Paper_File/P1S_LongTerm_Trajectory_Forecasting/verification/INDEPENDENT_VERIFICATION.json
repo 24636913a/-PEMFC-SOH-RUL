@@ -1,0 +1,13 @@
+{
+  "PASS": true,
+  "implementation": "Independent feature construction, NumPy normal-equation KKT, explicit point formulas and quantiles; no sklearn fit/import of production calculations",
+  "prediction_rows_verified": 430,
+  "native_predictions_verified": 188,
+  "new_parameter_vectors_verified": 20,
+  "feature_max_difference": 6.776263578034403e-21,
+  "prediction_max_difference_R": 0.0,
+  "missing_fold_means_are_NA": true,
+  "source_SHA_unchanged": true,
+  "no_Test": true,
+  "no_refitting": true
+}

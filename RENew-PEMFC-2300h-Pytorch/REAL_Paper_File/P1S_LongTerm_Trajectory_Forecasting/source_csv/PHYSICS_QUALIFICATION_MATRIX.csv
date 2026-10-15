@@ -1,0 +1,10 @@
+candidate,requirement,evidence
+P1S_reference_ohmic_consistency,law_units,"V=Eeff-j*ASR; V, A/cm2 and Ohm*cm2; activation/transport remain in Eeff, cannot set them zero"
+P1S_reference_ohmic_consistency,observable_variables,"Real P1S voltage,j,anode T/RH/gauge pressure,flows,stoichiometry; no certified ASR, all reactive partial pressures or cellwise loss decomposition"
+P1S_reference_ohmic_consistency,applicable_domain,"Recorded fixedj P1S middle50 conditional domain;131 causal observations contain4 colder/high-RH early values; forecast Train target conditions saved separately, no silent removal"
+P1S_reference_ohmic_consistency,independent_of_statistics,"Ohmic law is physical, but substituting free Eeff makes only ordinary voltage regression; absent ASR cannot define an independent physical residual"
+P1S_reference_ohmic_consistency,identifiability,"Every real Train design[1,-j]rank1 for2 parameters; Eeff+j*c,ASR+c leaves measured voltage unchanged"
+P1S_reference_ohmic_consistency,real_Train_loss_and_gradient,NA; algebraic derivative-j is not a measured valid physics-loss gradient; no made-up zero
+P1S_reference_ohmic_consistency,matched_nonphysical_control,"Same2-parameter ordinary regression shares rank1 gauge. No A/B/C physical training allowed, so actual training scores remainNA"
+slow_degradation_state,previous_qualification,"Inherited additive state nullity45, ordinary smoothing equality; not reopened or renamed PINN"
+EIS_ohmic_teacher,previous_qualification,"Reuse65 spectra/3620 points,33 previous circuit fits; certifiedASR0, same-stack verifiedFalse. No refit"

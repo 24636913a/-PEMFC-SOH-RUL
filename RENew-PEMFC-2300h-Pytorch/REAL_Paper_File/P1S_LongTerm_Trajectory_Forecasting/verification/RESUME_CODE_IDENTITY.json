@@ -1,0 +1,8 @@
+{
+  "source_code_sha256": "11f7694322698db0cc70cb63ae8c7d4993a38222a2a8acb5381bac49523b5ad5",
+  "original_protocol_sha256": "50f56f1568f4388d87a584e0b0bb627402f06298fe5e01e5f21074f50e28b4a6",
+  "reason": "Original executor asserted on H12 fold1 insufficient inner-fit labels instead of marking NA; preserve protocol and original code",
+  "H6_recovery": "Exact saved Train tables, normal equations for same grid; no sklearn refit, separately count15 linear-system evaluations",
+  "H12_policy": "Insufficient inner Train or empty Validation -> no fit and NA; other qualified fold may execute once",
+  "no_rule_relaxation": true
+}

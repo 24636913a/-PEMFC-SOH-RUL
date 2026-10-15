@@ -1,0 +1,34 @@
+{
+  "PASS": true,
+  "review": "All7 figures visually inspected. F4 boolean-stratum selection corrected and protected by unit test. F2 label overlap corrected. Missing H12 fold scores never drawn as zero. F7 explicitly states common-origin5/0/4 and no formal mean.",
+  "figures": {
+    "F1_real_health_measurements_and_conditions": {
+      "png_sha256": "f56ab0dca76b6753082b2c025a80ea2c269314f16731098e7a10da7f926b4680",
+      "pdf_sha256": "e020547ff49b5ea680736e04b305af23d6d2c17c1abdaf3728f02cb57597fe42"
+    },
+    "F2_horizon_primary_equal_fold_metrics": {
+      "png_sha256": "138ac416c8fcbf1c340406069cbfcf5e65d40cf9f572c982a08cdf40f87fbbd2",
+      "pdf_sha256": "a692a44a4438687db16d623c4e9b03ad94fe28625022000fa70edcce137da10e"
+    },
+    "F3_per_fold_horizon_failure_and_support": {
+      "png_sha256": "cec86e1098aea250943e1ace4471936f4bd746bad554d58381a02ac31ad46833",
+      "pdf_sha256": "48fdc0d509160785112f1040d4f3ebf8bfa49deaea3577eb3fa19c7cf06ef195"
+    },
+    "F4_observed_recovery_error_diagnostic": {
+      "png_sha256": "980efc9b2b80e14f69ba1f81e98294a9061feb205313238f555997d7d294f40d",
+      "pdf_sha256": "d642114c70de28b448c806e2cdadd5a055e5a51687dca5274ece147337691563"
+    },
+    "F5_actual_operating_and_calendar_leads": {
+      "png_sha256": "94fd17847f2a5444b97dc252a6e42b12f770520e9187cbfa55fc2314da65367c",
+      "pdf_sha256": "6d0311b52e9d4250f4f00383d8a9531c7ebcc55d96b03babc6ba99be36d6835c"
+    },
+    "F6_real_pointwise_health_forecasts": {
+      "png_sha256": "7c46c8ba8021d695b33793948ad0547d80f4367440186e379543b7192d61b151",
+      "pdf_sha256": "d582071d76c91870d7305c3ba89f1e17cd081db3934a718d7f1bfa057d2000ec"
+    },
+    "F7_same_origin_cross_horizon_diagnostic": {
+      "png_sha256": "484ed16e0d29d991c4a17d8733c41928c5b6c1eb189d6512a76016735c0a50ca",
+      "pdf_sha256": "3643459f282f831789774497f8fbd10dee43113fd8bdee2d8b48d063a60b3301"
+    }
+  }
+}

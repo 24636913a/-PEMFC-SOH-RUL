@@ -1,0 +1,10 @@
+{
+  "scope": "Development Validation seed screening; all completed seeds retained",
+  "typical_origin": "Middle index of sorted205 frozen Validation origins, fixed before any completed candidate result",
+  "best_seed": "Minimum completed pooled Validation RMSE; ascending seed tie break",
+  "top5": "Five lowest completed Validation RMSE, or all if fewer than five",
+  "worst_segment": "Maximum24step window RMSE of selected best seed; descriptive post-selection negative-case display, no exclusions",
+  "continuous_stitching": "PROHIBITED; each trace belongs to one origin and its own24 future targets",
+  "horizon_aggregate": "All valid seeds mean and min/max band plus selected best; spread is seed variability, not confidence interval",
+  "figures": ["RMSE ranking", "Full seed distribution", "Best typical24step voltage", "Top5 same-origin voltage", "All24horizon RMSE", "Worst-window voltage and errors"]
+}

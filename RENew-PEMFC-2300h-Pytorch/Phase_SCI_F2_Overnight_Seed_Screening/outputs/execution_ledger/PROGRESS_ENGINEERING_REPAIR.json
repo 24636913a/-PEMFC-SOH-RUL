@@ -1,0 +1,146 @@
+{
+  "status": "OVERNIGHT_F2_SEED_SCREENING_PARTIAL",
+  "PID": 37660,
+  "engineering_repair": true,
+  "original_controller_evidence": "outputs/execution_ledger/PROGRESS.json",
+  "start_UTC": "2026-10-15T16:24:19Z",
+  "protocol_sha256": "0535806f72845f37e66ad343dc2082f46e0cff9edd0f0f12b19451216ec3637d",
+  "seeds": {
+    "101": {
+      "status": "FAILED",
+      "seed": 101,
+      "started_UTC": "2026-10-15T16:24:19Z",
+      "returncode": 1
+    },
+    "103": {
+      "status": "COMPLETED",
+      "seed": 103,
+      "started_UTC": "2026-10-15T16:26:10Z",
+      "RMSE_mV": 4.995895779252742,
+      "best_epoch": 450,
+      "stop_epoch": 450,
+      "training_time_s": 2077.5641120999935
+    },
+    "107": {
+      "status": "COMPLETED",
+      "seed": 107,
+      "started_UTC": "2026-10-15T17:00:54Z",
+      "RMSE_mV": 10.109451141231457,
+      "best_epoch": 327,
+      "stop_epoch": 367,
+      "training_time_s": 1679.253978599998
+    },
+    "109": {
+      "status": "COMPLETED",
+      "seed": 109,
+      "started_UTC": "2026-10-15T17:29:01Z",
+      "RMSE_mV": 9.18352895742261,
+      "best_epoch": 156,
+      "stop_epoch": 196,
+      "training_time_s": 901.3097637999963
+    },
+    "113": {
+      "status": "COMPLETED",
+      "seed": 113,
+      "started_UTC": "2026-10-15T17:44:09Z",
+      "RMSE_mV": 9.671748833003713,
+      "best_epoch": 112,
+      "stop_epoch": 152,
+      "training_time_s": 700.6804963999966
+    },
+    "127": {
+      "status": "COMPLETED",
+      "seed": 127,
+      "started_UTC": "2026-10-15T17:55:57Z",
+      "RMSE_mV": 8.603695192569406,
+      "best_epoch": 365,
+      "stop_epoch": 405,
+      "training_time_s": 1863.731782499999
+    },
+    "131": {
+      "status": "COMPLETED",
+      "seed": 131,
+      "started_UTC": "2026-10-15T18:27:07Z",
+      "RMSE_mV": 9.759173422801323,
+      "best_epoch": 220,
+      "stop_epoch": 260,
+      "training_time_s": 1193.0139282000018
+    },
+    "137": {
+      "status": "COMPLETED",
+      "seed": 137,
+      "started_UTC": "2026-10-15T18:47:07Z",
+      "RMSE_mV": 7.6911575706996125,
+      "best_epoch": 133,
+      "stop_epoch": 173,
+      "training_time_s": 795.3126412999991
+    },
+    "139": {
+      "status": "COMPLETED",
+      "seed": 139,
+      "started_UTC": "2026-10-15T19:00:29Z",
+      "RMSE_mV": 10.858524063712036,
+      "best_epoch": 296,
+      "stop_epoch": 336,
+      "training_time_s": 1536.0838267000072
+    },
+    "149": {
+      "status": "COMPLETED",
+      "seed": 149,
+      "started_UTC": "2026-10-15T19:26:12Z",
+      "RMSE_mV": 8.190602817092113,
+      "best_epoch": 170,
+      "stop_epoch": 210,
+      "training_time_s": 960.1676938000019
+    },
+    "151": {
+      "status": "FAILED",
+      "seed": 151,
+      "started_UTC": "2026-10-15T19:42:18Z",
+      "returncode": 1
+    },
+    "157": {
+      "status": "NOT_STARTED",
+      "seed": 157
+    },
+    "163": {
+      "status": "NOT_STARTED",
+      "seed": 163
+    },
+    "167": {
+      "status": "NOT_STARTED",
+      "seed": 167
+    },
+    "173": {
+      "status": "NOT_STARTED",
+      "seed": 173
+    },
+    "179": {
+      "status": "NOT_STARTED",
+      "seed": 179
+    },
+    "181": {
+      "status": "NOT_STARTED",
+      "seed": 181
+    },
+    "191": {
+      "status": "NOT_STARTED",
+      "seed": 191
+    },
+    "193": {
+      "status": "NOT_STARTED",
+      "seed": 193
+    },
+    "197": {
+      "status": "NOT_STARTED",
+      "seed": 197
+    }
+  },
+  "temporary_system_sleep_prevention": true,
+  "elapsed_s": 12415.834386930466,
+  "stop_reason": "TRAINING_FAILURE_REQUIRES_VALIDITY_REVIEW",
+  "failure_evidence": "{\n  \"status\": \"FAILED\",\n  \"seed\": 151,\n  \"exception\": \"PermissionError(13, '拒绝访问。')\",\n  \"traceback\": \"Traceback (most recent call last):\\n  File \\\"E:\\\\沈农信电\\\\ PEMFC-SOH+RUL\\\\RENew-PEMFC-2300h-Pytorch\\\\Phase_SCI_F2_Overnight_Seed_Screening\\\\scripts\\\\train_seed_v2.py\\\", line 49, in main\\n    js(folder.relative_to(P)/'run_state.json',dict(status='TRAINING',seed=seed,last_completed_epoch=epoch,best_epoch=best_epoch))\\n  File \\\"E:\\\\沈农信电\\\\ PEMFC-SOH+RUL\\\\RENew-PEMFC-2300h-Pytorch\\\\Phase_SCI_F2_Overnight_Seed_Screening\\\\scripts\\\\screen_common.py\\\", line 21, in js\\n    os.replace(tmp,f)\\nPermissionError: [WinError 5] 拒绝访问。: 'E:\\\\\\\\沈农信电\\\\\\\\ PEMFC-SOH+RUL\\\\\\\\RENew-PEMFC-2300h-Pytorch\\\\\\\\Phase_SCI_F2_Overnight_Seed_Screening\\\\\\\\outputs\\\\\\\\training_logs\\\\\\\\seed_151\\\\\\\\run_state.json.writing' -> 'E:\\\\\\\\沈农信电\\\\\\\\ PEMFC-SOH+RUL\\\\\\\\RENew-PEMFC-2300h-Pytorch\\\\\\\\Phase_SCI_F2_Overnight_Seed_Screening\\\\\\\\outputs\\\\\\\\training_logs\\\\\\\\seed_151\\\\\\\\run_state.json'\\n\"\n}\n",
+  "completed_seeds": 9,
+  "finalization_returncode": 0,
+  "temporary_sleep_prevention_restored": true
+}

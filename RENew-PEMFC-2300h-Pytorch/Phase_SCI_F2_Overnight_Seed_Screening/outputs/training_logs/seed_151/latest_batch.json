@@ -1,0 +1,41 @@
+{
+  "seed": 151,
+  "stages": [
+    "BATCH_STARTED",
+    "FORWARD_COMPLETED",
+    "LOSS_COMPUTED",
+    "BACKWARD_STARTED",
+    "BACKWARD_COMPLETED",
+    "OPTIMIZER_STEP_COMPLETED"
+  ],
+  "epoch": 107,
+  "batch": 43,
+  "origins": [
+    1740,
+    90,
+    612,
+    1259
+  ],
+  "input_sha256": "d07dbcb32c9ddd14bf1ff07b96c66117e8d2e0563c9547896bcdb273517bea27",
+  "label_sha256": "f66b9080012992872dff4af1e63342ffae68a2876418feb7a9a6ac81da10c8a0",
+  "model_state_sha256": "1343d29b885436fcbd9aa26dc16dafa4b507a7d0d3a0970f82eebb0da28c38a8",
+  "rng": {
+    "cpu": "7e1511eb5f371b393beb0e7ed248db33ed39398fafec6d6ddf48b5b88ed4bc19",
+    "cuda": "6d3d33b32748b8303c86cac198ec9febcb601eb3844b3e20ef75055a7b397d35",
+    "loader": "7a09f5414b240605c52faaa919d96a60bcce341022ec696ff528d527692e958d",
+    "numpy": "50487330ac2b6ac6e89e0e053e0464304d644084414a14b60d37bf72185d4949",
+    "python": "3c6474b326ade457c1d0a0b8357ccc03b5d48a2cac4a3c50896bb4838d686a27"
+  },
+  "stage": "OPTIMIZER_STEP_COMPLETED",
+  "sequence": 28248,
+  "output_sha256": "2a68e47d0d32adad4eb9c048ac9f13ab72fe6875a472e0809d5ca8de65c68eac",
+  "output_shape": [
+    4,
+    24
+  ],
+  "output_mean": 1.3115739822387695,
+  "output_std": 2.1562931537628174,
+  "loss": 0.012856792658567429,
+  "gradient_norm": 0.24787017703056335,
+  "parameters_after_sha256": "a5310abf6cc4ac338d773b5ca194973ceeb96d0b0db8efed7388f5d56cd663a0"
+}

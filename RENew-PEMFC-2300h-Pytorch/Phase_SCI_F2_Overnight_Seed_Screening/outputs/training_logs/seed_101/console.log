@@ -1,0 +1,12 @@
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_SCI_F2_Overnight_Seed_Screening\scripts\train_seed.py", line 72, in <module>
+    parser=argparse.ArgumentParser();parser.add_argument('--seed',type=int,required=True);main(parser.parse_args().seed)
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_SCI_F2_Overnight_Seed_Screening\scripts\train_seed.py", line 29, in main
+    rec.emit('BATCH_STARTED',epoch=epoch,batch=batch,origins=origins,input_sha256=h.array_hash(xb.cpu().numpy()),label_sha256=h.array_hash(yb.cpu().numpy()),model_state_sha256=h.tree_hash(m.state_dict()),rng=h.rng_summary(gen))
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_SCI_F2_Overnight_Seed_Screening\scripts\train_seed.py", line 11, in emit
+    s.write(json.dumps(dict(seed=self.seed,sequence=self.sequence,stage=stage,epoch=self.state.get('epoch'),batch=self.state.get('batch'),**payload),allow_nan=False)+'\n');s.flush();os.fsync(s.fileno())
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'epoch'

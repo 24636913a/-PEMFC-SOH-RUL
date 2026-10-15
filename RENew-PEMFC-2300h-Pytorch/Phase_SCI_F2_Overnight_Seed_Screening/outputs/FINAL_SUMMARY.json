@@ -1,0 +1,46 @@
+{
+  "status": "OVERNIGHT_F2_SEED_SCREENING_PARTIAL",
+  "completed": 9,
+  "registered": 20,
+  "failed": [
+    101,
+    151
+  ],
+  "timeout": [],
+  "not_started": [
+    157,
+    163,
+    167,
+    173,
+    179,
+    181,
+    191,
+    193,
+    197
+  ],
+  "top5": [
+    103,
+    137,
+    149,
+    127,
+    109
+  ],
+  "best_seed": 103,
+  "best_RMSE_mV": 4.995895779252742,
+  "best_MAE_mV": 3.829542487086966,
+  "best_R2": 0.9993441239709284,
+  "full_pool_RMSE_mean_mV": 8.784864197531668,
+  "full_pool_RMSE_sample_std_mV": 1.7279980064666005,
+  "best_step1_RMSE_mV": 4.071697412126757,
+  "best_step24_RMSE_mV": 4.79398319856958,
+  "best_step24_to_step1_RMSE_ratio": 1.177391813127281,
+  "top5_RMSE_mean_mV": 7.732976063407297,
+  "training_time_sum_s": 11707.118223399993,
+  "scientific_protocol_changed": false,
+  "logging_repair_disclosed": true,
+  "Validation_selected": true,
+  "independent_Test": false,
+  "new_Assessment": false,
+  "no_F0_F1_training": true,
+  "Test_values_read": false
+}

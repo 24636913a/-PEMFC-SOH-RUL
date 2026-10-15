@@ -1,0 +1,17 @@
+{
+  "UTC": "2026-10-15T16:25:50Z",
+  "original_protocol_sha256": "0535806f72845f37e66ad343dc2082f46e0cff9edd0f0f12b19451216ec3637d",
+  "reason": "Logger dict constructor rejected duplicate epoch keyword before first forward/backward/optimizer update; use equivalent dictionary unpacking as frozen H logger",
+  "failed_seed_not_retried": 101,
+  "failed_seed_optimizer_steps": 0,
+  "scientific_configuration_changed": false,
+  "seed_pool_unchanged": true,
+  "original_wall_deadline_retained": true,
+  "original_files_preserved": true,
+  "code_sha256": {
+    "scripts/train_seed_v2.py": "a3c36a564b4e94bd325ee1e4108e9b3db686c69184980197d5beb5b82551dc12",
+    "scripts/resume_after_logger_repair.py": "da97eec035bc94c740b3d8e8064b2330ef0cac34605d53ec2030d757e9ad364f",
+    "scripts/repair_identity.py": "a28d93da5bac906badc6368d75d31d905b6d256fa439d3cdafa8911567ff4e22"
+  },
+  "synthetic_recorder_test": "PASS2stages"
+}

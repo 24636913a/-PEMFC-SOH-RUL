@@ -1,0 +1,6 @@
+{
+  "status": "FAILED",
+  "seed": 151,
+  "exception": "PermissionError(13, '拒绝访问。')",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Overnight_Seed_Screening\\scripts\\train_seed_v2.py\", line 49, in main\n    js(folder.relative_to(P)/'run_state.json',dict(status='TRAINING',seed=seed,last_completed_epoch=epoch,best_epoch=best_epoch))\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Overnight_Seed_Screening\\scripts\\screen_common.py\", line 21, in js\n    os.replace(tmp,f)\nPermissionError: [WinError 5] 拒绝访问。: 'E:\\\\沈农信电\\\\ PEMFC-SOH+RUL\\\\RENew-PEMFC-2300h-Pytorch\\\\Phase_SCI_F2_Overnight_Seed_Screening\\\\outputs\\\\training_logs\\\\seed_151\\\\run_state.json.writing' -> 'E:\\\\沈农信电\\\\ PEMFC-SOH+RUL\\\\RENew-PEMFC-2300h-Pytorch\\\\Phase_SCI_F2_Overnight_Seed_Screening\\\\outputs\\\\training_logs\\\\seed_151\\\\run_state.json'\n"
+}

@@ -1,0 +1,15 @@
+test_exact_H_tensors_and_origins (test_protocol.ProtocolTests.test_exact_H_tensors_and_origins) ... ok
+test_fixed_budget_and_only_new_seed_pool (test_protocol.ProtocolTests.test_fixed_budget_and_only_new_seed_pool) ... C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+ok
+test_logger_first_batch_with_epoch_is_persisted (test_protocol.ProtocolTests.test_logger_first_batch_with_epoch_is_persisted) ... ok
+test_no_future_decoder_input_and_EWMA_causal (test_protocol.ProtocolTests.test_no_future_decoder_input_and_EWMA_causal) ... ok
+test_nrows3007_then_strict_filter_firewall (test_protocol.ProtocolTests.test_nrows3007_then_strict_filter_firewall) ... ok
+test_original_and_repair_frozen (test_protocol.ProtocolTests.test_original_and_repair_frozen) ... ok
+test_repaired_logger_same_math_no_101_retry (test_protocol.ProtocolTests.test_repaired_logger_same_math_no_101_retry) ... ok
+test_train_only_scaler_exact_and_mask (test_protocol.ProtocolTests.test_train_only_scaler_exact_and_mask) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.274s
+
+OK

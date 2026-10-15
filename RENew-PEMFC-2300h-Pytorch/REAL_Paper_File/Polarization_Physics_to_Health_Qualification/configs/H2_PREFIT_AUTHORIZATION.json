@@ -1,0 +1,46 @@
+{
+  "eligibility_all3": true,
+  "reason": "Complete actual1-3cycle task presentation; all3folds andinnerchronology qualified",
+  "protocol_sha256": "34c1e4ea6ad0f75379a3c3df7f5088ec34f850ba1b6f9867e1a7754111b7b8ec",
+  "audits": [
+    {
+      "fold": "fold_1",
+      "Train_n": 40,
+      "Validation_n": 16,
+      "inner_fit_n": 33,
+      "inner_selection_n": 6,
+      "inner_purged_n": 1,
+      "outer_label_max_h": 943.03094,
+      "first_validation_origin_h": 943.03094,
+      "inner_cutoff_h": 819.17603,
+      "inner_label_max_h": 819.17603,
+      "qualified": true
+    },
+    {
+      "fold": "fold_2",
+      "Train_n": 57,
+      "Validation_n": 5,
+      "inner_fit_n": 47,
+      "inner_selection_n": 9,
+      "inner_purged_n": 1,
+      "outer_label_max_h": 1124.35,
+      "first_validation_origin_h": 1323.52,
+      "inner_cutoff_h": 1029.11,
+      "inner_label_max_h": 1029.11,
+      "qualified": true
+    },
+    {
+      "fold": "fold_3",
+      "Train_n": 62,
+      "Validation_n": 26,
+      "inner_fit_n": 51,
+      "inner_selection_n": 10,
+      "inner_purged_n": 1,
+      "outer_label_max_h": 1380.66,
+      "first_validation_origin_h": 1380.66,
+      "inner_cutoff_h": 1067.21,
+      "inner_label_max_h": 1067.21,
+      "qualified": true
+    }
+  ]
+}

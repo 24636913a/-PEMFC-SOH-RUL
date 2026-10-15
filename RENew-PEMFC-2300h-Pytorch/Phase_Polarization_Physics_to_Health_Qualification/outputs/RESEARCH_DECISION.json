@@ -1,0 +1,99 @@
+{
+  "overall": "PHYSICS_INTERFACE_NOT_QUALIFIED",
+  "polarization_diagnostics": "PHYSICS_DESCRIPTIVE_ONLY",
+  "PHYSICS_LOSS_TRAINING_QUALIFIED": false,
+  "candidate_decisions": [
+    {
+      "candidate": "A_shape",
+      "qualification": "PHYSICS_DESCRIPTIVE_ONLY",
+      "reason": "Real branch shape verified; dV/dj of scalar fixedj P1S output is undefined. Monotonicity in futurecycle is a different assertion contradicted by recovery.",
+      "real_health_loss": "NA",
+      "real_health_gradient": "NA",
+      "trained_physics_improvement": "NA",
+      "GPU_training_qualified": false,
+      "ordinary_smoothing_equivalent": "NA_NOT_DEFINED",
+      "same_information_capacity_control": "NOT_RUN_NO_QUALIFIED_PHYSICAL_LOSS"
+    },
+    {
+      "candidate": "B_Rdiff",
+      "qualification": "PHYSICS_DESCRIPTIVE_ONLY",
+      "reason": "Composite differential slope, branch/state dependent. No certifiedHFR/ASR or validated independent health information; stop as health-input candidate.",
+      "real_health_loss": "NA",
+      "real_health_gradient": "NA",
+      "trained_physics_improvement": "NA",
+      "GPU_training_qualified": false,
+      "ordinary_smoothing_equivalent": "NA_NOT_DEFINED",
+      "same_information_capacity_control": "NOT_RUN_NO_QUALIFIED_PHYSICAL_LOSS"
+    },
+    {
+      "candidate": "C_semiempirical",
+      "qualification": "PHYSICS_DESCRIPTIVE_ONLY",
+      "reason": "Only1branch passes local numerical criterion; no stable longitudinal physical parameter series; fittedpolcurve is not scalarhealth model.",
+      "real_health_loss": "NA",
+      "real_health_gradient": "NA",
+      "trained_physics_improvement": "NA",
+      "GPU_training_qualified": false,
+      "ordinary_smoothing_equivalent": "NA_NOT_DEFINED",
+      "same_information_capacity_control": "NOT_RUN_NO_QUALIFIED_PHYSICAL_LOSS"
+    },
+    {
+      "candidate": "P_A_calibration",
+      "qualification": "PHYSICS_INTERFACE_NOT_QUALIFIED",
+      "reason": "Release timesunknown; only3eligible referenceevents; no new generalization test or new calibration fit. FrozenM2_NC remains control.",
+      "real_health_loss": "NA",
+      "real_health_gradient": "NA",
+      "trained_physics_improvement": "NA",
+      "GPU_training_qualified": false,
+      "ordinary_smoothing_equivalent": "NA_NOT_DEFINED",
+      "same_information_capacity_control": "NOT_RUN_NO_QUALIFIED_PHYSICAL_LOSS"
+    },
+    {
+      "candidate": "P_B_health_loss",
+      "qualification": "PHYSICS_INTERFACE_NOT_QUALIFIED",
+      "reason": "No meaningful nontrivial crosscurrent loss on existing scalarfixedj prediction, no effective healthparameter gradient or samecapacity physical experiment.",
+      "real_health_loss": "NA",
+      "real_health_gradient": "NA",
+      "trained_physics_improvement": "NA",
+      "GPU_training_qualified": false,
+      "ordinary_smoothing_equivalent": "NO_VALID_LOSS_TO_COMPARE",
+      "same_information_capacity_control": "NOT_RUN_NO_QUALIFIED_PHYSICAL_LOSS"
+    }
+  ],
+  "H2_threefold_evaluable": true,
+  "short_horizon_results": [
+    {
+      "H": 1,
+      "Persistence_MAE_mVeq": 0.14683663442461234,
+      "Ridge_MAE_mVeq": 0.1312110637800541,
+      "improvement_percent": 10.6414660794889,
+      "fold_MAE_wins": 2,
+      "max_error_worse_folds": ""
+    },
+    {
+      "H": 2,
+      "Persistence_MAE_mVeq": 0.23971275869391198,
+      "Ridge_MAE_mVeq": 0.2065137769527063,
+      "improvement_percent": 13.849484659094546,
+      "fold_MAE_wins": 3,
+      "max_error_worse_folds": "fold_1"
+    },
+    {
+      "H": 3,
+      "Persistence_MAE_mVeq": 0.3421540006944257,
+      "Ridge_MAE_mVeq": 0.3065000223953472,
+      "improvement_percent": 10.420447584045853,
+      "fold_MAE_wins": 3,
+      "max_error_worse_folds": ""
+    }
+  ],
+  "H1_H3_refits": 0,
+  "new_H2_fits": 15,
+  "new_physics_health_training": 0,
+  "Test_read": false,
+  "GPU_runs": 0,
+  "new_SOH_RUL_training": 0,
+  "three_SOHevents_optimized": false,
+  "SOH_ref_changed": false,
+  "EOL_available": false,
+  "next": "Retain frozenH1 main,H3 auxiliary;H2 optional exploratory bridge. Do not trainphysicshealth loss on these outputs. Futurequalification needs matchedcrosscurrent observableoutputs, pastpublishedparamavailability, identifiablephysicalparams and moreindependenthealthreference support."
+}

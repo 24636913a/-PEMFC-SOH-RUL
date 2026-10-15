@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE",
+  "base": "7f822d2f9f7e5df47d1fb6da6d846dfa52c5034a",
+  "Development_rows": 3005,
+  "retained_history_arrays": 184,
+  "frozen_cycle_labels": 141,
+  "new5cycles_used": false,
+  "feature_names": [
+    "cell_voltage_mean",
+    "cell_voltage_std",
+    "cell_voltage_range",
+    "cell_voltage_min",
+    "cell_voltage_max",
+    "actual_current_A_mean",
+    "actual_current_A_std",
+    "actual_current_A_peak_to_peak",
+    "actual_current_density_A_cm2_mean",
+    "actual_current_density_A_cm2_std",
+    "actual_current_density_A_cm2_peak_to_peak",
+    "load_transition_count",
+    "operation_point_transitions",
+    "zero_current_fraction"
+  ],
+  "Top10_rule": "Train-only origin-feature abs Spearman to scalar H1 V; mandatory mean_voltage, stable index ties",
+  "confirmation": "Successor two-run15||14,15||0 anchor completed; target has only initial anchor known, all fixed-state voltage observations remain future",
+  "reference_available_h": 171.82091,
+  "Test_features": false,
+  "new_raw_reads": false
+}

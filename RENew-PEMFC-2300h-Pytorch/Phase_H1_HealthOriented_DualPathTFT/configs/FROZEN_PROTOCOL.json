@@ -1,0 +1,104 @@
+{
+  "status": "FROZEN_BEFORE_REAL_TRAINING",
+  "base_commit": "7f822d2f9f7e5df47d1fb6da6d846dfa52c5034a",
+  "authorization": "User explicit27 event-model experiments and GPU authorization",
+  "event": "Target raw_cycle=origin+1, frozen141 middle50 representative V; new5audit cycles excluded",
+  "target": "Absolute real voltage standardized by training-target mean/std; never SOH labels",
+  "completion": "Origin asof successor15||14,15||0 anchor fully observed; target initial anchor may be known but every target fixed-state voltage measurement is future",
+  "horizon": "Irregular H1 event, now8.76–9.13 actual operating hours after delayed confirmed origin; actual future lead/time never features",
+  "event_readout": "One constant zero decoder event token through full inherited native forward: VSN->LSTM(+CNN/gate)->static enrichment->attention->GRN/FF->pre_output_gate_norm->linear64to1",
+  "head": "Existing native scalar output_layer independently initialized, one event query; no24position relabeling, interpolation, MLP replacement or old checkpoint loads",
+  "input_shape": [
+    48,
+    14
+  ],
+  "output_shape": [
+    1
+  ],
+  "raw_feature_order": [
+    "cell_voltage_mean",
+    "cell_voltage_std",
+    "cell_voltage_range",
+    "cell_voltage_min",
+    "cell_voltage_max",
+    "actual_current_A_mean",
+    "actual_current_A_std",
+    "actual_current_A_peak_to_peak",
+    "actual_current_density_A_cm2_mean",
+    "actual_current_density_A_cm2_std",
+    "actual_current_density_A_cm2_peak_to_peak",
+    "load_transition_count",
+    "operation_point_transitions",
+    "zero_current_fraction"
+  ],
+  "preprocessing": "Train-only raw-history population mean/std, EWMAalpha.3 on historymeanV, Top10 standardized zero mask; innerFit-only during epoch selection, fullTrain-only during finalrefit",
+  "Top10": "Recompute fixed absSpearman-at-origin rule on correspondingTrain scalarH1V; mandatorymeanV. Historical indices derived later dynamic data forbidden at early folds",
+  "y_scaling_reason": "Original target_scale_dynamic_V replaced by Train targetV std and mean because new absolute voltage task has different units/center; not a hyperparameter search",
+  "folds": "OriginalRidge expanding boundaries, restricted to prior37/13,50/6,56/22 candidate intersection; no boundary moves",
+  "inner": "Lastceil15percentTrain chronological selection; innerfit labels confirmed at least1h before first inner origin",
+  "fit_recipe": "Inner training selects epoch via inner RMSE; independent same-seed reinitialization refits fullTrain for selected epoch count, no outerValidation early stopping",
+  "registered_experiments": 27,
+  "optimizer_fit_passes": 54,
+  "fit_count_definition": "27 inner selection fits+27 final fullTrain refits; synthetic engineering excluded",
+  "seeds": [
+    42,
+    52,
+    62
+  ],
+  "models": [
+    "F0",
+    "F1",
+    "F2"
+  ],
+  "hyperparameters": {
+    "optimizer": "AdamW",
+    "loss": "MSE",
+    "learning_rate": 0.0009605449687795866,
+    "weight_decay": 6.95942232671908e-06,
+    "batch_size": 32,
+    "max_epochs": 450,
+    "patience": 40,
+    "gradient_clip_norm": 1.0,
+    "dropout": 0.1,
+    "hidden_size": 64,
+    "hidden_continuous_size": 32
+  },
+  "runtime": "GPU, float32, CPUthreads1,cudnn deterministicTrue benchmarkFalse, torch deterministic algorithmsFalse, TF32matmulFalse cudnnTrue; no strict CUDA bitwise claim",
+  "preorigin_readiness": "Fixed1h label-to-origin reserve; additionally measured full fit runtime placed after lastTrainconfirmedlabel must end before firstValidationorigin. Contemporary2026run is historicalasof replay, not actual2025deployment",
+  "primary": "Threefold equally weighted MAE_mV, average over all3seeds within eachfold; no twofold substitute",
+  "supported_rule": {
+    "Persistence_MAE_improvement_at_least": 0.05,
+    "F2_better_F0_and_F1_equal_fold_MAE": true,
+    "minimum_fold_wins_vs_each_comparator": 2,
+    "minimum_seed_equal_fold_MAE_wins_vs_Persistence": 2,
+    "tail": "Eachfold seed-mean RMSE/P95/max no more than110percent of Persistence; report actual extremes",
+    "all3folds_required": true
+  },
+  "decision": "Notqualified if data/time/technical gates fail; noGain if F2 equalfoldMAE not belowPersistence; supported only all criteria; otherwiseexploratory",
+  "baselines": "Origin latest frozenfixedV persistence; independent sameTrain Ridge96 fivefeatures at confirmedorigin, alpha[.0001,.01,1,100], train-innerMAE choice and Train-onlyscaler, residualDeltaR; retain oldRidge unchanged",
+  "proxy": "100V/.71383023635 only after frozenfirst10reference available; no clipping/monotonicity; not standardj1polarizationSOH",
+  "reference": "Recheck exact H1 event links and frozen past M2 metadata only; no new calibration, no standardSOH errors without qualified clock/condition/release gates",
+  "stops": "Nonfinite/identity/time/firewall/reload failure stops sweep with evidence; no outcome-driven retuning; completed runIDs never restart",
+  "training_code_sha256": {
+    "scripts/common.py": "a028dc92fbbe64ee4bc37ac2a852099dffbff68dbf2b7aa944e60dcc5d916e9f",
+    "scripts/prepare_data.py": "bc950ca2548daedda9789774c0c72bec368225a50dc16fe331276c25cbe17677",
+    "scripts/train.py": "170434f5f425d9ca22908bcb95db5fe8b00adc759d6996dc84b69466a4fd8182",
+    "scripts/engineering.py": "3200254d63d39c519b94ebb01fb545d41dad0360b1a7d962c40f64b9aa09df07",
+    "models/event_tft.py": "785324cbf764f19f2ae867abe0ba6c9af15f6af113416c82a13cd5f033cc3a7e"
+  },
+  "data_sha256": {
+    "data_contracts/ALL_CANDIDATE_SAMPLES.csv": "bad74660404f4f908eab6e5eee823d05bac098e62aedc8aaa7ac9e6ea60e9c3c",
+    "data_contracts/INNER_SPLITS.csv": "de320cfc2073f2977196991dbf1ffa2dbd5c77bdfa384218a0b5f7dc0c7aeaec",
+    "data_contracts/N1_3007_METADATA_MASK.csv": "64516dcc77a578203a2fa2c0ae75a8124891f010c2186c89ae815718abfb62e8",
+    "data_contracts/N1_DEVELOPMENT.csv": "c0fe76c04611fc6cdc5a93f4a4da503ff2f82b11feb9ffdcca4cee5bea5abcb5",
+    "data_contracts/RAW_DYNAMIC_HISTORIES.npz": "02a5e4d2717951879eb1f296fa40d1ebd3b846754f30acf4e800409b172a4fd9",
+    "data_contracts/SOURCE_SHA256.csv": "d4ec22810006ac67b42f9e5cfaa346b57a289eb1e97b7d655e0765315d79e49c",
+    "data_contracts/TRAIN_ONLY_PREPROCESSING.json": "13468f9e529c344f9a8174136c97eb614df6563504acc2ffb5e5f2091377770c",
+    "data_contracts/USED_SAMPLES.csv": "bad74660404f4f908eab6e5eee823d05bac098e62aedc8aaa7ac9e6ea60e9c3c"
+  },
+  "counts": {
+    "F0": 323483,
+    "F1": 332379,
+    "F2": 332436
+  }
+}

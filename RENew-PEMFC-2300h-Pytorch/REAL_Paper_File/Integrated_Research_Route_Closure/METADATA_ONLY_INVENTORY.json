@@ -1,0 +1,52 @@
+{
+  "inventory": [
+    {
+      "scope": "expanded_local_names_only",
+      "entries": 528,
+      "keyword_hits": [],
+      "names_SHA256": "abe21b7c290f366378c3e1a87e5e0537e8430b9671b8271f86adf4d95b39b67b",
+      "numerics_read": false
+    },
+    {
+      "scope": "EIS.zip_central_directory_only",
+      "entries": 83,
+      "keyword_hits": [],
+      "names_SHA256": "d803ae4c60d79cf1f07b2f155079e74edd16a0945132b5a4ac24ba29603b3b97",
+      "numerics_read": false,
+      "members_decompressed": 0
+    },
+    {
+      "scope": "Loadcycle_data.zip_central_directory_only",
+      "entries": 18,
+      "keyword_hits": [],
+      "names_SHA256": "f24bd94c4ff0ba21db7dd9ae7a08c5a3fb32b3cfce7dc955a5b4d51ced773b14",
+      "numerics_read": false,
+      "members_decompressed": 0
+    },
+    {
+      "scope": "spatiallyResolvedEIS.zip_central_directory_only",
+      "entries": 454,
+      "keyword_hits": [],
+      "names_SHA256": "65946ae7b798d3d47a4a794205cfb7d850b3033becf9302708271e74e567d59b",
+      "numerics_read": false,
+      "members_decompressed": 0
+    }
+  ],
+  "next_experiment_candidate_files": [
+    {
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Polcurve_Nominal_RHFC_1500h.csv",
+      "exists": true,
+      "bytes": 92519029,
+      "access": "stat_only_no_header_or_numeric_content",
+      "next_experiment_not_executed": true
+    },
+    {
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Polcurve_Nominal_RHFC_1500h_afterAirAirStart.csv",
+      "exists": true,
+      "bytes": 92401991,
+      "access": "stat_only_no_header_or_numeric_content",
+      "next_experiment_not_executed": true
+    }
+  ],
+  "limitation": "No matching name is not proof of absence in differentlynamed or unpublished files; ZIP centralnamesonly, no member content."
+}

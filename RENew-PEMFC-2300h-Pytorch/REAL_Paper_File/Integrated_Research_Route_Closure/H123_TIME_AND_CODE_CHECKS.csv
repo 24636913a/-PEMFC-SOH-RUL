@@ -1,0 +1,10 @@
+H,fold,Train_n,Validation_n,outer_label_available_max_h,first_validation_origin_available_h,inner_label_max_h,inner_selection_origin_min_h,max_prediction_difference_R,prediction_function_source,alpha
+1,fold_1,45,16,943.03093999999999,971.60229000000004,828.68488000000002,828.68488000000002,1.1102230246251565e-16,Phase_P1S_LongTerm_Trajectory_Forecasting/scripts/methods.py,100
+1,fold_2,62,6,1124.3499999999999,1323.52,1029.0899999999999,1029.0899999999999,1.1102230246251565e-16,Phase_P1S_LongTerm_Trajectory_Forecasting/scripts/methods.py,100
+1,fold_3,68,28,1380.6600000000001,1390.1900000000001,1076.71,1076.71,0,Phase_P1S_LongTerm_Trajectory_Forecasting/scripts/methods.py,100
+2,fold_1,40,16,943.03093999999999,943.03093999999999,819.17602999999997,819.17602999999997,0,Phase_Polarization_Physics_to_Health_Qualification/scripts/run_h2.py,100
+2,fold_2,57,5,1124.3499999999999,1323.52,1029.1099999999999,1029.1099999999999,0,Phase_Polarization_Physics_to_Health_Qualification/scripts/run_h2.py,100
+2,fold_3,62,26,1380.6600000000001,1380.6600000000001,1067.21,1067.21,0,Phase_Polarization_Physics_to_Health_Qualification/scripts/run_h2.py,100
+3,fold_1,34,16,933.14709000000005,933.14709000000005,790.38165000000004,790.38165000000004,1.1102230246251565e-16,Phase_P1S_LongTerm_Trajectory_Forecasting/scripts/methods.py,0.0001
+3,fold_2,52,4,1124.3499999999999,1323.52,1029.0899999999999,1029.0899999999999,0,Phase_P1S_LongTerm_Trajectory_Forecasting/scripts/methods.py,100
+3,fold_3,55,24,1371.1400000000001,1371.1400000000001,1048.1400000000001,1048.1400000000001,1.1102230246251565e-16,Phase_P1S_LongTerm_Trajectory_Forecasting/scripts/methods.py,100

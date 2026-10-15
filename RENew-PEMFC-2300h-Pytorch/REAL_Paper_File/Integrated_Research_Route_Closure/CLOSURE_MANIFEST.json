@@ -1,0 +1,139 @@
+{
+  "baseline_commit": "2afcfced13a40b280e93d01d63e993be6413af58",
+  "scientific_identity": "SINGLE_REALHYFC_PARTIALLY_VALIDATED_FRAMEWORK_NO_NEW_TRAINING",
+  "source_and_existing_figure_count": 74,
+  "independent_verification": "PASS",
+  "visual_inspection": "PASS",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 85,
+      "SHA256": "c44949d1aa5b9e6fc56a6070ba39cc0f604854c3966002c4f15790787ca9833c"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 42,
+      "SHA256": "cf91fd68adfbb1a28884c62fb18d14975b9a39a8306cd3d969d7957f5272769f"
+    },
+    {
+      "path": "close_route.py",
+      "bytes": 28125,
+      "SHA256": "b8faa43f07c58959ddcfe2e428cf4e50e7320908cbf40d40de93e584f7cfefb8"
+    },
+    {
+      "path": "CONNECTION_MATRIX.csv",
+      "bytes": 1960,
+      "SHA256": "5e905e55ecbf5e176864dd77226a1afe87192c12eb31f6e9099f607de3abcfeb"
+    },
+    {
+      "path": "EVIDENCE_MATRIX.csv",
+      "bytes": 2519,
+      "SHA256": "73857eb019f1998b4aef23ca1af8b8a7ab1716e70267630ba83a17eaac12f704"
+    },
+    {
+      "path": "EXISTING_FIGURE_AND_CODE_INDEX.csv",
+      "bytes": 9079,
+      "SHA256": "5146c28317af5894688b80b3211531e3060d096889008d9a93bd786910b71e8c"
+    },
+    {
+      "path": "H123_EQUAL_FOLD_METRICS.csv",
+      "bytes": 698,
+      "SHA256": "b6fff825b032181b7f20928caa4e314d0823da154637c1247720a692ce04383a"
+    },
+    {
+      "path": "H123_FOLD_METRICS.csv",
+      "bytes": 1876,
+      "SHA256": "e36b61334b3ae8ccc931f5117c2dfe7ae18e509aeda3fcb04df821d2a734e1b8"
+    },
+    {
+      "path": "H123_FREEZE.json",
+      "bytes": 9588,
+      "SHA256": "5d6fef91df045c6ec99622d129e2402a8e2867ea58e0783a91a503a524e9d0eb"
+    },
+    {
+      "path": "H123_LEGAL_SAMPLES.csv",
+      "bytes": 215445,
+      "SHA256": "f7a70569a898679d84a8b0e919af227a0a85247ac6a96651768f50a37739ac16"
+    },
+    {
+      "path": "H123_PREDICTIONS.csv",
+      "bytes": 111541,
+      "SHA256": "6564afb3b5d128bf41152a391970c23e4b474025818376b26f6db82940e26eb8"
+    },
+    {
+      "path": "H123_TIME_AND_CODE_CHECKS.csv",
+      "bytes": 1653,
+      "SHA256": "d8a4fdec06da43d7977cb374e26074ed0e66edeebdf97c57a4c62b61d665e32e"
+    },
+    {
+      "path": "INDEPENDENT_VERIFICATION.json",
+      "bytes": 436,
+      "SHA256": "8ef8243d45632141481fcd69b9d15b3f5aa59863b3f50d750fcba55ae7a8894c"
+    },
+    {
+      "path": "integrated_route.png",
+      "bytes": 412679,
+      "SHA256": "266f74c933130239c5f4a081c0309f23ee2f26c87980e47d5c082323a8527794"
+    },
+    {
+      "path": "integrated_route.svg",
+      "bytes": 17252,
+      "SHA256": "ade28ce98dd91bc8052ba83d6f3c4e38f0ffd02d39c817ee32627ea1ff4da525"
+    },
+    {
+      "path": "LITERATURE_AND_EOL_AUDIT.csv",
+      "bytes": 1626,
+      "SHA256": "941b9bde26fabfb4472fcbeda13af3279652293775d39e175d6cff11526cc372"
+    },
+    {
+      "path": "LITERATURE_SCOPE.json",
+      "bytes": 429,
+      "SHA256": "a9f7007b06afa058d693b9090a487ede82c5be58efb5acf82ef981011622be54"
+    },
+    {
+      "path": "METADATA_ONLY_INVENTORY.json",
+      "bytes": 1879,
+      "SHA256": "fb582782bc3f1017e2dc73fd3e4fe89afc8c822033aed153d39e74d04b850045"
+    },
+    {
+      "path": "plot_route.py",
+      "bytes": 4558,
+      "SHA256": "e30b4ce0369b8766805ff103fe7c6677697d6581a875eee79348f3af0b32a882"
+    },
+    {
+      "path": "READ_LEDGER.json",
+      "bytes": 8828,
+      "SHA256": "c5ecb8612abbd9984bd2e315ca01546fa9ce61f51dfa8a3fca411e8a3f1e3c28"
+    },
+    {
+      "path": "REPRODUCIBILITY.json",
+      "bytes": 565,
+      "SHA256": "77a19ef256e955d64f45bac98a359ce4bdaae620f01a6aed05259d57fcbf1ee2"
+    },
+    {
+      "path": "seal_closure.py",
+      "bytes": 1423,
+      "SHA256": "f0c0facc3257ddadd650df3246d73b0773db6ac3acca07d797ec3c5f42d462f6"
+    },
+    {
+      "path": "SOURCE_INDEX.csv",
+      "bytes": 28862,
+      "SHA256": "793040a0ac3969b7f0ca8a71c82696017e5de885233e3aa3ee607266cd5ac452"
+    },
+    {
+      "path": "TECHNICAL_ROUTE.md",
+      "bytes": 17374,
+      "SHA256": "c037e248779e81c28c61c0eb2fca771e082053259cd652c43233206468c828ce"
+    },
+    {
+      "path": "verify_closure.py",
+      "bytes": 6493,
+      "SHA256": "40ddbe3aba3c2183ac836d71bc32872faeb2b6775387d5df83eb8d8c76e4fe91"
+    },
+    {
+      "path": "VISUAL_QA.json",
+      "bytes": 631,
+      "SHA256": "61dbd20e978dfb80c5a3c406646fb4706eb36b2b8915c047bec248f5f5d8a749"
+    }
+  ]
+}

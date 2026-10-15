@@ -1,0 +1,11 @@
+module,status,actual_evidence,source_keys,output_identity,prohibited_claim
+TFT,VERIFIED_DYNAMIC_PERFORMANCE,F2三seed Validation query RMSE均值7.245400mV，F0为9.067563mV；seed62尾部307.984904mV，非普遍稳健优势,dynamic;tft_time,动态V均值/DeltaV预测,不能据此声称健康、SOH或RUL增益
+P1S_H123,VERIFIED_PROXY_PERFORMANCE,H1/H2/H3三折等权MAE相对保持改善10.641466/13.849485/10.420448%；H2fold1最大误差恶化,native_pred;h2_pred;native_par;h2_code,未来真实周期固定电流P1S保持率,单轨迹探索性Development，非确认性证据/真实SOH
+Reference_SOH,FROZEN_MEASUREMENT_DEFINITION,7个Development极化参考；Vpol(j*=1)/0.6989533305168152,references,稀疏参考健康比例,不是连续真SOH，不是7条寿命
+M2_NC_SOH_bridge,COMPLETED_RETROSPECTIVE_CONNECTION,H1/H3三事件，起点P1S+校准控制与Ridge+校准已比较；H1增益极小，H3存在误差抵消,links;calibration;soh_metrics;soh_errors,过去锚点仿射映射后的SOH回放,参考排程回顾性、发布时间未知；不能严格在线或泛化增强宣称
+Polarization,VERIFIED_DESCRIPTIVE_PHYSICS,7真实曲线、方向滞后、综合Rdiff、局部辨识；只有1/5拟合支路通过局部数值筛查,q_decision;polar_slope;polar_fit,跨电流描述与适用域,不是现有固定j预测器的有效物理损失
+EIS,VERIFIED_DESCRIPTIVE_DIAGNOSTICS,65谱3620点33历史电路拟合；R0模型相关；0认证HFR/ASR，串号及映射未证实,eis_decision;eis_identity;eis_gates,阻抗诊断,不认证膜阻，不接入TFT/P1S，不再拟合
+Soft_physics_training,NOT_ESTABLISHED,真实健康训练物理损失/梯度/同容量消融均NA；现有输出不承载跨电流导数,q_gates,资格与不可辨识性结果,不能写物理增强训练已完成
+RUL,NOT_VALIDATED,没有与参考SOH一致的可验证failure-time；研究终止/工况限值不是精确RUL,eol_old;source_paper;integrated_decision,条件外推和失效/删失资格分析,不得报告真实RUL精度、用终点减t、或拟合虚构监督
+Conditional_lifetime,COMPLETED_SCENARIO_ONLY,历史calendar条件外推对斜率假设敏感，可出现无交点,conditional_slopes;trajectory,阈值/运行情景给定的交点演示,非真实失效时间、非认证寿命置信区间
+Recovery_intervention,NEXT_EXPERIMENT_METADATA_ONLY,存在1500h空气/空气启动后名义极化文件，本轮不读数值,source_paper,下一项最小可恢复性配对诊断,尚无新恢复量化结果、无物理训练资格

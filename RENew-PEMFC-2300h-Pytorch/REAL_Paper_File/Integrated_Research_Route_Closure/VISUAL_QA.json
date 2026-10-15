@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "figure": "integrated_route.png",
+  "PNG_SHA256": "266f74c933130239c5f4a081c0309f23ee2f26c87980e47d5c082323a8527794",
+  "SVG_SHA256": "ade28ce98dd91bc8052ba83d6f3c4e38f0ffd02d39c817ee32627ea1ff4da525",
+  "plot_code_SHA256": "e30b4ce0369b8766805ff103fe7c6677697d6581a875eee79348f3af0b32a882",
+  "checks": [
+    "all labels legible, no clipping",
+    "solid/conditional/dashed edges checked against connectionCSV",
+    "conditional lifetime arrow starts measuredreferenceSOH, not forecastSOH",
+    "unqualifiedphysicsandRULneverrenderedascompleted"
+  ],
+  "reviewer": "Codex rendered-PNG visual inspection"
+}

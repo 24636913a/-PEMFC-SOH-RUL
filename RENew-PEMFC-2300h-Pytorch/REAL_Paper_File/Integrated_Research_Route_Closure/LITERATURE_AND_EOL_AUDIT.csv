@@ -1,0 +1,7 @@
+id,page,finding,source_level,exact_short_quote,EOL_implication,new_to_current_matrix
+L1,4,预定研究终止：超过2000运行小时目标，约200周期后结束并全面表征,DIRECT_PRIMARY_PDF_METHOD,the durability test was ended,EoT，不证明真实失效时刻,本轮直接原文核验；旧报告已有二手摘录
+L2,8,60/50kPaG、1.8A/cm2测量触及500mV下限；原文确称durability lower-voltage limit,DIRECT_PRIMARY_PDF_LIMIT_PASSAGE_ONLY,lower voltage limit for the durability test,有效限值线索；缺触发耐久终止记录、同j*=1参考映射和失效时间,不是新发现failure；纠正“原文无任何限值”的过强说法
+L3,1,膜缺陷/气体交叉泄漏可涉及安全失效，是机理背景,DIRECT_PRIMARY_PDF_INTRODUCTION,,介绍失效机制不等于本堆已经发生该失效,新增明确区分机制与本数据事件
+L4,4,方法提到CV和LSV，但未详述其结果,DIRECT_PRIMARY_PDF_METHOD,,可能存在未公开诊断；当前不能据此补造失效或删失标签,本轮新增缺失资料条目
+L5,4,空气/空气启动后额外名义极化用于观察可恢复电压损失；启动也可能引入其他影响,DIRECT_PRIMARY_PDF_METHOD,,干预/恢复证据方向，非failure事件，也非单纯无混杂恢复,对应1500h_afterAirAirStart文件元数据，建议下一项配对实验
+L6,,已审查本地展开目录命名及3个zip中央目录；无LSV/CV/失效/删失记录的明确文件名命中,LOCAL_METADATA_ONLY_NOT_CONTENT_PROOF,,有限命名范围未发现，不证明未命名文件或未公开资料中不存在,新增范围明确的文件/归档目录审查

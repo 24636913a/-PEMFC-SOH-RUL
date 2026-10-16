@@ -1,0 +1,377 @@
+{
+  "date": "2026-10-17",
+  "review_type": "AI internal Chinese working-draft factual consistency QA; NOT actual peer review or submission certification",
+  "revision_round": 2,
+  "maximum_revision_rounds": 2,
+  "status": "PASS_WITH_DISCLOSED_SCIENTIFIC_LIMITATIONS",
+  "critical_count": 0,
+  "serious_count": 0,
+  "checks": [
+    {
+      "id": "six_complete_chapters",
+      "status": "PASS",
+      "evidence": "manuscript/SCI_01..06",
+      "detail": "All six files independently read, not only keyword-scanned"
+    },
+    {
+      "id": "formal_means_sample_SD_match_facts",
+      "status": "PASS",
+      "evidence": "T04 CSV -> independent statistics.mean/stdev -> PAPER_NUMERIC_FACTS",
+      "detail": {
+        "means": {
+          "F0": 9.067563256563302,
+          "F1": 9.155598056578444,
+          "F2": 7.245400185045372
+        },
+        "sample_SD": {
+          "F0": 1.1426300614759441,
+          "F1": 1.1226660574860228,
+          "F2": 1.1008528217481848
+        }
+      }
+    },
+    {
+      "id": "improvement_percent_ratio_of_means",
+      "status": "PASS",
+      "evidence": "SCI05 5.1; SCI06 6.1; PAPER_NUMERIC_FACTS",
+      "detail": "20.0954% and20.8637%, not mean of per-seed ratios"
+    },
+    {
+      "id": "inline_T04_all_30_numeric_cells_rounding",
+      "status": "PASS",
+      "evidence": "SCI05 T04 vs tables/T04_FORMAL_MODEL_COMPARISON.csv",
+      "detail": "Exact stated precision for RMSE,MAE,R2"
+    },
+    {
+      "id": "formal_identity_counts",
+      "status": "PASS",
+      "evidence": "T04; SCI04 4.1/4.3",
+      "detail": "Nine runs, same target keys; 3 seeds not 3 folds"
+    },
+    {
+      "id": "F2_endpoint_mean_and_risks",
+      "status": "PASS",
+      "evidence": "SCI05 5.2/5.6; T04",
+      "detail": {
+        "endpoint_mean": 15.173052118071922
+      }
+    },
+    {
+      "id": "Seed62_rank_reversals_preserved",
+      "status": "PASS",
+      "evidence": "SCI05 T04-S",
+      "detail": "F2 max lies between F0 andF1; endpoint/target-equal worse than both"
+    },
+    {
+      "id": "all_tails_not_hidden",
+      "status": "PASS",
+      "evidence": "T04 full CSV; SCI05 5.6",
+      "detail": "No point removed; SD not prediction interval"
+    },
+    {
+      "id": "three_seed_not_fold_or_independent_stack",
+      "status": "PASS",
+      "evidence": "SCI04 4.1/4.3",
+      "detail": "No pseudo-independent significance claim"
+    },
+    {
+      "id": "selected_six_separated_from_fair_means",
+      "status": "PASS",
+      "evidence": "SCI04 4.1; SCI05 5.5",
+      "detail": "42,103,193,202,210,212 not mixed into H official means"
+    },
+    {
+      "id": "screening_failures_stop_budget_disclosed",
+      "status": "PASS",
+      "evidence": "SCI04/05; SCREENING_DISCLOSURE.json",
+      "detail": "R1 20/18/2; R2 12 completed; remaining38 unstarted"
+    },
+    {
+      "id": "negative_P2_retained",
+      "status": "PASS",
+      "evidence": "SCI05 5.4; T07",
+      "detail": "G2 negative paired independent training retained"
+    },
+    {
+      "id": "tiny_gate_effects_and_counterexample",
+      "status": "PASS",
+      "evidence": "SCI05 5.4; PAPER_NUMERIC_FACTS.gate",
+      "detail": "4/6 and3/6 counterfactual loss counts,5/6 permutation means; no independent gain claim"
+    },
+    {
+      "id": "historical_regime_counts",
+      "status": "PASS",
+      "evidence": "SCI05 5.3; T09; Train thresholds",
+      "detail": "Same205 windows in each grouping, not9 independent datasets"
+    },
+    {
+      "id": "paired_1_of_3_adverse_groups",
+      "status": "PASS",
+      "evidence": "SCI05 5.3 T09",
+      "detail": "Mean gain does not imply majority seed gain"
+    },
+    {
+      "id": "Train_thresholds_and_no_future_condition_grouping",
+      "status": "PASS",
+      "evidence": "SCI04 4.3; SCI05 5.3; TRAIN_THRESHOLDS.csv",
+      "detail": "Relative terciles, no physical safety or thermal/humidity control claim"
+    },
+    {
+      "id": "Assessment_not_Test_or_new_inference",
+      "status": "PASS",
+      "evidence": "SCI02/04/05",
+      "detail": "I2 already reused Development; no unsupported accusation"
+    },
+    {
+      "id": "I2_existing_summary_arithmetic",
+      "status": "PASS",
+      "evidence": "SCI05 5.7; T10 reused summary only",
+      "detail": "No I2 per-point cache or model read"
+    },
+    {
+      "id": "preprocessing_units_raw_origin",
+      "status": "PASS",
+      "evidence": "SCI02 2.2/2.3; source CommonScaler/canonical adapter",
+      "detail": "Train-only common scaler, single scale restore;14 physical slots plus relative index"
+    },
+    {
+      "id": "architecture_equation_matches_source",
+      "status": "PASS",
+      "evidence": "SCI03; source causal_multiscale_branch/dualpath_strict_history_tft/canonical_tft",
+      "detail": "Static source comparison only, no model instantiated"
+    },
+    {
+      "id": "gate_math_matches_source",
+      "status": "PASS",
+      "evidence": "SCI03 3.3; regime_aware_dualpath_tft.py",
+      "detail": "5 historical standardized mean slots;g LSTM,(1-g)CNN;not final output contribution"
+    },
+    {
+      "id": "Tu_Yakut_evidence_limits_retained",
+      "status": "PASS",
+      "evidence": "SCI01/05; lit matrix",
+      "detail": "No unsupported P3/P5 result figure/section numbers cited in manuscript"
+    },
+    {
+      "id": "no_false_leakage_or_missing_ablation_accusation",
+      "status": "PASS",
+      "evidence": "SCI01; literature matrix",
+      "detail": "Unknown availability and source ambiguities remain distinctions, not misconduct claims"
+    },
+    {
+      "id": "no_cross_paper_error_leaderboard",
+      "status": "PASS",
+      "evidence": "SCI01/05",
+      "detail": "No fabricated novelty gap or tasks imposed from RUL/PINN papers"
+    },
+    {
+      "id": "internal_figure_table_evidence_links_resolve",
+      "status": "PASS",
+      "evidence": "All six chapters + outline + reports03/04/05",
+      "detail": {
+        "links_checked": 66,
+        "missing": []
+      }
+    },
+    {
+      "id": "all12_figures_png_pdf_and_300dpi",
+      "status": "PASS",
+      "evidence": "FIGURE_INDEX.csv",
+      "detail": "No competitor figure copied; parent performed visual QA, this reviewer checked artifact identity/format"
+    },
+    {
+      "id": "reports03_04_05_agree_with_manuscript",
+      "status": "PASS",
+      "evidence": "reports03/04/05 independent full read",
+      "detail": "Main/supplement recommendations and minimal future6-run simple baselines do not initiate training or fabricate results"
+    },
+    {
+      "id": "inline_selected_table_24_numeric_cells",
+      "status": "PASS",
+      "evidence": "SCI05 T06 vs selected six CSV",
+      "detail": "All6x4 cells exact to stated precision; no selected means mixed into official stats"
+    },
+    {
+      "id": "inline_Seed62_tail_table_15_numeric_cells",
+      "status": "PASS",
+      "evidence": "SCI05 T04-S vs formal CSV",
+      "detail": "All3x5 cells exact; endpoint and target-equal reversals retained"
+    },
+    {
+      "id": "inline_regime_table_all18_comparisons",
+      "status": "PASS",
+      "evidence": "SCI05 T09 vs paired-regime CSV",
+      "detail": "All18 deltas,win counts and9origin counts match; both1/3 adverse groups retained"
+    },
+    {
+      "id": "R2_Seed62_max_comparison_precise",
+      "status": "PASS",
+      "evidence": "Final SCI06 6.1",
+      "detail": "307.9849 belowF0 309.0627,slightly aboveF1 306.4147; endpoint/target-equal worse than both"
+    },
+    {
+      "id": "R2_selection_threshold_timing_budget_failures",
+      "status": "PASS",
+      "evidence": "Final SCI05 5.5;R1 README;SCREENING_DISCLOSURE",
+      "detail": "A/B frozen forR2 afterR1 known,oldinstances retrospective;R1wall8h/R2wall12h;101zero-step logging failure,151IOpartial failure not accuracy failures"
+    },
+    {
+      "id": "R2_three_auxiliary_substantive_citations",
+      "status": "PASS",
+      "evidence": "Final SCI01 1.2;source extraction JSON",
+      "detail": "Jiang structure;Yi400cell1374h/.7Acm2 target;Ko copied trainingj assumption—all correct and scope bounded"
+    },
+    {
+      "id": "R2_exact_combined_manuscript_identity",
+      "status": "PASS",
+      "evidence": "SCI_完整中文工作稿.md;MANUSCRIPT_CHAPTER_INDEX.csv",
+      "detail": "All6 chapters+disclosure+verified references match by rstrip-normalized text blocks;6chapter SHAs unchanged;final aggregate ends exactly one newline"
+    },
+    {
+      "id": "R2_disclosures_no_invented_funding_authorship_or_peer_review",
+      "status": "PASS",
+      "evidence": "SCI07 and combined declaration",
+      "detail": "AIuse acknowledged,not author;funding/conflicts/CRediT pending human truth;not real peer review/submission certification"
+    },
+    {
+      "id": "R2_final_chapter_and_combined_links",
+      "status": "PASS",
+      "evidence": "All8 manuscript files",
+      "detail": {
+        "links_checked": 132,
+        "missing": []
+      }
+    },
+    {
+      "id": "R2_audit_details_moved_to_provenance",
+      "status": "PASS",
+      "evidence": "Final SCI04",
+      "detail": "800check floating details in working-draft provenance;C22-C24 completed status correct; no arbitrary word-count padding"
+    }
+  ],
+  "failed_checks": [],
+  "minor_notes": [
+    {
+      "id": "M1",
+      "severity": "Minor",
+      "file": "manuscript/SCI_06_Conclusions.md",
+      "locator": "section6.1",
+      "issue": "Max-error comparator needs precision: F2 Seed62 slightly below F0, slightly above F1; endpoint and target-equal worse than both.",
+      "requested_minimum_fix": "Name endpoint/target-equal reversals and distinguish absolute tail risk from max-error comparison.",
+      "resolved": true,
+      "resolution": "Verified directly against final revised chapter in round2; no experiment/model changes"
+    },
+    {
+      "id": "M2",
+      "severity": "Minor disclosure completeness",
+      "file": "manuscript/SCI_05_Results_and_Discussion.md",
+      "locator": "section5.5",
+      "issue": "A/B thresholds were frozen before R2 after R1 results known; six historical passes are retrospective verification, not retroactive R1 preregistration. R1 wall8h/R2wall12h should be explicit.",
+      "resolved": true,
+      "resolution": "Verified directly against final revised chapter in round2; no experiment/model changes"
+    }
+  ],
+  "five_dimensions": [
+    {
+      "dimension": "原创性",
+      "assessment": "有限且明确的实现/接口贡献；原TFT/PEMFC TFT/CNN混合均已有先例；不支持独立门控精度创新",
+      "scientific_limitations": [
+        "specific implementation novelty modest",
+        "no field-wide first claim"
+      ]
+    },
+    {
+      "dimension": "方法严谨",
+      "assessment": "冻结任务、Train-only处理、配对seed、无未来物理输入与重叠评价口径清楚",
+      "scientific_limitations": [
+        "same-protocol LSTM/TCN still missing",
+        "independent confirmation unavailable"
+      ]
+    },
+    {
+      "dimension": "证据充分",
+      "assessment": "当前Development工作稿的指标、源CSV、代码/图索引完整；不能升级为投稿或独立泛化完成",
+      "scientific_limitations": [
+        "selected-six bias",
+        "negative P2",
+        "seed62 tail risk"
+      ]
+    },
+    {
+      "dimension": "论证一致",
+      "assessment": "数值、候选贡献与反例一致；六筛选与三预定seed分开，RUL/SOH/物理主张未扩展",
+      "scientific_limitations": [
+        "two minor wording/disclosure revisions tracked, not new experiments"
+      ]
+    },
+    {
+      "dimension": "写作",
+      "assessment": "六章问题—方法—结果—局限结构清楚，工作稿溯源与正文分开",
+      "scientific_limitations": [
+        "remove working-draft provenance paragraphs for future submission formatting only after human approval",
+        "not a finalized English journal manuscript"
+      ]
+    }
+  ],
+  "scientific_gaps_not_fixed_by_writing": [
+    "same-protocol simple strong temporal baselines",
+    "genuinely independent evaluation record",
+    "unproven independent gate gain",
+    "single-stack, selected-instance and tail/endpoint limitations"
+  ],
+  "allowed_scope_verified": {
+    "raw_Test_read": false,
+    "Assessment_point_cache_read": false,
+    "model_instantiated": false,
+    "training": false,
+    "metadata_and_source_code_only_plus_new_stage_aggregate_tables": true
+  },
+  "source_file_sha256": {
+    "literature/01_已发表PEMFC论文横向比较矩阵.md": "26be17a07c4c230a183f453d8a51f085a08f7cd005f958d7fbf60ad515d2e465",
+    "literature/02_参考文献核心实验与图表清单.md": "1dd92d5106a7e75b0a4b0c396b5b58404411450de12cdc85d9cd114f39dd8876",
+    "literature/03_本项目创新点与重叠风险.md": "5d1e7cfb9ed2582a273e9b32d969391a1e512a36aa0e19156280f0c0b4c7a083",
+    "literature/REFERENCES.md": "ca3b33ae24a6656daf66b51f1750e7238d9aeacd1f92170913d8fbd76a31b520",
+    "manuscript/SCI_01_Introduction_文献对标初稿.md": "43852fc1223f662cc72bb69be28f46e2cfbb12dc7c1591b883a0928561ae3c3b",
+    "manuscript/SCI_02_Data_and_Problem.md": "51a94ac73b5d8c8e9fc03c12250629695427ec7583f0fb8abeaf86f9f44e8fe9",
+    "manuscript/SCI_03_Proposed_Method.md": "bcdb941dd4264a0549e8854ecc7742670fa5c531b7450d84add23ac3b8631060",
+    "manuscript/SCI_04_Experimental_Setup.md": "6f45965afbfd949dfea507c25009ff4a8697f2ba6d317aca65d6983613888480",
+    "manuscript/SCI_05_Results_and_Discussion.md": "da7afcc7769cc15051f2453dbec94118c15904b148e3ea27917f241e4a614466",
+    "manuscript/SCI_06_Conclusions.md": "c9364692e57a2b3bcc0aa57e005e8b2a4403d9192ef2073a27128f658f7bcc1a",
+    "outline/04_正式SCI论文大纲_文献对标修订版.md": "8621b94add7476105ff17c07df6f3fa5b5d323b961f6a1e27ca5267c3ae581d0",
+    "outputs/evidence_index/FIGURE_INDEX.csv": "4af6b0c5f456da0be99e4c4617d14bdc1a41c551bb9b97699b441ae5c8eef59b",
+    "outputs/experiment_tables/PAPER_NUMERIC_FACTS.json": "b6b6ce1461b2b702f62f67c807631bfdc382119d80a5f39629873296e14a1586",
+    "reports/03_论文图表审查报告.md": "6e94d6fb99743ced3318567474f478e01ae63e9c9ed4fb2948a51818ca68ced9",
+    "reports/04_论文创新性与审稿风险.md": "cffa33e20ad05e5078ed866305e8d2a3e5d6969873c65fa7a06125c75a3fb644",
+    "reports/05_尚缺实验及最小补充计划.md": "b7c5e2ee809af569b18a989c88be4036b38215c034014e35b9ce39b2cef0948c",
+    "tables/T01_FEATURES.csv": "47614e31d8c9e2dc27b8fc6d84d3d9e5e70bdc37d0831a02fe46f98d791a3e69",
+    "tables/T01_FEATURES.md": "9cd11127dc8a52df1bdb24fdacde26b5da2cee6f4c0cd719165e66489201b087",
+    "tables/T02_SPLITS.csv": "bccf9bc5e41dbcb25ec7a4a1d89c08775d8643138ea3abfa2430787f838132c7",
+    "tables/T02_SPLITS.md": "84716553eba542200027eac328489ffce31ccc0207aef4380215d750573d242e",
+    "tables/T03_FROZEN_SETTINGS.csv": "bed98f68ac2a84e6912d19fcf10a1a3676c5a49d27c813f5ea98074365d14e82",
+    "tables/T03_FROZEN_SETTINGS.md": "8fc8565424b2601ec7676bb89955cca67b873b5e6d592f43bea5315c0bf1f1b1",
+    "tables/T04_FORMAL_MODEL_COMPARISON.csv": "26f391243fb260557255dd674647d4f6ed45606d32bd83ad521a59775465ed2c",
+    "tables/T04_FORMAL_MODEL_COMPARISON.md": "54e3ecc3a84f5567685e840bd865ec19c44cad5f2250c8e800fa739d8e398777",
+    "tables/T05_EQUAL_SEED_SUMMARY.csv": "1233910783c9149e287d6489a9a08a1502305ab09adfc12b5dbb9182fb5ec35b",
+    "tables/T05_EQUAL_SEED_SUMMARY.md": "d85f7b3b85f24b1eb877d030528ffd6916be9c395e78173e7d1dabfb4e185154",
+    "tables/T06_SELECTED_F2_INSTANCES.csv": "d33dd011ab0722d0411724bf2ee148744e18f9896a640535f9ff78a6e1cec45f",
+    "tables/T06_SELECTED_F2_INSTANCES.md": "a18c019ee4bade640727c90f6d7ecb897db6662519bad26958c509690254b617",
+    "tables/T07_INDEPENDENT_TRAINING_ABLATION.csv": "9f10c289d38b56c8245cc38cc759d192b2be8d8ae4c8c9535f2e55a18e40e3d8",
+    "tables/T07_INDEPENDENT_TRAINING_ABLATION.md": "bbcb5743a2b1e12c4320f1ca97b40ec490ad90f5c1d60a0fea8fbff29756e813",
+    "tables/T08_CONDITION_RESULTS.csv": "dfa5c28773f8dfdc63112ea273faa89141d06196ae16073f89ece5e1ff6c4b97",
+    "tables/T09_PAIRED_REGIME_RESULTS.csv": "05ae936e2ef333c093a95f834211bbdad488b5e2b6d52757dd90e7d37d6cbc16",
+    "tables/T09_PAIRED_REGIME_RESULTS.md": "77a82989bec749caa5e6f24e027209f9376bc099f9c0cbaa2c8b16cae40244e5",
+    "tables/T10_REUSED_ASSESSMENT.csv": "b0057356684383ad0c4351194734240fe936f9689f25f6c653ab2e08370ffd50",
+    "manuscript/SCI_07_声明与参考文献说明.md": "923c932f5c0df0031260148cf576473e41ef8a26669a3c42e66b0ca9546b7161",
+    "manuscript/SCI_完整中文工作稿.md": "4675daa59308c6e4b5158a8d932ad676701d45a4155340fe4a6f57358be911bb",
+    "outputs/evidence_index/MANUSCRIPT_CHAPTER_INDEX.csv": "1766244759d1b87e7cf977841317efe483ef1502bac66b5b06cd30fae7f2d2bc"
+  },
+  "final_internal_link_check_count": 132,
+  "all_minor_issues_resolved": true,
+  "format_only_followup": {
+    "scope": "Final aggregate trailing blank-line removal only; no third scientific revision",
+    "old_aggregate_sha256": "ea660a86c43a4e13a76fc924b99417170b609742bc2cebf93e559b1abdca8b61",
+    "new_aggregate_sha256": "4675daa59308c6e4b5158a8d932ad676701d45a4155340fe4a6f57358be911bb",
+    "comparison": "rstrip-normalized block equality",
+    "all_six_chapters_disclosure_references_unchanged": true
+  }
+}

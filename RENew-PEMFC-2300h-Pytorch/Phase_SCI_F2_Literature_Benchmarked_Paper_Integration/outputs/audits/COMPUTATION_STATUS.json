@@ -1,0 +1,14 @@
+{
+  "training": false,
+  "model_forward": false,
+  "Test": false,
+  "new_Assessment_inference": false,
+  "Assessment_summary_only": true,
+  "formal_runs": 9,
+  "queries_per_run": 4920,
+  "validation_origins": 205,
+  "unique_target_times": 251,
+  "condition_rules": "Three pre-existing Train tercile rules; no tuning",
+  "no_new_seed_selection": true,
+  "O1_all_metrics_reproduced": true
+}

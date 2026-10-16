@@ -1,0 +1,148 @@
+{
+  "audit_date": "2026-10-17",
+  "review_role": "Independent source/citation consistency reviewer; not the matrix author",
+  "status": "PASS_WITH_MINOR_WORDING_NOTE",
+  "scope": "Final literature 01/02/03/REFERENCES, both raw extraction JSON/notes, official metadata,17x9 exported fields; selected first-page and Yi p2 source spot checks. Not an independent full re-read of all seven papers.",
+  "checks": [
+    {
+      "check": "153_unique_fields",
+      "status": "PASS",
+      "detail": "9 papers x 17 unique fields"
+    },
+    {
+      "check": "9_unique_papers",
+      "status": "PASS",
+      "detail": "P1-P6,A1-A3"
+    },
+    {
+      "check": "source_extractions_vs_official_metadata",
+      "status": "PASS",
+      "detail": "All 9 DOIs, titles, full author lists and bibliographic years agree"
+    },
+    {
+      "check": "all153_values_grades_locators_exact_source_match",
+      "status": "PASS",
+      "detail": "Each exported cell equals independently loaded extraction JSON"
+    },
+    {
+      "check": "long_wide_tables_exact_match",
+      "status": "PASS",
+      "detail": "Wide and long evidence tables preserve every value"
+    },
+    {
+      "check": "all11_bibliographies_include_correct_authors_title_year_doi",
+      "status": "PASS",
+      "detail": "Includes original TFT and RealHyFC data paper"
+    },
+    {
+      "check": "seven_fulltext_two_abstract_only",
+      "status": "PASS",
+      "detail": "Local availability independently inspected; full-text reading scope inherited from separate direct reviewers"
+    },
+    {
+      "check": "seven_local_pdf_sha_match",
+      "status": "PASS",
+      "detail": "Raw PDFs hashed, no experimental data file read"
+    },
+    {
+      "check": "Tu_Yakut_unknown_not_negative",
+      "status": "PASS",
+      "detail": "Both absences of full text remain UNKNOWN, never no ablation"
+    },
+    {
+      "check": "Yi_dataset_correction_retained",
+      "status": "PASS",
+      "detail": "Independently checked Yi PDF p2 section 2: 90kW, 400 serial cells,1374h, polarization j=.7A/cm2"
+    },
+    {
+      "check": "Ko_four_authors",
+      "status": "PASS",
+      "detail": "Independently checked Ko PDF first page; four authors"
+    },
+    {
+      "check": "physical_horizon_conversion_guard",
+      "status": "PASS",
+      "detail": "P1 steps not silently mapped to hours; P2 unequal platforms; P3 trial duration not horizon; P5 unknown"
+    },
+    {
+      "check": "future_known_not_accused_leakage",
+      "status": "PASS",
+      "detail": "Information-set mismatch is documented; author intent/unpublished code not inferred"
+    },
+    {
+      "check": "existing_ablations_not_denied",
+      "status": "PASS",
+      "detail": "P4 native/feature, P6 module, Jiang variants and Ko failed ablations retained"
+    },
+    {
+      "check": "no_cross_paper_error_ranking",
+      "status": "PASS",
+      "detail": "Manual review of final 01/02/03 and refs found no cross-dataset error leaderboard"
+    },
+    {
+      "check": "no_false_first_or_independent_gate_gain",
+      "status": "PASS",
+      "detail": "Novelty is specific interface/implementation, not first TFT/CNN/unknown-future forecasting"
+    },
+    {
+      "check": "seven_local_printed_online_dates_independently_extracted",
+      "status": "PASS",
+      "detail": "7 p1 dates saved with source PDF SHA, exact printed line, DOI, source locator; Crossref null preserved"
+    }
+  ],
+  "local_pdf_count": 7,
+  "abstract_snippets_only": [
+    "P3",
+    "P5"
+  ],
+  "field_count": 153,
+  "substantive_failures": [],
+  "minor_fixes_made": [
+    {
+      "file": "literature/core_P1_P5_notes.md",
+      "change": "Yurdagül Benteşen Yakut等 -> Yurdagül Benteşen Yakut in availability table, single-author wording",
+      "authorization": "Parent reviewer explicitly authorized this precise minor correction"
+    }
+  ],
+  "minor_notes": [
+    {
+      "id": "M1",
+      "severity": "minor bibliographic completeness",
+      "detail": "Crossref published-online fields correctly remain null, but seven local first pages print online publication dates. Add a separate local_pdf_online_date_observed field with p1 locator, preserving raw Crossref dates. Bibliographic issue years are already correct.",
+      "observed_online_dates": {
+        "P1": "2022-03-08",
+        "P2": "2023-04-07",
+        "P4": "2025-04-01",
+        "P6": "2026-03-25",
+        "A1": "2026-01-14",
+        "A2": "2025-02-25",
+        "A3": "2025-01-08"
+      },
+      "resolution": "RESOLVED_BY_AUTHORIZED_SIDECAR: outputs/evidence_index/LOCAL_PDF_ONLINE_DATES.csv; raw Crossref fields remain unchanged"
+    },
+    {
+      "id": "M2",
+      "severity": "minor wording",
+      "file": "literature/02_参考文献核心实验与图表清单.md",
+      "detail": "Opening says abstract-only two papers not used as figure-number evidence, while P3 Fig1/Fig2a/Table1 are explicitly supported by publisher snippets. Prefer “不作为未经原文片段支持的完整图号/章节结构证据”; not a scientific contradiction because P3 actual rows preserve snippet grade."
+    }
+  ],
+  "source_file_sha256": {
+    "literature/01_已发表PEMFC论文横向比较矩阵.md": "26be17a07c4c230a183f453d8a51f085a08f7cd005f958d7fbf60ad515d2e465",
+    "literature/02_参考文献核心实验与图表清单.md": "1dd92d5106a7e75b0a4b0c396b5b58404411450de12cdc85d9cd114f39dd8876",
+    "literature/03_本项目创新点与重叠风险.md": "5d1e7cfb9ed2582a273e9b32d969391a1e512a36aa0e19156280f0c0b4c7a083",
+    "literature/REFERENCES.md": "ca3b33ae24a6656daf66b51f1750e7238d9aeacd1f92170913d8fbd76a31b520",
+    "literature/core_P1_P5_notes.md": "5e1024192e27a1ad929da7967f1f36dc557fe7a6080101ee8b836b268c1f4063",
+    "literature/P6_aux_notes.md": "6221b492caf863589ea79b57c3faf14d0dba8d1ded6336dbae706a5dbb2ad691",
+    "literature/core_P1_P5_evidence.json": "d245a0257eb1b88832360b7935d4f5bf517271502b5d7e68b8fe12a9874b0a1f",
+    "literature/P6_aux_evidence.json": "16ecc54adace8d6b38b2553a48cacbe533dd072cf73f964d65f7be6ad742946c",
+    "literature/verified_metadata.json": "aa5d70466bebd97b19d677ec15cd5603bd18016de128511fd789f1f62adb4b19",
+    "outputs/evidence_index/LITERATURE_FIELD_EVIDENCE.csv": "45f036ec0795137c813609a820b0d14f7addc52cc91d63345ffe55119f13151e",
+    "outputs/evidence_index/LITERATURE_COMPARISON_WIDE.csv": "89fb32856c9ce42dae9318964dbad9c406a8c75adfe7d2008c400da8bb3c42ea",
+    "outputs/evidence_index/LITERATURE_SOURCE_INDEX.json": "01efefa79a0b3fb22bc52cf540e3d33e9cc94a5c1758c471f76c72bcdc598dc6",
+    "outputs/evidence_index/LOCAL_PDF_ONLINE_DATES.csv": "0fc0ebdc7beefab6eeb44df337320522eaf25f2211764864c2afac6a2e8bac2e"
+  },
+  "experimental_data_read": false,
+  "model_loaded": false,
+  "training_performed": false
+}

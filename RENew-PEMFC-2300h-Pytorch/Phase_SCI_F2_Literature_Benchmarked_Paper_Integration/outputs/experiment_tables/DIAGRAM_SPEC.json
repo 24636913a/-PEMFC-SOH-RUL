@@ -1,0 +1,72 @@
+{
+  "task": {
+    "history_steps": 48,
+    "horizon_steps": 24,
+    "resolution_h": 0.5,
+    "raw_slots": 14,
+    "Top10": [
+      0,
+      3,
+      13,
+      11,
+      4,
+      9,
+      6,
+      7,
+      10,
+      8
+    ],
+    "target": "raw DeltaV",
+    "decoder": "relative horizon index only"
+  },
+  "branch": {
+    "kernel_size": 3,
+    "dilations": [
+      1,
+      4
+    ],
+    "causal_padding": "left only",
+    "input": "same encoder VSN sequence",
+    "mix": "concat ->1x1 conv ->dropout+residual+LayerNorm"
+  },
+  "fusion": "g*post_LSTM_encoder+(1-g)*CNN_encoder",
+  "encoder_state_route": "original encoder LSTM hidden/cell -> native decoder LSTM; fused features do not replace these states",
+  "downstream": "concatenate fused48 encoder representations with24 decoder representations before native enrichment and attention",
+  "gate_inputs": [
+    11,
+    13,
+    9,
+    6,
+    8
+  ],
+  "gate_layers": [
+    5,
+    8,
+    1
+  ],
+  "gate_activation": [
+    "ELU",
+    "sigmoid"
+  ],
+  "parameters": {
+    "F0": 323483,
+    "F1": 332379,
+    "F2": 332436
+  },
+  "inherited": [
+    "VSN",
+    "LSTM encoder/decoder",
+    "GRN/GLU",
+    "attention",
+    "residual normalization"
+  ],
+  "added": [
+    "causal multiscale depthwise convolution",
+    "encoder path fusion",
+    "history-statistics scalar gate"
+  ],
+  "sources": [
+    "RENew-PEMFC-2300h-Pytorch\\Phase_F_TFT_DualPath_RegimeFusion\\models",
+    "RENew-PEMFC-2300h-Pytorch\\Phase_TFT_Original_Baseline\\models\\canonical_tft.py"
+  ]
+}

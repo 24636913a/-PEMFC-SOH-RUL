@@ -1,0 +1,558 @@
+{
+  "scope": "Stage 1 literature extraction only; no model inference/training; no Assessment/Test access",
+  "primary_paper": "P6",
+  "auxiliary_papers": [
+    "AUX_JIANG",
+    "AUX_YI",
+    "AUX_KO"
+  ],
+  "field_count_per_paper": 17,
+  "evidence_policy": {
+    "FULL_TEXT_RECHECKED_THIS_PHASE": "本轮重读原PDF直接定位，非Phase O间接",
+    "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS": "全文核对但此项信息未完整披露；非从摘要推定缺实验",
+    "FULL_TEXT_RECHECKED_WITH_SOURCE_AMBIGUITY": "原文内部或公式存在歧义，保持歧义",
+    "REVIEWER_SYNTHESIS_FROM_VERIFIED_FULLTEXT": "基于已核实原文对本项目的解释，不冒充论文事实"
+  },
+  "publisher_metadata_verification": {
+    "date": "2026-10-17",
+    "method": "Web primary publisher search results + local PDF first pages",
+    "direct_open_status": "ScienceDirect P6/Ko direct opens403; Yi DOI resolver inaccessible; publisher search returned identity metadata. Full method claims use local PDFs.",
+    "urls": [
+      "https://www.sciencedirect.com/science/article/pii/S0378775326006919",
+      "https://www.sciencedirect.com/science/article/abs/pii/S0360319926001187",
+      "https://www.sciencedirect.com/science/article/pii/S0360319925008808",
+      "https://www.sciencedirect.com/science/article/abs/pii/S0306261925000480"
+    ],
+    "secondary_results_not_used": "ResearchGate/CoLab/other aggregators not used as source; Ko aggregator spurious fifth author rejected against original PDF"
+  },
+  "historical_corrections": [
+    {
+      "paper": "AUX_YI",
+      "previous": "Phase O ledger dataset PHM",
+      "corrected": "Own 90kW 400-cell bench,1374h,polarization0.7A/cm²",
+      "locator": "PDF p2 §2",
+      "action": "Record only here; historical files unchanged"
+    }
+  ],
+  "papers": [
+    {
+      "paper_id": "P6",
+      "title": "A hybrid framework for PEMFC degradation prediction integrating Crossformer and physical constraints",
+      "authors": [
+        "Lin Wei",
+        "Shangrui Gao",
+        "Zonghai Chen",
+        "Yujie Wang",
+        "Zhendong Sun"
+      ],
+      "year": 2026,
+      "journal": "Journal of Power Sources 677, 239941",
+      "doi": "10.1016/j.jpowsour.2026.239941",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0378775326006919",
+      "source_relative_to_repository": "参考论文/1-s2.0-S0378775326006919-main.pdf",
+      "source_sha256": "02aa3f525909f1590cf51be3a4fa7468143dfbed6756a0a291cbe2e0791ca18f",
+      "pdf_pages": 11,
+      "access_status": "LOCAL_ORIGINAL_FULLTEXT_AVAILABLE_AND_RECHECKED",
+      "verification_date": "2026-10-17",
+      "review_scope": "本轮逐页重新提取并阅读方法与实验全文；关键图表页实际渲染视觉检查。Phase O仅用作身份/历史比较，不替代本轮原文。",
+      "visual_pages_reviewed": [
+        5,
+        7,
+        10
+      ],
+      "fields": {
+        "research_target": {
+          "value": "多工况PEMFC电压退化预测；主要一阶段24窗MISO单步，另有多步实验；不是已验证标准SOH或RealHyFC真实RUL任务。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p7 §3.5/§4.2; p10 §5",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "dataset_conditions": {
+          "value": "FC1/FC2为PHM2014两个5cell、100 cm²堆，分别70 A稳态1140h与70 A±7 A、5 kHz纹波1020h；FC3为同济单电池3076动态周期约1008h，周期1180s、35平台。FC1/2清洗平滑后1h重采样，FC3每平台倒数第五值。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p2 §2.1; p3 Fig1/§2.2",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "input_information": {
+          "value": "历史电压及运行参数经Spearman筛选（排除弱于0.3的变量）送卷积与Crossformer；物理电压还涉及j、T、氢氧/水分压、面积及老化参数。预测目标时刻这些物理工况如何获得未形成明确信息表；不能默认在线已知，也不能据此断言使用未来实测值。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_UNRESOLVED_INTERFACE",
+          "locator": "PDF p3 §2.3/Fig2; p5 Fig3; p6 Eqs12–15",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "forecast_mode": {
+          "value": "卷积先提局部特征，Crossformer预测电压；§3.5主要MISO单步；§4.2明确以autoregressive解释1/5/10步误差累积。不是F2冻结48→24同起点直接向量输出。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p7 §3.5/§4.2",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "horizon_physical_time": {
+          "value": "1、5、10步；FC1/2在1h重采样下对应1/5/10h。FC3为非等时长测试平台的代表点，不能将每步强换1h，亦非35平台均匀平分1180s的已证实物理时间。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_UNRESOLVED_INTERFACE",
+          "locator": "PDF p3 §2.2; p7 §4.2; p9 Table2",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "model_structure": {
+          "value": "一维卷积→Crossformer的DSW嵌入、TSA、层级encoder–decoder；预测电压与半经验物理电压构成损失。i0、iL指数衰减、Rc线性增长，六个初值/老化参数参与训练；data、physics、joint三阶段。不是LSTM/CNN并行TFT。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p4 §3.1–3.2; p5 Fig3; p6 Fig4/Eqs12–15; p7 Eq16/§3.5",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "claimed_innovation": {
+          "value": "作者主张卷积增强跨变量/跨时间建模和物理先验对少样本稳健性的协同；属于本文主张，不能移植成我们已完成的物理创新。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p2 introduction contributions; p10 §5",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "comparators": {
+          "value": "CNN、Transformer、Informer、CNN-Attention；FC1/2/3和70/50/30%训练比例下比较RMSE/MAPE。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p7 §4.2; p8 Table1/Fig5",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "ablations": {
+          "value": "Crossformer、C-Crossformer、PI-Crossformer、PIC-Crossformer四变体×3工况×3训练比例。模块消融确实存在；等参数量、等额外信息和训练预算未给出完整证据。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_UNRESOLVED_INTERFACE",
+          "locator": "PDF p7 §4.3; p9 Fig6; p10 Table3",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "condition_analysis": {
+          "value": "稳态、准动态、动态三组分别给曲线与表；是多个数据集内分别训练/评价，不能自动解释为在一工况训练、完全跨工况零样本迁移。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p2 §2.1; p8 Fig5/Table1; p9 Fig6; p10 Table3",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "robustness_generalization": {
+          "value": "训练比例70/50/30%和1/5/10步敏感性；没有从当前全文找到固定seed清单、跨seed方差或独立极化参数辨识诊断。此为本PDF报告范围，不能推断作者未公开实现的行为。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS",
+          "locator": "PDF p7 §§4.2–4.3; p8–10 Tables1–3",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "metrics": {
+          "value": "RMSE(V)、MAPE(%)，Eq17/18；主70%表PIC分别FC1=.00191、FC2=.00324、FC3=.00305 V。摘要.00191–.00305的范围遗漏表中FC2，应以表为准；不用于跨论文绝对精度排名。Eq16无求和印刷与Eq17不同，实际损失实现未核实。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_SOURCE_AMBIGUITY",
+          "locator": "PDF p1 abstract; p7 Eqs16–18; p8 Table1; p10 Table3",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "figures_tables": {
+          "value": "Fig1原/处理数据与工况、Fig2 Spearman、Fig3总框图、Fig4 Crossformer、Fig5多模型曲线、Fig6模块与训练比例；Table1主比较、Table2多跨度、Table3消融。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pp3–10 Figs1–6/Tables1–3",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "section_organization": {
+          "value": "§1背景和三点贡献；§2数据与预处理；§3模块、物理方程、损失、预测策略；§4指标→基线→跨度→消融/少样本；§5结论。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p2 organization; pp3–10 section headings",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "adoptable_practices": {
+          "value": "借鉴数据协议→结构→常规对照→跨度→模块证据→局限的组织；图表分离数据场景、模型比较与机制证据；我们的已有逐步误差/尾部误差可更透明呈现。",
+          "evidence_grade": "REVIEWER_SYNTHESIS_FROM_VERIFIED_FULLTEXT",
+          "locator": "Derived synthesis from PDF p7 §§4.1–4.3; pp8–10 Tables1–3",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "nontransferable_practices": {
+          "value": "不能因其用了PINN就在本项目加损失；不能把其同济/PHM的mV、固定工况或自回归步骤与RealHyFC未知未来工况直接24步排名；不能把未报告的seed/信息接口写成已核实。",
+          "evidence_grade": "REVIEWER_SYNTHESIS_FROM_VERIFIED_FULLTEXT",
+          "locator": "PDF p2 §2.1; p3 §2.2; p7 §§3.5/4.2; derived comparison",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "specific_locator_summary": {
+          "value": "核心定位p5 Fig3、p6 Eqs12–15、p7 Eqs16–18/§3.5/§4.2/§4.3、p8 Table1、p9 Table2/Fig6、p10 Table3；渲染p5/p7/p10已看。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pages as listed",
+          "source_basis": "local_user_supplied_original_PDF"
+        }
+      }
+    },
+    {
+      "paper_id": "AUX_JIANG",
+      "title": "A TCN-BiLSTM-based approach for remaining useful life prediction of PEMFC",
+      "authors": [
+        "Jian Jiang",
+        "Dongsheng Du",
+        "Lin Su",
+        "Yifan Du"
+      ],
+      "year": 2026,
+      "journal": "International Journal of Hydrogen Energy 207, 153481",
+      "doi": "10.1016/j.ijhydene.2026.153481",
+      "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0360319926001187",
+      "source_relative_to_repository": "参考论文/1-s2.0-S0360319926001187-main.pdf",
+      "source_sha256": "aeb18fc1b445623a4a0ad60b67e6853d99a63f0d45bb57bd4a307b64c2753d47",
+      "pdf_pages": 13,
+      "access_status": "LOCAL_ORIGINAL_FULLTEXT_AVAILABLE_AND_RECHECKED",
+      "verification_date": "2026-10-17",
+      "review_scope": "本轮逐页重新提取并阅读方法与实验全文；关键图表页实际渲染视觉检查。Phase O仅用作身份/历史比较，不替代本轮原文。",
+      "visual_pages_reviewed": [
+        8,
+        9
+      ],
+      "fields": {
+        "research_target": {
+          "value": "标题称RUL，实际结果围绕电压信号预测、MSE/MAE/R²，没有足以重建真实失效时刻预测协议的独立RUL误差表。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS",
+          "locator": "PDF p9 Table2/§6; p10 §7",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "dataset_conditions": {
+          "value": "FCLAB公开数据，前500个初始电压点；p2文字写5 stacks each100cm²，堆/单电池身份措辞有歧义，不替作者修正为5cell。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_SOURCE_AMBIGUITY",
+          "locator": "PDF p2 §2/Remark1/Table1",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "input_information": {
+          "value": "一维电压→VMD→MI/Pearson选择IMF→KF→中心窗口MF；MF初窗9再二级选择15。切分内独立拟合、部署时仅历史滤波接口未交代完整。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS",
+          "locator": "PDF pp2–3 §3.1–3.3; p8 Fig7/§5",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "forecast_mode": {
+          "value": "TCN与IALA优化的BiLSTM-attention分别产生输出；式39计算与当前真实目标的绝对误差，式40选择较小分支。该已发表公式描述含目标依赖；不是可直接部署的历史输入门控。实现若另有在线选择器，此全文未说明。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_TARGET_DEPENDENT_FORMULA",
+          "locator": "PDF p8 Eqs39–40/§5; p9 Fig8; p10 §6",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "horizon_physical_time": {
+          "value": "前500点，但点间物理时间、历史窗长、固定直接多步长度及时间顺序切分不足以复建；不得把500点说成500h或与F2未来12h对等。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS",
+          "locator": "PDF p2 Remark1; pp8–10 §§5–6",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "model_structure": {
+          "value": "并行的是独立TCN和BiLSTM-attention预测器，TCN含因果/膨胀卷积与残差，IALA优化BiLSTM权重，最后逐点输出选择；不是TFT encoder内特征融合。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pp5–8 Eqs16–40/Figs5–8",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "claimed_innovation": {
+          "value": "指数衰减能量的IALA、优化BiLSTM权重、并行互补；应把作者创新与部署信息资格分开。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p2 contributions; p7–8 §4/§5",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "comparators": {
+          "value": "TCN、BiLSTM、PSO/GWO/ALA/IALA-BiLSTM、残差TCN、IALA-BiLSTM-Attention及组合；Table2共9行。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p9 Table2",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "ablations": {
+          "value": "Table2包含残差TCN、attention与优化器变体，不能称完全无消融；但逐点目标择优不能作为同信息在线组合器的独立训练增益证明。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_UNRESOLVED_INTERFACE",
+          "locator": "PDF p9 Table2; p8 Eqs39–40",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "condition_analysis": {
+          "value": "Table1设备可控范围；结论承认只FCLAB验证，尚未测极温湿/突然负载等真实复杂环境。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p2 Table1; p10 §7",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "robustness_generalization": {
+          "value": "Figs9–11 loss/误差直方/散点；正文称多次实验稳定但具体seed表和随机重复的均值/方差未完整给出；不等于验证RealHyFC分布外泛化。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS",
+          "locator": "PDF pp9–12 §6/Figs9–11",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "metrics": {
+          "value": "MSE/MAE/R² Eq41；99.35%是Table2 R²，非真实RUL准确率；组合值MSE1.4211e−9、MAE2.6636e−5依据表，不和F2物理mV排名。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p9 Eq41/Table2",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "figures_tables": {
+          "value": "Figs1–4分解滤波，Fig5 TCN，Fig6 BiLSTM-attention，Fig7 IALA，Fig8流程，Fig9 loss，Figs10–11误差分布/散点，Fig12各方法曲线；Tables1环境范围、2结果。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pp2–13 Figs1–12/Tables1–2",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "section_organization": {
+          "value": "§1引言；§2系统；§3分解/滤波/TCN/BiLSTM/attention理论；§4 IALA；§5组合；§6实验；§7结论。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF section headings pp1–10",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "adoptable_practices": {
+          "value": "借鉴结构对照、误差分布与预测曲线联合呈现；明确区分两路径表征与最终输出融合；本项目用历史输入gate而不使用目标误差选择输出。",
+          "evidence_grade": "REVIEWER_SYNTHESIS_FROM_VERIFIED_FULLTEXT",
+          "locator": "PDF p8 §5; p9 Table2; pp11–13 Figs10–12",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "nontransferable_practices": {
+          "value": "不照搬VMD+中心平滑、不扩展优化器/模型池；不把R²当RUL精度；只准确指出式39/40的目标依赖，不指控未公开代码或作者意图。",
+          "evidence_grade": "REVIEWER_SYNTHESIS_FROM_VERIFIED_FULLTEXT",
+          "locator": "PDF p3 §3.3; p8 Eqs39–40; p9 Eq41",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "specific_locator_summary": {
+          "value": "关键p2 Remark1/Table1，p3中心MF，p8 Eqs39–40，p9 Fig8/Table2/Eq41，p10局限；p8/p9已渲染视觉核对。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pages as listed",
+          "source_basis": "local_user_supplied_original_PDF"
+        }
+      }
+    },
+    {
+      "paper_id": "AUX_YI",
+      "title": "Remaining useful life prediction of PEMFC based on matrix long short-term memory",
+      "authors": [
+        "Fengyan Yi",
+        "Xing Shu",
+        "Jiaming Zhou",
+        "Jinming Zhang",
+        "Chunxiao Feng",
+        "Hongtao Gong",
+        "Caizhi Zhang",
+        "Wenhao Yu"
+      ],
+      "year": 2025,
+      "journal": "International Journal of Hydrogen Energy 111, 228–237",
+      "doi": "10.1016/j.ijhydene.2025.02.302",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0360319925008808",
+      "source_relative_to_repository": "参考论文/基于矩阵长短期记忆的质子交换膜燃料电池剩余使用寿命预测.pdf",
+      "source_sha256": "45fad2e4e84ff9209db9cb7ad91663c5dd3114125787672ce0853e5288ea6b1f",
+      "pdf_pages": 10,
+      "access_status": "LOCAL_ORIGINAL_FULLTEXT_AVAILABLE_AND_RECHECKED",
+      "verification_date": "2026-10-17",
+      "review_scope": "本轮逐页重新提取并阅读方法与实验全文；关键图表页实际渲染视觉检查。Phase O仅用作身份/历史比较，不替代本轮原文。",
+      "visual_pages_reviewed": [
+        6,
+        9
+      ],
+      "fields": {
+        "research_target": {
+          "value": "标题RUL，实验证据主要为固定电流密度下电压老化单/多步预测；未发现可独立复建EOL与RUL误差的实验指标表。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS",
+          "locator": "PDF pp7–10 §4/Eqs24–26/Figs9–14",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "dataset_conditions": {
+          "value": "自建90kW平台、400cell串联、1374h；试验包括怠速/启停/额定/变载，环境25°C/50%RH/标准大气；从极化曲线取j=.7A/cm²电压老化数据。不是PHM。Phase O将其列PHM属历史账本错误，本轮单独更正而不改旧文件。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p2 §2; p4 Table2",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "input_information": {
+          "value": "电压与温度、压力、流量、电流等相关参数；db5/8层/minimax软阈波形预处理、[0,1]归一化、Spearman排除|rho|<.2弱变量；Train-only拟合范围与未来变量闭合未足够说明。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS",
+          "locator": "PDF pp2–5 §2/Figs4–5/Table2",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "forecast_mode": {
+          "value": "对LSTM、LSTM-Transformer、S-LSTM、M-LSTM做单步与20步；递归/直接输出以及滚动时协变量获取细节未完整说明。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_UNRESOLVED_INTERFACE",
+          "locator": "PDF p6 steps7–9; pp7–9 §4",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "horizon_physical_time": {
+          "value": "每1h一组点，单步与20步；按文中采样名义是1h/20h，但窗口/缺测时间身份未给精细追踪，不可视为本项目直接24步协议同构。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_UNRESOLVED_INTERFACE",
+          "locator": "PDF p5 process1; p6 process9",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "model_structure": {
+          "value": "矩阵记忆Ct、指数输入门与sigmoid或指数遗忘门、q/k/v投影，因果卷积/skip/归一化块。不是TFT两路径，也不是物理约束。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pp5–6 Eqs2–10/Fig6",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "claimed_innovation": {
+          "value": "作者主张矩阵存储和指数门增强长序列/高维特征学习及并行计算；当前论文可作PEMFC数据驱动架构背景，不要求本项目复现新backbone。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p2 contributions/Table1; p9 §5",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "comparators": {
+          "value": "LSTM、LSTM-Transformer、S-LSTM、M-LSTM；训练比例70%和50%；单步和多步分别给指标。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pp7–10 Figs9–14",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "ablations": {
+          "value": "架构比较存在；没有定位到逐项去矩阵/去指数门/等容量训练对照。不能把多个完整网络比较直接当每个组件的独立贡献证明。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS",
+          "locator": "PDF pp5–9 §3–4/Figs9–14",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "condition_analysis": {
+          "value": "源试验四类负载，目标却是极化j=.7的选点老化；未见按动态工况分组的单独误差表，不能把数据来源变载等同于未知未来动态电压预测。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS",
+          "locator": "PDF p2 §2; pp7–9 §4",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "robustness_generalization": {
+          "value": "70%/50%训练比例和单/20步；正文称S-LSTM与M-LSTM接近，保留这一事实。50%实验p6流程写最后30%、p9写50%测试；p10 Fig14题注One-step而正文称multi-step，歧义保留。没有具体seed分布报告。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_SOURCE_AMBIGUITY",
+          "locator": "PDF p6 step6; p9 §4; p10 Fig14",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "metrics": {
+          "value": "MAE/MSE/R² Eqs24–26；p7 70%单步M-LSTM MAE=.5076e−3、MSE=.1464e−5、R²=.9997。不可与未经同尺度审计的F2 mV直接排序，亦非真实RUL误差。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p7 Eqs24–26/Fig10/§4",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "figures_tables": {
+          "value": "Fig1总体、Figs2–3台架/采集、Fig4去噪、Fig5相关性、Figs6–8网络、Fig9/12电压曲线、Fig10/11/13/14指标柱图；Table2变量。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pp3–10 Figs1–14/Table2",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "section_organization": {
+          "value": "§1引言，§2实验与数据，§3 M-LSTM与基线，§4不同训练比例及单/多步结果，§5结论与复杂度局限。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pp1–10 section headings",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "adoptable_practices": {
+          "value": "采用独立数据定义、单/多步分表、减少训练量的敏感性、复杂度限制；尤其借鉴作者明确承认M-LSTM计算成本，而非把所有模块包装成无代价创新。",
+          "evidence_grade": "REVIEWER_SYNTHESIS_FROM_VERIFIED_FULLTEXT",
+          "locator": "PDF p9 §4/§5",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "nontransferable_practices": {
+          "value": "不能把标题RUL当已给EOL标签，不把原文400cell定状态老化成绩移植到RealHyFC动态多步；不仿照不清楚的切分或非因果滤波；不新增M-LSTM搜索。",
+          "evidence_grade": "REVIEWER_SYNTHESIS_FROM_VERIFIED_FULLTEXT",
+          "locator": "PDF p2 §2; p5–6流程; p9–10",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "specific_locator_summary": {
+          "value": "p2§2是数据纠正核心；p5–6 Eqs2–10/Fig6和流程；p7–10 Figs9–14；渲染p6/p9已看。PDF p2对应印刷229，p6对应233。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pages as listed",
+          "source_basis": "local_user_supplied_original_PDF"
+        }
+      }
+    },
+    {
+      "paper_id": "AUX_KO",
+      "title": "Physics-informed neural network for long-term prognostics of proton exchange membrane fuel cells",
+      "authors": [
+        "Taehwan Ko",
+        "Dukyong Kim",
+        "Jaewoong Park",
+        "Seung Hwan Lee"
+      ],
+      "year": 2025,
+      "journal": "Applied Energy 382, 125318",
+      "doi": "10.1016/j.apenergy.2025.125318",
+      "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0306261925000480",
+      "source_relative_to_repository": "参考论文/808537.pdf",
+      "source_sha256": "072ca041213bbad3b069f08d2f0fb496a808a427e3683dfc5ac050eb697598d0",
+      "pdf_pages": 11,
+      "access_status": "LOCAL_ORIGINAL_FULLTEXT_AVAILABLE_AND_RECHECKED",
+      "verification_date": "2026-10-17",
+      "review_scope": "本轮逐页重新提取并阅读方法与实验全文；关键图表页实际渲染视觉检查。Phase O仅用作身份/历史比较，不替代本轮原文。",
+      "visual_pages_reviewed": [
+        4,
+        7,
+        9
+      ],
+      "fields": {
+        "research_target": {
+          "value": "以时间和电流密度预测长时电压，再通过预设VEOL交点推RUL，强调降低输入数据长度IDL。不能把文中预设阈值转换成RealHyFC已观测失效。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p9 §4.4–4.5/Eqs5–7",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "dataset_conditions": {
+          "value": "PHM2014/FCLAB两组5cell、100cm²；FC1 .7A/cm²近稳态，FC2 .63–.77A/cm²、5kHz三角纹波。不是RealHyFC10cell宽变载。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pp4–5 §3/Figs3/5/Table1",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "input_information": {
+          "value": "t和j两输入；预测期j由训练阶段从最大电压测量到tinput的电流段复制。是明示假定的未来工况，不能称读取真实未来j，亦不适用于任意未知未来动态负载。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p5 §4.1; p6 Fig7; p9 §4.4 step3",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "forecast_mode": {
+          "value": "DNN映射(t,j)→V，外推到预测阶段，VEOL交点得寿命；不是带48步历史的直接24步神经预测器。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p4 Fig4; p5 §4.1; p9 §4.4",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "horizon_physical_time": {
+          "value": "由tinput到VEOL的长期预测，例FC1输入210/330h，FC2 244/330h，IDL26/40.8/35.2%；不是固定1/3/24步预测。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p7 Tables2–3; p8 Tables4–5; p9 Eq7",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "model_structure": {
+          "value": "8层每层20节点tanh DNN；数据、膜、催化层电压残差相加；Adam两阶段各5000epoch，lr1e−3后1e−6。膜方程引用[39]49/53/56，催化引用[41]1–7，本PDF未完整展开及标定。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS",
+          "locator": "PDF pp4–5 Fig4/§4.1; p8 §4.3",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "claimed_innovation": {
+          "value": "作者主张用膜/催化先验及复制j处理系统波动，以较少老化数据达到可接受RUL误差；并非本项目应恢复PINN的依据。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p3 introduction; p10 §6",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "comparators": {
+          "value": "与既有SOTA混合方法的IDL/RUL比较；同时无物理方程、无电流输入两变体。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p7 Tables2–3; p8 Tables4–5; p10 §5.2",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "ablations": {
+          "value": "Tables2/3物理与j输入有去项对照；20次重复给均值/标准差，FC2无方程未收敛如实保留；未单独拆膜/催化损失或识别未来电流复制策略的独立增益。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS",
+          "locator": "PDF p7 Tables2–3; p9 §5.1; p10 continuation",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "condition_analysis": {
+          "value": "两种电流条件分别评价，并展示波动；不是训练一工况后跨另一工况零样本泛化。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF p4 Fig3; p5 Fig5; p7 Figs8–9",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "robustness_generalization": {
+          "value": "每配置20次重复均值/标准差、不同IDL；随机seed细表与完整电化学参数标定未在当前全文定位；结论承认真实工况噪声/离群是未来工作。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_REPORTING_GAPS",
+          "locator": "PDF p9 §5.1; p7 Tables2–3; p10 §6",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "metrics": {
+          "value": "有符号RUL误差=(真实RUL−预测RUL)/真实RUL；accuracy=1−相对绝对误差；IDL=tinput/tEOL。不是电压R²/RMSE。Fig4根号逐点平方后求和与文本RMSE名称有数学差异，实际实现未核实。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_WITH_SOURCE_AMBIGUITY",
+          "locator": "PDF p4 Fig4; p5 §4.1; p9 Eqs5–7",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "figures_tables": {
+          "value": "Fig4结构与损失、Fig7训练/预测/电流复制/RUL流程、Figs8–11电压外推与阈值；Tables2/3重复消融，Tables4/5 IDL比较。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pp4–9 Figs4/7–11/Tables2–5",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "section_organization": {
+          "value": "机制背景→公开数据→PINN与输入/方程选择→明确预测步骤/指标→消融→少数据对标→限制。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF §§2–6 pp3–10",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "adoptable_practices": {
+          "value": "借鉴训练与预测信息分离、把反事实/消融失败和不收敛保留、逐配置报告重复分布；对本项目更重要的是明示未知未来负载边界。",
+          "evidence_grade": "REVIEWER_SYNTHESIS_FROM_VERIFIED_FULLTEXT",
+          "locator": "PDF p6 Fig7; p7 Tables2–3; p9 steps1–4",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "nontransferable_practices": {
+          "value": "不移植膜/催化参数或复制j为合法真实未来工况；不把RUL accuracy跨任务和F2 mV排名；不将10%示例当RealHyFC真实EOL，不增加PINN或RUL实验。",
+          "evidence_grade": "REVIEWER_SYNTHESIS_FROM_VERIFIED_FULLTEXT",
+          "locator": "PDF p8 §4.3; p9 §4.4/Eqs5–7",
+          "source_basis": "local_user_supplied_original_PDF"
+        },
+        "specific_locator_summary": {
+          "value": "p1四位作者；p4 Fig4；p5 §4.1；p7 Tables2/3；p8 §4.3/Tables4/5；p9 step3/Eqs5–7；p4/p7/p9已渲染看。",
+          "evidence_grade": "FULL_TEXT_RECHECKED_THIS_PHASE",
+          "locator": "PDF pages as listed",
+          "source_basis": "local_user_supplied_original_PDF"
+        }
+      }
+    }
+  ]
+}

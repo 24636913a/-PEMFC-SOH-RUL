@@ -1,0 +1,298 @@
+{
+  "base_commit": "e3dc5844cde3e4d2e39c4fdba9baeb575e879f33",
+  "literature_first_complete": true,
+  "literature_phase_sha256": "7faade03036f6b48c8f04a4b852c8b31601c2bd0b43864a699178523c8bd0f28",
+  "sources": [
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/__init__.py",
+      "sha256": "9aceeebef759152574ae45db9dddfacfb804eb8b0a7b81da3b13e00634299187",
+      "bytes": 588
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py",
+      "sha256": "d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c",
+      "bytes": 2801
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py",
+      "sha256": "a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc",
+      "bytes": 7977
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py",
+      "sha256": "f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e",
+      "bytes": 1002
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py",
+      "sha256": "bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57",
+      "bytes": 2867
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.yaml",
+      "sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd",
+      "bytes": 8464
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/metrics/H_VALIDATION_METRICS.csv",
+      "sha256": "6ebcdbc566e501d25845a2c6f238b9d9c67620dd000ac9ff6f378906b39b1e83",
+      "bytes": 6386
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F0-Seed42.csv",
+      "sha256": "20cafbd44d62c764f2857d4735d1a5509641788d2f3c7c6c3f8bcc679ed4761c",
+      "bytes": 685072
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F0-Seed52.csv",
+      "sha256": "c2942fd3a8d7121267ee40a226fe7e3be37a00fa582bc7d61bccd679090da58a",
+      "bytes": 684945
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F0-Seed62.csv",
+      "sha256": "d5eb73cb5fb4e3c806332b21a4e4deaf34d8130408cb9c82696121ff71c25615",
+      "bytes": 684966
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F1-Seed42.csv",
+      "sha256": "77ecb2ebb711878bf33c0a93d9812e51e8913878c0ec4961f7825253b6cc7e7e",
+      "bytes": 684969
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F1-Seed52.csv",
+      "sha256": "63b9c0b2788951954e9943d452200bfbfd6cb128acc3091238988de431318e2e",
+      "bytes": 684989
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F1-Seed62.csv",
+      "sha256": "f083d0eed066d2f9b61203365522521bc931a8905d0188d37267d2ac3b801578",
+      "bytes": 685006
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F2-Seed42.csv",
+      "sha256": "6f599d1790814a05f1b518bfaffcd8aca618ab33c9dd67b678dd5ce93f31d532",
+      "bytes": 685032
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F2-Seed52.csv",
+      "sha256": "3663ec152c6213f75bc1d2b919512e594d3ba2725e4a87790de6c79fd35be6d7",
+      "bytes": 684968
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F2-Seed62.csv",
+      "sha256": "dfa8255f5fef420456cd4fed083830af16879f93710ebaf037f8f8738a47ec9c",
+      "bytes": 684994
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_I2_Frozen_Assessment_Evaluation/outputs/metrics/I2_ASSESSMENT_METRICS.csv",
+      "sha256": "b0057356684383ad0c4351194734240fe936f9689f25f6c653ab2e08370ffd50",
+      "bytes": 3722
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_J_F2_Architecture_and_Gate_Mechanism_Audit/outputs/gate_diagnostics/J_TRAIN_ONLY_CONDITION_THRESHOLDS.csv",
+      "sha256": "fe44368c9b6b069010de9487a433d77e7d2d02db42d6cc34cec6ed655df3053b",
+      "bytes": 845
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_O1_Nine_Model_Validation_Robustness_Audit/outputs/O1_NINE_MODEL_VALIDATION_METRICS.csv",
+      "sha256": "dad7fec27c2c0c4b8e0177be1af3a2fa708230898c8fec4fc52a7b874b46189e",
+      "bytes": 3335
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/outputs/metrics/P2_NINE_RUN_METRICS.csv",
+      "sha256": "eb50dae4e6096c744edddd76771e6d70f2779b93a5e6bdcc45fe927e488812a8",
+      "bytes": 7364
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_P2_Final_Gate_Ablation_Training/reports/P2_FINAL_RESEARCH_DECISION.md",
+      "sha256": "201c6ec38dfa1da9ca1259b4da84fa3e36f4b25bfd0d39830a03f10e5d4aeed3",
+      "bytes": 3330
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Literature_Benchmarked_Paper_Integration/literature/01_已发表PEMFC论文横向比较矩阵.md",
+      "sha256": "26be17a07c4c230a183f453d8a51f085a08f7cd005f958d7fbf60ad515d2e465",
+      "bytes": 43264
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Literature_Benchmarked_Paper_Integration/literature/02_参考文献核心实验与图表清单.md",
+      "sha256": "1dd92d5106a7e75b0a4b0c396b5b58404411450de12cdc85d9cd114f39dd8876",
+      "bytes": 10892
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Literature_Benchmarked_Paper_Integration/literature/03_本项目创新点与重叠风险.md",
+      "sha256": "5d1e7cfb9ed2582a273e9b32d969391a1e512a36aa0e19156280f0c0b4c7a083",
+      "bytes": 2529
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Literature_Benchmarked_Paper_Integration/literature/core_P1_P5_evidence.json",
+      "sha256": "d245a0257eb1b88832360b7935d4f5bf517271502b5d7e68b8fe12a9874b0a1f",
+      "bytes": 97513
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Literature_Benchmarked_Paper_Integration/literature/P6_aux_evidence.json",
+      "sha256": "16ecc54adace8d6b38b2553a48cacbe533dd072cf73f964d65f7be6ad742946c",
+      "bytes": 35446
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Literature_Benchmarked_Paper_Integration/literature/REFERENCES.md",
+      "sha256": "ca3b33ae24a6656daf66b51f1750e7238d9aeacd1f92170913d8fbd76a31b520",
+      "bytes": 3512
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Literature_Benchmarked_Paper_Integration/literature/verified_metadata.json",
+      "sha256": "aa5d70466bebd97b19d677ec15cd5603bd18016de128511fd789f1f62adb4b19",
+      "bytes": 66879
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Literature_Benchmarked_Paper_Integration/outline/04_正式SCI论文大纲_文献对标修订版.md",
+      "sha256": "8621b94add7476105ff17c07df6f3fa5b5d323b961f6a1e27ca5267c3ae581d0",
+      "bytes": 14198
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Overnight_Seed_Screening/configs/frozen_seed_screening.json",
+      "sha256": "0535806f72845f37e66ad343dc2082f46e0cff9edd0f0f12b19451216ec3637d",
+      "bytes": 8658
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Overnight_Seed_Screening/outputs/F2_SEED_RANKING.csv",
+      "sha256": "d7b97c6cdeab926c37790066eff70756bf0bcedaf17e2d657d9af89a3640b714",
+      "bytes": 10870
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Overnight_Seed_Screening/outputs/FINAL_SUMMARY.json",
+      "sha256": "9137b6655852d862f815d4cd8e5050946ae9751f48af4f7f6927880a013d986f",
+      "bytes": 900
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Seed_Screening_Round2/configs/frozen_seed_screening.json",
+      "sha256": "fae982e2b18a020d2deceb8bab5282e5ca47baaa458c67e247e85f5c353118b7",
+      "bytes": 10429
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Seed_Screening_Round2/outputs/audits/DATA_FINGERPRINTS.json",
+      "sha256": "2b487cbe99363431701bfcac0432972bc2280b39de5677f5d7c278e4c4953d9d",
+      "bytes": 1444
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Seed_Screening_Round2/outputs/audits/FROZEN_H_DATA.npz",
+      "sha256": "cbb212134eb664f1a43d4851f20686fe575c06eb6b2b0b893aed0f166fcef83e",
+      "bytes": 639939
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Seed_Screening_Round2/outputs/audits/SCALER.json",
+      "sha256": "8a2d248ea3f626742368e1b2079a35408ac165bdf64ded821bc565fd3ef2cfdb",
+      "bytes": 763
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Seed_Screening_Round2/outputs/audits/VALIDATION_KEY_TRUTH.csv",
+      "sha256": "49a668307a1cf67a83841a04a7d87f9fcabf2fb1b0131d94f5dd9960682af312",
+      "bytes": 166938
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Seed_Screening_Round2/outputs/F2_SIX_CANDIDATE_SEEDS.csv",
+      "sha256": "22ef1f5839f307da6343766ec1028e27c83b8fac5639290860aad32beb6f8f95",
+      "bytes": 3519
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Seed_Screening_Round2/outputs/FINAL_SUMMARY.json",
+      "sha256": "c4c44d765e7f10701932f55cfde1511c924cf364ebe661772ddbf55b1ae864f3",
+      "bytes": 1782
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/ALL_VALIDATION_GATES.csv",
+      "sha256": "13e195a179bd214f875b46c68e3015b9f6e9600d378bf1504f30a29ee042d8fe",
+      "bytes": 294575
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/audits/HISTORY_BEFORE.csv",
+      "sha256": "4f9c078222365353af2426102e9e3e425fd42dbcbbbc0abb9baf3f2abe642e5e",
+      "bytes": 284409
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/GATE_CORRELATIONS.csv",
+      "sha256": "3ba8611a0398c67278a090c4d242690a93c531c3d89d0ccc91d114813484f810",
+      "bytes": 1559
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/GATE_STATISTICS.csv",
+      "sha256": "e859940e846d358de454a9153d85d12f166332c40ea9ea585b05cb5b3681f6b6",
+      "bytes": 1822
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/METRICS.csv",
+      "sha256": "0c8253e5d57abd6634f17836b651cc296c911f6281b47c912637f3842b5460e4",
+      "bytes": 24530
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/PERMUTATION_SUMMARY.csv",
+      "sha256": "ae9f499dc0e57269aecf8d01886565df3c50b38687c7ed422401a9cb7f3fdf52",
+      "bytes": 747
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/predictions/seed_103_B0.csv",
+      "sha256": "6c9f5f4ab7136da85d221b5b75b842a4bf3f6e9e85779435ad8a786844d7ca11",
+      "bytes": 448095
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/predictions/seed_193_B0.csv",
+      "sha256": "4542b304a1889db167b1a34e7efde7b21578d976a317a2a532c90c6ef40ce919",
+      "bytes": 448076
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/predictions/seed_202_B0.csv",
+      "sha256": "2c6f1087c3a406f4b0ead13146f6ac022dbb98d002de4fb6a4110612f861f45b",
+      "bytes": 447904
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/predictions/seed_210_B0.csv",
+      "sha256": "e9d0751b102b0ccf286b13935b647e486f028b50cf494cbe2e88d502e74f1556",
+      "bytes": 447975
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/predictions/seed_212_B0.csv",
+      "sha256": "c5cf64ee8452d1681e3a40583608f946cff464dbe3cfdf3195a6b98adf7605ce",
+      "bytes": 448053
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/predictions/seed_42_B0.csv",
+      "sha256": "a711db6bed215b29a329a58abf425a2fe39453e443c96db028824de8eaaf8794",
+      "bytes": 443105
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit/outputs/SUMMARY.json",
+      "sha256": "3611ae7d4d8b1d6418f2659b7831587d86b7f649a129a8dc5edff1b619463a74",
+      "bytes": 689
+    },
+    {
+      "path": "RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py",
+      "sha256": "b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618",
+      "bytes": 4760
+    }
+  ],
+  "formal_seeds": [
+    42,
+    52,
+    62
+  ],
+  "selected_seeds": [
+    42,
+    103,
+    193,
+    202,
+    210,
+    212
+  ],
+  "new_training": false,
+  "model_forward": false,
+  "Test": false,
+  "Assessment": "existing I2 metric summary only; no target data or inference",
+  "condition_rules": "Reuse J Train-only 1/3 and2/3 quantiles exactly; three history means (indices9,11,8); no Validation-error threshold tuning",
+  "baseline": "DeltaV Persistence=0; same4920 query identities and true targets",
+  "case_rules": {
+    "typical_origin": 2205,
+    "difficult": "maximum equal-seed mean per-origin RMSE of formal F2 seeds42/52/62, ties lowest origin; diagnostic only"
+  },
+  "unit": "existing physical DeltaV V; metrics*1000 to mV once; absolute voltage=raw origin V+DeltaV",
+  "no_p_values": "overlapping histories, shared targets and selected instances are not independent battery samples",
+  "horizons": "24 lead-specific diagnostics of one fixed48to24 model; not24 separately trained horizon tasks"
+}

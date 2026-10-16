@@ -1,0 +1,33 @@
+test_external_write_rejected (test_integration.MathTests.test_external_write_rejected) ... ok
+test_independent_scalar_metrics (test_integration.MathTests.test_independent_scalar_metrics) ... ok
+test_no_training_or_model_execution (test_integration.MathTests.test_no_training_or_model_execution) ... ok
+test_target_equal_uses_squared_errors (test_integration.MathTests.test_target_equal_uses_squared_errors) ... ok
+test_12_figures_vector_and300dpi (test_integration.RealOutputTests.test_12_figures_vector_and300dpi) ... ok
+test_all90_regime_metrics_present (test_integration.RealOutputTests.test_all90_regime_metrics_present) ... ok
+test_all_horizons_present (test_integration.RealOutputTests.test_all_horizons_present) ... ok
+test_claim_map_no_pending_computation (test_integration.RealOutputTests.test_claim_map_no_pending_computation) ... ok
+test_diagram_describes_actual_decoder_route (test_integration.RealOutputTests.test_diagram_describes_actual_decoder_route) ... ok
+test_formal_and_selected_pools_separate (test_integration.RealOutputTests.test_formal_and_selected_pools_separate) ... ok
+test_independent_computation_pass (test_integration.RealOutputTests.test_independent_computation_pass) ... ok
+test_literature_precedes_outline_and_calculation (test_integration.RealOutputTests.test_literature_precedes_outline_and_calculation) ... ok
+test_manuscript_local_links_and_figure_ids (test_integration.RealOutputTests.test_manuscript_local_links_and_figure_ids) ... ok
+test_metadata153_fields_and9_papers (test_integration.RealOutputTests.test_metadata153_fields_and9_papers) ... ok
+test_persistence_exact_zero_and_identity (test_integration.RealOutputTests.test_persistence_exact_zero_and_identity) ... ok
+test_protocol_and_source_sha (test_integration.RealOutputTests.test_protocol_and_source_sha) ... ok
+test_regime_partition_all_origins (test_integration.RealOutputTests.test_regime_partition_all_origins) ... ok
+test_screening_budget_disclosure (test_integration.RealOutputTests.test_screening_budget_disclosure) ... ok
+test_six_working_chapters_complete (test_integration.RealOutputTests.test_six_working_chapters_complete) ... FAIL
+
+======================================================================
+FAIL: test_six_working_chapters_complete (test_integration.RealOutputTests.test_six_working_chapters_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_SCI_F2_Literature_Benchmarked_Paper_Integration\tests\test_integration.py", line 60, in test_six_working_chapters_complete
+    for p in fs:self.assertGreater(len(p.read_text(encoding='utf-8')),1500)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1474 not greater than 1500
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.230s
+
+FAILED (failures=1)

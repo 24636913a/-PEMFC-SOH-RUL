@@ -1,0 +1,2035 @@
+{
+  "search_type": "Targeted nine-paper benchmark plus original TFT and RealHyFC data source; not a systematic review",
+  "checked_date": "2026-10-17",
+  "records": [
+    {
+      "id": "P1",
+      "doi": "10.1016/j.apenergy.2022.118835",
+      "title": "A data-driven method for multi-step-ahead prediction and long-term prognostics of proton exchange membrane fuel cell",
+      "authors": [
+        "Khaled Benaggoune",
+        "Meiling Yue",
+        "Samir Jemei",
+        "Noureddine Zerhouni"
+      ],
+      "author_metadata": [
+        {
+          "given": "Khaled",
+          "family": "Benaggoune",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-4624-4743",
+          "authenticated-orcid": false,
+          "given": "Meiling",
+          "family": "Yue",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Samir",
+          "family": "Jemei",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Noureddine",
+          "family": "Zerhouni",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "journal": "Applied Energy",
+      "volume": "313",
+      "issue": null,
+      "pages": "118835",
+      "article_number": "118835",
+      "published_online": null,
+      "published_print": "2022-05",
+      "published": "2022-05",
+      "issued": "2022-05",
+      "publisher_issue_date_observed": "2022-05-01",
+      "date_caveat": "Crossref has no published-online date for this record. Publisher issue date is distinct from online-first publication and DOI registration dates.",
+      "bibliographic_year": 2022,
+      "doi_url": "https://doi.org/10.1016/j.apenergy.2022.118835",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0306261922002756",
+      "crossref_url": "https://api.crossref.org/works/10.1016%2Fj.apenergy.2022.118835",
+      "raw_crossref_path": "outputs/evidence_index/CROSSREF_P1.json",
+      "raw_crossref_sha256": "4ef5e0607a08301c562134fdd429d6782c7de0dc8d8b1e3216c15750e918ab66",
+      "access_checked_date": "2026-10-17",
+      "access_grade": "PUBLISHER_METADATA_ABSTRACT_CONFIRMED",
+      "full_text_access": "No publicly retrievable full text independently established in this metadata pass; local full-text status is separately documented by the content reviewer.",
+      "public_full_text_links": [],
+      "crossref_text_mining_links_not_proof_of_open_access": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0306261922002756?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0306261922002756?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "license_metadata_not_proof_of_access": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                5,
+                1
+              ]
+            ],
+            "date-time": "2022-05-01T00:00:00Z",
+            "timestamp": 1651363200000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                5,
+                1
+              ]
+            ],
+            "date-time": "2022-05-01T00:00:00Z",
+            "timestamp": 1651363200000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                5,
+                1
+              ]
+            ],
+            "date-time": "2022-05-01T00:00:00Z",
+            "timestamp": 1651363200000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-017"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                5,
+                1
+              ]
+            ],
+            "date-time": "2022-05-01T00:00:00Z",
+            "timestamp": 1651363200000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-037"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                5,
+                1
+              ]
+            ],
+            "date-time": "2022-05-01T00:00:00Z",
+            "timestamp": 1651363200000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-012"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                5,
+                1
+              ]
+            ],
+            "date-time": "2022-05-01T00:00:00Z",
+            "timestamp": 1651363200000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-029"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                5,
+                1
+              ]
+            ],
+            "date-time": "2022-05-01T00:00:00Z",
+            "timestamp": 1651363200000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-004"
+        }
+      ],
+      "limitations": "Bibliographic metadata only. No inference about absent experiments from abstract or Crossref fields."
+    },
+    {
+      "id": "P2",
+      "doi": "10.1016/j.ijhydene.2023.03.316",
+      "title": "An interpretable data-driven method for degradation prediction of proton exchange membrane fuel cells based on temporal fusion transformer and covariates",
+      "authors": [
+        "Li Hongwei",
+        "Qiao Binxin",
+        "Hou Zhicheng",
+        "Liu Junnan",
+        "Yang Yue",
+        "Lu Guolong"
+      ],
+      "author_metadata": [
+        {
+          "given": "Li",
+          "family": "Hongwei",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Qiao",
+          "family": "Binxin",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Hou",
+          "family": "Zhicheng",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Liu",
+          "family": "Junnan",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Yang",
+          "family": "Yue",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Lu",
+          "family": "Guolong",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "journal": "International Journal of Hydrogen Energy",
+      "volume": "48",
+      "issue": "66",
+      "pages": "25958-25971",
+      "article_number": null,
+      "published_online": null,
+      "published_print": "2023-08",
+      "published": "2023-08",
+      "issued": "2023-08",
+      "publisher_issue_date_observed": "2023-08-01",
+      "date_caveat": "Crossref has no published-online date for this record. Publisher issue date is distinct from online-first publication and DOI registration dates.",
+      "bibliographic_year": 2023,
+      "doi_url": "https://doi.org/10.1016/j.ijhydene.2023.03.316",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0360319923014611",
+      "crossref_url": "https://api.crossref.org/works/10.1016%2Fj.ijhydene.2023.03.316",
+      "raw_crossref_path": "outputs/evidence_index/CROSSREF_P2.json",
+      "raw_crossref_sha256": "3bebd0bdd73ec02faea74fb7722f91e13382af1e20113c78e287b43594266dbe",
+      "access_checked_date": "2026-10-17",
+      "access_grade": "PUBLISHER_METADATA_ABSTRACT_CONFIRMED",
+      "full_text_access": "No publicly retrievable full text independently established in this metadata pass; local full-text status is separately documented by the content reviewer.",
+      "public_full_text_links": [],
+      "crossref_text_mining_links_not_proof_of_open_access": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0360319923014611?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0360319923014611?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "license_metadata_not_proof_of_access": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2023,
+                8,
+                1
+              ]
+            ],
+            "date-time": "2023-08-01T00:00:00Z",
+            "timestamp": 1690848000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2023,
+                8,
+                1
+              ]
+            ],
+            "date-time": "2023-08-01T00:00:00Z",
+            "timestamp": 1690848000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        }
+      ],
+      "limitations": "Bibliographic metadata only. No inference about absent experiments from abstract or Crossref fields.",
+      "metadata_warning": "Preserve publisher/Crossref deposited author names; avoid silently reversing family/given order based on Chinese-name assumptions."
+    },
+    {
+      "id": "P3",
+      "doi": "10.1016/j.ijhydene.2024.06.095",
+      "title": "A model with high-precision on proton exchange membrane fuel cell performance degradation prediction based on temporal convolutional network-long short-term memory",
+      "authors": [
+        "Chongyang Tu",
+        "Fen Zhou",
+        "Mu Pan"
+      ],
+      "author_metadata": [
+        {
+          "given": "Chongyang",
+          "family": "Tu",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0001-7597-9485",
+          "authenticated-orcid": false,
+          "given": "Fen",
+          "family": "Zhou",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Mu",
+          "family": "Pan",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "journal": "International Journal of Hydrogen Energy",
+      "volume": "74",
+      "issue": null,
+      "pages": "414-422",
+      "article_number": null,
+      "published_online": null,
+      "published_print": "2024-07",
+      "published": "2024-07",
+      "issued": "2024-07",
+      "publisher_issue_date_observed": "2024-07-12",
+      "date_caveat": "Crossref has no published-online date for this record. Publisher issue date is distinct from online-first publication and DOI registration dates.",
+      "bibliographic_year": 2024,
+      "doi_url": "https://doi.org/10.1016/j.ijhydene.2024.06.095",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0360319924022948",
+      "crossref_url": "https://api.crossref.org/works/10.1016%2Fj.ijhydene.2024.06.095",
+      "raw_crossref_path": "outputs/evidence_index/CROSSREF_P3.json",
+      "raw_crossref_sha256": "27c63a7d743c6ec5a127908a70836f5dbd0e158a87161b8e82ab2026cad4b137",
+      "access_checked_date": "2026-10-17",
+      "access_grade": "PUBLISHER_METADATA_ABSTRACT_CONFIRMED",
+      "full_text_access": "No publicly retrievable full text independently established in this metadata pass; local full-text status is separately documented by the content reviewer.",
+      "public_full_text_links": [],
+      "crossref_text_mining_links_not_proof_of_open_access": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0360319924022948?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0360319924022948?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "license_metadata_not_proof_of_access": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2024,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2024-07-01T00:00:00Z",
+            "timestamp": 1719792000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2024,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2024-07-01T00:00:00Z",
+            "timestamp": 1719792000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        }
+      ],
+      "limitations": "Bibliographic metadata only. No inference about absent experiments from abstract or Crossref fields."
+    },
+    {
+      "id": "P4",
+      "doi": "10.1016/j.renene.2025.123019",
+      "title": "Future prediction on the remaining useful life of proton exchange membrane fuel using temporal fusion transformer model",
+      "authors": [
+        "Jia-Hong Chou",
+        "Fu-Kwun Wang"
+      ],
+      "author_metadata": [
+        {
+          "ORCID": "https://orcid.org/0000-0002-4092-6591",
+          "authenticated-orcid": false,
+          "given": "Jia-Hong",
+          "family": "Chou",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-4563-945X",
+          "authenticated-orcid": false,
+          "given": "Fu-Kwun",
+          "family": "Wang",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "journal": "Renewable Energy",
+      "volume": "247",
+      "issue": null,
+      "pages": "123019",
+      "article_number": "123019",
+      "published_online": null,
+      "published_print": "2025-07",
+      "published": "2025-07",
+      "issued": "2025-07",
+      "publisher_issue_date_observed": "2025-07",
+      "date_caveat": "Crossref has no published-online date for this record. Publisher issue date is distinct from online-first publication and DOI registration dates.",
+      "bibliographic_year": 2025,
+      "doi_url": "https://doi.org/10.1016/j.renene.2025.123019",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0960148125006810",
+      "crossref_url": "https://api.crossref.org/works/10.1016%2Fj.renene.2025.123019",
+      "raw_crossref_path": "outputs/evidence_index/CROSSREF_P4.json",
+      "raw_crossref_sha256": "48e03b64f24f5684e467154dfbb6135a520d748eea9f3e2dde207005b401e5e0",
+      "access_checked_date": "2026-10-17",
+      "access_grade": "PUBLISHER_METADATA_ABSTRACT_CONFIRMED",
+      "full_text_access": "No publicly retrievable full text independently established in this metadata pass; local full-text status is separately documented by the content reviewer.",
+      "public_full_text_links": [],
+      "crossref_text_mining_links_not_proof_of_open_access": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0960148125006810?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0960148125006810?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "license_metadata_not_proof_of_access": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2025-07-01T00:00:00Z",
+            "timestamp": 1751328000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2025-07-01T00:00:00Z",
+            "timestamp": 1751328000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2025-07-01T00:00:00Z",
+            "timestamp": 1751328000000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-017"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2025-07-01T00:00:00Z",
+            "timestamp": 1751328000000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-037"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2025-07-01T00:00:00Z",
+            "timestamp": 1751328000000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-012"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2025-07-01T00:00:00Z",
+            "timestamp": 1751328000000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-029"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2025-07-01T00:00:00Z",
+            "timestamp": 1751328000000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-004"
+        }
+      ],
+      "limitations": "Bibliographic metadata only. No inference about absent experiments from abstract or Crossref fields."
+    },
+    {
+      "id": "P5",
+      "doi": "10.1016/j.ijhydene.2025.02.317",
+      "title": "Short-term voltage loss prediction in PEMFCs using single-step and multi-step LSTM models",
+      "authors": [
+        "Yurdagül Benteşen Yakut"
+      ],
+      "author_metadata": [
+        {
+          "ORCID": "https://orcid.org/0000-0003-3236-213X",
+          "authenticated-orcid": false,
+          "given": "Yurdagül Benteşen",
+          "family": "Yakut",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "journal": "International Journal of Hydrogen Energy",
+      "volume": "144",
+      "issue": null,
+      "pages": "652-664",
+      "article_number": null,
+      "published_online": null,
+      "published_print": "2025-07",
+      "published": "2025-07",
+      "issued": "2025-07",
+      "publisher_issue_date_observed": "2025-07-03",
+      "date_caveat": "Crossref has no published-online date for this record. Publisher issue date is distinct from online-first publication and DOI registration dates.",
+      "bibliographic_year": 2025,
+      "doi_url": "https://doi.org/10.1016/j.ijhydene.2025.02.317",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0360319925008948",
+      "crossref_url": "https://api.crossref.org/works/10.1016%2Fj.ijhydene.2025.02.317",
+      "raw_crossref_path": "outputs/evidence_index/CROSSREF_P5.json",
+      "raw_crossref_sha256": "752a09d2ba58ddc4f92384ee67d0d04f65c5b52d3394fdc11848d686aac5ccfd",
+      "access_checked_date": "2026-10-17",
+      "access_grade": "PUBLISHER_METADATA_ABSTRACT_CONFIRMED",
+      "full_text_access": "No publicly retrievable full text independently established in this metadata pass; local full-text status is separately documented by the content reviewer.",
+      "public_full_text_links": [],
+      "crossref_text_mining_links_not_proof_of_open_access": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0360319925008948?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0360319925008948?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "license_metadata_not_proof_of_access": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2025-07-01T00:00:00Z",
+            "timestamp": 1751328000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2025-07-01T00:00:00Z",
+            "timestamp": 1751328000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        }
+      ],
+      "limitations": "Bibliographic metadata only. No inference about absent experiments from abstract or Crossref fields."
+    },
+    {
+      "id": "P6",
+      "doi": "10.1016/j.jpowsour.2026.239941",
+      "title": "A hybrid framework for PEMFC degradation prediction integrating Crossformer and physical constraints",
+      "authors": [
+        "Lin Wei",
+        "Shangrui Gao",
+        "Zonghai Chen",
+        "Yujie Wang",
+        "Zhendong Sun"
+      ],
+      "author_metadata": [
+        {
+          "ORCID": "https://orcid.org/0009-0005-4039-8724",
+          "authenticated-orcid": false,
+          "given": "Lin",
+          "family": "Wei",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Shangrui",
+          "family": "Gao",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0001-9312-9089",
+          "authenticated-orcid": false,
+          "given": "Zonghai",
+          "family": "Chen",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Yujie",
+          "family": "Wang",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-1020-386X",
+          "authenticated-orcid": false,
+          "given": "Zhendong",
+          "family": "Sun",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "journal": "Journal of Power Sources",
+      "volume": "677",
+      "issue": null,
+      "pages": "239941",
+      "article_number": "239941",
+      "published_online": null,
+      "published_print": "2026-06",
+      "published": "2026-06",
+      "issued": "2026-06",
+      "publisher_issue_date_observed": "2026-06-15",
+      "date_caveat": "Crossref has no published-online date for this record. Publisher issue date is distinct from online-first publication and DOI registration dates.",
+      "bibliographic_year": 2026,
+      "doi_url": "https://doi.org/10.1016/j.jpowsour.2026.239941",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0378775326006919",
+      "crossref_url": "https://api.crossref.org/works/10.1016%2Fj.jpowsour.2026.239941",
+      "raw_crossref_path": "outputs/evidence_index/CROSSREF_P6.json",
+      "raw_crossref_sha256": "4c6924f4023c8cdb8bed2d26d43ea222faba94ee18a9b703efed098fbfea4115",
+      "access_checked_date": "2026-10-17",
+      "access_grade": "PUBLISHER_METADATA_ABSTRACT_CONFIRMED",
+      "full_text_access": "No publicly retrievable full text independently established in this metadata pass; local full-text status is separately documented by the content reviewer.",
+      "public_full_text_links": [],
+      "crossref_text_mining_links_not_proof_of_open_access": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0378775326006919?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0378775326006919?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "license_metadata_not_proof_of_access": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                1
+              ]
+            ],
+            "date-time": "2026-06-01T00:00:00Z",
+            "timestamp": 1780272000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                1
+              ]
+            ],
+            "date-time": "2026-06-01T00:00:00Z",
+            "timestamp": 1780272000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                1
+              ]
+            ],
+            "date-time": "2026-06-01T00:00:00Z",
+            "timestamp": 1780272000000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-017"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                1
+              ]
+            ],
+            "date-time": "2026-06-01T00:00:00Z",
+            "timestamp": 1780272000000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-037"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                1
+              ]
+            ],
+            "date-time": "2026-06-01T00:00:00Z",
+            "timestamp": 1780272000000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-012"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                1
+              ]
+            ],
+            "date-time": "2026-06-01T00:00:00Z",
+            "timestamp": 1780272000000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-029"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                1
+              ]
+            ],
+            "date-time": "2026-06-01T00:00:00Z",
+            "timestamp": 1780272000000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-004"
+        }
+      ],
+      "limitations": "Bibliographic metadata only. No inference about absent experiments from abstract or Crossref fields."
+    },
+    {
+      "id": "A1",
+      "doi": "10.1016/j.ijhydene.2026.153481",
+      "title": "A TCN-BiLSTM-based approach for remaining useful life prediction of PEMFC",
+      "authors": [
+        "Jian Jiang",
+        "Dongsheng Du",
+        "Lin Su",
+        "Yifan Du"
+      ],
+      "author_metadata": [
+        {
+          "given": "Jian",
+          "family": "Jiang",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0001-8277-0364",
+          "authenticated-orcid": false,
+          "given": "Dongsheng",
+          "family": "Du",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Lin",
+          "family": "Su",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Yifan",
+          "family": "Du",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "journal": "International Journal of Hydrogen Energy",
+      "volume": "207",
+      "issue": null,
+      "pages": "153481",
+      "article_number": "153481",
+      "published_online": null,
+      "published_print": "2026-02",
+      "published": "2026-02",
+      "issued": "2026-02",
+      "publisher_issue_date_observed": "2026-02-06",
+      "date_caveat": "Crossref has no published-online date for this record. Publisher issue date is distinct from online-first publication and DOI registration dates.",
+      "bibliographic_year": 2026,
+      "doi_url": "https://doi.org/10.1016/j.ijhydene.2026.153481",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0360319926001187",
+      "crossref_url": "https://api.crossref.org/works/10.1016%2Fj.ijhydene.2026.153481",
+      "raw_crossref_path": "outputs/evidence_index/CROSSREF_A1.json",
+      "raw_crossref_sha256": "3609c17f161948be06b21a7457ccabff560e217b5195ebe58a9fb4ad42aa9601",
+      "access_checked_date": "2026-10-17",
+      "access_grade": "PUBLISHER_METADATA_ABSTRACT_CONFIRMED",
+      "full_text_access": "No publicly retrievable full text independently established in this metadata pass; local full-text status is separately documented by the content reviewer.",
+      "public_full_text_links": [],
+      "crossref_text_mining_links_not_proof_of_open_access": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0360319926001187?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0360319926001187?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "license_metadata_not_proof_of_access": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                2,
+                1
+              ]
+            ],
+            "date-time": "2026-02-01T00:00:00Z",
+            "timestamp": 1769904000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                2,
+                1
+              ]
+            ],
+            "date-time": "2026-02-01T00:00:00Z",
+            "timestamp": 1769904000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        }
+      ],
+      "limitations": "Bibliographic metadata only. No inference about absent experiments from abstract or Crossref fields."
+    },
+    {
+      "id": "A2",
+      "doi": "10.1016/j.ijhydene.2025.02.302",
+      "title": "Remaining useful life prediction of PEMFC based on matrix long short-term memory",
+      "authors": [
+        "Fengyan Yi",
+        "Xing Shu",
+        "Jiaming Zhou",
+        "Jinming Zhang",
+        "Chunxiao Feng",
+        "Hongtao Gong",
+        "Caizhi Zhang",
+        "Wenhao Yu"
+      ],
+      "author_metadata": [
+        {
+          "ORCID": "https://orcid.org/0000-0003-1053-0550",
+          "authenticated-orcid": false,
+          "given": "Fengyan",
+          "family": "Yi",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0008-6310-1315",
+          "authenticated-orcid": false,
+          "given": "Xing",
+          "family": "Shu",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-9298-4347",
+          "authenticated-orcid": false,
+          "given": "Jiaming",
+          "family": "Zhou",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0008-5483-8876",
+          "authenticated-orcid": false,
+          "given": "Jinming",
+          "family": "Zhang",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Chunxiao",
+          "family": "Feng",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0004-4806-6153",
+          "authenticated-orcid": false,
+          "given": "Hongtao",
+          "family": "Gong",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Caizhi",
+          "family": "Zhang",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Wenhao",
+          "family": "Yu",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "journal": "International Journal of Hydrogen Energy",
+      "volume": "111",
+      "issue": null,
+      "pages": "228-237",
+      "article_number": null,
+      "published_online": null,
+      "published_print": "2025-03",
+      "published": "2025-03",
+      "issued": "2025-03",
+      "publisher_issue_date_observed": "2025-03-20",
+      "date_caveat": "Crossref has no published-online date for this record. Publisher issue date is distinct from online-first publication and DOI registration dates.",
+      "bibliographic_year": 2025,
+      "doi_url": "https://doi.org/10.1016/j.ijhydene.2025.02.302",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0360319925008808",
+      "crossref_url": "https://api.crossref.org/works/10.1016%2Fj.ijhydene.2025.02.302",
+      "raw_crossref_path": "outputs/evidence_index/CROSSREF_A2.json",
+      "raw_crossref_sha256": "231f3fb6fda416885886cd593fa1f792b8cb654dc51dd6b26daf9e64c386aa53",
+      "access_checked_date": "2026-10-17",
+      "access_grade": "PUBLISHER_METADATA_ABSTRACT_CONFIRMED",
+      "full_text_access": "No publicly retrievable full text independently established in this metadata pass; local full-text status is separately documented by the content reviewer.",
+      "public_full_text_links": [],
+      "crossref_text_mining_links_not_proof_of_open_access": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0360319925008808?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0360319925008808?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "license_metadata_not_proof_of_access": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                3,
+                1
+              ]
+            ],
+            "date-time": "2025-03-01T00:00:00Z",
+            "timestamp": 1740787200000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                3,
+                1
+              ]
+            ],
+            "date-time": "2025-03-01T00:00:00Z",
+            "timestamp": 1740787200000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        }
+      ],
+      "limitations": "Bibliographic metadata only. No inference about absent experiments from abstract or Crossref fields."
+    },
+    {
+      "id": "A3",
+      "doi": "10.1016/j.apenergy.2025.125318",
+      "title": "Physics-informed neural network for long-term prognostics of proton exchange membrane fuel cells",
+      "authors": [
+        "Taehwan Ko",
+        "Dukyong Kim",
+        "Jaewoong Park",
+        "Seung Hwan Lee"
+      ],
+      "author_metadata": [
+        {
+          "given": "Taehwan",
+          "family": "Ko",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Dukyong",
+          "family": "Kim",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jaewoong",
+          "family": "Park",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Seung Hwan",
+          "family": "Lee",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "journal": "Applied Energy",
+      "volume": "382",
+      "issue": null,
+      "pages": "125318",
+      "article_number": "125318",
+      "published_online": null,
+      "published_print": "2025-03",
+      "published": "2025-03",
+      "issued": "2025-03",
+      "publisher_issue_date_observed": "2025-03-15",
+      "date_caveat": "Crossref has no published-online date for this record. Publisher issue date is distinct from online-first publication and DOI registration dates.",
+      "bibliographic_year": 2025,
+      "doi_url": "https://doi.org/10.1016/j.apenergy.2025.125318",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0306261925000480",
+      "crossref_url": "https://api.crossref.org/works/10.1016%2Fj.apenergy.2025.125318",
+      "raw_crossref_path": "outputs/evidence_index/CROSSREF_A3.json",
+      "raw_crossref_sha256": "6b5bbf5a693b63f676c9ad076cfae33f670534be70eeb1a4bd6209747ec7a07d",
+      "access_checked_date": "2026-10-17",
+      "access_grade": "PUBLISHER_METADATA_ABSTRACT_CONFIRMED",
+      "full_text_access": "No publicly retrievable full text independently established in this metadata pass; local full-text status is separately documented by the content reviewer.",
+      "public_full_text_links": [],
+      "crossref_text_mining_links_not_proof_of_open_access": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0306261925000480?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0306261925000480?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "license_metadata_not_proof_of_access": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                3,
+                1
+              ]
+            ],
+            "date-time": "2025-03-01T00:00:00Z",
+            "timestamp": 1740787200000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                3,
+                1
+              ]
+            ],
+            "date-time": "2025-03-01T00:00:00Z",
+            "timestamp": 1740787200000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                3,
+                1
+              ]
+            ],
+            "date-time": "2025-03-01T00:00:00Z",
+            "timestamp": 1740787200000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-017"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                3,
+                1
+              ]
+            ],
+            "date-time": "2025-03-01T00:00:00Z",
+            "timestamp": 1740787200000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-037"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                3,
+                1
+              ]
+            ],
+            "date-time": "2025-03-01T00:00:00Z",
+            "timestamp": 1740787200000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-012"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                3,
+                1
+              ]
+            ],
+            "date-time": "2025-03-01T00:00:00Z",
+            "timestamp": 1740787200000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-029"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                3,
+                1
+              ]
+            ],
+            "date-time": "2025-03-01T00:00:00Z",
+            "timestamp": 1740787200000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-004"
+        }
+      ],
+      "limitations": "Bibliographic metadata only. No inference about absent experiments from abstract or Crossref fields.",
+      "metadata_warning": "Official Crossref and institutional record list four authors: Ko, Kim, Jaewoong Park, Lee. Some secondary records incorrectly insert Junghwan Park; do not copy that fifth author."
+    },
+    {
+      "id": "TFT",
+      "doi": "10.1016/j.ijforecast.2021.03.012",
+      "title": "Temporal Fusion Transformers for interpretable multi-horizon time series forecasting",
+      "authors": [
+        "Bryan Lim",
+        "Sercan Ö. Arık",
+        "Nicolas Loeff",
+        "Tomas Pfister"
+      ],
+      "author_metadata": [
+        {
+          "ORCID": "https://orcid.org/0000-0003-2779-4122",
+          "authenticated-orcid": false,
+          "given": "Bryan",
+          "family": "Lim",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Sercan Ö.",
+          "family": "Arık",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Nicolas",
+          "family": "Loeff",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Tomas",
+          "family": "Pfister",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "journal": "International Journal of Forecasting",
+      "volume": "37",
+      "issue": "4",
+      "pages": "1748-1764",
+      "article_number": null,
+      "published_online": null,
+      "published_print": "2021-10",
+      "published": "2021-10",
+      "issued": "2021-10",
+      "publisher_issue_date_observed": "2021-10/2021-12",
+      "date_caveat": "Crossref has no published-online date for this record. Publisher issue date is distinct from online-first publication and DOI registration dates.",
+      "bibliographic_year": 2021,
+      "doi_url": "https://doi.org/10.1016/j.ijforecast.2021.03.012",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0169207021000637",
+      "crossref_url": "https://api.crossref.org/works/10.1016%2Fj.ijforecast.2021.03.012",
+      "raw_crossref_path": "outputs/evidence_index/CROSSREF_TFT.json",
+      "raw_crossref_sha256": "dc874c30b61733de46e1c4d5e67757e295e58a18d7c9e4c7ff182d725a45a3c6",
+      "access_checked_date": "2026-10-17",
+      "access_grade": "PUBLISHER_OPEN_ACCESS_CONFIRMED",
+      "full_text_access": "Publisher labels open access and Creative Commons; author preprint is publicly available on arXiv. Content read extent is separately documented.",
+      "public_full_text_links": [
+        "https://www.sciencedirect.com/science/article/pii/S0169207021000637",
+        "https://arxiv.org/abs/1912.09363"
+      ],
+      "crossref_text_mining_links_not_proof_of_open_access": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0169207021000637?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0169207021000637?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "license_metadata_not_proof_of_access": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2021,
+                10,
+                1
+              ]
+            ],
+            "date-time": "2021-10-01T00:00:00Z",
+            "timestamp": 1633046400000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2021,
+                10,
+                1
+              ]
+            ],
+            "date-time": "2021-10-01T00:00:00Z",
+            "timestamp": 1633046400000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2021,
+                4,
+                21
+              ]
+            ],
+            "date-time": "2021-04-21T00:00:00Z",
+            "timestamp": 1618963200000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "http://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "limitations": "Bibliographic metadata only. No inference about absent experiments from abstract or Crossref fields."
+    },
+    {
+      "id": "DATA_PAPER",
+      "doi": "10.1016/j.ijhydene.2026.156060",
+      "title": "Spatially resolved electrochemical characterization of a PEM fuel cell stack during durability testing",
+      "authors": [
+        "Eva Fensterle",
+        "Jürgen Hunger",
+        "Frank Rabsahl",
+        "Florian Wilhelm",
+        "Christian Kolle Christensen",
+        "Adam Benson",
+        "Rami Al-Khamissi",
+        "Marine Tregaro",
+        "Sylvie Escribano",
+        "Joachim Scholta",
+        "Markus Hölzle"
+      ],
+      "author_metadata": [
+        {
+          "ORCID": "https://orcid.org/0009-0008-1519-6532",
+          "authenticated-orcid": false,
+          "given": "Eva",
+          "family": "Fensterle",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jürgen",
+          "family": "Hunger",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Frank",
+          "family": "Rabsahl",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-3689-0485",
+          "authenticated-orcid": false,
+          "given": "Florian",
+          "family": "Wilhelm",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Christian Kolle",
+          "family": "Christensen",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Adam",
+          "family": "Benson",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Rami",
+          "family": "Al-Khamissi",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Marine",
+          "family": "Tregaro",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-8185-3982",
+          "authenticated-orcid": false,
+          "given": "Sylvie",
+          "family": "Escribano",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Joachim",
+          "family": "Scholta",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0004-8278-1089",
+          "authenticated-orcid": false,
+          "given": "Markus",
+          "family": "Hölzle",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "journal": "International Journal of Hydrogen Energy",
+      "volume": "250",
+      "issue": null,
+      "pages": "156060",
+      "article_number": "156060",
+      "published_online": null,
+      "published_print": "2026-07",
+      "published": "2026-07",
+      "issued": "2026-07",
+      "publisher_issue_date_observed": "2026-07-13",
+      "date_caveat": "Crossref has no published-online date for this record. Publisher issue date is distinct from online-first publication and DOI registration dates.",
+      "bibliographic_year": 2026,
+      "doi_url": "https://doi.org/10.1016/j.ijhydene.2026.156060",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0360319926026984",
+      "crossref_url": "https://api.crossref.org/works/10.1016%2Fj.ijhydene.2026.156060",
+      "raw_crossref_path": "outputs/evidence_index/CROSSREF_DATA_PAPER.json",
+      "raw_crossref_sha256": "14b2a0aa671481ac4d36c0c1f9921aa9163379d81133372a24916ccadd1a66b0",
+      "access_checked_date": "2026-10-17",
+      "access_grade": "PUBLISHER_AND_OFFICIAL_REPOSITORY_OPEN_ACCESS_CONFIRMED",
+      "full_text_access": "Published article is open access at publisher and official Zenodo paper record; no experimental files downloaded.",
+      "public_full_text_links": [
+        "https://zenodo.org/records/20742676",
+        "https://www.sciencedirect.com/science/article/pii/S0360319926026984"
+      ],
+      "crossref_text_mining_links_not_proof_of_open_access": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0360319926026984?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0360319926026984?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "license_metadata_not_proof_of_access": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2026-07-01T00:00:00Z",
+            "timestamp": 1782864000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2026-07-01T00:00:00Z",
+            "timestamp": 1782864000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                16
+              ]
+            ],
+            "date-time": "2026-06-16T00:00:00Z",
+            "timestamp": 1781568000000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "http://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "limitations": "Bibliographic metadata only. No inference about absent experiments from abstract or Crossref fields.",
+      "official_dataset_metadata_url": "https://zenodo.org/records/20715542",
+      "local_paper_path_relative_to_repository": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/IJHE_2026_Fensterle_Spatially resolved electrochemical characterization of a PEM fuel cell stack during durability testing.pdf",
+      "local_paper_sha256": "c66c0ffa31627637dd2e6842df976731e833bb230b30e0c967d73bcd99fafad1",
+      "content_read_scope": "SELECTED_PAGES: PDF p1-3 plus p4 section 2.3 methods text only, stopping before section 3 Results; not full-text read.",
+      "source_locators": {
+        "stack_identity": "p2 section 2.1: durability 10-cell, separate fresh BoL sensitivity 8-cell, 280 cm^2 active area",
+        "dynamic_cycle": "p3 section 2.3 and Figure 2: approximately 12 h, three short stops and one longer stop",
+        "duration": "p1 abstract says >2000 h; p4 section 2.3 says durability ended after 200 cycles; no EOL claim implied",
+        "license": "p1 copyright: CC BY 4.0; independently confirmed by Zenodo metadata.license.id"
+      }
+    }
+  ],
+  "official_repository_records": [
+    {
+      "record_id": "20742676",
+      "url": "https://zenodo.org/records/20742676",
+      "doi": "10.1016/j.ijhydene.2026.156060",
+      "publication_date": "2026-06-16",
+      "title": "Paper: \"Spatially resolved electrochemical characterization of a PEM fuel cell stack during durability testing\"",
+      "related_identifiers": [
+        {
+          "identifier": "10.5281/zenodo.20715542",
+          "relation": "isSupplementedBy",
+          "resource_type": "dataset",
+          "scheme": "doi"
+        }
+      ],
+      "license": {
+        "id": "cc-by-4.0"
+      },
+      "access_right": "open",
+      "version_label_on_record_page": "v1",
+      "machine_version_relations": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "20742675"
+          }
+        }
+      ],
+      "raw_metadata_path": "outputs/evidence_index/ZENODO_20742676.json",
+      "raw_metadata_sha256": "3bee52cf406538fa8f83d8242a97f6657226b9389ec9dc6e8e56aa5836cd07e7",
+      "experimental_files_downloaded": false,
+      "metadata_only": true
+    },
+    {
+      "record_id": "20715542",
+      "url": "https://zenodo.org/records/20715542",
+      "doi": "10.5281/zenodo.20715542",
+      "publication_date": "2026-06-29",
+      "title": "Underlying data of the paper \"Spatially Resolved Electrochemical Characterization of a PEM Fuel Cell Stack During Durability Testing\"",
+      "related_identifiers": [
+        {
+          "identifier": "10.1016/j.ijhydene.2026.156060",
+          "relation": "isSourceOf",
+          "resource_type": "publication-article",
+          "scheme": "doi"
+        },
+        {
+          "identifier": "10.5281/zenodo.14223364",
+          "relation": "references",
+          "resource_type": "other",
+          "scheme": "doi"
+        }
+      ],
+      "license": {
+        "id": "cc-by-4.0"
+      },
+      "access_right": "open",
+      "version_label_on_record_page": "v1",
+      "machine_version_relations": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "20715541"
+          }
+        }
+      ],
+      "raw_metadata_path": "outputs/evidence_index/ZENODO_20715542.json",
+      "raw_metadata_sha256": "a98a0b84682843106c134cd93dad8518d0aec47debe9be7ddaca3bb82778970c",
+      "experimental_files_downloaded": false,
+      "metadata_only": true
+    }
+  ]
+}

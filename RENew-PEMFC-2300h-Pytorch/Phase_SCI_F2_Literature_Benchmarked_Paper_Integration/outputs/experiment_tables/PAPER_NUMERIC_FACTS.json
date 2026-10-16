@@ -1,0 +1,242 @@
+{
+  "formal_mean_RMSE_mV": {
+    "F0": 9.067563256563302,
+    "F1": 9.155598056578446,
+    "F2": 7.245400185045372
+  },
+  "formal_SD_RMSE_mV": {
+    "F0": 1.1426300614759444,
+    "F1": 1.122666057486023,
+    "F2": 1.1008528217481848
+  },
+  "relative_mean_RMSE_improvement_percent": {
+    "F0": 20.09539961244834,
+    "F1": 20.863714852145197
+  },
+  "persistence": {
+    "model": "Persistence",
+    "seed": -1,
+    "n": 4920,
+    "origins": 205,
+    "unique_targets": 251,
+    "RMSE_mV": 195.0785547773237,
+    "MAE_mV": 119.79847599868378,
+    "R2": -3.241606794190943e-05,
+    "endpoint_RMSE_mV": 201.30070341206226,
+    "target_time_equal_RMSE_mV": 196.55075056347422,
+    "P95_mV": 490.1599556207657,
+    "P99_mV": 515.9248393774033,
+    "max_abs_error_mV": 521.6511487960815
+  },
+  "condition_pairs": [
+    {
+      "condition": "current_variability",
+      "group": "HIGH",
+      "control": "F0",
+      "F2_minus_control_mean_RMSE_mV": -1.8456152292957368,
+      "F2_paired_wins": 3,
+      "n_seeds": 3,
+      "origins": 50
+    },
+    {
+      "condition": "current_variability",
+      "group": "HIGH",
+      "control": "F1",
+      "F2_minus_control_mean_RMSE_mV": -1.7143105302439847,
+      "F2_paired_wins": 2,
+      "n_seeds": 3,
+      "origins": 50
+    },
+    {
+      "condition": "current_variability",
+      "group": "LOW",
+      "control": "F0",
+      "F2_minus_control_mean_RMSE_mV": -1.6224843701962504,
+      "F2_paired_wins": 2,
+      "n_seeds": 3,
+      "origins": 81
+    },
+    {
+      "condition": "current_variability",
+      "group": "LOW",
+      "control": "F1",
+      "F2_minus_control_mean_RMSE_mV": -2.713543991739017,
+      "F2_paired_wins": 2,
+      "n_seeds": 3,
+      "origins": 81
+    },
+    {
+      "condition": "current_variability",
+      "group": "MID",
+      "control": "F0",
+      "F2_minus_control_mean_RMSE_mV": -2.1382040049258464,
+      "F2_paired_wins": 3,
+      "n_seeds": 3,
+      "origins": 74
+    },
+    {
+      "condition": "current_variability",
+      "group": "MID",
+      "control": "F1",
+      "F2_minus_control_mean_RMSE_mV": -1.3402895511812174,
+      "F2_paired_wins": 2,
+      "n_seeds": 3,
+      "origins": 74
+    },
+    {
+      "condition": "load_level",
+      "group": "HIGH",
+      "control": "F0",
+      "F2_minus_control_mean_RMSE_mV": -1.5734117087245163,
+      "F2_paired_wins": 3,
+      "n_seeds": 3,
+      "origins": 78
+    },
+    {
+      "condition": "load_level",
+      "group": "HIGH",
+      "control": "F1",
+      "F2_minus_control_mean_RMSE_mV": -0.6338623811872638,
+      "F2_paired_wins": 2,
+      "n_seeds": 3,
+      "origins": 78
+    },
+    {
+      "condition": "load_level",
+      "group": "LOW",
+      "control": "F0",
+      "F2_minus_control_mean_RMSE_mV": -2.236071643831477,
+      "F2_paired_wins": 3,
+      "n_seeds": 3,
+      "origins": 71
+    },
+    {
+      "condition": "load_level",
+      "group": "LOW",
+      "control": "F1",
+      "F2_minus_control_mean_RMSE_mV": -3.712381205799286,
+      "F2_paired_wins": 3,
+      "n_seeds": 3,
+      "origins": 71
+    },
+    {
+      "condition": "load_level",
+      "group": "MID",
+      "control": "F0",
+      "F2_minus_control_mean_RMSE_mV": -1.5845555914893357,
+      "F2_paired_wins": 3,
+      "n_seeds": 3,
+      "origins": 56
+    },
+    {
+      "condition": "load_level",
+      "group": "MID",
+      "control": "F1",
+      "F2_minus_control_mean_RMSE_mV": -0.5694424257739983,
+      "F2_paired_wins": 1,
+      "n_seeds": 3,
+      "origins": 56
+    },
+    {
+      "condition": "load_transitions",
+      "group": "HIGH",
+      "control": "F0",
+      "F2_minus_control_mean_RMSE_mV": -1.7192545042808227,
+      "F2_paired_wins": 3,
+      "n_seeds": 3,
+      "origins": 69
+    },
+    {
+      "condition": "load_transitions",
+      "group": "HIGH",
+      "control": "F1",
+      "F2_minus_control_mean_RMSE_mV": -0.5039174675967247,
+      "F2_paired_wins": 1,
+      "n_seeds": 3,
+      "origins": 69
+    },
+    {
+      "condition": "load_transitions",
+      "group": "LOW",
+      "control": "F0",
+      "F2_minus_control_mean_RMSE_mV": -1.7849635647050386,
+      "F2_paired_wins": 3,
+      "n_seeds": 3,
+      "origins": 63
+    },
+    {
+      "condition": "load_transitions",
+      "group": "LOW",
+      "control": "F1",
+      "F2_minus_control_mean_RMSE_mV": -1.777991833503459,
+      "F2_paired_wins": 2,
+      "n_seeds": 3,
+      "origins": 63
+    },
+    {
+      "condition": "load_transitions",
+      "group": "MID",
+      "control": "F0",
+      "F2_minus_control_mean_RMSE_mV": -1.9850045143569137,
+      "F2_paired_wins": 2,
+      "n_seeds": 3,
+      "origins": 73
+    },
+    {
+      "condition": "load_transitions",
+      "group": "MID",
+      "control": "F1",
+      "F2_minus_control_mean_RMSE_mV": -2.9297438234962088,
+      "F2_paired_wins": 3,
+      "n_seeds": 3,
+      "origins": 73
+    }
+  ],
+  "condition_counts": {
+    "current_variability": {
+      "LOW": 81,
+      "MID": 74,
+      "HIGH": 50
+    },
+    "load_transitions": {
+      "MID": 73,
+      "HIGH": 69,
+      "LOW": 63
+    },
+    "load_level": {
+      "HIGH": 78,
+      "LOW": 71,
+      "MID": 56
+    }
+  },
+  "selected_best_existing": {
+    "seed": 202,
+    "RMSE_mV": 3.9122985606263048
+  },
+  "gate": {
+    "seeds": [
+      42,
+      103,
+      193,
+      202,
+      210,
+      212
+    ],
+    "B1_worse_count": 4,
+    "B2_worse_count": 3,
+    "permutation_mean_worse_seed_count": 5,
+    "permutation_worse_runs": 43,
+    "permutation_runs": 60,
+    "B1_mean_delta_mV": 0.010889921154138818,
+    "B2_mean_delta_mV": 0.0035664765684102484,
+    "C_mean_delta_mV": 0.016604279354953233,
+    "dynamic_seed_count": 6,
+    "baseline_prediction_points": 29520,
+    "all_prediction_points": 383760,
+    "minimum_cross_seed_gate_rho": -0.9966026382137035,
+    "maximum_cross_seed_gate_rho": 0.9879413854104274,
+    "status": "SELECTED_INSTANCE_GATE_DEPENDENCE_DIAGNOSTIC",
+    "independent_accuracy_gain_proven": false
+  },
+  "scope": "all numbers Development; selected6 must not be treated as unbiased; no training or new inference"
+}

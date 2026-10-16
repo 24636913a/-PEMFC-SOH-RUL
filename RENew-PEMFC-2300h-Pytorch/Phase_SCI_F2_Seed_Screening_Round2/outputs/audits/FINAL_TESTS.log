@@ -1,0 +1,19 @@
+test_arrays_exact (test_round2.Round2Tests.test_arrays_exact) ... ok
+test_atomic_retry_and_guard (test_round2.Round2Tests.test_atomic_retry_and_guard) ... ok
+test_causal_EWMA (test_round2.Round2Tests.test_causal_EWMA) ... ok
+test_controller_budget_does_not_launch (test_round2.Round2Tests.test_controller_budget_does_not_launch) ... ok
+test_controller_stops_after_third_qualified (test_round2.Round2Tests.test_controller_stops_after_third_qualified) ... ok
+test_frozen_config (test_round2.Round2Tests.test_frozen_config) ... ok
+test_historical_replay (test_round2.Round2Tests.test_historical_replay) ... ok
+test_independent_metric_math (test_round2.Round2Tests.test_independent_metric_math) ... ok
+test_inherited_training_mathematics (test_round2.Round2Tests.test_inherited_training_mathematics) ... ok
+test_interruption_is_preserved_without_partial_publication (test_round2.Round2Tests.test_interruption_is_preserved_without_partial_publication) ... ok
+test_logger_duplicate_epoch_fixed (test_round2.Round2Tests.test_logger_duplicate_epoch_fixed) ... ok
+test_no_historical_changes (test_round2.Round2Tests.test_no_historical_changes) ... ok
+test_quality_boundaries (test_round2.Round2Tests.test_quality_boundaries) ... ok
+test_train_only_scaler_and_mask (test_round2.Round2Tests.test_train_only_scaler_and_mask) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 3.800s
+
+OK

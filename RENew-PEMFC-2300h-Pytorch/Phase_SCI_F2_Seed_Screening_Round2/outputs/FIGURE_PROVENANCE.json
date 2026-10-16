@@ -1,0 +1,81 @@
+{
+  "status": "REAL_CSV_DERIVED",
+  "base_commit": "69f79bd5b1286e03a7100950c164ade464858d45",
+  "protocol_sha256": "fae982e2b18a020d2deceb8bab5282e5ca47baaa458c67e247e85f5c353118b7",
+  "plot_script_sha256": "b9038d32c8b88e5b3947f55e22dbe0fa06ecd1a360e138d56b1fa7f9edd1fc94",
+  "fixed_origin_row": 2205,
+  "source_CSV_sha256": {
+    "outputs/figure_data/F1_ranking.csv": "39fb0ab12e56b492cb6afaf71bcd90cc3a5453648041b30b9cfb4f6365a5597c",
+    "outputs/figure_data/F2_new_selected_fixed_origin.csv": "b927bafc08c98d3447fb056898a8bfb0660015cb2b4c895b0b05b7eba60c0d7a",
+    "outputs/figure_data/F3_candidate_metrics.csv": "22ef1f5839f307da6343766ec1028e27c83b8fac5639290860aad32beb6f8f95",
+    "outputs/figure_data/F4_candidate_horizon_metrics.csv": "51b255c278a0d57a7bfef71be55e1ad227273581f83d29b8c75145e87dcb7204",
+    "outputs/figure_data/F5_all_candidates_fixed_origin.csv": "504ca1df9943c1e249045f06e0b69fe0ffa18686cc0ae1afad5b000e6baf480e",
+    "outputs/figure_data/F6_full_and_selected_distribution.csv": "a81d4aa5f6189924827b01d52eb0489b5dfc6ad9f55f4dc332fcfeaa37ff018a"
+  },
+  "figures": [
+    {
+      "path": "figures/F1_round2_all_seed_ranking.png",
+      "sha256": "9fccfbacc99c9b6cd28f0662cca3cc249f04311560078d38152d4000ab3b8a1a",
+      "bytes": 115727
+    },
+    {
+      "path": "figures/F1_round2_all_seed_ranking.pdf",
+      "sha256": "8e2d52ca5219fa77a925f6e4b49b960d02f6fb36b25325493834a19200df9d48",
+      "bytes": 15349
+    },
+    {
+      "path": "figures/F2_new_qualified_prediction_curves.png",
+      "sha256": "6515d95aeed9a2991ca91e2697e551805969eac1500020af6fb6109179554cf4",
+      "bytes": 406320
+    },
+    {
+      "path": "figures/F2_new_qualified_prediction_curves.pdf",
+      "sha256": "a70ff325d6922d8a7f6c51bf99ce0fdbc6c6ece7e2dc8809849476f524f3f2b4",
+      "bytes": 19530
+    },
+    {
+      "path": "figures/F3_historical_and_new_candidates.png",
+      "sha256": "4203eb0dcbfa520b4f3eaa04287245292991d49448284b6d1e26cb47bec01d24",
+      "bytes": 156998
+    },
+    {
+      "path": "figures/F3_historical_and_new_candidates.pdf",
+      "sha256": "b350bec9920f1959011997558750ff1f8e83c0d4f73daa6cf6a294ff4f8a73bc",
+      "bytes": 14813
+    },
+    {
+      "path": "figures/F4_candidate_24_step_RMSE.png",
+      "sha256": "7413c2ae2835818b92fd45f6fc98bd4e5e39bd216bea4c163a840a9882341ea9",
+      "bytes": 404726
+    },
+    {
+      "path": "figures/F4_candidate_24_step_RMSE.pdf",
+      "sha256": "79eff2e62ecdc1caf5ff6f4813aed9ee134f06931cd4d9b5b58c39a96365be66",
+      "bytes": 18412
+    },
+    {
+      "path": "figures/F5_candidates_same_prediction_origin.png",
+      "sha256": "d1a3eb8fe90287b2dafe238cd57bab1e298f7c519a12840f24c9bbaf78fb296e",
+      "bytes": 376218
+    },
+    {
+      "path": "figures/F5_candidates_same_prediction_origin.pdf",
+      "sha256": "c3bb6f2ccb2cd7cfe22dfca6b4c9b428682c2341abbb8467515c459b765c3b21",
+      "bytes": 18990
+    },
+    {
+      "path": "figures/F6_before_after_selection_distribution.png",
+      "sha256": "996b2a632712fb06a803cb6af174212925cf8405231030e16fdd8efabf88a595",
+      "bytes": 105698
+    },
+    {
+      "path": "figures/F6_before_after_selection_distribution.pdf",
+      "sha256": "f25a6334c3f930280d75acf09d1f6317383fdc4318e08d66529a24df3fb52412",
+      "bytes": 14166
+    }
+  ],
+  "stage": "Development Validation; selected candidates",
+  "PNG_dpi": 300,
+  "Test": false,
+  "stitched": false
+}

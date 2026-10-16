@@ -1,0 +1,19 @@
+HISTORICAL_WEIGHTS_UNCHANGED 1087
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+AUDIT seed201 PASS NOT_QUALIFIED
+AUDIT seed202 PASS QUALIFIED_HIGH_QUALITY_F2_SEED
+AUDIT seed203 PASS NOT_QUALIFIED
+AUDIT seed204 PASS NOT_QUALIFIED
+AUDIT seed205 PASS NOT_QUALIFIED
+AUDIT seed206 PASS NOT_QUALIFIED
+AUDIT seed207 PASS NOT_QUALIFIED
+AUDIT seed208 PASS NOT_QUALIFIED
+AUDIT seed209 PASS NOT_QUALIFIED
+AUDIT seed210 PASS QUALIFIED_HIGH_QUALITY_F2_SEED
+AUDIT seed211 PASS NOT_QUALIFIED
+AUDIT seed212 PASS QUALIFIED_HIGH_QUALITY_F2_SEED
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+{"status": "ROUND2_THREE_NEW_SEEDS_FOUND", "candidate_pool": [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250], "attempted": 12, "completed": 12, "A_pass": 3, "qualified_new_count": 3, "qualified_new_seeds": [202, 210, 212], "best_new_seed": 202, "best_new_RMSE_mV": 3.9122985606263048, "failed_or_timeout": [], "not_started": [213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250], "combined_candidates": 6, "six_candidates_all_strictly_qualified": true, "elapsed_s": 19882.375, "completed_training_time_s": 19760.46160790001, "all_completed_RMSE_mean_mV": 8.223097590184915, "all_completed_RMSE_sample_std_mV": 2.5256289460971644, "stop_reason": "THREE_NEW_QUALIFIED_SEEDS_FOUND", "Test": false, "Assessment": false, "Validation_selected": true, "thresholds": {"RMSE_mV": 6.3, "endpoint_RMSE_mV": 10.0, "max_abs_error_mV": 50.0}, "protocol_sha256": "fae982e2b18a020d2deceb8bab5282e5ca47baaa458c67e247e85f5c353118b7", "best_qualified_new_seed": 202, "best_qualified_new_RMSE_mV": 3.9122985606263048}
+SIX_FIGURES_GENERATED

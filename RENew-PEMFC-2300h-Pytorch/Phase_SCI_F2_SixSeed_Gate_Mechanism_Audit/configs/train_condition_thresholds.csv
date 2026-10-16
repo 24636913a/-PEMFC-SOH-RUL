@@ -1,0 +1,6 @@
+feature,raw_f2_index,low_upper,high_lower,source,ties,degenerate_quantiles
+load_transition_count,11,18.895833333333332,19.708333333333332,1380 legal Train historical-window means,LOW <= q1; MID q1 < x <= q2; HIGH > q2,False
+zero_current_fraction,13,0.092072837675611183,0.099836821978290871,1380 legal Train historical-window means,LOW <= q1; MID q1 < x <= q2; HIGH > q2,False
+actual_current_density_A_cm2_std,9,0.2673383075226512,0.27603500238102341,1380 legal Train historical-window means,LOW <= q1; MID q1 < x <= q2; HIGH > q2,False
+actual_current_A_std,6,74.85384066899617,77.291092541482712,1380 legal Train historical-window means,LOW <= q1; MID q1 < x <= q2; HIGH > q2,False
+actual_current_density_A_cm2_mean,8,0.69390444617925418,0.69880303161011803,1380 legal Train historical-window means,LOW <= q1; MID q1 < x <= q2; HIGH > q2,False

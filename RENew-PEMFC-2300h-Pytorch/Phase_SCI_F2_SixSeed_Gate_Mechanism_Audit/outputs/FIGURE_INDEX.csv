@@ -1,0 +1,9 @@
+figure,csv,script,scientific_scope
+figures/01_gate_over_time,outputs/ALL_VALIDATION_GATES.csv,scripts/plot_figures.py + scripts/finalize_figures.py,selected-instance Development Validation diagnosis
+figures/02_gate_current_variability,outputs/ALL_VALIDATION_GATES.csv,scripts/plot_figures.py,selected-instance Development Validation diagnosis
+figures/03_fixed_gate_RMSE,outputs/METRICS.csv,scripts/plot_figures.py + scripts/finalize_figures.py,selected-instance Development Validation diagnosis
+figures/04_permutation_RMSE,outputs/METRICS.csv,scripts/plot_figures.py,selected-instance Development Validation diagnosis
+figures/05_horizon_RMSE,outputs/HORIZON_METRICS.csv,scripts/plot_figures.py,selected-instance Development Validation diagnosis
+figures/06_fixed_window_predictions,outputs/FIGURE_WINDOW_DATA.csv,scripts/plot_figures.py,selected-instance Development Validation diagnosis
+figures/07_unfavorable_windows,outputs/FIGURE_WINDOW_DATA.csv,scripts/plot_figures.py,selected-instance Development Validation diagnosis
+figures/08_unfavorable_window_errors,outputs/FIGURE_WINDOW_DATA.csv,scripts/finalize_figures.py,"24 queries/window, unfavorable example for each selected instance"

@@ -1,0 +1,85 @@
+{
+  "seed": 193,
+  "baseline_bit_exact": true,
+  "checkpoint_sha256": "ce2c84d7282b3c7cbd5e2769a7132daedf0c60bcb38389d8492646707cda8188",
+  "state_sha256": "4f91722b1654642a32f55bc3c8e4f26659067271c2760e3962e2fe9bef7e1b5d",
+  "train_gate_mean": 0.4186187996812489,
+  "train_gate_mean_float32": 0.4186187982559204,
+  "train_n": 1380,
+  "validation_n": 205,
+  "checks": [
+    {
+      "mode": "B1",
+      "state_unchanged": true,
+      "restored_predictions_exact": true,
+      "hook_removed": true
+    },
+    {
+      "mode": "B2",
+      "state_unchanged": true,
+      "restored_predictions_exact": true,
+      "hook_removed": true
+    },
+    {
+      "mode": "C_2026101601",
+      "state_unchanged": true,
+      "restored_predictions_exact": true,
+      "hook_removed": true
+    },
+    {
+      "mode": "C_2026101602",
+      "state_unchanged": true,
+      "restored_predictions_exact": true,
+      "hook_removed": true
+    },
+    {
+      "mode": "C_2026101603",
+      "state_unchanged": true,
+      "restored_predictions_exact": true,
+      "hook_removed": true
+    },
+    {
+      "mode": "C_2026101604",
+      "state_unchanged": true,
+      "restored_predictions_exact": true,
+      "hook_removed": true
+    },
+    {
+      "mode": "C_2026101605",
+      "state_unchanged": true,
+      "restored_predictions_exact": true,
+      "hook_removed": true
+    },
+    {
+      "mode": "C_2026101606",
+      "state_unchanged": true,
+      "restored_predictions_exact": true,
+      "hook_removed": true
+    },
+    {
+      "mode": "C_2026101607",
+      "state_unchanged": true,
+      "restored_predictions_exact": true,
+      "hook_removed": true
+    },
+    {
+      "mode": "C_2026101608",
+      "state_unchanged": true,
+      "restored_predictions_exact": true,
+      "hook_removed": true
+    },
+    {
+      "mode": "C_2026101609",
+      "state_unchanged": true,
+      "restored_predictions_exact": true,
+      "hook_removed": true
+    },
+    {
+      "mode": "C_2026101610",
+      "state_unchanged": true,
+      "restored_predictions_exact": true,
+      "hook_removed": true
+    }
+  ],
+  "pass": true
+}

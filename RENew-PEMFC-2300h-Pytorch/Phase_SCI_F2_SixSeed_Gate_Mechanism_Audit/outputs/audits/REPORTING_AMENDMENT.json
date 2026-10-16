@@ -1,0 +1,11 @@
+{
+  "scope": "report rendering and figure presentation only, after inference and independent numerical audit",
+  "original_report_generator_sha256": "c3efbdf571ec4544682136bfe85ead65efe00435797535d5ff1d44d9c24661d4",
+  "failure": "optional tabulate dependency missing; original report generation stopped before writing reports",
+  "remedy": "new finalize_reports.py supplies a local Markdown renderer in memory; no dependency installation or frozen-source modification",
+  "prefreeze_precision_clarification": "initial float32 mean reduction differed; float64 reduction reproduces all five J Train threshold pairs EXACTLY and all205 J raw Validation context means EXACTLY; original prefreeze note overstated serialization as cause",
+  "tests": "9 passed; synthetic constant-truth R2 warning is preserved in test log; real validation targets have nonzero variance",
+  "inference_repeated_for_reporting": false,
+  "metrics_modified": false,
+  "protocol_modified": false
+}

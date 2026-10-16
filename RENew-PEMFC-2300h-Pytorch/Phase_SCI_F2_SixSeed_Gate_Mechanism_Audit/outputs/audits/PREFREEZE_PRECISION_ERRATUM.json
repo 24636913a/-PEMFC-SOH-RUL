@@ -1,0 +1,5 @@
+{
+  "status": "PREFREEZE_IMPLEMENTATION_CHECK_FAILED_AND_CORRECTED",
+  "error": "Exact Train raw quantile equality failed before any model forward; snapshot raw arrays are float32, J authority raw arrays float64",
+  "correction": "Aggregate snapshot in float64; bound float32 serialization error quantitatively; reuse original J thresholds byte-numerically unchanged; no model, data or outcome modification"
+}

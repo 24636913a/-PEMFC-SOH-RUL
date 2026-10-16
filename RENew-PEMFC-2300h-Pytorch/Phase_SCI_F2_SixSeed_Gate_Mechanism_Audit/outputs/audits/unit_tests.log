@@ -1,0 +1,16 @@
+test_derangement_distribution_and_no_self (test_gate_audit.AuditTests.test_derangement_distribution_and_no_self) ... ok
+test_derangement_repeatable (test_gate_audit.AuditTests.test_derangement_repeatable) ... ok
+test_historical_write_guard (test_gate_audit.AuditTests.test_historical_write_guard) ... ok
+test_hook_assigned_in_order (test_gate_audit.AuditTests.test_hook_assigned_in_order) ... ok
+test_hook_removes_on_error (test_gate_audit.AuditTests.test_hook_removes_on_error) ... ok
+test_independent_calculator (test_gate_audit.AuditTests.test_independent_calculator) ... ok
+test_no_training_calls_in_executed_scripts (test_gate_audit.AuditTests.test_no_training_calls_in_executed_scripts) ... ok
+test_quantile_linear (test_gate_audit.AuditTests.test_quantile_linear) ... ok
+test_target_equal_is_not_average_prediction (test_gate_audit.AuditTests.test_target_equal_is_not_average_prediction) ... E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\Phase_SCI_F2_SixSeed_Gate_Mechanism_Audit\scripts\common.py:37: RuntimeWarning: divide by zero encountered in scalar divide
+  RMSE_mV=float(np.sqrt(np.mean(e*e))),MAE_mV=float(a.mean()),R2=float(1-np.sum(e*e)/np.sum((y-y.mean())**2)),
+ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.026s
+
+OK

@@ -1,0 +1,38 @@
+{
+  "status": "F2_LATE_EXTREME_CAUSE_AUDIT_PASSED_EXPLORATORY",
+  "physical_events": 2,
+  "original_models": 5,
+  "seeds": [
+    42,
+    52,
+    62
+  ],
+  "original_late_queries_per_model_seed": 13152,
+  "pointwise_error_rows": 197280,
+  "figures": 7,
+  "PNG_dpi": 300,
+  "PDF": true,
+  "independent_numeric_verification": {
+    "status": "PASS",
+    "checks": 188,
+    "max_numeric_difference": 3.725290298461914e-09,
+    "pointwise_rows": 197280,
+    "original_queries_retained": true,
+    "raw_mixture_recomputed": true,
+    "original_forward_sets_exact": 9,
+    "no_training_or_interventions": true
+  },
+  "historical_protection": {
+    "status": "PASS",
+    "historical_files": 65683,
+    "all_SHA256_unchanged": true,
+    "checkpoint_weights_unchanged": true,
+    "formal_predictions_unchanged": true,
+    "paper_conclusions_unmodified": true
+  },
+  "formal_metrics_or_rankings_modified": false,
+  "training_or_tuning": false,
+  "gate_interventions": false,
+  "causal_gate_attribution": "UNDETERMINED",
+  "manifest_files": 77
+}

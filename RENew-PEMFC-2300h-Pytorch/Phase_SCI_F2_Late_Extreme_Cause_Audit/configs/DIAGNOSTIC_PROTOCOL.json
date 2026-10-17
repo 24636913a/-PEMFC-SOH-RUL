@@ -1,0 +1,49 @@
+{
+  "base_commit": "f14a4dec70a3b8a67e866fa7fa3f07843b9ed443",
+  "status": "EXPLORATORY_DIAGNOSTIC_AFTER_EVENTS_WERE_KNOWN_NOT_PREREGISTERED_CONFIRMATION",
+  "events": {
+    "E1": [
+      3112,
+      3113
+    ],
+    "E2": [
+      3627,
+      3628
+    ]
+  },
+  "event_context": "24 records before first core row and 24 after second; 50 per event",
+  "SSE": "all original queries; also sum of mean SE per unique target",
+  "pair_inversion": "predicted first voltage < predicted second for same origin, while actual first > second; no threshold",
+  "timing": "for each origin covering first-2..second+2, argmin predicted minus argmin actual row; no shifted predictions used for formal scoring",
+  "analog": "majority zero-current >0.5, powered flanks zero_current_fraction=0; physics definition only, no error selection",
+  "nearest_history": "RMS standardized masked historical 48x14 tensor; five closest legal Train histories, no future labels used in distance",
+  "gate": "observe only original forward hooks; no gate replacement, no intervention, no gradients",
+  "source_sha256": {
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/FULL_ROW_IDENTITY.csv": "b926af6764909d4ec9417a55bc32f4c5e25f77ca99bd4ae90c15ace3e586abd2",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/CHECKPOINT_INVENTORY.csv": "37afed61a6ff5b1eb161cfb5755b634da67ed3cbd8626b700b78a23302a72be5",
+    "RENew-PEMFC-2300h-Pytorch/RealHyFC_F2_Main.py": "29b0e6d9b9d4ff0f10d9666cc31b22e015e4a8b43f98789dbf4f0a704513e69c",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/HISTORICAL_ASSESSMENT_WINDOWS.npz": "5ecd7a8a8c63e0221aa6f2e88a00711a89f2468fe8416f9ec8f6179885a5be51",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/LATE_LIFE_WINDOWS.npz": "10b2058c2e90d5ec4f23ebc3f4ad88f17c1ef4383318785f3189711ec6036b3c",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/TRAIN_WINDOWS.npz": "d4ba53d6f4aa0f314a053540b7cf45b8cd3ade5e529f304524039a2e3664d9ef",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/VALIDATION_WINDOWS.npz": "75cc1bea1f70ad23e5bcbe3c69564fd33c87f108acc096da3ecaa015ef81e800",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_F0_seed42.csv": "17dfd96d387f94790b233cef454f38068bf090eecb9220437a181abfbd944936",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_F0_seed52.csv": "c5bfdf714cdb91e2da76794c34f9b5225c5ea15c66009306125585f9db9ff096",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_F0_seed62.csv": "3dd3c5ae9cdca8148e60d07fdf698584153b2bd148f0a652fd800d2fc65c9d79",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_F1_seed42.csv": "6945be49a4082696b79adf4173915fcd6b755fb443673b6176c12d42a1c2e977",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_F1_seed52.csv": "b28cc549a9c9ce11dc157c9a865e6d2e4caa0e897342343252761456be9e42ed",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_F1_seed62.csv": "0ef3126fe962aed5c66439e7bbfa3388812d796cc45726c5ab4fee0c22974317",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_F2_seed42.csv": "799e4518690162a8815b0038ad63471d7df4ff1a61d4624a007fd767dd132da5",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_F2_seed52.csv": "03014a5a82a06a258d4c359f13cec56d904f21cacf5fcec81a2816023ee8dd64",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_F2_seed62.csv": "c56a29aed66eb2da019bf6aecc136932e7342e2ae9ef6792f46dfe3f40eebef6",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_LSTM_seed42.csv": "60a46fa31657c7a3f577a69084ea3e3596a8d6abc9b29a8c4b41d770e3dbf9ad",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_LSTM_seed52.csv": "27771fd8baa1af8176a254ab8021e2262e8ec3c82d43b977fbe9b98ddd087464",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_LSTM_seed62.csv": "57efd213d66594dd56efca5b9d31384db59b1af8d8f6d4df1af2c94b7a3f0bcc",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_TCN_seed42.csv": "9faabf5a5650c31259643f7b455ccf77b11ca6e4cde18b3987f079d8b56dc176",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_TCN_seed52.csv": "10dba6597382976bcdd14a951d5eb634f80a1aa1f9421995cc8e3f945332a3e0",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/predictions/LATE_LIFE_TCN_seed62.csv": "5b7f5ba08f3458b9e4ed9dd4fcc2c7b1949d4ca21b2a8a09b4006d67079389ed",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Late_Extreme_Cause_Audit/scripts/analyze.py": "601b6429a6e8eeb6b637a682ca11bd9c67029c81f6f1884fc597f58cc2cec742",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Late_Extreme_Cause_Audit/scripts/audit_common.py": "667782506094485c57f25aa61d3135e387dc1f64252a24e4dff9c4004e89a941",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Late_Extreme_Cause_Audit/scripts/extract_frozen_gates.py": "b36ad4c6f6bd93f307e5a333623ae828801dd782ee5c5180bf567bae05dd7838",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Late_Extreme_Cause_Audit/scripts/raw_event_check.py": "757dd633ad39657d0cf17a356f7c2ef03f6c8b2e086caa317ddbaa57a157b79e"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "single_python_file_in_isolation": true,
+  "project_Python_modules_imported": [],
+  "isolated_checkpoint_forward_exact": true,
+  "trainable_parameters": 332436,
+  "training_guard_calls": {
+    "optimizer_construction": 0,
+    "backward": 0
+  },
+  "training_implementation_static_check": "PASS; full training not executed",
+  "three_seed_four_partition_metric_checks": 36,
+  "max_metric_difference": 7.105427357601002e-15,
+  "main_sha256": "6e2e108bf03f4329ac90c3559340b7af3e4543700403e0a38429526ffefd3d3a"
+}

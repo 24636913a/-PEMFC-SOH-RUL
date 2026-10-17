@@ -1,0 +1,53 @@
+{
+  "status": "SCI_BASELINE_6_RUNS_COMPLETED",
+  "ranking": [
+    {
+      "model": "LSTM",
+      "RMSE_mV_mean": 3.507429629217228,
+      "RMSE_mV_sample_SD": 1.1091422859274396
+    },
+    {
+      "model": "F2",
+      "RMSE_mV_mean": 7.245400185045372,
+      "RMSE_mV_sample_SD": 1.1008528217481848
+    },
+    {
+      "model": "F0",
+      "RMSE_mV_mean": 9.067563256563302,
+      "RMSE_mV_sample_SD": 1.1426300614759441
+    },
+    {
+      "model": "F1",
+      "RMSE_mV_mean": 9.155598056578444,
+      "RMSE_mV_sample_SD": 1.1226660574860228
+    },
+    {
+      "model": "TCN",
+      "RMSE_mV_mean": 19.989030695470035,
+      "RMSE_mV_sample_SD": 0.8452612199487182
+    }
+  ],
+  "paired_RMSE_wins": {
+    "F0": 3,
+    "F1": 3,
+    "LSTM": 0,
+    "TCN": 3
+  },
+  "endpoint_best_model": "LSTM",
+  "scientific_identity": "Development exploratory; same-data/config budget, unequal capacity and historically TFT-derived learning rate; not independent Test",
+  "audit": {
+    "status": "PASS",
+    "overall_settings": 15,
+    "condition_settings": 135,
+    "independent_metric_checks": 1200,
+    "max_metric_difference": 7.105427357601002e-15,
+    "all_prediction_queries": 73800,
+    "targets_per_model": 4920,
+    "origins_per_model": 205,
+    "distinct_target_times": 251,
+    "history_files_unchanged": 3673,
+    "Test": false,
+    "Assessment": false,
+    "all_six_run_audits": true
+  }
+}

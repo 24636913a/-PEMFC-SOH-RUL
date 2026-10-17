@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "environment": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": false,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "original_prefix_reads": [
+    {
+      "nrows": 3007,
+      "rows_returned": 3007
+    }
+  ],
+  "development_rows": 3005,
+  "train_windows": 1380,
+  "validation_windows": 205,
+  "validation_queries": 4920,
+  "all_h_fingerprints_exact": true,
+  "all_snapshot_arrays_bit_exact": true,
+  "model_class_AST_exact": true,
+  "smoke": {
+    "LSTM": {
+      "shape": [
+        2,
+        24
+      ],
+      "finite": true,
+      "backward": true,
+      "formal_optimizer_steps": 0
+    },
+    "TCN": {
+      "shape": [
+        2,
+        24
+      ],
+      "finite": true,
+      "backward": true,
+      "formal_optimizer_steps": 0
+    }
+  },
+  "parameter_counts": {
+    "LSTM": 55448,
+    "TCN": 39048,
+    "F2": 332436
+  },
+  "historical_files_protected": 3673,
+  "protocol_sha256": "860968dce3117d8ba77735d09a40061413bbe6797b9d8d50e0181c83fe1fb814",
+  "Test": false,
+  "Assessment": false
+}

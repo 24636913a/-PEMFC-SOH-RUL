@@ -1,0 +1,192 @@
+{
+  "status": "COMPLETED",
+  "model": "LSTM",
+  "seed": 42,
+  "RMSE_mV": 3.044374498651018,
+  "MAE_mV": 2.2585913077945152,
+  "R2": 0.9997564482975455,
+  "endpoint_RMSE_mV": 5.526888496408823,
+  "target_time_equal_RMSE_mV": 4.2803665616253035,
+  "P95_mV": 5.81849217414856,
+  "P99_mV": 8.313683934975415,
+  "max_abs_error_mV": 54.86608436331153,
+  "n": 4920,
+  "origins": 205,
+  "unique_targets": 251,
+  "best_epoch": 316,
+  "stop_epoch": 356,
+  "stale_epochs": 40,
+  "parameter_count": 55448,
+  "training_time_s": 266.24599970001145,
+  "peak_GPU_memory_bytes": 34714112,
+  "environment": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": false,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "checkpoint": "outputs/checkpoints/LSTM_seed42_best.pt",
+  "checkpoint_sha256": "5b4fefad9b44e82a6d160fb3c1745a6cf411d7859934ffe5699a289250bb4dd4",
+  "predictions": "outputs/predictions/LSTM_seed42.csv",
+  "prediction_sha256": "f2f134eb5eab099d43d8085e4a0e86cf51daee44afaab2580459ae40c3f28ed2",
+  "protocol_sha256": "860968dce3117d8ba77735d09a40061413bbe6797b9d8d50e0181c83fe1fb814",
+  "initialization_sha256": "5f34ae291f90654f9428628abb2f0655830100e980b3d676e89dfed1075d13de",
+  "best_validation_standardized_RMSE": 0.02225368283689022,
+  "checkpoint_reload_all205_exact": true,
+  "horizon_metrics": [
+    {
+      "step": 1,
+      "n": 205,
+      "RMSE_mV": 2.689544747916821,
+      "MAE_mV": 1.996976571731133
+    },
+    {
+      "step": 2,
+      "n": 205,
+      "RMSE_mV": 2.6584001819357796,
+      "MAE_mV": 2.0514466372466216
+    },
+    {
+      "step": 3,
+      "n": 205,
+      "RMSE_mV": 2.569583434109212,
+      "MAE_mV": 1.9195267060517724
+    },
+    {
+      "step": 4,
+      "n": 205,
+      "RMSE_mV": 2.754118746151866,
+      "MAE_mV": 2.0944184757465294
+    },
+    {
+      "step": 5,
+      "n": 205,
+      "RMSE_mV": 2.9341758284282586,
+      "MAE_mV": 2.3110592521822206
+    },
+    {
+      "step": 6,
+      "n": 205,
+      "RMSE_mV": 3.4050955412695543,
+      "MAE_mV": 2.6290754691084346
+    },
+    {
+      "step": 7,
+      "n": 205,
+      "RMSE_mV": 2.479256356944367,
+      "MAE_mV": 1.8882286608525802
+    },
+    {
+      "step": 8,
+      "n": 205,
+      "RMSE_mV": 3.326649693028064,
+      "MAE_mV": 2.689742110953553
+    },
+    {
+      "step": 9,
+      "n": 205,
+      "RMSE_mV": 2.9528837903775544,
+      "MAE_mV": 2.336672013632601
+    },
+    {
+      "step": 10,
+      "n": 205,
+      "RMSE_mV": 2.7208822040496714,
+      "MAE_mV": 2.169440604076244
+    },
+    {
+      "step": 11,
+      "n": 205,
+      "RMSE_mV": 2.838558191710304,
+      "MAE_mV": 2.2381470625987276
+    },
+    {
+      "step": 12,
+      "n": 205,
+      "RMSE_mV": 2.970710411206435,
+      "MAE_mV": 2.2774427807279407
+    },
+    {
+      "step": 13,
+      "n": 205,
+      "RMSE_mV": 2.6890333159535333,
+      "MAE_mV": 2.115920377702157
+    },
+    {
+      "step": 14,
+      "n": 205,
+      "RMSE_mV": 2.872280965621085,
+      "MAE_mV": 2.191425808180101
+    },
+    {
+      "step": 15,
+      "n": 205,
+      "RMSE_mV": 2.8046843827679604,
+      "MAE_mV": 2.1830096582473235
+    },
+    {
+      "step": 16,
+      "n": 205,
+      "RMSE_mV": 2.641982567428067,
+      "MAE_mV": 2.1564349165135175
+    },
+    {
+      "step": 17,
+      "n": 205,
+      "RMSE_mV": 2.9601222620260064,
+      "MAE_mV": 2.25346205016405
+    },
+    {
+      "step": 18,
+      "n": 205,
+      "RMSE_mV": 3.1666202225795756,
+      "MAE_mV": 2.664324635548926
+    },
+    {
+      "step": 19,
+      "n": 205,
+      "RMSE_mV": 2.1134479147997265,
+      "MAE_mV": 1.6525721010178287
+    },
+    {
+      "step": 20,
+      "n": 205,
+      "RMSE_mV": 2.8003465623628845,
+      "MAE_mV": 2.19314328122248
+    },
+    {
+      "step": 21,
+      "n": 205,
+      "RMSE_mV": 2.7650226896711203,
+      "MAE_mV": 2.0756999358171724
+    },
+    {
+      "step": 22,
+      "n": 205,
+      "RMSE_mV": 2.9577415481859184,
+      "MAE_mV": 2.2150594291771286
+    },
+    {
+      "step": 23,
+      "n": 205,
+      "RMSE_mV": 3.8936060862273645,
+      "MAE_mV": 2.659471044641644
+    },
+    {
+      "step": 24,
+      "n": 205,
+      "RMSE_mV": 5.526888496408823,
+      "MAE_mV": 3.2434918039276766
+    }
+  ]
+}

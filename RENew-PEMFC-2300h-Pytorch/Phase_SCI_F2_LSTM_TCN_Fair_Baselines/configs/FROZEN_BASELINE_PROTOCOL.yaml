@@ -1,0 +1,181 @@
+phase: Phase_SCI_F2_LSTM_TCN_Fair_Baselines
+base_commit: d41ae91689cc7ebe1d83fc4351d01122023e914e
+status: FROZEN_BEFORE_FORMAL_RUNS
+task:
+  resolution_h: 0.5
+  lookback_steps: 48
+  horizon_steps: 24
+  raw_f2_feature_order:
+  - cell_voltage_mean
+  - cell_voltage_std
+  - cell_voltage_range
+  - cell_voltage_min
+  - cell_voltage_max
+  - actual_current_A_mean
+  - actual_current_A_std
+  - actual_current_A_peak_to_peak
+  - actual_current_density_A_cm2_mean
+  - actual_current_density_A_cm2_std
+  - actual_current_density_A_cm2_peak_to_peak
+  - load_transition_count
+  - operation_point_transitions
+  - zero_current_fraction
+  target: cell_voltage_mean_t_plus_h_minus_cell_voltage_mean_t
+preprocessing:
+  authority: Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py
+  Top10_indices:
+  - 0
+  - 3
+  - 13
+  - 11
+  - 4
+  - 9
+  - 6
+  - 7
+  - 10
+  - 8
+  selection: train_window_origin_spearman_to_each_horizon_mean_absolute
+  ties: stable_raw_f2_order
+  mandatory_feature: cell_voltage_mean
+  mask: standardized_space_zero_mask
+  filter: per_window_causal_EWMA_alpha_0_3_voltage_only
+  common_scaler: unfiltered_train_legal_histories_only
+  target_scale: common_scaler.scale_0
+hyperparameters:
+  seed: 42
+  optimizer: AdamW
+  loss: MSE
+  learning_rate: 0.0009605449687795866
+  weight_decay: 6.95942232671908e-06
+  batch_size: 32
+  max_epochs: 450
+  patience: 40
+  gradient_clip_norm: 1.0
+  dropout: 0.1
+  hidden_size: 64
+  hidden_continuous_size: 32
+normal_runtime:
+  python: 3.11.9
+  torch: 2.6.0+cu124
+  pytorch_forecasting: 1.8.0
+  CUDA: '12.4'
+  cuDNN: 90100
+  GPU: NVIDIA GeForce RTX 3070 Laptop GPU
+  CPU_threads: 1
+  cudnn_deterministic: true
+  cudnn_benchmark: false
+  torch_deterministic_algorithms: false
+  warn_only: false
+  TF32_matmul: false
+  TF32_cudnn: true
+  CUBLAS_WORKSPACE_CONFIG: null
+  claim: CUDA_STRICT_BITWISE_DETERMINISM_NOT_CLAIMED
+data:
+  read_nrows: 3007
+  filter: bin_end_ophrs2_h < 1819.997738
+  development_rows: 3005
+  train_rows:
+  - 0
+  - 2103
+  validation_rows:
+  - 2103
+  - 2404
+  train_windows: 1380
+  validation_windows: 205
+  full_N1_hash: PROHIBITED
+  Top10_selection: consume frozen Train-derived indices; no new selection
+runs:
+- model: LSTM
+  seed: 42
+- model: TCN
+  seed: 42
+- model: LSTM
+  seed: 52
+- model: LSTM
+  seed: 62
+- model: TCN
+  seed: 52
+- model: TCN
+  seed: 62
+architectures:
+  LSTM:
+    input_dim: 14
+    horizon: 24
+    hidden_dim: 64
+    num_layers: 2
+    dropout: 0.1
+  TCN:
+    input_dim: 14
+    horizon: 24
+    hidden_dim: 48
+    num_layers: 3
+    kernel_size: 3
+    dropout: 0.1
+parameter_counts:
+  LSTM: 55448
+  TCN: 39048
+  F2: 332436
+optimizer: AdamW
+early_stopping: validation_standardized_RMSE < best - 1e-12; patience40; max450
+dataloader:
+  batch_size: 32
+  shuffle: true
+  num_workers: 0
+  generator_seed: run seed
+capacity_matching: false
+learning_rate_tuned_for_baselines: false
+TCN_padding: N2 symmetric within observed history; not strictly causal within48steps;
+  no future actual input
+no_Test: true
+no_Assessment: true
+one_shot: true
+maximum_formal_runs: 6
+pilot_order:
+- LSTM42
+- TCN42
+continue_only_after_both_pilot_audits: true
+case_origins:
+  fixed: 2205
+  difficult: 2224
+diagnostic_targets:
+- 2247
+- 2248
+critical_sha256:
+  scripts/baseline_common.py: 6d07ccecc6b0a32ae0a3f592cb577c748c219388535c72eaa57dbdc1744eac9a
+  scripts/preflight.py: 7958fa207fe81dc77f19e548e2a35195b58526b1cef79fa9719d9aa0d5249d22
+  scripts/train_baseline.py: 99e9cd5235ea1cea80b2cd4ebc692569a8b895533efd81e852d671eb02a5eaf4
+  scripts/run_baselines.py: de6d18e364095b614347131ced2e50510a252216ebebe4d2768a3c7368b71ca1
+  scripts/audit_run.py: 83a97b3c32d04f948c7fadbaf580123b17a4a33dfe30a57ce23274e9749f7da7
+  models/baseline_models.py: d6704450a081e5411282ef585dfb7c7ce10f699fc3002ff1c7a11bd521f41ada
+sources_sha256:
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.yaml: 88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd
+  RENew-PEMFC-2300h-Pytorch/Phase_N2_Model_Screening/scripts/phase_n2_models.py: b8dd64225b10eb6f5a80190e12a7765c9422dd5ec662553259b0fa563ac9897b
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/h_common.py: c88974ade24909adc793a0dab7433d838d2b1b3ed7dd526702028d259fc14cbb
+  RENew-PEMFC-2300h-Pytorch/Phase_TFT_FullFeature_CausalFilter_Comparison/scripts/run_e_comparison.py: f479d4cd64a6a9351dd2d863f38dd4828017dc48ffa8b4e986a3c240a5574099
+  RENew-PEMFC-2300h-Pytorch/Phase_TFT_SingleSplit_Feature_Filter_Ablation/scripts/run_c_ablation.py: e0053c63d6b942166362a09b2fce0166d9d29130fc0d5624eeaa0dcf32a65ce1
+  ? RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Literature_Benchmarked_Paper_Integration/outputs/condition_analysis/TRAIN_THRESHOLDS.csv
+  : 8cb8143673ead039986955a9d2a1a7af4a8bcb85dc5da8a77666bca8a161ca8d
+  ? RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Literature_Benchmarked_Paper_Integration/outputs/condition_analysis/ORIGIN_CONDITIONS.csv
+  : 39c8bc4a492d11972b8fcd4ba229d32991194ae328a70bdf2f274ce81907f19f
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Literature_Benchmarked_Paper_Integration/tables/T04_FORMAL_MODEL_COMPARISON.csv: 26f391243fb260557255dd674647d4f6ed45606d32bd83ad521a59775465ed2c
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/metrics/H_VALIDATION_METRICS.csv: 6ebcdbc566e501d25845a2c6f238b9d9c67620dd000ac9ff6f378906b39b1e83
+  RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/__init__.py: 9aceeebef759152574ae45db9dddfacfb804eb8b0a7b81da3b13e00634299187
+  RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/causal_multiscale_branch.py: d70bbb0093a0e06b41325a09de48ac18a97a223bb6a4259941ae17a2ea1b220c
+  RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/dualpath_strict_history_tft.py: a8e979c00a753c7a65de3e200ff0e7cb9562888d9555c63b94cef97f28fececc
+  RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/frozen_feature_schema.py: f5b7e215d06099dada361c915b2260ac8d79da3661a8932ebba09ab550b9772e
+  RENew-PEMFC-2300h-Pytorch/Phase_F_TFT_DualPath_RegimeFusion/models/regime_aware_dualpath_tft.py: bbc219e5d22a664f1a45dbe7ac5d8a561a0bfc6d63097a7f847612e8af352c57
+  RENew-PEMFC-2300h-Pytorch/Phase_TFT_Original_Baseline/models/canonical_tft.py: b6540cdb109565eb40fa9d631984699640a74233d3e869bca163e37f02db3618
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F0-Seed42.csv: 20cafbd44d62c764f2857d4735d1a5509641788d2f3c7c6c3f8bcc679ed4761c
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F0-Seed52.csv: c2942fd3a8d7121267ee40a226fe7e3be37a00fa582bc7d61bccd679090da58a
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F0-Seed62.csv: d5eb73cb5fb4e3c806332b21a4e4deaf34d8130408cb9c82696121ff71c25615
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F1-Seed42.csv: 77ecb2ebb711878bf33c0a93d9812e51e8913878c0ec4961f7825253b6cc7e7e
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F1-Seed52.csv: 63b9c0b2788951954e9943d452200bfbfd6cb128acc3091238988de431318e2e
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F1-Seed62.csv: f083d0eed066d2f9b61203365522521bc931a8905d0188d37267d2ac3b801578
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F2-Seed42.csv: 6f599d1790814a05f1b518bfaffcd8aca618ab33c9dd67b678dd5ce93f31d532
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F2-Seed52.csv: 3663ec152c6213f75bc1d2b919512e594d3ba2725e4a87790de6c79fd35be6d7
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F2-Seed62.csv: dfa8255f5fef420456cd4fed083830af16879f93710ebaf037f8f8738a47ec9c
+data_sha256:
+  outputs/audits/FROZEN_H_DATA.npz: cbb212134eb664f1a43d4851f20686fe575c06eb6b2b0b893aed0f166fcef83e
+  outputs/audits/VALIDATION_KEY_TRUTH.csv: 49a668307a1cf67a83841a04a7d87f9fcabf2fb1b0131d94f5dd9960682af312
+  outputs/audits/SCALER.json: 8a2d248ea3f626742368e1b2079a35408ac165bdf64ded821bc565fd3ef2cfdb
+  outputs/audits/DATA_FINGERPRINTS.json: 2b487cbe99363431701bfcac0432972bc2280b39de5677f5d7c278e4c4953d9d

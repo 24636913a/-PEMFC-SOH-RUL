@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "model": "TCN",
+  "seed": 62,
+  "independent_metrics": {
+    "RMSE_mV": 20.659790501970765,
+    "MAE_mV": 14.803005893169274,
+    "R2": 0.9887837715719799,
+    "endpoint_RMSE_mV": 27.741247080394142,
+    "target_time_equal_RMSE_mV": 28.288368299801434,
+    "P95_mV": 41.18706478038803,
+    "P99_mV": 65.90374116320169,
+    "max_abs_error_mV": 232.47630149126053
+  },
+  "max_metric_difference": 0.0,
+  "checkpoint_all_validation_exact": true,
+  "CSV_checkpoint_exact": true,
+  "early_stopping_reconstructed": true,
+  "all24horizons_checked": true,
+  "Test": false,
+  "Assessment": false
+}

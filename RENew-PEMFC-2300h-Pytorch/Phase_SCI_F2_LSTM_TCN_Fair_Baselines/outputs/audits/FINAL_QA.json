@@ -1,0 +1,31 @@
+{
+  "status": "SCI_BASELINE_6_RUNS_COMPLETED",
+  "formal_runs": 6,
+  "successful_runs": 6,
+  "extra_runs": 0,
+  "retrained_runs": 0,
+  "seeds": [
+    42,
+    52,
+    62
+  ],
+  "model_class_AST_exact": true,
+  "checkpoint_and_all205_predictions_exact": true,
+  "history_files_unchanged": 3673,
+  "historical_paper_unchanged": true,
+  "Test": false,
+  "Assessment": false,
+  "independent_metric_checks": 1200,
+  "unit_tests": 17,
+  "figures": 6,
+  "preflight_sha256": "61e9c276ee4dc33151730cedd9d6675ed40908dd616cb578354cd679c7b67b69",
+  "protocol_sha256": "860968dce3117d8ba77735d09a40061413bbe6797b9d8d50e0181c83fe1fb814",
+  "visual_QA": "All six final PNGs manually inspected by parent; automated300dpi/vector tests passed",
+  "scientific_limitations": [
+    "Development exploratory only",
+    "unequal model capacity",
+    "historical TFT-derived learning rate not individually optimized",
+    "three initializations and overlapping target times",
+    "historical and current costs not controlled benchmark"
+  ]
+}

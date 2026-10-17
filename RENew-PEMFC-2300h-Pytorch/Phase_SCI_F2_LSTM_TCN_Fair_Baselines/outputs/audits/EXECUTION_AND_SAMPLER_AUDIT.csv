@@ -1,0 +1,7 @@
+model,seed,epochs,minibatches,changed_parameter_tensors,from_scratch_initialization_exact,sampler_equal_to_H_epochs,other_baseline_common_epochs,status
+LSTM,42,356,15664,12,True,244,189,PASS
+TCN,42,189,8316,22,True,189,189,PASS
+LSTM,52,285,12540,12,True,263,249,PASS
+LSTM,62,405,17820,12,True,364,196,PASS
+TCN,52,249,10956,22,True,249,249,PASS
+TCN,62,196,8624,22,True,196,196,PASS

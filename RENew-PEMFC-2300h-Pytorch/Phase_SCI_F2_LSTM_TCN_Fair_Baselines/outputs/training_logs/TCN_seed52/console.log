@@ -1,0 +1,26 @@
+TCN_seed52 epoch=1 RMSE=189.438117 best=1 stale=0
+TCN_seed52 epoch=10 RMSE=105.258362 best=10 stale=0
+TCN_seed52 epoch=20 RMSE=73.166665 best=20 stale=0
+TCN_seed52 epoch=30 RMSE=53.504108 best=30 stale=0
+TCN_seed52 epoch=40 RMSE=42.531141 best=38 stale=2
+TCN_seed52 epoch=50 RMSE=37.165507 best=49 stale=1
+TCN_seed52 epoch=60 RMSE=30.600058 best=60 stale=0
+TCN_seed52 epoch=70 RMSE=30.870734 best=63 stale=7
+TCN_seed52 epoch=80 RMSE=28.232935 best=77 stale=3
+TCN_seed52 epoch=90 RMSE=24.880082 best=90 stale=0
+TCN_seed52 epoch=100 RMSE=26.230884 best=92 stale=8
+TCN_seed52 epoch=110 RMSE=25.814373 best=107 stale=3
+TCN_seed52 epoch=120 RMSE=25.850553 best=111 stale=9
+TCN_seed52 epoch=130 RMSE=28.954087 best=129 stale=1
+TCN_seed52 epoch=140 RMSE=23.143070 best=133 stale=7
+TCN_seed52 epoch=150 RMSE=24.547392 best=133 stale=17
+TCN_seed52 epoch=160 RMSE=22.965483 best=133 stale=27
+TCN_seed52 epoch=170 RMSE=24.777162 best=164 stale=6
+TCN_seed52 epoch=180 RMSE=21.282266 best=164 stale=16
+TCN_seed52 epoch=190 RMSE=22.443082 best=164 stale=26
+TCN_seed52 epoch=200 RMSE=23.443253 best=164 stale=36
+TCN_seed52 epoch=210 RMSE=20.783337 best=209 stale=1
+TCN_seed52 epoch=220 RMSE=23.476807 best=209 stale=11
+TCN_seed52 epoch=230 RMSE=20.322432 best=209 stale=21
+TCN_seed52 epoch=240 RMSE=20.937249 best=209 stale=31
+{"status": "COMPLETED", "model": "TCN", "seed": 52, "RMSE_mV": 19.039625148262903, "MAE_mV": 13.433157425778031, "R2": 0.9904739730376515, "endpoint_RMSE_mV": 27.058191405426278, "target_time_equal_RMSE_mV": 27.65479883921342, "P95_mV": 37.264181359205395, "P99_mV": 60.289364848286375, "max_abs_error_mV": 249.227873980999, "n": 4920, "origins": 205, "unique_targets": 251, "best_epoch": 209, "stop_epoch": 249, "stale_epochs": 40, "parameter_count": 39048, "training_time_s": 2388.223021999991, "peak_GPU_memory_bytes": 23550464, "environment": {"python": "3.11.9", "torch": "2.6.0+cu124", "pytorch_forecasting": "1.8.0", "CUDA": "12.4", "cuDNN": 90100, "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU", "CPU_threads": 1, "cudnn_deterministic": true, "cudnn_benchmark": false, "torch_deterministic_algorithms": false, "warn_only": false, "TF32_matmul": false, "TF32_cudnn": true, "CUBLAS_WORKSPACE_CONFIG": null}, "checkpoint": "outputs/checkpoints/TCN_seed52_best.pt", "checkpoint_sha256": "72f05003221805750c30b2627863767c2a42ff17f687d305f7d2998d98efbd32", "predictions": "outputs/predictions/TCN_seed52.csv", "prediction_sha256": "f985b40444dd455db86dc44daefc216dfe6d85eb7741d4f279d13a87c84bf320", "protocol_sha256": "860968dce3117d8ba77735d09a40061413bbe6797b9d8d50e0181c83fe1fb814", "initialization_sha256": "672f98a3bfcb37be7ad226befd1707261fb0988a2ba30e2d7050b8c3b2ea92d8", "best_validation_standardized_RMSE": 0.13917531073093414, "checkpoint_reload_all205_exact": true, "horizon_metrics": [{"step": 1, "n": 205, "RMSE_mV": 17.621467026689835, "MAE_mV": 12.847459812083555}, {"step": 2, "n": 205, "RMSE_mV": 18.59452674458289, "MAE_mV": 13.17664444256324}, {"step": 3, "n": 205, "RMSE_mV": 15.571657169959192, "MAE_mV": 10.90551222078031}, {"step": 4, "n": 205, "RMSE_mV": 15.010184694086279, "MAE_mV": 10.855977785831783}, {"step": 5, "n": 205, "RMSE_mV": 17.368285100350572, "MAE_mV": 12.844772027307133}, {"step": 6, "n": 205, "RMSE_mV": 18.92663243665124, "MAE_mV": 14.468485375911724}, {"step": 7, "n": 205, "RMSE_mV": 17.16410213731368, "MAE_mV": 12.290838644442308}, {"step": 8, "n": 205, "RMSE_mV": 20.873505566042333, "MAE_mV": 15.815876748003975}, {"step": 9, "n": 205, "RMSE_mV": 18.22608543852714, "MAE_mV": 13.17762798621183}, {"step": 10, "n": 205, "RMSE_mV": 16.551408444221327, "MAE_mV": 12.22838709079774}, {"step": 11, "n": 205, "RMSE_mV": 19.66330668170839, "MAE_mV": 14.776311353240844}, {"step": 12, "n": 205, "RMSE_mV": 15.120980277150954, "MAE_mV": 11.521803608562417}, {"step": 13, "n": 205, "RMSE_mV": 19.478121949306612, "MAE_mV": 13.139165364910008}, {"step": 14, "n": 205, "RMSE_mV": 18.824900765890565, "MAE_mV": 14.97553887925389}, {"step": 15, "n": 205, "RMSE_mV": 19.696443892586842, "MAE_mV": 15.202926761802944}, {"step": 16, "n": 205, "RMSE_mV": 21.1951521748245, "MAE_mV": 16.758176302764475}, {"step": 17, "n": 205, "RMSE_mV": 20.349843064611044, "MAE_mV": 15.057210407121602}, {"step": 18, "n": 205, "RMSE_mV": 19.473300211128752, "MAE_mV": 14.783776621618195}, {"step": 19, "n": 205, "RMSE_mV": 19.7750857818876, "MAE_mV": 12.125953336946134}, {"step": 20, "n": 205, "RMSE_mV": 19.11286785346626, "MAE_mV": 14.54302406679589}, {"step": 21, "n": 205, "RMSE_mV": 18.95166930238906, "MAE_mV": 13.683330058475116}, {"step": 22, "n": 205, "RMSE_mV": 14.31602015282438, "MAE_mV": 10.859929336100588}, {"step": 23, "n": 205, "RMSE_mV": 23.401027366047636, "MAE_mV": 12.906736121951282}, {"step": 24, "n": 205, "RMSE_mV": 27.058191405426278, "MAE_mV": 13.450313865195778}]}

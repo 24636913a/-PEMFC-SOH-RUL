@@ -1,0 +1,4 @@
+condition,feature,index,train_n,q1,q2,rule,source
+current_variability,actual_current_density_A_cm2_std,9,1380,0.2673383075226512,0.27603500238102341,LOW<=q1; MID q1<x<=q2; HIGH>q2,Phase J frozen Train terciles; exact recheck
+load_transitions,load_transition_count,11,1380,18.895833333333332,19.708333333333332,LOW<=q1; MID q1<x<=q2; HIGH>q2,Phase J frozen Train terciles; exact recheck
+load_level,actual_current_density_A_cm2_mean,8,1380,0.69390444617925418,0.69880303161011803,LOW<=q1; MID q1<x<=q2; HIGH>q2,Phase J frozen Train terciles; exact recheck

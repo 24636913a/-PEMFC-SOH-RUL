@@ -1,0 +1,15 @@
+{"UTC": "2026-10-17T04:42:32Z", "event": "PREFLIGHT_PASS"}
+{"UTC": "2026-10-17T04:43:22Z", "event": "RUN_STARTED", "model": "LSTM", "seed": 42}
+{"UTC": "2026-10-17T04:47:49Z", "event": "RUN_COMPLETED", "model": "LSTM", "seed": 42, "RMSE_mV": 3.044374498651018}
+{"UTC": "2026-10-17T04:48:17Z", "event": "RUN_STARTED", "model": "TCN", "seed": 42}
+{"UTC": "2026-10-17T05:18:06Z", "event": "RUN_COMPLETED", "model": "TCN", "seed": 42, "RMSE_mV": 20.26767643617644}
+{"UTC": "2026-10-17T05:18:42Z", "event": "RUN_STARTED", "model": "LSTM", "seed": 52}
+{"UTC": "2026-10-17T05:22:05Z", "event": "RUN_COMPLETED", "model": "LSTM", "seed": 52, "RMSE_mV": 4.773066265137748}
+{"UTC": "2026-10-17T05:22:34Z", "event": "RUN_STARTED", "model": "LSTM", "seed": 62}
+{"UTC": "2026-10-17T05:27:58Z", "event": "RUN_COMPLETED", "model": "LSTM", "seed": 62, "RMSE_mV": 2.7048481238629174}
+{"UTC": "2026-10-17T05:28:27Z", "event": "RUN_STARTED", "model": "TCN", "seed": 52}
+{"UTC": "2026-10-17T06:08:17Z", "event": "RUN_COMPLETED", "model": "TCN", "seed": 52, "RMSE_mV": 19.039625148262903}
+{"UTC": "2026-10-17T06:08:50Z", "event": "RUN_STARTED", "model": "TCN", "seed": 62}
+{"UTC": "2026-10-17T06:10:54Z", "event": "IO_RENAME_RETRY", "path": "outputs/training_logs/TCN_seed62/epochs.csv", "attempt": 1, "error": "PermissionError(13, '拒绝访问。')"}
+{"UTC": "2026-10-17T06:39:19Z", "event": "RUN_COMPLETED", "model": "TCN", "seed": 62, "RMSE_mV": 20.659790501970765}
+{"UTC": "2026-10-17T06:39:58Z", "event": "SIX_RUNS_COMPLETED"}

@@ -1,0 +1,22 @@
+test_fifteen_settings (test_baselines.CompletedResultTests.test_fifteen_settings) ... ok
+test_horizon_and_condition_counts (test_baselines.CompletedResultTests.test_horizon_and_condition_counts) ... ok
+test_predeclared_cases (test_baselines.CompletedResultTests.test_predeclared_cases) ... ok
+test_recorded_execution_budget_and_sampler (test_baselines.CompletedResultTests.test_recorded_execution_budget_and_sampler) ... ok
+test_six_audited_runs (test_baselines.CompletedResultTests.test_six_audited_runs) ... ok
+test_six_real_figure_pairs (test_baselines.CompletedResultTests.test_six_real_figure_pairs) ... ok
+test_summary_and_independent_audit (test_baselines.CompletedResultTests.test_summary_and_independent_audit) ... ok
+test_capacity (test_baselines.FrozenTests.test_capacity) ... ok
+test_exact_class_copy (test_baselines.FrozenTests.test_exact_class_copy) ... ok
+test_external_write_prohibited (test_baselines.FrozenTests.test_external_write_prohibited) ... ok
+test_frozen_six_runs (test_baselines.FrozenTests.test_frozen_six_runs) ... ok
+test_frozen_tensors_and_mask (test_baselines.FrozenTests.test_frozen_tensors_and_mask) ... ok
+test_independent_metric_definition (test_baselines.FrozenTests.test_independent_metric_definition) ... ok
+test_preflight_exact_data (test_baselines.FrozenTests.test_preflight_exact_data) ... ok
+test_standard_TCN_is_symmetric (test_baselines.FrozenTests.test_standard_TCN_is_symmetric) ... ok
+test_target_scale_matches_H (test_baselines.FrozenTests.test_target_scale_matches_H) ... ok
+test_windows_have_only_past_and_future_labels (test_baselines.FrozenTests.test_windows_have_only_past_and_future_labels) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.768s
+
+OK

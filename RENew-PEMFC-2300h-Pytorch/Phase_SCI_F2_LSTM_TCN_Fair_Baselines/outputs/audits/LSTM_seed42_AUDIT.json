@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "model": "LSTM",
+  "seed": 42,
+  "independent_metrics": {
+    "RMSE_mV": 3.0443744986510186,
+    "MAE_mV": 2.2585913077945152,
+    "R2": 0.9997564482975455,
+    "endpoint_RMSE_mV": 5.526888496408823,
+    "target_time_equal_RMSE_mV": 4.2803665616253035,
+    "P95_mV": 5.81849217414856,
+    "P99_mV": 8.313683934975415,
+    "max_abs_error_mV": 54.86608436331153
+  },
+  "max_metric_difference": 4.440892098500626e-16,
+  "checkpoint_all_validation_exact": true,
+  "CSV_checkpoint_exact": true,
+  "early_stopping_reconstructed": true,
+  "all24horizons_checked": true,
+  "Test": false,
+  "Assessment": false
+}

@@ -1,0 +1,20 @@
+test_15_checkpoints_forward_without_updates (test_checkpoint_identity.CheckpointTests.test_15_checkpoints_forward_without_updates) ... ok
+test_no_training_calls (test_checkpoint_identity.CheckpointTests.test_no_training_calls) ... ok
+test_analytical (test_metrics.MetricTests.test_analytical) ... ok
+test_constant_truth_undefined_R2 (test_metrics.MetricTests.test_constant_truth_undefined_R2) ... ok
+test_actual_N_not_hardcoded (test_partition_boundaries.PartitionTests.test_actual_N_not_hardcoded) ... ok
+test_exact_coverage (test_partition_boundaries.PartitionTests.test_exact_coverage) ... ok
+test_invalid_N (test_partition_boundaries.PartitionTests.test_invalid_N) ... ok
+test_ewma_causality (test_scaler_identity.ScalerTests.test_ewma_causality) ... ok
+test_historical_scaler_exact (test_scaler_identity.ScalerTests.test_historical_scaler_exact) ... ok
+test_mask_and_no_mutation (test_scaler_identity.ScalerTests.test_mask_and_no_mutation) ... ok
+test_future_conditions_not_inputs (test_window_causality.WindowTests.test_future_conditions_not_inputs) ... ok
+test_future_nonfinite_is_eligibility_only (test_window_causality.WindowTests.test_future_nonfinite_is_eligibility_only) ... ok
+test_gap_segment_and_invalid_reasons (test_window_causality.WindowTests.test_gap_segment_and_invalid_reasons) ... ok
+test_history_and_end_reasons (test_window_causality.WindowTests.test_history_and_end_reasons) ... ok
+test_partition_targets_and_history (test_window_causality.WindowTests.test_partition_targets_and_history) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 2.562s
+
+OK

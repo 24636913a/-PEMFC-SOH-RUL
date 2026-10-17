@@ -1,0 +1,22 @@
+{
+  "script_sha256": "a2df48959f599b9c6f5d806b403830dab84f03cfbd55345f4d44bc9f1b3b7b75",
+  "protocol_sha256": "afce32e2a8cfc10ea220851f4c536140dce2ab26770cb7cd977ecec4695a561e",
+  "source_sha256": "fbee6b28682766081c9cda08059e2eaabcd6bb25365ce0bc5eb7c5714fda0f38",
+  "metric_csv_sha256": "62a55b20dff93fb3604fbadcb446a3f145e22d34932bc029abb1ed45d3f5d887",
+  "figures": 7,
+  "dpi": 300,
+  "PDF": "vector paths plus embedded fonts",
+  "no_stitched_forecasts": true,
+  "units": "cell voltage V; prediction error mV; operating time h",
+  "scientific_status": "in-sample Train, reused Validation, exploratory historical Assessment and late-life",
+  "layout_only_postfreeze_repair": {
+    "script": "scripts/polish_figure_layout.py",
+    "sha256": "eeec0a72fcfbf06c43c08f050e2a5e863e711e0aabb8f59de170d47531794329",
+    "figures": [
+      "01_full_timeline",
+      "07_adverse_windows"
+    ],
+    "plot_CSV_unchanged": true,
+    "scientific_protocol_unchanged": true
+  }
+}

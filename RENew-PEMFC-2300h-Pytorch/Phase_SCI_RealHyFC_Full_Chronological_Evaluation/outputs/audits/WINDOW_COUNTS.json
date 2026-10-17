@@ -1,0 +1,51 @@
+[
+  {
+    "partition": "TRAIN",
+    "records": 2103,
+    "legal_origins": 1380,
+    "prediction_queries": 33120,
+    "unique_targets": 1587,
+    "excluded_origins": 723,
+    "primary_reason_counts": {
+      "INVALID_BIN": 652,
+      "HISTORY_BEFORE_DATASET": 47,
+      "24_TARGETS_OUTSIDE_PARTITION": 24
+    }
+  },
+  {
+    "partition": "VALIDATION",
+    "records": 301,
+    "legal_origins": 205,
+    "prediction_queries": 4920,
+    "unique_targets": 251,
+    "excluded_origins": 96,
+    "primary_reason_counts": {
+      "INVALID_BIN": 72,
+      "24_TARGETS_OUTSIDE_PARTITION": 24
+    }
+  },
+  {
+    "partition": "HISTORICAL_ASSESSMENT",
+    "records": 601,
+    "legal_origins": 378,
+    "prediction_queries": 9072,
+    "unique_targets": 447,
+    "excluded_origins": 223,
+    "primary_reason_counts": {
+      "INVALID_BIN": 199,
+      "24_TARGETS_OUTSIDE_PARTITION": 24
+    }
+  },
+  {
+    "partition": "LATE_LIFE",
+    "records": 838,
+    "legal_origins": 548,
+    "prediction_queries": 13152,
+    "unique_targets": 640,
+    "excluded_origins": 290,
+    "primary_reason_counts": {
+      "INVALID_BIN": 266,
+      "24_TARGETS_OUTSIDE_PARTITION": 24
+    }
+  }
+]

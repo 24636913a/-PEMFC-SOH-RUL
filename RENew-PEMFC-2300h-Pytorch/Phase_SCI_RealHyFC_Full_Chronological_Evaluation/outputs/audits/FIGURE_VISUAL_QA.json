@@ -1,0 +1,88 @@
+{
+  "pass_": true,
+  "figures": [
+    {
+      "figure": "01_full_timeline",
+      "width_px": 2978,
+      "height_px": 1209,
+      "dpi_x": 299.9994,
+      "dpi_y": 299.9994,
+      "png_sha256": "45604b303e80bf15c1cebbd0098b13f1b640e2123244c902e82097a1517c0c06",
+      "pdf_sha256": "98fb27e30b6393b931c5acf27db01f4caf5e8202292ef2a1a624a0938bfbe98a",
+      "plot_csv_sha256": "480f68c54fb5adf7556b300eee749be81835c54d054252f894b0832bb04766e7",
+      "visual_review": "PASS; units, stages, sample sizes and labels legible; no data occlusion"
+    },
+    {
+      "figure": "02_partition_model_RMSE",
+      "width_px": 2979,
+      "height_px": 2015,
+      "dpi_x": 299.9994,
+      "dpi_y": 299.9994,
+      "png_sha256": "e905fc4085fbf26400a53130cb6db534603e3aac69244902d2864fd2ad533e4f",
+      "pdf_sha256": "34473f805470b18540c76654d7b69f2d6dbb8f23db52baa11dddf325bde5f482",
+      "plot_csv_sha256": "5bb5f3a749b542494764e6e1aaebc1af14ba32b061ad5477d55518f907138a94",
+      "visual_review": "PASS; units, stages, sample sizes and labels legible; no data occlusion"
+    },
+    {
+      "figure": "03_F2_life_stage_errors",
+      "width_px": 2544,
+      "height_px": 1120,
+      "dpi_x": 299.9994,
+      "dpi_y": 299.9994,
+      "png_sha256": "8264d2ebaf4695a2c7a63a6bf28e8d66aabf7a5c9cc3f073efecfc799c30e0f3",
+      "pdf_sha256": "bcbdc83c933c9c2b7050034d06805b9e705074abb79a7dfe18fddea9ffed42fa",
+      "plot_csv_sha256": "b9647e3717500333a74c183233184a7425b7ed52f1fd1af700d16587c0bce7db",
+      "visual_review": "PASS; units, stages, sample sizes and labels legible; no data occlusion"
+    },
+    {
+      "figure": "04_horizon_RMSE",
+      "width_px": 2978,
+      "height_px": 1986,
+      "dpi_x": 299.9994,
+      "dpi_y": 299.9994,
+      "png_sha256": "ae4413226d2f47ff465179093db8fa729ece2a5284322d652bcc382fde5e18e1",
+      "pdf_sha256": "e21af83d97ddcdb7d42230842a3fb881fb26cd240e522b2a967b4f0a131614d9",
+      "plot_csv_sha256": "fda36f3d2e0bec9507fb0d16ee25ab1429aa5b04a06b866767d95e0edd5a2757",
+      "visual_review": "PASS; units, stages, sample sizes and labels legible; no data occlusion"
+    },
+    {
+      "figure": "05_late_fixed_window",
+      "width_px": 2300,
+      "height_px": 1166,
+      "dpi_x": 299.9994,
+      "dpi_y": 299.9994,
+      "png_sha256": "5bdbb2eb1abcd6b80e218fa976a841df226457a11b179ae3b821d4374f252cd0",
+      "pdf_sha256": "17feebb1889bee3a582f8fb7d7bb43541cb05304cfe1bde90e240cf1541d9337",
+      "plot_csv_sha256": "3d856e174db4507a001624353361e2d38986b49f79267d1a31d1e3fc7a12e1e6",
+      "visual_review": "PASS; units, stages, sample sizes and labels legible; no data occlusion"
+    },
+    {
+      "figure": "06_F2_LSTM_late_comparison",
+      "width_px": 2976,
+      "height_px": 1192,
+      "dpi_x": 299.9994,
+      "dpi_y": 299.9994,
+      "png_sha256": "4a1110872519253518f8b1cfc6737513727ae74d1274520ba5f77d134e450a2a",
+      "pdf_sha256": "3188ce6de8cdf9e7d4fa549d5caaccf702a78dad858b714470a60d9851ed0d6b",
+      "plot_csv_sha256": "b614c3a39ce9bfdb68d84908e447fbf4014faf588fc529f7b89329f6299a41e2",
+      "visual_review": "PASS; units, stages, sample sizes and labels legible; no data occlusion"
+    },
+    {
+      "figure": "07_adverse_windows",
+      "width_px": 3578,
+      "height_px": 1415,
+      "dpi_x": 299.9994,
+      "dpi_y": 299.9994,
+      "png_sha256": "0317c80ee0e9b1cddc3a1b0a96c74a136fab88c782640d8c5f9979ef3f826f3a",
+      "pdf_sha256": "e3b98bf4752413cabd35b63c54400650ef31aa002713834b9c74841c345f2ada",
+      "plot_csv_sha256": "e73d6dab629ce17ba3afd64e239b9d3c3e4dd3448d6f7abcef74d2c2e57cb1dd",
+      "visual_review": "PASS; units, stages, sample sizes and labels legible; no data occlusion"
+    }
+  ],
+  "all_seven_pngs_visually_inspected": true,
+  "layout_repairs_only": [
+    "timeline labels moved into legend",
+    "adverse window legend moved outside axes"
+  ],
+  "frozen_plot_CSV_unchanged": true
+}

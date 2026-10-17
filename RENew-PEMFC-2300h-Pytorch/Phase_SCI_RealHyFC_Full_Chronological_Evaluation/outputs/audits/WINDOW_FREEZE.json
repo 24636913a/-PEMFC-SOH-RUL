@@ -1,0 +1,30 @@
+{
+  "base_commit": "c54ed2bb3343b8e090565d8f0dab5cfa0950c9e3",
+  "protected_historical_files": 65377,
+  "source_sha256": "fbee6b28682766081c9cda08059e2eaabcd6bb25365ce0bc5eb7c5714fda0f38",
+  "frozen_sha256": {
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/CHECKPOINT_INVENTORY.csv": "37afed61a6ff5b1eb161cfb5755b634da67ed3cbd8626b700b78a23302a72be5",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/FULL_ROW_IDENTITY.csv": "b926af6764909d4ec9417a55bc32f4c5e25f77ca99bd4ae90c15ace3e586abd2",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/FULL_SOURCE.json": "7eef1c665533c9aa305a9902a43d42d44cf8524bb5b868a469df469c3ac089aa",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/HISTORICAL_ASSESSMENT_EXCLUDED_WINDOWS.csv": "087b4c41953a459db41c4f633c3354bcb7629d5cce0b50999c7f78b8f794096d",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/HISTORICAL_ASSESSMENT_LEGAL_WINDOWS.csv": "e2374b8a807e3a2e4bd0d8bd9144d36d15752be1715673186a6d7f11a444fb08",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/HISTORICAL_ASSESSMENT_WINDOWS.npz": "5ecd7a8a8c63e0221aa6f2e88a00711a89f2468fe8416f9ec8f6179885a5be51",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/HISTORY_BEFORE.csv": "2273552d5fc4679cc77e172a66e32c4cd7bd03db133284193eb75134a838dd41",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/H_INPUT_EXACT_PARITY.csv": "43cd3d86d38596b01579daed63faa140a37e42c451e2c27faf7a97ba7c5bf3ae",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/LATE_LIFE_EXCLUDED_WINDOWS.csv": "f0af12500ba707f980b00a66b35f0feff6e8c6a0c7c560c190db3f96aa3e5aa3",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/LATE_LIFE_LEGAL_WINDOWS.csv": "4c7df531ff4d275e797500ebd2f3b0506cecfe7a6a2d94f0cc497c83cddcf9bb",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/LATE_LIFE_WINDOWS.npz": "10b2058c2e90d5ec4f23ebc3f4ad88f17c1ef4383318785f3189711ec6036b3c",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/SCALER.json": "8a2d248ea3f626742368e1b2079a35408ac165bdf64ded821bc565fd3ef2cfdb",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/SCHEMA.csv": "8f5e1b28fdf0eaa495993ce36da4fe2eddc1e0946c7e15c709ba30e85daa4861",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/TRAIN_EXCLUDED_WINDOWS.csv": "b4ef0c38ea09c30cfd27308967be5f6ad664a11072dcee983162dc539064d91a",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/TRAIN_LEGAL_WINDOWS.csv": "18b11a39218eeb07ec04a52f5a1c7471051b22b6dbaddea9da8b8f84501f7135",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/TRAIN_WINDOWS.npz": "d4ba53d6f4aa0f314a053540b7cf45b8cd3ade5e529f304524039a2e3664d9ef",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/VALIDATION_EXCLUDED_WINDOWS.csv": "abd3045ed9089c60339fe718087114f471d1a266e6c2bcb7381c0000d8e235c5",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/VALIDATION_LEGAL_WINDOWS.csv": "5ab070c68557f607a3d04be49aa105815bd14ad4abd8d3bde3121820942cf0f2",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/VALIDATION_WINDOWS.npz": "75cc1bea1f70ad23e5bcbe3c69564fd33c87f108acc096da3ecaa015ef81e800",
+    "RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/WINDOW_COUNTS.json": "f082ec8f1661f6a55d090c85c7917ac1d3bcba34078280212056b80877df1745"
+  },
+  "origin_convention": "origin in partition, all 24 future targets in partition; history may be from previous partition",
+  "input_only": "48 rows <=origin; future raw14 checked ONLY for inherited eligibility",
+  "exploratory": true
+}

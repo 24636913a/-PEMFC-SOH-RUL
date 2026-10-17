@@ -1,0 +1,31 @@
+{
+  "status": "REALHYFC_FULL_CHRONOLOGICAL_EVALUATION_COMPLETED",
+  "protocol_sha256": "afce32e2a8cfc10ea220851f4c536140dce2ab26770cb7cd977ecec4695a561e",
+  "checkpoint_count": 15,
+  "prediction_sets": 60,
+  "validation_replays_exact": 15,
+  "historical_files_unchanged": 65377,
+  "engineering_tests": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "pass_": true,
+    "pass": true
+  },
+  "independent_recalculation": {
+    "pass_": true,
+    "numeric_checks": 2240,
+    "max_absolute_metric_difference": 2.842170943040401e-14,
+    "prediction_sets": 60,
+    "historical_files_unchanged": 65377,
+    "raw_anchor_exact": true,
+    "all_queries_retained": true,
+    "pass": true
+  },
+  "figures_png": 7,
+  "figures_pdf": 7,
+  "training_performed": false,
+  "phase_L_unchanged": true,
+  "independent_Test_claim": false,
+  "artifact_count": 203
+}

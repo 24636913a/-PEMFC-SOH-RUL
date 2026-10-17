@@ -1,0 +1,166 @@
+phase: Phase_SCI_RealHyFC_Full_Chronological_Evaluation
+base_commit: c54ed2bb3343b8e090565d8f0dab5cfa0950c9e3
+status: FROZEN_AFTER_EXACT_VALIDATION_REPLAY_BEFORE_FULL_DOMAIN_INFERENCE
+authorization: user scheme B full chronological exploratory evaluation
+partitions:
+  TRAIN:
+  - 0
+  - 2103
+  VALIDATION:
+  - 2103
+  - 2404
+  HISTORICAL_ASSESSMENT:
+  - 2404
+  - 3005
+  LATE_LIFE:
+  - 3005
+  - 3843
+models:
+- F0
+- F1
+- F2
+- LSTM
+- TCN
+seeds:
+- 42
+- 52
+- 62
+history_steps: 48
+horizon_steps: 24
+resolution_h: 0.5
+batch_size: 32
+raw_features:
+- cell_voltage_mean
+- cell_voltage_std
+- cell_voltage_range
+- cell_voltage_min
+- cell_voltage_max
+- actual_current_A_mean
+- actual_current_A_std
+- actual_current_A_peak_to_peak
+- actual_current_density_A_cm2_mean
+- actual_current_density_A_cm2_std
+- actual_current_density_A_cm2_peak_to_peak
+- load_transition_count
+- operation_point_transitions
+- zero_current_fraction
+Top10_indices:
+- 0
+- 3
+- 13
+- 11
+- 4
+- 9
+- 6
+- 7
+- 10
+- 8
+EWMA_alpha: 0.3
+scaler: historical Train-only unfiltered legal histories; no refit used
+target: raw delta V, scale once, raw origin anchor
+metrics:
+- RMSE_mV
+- MAE_mV
+- R2_on_deltaV
+- endpoint_RMSE_mV
+- target_time_equal_RMSE_mV
+- P95_mV
+- P99_mV
+- max_abs_error_mV
+- 24_horizon_RMSE
+target_time_equal: sqrt(mean_unique_target(mean_queries(squared_error)))
+seed_summary: equal seed arithmetic mean and sample SD ddof=1
+case_rules:
+  illustration: middle legal LATE_LIFE origin, Seed42, all five models
+  hard: largest three-seed F2 per-origin mean RMSE in LATE_LIFE; tie lowest origin
+  F2_life_bins: 20 equal operating-hour bins within each partition, per-origin errors;
+    no voltage window stitching
+constraints:
+- no training, model selection or hyperparameter changes
+- no AHC or ELTE entrypoints
+- Phase L confirmatory Test not eligible unchanged
+- Assessment and late-life exploratory, not independent Test
+frozen_sha256:
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/CHECKPOINT_INVENTORY.csv: 37afed61a6ff5b1eb161cfb5755b634da67ed3cbd8626b700b78a23302a72be5
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/FULL_ROW_IDENTITY.csv: b926af6764909d4ec9417a55bc32f4c5e25f77ca99bd4ae90c15ace3e586abd2
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/FULL_SOURCE.json: 7eef1c665533c9aa305a9902a43d42d44cf8524bb5b868a469df469c3ac089aa
+  ? RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/HISTORICAL_ASSESSMENT_EXCLUDED_WINDOWS.csv
+  : 087b4c41953a459db41c4f633c3354bcb7629d5cce0b50999c7f78b8f794096d
+  ? RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/HISTORICAL_ASSESSMENT_LEGAL_WINDOWS.csv
+  : e2374b8a807e3a2e4bd0d8bd9144d36d15752be1715673186a6d7f11a444fb08
+  ? RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/HISTORICAL_ASSESSMENT_WINDOWS.npz
+  : 5ecd7a8a8c63e0221aa6f2e88a00711a89f2468fe8416f9ec8f6179885a5be51
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/HISTORY_BEFORE.csv: 2273552d5fc4679cc77e172a66e32c4cd7bd03db133284193eb75134a838dd41
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/H_INPUT_EXACT_PARITY.csv: 43cd3d86d38596b01579daed63faa140a37e42c451e2c27faf7a97ba7c5bf3ae
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/LATE_LIFE_EXCLUDED_WINDOWS.csv: f0af12500ba707f980b00a66b35f0feff6e8c6a0c7c560c190db3f96aa3e5aa3
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/LATE_LIFE_LEGAL_WINDOWS.csv: 4c7df531ff4d275e797500ebd2f3b0506cecfe7a6a2d94f0cc497c83cddcf9bb
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/LATE_LIFE_WINDOWS.npz: 10b2058c2e90d5ec4f23ebc3f4ad88f17c1ef4383318785f3189711ec6036b3c
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/SCALER.json: 8a2d248ea3f626742368e1b2079a35408ac165bdf64ded821bc565fd3ef2cfdb
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/SCHEMA.csv: 8f5e1b28fdf0eaa495993ce36da4fe2eddc1e0946c7e15c709ba30e85daa4861
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/TRAIN_EXCLUDED_WINDOWS.csv: b4ef0c38ea09c30cfd27308967be5f6ad664a11072dcee983162dc539064d91a
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/TRAIN_LEGAL_WINDOWS.csv: 18b11a39218eeb07ec04a52f5a1c7471051b22b6dbaddea9da8b8f84501f7135
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/TRAIN_WINDOWS.npz: d4ba53d6f4aa0f314a053540b7cf45b8cd3ade5e529f304524039a2e3664d9ef
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/VALIDATION_EXCLUDED_WINDOWS.csv: abd3045ed9089c60339fe718087114f471d1a266e6c2bcb7381c0000d8e235c5
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/VALIDATION_LEGAL_WINDOWS.csv: 5ab070c68557f607a3d04be49aa105815bd14ad4abd8d3bde3121820942cf0f2
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/VALIDATION_WINDOWS.npz: 75cc1bea1f70ad23e5bcbe3c69564fd33c87f108acc096da3ecaa015ef81e800
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/WINDOW_COUNTS.json: f082ec8f1661f6a55d090c85c7917ac1d3bcba34078280212056b80877df1745
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/scripts/audit_prediction_alignment.py: ca460ff8fd5a2f76ace5d1be17217ed7edd66bfd39cb761b7122fee17d239694
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/scripts/build_chronological_partitions.py: 79bde100d8a18ea9c2f51a9a2636205b504b5fe5664fb69ce581a6d501088054
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/scripts/build_legal_windows.py: e7160f62fbf8215caea8c2cb4499ec577ee1feed6b1d87799c7199a53673b5ce
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/scripts/calculate_partition_metrics.py: 7438f615a0a45f545514e1373c4791710868d3a1f4dc9341f408386977f5a1c3
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/scripts/common.py: 9a0349cc6cb4eec659a2a8e7ecca8d88cb45fbb7f9f2fb287c65681c27039b58
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/scripts/generate_full_life_figures.py: a2df48959f599b9c6f5d806b403830dab84f03cfbd55345f4d44bc9f1b3b7b75
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/scripts/load_frozen_models.py: c525968e6a8693614f9c6b86fe1407d644139704f6d33d85e1e04cfc23ae97e6
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/scripts/load_full_realhyfc.py: bc1bc25fb4ca741d86c72fc9929aa27c15287d49e02db17ecf0ae59570cb14d0
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/scripts/preprocess_frozen_inputs.py: ec83d757c8a40ea2a0d3420436f2eb5303d529dc511fc45feff3e333e1ea3b9e
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/scripts/run_full_chronological_inference.py: 2b945686d899c7e54326cbed60f7e479a97e6b9cd9882dea89670569ec07ffb4
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/scripts/run_pipeline.py: c2cde65fa3ed042116b8c1f1216a3692fd467c02ba2c703c3c3bca41f8d2a63d
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/scripts/write_reports.py: fd275b5ed776e9c8eecccdc138cd615e554ae210e3a6f7ffe554c431bdc1f0fe
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/tests/test_checkpoint_identity.py: 6c8ecc4cee0d84b811f11b47a657bd78563d3f86a3b7433133473124971fb65f
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/tests/test_metrics.py: b8fe01b4998b710144ecf8c20ae132f5ba8ce360c3650d257bba9ce6be629fc9
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/tests/test_partition_boundaries.py: 0ba00f84648b22079eeeb7e1968b0f16e55e060ff8ffb4204600a2f4c1ae46e7
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/tests/test_scaler_identity.py: 1bbed0ee274959603bf0e8a8b23e85c3ff068a8aae638f8148193941516257d4
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/tests/test_window_causality.py: 5af9301da1f9fc3dc2d9f6ca8e96ac121e286e768ad21b327bc2692e60e84d81
+  RENew-PEMFC-2300h-Pytorch/Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv: fbee6b28682766081c9cda08059e2eaabcd6bb25365ce0bc5eb7c5714fda0f38
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/WINDOW_FREEZE.json: 06d30e8b85dde670d1adbd21c16f7d09ffae27bfbc6a40d4acf540f4c1753281
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_RealHyFC_Full_Chronological_Evaluation/outputs/audits/VALIDATION_EXACT_REPLAY.csv: a59654ff4fa83dd97f26bcdb2fcbb8e38543e0f7f702b95a2244c82088a5131b
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/analyze_h_stability.py: 9ddb43a58efa19748a16a8c43b5b5573be0f586e94163f01c49ab22eb5a29209
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/audit_h_predictions.py: 201105a762348e8bd7357dda8fe1be57fd536fe84089ea35deee7f081120fe9f
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/crash_safe_recorder.py: 884e19bfb494235e6ae74881d04cc661efd09ab8d874b792afd7e8e65026f726
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/h_common.py: c88974ade24909adc793a0dab7433d838d2b1b3ed7dd526702028d259fc14cbb
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/probe_determinism.py: fa47a49880c633393bfa7496dba64e715aff2a46e2ecde8e895954b1419c705b
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/scripts/run_h_training.py: 27476a7967b841abfbf846a7cf41c5c5fb641074fb5bf6b85cc96253a616ca30
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/models/baseline_models.py: d6704450a081e5411282ef585dfb7c7ce10f699fc3002ff1c7a11bd521f41ada
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_Seed_Screening_Round2/outputs/audits/SCALER.json: 8a2d248ea3f626742368e1b2079a35408ac165bdf64ded821bc565fd3ef2cfdb
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/configs/H_FROZEN_PROTOCOL.yaml: 88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/configs/FROZEN_BASELINE_PROTOCOL.yaml: 860968dce3117d8ba77735d09a40061413bbe6797b9d8d50e0181c83fe1fb814
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F0-Seed42_best.pt: 82d3cbfa50a41ac381907a06598bb62ff4cffd58a5e39aabda26330271797528
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F0-Seed42.csv: 20cafbd44d62c764f2857d4735d1a5509641788d2f3c7c6c3f8bcc679ed4761c
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F0-Seed52_best.pt: 8d9a9450c8d868577c67e2b8c75c7b0c2bbba336eb95816624ad74792a4bab25
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F0-Seed52.csv: c2942fd3a8d7121267ee40a226fe7e3be37a00fa582bc7d61bccd679090da58a
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F0-Seed62_best.pt: 10ab47ca4415465b4d11c14cdeca0bc33cee954038d8d0cd78346595eebb26b1
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F0-Seed62.csv: d5eb73cb5fb4e3c806332b21a4e4deaf34d8130408cb9c82696121ff71c25615
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F1-Seed42_best.pt: 9eb9ffa33685e0ab00d082c04fbe566944ec8b7d7ded28f434c0de8bd9f6c599
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F1-Seed42.csv: 77ecb2ebb711878bf33c0a93d9812e51e8913878c0ec4961f7825253b6cc7e7e
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F1-Seed52_best.pt: 9eea6aef92052b0e6b641fa99d7554d990a1e35baa8c8db3fa93d37f1e4d2fd3
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F1-Seed52.csv: 63b9c0b2788951954e9943d452200bfbfd6cb128acc3091238988de431318e2e
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F1-Seed62_best.pt: 35ee1029482df179c79955d2258d770d2675162c5aec5d1a465456e82743c1c0
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F1-Seed62.csv: f083d0eed066d2f9b61203365522521bc931a8905d0188d37267d2ac3b801578
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F2-Seed42_best.pt: 0b28f576e1f5172875203849ad452a40e702040d0c3609b12074a506dbeea974
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F2-Seed42.csv: 6f599d1790814a05f1b518bfaffcd8aca618ab33c9dd67b678dd5ce93f31d532
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F2-Seed52_best.pt: 8100c0199fe43e967a082fb78b6222b9a2ec73d40bedb845098e4fe3b7d3d4ed
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F2-Seed52.csv: 3663ec152c6213f75bc1d2b919512e594d3ba2725e4a87790de6c79fd35be6d7
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/checkpoints/H-F2-Seed62_best.pt: bd727a697fc99cd6fd3391bd6ae347b3d077ec19941db28b4ad62cd223cd36f5
+  RENew-PEMFC-2300h-Pytorch/Phase_H_Determinism_MultiSeed_Stability/outputs/validation_predictions/H-F2-Seed62.csv: dfa8255f5fef420456cd4fed083830af16879f93710ebaf037f8f8738a47ec9c
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/outputs/checkpoints/LSTM_seed42_best.pt: 5b4fefad9b44e82a6d160fb3c1745a6cf411d7859934ffe5699a289250bb4dd4
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/outputs/predictions/LSTM_seed42.csv: f2f134eb5eab099d43d8085e4a0e86cf51daee44afaab2580459ae40c3f28ed2
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/outputs/checkpoints/LSTM_seed52_best.pt: 8d70ddce3012777ae6fc7f1ae46209c51205f9c5a2a5362633c2be1c4b4690bc
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/outputs/predictions/LSTM_seed52.csv: 0df9e1b65c9a3b8727899bc098b8b96335b99e9620a8974c7179b75e81b71edc
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/outputs/checkpoints/LSTM_seed62_best.pt: 614594f4928125253b667d139013049f0befcf7a4a18e9bea5523c4a05abf11c
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/outputs/predictions/LSTM_seed62.csv: 8aff8bd199862a789e9c03952e03f0d24e562e51c8fc84d77803e5e88dd2aef5
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/outputs/checkpoints/TCN_seed42_best.pt: 2083deea879a86e7f7dd467c8d755cf05f64e92818a36e6dcc3368cf20866d77
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/outputs/predictions/TCN_seed42.csv: ec850f1e6edd5bbf294ee3ec16c08ab796ce1823ded1ca5132e8a296e35e2ed9
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/outputs/checkpoints/TCN_seed52_best.pt: 72f05003221805750c30b2627863767c2a42ff17f687d305f7d2998d98efbd32
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/outputs/predictions/TCN_seed52.csv: f985b40444dd455db86dc44daefc216dfe6d85eb7741d4f279d13a87c84bf320
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/outputs/checkpoints/TCN_seed62_best.pt: 0a53b45181cfc26bfc0d6e2557e13956ae9fa18e9fad6ced8dff02edc51fb9bb
+  RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/outputs/predictions/TCN_seed62.csv: 165c578d2030c894fbcc65a7d0f46984a1c47f972c599bda4078c9d33da31486

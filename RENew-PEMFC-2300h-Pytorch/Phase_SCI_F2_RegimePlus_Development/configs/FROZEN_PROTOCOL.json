@@ -1,0 +1,186 @@
+{
+  "phase": "Phase_SCI_F2_RegimePlus_Development",
+  "base_commit": "36572a6678a9e64df689c8c6ec282c7233b6ac36",
+  "frozen_utc": "2026-10-18T03:06:33.544278+00:00",
+  "seeds": [
+    42,
+    52,
+    62
+  ],
+  "run_order": [
+    {
+      "seed": 42,
+      "variant": "A1"
+    },
+    {
+      "seed": 42,
+      "variant": "B1"
+    },
+    {
+      "seed": 52,
+      "variant": "A1"
+    },
+    {
+      "seed": 52,
+      "variant": "B1"
+    },
+    {
+      "seed": 62,
+      "variant": "A1"
+    },
+    {
+      "seed": 62,
+      "variant": "B1"
+    }
+  ],
+  "B0": "historical frozen F2, replayed exactly",
+  "B1": "same-information three-feature gate",
+  "A1": "identical parameters/init, added standardized slots fixed zero",
+  "train_rows": [
+    0,
+    2103
+  ],
+  "validation_rows": [
+    2103,
+    2404
+  ],
+  "train_windows": 1380,
+  "validation_windows": 205,
+  "validation_queries": 4920,
+  "information": "only retained channels of original 48x14 history; no extra clock or longer history",
+  "features": [
+    "j_recent6_minus48",
+    "zero_recent12_minus_previous12",
+    "last_majority_stop_distance_over48"
+  ],
+  "stop_definition": "zero_current_fraction > 0.5 (majority of bin raw samples, not shutdown duration)",
+  "recency": "(47-last_majority_zero_index)/48; absent -> 1 and an explicit audit-only censor flag (constant in Train, excluded from gate); operating-bin distance, not wall clock",
+  "raw_zero_mean": 0.09681196215063118,
+  "raw_zero_scale": 0.20508601827872902,
+  "extra_mean": [
+    -0.0007365980015163297,
+    -1.8295440552891165e-06,
+    0.18967391318250176
+  ],
+  "extra_scale": [
+    0.22456111187363234,
+    0.029613643053917237,
+    0.11374857017572945
+  ],
+  "grouping": {
+    "stop_related": "any zero_current_fraction > 0.5 in last 12 history bins",
+    "frequent_switch_threshold_train_p75": 23.66666603088379,
+    "frequent_switch": "not stop_related and mean last6 load_transition_count >= Train P75",
+    "normal": "remaining origins"
+  },
+  "hyperparameters": {
+    "learning_rate": 0.0009605449687795866,
+    "weight_decay": 6.95942232671908e-06,
+    "dropout": 0.1,
+    "hidden_size": 64,
+    "hidden_continuous_size": 32,
+    "batch_size": 32,
+    "max_epochs": 450,
+    "patience": 40,
+    "gradient_clip_norm": 1.0,
+    "loss": "MSE",
+    "optimizer": "AdamW"
+  },
+  "hyperparameter_provenance": {
+    "parameters": {
+      "learning_rate": 0.0009605449687795866,
+      "weight_decay": 6.95942232671908e-06,
+      "dropout": 0.1,
+      "hidden_size": 64,
+      "hidden_continuous_size": 32,
+      "batch_size": 32,
+      "max_epochs": 450,
+      "patience": 40,
+      "gradient_clip_norm": 1.0,
+      "loss": "MSE",
+      "optimizer": "AdamW"
+    },
+    "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_Hyperparameter_Optimization_Restart\\outputs\\T1R_SELECTED_CONFIGURATIONS.json",
+    "source_sha256": "8bbeae49c7559524965ae1eeb980b99c718b6ae40e80ee621e97f0a9aa3e883b",
+    "fold": "fold_2",
+    "study": "T1R_fold_2",
+    "selected_trial": 13,
+    "historical_optimized_model": "base TFT",
+    "inherited_by": "F2",
+    "F2_specific_search_performed": false,
+    "optuna_executed": false,
+    "selection_uses_Assessment_or_late_life": false,
+    "historical_H_protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd"
+  },
+  "runtime": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": false,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "parameters_B0": 332436,
+  "parameters_B1_A1": 332460,
+  "success": {
+    "mean_RMSE_improvement_vs_B0_at_least": 0.03,
+    "mean_RMSE_improvement_vs_A1_at_least": 0.03,
+    "seeds_improved_vs_each_at_least": 2,
+    "no_seed_RMSE_relative_worsening_above": 0.05,
+    "no_stratum_mean_RMSE_worsening_above": 0.05,
+    "no_mean_P95_or_endpoint_RMSE_worsening_above": 0.05,
+    "concentration": "must improve pooled SSE after removing the highest 5% positive-gain unique target times, separately vs B0 and A1; diagnostic only, official metrics unchanged",
+    "promising": "mean RMSE improves vs both but any confirmation condition fails; otherwise NO_CONFIRMED_GAIN"
+  },
+  "stopping": "exactly one candidate, six fits; max450/patience40; no retries of successful fits; technical failure preserved and stops controller",
+  "limitations": [
+    "reused Development Validation",
+    "historical B0 training, paired B1/A1 fresh",
+    "overlapping targets not independent",
+    "no Assessment or late-life evaluation"
+  ],
+  "sources": [
+    {
+      "path": "Phase_H_Determinism_MultiSeed_Stability\\outputs\\checkpoints\\H-F2-Seed42_best.pt",
+      "sha256": "0b28f576e1f5172875203849ad452a40e702040d0c3609b12074a506dbeea974"
+    },
+    {
+      "path": "Phase_H_Determinism_MultiSeed_Stability\\outputs\\validation_predictions\\H-F2-Seed42.csv",
+      "sha256": "6f599d1790814a05f1b518bfaffcd8aca618ab33c9dd67b678dd5ce93f31d532"
+    },
+    {
+      "path": "Phase_H_Determinism_MultiSeed_Stability\\outputs\\checkpoints\\H-F2-Seed52_best.pt",
+      "sha256": "8100c0199fe43e967a082fb78b6222b9a2ec73d40bedb845098e4fe3b7d3d4ed"
+    },
+    {
+      "path": "Phase_H_Determinism_MultiSeed_Stability\\outputs\\validation_predictions\\H-F2-Seed52.csv",
+      "sha256": "3663ec152c6213f75bc1d2b919512e594d3ba2725e4a87790de6c79fd35be6d7"
+    },
+    {
+      "path": "Phase_H_Determinism_MultiSeed_Stability\\outputs\\checkpoints\\H-F2-Seed62_best.pt",
+      "sha256": "bd727a697fc99cd6fd3391bd6ae347b3d077ec19941db28b4ad62cd223cd36f5"
+    },
+    {
+      "path": "Phase_H_Determinism_MultiSeed_Stability\\outputs\\validation_predictions\\H-F2-Seed62.csv",
+      "sha256": "dfa8255f5fef420456cd4fed083830af16879f93710ebaf037f8f8738a47ec9c"
+    },
+    {
+      "path": "Phase_SCI_F2_Seed_Screening_Round2\\outputs\\audits\\FROZEN_H_DATA.npz",
+      "sha256": "cbb212134eb664f1a43d4851f20686fe575c06eb6b2b0b893aed0f166fcef83e"
+    },
+    {
+      "path": "Phase_SCI_F2_Seed_Screening_Round2\\outputs\\audits\\SCALER.json",
+      "sha256": "8a2d248ea3f626742368e1b2079a35408ac165bdf64ded821bc565fd3ef2cfdb"
+    }
+  ],
+  "model_source_sha256": "29b0e6d9b9d4ff0f10d9666cc31b22e015e4a8b43f98789dbf4f0a704513e69c",
+  "script_sha256": "d80816703c0360982f11a453b6b01722923b5f58eb7bfd7531a42f984ea838fc"
+}

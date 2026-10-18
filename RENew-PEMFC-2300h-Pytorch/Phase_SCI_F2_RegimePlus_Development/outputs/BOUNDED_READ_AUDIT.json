@@ -1,0 +1,16 @@
+{
+  "source": "Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+  "read_csv_nrows": 2404,
+  "usecols": [
+    "bin_end_ophrs2_h",
+    "first_datetime",
+    "last_datetime",
+    "datetime_span_h",
+    "zero_current_fraction",
+    "bin_valid_for_windows"
+  ],
+  "features_use_these_extra_fields": false,
+  "full_file_not_loaded": true,
+  "first_train_row": 0,
+  "last_validation_row": 2403
+}

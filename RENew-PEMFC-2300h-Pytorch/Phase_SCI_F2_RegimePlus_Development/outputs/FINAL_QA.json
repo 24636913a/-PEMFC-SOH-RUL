@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "decision": {
+    "status": "NO_CONFIRMED_GAIN",
+    "GO_NO_GO": "NO-GO",
+    "mean_RMSE_mV": {
+      "A1": 8.925210332937034,
+      "B0": 7.245400185045372,
+      "B1": 9.105291962901797
+    },
+    "gain_vs_B0_pct": -25.66996619034616,
+    "gain_vs_A1_pct": -2.017673794198438,
+    "all_frozen_checks_passed": false,
+    "check_count": 18,
+    "new_late_life_evaluation": false,
+    "independent_generalization_claim": false,
+    "new_experiments_allowed_after_completion": false
+  },
+  "new_fits": 6,
+  "original_baselines": 3,
+  "fixed_seeds": [
+    42,
+    52,
+    62
+  ],
+  "validation_queries_per_instance": 4920,
+  "all_queries_retained": true,
+  "figures": 6,
+  "PNG_dpi": 300,
+  "PDF": true,
+  "independent_numeric_QA": {
+    "status": "PASS",
+    "synthetic_tests": {
+      "passed": true,
+      "known_value_metric_tests": true,
+      "feature_independent_physical_recomputation_max_diff": [
+        7.609346397430272e-08,
+        1.6142924622042365e-08,
+        9.934107481068821e-09
+      ],
+      "censor_tests": true,
+      "voltage_not_used_for_state": true,
+      "no_future_arguments": true,
+      "paired_initialization": true,
+      "unchanged_backbone_initialization": true
+    },
+    "independent_metrics": 72,
+    "horizon_checks": 216,
+    "pointwise_rows": 44280,
+    "paired_rows": 29520,
+    "checkpoint_and_best_epoch": true,
+    "all_queries_retained": true,
+    "final_exact_forward_sets": 9,
+    "target_SSE_conservation_sets": 9,
+    "posthoc_zero_feature_RMSE_checks": 3,
+    "features_and_protocol_frozen": true,
+    "new_Assessment_or_late_inference": false
+  },
+  "historical_protection": {
+    "status": "PASS",
+    "historical_files": 65762,
+    "all_SHA256_unchanged": true,
+    "model_weights_unchanged": true,
+    "historical_predictions_unchanged": true,
+    "papers_unchanged": true,
+    "comparison_base": "36572a6678a9e64df689c8c6ec282c7233b6ac36",
+    "verified_utc": "2026-10-18T03:50:21.134521+00:00"
+  },
+  "bounded_input_causality": {
+    "status": "PASS",
+    "train_windows": 1380,
+    "validation_windows": 205,
+    "metadata_nrows": 2404,
+    "latest_train_label_available_at": "2025-05-18 21:43:31.005000",
+    "first_validation_origin_available_at": "2025-05-18 23:37:01.005000",
+    "labels_before_first_validation_origin": true,
+    "features_from_histories_only": true,
+    "source_extra_times_used_by_model": false,
+    "future_covariates_in_decoder": false,
+    "original_cache_sha256": "cbb212134eb664f1a43d4851f20686fe575c06eb6b2b0b893aed0f166fcef83e",
+    "original_model_source_sha256": "29b0e6d9b9d4ff0f10d9666cc31b22e015e4a8b43f98789dbf4f0a704513e69c"
+  },
+  "protocol_sha256": "8f6361457e2f1110560357d2cfc880d952ca47bed4218186c4bb99727cb25966",
+  "manifest_files": 107,
+  "Assessment_late_or_Test_used_for_new_model": false
+}

@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "synthetic_tests": {
+    "passed": true,
+    "known_value_metric_tests": true,
+    "feature_independent_physical_recomputation_max_diff": [
+      7.609346397430272e-08,
+      1.6142924622042365e-08,
+      9.934107481068821e-09
+    ],
+    "censor_tests": true,
+    "voltage_not_used_for_state": true,
+    "no_future_arguments": true,
+    "paired_initialization": true,
+    "unchanged_backbone_initialization": true
+  },
+  "independent_metrics": 72,
+  "horizon_checks": 216,
+  "pointwise_rows": 44280,
+  "paired_rows": 29520,
+  "checkpoint_and_best_epoch": true,
+  "all_queries_retained": true,
+  "final_exact_forward_sets": 9,
+  "target_SSE_conservation_sets": 9,
+  "posthoc_zero_feature_RMSE_checks": 3,
+  "features_and_protocol_frozen": true,
+  "new_Assessment_or_late_inference": false
+}

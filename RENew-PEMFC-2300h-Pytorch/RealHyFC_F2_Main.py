@@ -5,6 +5,9 @@
     python -B RealHyFC_F2_Main.py --mode train --seed 42
 
 Evaluate is the default. Train creates a NEW instance in a unique output run.
+The console reports one evaluation partition (Validation by default), with
+RMSE/MAE in V and the historical DeltaV R2. All 24 steps enter the metrics;
+the voltage time plot uses the fixed 24th step, never stitched forecasts.
 No project Python module is imported or executed. Historical JSON/YAML, CSV,
 NPZ and checkpoint assets remain read-only. Assessment/late-life are exploratory.
 """
@@ -18,6 +21,7 @@ import json
 import math
 import os
 import random
+import shutil
 import sys
 import time
 import traceback
@@ -54,6 +58,8 @@ FEATURES = ['cell_voltage_mean', 'cell_voltage_std', 'cell_voltage_range',
             'actual_current_density_A_cm2_peak_to_peak', 'load_transition_count',
             'operation_point_transitions', 'zero_current_fraction']
 PARTITIONS = ('TRAIN', 'VALIDATION', 'HISTORICAL_ASSESSMENT', 'LATE_LIFE')
+DEFAULT_EVALUATION_PARTITION = 'VALIDATION'
+PLOT_HORIZON_STEP = 24  # Fixed before inference; plotting only, not metric selection.
 
 def sha256(file: Path) -> str:
     digest = hashlib.sha256()
@@ -884,43 +890,108 @@ def calculate_metrics(frame: pd.DataFrame) -> dict:
 
 # 12. 电压预测曲线与训练曲线绘制
 def plot_outputs(run: Path, seed: int, frames: dict[str, pd.DataFrame], history: pd.DataFrame,
-                 best_epoch: int, mode: str) -> None:
-    plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 9,
-                         'axes.spines.top': False, 'axes.spines.right': False, 'pdf.fonttype': 42})
+                 best_epoch: int, mode: str, partition: str = DEFAULT_EVALUATION_PARTITION) -> None:
+    """FC2-style three figures. The time curve is a fixed-lead rolling forecast.
+
+    Historical logs supply the loss curves in evaluate mode, with no training.
+    Scatter uses all 24-step queries; the time curve uses exactly one fixed lead
+    per origin and breaks at missing half-hours. Neither selects metric samples.
+    """
+    plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 10,
+                         'axes.spines.top': True, 'axes.spines.right': True, 'pdf.fonttype': 42})
     def save(fig: Any, name: str, data: pd.DataFrame) -> None:
-        save_csv(run, f'seed{seed}/figures/{name}_plot_data.csv', data)
-        for extension in ['png', 'pdf']:
-            fig.savefig(output_path(run, f'seed{seed}/figures/{name}.{extension}'),
-                        dpi=300, bbox_inches='tight', facecolor='white')
+        save_csv(run, f'seed{seed}/{name}_plot_data.csv', data)
+        fig.savefig(output_path(run, f'seed{seed}/{name}.png'), dpi=300, facecolor='white')
         plt.close(fig)
-    if not history.empty:
-        h = history[['epoch', 'train_standardized_MSE', 'validation_standardized_RMSE']].copy()
-        h['validation_standardized_MSE'] = h.validation_standardized_RMSE ** 2
-        fig, ax = plt.subplots(figsize=(7.5, 3.7))
-        ax.plot(h.epoch, h.train_standardized_MSE, label='Train MSE', color='#2578AE')
-        ax.plot(h.epoch, h.validation_standardized_MSE, label='Validation MSE', color='#E49C3A')
-        ax.axvline(best_epoch, color='gray', ls='--', label=f'Best epoch {best_epoch}')
-        ax.set(xlabel='Epoch', ylabel='Standardized MSE',
-               title=f'F2 Seed{seed}: {"historical training log; no new training" if mode == "evaluate" else "new training instance"}')
-        ax.legend(); ax.grid(alpha=.16); fig.tight_layout(); save(fig, '01_training_validation_loss', h)
-    plot_data = []; fig, axes = plt.subplots(2, 2, figsize=(10, 6.5))
-    for ax, name in zip(axes.flat, PARTITIONS):
-        frame = frames[name]; origins = frame.origin_row.unique(); origin = origins[len(origins) // 2]
-        fixed = frame.loc[frame.origin_row == origin].copy(); plot_data.append(fixed)
-        ax.plot(fixed.target_age_h, fixed.true_raw_target_voltage_V, color='black', lw=1.5, label='Observed')
-        ax.plot(fixed.target_age_h, fixed.predicted_voltage_V, color='#2578AE', lw=1.2, label='F2 prediction')
-        status = 'exploratory' if name in PARTITIONS[2:] else 'in-sample' if name == 'TRAIN' else 'reused'
-        ax.set(xlabel='Actual target operating time (h)', ylabel='Cell voltage (V)',
-               title=f'{name} ({status})\nfixed middle origin {origin}; n=24')
-        ax.grid(alpha=.16)
-    axes[0, 0].legend(); fig.suptitle(f'F2 Seed{seed}: one forecast per panel; no overlapping-window stitching')
-    fig.tight_layout(); save(fig, '02_observed_predicted_voltage', pd.concat(plot_data, ignore_index=True))
-    late = plot_data[-1]; fig, ax = plt.subplots(figsize=(8, 3.8))
-    ax.plot(late.horizon_step * RESOLUTION_H, late.true_raw_target_voltage_V, color='black', label='Observed')
-    ax.plot(late.horizon_step * RESOLUTION_H, late.predicted_voltage_V, color='#2578AE', label='F2 prediction')
-    ax.set(xlabel='Operating-time forecast lead (h)', ylabel='Cell voltage (V)',
-           title=f'F2 Seed{seed}: fixed origin {int(late.origin_row.iloc[0])}, n=24; late-life exploratory')
-    ax.legend(); ax.grid(alpha=.16); fig.tight_layout(); save(fig, '03_fixed_origin_24_steps', late)
+    require(not history.empty, 'TRAINING_HISTORY_UNAVAILABLE_NO_SYNTHETIC_LOSS_CURVE')
+    h = history[['epoch', 'train_standardized_MSE', 'validation_standardized_RMSE']].copy()
+    h['validation_standardized_MSE'] = h.validation_standardized_RMSE ** 2
+    save_csv(run, f'seed{seed}/training_history.csv', history)
+    fig, ax = plt.subplots(figsize=(10, 4))
+    ax.plot(h.epoch, h.train_standardized_MSE, label='Train Loss', linewidth=1.5)
+    ax.plot(h.epoch, h.validation_standardized_MSE, label='Validation Loss', linewidth=1.5)
+    source = 'historical log; no retraining' if mode == 'evaluate' else 'new training instance'
+    ax.set(xlabel='Epoch', ylabel='Standardized MSE Loss',
+           title=f'Training History — F2 Seed {seed} ({source}; best epoch {best_epoch})')
+    ax.legend(); ax.grid(True, alpha=.3); fig.tight_layout(); save(fig, 'training_history', h)
+
+    frame = frames[partition]
+    require(frame.partition.eq(partition).all(), 'PLOT_PARTITIONS_MIXED')
+    fixed = fixed_horizon_plot_data(frame)
+    lines = voltage_plot_segments(fixed)
+    status = 'reused Development Validation' if partition == 'VALIDATION' else 'exploratory; not independent Test'
+    fig, ax = plt.subplots(figsize=(12, 5))
+    ax.plot(lines.target_age_h, lines.true_raw_target_voltage_V, label='True Voltage', linewidth=1.5, alpha=.8)
+    ax.plot(lines.target_age_h, lines.predicted_voltage_V, label='Predicted Voltage',
+            linewidth=1.5, alpha=.8, linestyle='--')
+    ax.set(xlabel='Actual Operating Time (hours)', ylabel='Cell Voltage (V)',
+           title=f'F2 Seed {seed} — {status}\nFixed step {PLOT_HORIZON_STEP} rolling predictions; n={len(fixed)}')
+    ax.legend(); ax.grid(True, alpha=.3); fig.tight_layout(); save(fig, 'prediction_vs_true', fixed)
+
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.scatter(frame.true_raw_target_voltage_V, frame.predicted_voltage_V, alpha=.5, s=10)
+    low = min(frame.true_raw_target_voltage_V.min(), frame.predicted_voltage_V.min())
+    high = max(frame.true_raw_target_voltage_V.max(), frame.predicted_voltage_V.max())
+    ax.plot([low, high], [low, high], 'r--', linewidth=1)
+    ax.set(xlabel='True Cell Voltage (V)', ylabel='Predicted Cell Voltage (V)',
+           title=f'F2 Seed {seed} — True vs Predicted\n{status}; all {len(frame)} queries (24 steps)')
+    ax.grid(True, alpha=.3); fig.tight_layout(); save(fig, 'scatter_true_vs_pred', frame)
+
+
+def fixed_horizon_plot_data(frame: pd.DataFrame) -> pd.DataFrame:
+    """One predetermined horizon per origin, preserving physical time identity."""
+    fixed = frame.loc[frame.horizon_step == PLOT_HORIZON_STEP].sort_values('target_row').copy()
+    require(len(fixed) == frame.origin_row.nunique() and
+            fixed.origin_row.is_unique and fixed.target_row.is_unique, 'FIXED_LEAD_PLOT_IDENTITY_ERROR')
+    require(fixed.partition.nunique() == 1, 'FIXED_LEAD_PLOT_PARTITIONS_MIXED')
+    return fixed
+
+
+def voltage_plot_segments(fixed: pd.DataFrame) -> pd.DataFrame:
+    """Insert only plotting NaNs at real gaps; never interpolate predictions."""
+    columns = ['target_age_h', 'true_raw_target_voltage_V', 'predicted_voltage_V']
+    lines = []
+    for index, (_, row) in enumerate(fixed.iterrows()):
+        if index and (row.target_row != previous.target_row + 1 or
+                      not math.isclose(row.target_age_h - previous.target_age_h, RESOLUTION_H,
+                                       rel_tol=0, abs_tol=1e-8)):
+            lines.append({name: math.nan for name in columns})
+        lines.append({name: row[name] for name in columns}); previous = row
+    return pd.DataFrame(lines, columns=columns)
+
+
+def evaluation_summary(results: list[dict], partition: str, seeds: list[int]) -> dict:
+    """One partition only; --seed all means equal per-seed means, no ensemble."""
+    selected = [row for row in results if row['partition'] == partition]
+    require(len(selected) == len(seeds) and sorted(row['seed'] for row in selected) == sorted(seeds),
+            'SUMMARY_SEED_OR_PARTITION_MISMATCH')
+    return dict(model='F2', partition=partition, seeds=seeds,
+                aggregation='equal mean of per-seed metrics; no ensemble' if len(seeds) > 1 else 'single seed',
+                RMSE_V=math.fsum(row['RMSE_mV'] for row in selected) / len(seeds) / 1000,
+                MAE_V=math.fsum(row['MAE_mV'] for row in selected) / len(seeds) / 1000,
+                R2=math.fsum(row['R2'] for row in selected) / len(seeds),
+                R2_target='raw DeltaV; historical definition, not absolute-voltage R2',
+                queries_per_seed=[row['queries'] for row in selected],
+                scientific_status=selected[0]['scientific_status'])
+
+
+def save_result_bundle(run: Path, seed: int, checkpoint: Path, scaler: TrainOnlyScaler,
+                       provenance: dict, frame: pd.DataFrame) -> None:
+    """FC2-style filenames in a fresh run; original assets stay read-only."""
+    copied = output_path(run, f'seed{seed}/best_model.pth')
+    require(not copied.exists(), 'OUTPUT_MODEL_ALREADY_EXISTS')
+    shutil.copyfile(checkpoint, copied)
+    require(sha256(checkpoint) == sha256(copied), 'COPIED_CHECKPOINT_IDENTITY_MISMATCH')
+    save_csv(run, f'seed{seed}/predictions.csv', frame)
+    save_json(run, f'seed{seed}/preprocess_info.json', dict(
+        features=FEATURES, mean=scaler.mean.tolist(), scale=scaler.scale.tolist(),
+        target_scale_V=scaler.target_scale, lookback=LOOKBACK, horizon=HORIZON,
+        frozen_top10_indices=yaml.safe_load((HISTORY / 'configs/H_FROZEN_PROTOCOL.yaml').read_text(
+            encoding='utf-8'))['preprocessing']['Top10_indices'],
+        causal_EWMA_alpha=.3, voltage_recovery='raw origin V + predicted DeltaV',
+        evaluation_partition=frame.partition.iloc[0], metric_steps='all 24; all legal queries',
+        curve_horizon_step=PLOT_HORIZON_STEP, checkpoint_source=str(checkpoint),
+        checkpoint_sha256=sha256(checkpoint), hyperparameters=provenance))
 
 
 # 13. main()运行入口
@@ -931,7 +1002,7 @@ def integration_self_checks() -> dict:
         require(hashlib.sha256(ast.dump(classes[name], include_attributes=False).encode()).hexdigest() == expected,
                 'INTEGRATED_MODEL_CLASS_AST_CHANGED:' + name)
     allowed = {'__future__', 'argparse', 'ast', 'hashlib', 'json', 'math', 'os', 'random', 'sys',
-               'time', 'traceback', 'warnings', 'dataclasses', 'datetime', 'pathlib', 'typing',
+               'time', 'traceback', 'warnings', 'dataclasses', 'datetime', 'pathlib', 'typing', 'shutil',
                'numpy', 'pandas', 'torch', 'yaml', 'pytorch_forecasting', 'matplotlib', 'platform'}
     for node in ast.walk(tree):
         if isinstance(node, ast.Import):
@@ -960,14 +1031,18 @@ def integration_self_checks() -> dict:
                 causal_EWMA=True, synthetic_window_causality=True, no_training_executed_by_self_checks=True)
 
 def main() -> None:
+    # Windows redirected GBK consoles cannot encode the FC2-style superscript 2.
+    if hasattr(sys.stdout, 'reconfigure'): sys.stdout.reconfigure(encoding='utf-8')
     parser = argparse.ArgumentParser(description='Frozen RealHyFC F2 single-file training/evaluation; default evaluate.')
     parser.add_argument('--mode', choices=['evaluate', 'train'], default='evaluate')
     parser.add_argument('--seed', choices=['42', '52', '62', 'all'], default='42')
     parser.add_argument('--device', choices=['cuda'], default='cuda')
+    parser.add_argument('--partition', choices=list(PARTITIONS[1:]), default=DEFAULT_EVALUATION_PARTITION,
+                        help='One displayed/plotted evaluation partition; all partition results stay in files.')
     args = parser.parse_args()
     if args.mode == 'train' and args.seed == 'all': parser.error('Train mode requires one seed; no automatic search.')
     seeds = [42, 52, 62] if args.seed == 'all' else [int(args.seed)]
-    run = OUTPUT_ROOT / (datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S_%fZ') + f'_{args.mode}_seed{args.seed}')
+    run = OUTPUT_ROOT / (datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S_%fZ') + f'_F2_{args.mode}_seed{args.seed}')
     run.mkdir(parents=True, exist_ok=False)
     try:
         environment = configure_environment(args.device); checks = integration_self_checks()
@@ -979,6 +1054,9 @@ def main() -> None:
         scaler, prepared, scores = preprocess_frozen(windows)
         provenance = load_historical_hyperparameters(); parameters = provenance['parameters']
         save_json(run, 'FROZEN_RUN_CONFIGURATION.json', dict(mode=args.mode, seeds=seeds,
+                  displayed_evaluation_partition=args.partition, formal_metric_horizons=list(range(1, HORIZON + 1)),
+                  plot_rule=dict(fixed_horizon_step=PLOT_HORIZON_STEP, gap_handling='break line; no interpolation',
+                                 selection='all legal origins; no error-based selection'),
                   full_source=source, hyperparameters=provenance, environment=environment,
                   main_program_sha256=sha256(Path(__file__)), model_sources=MODEL_SOURCE_SHA256,
                   scaler=dict(mean=scaler.mean.tolist(), scale=scaler.scale.tolist(), target_scale_V=scaler.target_scale),
@@ -1005,17 +1083,17 @@ def main() -> None:
             frames, parity = predict_partitions(model, seed, windows, prepared, scaler, parameters,
                                   run, torch.device(args.device), row, checkpoint)
             require(sha256(file) == before_file, 'CHECKPOINT_FILE_CHANGED')
-            print(f'F2 | Seed {seed}\nCheckpoint: {file}', flush=True)
             for name in PARTITIONS:
                 metrics = calculate_metrics(frames[name]); results.append(dict(model='F2', seed=seed, partition=name, **metrics))
-                label = name + (' (exploratory)' if name in PARTITIONS[2:] else '')
-                print(f'{label}: RMSE={metrics["RMSE_mV"]:.6f} mV | MAE={metrics["MAE_mV"]:.6f} mV | R²(ΔV)={metrics["R2"]:.9f}', flush=True)
-            if args.mode == 'train': print(f'Best epoch: {checkpoint["best_epoch"]}', flush=True)
-            plot_outputs(run, seed, frames, history, checkpoint['best_epoch'], args.mode)
+            save_result_bundle(run, seed, file, scaler, provenance, frames[args.partition])
+            plot_outputs(run, seed, frames, history, checkpoint['best_epoch'], args.mode, args.partition)
             audits.append(dict(seed=seed, checkpoint=str(file), checkpoint_sha256=before_file,
                                trainable_parameters=332436, **parity, **training))
             del model, checkpoint; torch.cuda.empty_cache()
         save_csv(run, 'F2_PARTITION_METRICS.csv', results)
+        summary = evaluation_summary(results, args.partition, seeds)
+        save_json(run, 'evaluation_results.json', summary)
+        save_csv(run, 'evaluation_results.csv', [{**summary, 'seeds': ','.join(map(str, seeds))}])
         save_json(run, 'INTEGRATION_ACCEPTANCE.json', dict(status='PASS', mode=args.mode,
                   self_checks=checks, windows=window_audit, seeds=audits,
                   historical_results_modified=False, optuna_executed=False,
@@ -1023,7 +1101,9 @@ def main() -> None:
         files = [dict(path=f.relative_to(run).as_posix(), bytes=f.stat().st_size, sha256=sha256(f))
                  for f in sorted(run.rglob('*')) if f.is_file()]
         save_csv(run, 'ARTIFACT_MANIFEST.csv', files)
-        print(f'Outputs: {run}', flush=True)
+        print(f'RMSE: {summary["RMSE_V"]:.6f} V', flush=True)
+        print(f'MAE : {summary["MAE_V"]:.6f} V', flush=True)
+        print(f'R²  : {summary["R2"]:.4f}', flush=True)
     except Exception:
         atomic_text(run, 'FAILURE.txt', traceback.format_exc()); raise
 

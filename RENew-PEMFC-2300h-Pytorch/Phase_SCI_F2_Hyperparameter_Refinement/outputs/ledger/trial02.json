@@ -1,0 +1,16 @@
+{
+  "status": "COMPLETED",
+  "seed": 42,
+  "best_epoch": 426,
+  "stop_epoch": 450,
+  "elapsed_s": 1050.194925399992,
+  "checkpoint": "checkpoints/trial02.pt",
+  "checkpoint_sha256": "0baae551ad826850b24a066e56f68a8e246f313ba7c326a00b4708fea4c6fa70",
+  "hyperparameters": {
+    "learning_rate": 0.0005207193182156581,
+    "dropout": 0.1,
+    "weight_decay": 0.00015877123554445359,
+    "batch_size": 16
+  },
+  "protocol_sha256": "25644d68a5352d9307ef392db208c0e0afc4d5d3f1a7b3a658817d9c0ee9ffb4"
+}

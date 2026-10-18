@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "search_trials": 6,
+  "final_seeds": [
+    42,
+    52,
+    62
+  ],
+  "inner_train_only_scaler": true,
+  "strict_inner_target_isolation": true,
+  "objective_independently_recomputed": true,
+  "three_metric_checks": 36,
+  "final_replay_sets": 6,
+  "pointwise_replay_exact": true,
+  "all_4920_targets_retained": true,
+  "parameter_count": 332436,
+  "no_gate_or_backbone_change": true,
+  "no_outer_Validation_selection": true,
+  "no_Assessment_Late_life_or_Test_evaluation": true
+}

@@ -1,0 +1,140 @@
+{
+  "base_commit": "9aa7ac0c04e1edacdba8a452cb881d5a74aad042",
+  "frozen_utc": "2026-10-18T05:03:54.655429+00:00",
+  "model": "original F2, 332436 parameters, no RegimePlus",
+  "history": 48,
+  "horizon": 24,
+  "raw_slots": 14,
+  "target": "raw future delta V",
+  "Top10": [
+    0,
+    3,
+    13,
+    11,
+    4,
+    9,
+    6,
+    7,
+    10,
+    8
+  ],
+  "EWMA_alpha": 0.3,
+  "inner_rows": {
+    "FIT": [
+      0,
+      1472
+    ],
+    "EARLY_STOP": [
+      1472,
+      1787
+    ],
+    "TUNE": [
+      1787,
+      2103
+    ]
+  },
+  "inner_counts": {
+    "FIT": 1000,
+    "EARLY_STOP": 136,
+    "TUNE": 220
+  },
+  "inner_scaler": "fitted only unfiltered FIT histories before per-window causal EWMA",
+  "budget": {
+    "trials": 6,
+    "search_seed": 42,
+    "sampler_seed": 20261018,
+    "max_epochs": 450,
+    "patience": 40,
+    "pruning": false,
+    "parallel_jobs": 1
+  },
+  "search_space": {
+    "learning_rate": {
+      "low": 0.0003,
+      "high": 0.003,
+      "log": true
+    },
+    "dropout": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "weight_decay": {
+      "low": 1e-07,
+      "high": 0.001,
+      "log": true
+    },
+    "batch_size": [
+      16,
+      32,
+      64
+    ]
+  },
+  "original_hyperparameters": {
+    "learning_rate": 0.0009605449687795866,
+    "weight_decay": 6.95942232671908e-06,
+    "dropout": 0.1,
+    "hidden_size": 64,
+    "hidden_continuous_size": 32,
+    "batch_size": 32,
+    "max_epochs": 450,
+    "patience": 40,
+    "gradient_clip_norm": 1.0,
+    "loss": "MSE",
+    "optimizer": "AdamW"
+  },
+  "objective": "TUNE physical delta-V RMSE after FIT training and EARLY_STOP checkpoint selection; MAE exact-RMSE tie-break only",
+  "selection_rule": "smallest TUNE RMSE, then TUNE MAE, then trial number; include original configuration as trial 0",
+  "final": {
+    "seeds": [
+      42,
+      52,
+      62
+    ],
+    "training_windows": 1380,
+    "validation_windows": 205,
+    "validation_queries": 4920,
+    "epochs": "selected trial best EARLY_STOP epoch, frozen before outer Validation access",
+    "scaler": "original full-Train-only frozen scaler",
+    "all_full_train_samples": true,
+    "outer_validation_early_stopping": false,
+    "outer_validation_selects_nothing": true
+  },
+  "training": {
+    "loss": "MSE",
+    "optimizer": "AdamW",
+    "gradient_clip_norm": 1.0,
+    "hidden_size": 64,
+    "hidden_continuous_size": 32,
+    "attention_heads": 4,
+    "lstm_layers": 1
+  },
+  "plot_rule": "middle of 205 legal Validation origins; show all three seeds, actual raw voltage, frozen baseline and refined F2, each a single 24-step forecast",
+  "runtime": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": false,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "model_source_sha256": "29b0e6d9b9d4ff0f10d9666cc31b22e015e4a8b43f98789dbf4f0a704513e69c",
+  "script_sha256": "37c7546bd710bf7dd903377868e900709343440feaf86d8b4d7594abf811ba14",
+  "data_cache_sha256": "cbb212134eb664f1a43d4851f20686fe575c06eb6b2b0b893aed0f166fcef83e",
+  "frozen_scaler_sha256": "8a2d248ea3f626742368e1b2079a35408ac165bdf64ded821bc565fd3ef2cfdb",
+  "limitations": [
+    "reused Development Validation, not independent Test",
+    "historical baseline used Validation early stopping; refined uses Train-internal frozen epochs",
+    "three seeds are fixed, not a new seed screen"
+  ],
+  "stop": "exactly six trials and three final fits; preserve technical failures, no automatic restart or expanded budget",
+  "scientific_success": "mean RMSE and MAE both improve vs original; R2 reported on same deltaV labels"
+}

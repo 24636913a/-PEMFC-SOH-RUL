@@ -1,0 +1,2 @@
+model,partition,seeds,aggregation,RMSE_V,MAE_V,R2,R2_target,queries_per_seed,scientific_status
+F2,VALIDATION,"42,103,193,202,210,212",equal mean of per-seed metrics; no ensemble,0.0050660501601219382,0.003849100869317956,0.99930760465393931,"raw DeltaV; historical definition, not absolute-voltage R2","[4920, 4920, 4920, 4920, 4920, 4920]",reused_validation

@@ -1,0 +1,69 @@
+{
+  "seeds": [
+    202
+  ],
+  "displayed_evaluation_partition": "VALIDATION",
+  "environment": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "pytorch_forecasting": "1.8.0",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "CPU_threads": 1,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": false,
+    "warn_only": false,
+    "TF32_matmul": false,
+    "TF32_cudnn": true,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "hyperparameters": {
+    "parameters": {
+      "learning_rate": 0.0009605449687795866,
+      "weight_decay": 6.95942232671908e-06,
+      "dropout": 0.1,
+      "hidden_size": 64,
+      "hidden_continuous_size": 32,
+      "batch_size": 32,
+      "max_epochs": 450,
+      "patience": 40,
+      "gradient_clip_norm": 1.0,
+      "loss": "MSE",
+      "optimizer": "AdamW"
+    },
+    "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_Hyperparameter_Optimization_Restart\\outputs\\T1R_SELECTED_CONFIGURATIONS.json",
+    "source_sha256": "8bbeae49c7559524965ae1eeb980b99c718b6ae40e80ee621e97f0a9aa3e883b",
+    "fold": "fold_2",
+    "study": "T1R_fold_2",
+    "selected_trial": 13,
+    "historical_optimized_model": "base TFT",
+    "inherited_by": "F2",
+    "F2_specific_search_performed": false,
+    "optuna_executed": false,
+    "selection_uses_Assessment_or_late_life": false,
+    "historical_H_protocol_sha256": "88aba09c7f9a08d43f658f9c66e482713bbb60607bc88bb8059f3638d5aad9dd"
+  },
+  "seed_population": "Validation-selected instances, not an unbiased population",
+  "plot_rule": "fixed step24, original raw voltage recovery; all24 queries used for metrics",
+  "UI": "VS Code Python Interactive / Jupyter image/png display with Agg backend",
+  "source_hashes": {
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\RealHyFC_F2_Main.py": "71ab96a8f048d4637168700af9d012b90aab6b650836865a3724c007d8ab29b8",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\RealHyFC_F2_Main.py": "64cde85cac939806641921083bcf2c2e5354ee2bcd19dc4315949459305660f9",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\RealHyFC_F2_Main_Seed_Assets.json": "266215dcadf07fad0d6b73e6255626823537559b2b48cbafe3c5996c03acc187",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv": "fbee6b28682766081c9cda08059e2eaabcd6bb25365ce0bc5eb7c5714fda0f38",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\audits\\SCALER.json": "8a2d248ea3f626742368e1b2079a35408ac165bdf64ded821bc565fd3ef2cfdb",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_Hyperparameter_Optimization_Restart\\outputs\\T1R_SELECTED_CONFIGURATIONS.json": "8bbeae49c7559524965ae1eeb980b99c718b6ae40e80ee621e97f0a9aa3e883b",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_Hyperparameter_Optimization_Restart\\outputs\\optuna_T1R_fold_1.db": "d205ecaf83a7caff1944001a2d8e60bc77a6d6d7cd246fdf9dde5e8086020ff0",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_Hyperparameter_Optimization_Restart\\outputs\\optuna_T1R_fold_2.db": "01364f8f5e1999a753ba584be69f48da5467838c256ce5fd4fdd0402509693e5",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_TFT_Hyperparameter_Optimization_Restart\\outputs\\optuna_T1R_fold_3.db": "3a35c582c60b2adec02d6937cea42dc186d300904b3236a6eb217ab07857e972",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Hyperparameter_Refinement\\outputs\\OPTUNA_TRIALS.csv": "bd4f4bc7494ec048b681b76f23803ed4141358404ab0b32154815f9410c00664",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Hyperparameter_Refinement\\SUMMARY.csv": "87e0276f38d7f110ceb78d133054a7acb2a1a39eafbfc8abf90f000d320e3200",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Hyperparameter_Refinement\\configs\\SELECTED_CONFIGURATION.json": "a702231ad0884e4b4ef66c50d0b4c9882341a6effe70e76e879c3b4c2173d7ff",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\checkpoints\\F2_seed_202_best.pt": "9a366eb4f22941afa475e4d0cf3b033714aa488cdc1b8cd1f62ed665f8940a57",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\predictions\\F2_seed_202.csv": "13e56e4b4b27e7481a6c43c929510bc6802b7f41799b0221aaf7362104221d3a",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\training_logs\\seed_202\\epochs.csv": "1230b1b66492bde7c6625e857d6a417160cb0a6501342790a1bc34b7bf127780",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\configs\\frozen_seed_screening.json": "fae982e2b18a020d2deceb8bab5282e5ca47baaa458c67e247e85f5c353118b7"
+  }
+}

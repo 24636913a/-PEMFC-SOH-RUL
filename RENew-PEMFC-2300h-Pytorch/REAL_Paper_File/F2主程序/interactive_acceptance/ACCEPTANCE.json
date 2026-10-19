@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "python": "D:\\ruanjian\\python3.11.9\\python.exe",
+  "requested": [
+    202,
+    "all"
+  ],
+  "runs": [
+    {
+      "seed": 202,
+      "run": "RealHyFC_F2_Main_Outputs/20261019T035219_222614Z_F2_interactive_seed202",
+      "status": "PASS",
+      "real_ipykernel": true,
+      "actual_image_png_displays": 8,
+      "executed_code_cells": 9,
+      "all_partition_predictions_and_metrics_exact": true,
+      "summary": {
+        "model": "F2",
+        "partition": "VALIDATION",
+        "seeds": [
+          202
+        ],
+        "aggregation": "single seed",
+        "RMSE_V": 0.003912298560626305,
+        "MAE_V": 0.00300921519518555,
+        "R2": 0.9995977843186663,
+        "R2_target": "raw DeltaV; historical definition, not absolute-voltage R2",
+        "queries_per_seed": [
+          4920
+        ],
+        "scientific_status": "reused_validation"
+      },
+      "notebook": "interactive_acceptance/Seed202.executed.ipynb"
+    },
+    {
+      "seed": "all",
+      "run": "RealHyFC_F2_Main_Outputs/20261019T035232_228355Z_F2_interactive_seedall",
+      "status": "PASS",
+      "real_ipykernel": true,
+      "actual_image_png_displays": 23,
+      "executed_code_cells": 9,
+      "all_partition_predictions_and_metrics_exact": true,
+      "summary": {
+        "model": "F2",
+        "partition": "VALIDATION",
+        "seeds": [
+          42,
+          103,
+          193,
+          202,
+          210,
+          212
+        ],
+        "aggregation": "equal mean of per-seed metrics; no ensemble",
+        "RMSE_V": 0.005066050160121938,
+        "MAE_V": 0.003849100869317956,
+        "R2": 0.9993076046539393,
+        "R2_target": "raw DeltaV; historical definition, not absolute-voltage R2",
+        "queries_per_seed": [
+          4920,
+          4920,
+          4920,
+          4920,
+          4920,
+          4920
+        ],
+        "scientific_status": "reused_validation"
+      },
+      "notebook": "interactive_acceptance/SixSeeds.executed.ipynb"
+    }
+  ],
+  "VS_Code_GUI_clicked": false,
+  "display_validation": "Real IPython image/png outputs; open executed notebooks in VS Code",
+  "CLI": {
+    "status": "PASS",
+    "stdout": "RMSE: 0.003912 V\nMAE : 0.003009 V\nR²  : 0.9996\n",
+    "run": "RealHyFC_F2_Main_Outputs/20261019T035258_287059Z_F2_evaluate_seed202"
+  },
+  "historical_files_unchanged": 460,
+  "model_and_original_programs_modified": false,
+  "new_training": false,
+  "new_search": false
+}

@@ -1,0 +1,211 @@
+{
+  "status": "PASS",
+  "seeds": [
+    42,
+    103,
+    193,
+    202,
+    210,
+    212
+  ],
+  "self_checks": {
+    "model_classes_AST_exact": true,
+    "model_class_count": 6,
+    "no_project_Python_imports": true,
+    "relative_coordinate_only_decoder": true,
+    "causal_EWMA": true,
+    "synthetic_window_causality": true,
+    "no_training_executed_by_self_checks": true
+  },
+  "seed_audits": [
+    {
+      "seed": 42,
+      "best_epoch": 204,
+      "checkpoint_sha256": "0b28f576e1f5172875203849ad452a40e702040d0c3609b12074a506dbeea974",
+      "optimizer_steps": 0,
+      "training_performed": false,
+      "pointwise_exact": true,
+      "origins": 205,
+      "queries": 4920,
+      "max_prediction_difference_V": 0.0,
+      "reference": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\audits\\historical_seed_42_canonical.csv",
+      "reference_sha256": "25ffdb37aeca53af1d2f89c8cb47aeebb18cceb43ff8a2f28404611602b28c0e",
+      "state_unchanged": true,
+      "state_sha256": "df7fb6e9d798ec4003a2a5295642e4d08eeb2491747f6314dfcd36aeb666b752",
+      "partition_reference_checks": {
+        "TRAIN": "POINTWISE_EXACT_FULL_DOMAIN_CACHE",
+        "VALIDATION": "POINTWISE_EXACT_FULL_DOMAIN_CACHE",
+        "HISTORICAL_ASSESSMENT": "POINTWISE_EXACT_FULL_DOMAIN_CACHE",
+        "LATE_LIFE": "POINTWISE_EXACT_FULL_DOMAIN_CACHE"
+      },
+      "all_four_partitions_pointwise_exact": true
+    },
+    {
+      "seed": 103,
+      "best_epoch": 450,
+      "checkpoint_sha256": "ee250d1b44ceaca0a56ee8fd27eff4d40ef50cea44c7579c6320d9906fdff799",
+      "optimizer_steps": 0,
+      "training_performed": false,
+      "pointwise_exact": true,
+      "origins": 205,
+      "queries": 4920,
+      "max_prediction_difference_V": 0.0,
+      "reference": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\audits\\historical_seed_103_canonical.csv",
+      "reference_sha256": "037ceb873a945efdfa3dd767d3e57937c2d5242645a698845fa7f13a58e17652",
+      "state_unchanged": true,
+      "state_sha256": "c6d43f19dbc166f6cfaf9d6f519cb10df36190c80114385d808044ce1d51c5a8",
+      "partition_reference_checks": {
+        "TRAIN": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "VALIDATION": "POINTWISE_EXACT_FROZEN_VALIDATION_CACHE",
+        "HISTORICAL_ASSESSMENT": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "LATE_LIFE": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE"
+      },
+      "all_four_partitions_pointwise_exact": false
+    },
+    {
+      "seed": 193,
+      "best_epoch": 409,
+      "checkpoint_sha256": "ce2c84d7282b3c7cbd5e2769a7132daedf0c60bcb38389d8492646707cda8188",
+      "optimizer_steps": 0,
+      "training_performed": false,
+      "pointwise_exact": true,
+      "origins": 205,
+      "queries": 4920,
+      "max_prediction_difference_V": 0.0,
+      "reference": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\audits\\historical_seed_193_canonical.csv",
+      "reference_sha256": "f3b6e12370707c9a0943121fe1656015cbd01afc530179cd12be310eca7251f2",
+      "state_unchanged": true,
+      "state_sha256": "a2641409b07cfc1cbde933b0e04e9949dbe2e47be9a57cea873ca1ba8add92cc",
+      "partition_reference_checks": {
+        "TRAIN": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "VALIDATION": "POINTWISE_EXACT_FROZEN_VALIDATION_CACHE",
+        "HISTORICAL_ASSESSMENT": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "LATE_LIFE": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE"
+      },
+      "all_four_partitions_pointwise_exact": false
+    },
+    {
+      "seed": 202,
+      "best_epoch": 326,
+      "checkpoint_sha256": "9a366eb4f22941afa475e4d0cf3b033714aa488cdc1b8cd1f62ed665f8940a57",
+      "optimizer_steps": 0,
+      "training_performed": false,
+      "pointwise_exact": true,
+      "origins": 205,
+      "queries": 4920,
+      "max_prediction_difference_V": 0.0,
+      "reference": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\predictions\\F2_seed_202.csv",
+      "reference_sha256": "13e56e4b4b27e7481a6c43c929510bc6802b7f41799b0221aaf7362104221d3a",
+      "state_unchanged": true,
+      "state_sha256": "bb693d5a8f78033efe354e226986759391ec2d89cf8d8d8fa83c848f2ae10a56",
+      "partition_reference_checks": {
+        "TRAIN": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "VALIDATION": "POINTWISE_EXACT_FROZEN_VALIDATION_CACHE",
+        "HISTORICAL_ASSESSMENT": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "LATE_LIFE": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE"
+      },
+      "all_four_partitions_pointwise_exact": false
+    },
+    {
+      "seed": 210,
+      "best_epoch": 272,
+      "checkpoint_sha256": "9024983a95ecf1510c6004232397792709b7235db467db8d5457c2ffca401e54",
+      "optimizer_steps": 0,
+      "training_performed": false,
+      "pointwise_exact": true,
+      "origins": 205,
+      "queries": 4920,
+      "max_prediction_difference_V": 0.0,
+      "reference": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\predictions\\F2_seed_210.csv",
+      "reference_sha256": "f6803dc82e18876f11a1841d5f49e0d89c71bcde359f297d00551869516f24f3",
+      "state_unchanged": true,
+      "state_sha256": "9b0ae350c5f65f8d5dafd21f72ee99af66af8af4257f8d5304a84339d92e455b",
+      "partition_reference_checks": {
+        "TRAIN": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "VALIDATION": "POINTWISE_EXACT_FROZEN_VALIDATION_CACHE",
+        "HISTORICAL_ASSESSMENT": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "LATE_LIFE": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE"
+      },
+      "all_four_partitions_pointwise_exact": false
+    },
+    {
+      "seed": 212,
+      "best_epoch": 306,
+      "checkpoint_sha256": "20767e501a6013291ceca98b66d74df2f7d4b4d256cde9b24141a8917e7aa954",
+      "optimizer_steps": 0,
+      "training_performed": false,
+      "pointwise_exact": true,
+      "origins": 205,
+      "queries": 4920,
+      "max_prediction_difference_V": 0.0,
+      "reference": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\predictions\\F2_seed_212.csv",
+      "reference_sha256": "94af87b405075522a6d8fcbe9a050a6e341aba5da92729bfecaae48fafce8cae",
+      "state_unchanged": true,
+      "state_sha256": "ce360bf9b246ce8ea95435f5bfd82e4a5934c22eae648f86661f60820b34e0d9",
+      "partition_reference_checks": {
+        "TRAIN": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "VALIDATION": "POINTWISE_EXACT_FROZEN_VALIDATION_CACHE",
+        "HISTORICAL_ASSESSMENT": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "LATE_LIFE": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE"
+      },
+      "all_four_partitions_pointwise_exact": false
+    }
+  ],
+  "ipython_active": true,
+  "requested_image_displays": 23,
+  "images": [
+    "presentation\\01_raw_voltage.png",
+    "presentation\\02_spearman_top10.png",
+    "presentation\\03_causal_ewma.png",
+    "presentation\\04_base_TFT_optuna_history.png",
+    "presentation\\05_F2_refinement_history.png",
+    "presentation\\06_training_history_seed42.png",
+    "presentation\\06_training_history_seed103.png",
+    "presentation\\06_training_history_seed193.png",
+    "presentation\\06_training_history_seed202.png",
+    "presentation\\06_training_history_seed210.png",
+    "presentation\\06_training_history_seed212.png",
+    "seed42\\prediction_vs_true.png",
+    "seed42\\scatter_true_vs_pred.png",
+    "seed103\\prediction_vs_true.png",
+    "seed103\\scatter_true_vs_pred.png",
+    "seed193\\prediction_vs_true.png",
+    "seed193\\scatter_true_vs_pred.png",
+    "seed202\\prediction_vs_true.png",
+    "seed202\\scatter_true_vs_pred.png",
+    "seed210\\prediction_vs_true.png",
+    "seed210\\scatter_true_vs_pred.png",
+    "seed212\\prediction_vs_true.png",
+    "seed212\\scatter_true_vs_pred.png"
+  ],
+  "historical_sources_unchanged": 33,
+  "new_training": false,
+  "new_Optuna_search": false,
+  "pre_existing_program_changes_preserved": true,
+  "summary": {
+    "model": "F2",
+    "partition": "VALIDATION",
+    "seeds": [
+      42,
+      103,
+      193,
+      202,
+      210,
+      212
+    ],
+    "aggregation": "equal mean of per-seed metrics; no ensemble",
+    "RMSE_V": 0.005066050160121938,
+    "MAE_V": 0.003849100869317956,
+    "R2": 0.9993076046539393,
+    "R2_target": "raw DeltaV; historical definition, not absolute-voltage R2",
+    "queries_per_seed": [
+      4920,
+      4920,
+      4920,
+      4920,
+      4920,
+      4920
+    ],
+    "scientific_status": "reused_validation"
+  }
+}

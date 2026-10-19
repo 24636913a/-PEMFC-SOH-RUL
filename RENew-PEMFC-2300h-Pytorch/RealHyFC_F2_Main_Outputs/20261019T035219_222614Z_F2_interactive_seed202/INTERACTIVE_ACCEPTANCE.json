@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "seeds": [
+    202
+  ],
+  "self_checks": {
+    "model_classes_AST_exact": true,
+    "model_class_count": 6,
+    "no_project_Python_imports": true,
+    "relative_coordinate_only_decoder": true,
+    "causal_EWMA": true,
+    "synthetic_window_causality": true,
+    "no_training_executed_by_self_checks": true
+  },
+  "seed_audits": [
+    {
+      "seed": 202,
+      "best_epoch": 326,
+      "checkpoint_sha256": "9a366eb4f22941afa475e4d0cf3b033714aa488cdc1b8cd1f62ed665f8940a57",
+      "optimizer_steps": 0,
+      "training_performed": false,
+      "pointwise_exact": true,
+      "origins": 205,
+      "queries": 4920,
+      "max_prediction_difference_V": 0.0,
+      "reference": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\predictions\\F2_seed_202.csv",
+      "reference_sha256": "13e56e4b4b27e7481a6c43c929510bc6802b7f41799b0221aaf7362104221d3a",
+      "state_unchanged": true,
+      "state_sha256": "bb693d5a8f78033efe354e226986759391ec2d89cf8d8d8fa83c848f2ae10a56",
+      "partition_reference_checks": {
+        "TRAIN": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "VALIDATION": "POINTWISE_EXACT_FROZEN_VALIDATION_CACHE",
+        "HISTORICAL_ASSESSMENT": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "LATE_LIFE": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE"
+      },
+      "all_four_partitions_pointwise_exact": false
+    }
+  ],
+  "ipython_active": true,
+  "requested_image_displays": 8,
+  "images": [
+    "presentation\\01_raw_voltage.png",
+    "presentation\\02_spearman_top10.png",
+    "presentation\\03_causal_ewma.png",
+    "presentation\\04_base_TFT_optuna_history.png",
+    "presentation\\05_F2_refinement_history.png",
+    "presentation\\06_training_history_seed202.png",
+    "seed202\\prediction_vs_true.png",
+    "seed202\\scatter_true_vs_pred.png"
+  ],
+  "historical_sources_unchanged": 16,
+  "new_training": false,
+  "new_Optuna_search": false,
+  "pre_existing_program_changes_preserved": true,
+  "summary": {
+    "model": "F2",
+    "partition": "VALIDATION",
+    "seeds": [
+      202
+    ],
+    "aggregation": "single seed",
+    "RMSE_V": 0.003912298560626305,
+    "MAE_V": 0.00300921519518555,
+    "R2": 0.9995977843186663,
+    "R2_target": "raw DeltaV; historical definition, not absolute-voltage R2",
+    "queries_per_seed": [
+      4920
+    ],
+    "scientific_status": "reused_validation"
+  }
+}

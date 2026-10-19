@@ -1,0 +1,8 @@
+{
+  "status": "INVALIDATED_BEFORE_ANY_TRAINING",
+  "reason": "New diagnostic MAE_mV column omitted V-to-mV factor1000; original cached predictions and old metrics unaffected.",
+  "old_io_sha256": "500c5b541416fd1af26ac9bb0c7414fba1043b61faa87249c97fc0626080ecc1",
+  "fixed_io_sha256": "ced1c641a7dd60bf9365a6092bfbdec667af186832122090732b55800a216ab2",
+  "training_models_started": 0,
+  "remedy": "Fresh P0/P1 run with corrected units; no predictions altered"
+}

@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "no_training_executed": true,
+  "all_old_predictions_and_metrics_recomputed": true,
+  "six_seed_mean": {
+    "RMSE_mV": 42.60645214857108,
+    "MAE_mV": 0.012301380893918188,
+    "R2": 0.9506747465748422
+  },
+  "selected_steps": [
+    {
+      "step": 1,
+      "RMSE_mV": 31.507067731197584,
+      "MAE_mV": 0.011112859930757718
+    },
+    {
+      "step": 6,
+      "RMSE_mV": 41.836394226604426,
+      "MAE_mV": 0.011540092966509733
+    },
+    {
+      "step": 12,
+      "RMSE_mV": 44.48732568058508,
+      "MAE_mV": 0.011866478054114367
+    },
+    {
+      "step": 24,
+      "RMSE_mV": 47.108670040341075,
+      "MAE_mV": 0.014179508809780248
+    }
+  ],
+  "mean_top1pct_SSE_fraction": 0.8553412428167815,
+  "mean_top5pct_SSE_fraction": 0.9613990077275173,
+  "overlap_queries": 12648,
+  "unique_targets": 619,
+  "all_extremes_retained": true,
+  "interpretation": "post-hoc association; no causal attribution or independent-event count"
+}

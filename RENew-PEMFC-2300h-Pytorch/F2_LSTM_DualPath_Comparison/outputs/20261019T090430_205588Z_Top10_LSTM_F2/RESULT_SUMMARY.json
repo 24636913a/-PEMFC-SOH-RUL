@@ -1,0 +1,33 @@
+{
+  "status": "RESULTS_GENERATED",
+  "formal_models": 12,
+  "pilot_models": 2,
+  "RMSE_winner": "普通LSTM",
+  "means": [
+    {
+      "model": "F2",
+      "n": 6,
+      "RMSE_mV_mean": 44.2205080428204,
+      "MAE_mV_mean": 12.469543472132585,
+      "R2_mean": 0.9478324457819415,
+      "RMSE_mV_sample_sd": 2.7503982743676563,
+      "MAE_mV_sample_sd": 2.8425813308855057,
+      "R2_sample_sd": 0.006542271296460147
+    },
+    {
+      "model": "LSTM",
+      "n": 6,
+      "RMSE_mV_mean": 24.885443597409495,
+      "MAE_mV_mean": 5.469487908618041,
+      "R2_mean": 0.983530236634418,
+      "RMSE_mV_sample_sd": 0.26608366783461396,
+      "MAE_mV_sample_sd": 0.7077534020130658,
+      "R2_sample_sd": 0.00035296941596518565
+    }
+  ],
+  "F2_minus_LSTM_RMSE_mV": 19.335064445410904,
+  "F2_relative_RMSE_change_percent": 77.69628204426957,
+  "F2_RMSE_wins": 0,
+  "F2_MAE_wins": 0,
+  "optimization_experiments_executed": 0
+}

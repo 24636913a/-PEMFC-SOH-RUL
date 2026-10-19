@@ -1,0 +1,12 @@
+test_actual_inputs_windows_and_labels (test_contracts.ComparisonContracts.test_actual_inputs_windows_and_labels) ... ok
+test_exact_frozen_native_structure (test_contracts.ComparisonContracts.test_exact_frozen_native_structure) ... C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+ok
+test_no_future_conditions_in_tft_decoder (test_contracts.ComparisonContracts.test_no_future_conditions_in_tft_decoder) ... ok
+test_physical_metric_units_and_original_formula (test_contracts.ComparisonContracts.test_physical_metric_units_and_original_formula) ... ok
+test_plain_lstm_and_real_gradient (test_contracts.ComparisonContracts.test_plain_lstm_and_real_gradient) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.577s
+
+OK

@@ -1,0 +1,29 @@
+{
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "pytorch-forecasting": "1.8.0",
+    "lightning": "2.5.1",
+    "pytorch-lightning": "2.6.6",
+    "numpy": "2.4.6",
+    "pandas": "3.0.1",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "matplotlib": "3.10.8",
+    "ipykernel": "7.2.0",
+    "nbformat": "5.10.4"
+  },
+  "execution_environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.6.0+cu124",
+    "CUDA": "12.4",
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "bitwise_reproducibility_promised": false,
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "cudnn_tf32": true,
+    "matmul_tf32": false,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "note": "Recorded in the same execution kernel after training; no packages or device settings changed during this task"
+}

@@ -1,0 +1,29 @@
+{
+  "run_id": "20261019T090430_205588Z_Top10_LSTM_F2",
+  "cohort": "formal",
+  "kind": "LSTM",
+  "seed": 212,
+  "parameters": 22040,
+  "initialization_sha256": "0234352bf3f8dc7fdfcfb72d47c6e86ba3e2ca1c19fd19e19640799017cfa437",
+  "protocol_sha256": "59f711899a7a8f933e65921ab99d94d354ff8aa839fceff6c0d1557c058e3f34",
+  "prepared_train_sha256": "a0e74eb627c8691b3fdd7d863d0b87b2f10657d59b75a883de5f0b902039398b",
+  "fresh_initialization": true,
+  "historical_checkpoint_loaded": false,
+  "optimizer_initial_state_empty": true,
+  "initial_rng": {
+    "cpu": "c7252e89974c325733b9a342acc402f607a4c6c6b4e364f5fdf5969189e0bc00",
+    "cuda": "8fa2a41684189deb57e526a3128a2010db30f1f71020e7bc534b6ad48f03d23b"
+  },
+  "LSTM_internal_dropout": 0.0,
+  "LSTM_external_dropout": 0.0,
+  "validation_selection": "minimum full standardized Validation RMSE, min_delta1e-12, patience40",
+  "status": "TRAINED",
+  "best_epoch": 353,
+  "stop_epoch": 393,
+  "optimizer_steps": 21615,
+  "backward_calls": 21615,
+  "first_update_sha256": "1c420e4e8440a62a716c92ffa8370e52260f7b36195d7501d32b2c5c1dbb6a86",
+  "final_state_sha256": "fa43092e8b74885467a9a44b30bbff31fe892128f84359f2af6e22e08b4fe248",
+  "best_checkpoint_sha256": "f217c7c7f97301bcdffa2a7d695ee08f4ac15bbc2bce107afa15c622c42e2136",
+  "training_seconds": 60.40867819997948
+}

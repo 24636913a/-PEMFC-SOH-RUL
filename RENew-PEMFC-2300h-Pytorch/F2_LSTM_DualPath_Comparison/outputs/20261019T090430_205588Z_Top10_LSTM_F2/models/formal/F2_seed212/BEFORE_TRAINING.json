@@ -1,0 +1,20 @@
+{
+  "run_id": "20261019T090430_205588Z_Top10_LSTM_F2",
+  "cohort": "formal",
+  "kind": "F2",
+  "seed": 212,
+  "parameters": 332436,
+  "initialization_sha256": "da81aa11443df138aff13fdd8f2a8c4015894c28199d69033cd75b69ae8b77f5",
+  "protocol_sha256": "59f711899a7a8f933e65921ab99d94d354ff8aa839fceff6c0d1557c058e3f34",
+  "prepared_train_sha256": "a0e74eb627c8691b3fdd7d863d0b87b2f10657d59b75a883de5f0b902039398b",
+  "fresh_initialization": true,
+  "historical_checkpoint_loaded": false,
+  "optimizer_initial_state_empty": true,
+  "initial_rng": {
+    "cpu": "bed92fe8eb90818105eb5ed5af77573a8efd24a76226c367453c53e030b419ff",
+    "cuda": "8fa2a41684189deb57e526a3128a2010db30f1f71020e7bc534b6ad48f03d23b"
+  },
+  "LSTM_internal_dropout": null,
+  "LSTM_external_dropout": null,
+  "validation_selection": "minimum full standardized Validation RMSE, min_delta1e-12, patience40"
+}

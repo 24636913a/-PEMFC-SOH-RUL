@@ -1,0 +1,27 @@
+{
+  "time_quarters": [
+    3074,
+    3266,
+    3458,
+    3650,
+    3843
+  ],
+  "Train_only_thresholds": {
+    "low_voltage_train_P05_V": 0.21487981391000496,
+    "high_transition_train_P90": 36.0,
+    "voltage_jump_train_P95_V": 0.5161131573301734
+  },
+  "P1_adverse_centres": [
+    3113,
+    3628
+  ],
+  "P1_four_target_rows": [
+    3112,
+    3113,
+    3627,
+    3628
+  ],
+  "all_queries_retained": true,
+  "target_time_equal_metric_auxiliary": true,
+  "no_causal_claim": true
+}

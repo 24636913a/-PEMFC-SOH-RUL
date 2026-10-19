@@ -1,0 +1,6 @@
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.png binary
+*.pdf binary
+*.pt binary
+# Pandas fixed-width tables preserve padding, including the invalidated draft.
+*.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

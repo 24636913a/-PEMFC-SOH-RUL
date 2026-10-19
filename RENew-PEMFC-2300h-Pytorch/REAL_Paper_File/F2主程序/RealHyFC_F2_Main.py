@@ -1067,6 +1067,24 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument('--device', choices=['cuda'], default='cuda')
     parser.add_argument('--partition', choices=list(PARTITIONS[1:]), default=DEFAULT_EVALUATION_PARTITION,
                         help='One displayed/plotted evaluation partition; all partition results stay in files.')
+    if argv is None:
+        argv = sys.argv[1:]
+        if 'ipykernel' in sys.modules:
+            # VS Code Interactive/Jupyter supplies its own kernel connection file.
+            # Strip only that option; keep model options and reject other typos.
+            filtered = []
+            index = 0
+            while index < len(argv):
+                argument = argv[index]
+                if argument.startswith(('--f=', '-f=')):
+                    index += 1
+                    continue
+                if argument in ('--f', '-f') and index + 1 < len(argv):
+                    index += 2
+                    continue
+                filtered.append(argument)
+                index += 1
+            argv = filtered
     args = parser.parse_args(argv)
     if args.mode == 'train' and args.seed == 'all': parser.error('Train mode requires one seed; no automatic search.')
     return args

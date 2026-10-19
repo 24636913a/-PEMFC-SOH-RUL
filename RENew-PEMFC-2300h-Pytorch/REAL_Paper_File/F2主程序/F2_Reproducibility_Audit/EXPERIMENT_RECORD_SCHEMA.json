@@ -1,0 +1,61 @@
+{
+  "status": "PROPOSED_RECORDING_SCHEMA_NOT_YET_INSTRUMENTED_IN_FORMAL_ENTRY",
+  "identity": [
+    "run_id",
+    "seed",
+    "repeat_id",
+    "feature_mode",
+    "source_data_sha256",
+    "source_code_sha256",
+    "protocol_sha256",
+    "window_identity_sha256",
+    "scaler_sha256"
+  ],
+  "runtime": [
+    "python_package_versions",
+    "torch_cuda_cudnn",
+    "GPU_driver",
+    "deterministic_algorithms",
+    "cudnn_deterministic",
+    "cudnn_benchmark",
+    "TF32_flags",
+    "CUBLAS_WORKSPACE_CONFIG",
+    "launch_command"
+  ],
+  "before_training": [
+    "initial_parameter_sha256",
+    "initial_optimizer_empty",
+    "all_RNG_states",
+    "sampler_generator_state"
+  ],
+  "per_batch": [
+    "indices_sha256",
+    "input_target_sha256",
+    "RNG_before_after_sha256",
+    "gradient_norm",
+    "gradient_sha256",
+    "weights_before_after_sha256",
+    "optimizer_state_sha256"
+  ],
+  "per_epoch": [
+    "train_loss",
+    "validation_loss",
+    "best_epoch",
+    "stale_epochs",
+    "optimizer_update_count",
+    "checkpoint_sha256"
+  ],
+  "predeclared_snapshots": [
+    "initial_full_model_optimizer_RNG",
+    "fixed_milestones_full_model_optimizer_RNG"
+  ],
+  "reporting": [
+    "all_repeats_kept",
+    "n",
+    "mean",
+    "sample_sd",
+    "range",
+    "no_best_repeat_selection",
+    "historically_exposed_holdout_label"
+  ]
+}

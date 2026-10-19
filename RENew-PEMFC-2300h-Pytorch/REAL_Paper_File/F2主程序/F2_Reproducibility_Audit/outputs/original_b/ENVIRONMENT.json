@@ -1,0 +1,29 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "torch": "2.6.0+cu124",
+  "CUDA": "12.4",
+  "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "bitwise_reproducibility_promised": false,
+  "cudnn": 90100,
+  "platform": "Windows-10-10.0.22631-SP0",
+  "executable": "D:\\ruanjian\\python3.11.9\\python.exe",
+  "deterministic_algorithms": false,
+  "cudnn_deterministic": true,
+  "cudnn_benchmark": false,
+  "matmul_tf32": false,
+  "cudnn_tf32": true,
+  "variables": {
+    "CUBLAS_WORKSPACE_CONFIG": null,
+    "CUDA_LAUNCH_BLOCKING": null,
+    "PYTHONHASHSEED": null
+  },
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "pytorch-forecasting": "1.8.0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "lightning": "2.5.1"
+  },
+  "nvidia_smi": "NVIDIA GeForce RTX 3070 Laptop GPU, 552.22"
+}

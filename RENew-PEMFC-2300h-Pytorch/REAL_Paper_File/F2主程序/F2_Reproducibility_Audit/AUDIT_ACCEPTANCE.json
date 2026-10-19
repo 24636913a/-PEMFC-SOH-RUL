@@ -1,0 +1,20 @@
+{
+  "status": "PASS_WITH_PRESERVED_CONTROLLER_IO_FAILURE",
+  "created_utc": "2026-10-19T07:55:48.050919+00:00",
+  "audit_tests_passed": 5,
+  "original_training_contract_tests_passed": 9,
+  "formal_training_program_unchanged": true,
+  "source_sha256": "3dbdc602eb2229a54ee7d5eaa841a6dd94798e8227dbfc6f60db1e78f66419de",
+  "actual_diagnostic_prefix_epochs": [
+    6,
+    6
+  ],
+  "actual_optimizer_updates": 660,
+  "no_update_backward_checks": 2,
+  "strict_diagnostic_updates": 0,
+  "new_formal_performance_results": 0,
+  "historical_specific_kernel_identifiable": false,
+  "full_bitwise_repeatability_established": false,
+  "old_files_and_weights_retained": true,
+  "original_console_error_not_overwritten": true
+}

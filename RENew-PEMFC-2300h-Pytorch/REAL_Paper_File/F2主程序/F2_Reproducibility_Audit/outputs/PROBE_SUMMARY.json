@@ -1,0 +1,133 @@
+{
+  "status": "AUDIT_COMPLETED",
+  "prefix_first_differences": [
+    {
+      "field": "indices",
+      "unequal_batches": 0,
+      "first_step": null,
+      "first_epoch": null,
+      "first_batch": null
+    },
+    {
+      "field": "input_sha",
+      "unequal_batches": 0,
+      "first_step": null,
+      "first_epoch": null,
+      "first_batch": null
+    },
+    {
+      "field": "target_sha",
+      "unequal_batches": 0,
+      "first_step": null,
+      "first_epoch": null,
+      "first_batch": null
+    },
+    {
+      "field": "rng_before",
+      "unequal_batches": 0,
+      "first_step": null,
+      "first_epoch": null,
+      "first_batch": null
+    },
+    {
+      "field": "rng_after_forward",
+      "unequal_batches": 0,
+      "first_step": null,
+      "first_epoch": null,
+      "first_batch": null
+    },
+    {
+      "field": "rng_after_step",
+      "unequal_batches": 0,
+      "first_step": null,
+      "first_epoch": null,
+      "first_batch": null
+    },
+    {
+      "field": "weights_before",
+      "unequal_batches": 255,
+      "first_step": 76,
+      "first_epoch": 2,
+      "first_batch": 21
+    },
+    {
+      "field": "output_sha",
+      "unequal_batches": 255,
+      "first_step": 76,
+      "first_epoch": 2,
+      "first_batch": 21
+    },
+    {
+      "field": "loss",
+      "unequal_batches": 245,
+      "first_step": 81,
+      "first_epoch": 2,
+      "first_batch": 26
+    },
+    {
+      "field": "gradient_norm",
+      "unequal_batches": 255,
+      "first_step": 76,
+      "first_epoch": 2,
+      "first_batch": 21
+    },
+    {
+      "field": "gradients_before_clip",
+      "unequal_batches": 319,
+      "first_step": 1,
+      "first_epoch": 1,
+      "first_batch": 1
+    },
+    {
+      "field": "gradients_after_clip",
+      "unequal_batches": 319,
+      "first_step": 1,
+      "first_epoch": 1,
+      "first_batch": 1
+    },
+    {
+      "field": "weights_after",
+      "unequal_batches": 256,
+      "first_step": 75,
+      "first_epoch": 2,
+      "first_batch": 20
+    }
+  ],
+  "exact_input_and_batch_order_all_330": true,
+  "exact_CPU_CUDA_Python_NumPy_RNG_all_330": true,
+  "exact_observable_dropout_masks_all_330": true,
+  "dropout_modules_in_first_batch": 32,
+  "first_batch_numeric_gradient_differences": [
+    {
+      "parameter": "prescalers.raw_f2_06.weight",
+      "values": 32,
+      "numerically_unequal": 1,
+      "max_abs_difference": 5.820766091346741e-11,
+      "mean_abs_difference": 1.8189894035458565e-12,
+      "L2_difference": 5.820766091346741e-11
+    },
+    {
+      "parameter": "prescalers.raw_f2_08.bias",
+      "values": 32,
+      "numerically_unequal": 1,
+      "max_abs_difference": 4.656612873077393e-10,
+      "mean_abs_difference": 1.4551915228366852e-11,
+      "L2_difference": 4.656612873077393e-10
+    },
+    {
+      "parameter": "prescalers.raw_f2_13.bias",
+      "values": 32,
+      "numerically_unequal": 1,
+      "max_abs_difference": 1.1641532182693481e-10,
+      "mean_abs_difference": 3.637978807091713e-12,
+      "L2_difference": 1.1641532182693481e-10
+    }
+  ],
+  "max_numeric_gradient_difference": 4.656612873077393e-10,
+  "strict_determinism_status": "STRICT_DIAGNOSTIC_REJECTED_OPERATION",
+  "strict_rejected_phase": "forward",
+  "historical_exact_CUDA_kernel_not_identifiable": true,
+  "historical_Dropout_state_not_retroactively_verified": true,
+  "no_optimizer_updates_for_numeric_backward_pair": true,
+  "source_and_legacy_files_unchanged": true
+}

@@ -1,0 +1,144 @@
+{
+  "name": "F2_SINGLE_70_10_20_FRESH_TRAIN_TOP10_TOP11",
+  "created_utc": "2026-10-19T05:57:37.637441+00:00",
+  "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+  "data_rows": 3843,
+  "data_sha256": "fbee6b28682766081c9cda08059e2eaabcd6bb25365ce0bc5eb7c5714fda0f38",
+  "seeds": [
+    42,
+    103,
+    193,
+    202,
+    210,
+    212
+  ],
+  "feature_modes": [
+    "top10",
+    "top11"
+  ],
+  "masks": {
+    "top10": [
+      0,
+      3,
+      13,
+      11,
+      4,
+      9,
+      6,
+      7,
+      10,
+      8
+    ],
+    "top11": [
+      0,
+      3,
+      13,
+      11,
+      4,
+      9,
+      6,
+      7,
+      10,
+      8,
+      5
+    ]
+  },
+  "partitions": [
+    {
+      "partition": "TRAIN",
+      "start_row_inclusive": 0,
+      "end_row_exclusive": 2690,
+      "records": 2690,
+      "first_operating_h": 73.0,
+      "last_operating_h": 1622.0,
+      "first_datetime": "2025-01-27 12:09:18.005000",
+      "last_datetime": "2025-06-05 13:55:02.005000",
+      "legal_origins": 1750,
+      "queries": 42000,
+      "unique_target_times": 2026,
+      "origins_sha256": "ad15fed16bcc2ec273081ef937cfe916282df8f6274ba23453b935a58dd18521",
+      "targets_sha256": "ebdc9770a9cc455465ee7e4558987b9ccb187f51a32e96f6758dc3f6904821f3"
+    },
+    {
+      "partition": "VALIDATION",
+      "start_row_inclusive": 2690,
+      "end_row_exclusive": 3074,
+      "records": 384,
+      "first_operating_h": 1622.5,
+      "last_operating_h": 1854.0,
+      "first_datetime": "2025-06-05 13:55:03.005000",
+      "last_datetime": "2025-07-01 07:30:15.005000",
+      "legal_origins": 218,
+      "queries": 5232,
+      "unique_target_times": 264,
+      "origins_sha256": "eff6c1a900cde755f33dbde0e20e7b30bd8b1a670cf3c386e17c18c4dc199675",
+      "targets_sha256": "5572ab2b1d6f8046e035fe480d7340f603aad37a424ad2351749b1065c9315c7"
+    },
+    {
+      "partition": "TEST",
+      "start_row_inclusive": 3074,
+      "end_row_exclusive": 3843,
+      "records": 769,
+      "first_operating_h": 1854.5,
+      "last_operating_h": 2257.0,
+      "first_datetime": "2025-07-01 07:30:16.005000",
+      "last_datetime": "2025-07-26 12:06:23.005000",
+      "legal_origins": 527,
+      "queries": 12648,
+      "unique_target_times": 619,
+      "origins_sha256": "4a37f72bc864d1166b7245ac119b92331ba38eab15848968a1dbc04d91d19fed",
+      "targets_sha256": "89e171b7b92c0eeb396982bafda914ea450aa01509abd40382d7a0956ead021c"
+    }
+  ],
+  "hyperparameters": {
+    "learning_rate": 0.0009605449687795866,
+    "weight_decay": 6.95942232671908e-06,
+    "batch_size": 32,
+    "dropout": 0.1,
+    "hidden_size": 64,
+    "hidden_continuous_size": 32,
+    "attention_head_size": 4,
+    "lstm_layers": 1,
+    "gradient_clip_norm": 1.0,
+    "optimizer": "AdamW",
+    "loss": "MSE"
+  },
+  "max_epochs": 450,
+  "patience": 40,
+  "validation_selection": "minimum full Validation standardized RMSE; patience counts epochs",
+  "history": 48,
+  "horizon": 24,
+  "resolution_h": 0.5,
+  "target": "future raw voltage minus raw origin voltage",
+  "target_scale_V": 0.13665617091602913,
+  "no_historical_weights_or_prediction_caches": true,
+  "descriptive_voltage_groups": {
+    "method": "fixed four 1D KMeans groups fit only to unique TRAIN target voltages",
+    "centres_V": [
+      0.2126884002612796,
+      0.42023874263676214,
+      0.5851692009186099,
+      0.708023675421386
+    ],
+    "edges_V": [
+      0.3164635714490209,
+      0.502703971777686,
+      0.646596438169998
+    ],
+    "proves_four_physical_states": false,
+    "target_current_used": "post-hoc scatter coloring only, never a future model input"
+  },
+  "scientific_status": "new exploratory chronological holdout; not an unseen independent blind Test",
+  "code_sha256": "3dbdc602eb2229a54ee7d5eaa841a6dd94798e8227dbfc6f60db1e78f66419de",
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.6.0+cu124",
+    "CUDA": "12.4",
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "bitwise_reproducibility_promised": false
+  },
+  "network": {
+    "original_F2_classes_exact": true,
+    "trainable_parameters": 332436
+  }
+}

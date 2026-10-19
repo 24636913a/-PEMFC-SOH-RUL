@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "run_id": "20261019T055734_218949Z_seedall_compare",
+  "seeds": [
+    42,
+    103,
+    193,
+    202,
+    210,
+    212
+  ],
+  "feature_modes": [
+    "top10",
+    "top11"
+  ],
+  "fresh_models": 12,
+  "total_optimizer_steps": 89430,
+  "total_backward_calls": 89430,
+  "trained_from_scratch": true,
+  "historical_checkpoint_loaded": false,
+  "same_split_and_metric": true,
+  "model_architecture_unchanged": true,
+  "averages": [
+    {
+      "feature_mode": "top10",
+      "seeds": "42,103,193,202,210,212",
+      "RMSE_V": 0.04260645214857108,
+      "MAE_V": 0.012301380893918188,
+      "R2": 0.9506747465748422,
+      "aggregation": "equal per-seed metric mean; no ensemble",
+      "evaluation": "new 70:10:20 chronological holdout; historically exposed, not blind independent Test"
+    },
+    {
+      "feature_mode": "top11",
+      "seeds": "42,103,193,202,210,212",
+      "RMSE_V": 0.04542959136514264,
+      "MAE_V": 0.014390149580324247,
+      "R2": 0.94389058311004,
+      "aggregation": "equal per-seed metric mean; no ensemble",
+      "evaluation": "new 70:10:20 chronological holdout; historically exposed, not blind independent Test"
+    }
+  ],
+  "differences": [
+    {
+      "seed": "42",
+      "RMSE_V_top11_minus_top10": -0.01054305616806972,
+      "MAE_V_top11_minus_top10": -0.002690240025381053,
+      "R2_top11_minus_top10": 0.027013796491427544
+    },
+    {
+      "seed": "103",
+      "RMSE_V_top11_minus_top10": 0.0032259219163617153,
+      "MAE_V_top11_minus_top10": -0.0002926743504112709,
+      "R2_top11_minus_top10": -0.008119561205998438
+    },
+    {
+      "seed": "193",
+      "RMSE_V_top11_minus_top10": 0.010308459838526851,
+      "MAE_V_top11_minus_top10": 0.005322519881628081,
+      "R2_top11_minus_top10": -0.02503214387251207
+    },
+    {
+      "seed": "202",
+      "RMSE_V_top11_minus_top10": 0.01272453414267545,
+      "MAE_V_top11_minus_top10": 0.004985581314783114,
+      "R2_top11_minus_top10": -0.02720509588279396
+    },
+    {
+      "seed": "210",
+      "RMSE_V_top11_minus_top10": 0.0071315725354193504,
+      "MAE_V_top11_minus_top10": 0.0060415431470104575,
+      "R2_top11_minus_top10": -0.018247265118162548
+    },
+    {
+      "seed": "212",
+      "RMSE_V_top11_minus_top10": -0.005908596965484278,
+      "MAE_V_top11_minus_top10": -0.0008341178491929734,
+      "R2_top11_minus_top10": 0.010885288799226234
+    },
+    {
+      "seed": "mean",
+      "RMSE_V_top11_minus_top10": 0.0028231392165715546,
+      "MAE_V_top11_minus_top10": 0.0020887686864060583,
+      "R2_top11_minus_top10": -0.006784163464802151
+    }
+  ],
+  "historical_results_overwritten": false
+}

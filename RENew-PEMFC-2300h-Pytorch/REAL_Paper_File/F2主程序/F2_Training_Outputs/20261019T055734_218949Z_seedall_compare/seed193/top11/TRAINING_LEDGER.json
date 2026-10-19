@@ -1,0 +1,21 @@
+{
+  "status": "TRAINED",
+  "seed": 193,
+  "feature_mode": "top11",
+  "run_id": "20261019T055734_218949Z_seedall_compare",
+  "initialization_sha256": "102fa88ec409b8370e1512dd3cfc41ce9932f400665193412326a60cf7a21153",
+  "first_update_sha256": "de8181d9f0fe83db38248149e1908320f11abf843b258d7afb1949b43be7debb",
+  "final_state_sha256": "1e671488aff3a07ba45bb8a4776d78a55631010ca81cc7071917a8300a0600ed",
+  "best_epoch": 84,
+  "stop_epoch": 124,
+  "optimizer_steps": 6820,
+  "backward_calls": 6820,
+  "best_checkpoint": "seed193\\top11\\best_model.pt",
+  "best_checkpoint_sha256": "bbaf0c36a818490ddddd40e31ade67de9259443cbde4122a011c36dd5060db2c",
+  "training_from_scratch": true,
+  "historical_checkpoint_loaded": false,
+  "optimizer_initial_state_empty": true,
+  "training_seconds": 407.6324135000468,
+  "max_epochs": 450,
+  "patience": 40
+}

@@ -1,0 +1,5 @@
+cohort,feature_mode,seeds,RMSE_V,MAE_V,R2,aggregation,evaluation
+Seed202_gate,top10,202,0.028465966513884597,0.0066854662587526982,0.97845199437845642,equal per-seed metric mean; no ensemble,"new 70:10:20 chronological holdout; historically exposed, not blind independent Test"
+Seed202_gate,top11,202,0.044439575397451282,0.010741264152912152,0.94748359202938393,equal per-seed metric mean; no ensemble,"new 70:10:20 chronological holdout; historically exposed, not blind independent Test"
+six_seed_all,top10,"42,103,193,202,210,212",0.042606452148571082,0.012301380893918188,0.95067474657484219,equal per-seed metric mean; no ensemble,"new 70:10:20 chronological holdout; historically exposed, not blind independent Test"
+six_seed_all,top11,"42,103,193,202,210,212",0.045429591365142637,0.014390149580324247,0.94389058311004004,equal per-seed metric mean; no ensemble,"new 70:10:20 chronological holdout; historically exposed, not blind independent Test"

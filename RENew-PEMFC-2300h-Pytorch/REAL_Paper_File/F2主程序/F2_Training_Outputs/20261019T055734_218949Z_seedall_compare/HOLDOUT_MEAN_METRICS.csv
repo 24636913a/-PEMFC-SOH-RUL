@@ -1,0 +1,3 @@
+feature_mode,seeds,RMSE_V,MAE_V,R2,aggregation,evaluation
+top10,"42,103,193,202,210,212",0.042606452148571082,0.012301380893918188,0.95067474657484219,equal per-seed metric mean; no ensemble,"new 70:10:20 chronological holdout; historically exposed, not blind independent Test"
+top11,"42,103,193,202,210,212",0.045429591365142637,0.014390149580324247,0.94389058311004004,equal per-seed metric mean; no ensemble,"new 70:10:20 chronological holdout; historically exposed, not blind independent Test"

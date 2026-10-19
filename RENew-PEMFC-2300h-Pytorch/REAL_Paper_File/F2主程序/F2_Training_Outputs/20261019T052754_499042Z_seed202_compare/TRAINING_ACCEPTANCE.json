@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "run_id": "20261019T052754_499042Z_seed202_compare",
+  "seeds": [
+    202
+  ],
+  "feature_modes": [
+    "top10",
+    "top11"
+  ],
+  "fresh_models": 2,
+  "total_optimizer_steps": 25410,
+  "total_backward_calls": 25410,
+  "trained_from_scratch": true,
+  "historical_checkpoint_loaded": false,
+  "same_split_and_metric": true,
+  "model_architecture_unchanged": true,
+  "averages": [
+    {
+      "feature_mode": "top10",
+      "seeds": "202",
+      "RMSE_V": 0.028465966513884597,
+      "MAE_V": 0.006685466258752698,
+      "R2": 0.9784519943784564,
+      "aggregation": "equal per-seed metric mean; no ensemble",
+      "evaluation": "new 70:10:20 chronological holdout; historically exposed, not blind independent Test"
+    },
+    {
+      "feature_mode": "top11",
+      "seeds": "202",
+      "RMSE_V": 0.04443957539745128,
+      "MAE_V": 0.010741264152912152,
+      "R2": 0.9474835920293839,
+      "aggregation": "equal per-seed metric mean; no ensemble",
+      "evaluation": "new 70:10:20 chronological holdout; historically exposed, not blind independent Test"
+    }
+  ],
+  "differences": [
+    {
+      "seed": "202",
+      "RMSE_V_top11_minus_top10": 0.015973608883566685,
+      "MAE_V_top11_minus_top10": 0.004055797894159454,
+      "R2_top11_minus_top10": -0.0309684023490725
+    },
+    {
+      "seed": "mean",
+      "RMSE_V_top11_minus_top10": 0.015973608883566685,
+      "MAE_V_top11_minus_top10": 0.004055797894159454,
+      "R2_top11_minus_top10": -0.0309684023490725
+    }
+  ],
+  "historical_results_overwritten": false
+}

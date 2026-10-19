@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "base_commit": "84d40e701c458081882f3b31db87fb69325e90d0",
+  "program_sha256": "3dbdc602eb2229a54ee7d5eaa841a6dd94798e8227dbfc6f60db1e78f66419de",
+  "python": "D:\\ruanjian\\python3.11.9\\python.exe",
+  "max_epochs": 450,
+  "patience": 40,
+  "expected_total_fresh_trainings": 14,
+  "cohorts": [
+    {
+      "cohort": 202,
+      "run": "F2_Training_Outputs/20261019T052754_499042Z_seed202_compare",
+      "notebook": "Seed202_fresh.executed.ipynb",
+      "displayed_PNG": 11,
+      "real_loss_curve_refreshes": 47,
+      "verification": {
+        "status": "PASS",
+        "seeds": [
+          202
+        ],
+        "fresh_models": 2,
+        "optimizer_steps": 25410,
+        "new_best_checkpoint_replay_exact": true,
+        "initializations_and_sampler_paired": true,
+        "history_and_best_epoch_recomputed": true,
+        "metrics_independently_recomputed": true
+      }
+    },
+    {
+      "cohort": "all",
+      "run": "F2_Training_Outputs/20261019T055734_218949Z_seedall_compare",
+      "notebook": "All_fresh.executed.ipynb",
+      "displayed_PNG": 51,
+      "real_loss_curve_refreshes": 169,
+      "verification": {
+        "status": "PASS",
+        "seeds": [
+          42,
+          103,
+          193,
+          202,
+          210,
+          212
+        ],
+        "fresh_models": 12,
+        "optimizer_steps": 89430,
+        "new_best_checkpoint_replay_exact": true,
+        "initializations_and_sampler_paired": true,
+        "history_and_best_epoch_recomputed": true,
+        "metrics_independently_recomputed": true
+      }
+    }
+  ],
+  "all_started_after_seed202_pass": true,
+  "no_historical_checkpoints": true,
+  "VSCode_GUI_clicked": false,
+  "display_evidence": "real ipykernel display_data/update_display_data",
+  "last_progress": {
+    "cohort": "all",
+    "cell": 8,
+    "text": "本次训练及评价全部完成，输出：E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\F2_Training_Outputs\\20261019T055734_218949Z_seedall_compare\n"
+  },
+  "historical_files_unchanged": 60831,
+  "unused_large_files_stat_unchanged": 0,
+  "actual_fresh_trainings": 14,
+  "no_deletion_or_archival": true,
+  "finished_utc": "2026-10-19T07:30:04Z"
+}

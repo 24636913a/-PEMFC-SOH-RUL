@@ -1,0 +1,9 @@
+check,result,evidence
+Workspace configured before PyTorch/CUDA,PASS,:4096:8
+Strict deterministic algorithms / warn_only=False,PASS,ENVIRONMENT.json
+Original model / initialization / Train+Validation inputs,PASS,SHA256 exact matches
+First batch forward,PASS,Failure phase is backward
+Strict CUDA backward,NOT_QUALIFIED,upsample_linear1d_backward_out_cuda
+Two-repeat loss/gradient/weight comparison,NA,Stopped on first unsupported operation
+Speed overhead,NA,"No complete strict update, no benchmark"
+Formal program applicability,NOT_QUALIFIED,Would fail on first training batch

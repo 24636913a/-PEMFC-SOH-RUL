@@ -1,0 +1,257 @@
+{
+  "workspace": ":4096:8",
+  "cuda_uninitialized_after_import": true,
+  "strict": true,
+  "warn_only": false,
+  "optimizer_constructed": false,
+  "optimizer_updates": 0,
+  "matched_initialization": true,
+  "interpolation_modules": [
+    {
+      "module": "encoder_variable_selection.flattened_grn.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 15,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_00.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_01.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_02.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_03.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_04.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_05.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_06.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_07.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_08.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_09.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_10.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_11.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_12.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.raw_f2_13.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "encoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    },
+    {
+      "module": "decoder_variable_selection.single_variable_grns.relative_forecast_step.resample_norm.resample",
+      "class_name": "TimeDistributedInterpolation",
+      "output_size": 64,
+      "source_file": "C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py",
+      "function_first_line": 52,
+      "interpolate_call_lines": [
+        55,
+        60
+      ],
+      "source_file_sha256": "9ef892c565f6891ddf6d21c52c4d7f90393ec731924851aee872468cffe2cf9e"
+    }
+  ],
+  "indices": [
+    1386,
+    648,
+    1334,
+    1230,
+    597,
+    574,
+    1052,
+    622,
+    1197,
+    862,
+    254,
+    736,
+    992,
+    1331,
+    1575,
+    848,
+    418,
+    382,
+    538,
+    616,
+    1125,
+    1523,
+    894,
+    1505,
+    531,
+    912,
+    1301,
+    1195,
+    473,
+    1665,
+    1551,
+    183
+  ],
+  "status": "EXPECTED_UNSUPPORTED_BACKWARD_LOCATED",
+  "error": "upsample_linear1d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\F2_Deterministic_Validation\\locate_operator.py\", line 74, in <module>\n    loss.backward()\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\_tensor.py\", line 626, in backward\n    torch.autograd.backward(\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\autograd\\__init__.py\", line 347, in backward\n    _engine_run_backward(\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\autograd\\graph.py\", line 823, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: upsample_linear1d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.\n",
+  "anomaly_warnings": [
+    "Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.",
+    "Error detected in UpsampleLinear1DBackward0. Traceback of forward call that caused the error:\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\F2_Deterministic_Validation\\locate_operator.py\", line 72, in <module>\n    prediction=model.predict_delta(xb.cuda())\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\F2_Train_Interactive.py\", line 306, in predict_delta\n    return self.forward_history(x_history_scaled)[\"prediction\"].squeeze(-1)\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\F2_Train_Interactive.py\", line 299, in forward_history\n    out = self.forward(self.build_input(x_history_scaled))\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\F2_Train_Interactive.py\", line 479, in forward\n    self.decoder_variable_selection(\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py\", line 390, in forward\n    outputs = self.single_variable_grns[name](\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py\", line 269, in forward\n    residual = self.resample_norm(residual)\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py\", line 141, in forward\n    x = self.resample(x)\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py\", line 76, in forward\n    y = self.interpolate(x_reshape)\n  File \"C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\temporal_fusion_transformer\\sub_modules.py\", line 60, in interpolate\n    upsampled = F.interpolate(\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\functional.py\", line 4672, in interpolate\n    return torch._C._nn.upsample_linear1d(\n (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\torch\\csrc\\autograd\\python_anomaly_mode.cpp:127.)"
+  ],
+  "weights_unchanged": true
+}

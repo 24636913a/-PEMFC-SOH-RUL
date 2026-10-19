@@ -3,6 +3,8 @@
 Run: python -B -m unittest discover -s tests -p test_f2_main_output.py
 """
 import ast
+from contextlib import redirect_stderr
+import io
 import importlib.util
 from pathlib import Path
 import subprocess
@@ -17,7 +19,7 @@ SPEC = importlib.util.spec_from_file_location('f2_main_output_tested', ROOT / 'R
 MAIN = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = MAIN
 SPEC.loader.exec_module(MAIN)
-BASE = '7a78031ff59a153ce29190553de287d65e388f2b'
+BASE = 'b660d8af5e2e9a7734a5b0fa6292c5244a967864'
 
 
 def synthetic_predictions():
@@ -44,7 +46,7 @@ class F2OutputTests(unittest.TestCase):
                     if isinstance(node, (ast.ClassDef, ast.FunctionDef))}
         previous, current = definitions(old), definitions(new)
         # Every original definition except presentation/CLI and its import whitelist stays exact.
-        excluded = {'plot_outputs', 'main', 'integration_self_checks'}
+        excluded = {'initialize_f2', 'historical_checkpoint', 'load_checkpoint', 'predict_partitions', 'main'}
         for name in previous.keys() - excluded:
             with self.subTest(name=name):
                 self.assertEqual(previous[name], current[name])
@@ -79,13 +81,13 @@ class F2OutputTests(unittest.TestCase):
     def test_summary_does_not_mix_partitions(self):
         rows = [dict(seed=seed, partition=partition, RMSE_mV=value, MAE_mV=value / 2,
                      R2=.9, queries=4920, scientific_status='reused_validation')
-                for seed, value in [(42, 6.), (52, 7.), (62, 8.)]
+                for seed, value in zip(MAIN.SUPPORTED_SEEDS, [5., 6., 7., 8., 9., 10.])
                 for partition in MAIN.PARTITIONS]
         for row in rows:
             if row['partition'] != 'VALIDATION': row['RMSE_mV'] = 999.
-        summary = MAIN.evaluation_summary(rows, 'VALIDATION', [42, 52, 62])
-        self.assertEqual(summary['RMSE_V'], .007)
-        self.assertEqual(summary['queries_per_seed'], [4920, 4920, 4920])
+        summary = MAIN.evaluation_summary(rows, 'VALIDATION', list(MAIN.SUPPORTED_SEEDS))
+        self.assertEqual(summary['RMSE_V'], .0075)
+        self.assertEqual(summary['queries_per_seed'], [4920] * 6)
         self.assertIn('no ensemble', summary['aggregation'])
 
     def test_mixed_partition_plot_rejected(self):
@@ -97,6 +99,30 @@ class F2OutputTests(unittest.TestCase):
     def test_missing_summary_seed_rejected(self):
         with self.assertRaisesRegex(RuntimeError, 'SEED_OR_PARTITION_MISMATCH'):
             MAIN.evaluation_summary([], 'VALIDATION', [42])
+
+    def test_supported_cli_and_default(self):
+        self.assertEqual(MAIN.SUPPORTED_SEEDS, (42, 103, 193, 202, 210, 212))
+        self.assertEqual(MAIN.parse_arguments([]).seed, '42')
+        for seed in [*map(str, MAIN.SUPPORTED_SEEDS), 'all']:
+            self.assertEqual(MAIN.parse_arguments(['--seed', seed]).seed, seed)
+
+    def test_legacy_seeds_rejected_during_parsing(self):
+        for seed in ['52', '62']:
+            error = io.StringIO()
+            with self.subTest(seed=seed), redirect_stderr(error), self.assertRaises(SystemExit) as failure:
+                MAIN.parse_arguments(['--seed', seed])
+            self.assertEqual(failure.exception.code, 2)
+            self.assertIn('invalid choice', error.getvalue())
+
+    def test_six_asset_identities(self):
+        for seed in MAIN.SUPPORTED_SEEDS:
+            row = MAIN.historical_checkpoint(seed)
+            self.assertEqual(row.seed, seed)
+            self.assertGreater(row.best_epoch, 0)
+            self.assertEqual(len(row.checkpoint_sha256), 64)
+            reference = MAIN.read_csv(MAIN.ROOT.parent / row.reference_prediction)
+            self.assertEqual(len(reference), 4920)
+            self.assertEqual(reference.origin_row.nunique(), 205)
 
 
 if __name__ == '__main__':

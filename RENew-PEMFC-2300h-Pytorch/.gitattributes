@@ -1,0 +1,5 @@
+# Keep the seed map and recorded byte identities stable on Windows checkout.
+/RealHyFC_F2_Main.py text eol=lf
+/RealHyFC_F2_Main_Seed_Assets.json -text whitespace=cr-at-eol
+/RealHyFC_F2_Main_Outputs/20261019T*_F2_evaluate_seed*/** -text
+/RealHyFC_F2_Main_Outputs/SIX_SEED_* -text

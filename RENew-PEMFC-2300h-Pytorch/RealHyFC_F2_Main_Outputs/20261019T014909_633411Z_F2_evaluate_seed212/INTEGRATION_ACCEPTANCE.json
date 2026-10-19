@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "mode": "evaluate",
+  "self_checks": {
+    "model_classes_AST_exact": true,
+    "model_class_count": 6,
+    "no_project_Python_imports": true,
+    "relative_coordinate_only_decoder": true,
+    "causal_EWMA": true,
+    "synthetic_window_causality": true,
+    "no_training_executed_by_self_checks": true
+  },
+  "windows": [
+    {
+      "partition": "TRAIN",
+      "records": 2103,
+      "origins": 1380,
+      "queries": 33120,
+      "unique_targets": 1587,
+      "origins_sha256": "cb4f456a83143f094b25341c5e138b4c463bbac41575f500376724b58e7ee5e2",
+      "targets_sha256": "838e6642678f6fc1b0edfd84d53bb84e780fda9b39aef0b503aca6aebd6f9498",
+      "x_raw_sha256": "badf4ef92a51324c6f4c6d42eaaa0b8716c997c4aa3b7d3e86905d7aeaf1009a",
+      "y_sha256": "3719271f77e3f2d8fe40e7ac043b268545bcabf78315b5251164c68cccc7ab62",
+      "exact": true
+    },
+    {
+      "partition": "VALIDATION",
+      "records": 301,
+      "origins": 205,
+      "queries": 4920,
+      "unique_targets": 251,
+      "origins_sha256": "94cb7c23616e47cdc631a45423aa7cf8c2013c8f72ea42fc8191678eef61f9ff",
+      "targets_sha256": "fc4b87a1ee076feb69e1fb348c8a7684933cbb0ed12dfac76048a25c1a162871",
+      "x_raw_sha256": "2f3e83bcfd8ad7eac1baf386d0d1652ea72bb301282be234eb96a2732e9833d0",
+      "y_sha256": "cd37780af64f32f526570464ba809c48f655d976572d68640dc6675be4a7d71a",
+      "exact": true
+    },
+    {
+      "partition": "HISTORICAL_ASSESSMENT",
+      "records": 601,
+      "origins": 378,
+      "queries": 9072,
+      "unique_targets": 447,
+      "origins_sha256": "8ddc820af627f0ff2d0ccbb63862daedb8158d43e34bdafa0c94e84ca30d1196",
+      "targets_sha256": "45cdd7e1bb693016bba142d3f12874ffb57c6fddbe8c6960a3b780a7c8e47f9e",
+      "x_raw_sha256": "c305a1cc0cd6e60d3f6f21a5182b384e5c60a44e8bc76ce9879caec6cb36ee6b",
+      "y_sha256": "ae4de6949d2f56b9def0634c3e7fc23de19500549e5f4fc3a4896a1e62b1c1d3",
+      "exact": true
+    },
+    {
+      "partition": "LATE_LIFE",
+      "records": 838,
+      "origins": 548,
+      "queries": 13152,
+      "unique_targets": 640,
+      "origins_sha256": "69d366ab18a63fb13deb11552290fa6cf11f16257b79d1b27e47aa877740723e",
+      "targets_sha256": "632ab3e1b1bdbb73e76f56f7a01783de8a6d6735a0712db92d4a3005a2dd530e",
+      "x_raw_sha256": "886fc2aa3fcea05cca1d5c690065335e0ba5a0bbb7fbfc06e55f0f2d8088dcc8",
+      "y_sha256": "17ece37dc54835730240ccec5a515244fcacf3561353a002258d626ad9d8d190",
+      "exact": true
+    }
+  ],
+  "seeds": [
+    {
+      "seed": 212,
+      "checkpoint": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\checkpoints\\F2_seed_212_best.pt",
+      "checkpoint_sha256": "20767e501a6013291ceca98b66d74df2f7d4b4d256cde9b24141a8917e7aa954",
+      "best_epoch": 306,
+      "training_history": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\training_logs\\seed_212\\epochs.csv",
+      "prediction_sha256": "94af87b405075522a6d8fcbe9a050a6e341aba5da92729bfecaae48fafce8cae",
+      "trainable_parameters": 332436,
+      "pointwise_exact": true,
+      "origins": 205,
+      "queries": 4920,
+      "max_prediction_difference_V": 0.0,
+      "reference": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_SCI_F2_Seed_Screening_Round2\\outputs\\predictions\\F2_seed_212.csv",
+      "reference_sha256": "94af87b405075522a6d8fcbe9a050a6e341aba5da92729bfecaae48fafce8cae",
+      "state_unchanged": true,
+      "state_sha256": "ce360bf9b246ce8ea95435f5bfd82e4a5934c22eae648f86661f60820b34e0d9",
+      "partition_reference_checks": {
+        "TRAIN": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "VALIDATION": "POINTWISE_EXACT_FROZEN_VALIDATION_CACHE",
+        "HISTORICAL_ASSESSMENT": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE",
+        "LATE_LIFE": "READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE"
+      },
+      "all_four_partitions_pointwise_exact": false,
+      "training_performed": false,
+      "optimizer_steps": 0
+    }
+  ],
+  "historical_results_modified": false,
+  "optuna_executed": false,
+  "new_training_executed": false,
+  "program_sha256": "64cde85cac939806641921083bcf2c2e5354ee2bcd19dc4315949459305660f9"
+}

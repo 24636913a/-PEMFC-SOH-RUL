@@ -48,6 +48,9 @@ SOURCE = ROOT / 'Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_f
 HISTORY = ROOT / 'Phase_H_Determinism_MultiSeed_Stability'
 FULL_EVALUATION = ROOT / 'Phase_SCI_RealHyFC_Full_Chronological_Evaluation'
 FROZEN_DATA = ROOT / 'Phase_SCI_F2_Seed_Screening_Round2/outputs/audits'
+SEED_ASSETS = ROOT / 'RealHyFC_F2_Main_Seed_Assets.json'
+SEED_ASSETS_SHA256 = '266215dcadf07fad0d6b73e6255626823537559b2b48cbafe3c5996c03acc187'
+SUPPORTED_SEEDS = (42, 103, 193, 202, 210, 212)
 HYPERPARAMETER_SOURCE = ROOT / 'Phase_TFT_Hyperparameter_Optimization_Restart/outputs/T1R_SELECTED_CONFIGURATIONS.json'
 OUTPUT_ROOT = ROOT / 'RealHyFC_F2_Main_Outputs'
 LOOKBACK, HORIZON, RESOLUTION_H = 48, 24, 0.5
@@ -700,8 +703,8 @@ def initialize_f2(seed: int, parameters: dict, device: torch.device) -> RegimeAw
                                   dropout=parameters['dropout']).to(device)
     count = sum(p.numel() for p in model.parameters() if p.requires_grad)
     require(count == 332436, 'F2_PARAMETER_COUNT_MISMATCH')
-    authority = read_json(HISTORY / 'outputs/audits/H_INITIALIZATION_AUTHORITY.json')
-    require(state_sha256(model) == authority['initialization_sha256'][str(seed)]['F2'],
+    authority = frozen_seed_asset(seed)
+    require(state_sha256(model) == authority['initialization_sha256'],
             'ORIGINAL_F2_INITIALIZATION_MISMATCH')
     return model
 
@@ -781,13 +784,26 @@ def save_new_checkpoint(file: Path, model: nn.Module, seed: int, epoch: int,
             if delay is None: raise
             time.sleep(delay)
 
+def frozen_seed_asset(seed: int) -> dict:
+    """Explicit portable asset map, frozen from the actual six-candidate record."""
+    require(seed in SUPPORTED_SEEDS, 'UNSUPPORTED_F2_SEED')
+    require(sha256(SEED_ASSETS) == SEED_ASSETS_SHA256, 'F2_SEED_ASSET_MAP_SHA_MISMATCH')
+    inventory = read_json(SEED_ASSETS)
+    require(inventory['seeds'] == list(SUPPORTED_SEEDS) and
+            [row['seed'] for row in inventory['models']] == list(SUPPORTED_SEEDS), 'F2_SEED_ORDER_MISMATCH')
+    require(sha256(ROOT.parent / inventory['authority']) == inventory['authority_sha256'],
+            'F2_SIX_CANDIDATE_AUTHORITY_SHA_MISMATCH')
+    return next(row for row in inventory['models'] if row['seed'] == seed)
+
+
 def historical_checkpoint(seed: int) -> pd.Series:
-    inventory = read_csv(FULL_EVALUATION / 'outputs/audits/CHECKPOINT_INVENTORY.csv')
-    rows = inventory.loc[(inventory.model == 'F2') & (inventory.seed == seed)]
-    require(len(rows) == 1, 'F2_HISTORICAL_CHECKPOINT_AMBIGUOUS')
-    row = rows.iloc[0]
+    row = pd.Series(frozen_seed_asset(seed))
     require(sha256(ROOT.parent / row.checkpoint) == row.checkpoint_sha256, 'F2_CHECKPOINT_SHA_MISMATCH')
     require(sha256(ROOT.parent / row.reference_prediction) == row.prediction_sha256, 'F2_REFERENCE_PREDICTION_SHA_MISMATCH')
+    require(sha256(ROOT.parent / row.training_history) == row.training_history_sha256,
+            'F2_TRAINING_HISTORY_SHA_MISMATCH')
+    require(sha256(ROOT.parent / row.protocol_source) == row.historical_protocol_sha256,
+            'F2_HISTORICAL_PROTOCOL_SHA_MISMATCH')
     return row
 
 def load_checkpoint(model: nn.Module, file: Path, scaler: TrainOnlyScaler,
@@ -798,6 +814,12 @@ def load_checkpoint(model: nn.Module, file: Path, scaler: TrainOnlyScaler,
     if historical_row is not None:
         require(checkpoint['protocol_sha256'] == historical_row.historical_protocol_sha256,
                 'F2_CHECKPOINT_PROTOCOL_MISMATCH')
+        require(checkpoint['best_epoch'] == historical_row.best_epoch, 'F2_BEST_EPOCH_MISMATCH')
+        require(checkpoint['initialization_sha256'] == historical_row.initialization_sha256,
+                'F2_CHECKPOINT_INITIALIZATION_MISMATCH')
+        require(checkpoint['input_fingerprints'] == historical_row.input_fingerprints and
+                checkpoint['input_fingerprints'] == read_json(FROZEN_DATA / 'DATA_FINGERPRINTS.json'),
+                'F2_CHECKPOINT_INPUT_FINGERPRINT_MISMATCH')
     model.load_state_dict(checkpoint['state_dict'], strict=True); model.eval()
     require(set(model.state_dict()) == set(checkpoint['state_dict']), 'STATE_DICT_KEYS_MISMATCH')
     return checkpoint
@@ -857,18 +879,25 @@ def predict_partitions(model: nn.Module, seed: int, windows: dict[str, Windows],
     for name in ['TRAIN', 'HISTORICAL_ASSESSMENT', 'LATE_LIFE']:
         delta = predict_standardized(model, prepared[name], parameters['batch_size'], device) * scaler.target_scale
         frames[name] = prediction_frame(name, seed, windows[name], delta)
+    reference_checks = {}
     for name in PARTITIONS:
         frame = frames[name]
-        if historical_row is not None:
+        if historical_row is not None and historical_row.full_domain_historical_reference_available:
             # Also independently require exact parity with the full-domain frozen results.
             old = read_csv(FULL_EVALUATION / f'outputs/predictions/{name}_F2_seed{seed}.csv')
             for key in ['origin_row', 'target_row', 'horizon_step', 'y_true_delta_V', 'y_pred_delta_V',
                         'origin_raw_voltage_V', 'predicted_voltage_V']:
                 require(np.array_equal(frame[key], old[key]), 'FULL_PARTITION_PARITY_MISMATCH:' + name + ':' + key)
+            reference_checks[name] = 'POINTWISE_EXACT_FULL_DOMAIN_CACHE'
+        elif historical_row is not None:
+            reference_checks[name] = ('POINTWISE_EXACT_FROZEN_VALIDATION_CACHE' if name == 'VALIDATION' else
+                                     'READ_ONLY_INFERENCE_NO_HISTORICAL_FULL_DOMAIN_CACHE')
         save_csv(run, f'seed{seed}/predictions/{name}.csv', frame)
     require(before == state_sha256(model), 'MODEL_PARAMETERS_CHANGED_DURING_INFERENCE')
     return frames, dict(**parity, state_unchanged=True, state_sha256=before,
-                        all_four_partitions_pointwise_exact=historical_row is not None)
+                        partition_reference_checks=reference_checks,
+                        all_four_partitions_pointwise_exact=historical_row is not None and
+                            bool(historical_row.full_domain_historical_reference_available))
 
 
 # 11. RMSE、MAE、R²计算
@@ -1030,18 +1059,23 @@ def integration_self_checks() -> dict:
                 no_project_Python_imports=True, relative_coordinate_only_decoder=True,
                 causal_EWMA=True, synthetic_window_causality=True, no_training_executed_by_self_checks=True)
 
-def main() -> None:
-    # Windows redirected GBK consoles cannot encode the FC2-style superscript 2.
-    if hasattr(sys.stdout, 'reconfigure'): sys.stdout.reconfigure(encoding='utf-8')
+def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description='Frozen RealHyFC F2 single-file training/evaluation; default evaluate.')
     parser.add_argument('--mode', choices=['evaluate', 'train'], default='evaluate')
-    parser.add_argument('--seed', choices=['42', '52', '62', 'all'], default='42')
+    parser.add_argument('--seed', choices=[*(str(seed) for seed in SUPPORTED_SEEDS), 'all'], default='42')
     parser.add_argument('--device', choices=['cuda'], default='cuda')
     parser.add_argument('--partition', choices=list(PARTITIONS[1:]), default=DEFAULT_EVALUATION_PARTITION,
                         help='One displayed/plotted evaluation partition; all partition results stay in files.')
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     if args.mode == 'train' and args.seed == 'all': parser.error('Train mode requires one seed; no automatic search.')
-    seeds = [42, 52, 62] if args.seed == 'all' else [int(args.seed)]
+    return args
+
+
+def main() -> None:
+    # Windows redirected GBK consoles cannot encode the FC2-style superscript 2.
+    if hasattr(sys.stdout, 'reconfigure'): sys.stdout.reconfigure(encoding='utf-8')
+    args = parse_arguments()
+    seeds = list(SUPPORTED_SEEDS) if args.seed == 'all' else [int(args.seed)]
     run = OUTPUT_ROOT / (datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S_%fZ') + f'_F2_{args.mode}_seed{args.seed}')
     run.mkdir(parents=True, exist_ok=False)
     try:
@@ -1054,6 +1088,9 @@ def main() -> None:
         scaler, prepared, scores = preprocess_frozen(windows)
         provenance = load_historical_hyperparameters(); parameters = provenance['parameters']
         save_json(run, 'FROZEN_RUN_CONFIGURATION.json', dict(mode=args.mode, seeds=seeds,
+                  supported_seeds=list(SUPPORTED_SEEDS), seed_assets_sha256=sha256(SEED_ASSETS),
+                  selected_seed_assets=[frozen_seed_asset(seed) for seed in seeds],
+                  seed_population='Validation-selected instances; not unbiased random-seed population',
                   displayed_evaluation_partition=args.partition, formal_metric_horizons=list(range(1, HORIZON + 1)),
                   plot_rule=dict(fixed_horizon_step=PLOT_HORIZON_STEP, gap_handling='break line; no interpolation',
                                  selection='all legal origins; no error-based selection'),
@@ -1071,7 +1108,7 @@ def main() -> None:
             if args.mode == 'evaluate':
                 row = historical_checkpoint(seed); file = ROOT.parent / row.checkpoint
                 checkpoint = load_checkpoint(model, file, scaler, seed, row)
-                history_file = HISTORY / f'outputs/training_logs/H-F2-Seed{seed}/epochs.csv'
+                history_file = ROOT.parent / row.training_history
                 history = read_csv(history_file); training = dict(training_performed=False, optimizer_steps=0)
             else:
                 row = None
@@ -1088,6 +1125,8 @@ def main() -> None:
             save_result_bundle(run, seed, file, scaler, provenance, frames[args.partition])
             plot_outputs(run, seed, frames, history, checkpoint['best_epoch'], args.mode, args.partition)
             audits.append(dict(seed=seed, checkpoint=str(file), checkpoint_sha256=before_file,
+                               best_epoch=checkpoint['best_epoch'], training_history=str(history_file) if row is not None else None,
+                               prediction_sha256=row.prediction_sha256 if row is not None else None,
                                trainable_parameters=332436, **parity, **training))
             del model, checkpoint; torch.cuda.empty_cache()
         save_csv(run, 'F2_PARTITION_METRICS.csv', results)

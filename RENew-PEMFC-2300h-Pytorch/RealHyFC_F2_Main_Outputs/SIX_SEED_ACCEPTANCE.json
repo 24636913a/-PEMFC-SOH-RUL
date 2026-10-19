@@ -1,0 +1,299 @@
+{
+  "status": "PASS",
+  "seeds": [
+    42,
+    103,
+    193,
+    202,
+    210,
+    212
+  ],
+  "commands": [
+    {
+      "run": "20261019T014817_585034Z_F2_evaluate_seed42",
+      "seeds": [
+        42
+      ],
+      "status": "PASS",
+      "validation_queries_per_seed": 4920
+    },
+    {
+      "run": "20261019T014827_921330Z_F2_evaluate_seed103",
+      "seeds": [
+        103
+      ],
+      "status": "PASS",
+      "validation_queries_per_seed": 4920
+    },
+    {
+      "run": "20261019T014838_063704Z_F2_evaluate_seed193",
+      "seeds": [
+        193
+      ],
+      "status": "PASS",
+      "validation_queries_per_seed": 4920
+    },
+    {
+      "run": "20261019T014848_401237Z_F2_evaluate_seed202",
+      "seeds": [
+        202
+      ],
+      "status": "PASS",
+      "validation_queries_per_seed": 4920
+    },
+    {
+      "run": "20261019T014859_002173Z_F2_evaluate_seed210",
+      "seeds": [
+        210
+      ],
+      "status": "PASS",
+      "validation_queries_per_seed": 4920
+    },
+    {
+      "run": "20261019T014909_633411Z_F2_evaluate_seed212",
+      "seeds": [
+        212
+      ],
+      "status": "PASS",
+      "validation_queries_per_seed": 4920
+    },
+    {
+      "run": "20261019T014919_849759Z_F2_evaluate_seedall",
+      "seeds": [
+        42,
+        103,
+        193,
+        202,
+        210,
+        212
+      ],
+      "status": "PASS",
+      "validation_queries_per_seed": 4920
+    }
+  ],
+  "unit_tests": 10,
+  "validation_predictions_bit_exact": true,
+  "single_vs_all_predictions_bit_exact": true,
+  "arithmetic_mean_no_ensemble": true,
+  "legacy_seeds_rejected": true,
+  "historical_files_unchanged": 201,
+  "no_training": true,
+  "historical_summary_reduction_precision": [
+    {
+      "seed": 42,
+      "metric": "RMSE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 42,
+      "metric": "MAE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 42,
+      "metric": "R2",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 103,
+      "metric": "RMSE_mV",
+      "difference": 8.881784197001252e-16,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 103,
+      "metric": "MAE_mV",
+      "difference": 4.440892098500626e-16,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 103,
+      "metric": "R2",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 193,
+      "metric": "RMSE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 193,
+      "metric": "MAE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 193,
+      "metric": "R2",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 202,
+      "metric": "RMSE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 202,
+      "metric": "MAE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 202,
+      "metric": "R2",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 210,
+      "metric": "RMSE_mV",
+      "difference": 8.881784197001252e-16,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 210,
+      "metric": "MAE_mV",
+      "difference": 8.881784197001252e-16,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 210,
+      "metric": "R2",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 212,
+      "metric": "RMSE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 212,
+      "metric": "MAE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 212,
+      "metric": "R2",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 42,
+      "metric": "RMSE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 42,
+      "metric": "MAE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 42,
+      "metric": "R2",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 103,
+      "metric": "RMSE_mV",
+      "difference": 8.881784197001252e-16,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 103,
+      "metric": "MAE_mV",
+      "difference": 4.440892098500626e-16,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 103,
+      "metric": "R2",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 193,
+      "metric": "RMSE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 193,
+      "metric": "MAE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 193,
+      "metric": "R2",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 202,
+      "metric": "RMSE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 202,
+      "metric": "MAE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 202,
+      "metric": "R2",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 210,
+      "metric": "RMSE_mV",
+      "difference": 8.881784197001252e-16,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 210,
+      "metric": "MAE_mV",
+      "difference": 8.881784197001252e-16,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 210,
+      "metric": "R2",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 212,
+      "metric": "RMSE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 212,
+      "metric": "MAE_mV",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    },
+    {
+      "seed": 212,
+      "metric": "R2",
+      "difference": 0.0,
+      "explanation": "same exact predictions; floating reduction order only"
+    }
+  ]
+}

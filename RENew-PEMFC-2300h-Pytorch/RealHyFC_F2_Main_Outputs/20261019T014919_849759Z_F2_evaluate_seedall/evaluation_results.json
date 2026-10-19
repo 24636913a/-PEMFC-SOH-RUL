@@ -1,0 +1,26 @@
+{
+  "model": "F2",
+  "partition": "VALIDATION",
+  "seeds": [
+    42,
+    103,
+    193,
+    202,
+    210,
+    212
+  ],
+  "aggregation": "equal mean of per-seed metrics; no ensemble",
+  "RMSE_V": 0.005066050160121938,
+  "MAE_V": 0.003849100869317956,
+  "R2": 0.9993076046539393,
+  "R2_target": "raw DeltaV; historical definition, not absolute-voltage R2",
+  "queries_per_seed": [
+    4920,
+    4920,
+    4920,
+    4920,
+    4920,
+    4920
+  ],
+  "scientific_status": "reused_validation"
+}

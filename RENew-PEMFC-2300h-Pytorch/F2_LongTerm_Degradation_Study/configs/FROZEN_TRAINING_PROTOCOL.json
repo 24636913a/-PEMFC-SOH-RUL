@@ -1,0 +1,29 @@
+{
+  "target": "B: TRAIN-OLS condition-adjusted causal trailing-48-bin voltage mean; exploratory performance proxy, not verified irreversible aging or SOH",
+  "history_steps": 48,
+  "horizons_steps": [48, 96],
+  "horizons_hours": [24, 48],
+  "main_horizon_hours": 48,
+  "longer_horizons": "96h: only 2 Validation origins and 1 disjoint trajectory, NOT QUALIFIED. 168h/336h: no legal origins. No boundary changes.",
+  "history_choice": "48 steps fixed after metadata-only P0, maximizes support at both qualified horizons. 96/192-step histories audited but not outcome-searched.",
+  "input": "Original 14 Raw F2 slots, same fixed Top10 mask [0,3,13,11,4,9,6,7,10,8]; only historical data. Raw voltage EWMA alpha .3 independently within each input history. Both models receive exactly the same prepared tensor.",
+  "target_formula": "y(t,h) = B(t+h)-B(t); train target normalization = TRAIN y standard deviation (no mean subtraction); predicted absolute proxy = B(t)+predicted delta",
+  "target_reference": "B(t) is observed causal at origin, used only for target/restoration, equally for LSTM and F2. No actual future covariates enter either predictor. Future measured conditions used only to define eventual observed B label using already-frozen TRAIN OLS.",
+  "feature_scaler": "Mean/std over legal TRAIN histories only, before EWMA; zero scale replaced by one. Identical scaler for both models at a given horizon.",
+  "F2": "Native RegimeAwareDualPathTFT, convex fusion; all learned architecture unchanged. Only build_input/forward_history decoder length and relative coordinate denominator changed from 24 to HORIZON. Encoder remains 48, parameter count332436. No residual/LR modifications.",
+  "LSTM": "Independent single-layer LSTM input14 hidden64, last hidden -> linear HORIZON. No attention, convolution, internal dropout (single layer); head has no dropout. Capacity differences reported.",
+  "hyperparameters": {"learning_rate": 0.0009605449687795866, "dropout_F2": 0.1, "weight_decay": 0.00000695942232671908, "batch_size": 32, "max_epochs": 450, "patience": 40, "min_delta_standardized_MSE": 1e-12, "gradient_clip_norm": 1.0, "optimizer": "AdamW", "loss": "ordinary MSE"},
+  "pilot": {
+    "seed": 202,
+    "models": ["LSTM", "F2"],
+    "runs": 4,
+    "max_optimizer_epochs": 1800,
+    "success_per_model_per_horizon": "Validation query-weighted delta RMSE and MAE at least 5% below zero-delta persistence, delta R2>0, terminal-step RMSE no worse than persistence; finite gradients and actual parameter updates required.",
+    "expansion_gate": "Proceed only if BOTH models meet all pilot success tests at main48h. If either fails, no six-seed comparison. This conservative gate avoids expanding an unlearned/asymmetric comparison; all pilot outcomes retained. No target or hyperparameter revision in this run."
+  },
+  "conditional_formal": {"seeds": [42,103,193,202,210,212], "runs": 24, "fresh_initialization": true, "pilot_is_not_formal": true, "max_optimizer_epochs":10800},
+  "cuda": "ordinary cuDNN deterministic=True benchmark=False, matmulTF32=False cudnnTF32=True, strict deterministic algorithms=False; native interpolation backward prevents strict mode, bitwise repeats not promised",
+  "metrics": "float64 RMSE/MAE/R2 on delta proxy, mV. Also absolute proxy R2 separately; all queries + unique target-time-equal MSE + terminal lead + P95/P99/max. No overlap interpreted as independent replication.",
+  "holdout": "Do not read outcome rows >=3074 during pilot/selection. Only after eligible final24 weights frozen: one described exploratory evaluation with frozen labels/scalers. If pilot expansion gate fails, no holdout evaluation.",
+  "stop": "No hyperparameter search, no Top11, no retry for a better score, no boundary change, no automatic new Phase or RUL model. A runtime failure is retained and blocks expansion until an engineering cause is resolved without changing mathematics."
+}

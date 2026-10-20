@@ -1,0 +1,40 @@
+Start fresh LSTM, seed 202, horizon 24h, 23600 parameters
+LSTM seed202 24h epoch1 train=1.237392 val=0.7217532 best=1 patience=0
+LSTM seed202 24h epoch10 train=0.416683 val=0.4564237 best=8 patience=2
+LSTM seed202 24h epoch20 train=0.3232154 val=0.2906621 best=12 patience=8
+LSTM seed202 24h epoch30 train=0.2920156 val=0.1861495 best=30 patience=0
+LSTM seed202 24h epoch40 train=0.2403334 val=0.5657568 best=30 patience=10
+LSTM seed202 24h epoch50 train=0.2168246 val=0.3059806 best=30 patience=20
+LSTM seed202 24h epoch60 train=0.2364681 val=0.4725046 best=30 patience=30
+LSTM seed202 24h epoch70 train=0.1960677 val=0.3816816 best=30 patience=40
+Start fresh F2, seed 202, horizon 24h, 332436 parameters
+F2 seed202 24h epoch1 train=0.9217974 val=0.7724738 best=1 patience=0
+F2 seed202 24h epoch10 train=0.3301181 val=0.4254352 best=8 patience=2
+F2 seed202 24h epoch20 train=0.171565 val=0.4541754 best=8 patience=12
+F2 seed202 24h epoch30 train=0.08780972 val=0.5071562 best=8 patience=22
+F2 seed202 24h epoch40 train=0.06087411 val=0.2739593 best=8 patience=32
+F2 seed202 24h epoch48 train=0.04713792 val=0.3240072 best=8 patience=40
+Start fresh LSTM, seed 202, horizon 48h, 26720 parameters
+LSTM seed202 48h epoch1 train=1.681208 val=0.6113358 best=1 patience=0
+LSTM seed202 48h epoch10 train=0.6839585 val=0.8330102 best=3 patience=7
+LSTM seed202 48h epoch20 train=0.2483766 val=0.4340206 best=20 patience=0
+LSTM seed202 48h epoch30 train=0.2052109 val=0.4235884 best=30 patience=0
+LSTM seed202 48h epoch40 train=0.1730576 val=0.9320859 best=38 patience=2
+LSTM seed202 48h epoch50 train=0.1777984 val=0.4455078 best=47 patience=3
+LSTM seed202 48h epoch60 train=0.1332809 val=0.2960545 best=47 patience=13
+LSTM seed202 48h epoch70 train=0.144997 val=0.6395736 best=47 patience=23
+LSTM seed202 48h epoch80 train=0.1005018 val=0.630436 best=73 patience=7
+LSTM seed202 48h epoch90 train=0.09895719 val=0.3592371 best=73 patience=17
+LSTM seed202 48h epoch100 train=0.1009075 val=0.3992263 best=73 patience=27
+LSTM seed202 48h epoch110 train=0.111063 val=0.3742168 best=73 patience=37
+LSTM seed202 48h epoch113 train=0.06939699 val=0.450432 best=73 patience=40
+Start fresh F2, seed 202, horizon 48h, 332436 parameters
+F2 seed202 48h epoch1 train=0.9001433 val=0.6550582 best=1 patience=0
+F2 seed202 48h epoch10 train=0.2514068 val=0.8247014 best=8 patience=2
+F2 seed202 48h epoch20 train=0.1462663 val=0.9500392 best=12 patience=8
+F2 seed202 48h epoch30 train=0.08174656 val=1.028029 best=12 patience=18
+F2 seed202 48h epoch40 train=0.04943422 val=1.278052 best=12 patience=28
+F2 seed202 48h epoch50 train=0.03547363 val=1.100198 best=12 patience=38
+F2 seed202 48h epoch52 train=0.03103609 val=1.062724 best=12 patience=40
+Pilot complete; expand_to_six_seeds = False
+E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\F2_LongTerm_Degradation_Study\outputs\20261020T145951_576774Z_pilot202

@@ -1,0 +1,38 @@
+Loading completed continuity qualification; no HOLDOUT outcome values
+Showing actual TRAIN + VALIDATION target diagnostics, not SOH labels
+READ-ONLY analysis of actual completed run: E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\F2_LongTerm_Degradation_Study\outputs\20261020T145951_576774Z_pilot202
+F2 202 24.0 h; best epoch 8
+F2 202 48.0 h; best epoch 12
+LSTM 202 24.0 h; best epoch 30
+LSTM 202 48.0 h; best epoch 73
+[31m---------------------------------------------------------------------------[39m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 4[39m
+[32m      2[39m     [38;5;28;01mfor[39;00m path [38;5;129;01min[39;00m [38;5;28msorted[39m((HERE/[33m'[39m[33mfigures[39m[33m'[39m).glob([33m'[39m[33m*.png[39m[33m'[39m)):
+[32m      3[39m         display(Image(filename=[38;5;28mstr[39m(path)))
+Traceback (most recent call last):
+[32m----> [39m[32m4[39m     display(Markdown([43m([49m[43mHERE[49m[43m/[49m[33;43m'[39;49m[33;43mreports/04_长期预测最终研究总结.md[39;49m[33;43m'[39;49m[43m)[49m[43m.[49m[43mread_text[49m[43m([49m[43mencoding[49m[43m=[49m[33;43m'[39;49m[33;43mutf-8[39;49m[33;43m'[39;49m[43m)[49m))
+[32m      5[39m [38;5;28;01melse[39;00m:
+[32m      6[39m     [38;5;28mprint[39m([33m'[39m[33mNew pilot complete. Preserve its run identity; independently verify before exporting new reports/figures.[39m[33m'[39m)
+
+[36mFile [39m[32mD:\ruanjian\python3.11.9\Lib\pathlib.py:1058[39m, in [36mPath.read_text[39m[34m(self, encoding, errors)[39m
+[32m   1054[39m [38;5;250m[39m[33;03m"""[39;00m
+[32m   1055[39m [33;03mOpen the file in text mode, read it, and close the file.[39;00m
+[32m   1056[39m [33;03m"""[39;00m
+[32m   1057[39m encoding = io.text_encoding(encoding)
+[32m-> [39m[32m1058[39m [38;5;28;01mwith[39;00m [38;5;28;43mself[39;49m[43m.[49m[43mopen[49m[43m([49m[43mmode[49m[43m=[49m[33;43m'[39;49m[33;43mr[39;49m[33;43m'[39;49m[43m,[49m[43m [49m[43mencoding[49m[43m=[49m[43mencoding[49m[43m,[49m[43m [49m[43merrors[49m[43m=[49m[43merrors[49m[43m)[49m [38;5;28;01mas[39;00m f:
+[32m   1059[39m     [38;5;28;01mreturn[39;00m f.read()
+
+[36mFile [39m[32mD:\ruanjian\python3.11.9\Lib\pathlib.py:1044[39m, in [36mPath.open[39m[34m(self, mode, buffering, encoding, errors, newline)[39m
+[32m   1042[39m [38;5;28;01mif[39;00m [33m"[39m[33mb[39m[33m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m mode:
+[32m   1043[39m     encoding = io.text_encoding(encoding)
+[32m-> [39m[32m1044[39m [38;5;28;01mreturn[39;00m io.open([38;5;28mself[39m, mode, buffering, encoding, errors, newline)
+
+[31mFileNotFoundError[39m: [Errno 2] No such file or directory: 'E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\F2_LongTerm_Degradation_Study\\reports\\04_长期预测最终研究总结.md'
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\F2_LongTerm_Degradation_Study\scripts\verify_interactive.py", line 29, in <module>
+    if __name__=='__main__':run()
+                            ^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\F2_LongTerm_Degradation_Study\scripts\verify_interactive.py", line 20, in run
+    assert result.success,result.error_in_exec or result.error_before_exec
+           ^^^^^^^^^^^^^^
+AssertionError: [Errno 2] No such file or directory: 'E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\F2_LongTerm_Degradation_Study\\reports\\04_长期预测最终研究总结.md'

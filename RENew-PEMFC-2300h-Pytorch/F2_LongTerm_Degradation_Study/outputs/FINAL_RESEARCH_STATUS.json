@@ -1,0 +1,23 @@
+{
+  "status": "LONG_TERM_PILOT_NOT_QUALIFIED_FOR_EXPANSION",
+  "trained_models": 4,
+  "epochs": 283,
+  "optimizer_steps": 10543,
+  "six_seed_training_executed": false,
+  "holdout_outcome_rows_read": 0,
+  "holdout_inference_executed": false,
+  "real_RUL_training_executed": false,
+  "completed_horizons_h": [
+    24,
+    48
+  ],
+  "rejected_horizons_h": [
+    96,
+    168,
+    336
+  ],
+  "results_scope": "Seed202 exploratory validation pilot only",
+  "GPU_training_failures": 0,
+  "metrics_verified": true,
+  "checkpoint_replays_exact": true
+}

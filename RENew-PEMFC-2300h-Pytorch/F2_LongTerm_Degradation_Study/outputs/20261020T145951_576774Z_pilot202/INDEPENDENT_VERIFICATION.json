@@ -1,0 +1,40 @@
+{
+  "PASS": true,
+  "window_configurations_checked": 45,
+  "training_runs_checked": 4,
+  "target_recalculation_max_difference_V": {
+    "A": 2.4646951146678475e-14,
+    "B": 3.108624468950438e-14
+  },
+  "metric_absolute_tolerance_mV": 1e-12,
+  "checkpoint_prediction_replays": "exact equality, no tolerance",
+  "all_training_gradients_finite": true,
+  "early_stopping_replayed": true,
+  "holdout_outcome_rows_read": 0,
+  "artifacts": [
+    {
+      "directory": "F2_seed202_24h",
+      "checkpoint_sha256": "28495e9706dc7538a114d59c0da4e12ac7d2b55d2898c5c33edb99b489ac4d1e",
+      "log_sha256": "c1d55afd5b8a9ded5f7e6a4b7e727599a95a6e81853cf0b303a1a8e636b505b6",
+      "PASS": true
+    },
+    {
+      "directory": "F2_seed202_48h",
+      "checkpoint_sha256": "9436e1dec8c375ae9310112af4ebf96065da114c2a759e19213f4e6ad5cb5516",
+      "log_sha256": "958c6af3b1371b041742f3d2531bc594d8593fd408917822aee9d6f943ff933a",
+      "PASS": true
+    },
+    {
+      "directory": "LSTM_seed202_24h",
+      "checkpoint_sha256": "ee420ce9c33bdb23444a5881ff5524214ea20803bec4ec28db6bcbce953ac2d1",
+      "log_sha256": "0a7be06b933e765e9e118cd1eacdb491325f8ec966118fe1b12602ded6fefa48",
+      "PASS": true
+    },
+    {
+      "directory": "LSTM_seed202_48h",
+      "checkpoint_sha256": "2300f48f44bfdede030c35f1f56d3335d2951c71b9ff0b660243e25be702994d",
+      "log_sha256": "617d8d87ee40d6625ed12dca677cd7e294c849baf08e823bfb4cb1c7d9b3dd24",
+      "PASS": true
+    }
+  ]
+}

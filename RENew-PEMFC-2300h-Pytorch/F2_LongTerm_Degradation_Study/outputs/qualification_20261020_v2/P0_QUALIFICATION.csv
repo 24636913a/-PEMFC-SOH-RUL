@@ -1,0 +1,16 @@
+﻿history_steps,horizon_steps,horizon_h,qualified,train_origins,validation_origins,train_disjoint,validation_disjoint
+48,48,24,True,True,True,True,True
+48,96,48,True,True,True,True,True
+48,192,96,False,True,False,True,False
+48,336,168,False,False,False,False,False
+48,672,336,False,False,False,False,False
+96,48,24,True,True,True,True,True
+96,96,48,True,True,True,True,True
+96,192,96,False,True,False,True,False
+96,336,168,False,False,False,False,False
+96,672,336,False,False,False,False,False
+192,48,24,True,True,True,True,True
+192,96,48,False,True,True,True,False
+192,192,96,False,False,False,False,False
+192,336,168,False,False,False,False,False
+192,672,336,False,False,False,False,False

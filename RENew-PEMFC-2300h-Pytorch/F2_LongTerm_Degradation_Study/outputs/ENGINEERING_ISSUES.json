@@ -1,0 +1,28 @@
+{
+  "GPU_training_failures": 0,
+  "issues": [
+    {
+      "id": "E01",
+      "error": "FileNotFoundError during first pre-source history snapshot of pre-existing missing sharp DLL",
+      "resolution": "New output v2 and explicit missing-file inventory, unchanged scientific protocol",
+      "evidence": "outputs/qualification_20261020_v1/FAILURE.json"
+    },
+    {
+      "id": "E02",
+      "error": "ModuleNotFoundError: pypdf",
+      "resolution": "Use installed PyMuPDF for read-only primary-source page4; no installation or source edits"
+    },
+    {
+      "id": "E03",
+      "error": "Interactive cell6 FileNotFoundError before report04 had been generated",
+      "resolution": "Generate reports then re-run same entry in analyze mode; 6 cells, 16 real PNG payloads PASS",
+      "evidence": "outputs/INTERACTIVE_ACCEPTANCE_CONSOLE.txt"
+    },
+    {
+      "id": "E04",
+      "error": "First git ls-remote timed out",
+      "resolution": "Bounded retry succeeded and confirmed remote main=e95829ced4b0bf0e8328edc786d11526876d5a3e, no network setting changes",
+      "evidence": "outputs/qualification_20261020_v2/REMOTE_HEAD_RECHECK.json"
+    }
+  ]
+}

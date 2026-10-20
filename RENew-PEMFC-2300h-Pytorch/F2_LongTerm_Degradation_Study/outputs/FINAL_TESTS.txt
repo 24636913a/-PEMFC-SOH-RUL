@@ -1,0 +1,14 @@
+test_disjoint_does_not_count_overlap_as_replication (test_qualification.QualificationTests.test_disjoint_does_not_count_overlap_as_replication) ... ok
+test_gpu_lengths_and_parameters (test_qualification.QualificationTests.test_gpu_lengths_and_parameters) ... C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+ok
+test_native_learned_architecture_unchanged (test_qualification.QualificationTests.test_native_learned_architecture_unchanged) ... ok
+test_partition_freeze (test_qualification.QualificationTests.test_partition_freeze) ... ok
+test_query_and_target_equal_metrics_differ (test_qualification.QualificationTests.test_query_and_target_equal_metrics_differ) ... ok
+test_same_inputs_and_labels_and_scaler (test_qualification.QualificationTests.test_same_inputs_and_labels_and_scaler) ... ok
+test_smoothing_causal_and_break_reset (test_qualification.QualificationTests.test_smoothing_causal_and_break_reset) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.710s
+
+OK

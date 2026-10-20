@@ -1,0 +1,27 @@
+{
+  "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+  "usecols": [
+    "bin_end_ophrs2_h",
+    "first_datetime",
+    "last_datetime",
+    "temporal_segment_id",
+    "bin_valid_for_windows",
+    "cell_voltage_mean",
+    "load_transition_count",
+    "startup_flag",
+    "shutdown_flag",
+    "actual_current_density_A_cm2_mean",
+    "actual_current_density_A_cm2_std",
+    "zero_current_fraction",
+    "actual_coolant_outlet_temperature_C_mean",
+    "actual_cathode_inlet_rh_pct_mean",
+    "actual_cathode_inlet_pressure_kPag_mean"
+  ],
+  "nrows": 3074,
+  "allowed_partitions": [
+    "TRAIN",
+    "VALIDATION"
+  ],
+  "holdout_outcomes_read": false,
+  "protocol_sha256": "6c5ba6a0c293c82dbe39aa13c45f8177ae51031d2d4c21a446969dfa4f4d118b"
+}

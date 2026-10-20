@@ -1,0 +1,38 @@
+{
+  "identity": "RealHyFC long-horizon qualification v1; written before source outcome inspection",
+  "partition_rows": {"TRAIN": [0, 2690], "VALIDATION": [2690, 3074], "HOLDOUT": [3074, 3843]},
+  "history_steps": [48, 96, 192],
+  "horizon_steps": [48, 96, 192, 336, 672],
+  "hours_per_step": 0.5,
+  "clock_atol_h": 0.000001,
+  "calendar_gap_max_s": 1.01,
+  "sufficiency": {
+    "min_train_origins": 100,
+    "min_validation_origins": 20,
+    "min_disjoint_train_target_trajectories": 3,
+    "min_disjoint_validation_target_trajectories": 2,
+    "reason": "An overlapping origin count is not an independent trajectory count. Require at least three non-overlapping target trajectories in training and two in validation for a minimally replicated within-cell comparison; this is an exploratory engineering gate, not a statistical power claim. Holdout outcomes/counts never choose a horizon."
+  },
+  "target_A": {
+    "formula": "A_i = mean(V[i-47:i+1]), only if all 48 bins valid and clocks/segment continuous",
+    "trailing_steps": 48,
+    "unit": "V per cell; not SOH or irreversible degradation",
+    "parameter_search": false
+  },
+  "target_B": {
+    "formula": "B_raw_i = V_i - (z_i-z_train_median) @ beta; beta fitted by OLS with intercept on valid TRAIN only; B_i=causal trailing-48 mean of supported B_raw",
+    "covariates": ["actual_current_density_A_cm2_mean", "actual_current_density_A_cm2_std", "zero_current_fraction", "actual_coolant_outlet_temperature_C_mean", "actual_cathode_inlet_rh_pct_mean", "actual_cathode_inlet_pressure_kPag_mean"],
+    "support": "All covariates finite and within each valid TRAIN covariate min/max; no extrapolation; box support is necessary but not sufficient for joint comparability",
+    "regularization_search": false,
+    "unit": "V per cell; statistical condition-adjusted voltage, not validated SOH"
+  },
+  "target_gates": {
+    "min_train_and_validation_continuous_label_fraction": 0.5,
+    "max_abs_validation_spearman_with_load_or_zero_fraction": 0.3,
+    "require_at_least_one_P0_qualified_horizon_with_continuous_target_labels": true,
+    "extra_checks": "Report raw/trend roughness, trend amplitude, recovery, rank/condition number, joint-support nearest-neighbor distance vs TRAIN leave-one-out P95; no significance claims from overlapping rows. Passing numerical gates alone does not establish irreversible aging or calibrated SOH."
+  },
+  "holdout_access": "P0 clock/segment/validity/window metadata only. No holdout voltage/current/target extraction or model evaluation until a formal target/protocol and all final weights are frozen.",
+  "training_gate": "No GPU training before P0 and P1 pass. If failed, record P2-P4 NOT_EXECUTED and stop. If passed, register finite seed202 pilot budget and acceptance rules before initializing models; no residual fusion or previous learning-rate candidates.",
+  "scientific_scope": "Single-cell exploratory long-trend feasibility; no claim of blind test, cross-cell generalization, verified irreversible degradation or true RUL without separate evidence."
+}

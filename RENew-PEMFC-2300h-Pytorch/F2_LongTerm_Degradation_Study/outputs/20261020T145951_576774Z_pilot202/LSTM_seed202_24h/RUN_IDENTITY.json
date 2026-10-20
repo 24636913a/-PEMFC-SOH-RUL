@@ -1,0 +1,19 @@
+{
+  "model": "LSTM",
+  "seed": 202,
+  "horizon_steps": 48,
+  "train_config_sha256": "573ae68b28d6e831f85138725f3f1896c16020789b958cee1d9336a41d013ef5",
+  "qualification_sha256": "6c5ba6a0c293c82dbe39aa13c45f8177ae51031d2d4c21a446969dfa4f4d118b",
+  "code_sha256": "d4907679deaa3fdacf968c1bcb6d9090728cb8fec5253e401aee325161070c08",
+  "native_model_code_sha256": "566b1141192d6542fa317a99832cfbce0ff3cf688e349a31089c53b0393a0402",
+  "initial_state_sha256": "e92462e31527d580f902486a60a8c2de6408d68aea7cf1a48eff04a9c6e857b3",
+  "parameters": 23600,
+  "initialized_from_scratch": true,
+  "history_checkpoint_loaded": false,
+  "optimizer_initial_state_empty": true,
+  "torch": "2.6.0+cu124",
+  "CUDA": "12.4",
+  "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "strict_determinism": false,
+  "ordinary_CUDA_bitwise_reproducibility_promised": false
+}

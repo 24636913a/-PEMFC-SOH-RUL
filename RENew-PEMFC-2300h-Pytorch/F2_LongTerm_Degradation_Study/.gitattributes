@@ -1,0 +1,5 @@
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.png binary
+*.pdf binary
+# Preserve the exact trained source bytes, including its terminal blank line.
+scripts/native_models.py whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol

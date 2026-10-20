@@ -1,0 +1,15 @@
+{
+  "PASS": true,
+  "new_checkpoints_reloaded": 6,
+  "partition_prediction_replays": 18,
+  "exact_replay_no_tolerance": true,
+  "window_configurations_verified": 9,
+  "metric_tolerance_mV": 1e-09,
+  "gradients_finite": true,
+  "all_parameter_groups_changed": true,
+  "initial_backbones_and_rng_C0_C1_equal": true,
+  "sampler_orders_and_early_stopping_replayed": true,
+  "backward_calls_in_this_verifier": 0,
+  "optimizer_steps_in_this_verifier": 0,
+  "no_model_selection_or_training_on_holdout": true
+}

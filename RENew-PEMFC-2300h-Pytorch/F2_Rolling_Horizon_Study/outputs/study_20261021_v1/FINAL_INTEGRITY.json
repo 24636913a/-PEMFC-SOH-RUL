@@ -1,0 +1,66 @@
+{
+  "PASS": true,
+  "files_hashed": 236,
+  "artifact_manifest_sha256": "f20039a3461464a8f03a9f02e01e130f07db961b2beddece31b5f1a2075fcfdb",
+  "new_training_runs": 6,
+  "total_epochs": 1314,
+  "optimizer_updates": 78470,
+  "seed": 202,
+  "original_history_files_unchanged": 62143,
+  "independent_checkpoint_replays": 18,
+  "unit_tests_passed": 9,
+  "interactive_modes_verified": [
+    "show",
+    "analyze"
+  ],
+  "real_PNG_displays": 24,
+  "verified_PNG_PDF_pairs": 12,
+  "all_gradients_groups_nonzero": true,
+  "formal_training_failures": 0,
+  "checkpoints": [
+    {
+      "model": "C0",
+      "H": 24,
+      "best_epoch": 130,
+      "stop_epoch": 170,
+      "SHA256": "7426f2226117f7990c267c2480029aa7f2ee7c2e53941f077258dd2df0587bf6"
+    },
+    {
+      "model": "C1",
+      "H": 24,
+      "best_epoch": 98,
+      "stop_epoch": 138,
+      "SHA256": "6e9f48628a959cba541197834ecbceae8764c3da11610e6e206dd66a11309711"
+    },
+    {
+      "model": "F2",
+      "H": 12,
+      "best_epoch": 85,
+      "stop_epoch": 125,
+      "SHA256": "6048adcfdbf4ebe9ddb373a158716cd78f5a66613ff74e8632912a71edc0870e"
+    },
+    {
+      "model": "F2",
+      "H": 6,
+      "best_epoch": 100,
+      "stop_epoch": 140,
+      "SHA256": "f9b1820918448cc46d0cc844c0f10ebb6e6686cc16be5ce6bd68836b0cc1fce5"
+    },
+    {
+      "model": "LSTM",
+      "H": 12,
+      "best_epoch": 256,
+      "stop_epoch": 296,
+      "SHA256": "45e57ba6bcb6fa862cda49f8748e03a1a471b7aad9b242ee51d3a878576dd4ed"
+    },
+    {
+      "model": "LSTM",
+      "H": 6,
+      "best_epoch": 405,
+      "stop_epoch": 445,
+      "SHA256": "24b15cd1a16e0ca91c1dcedeeff9a6357f93feeae3a5641d3779651f2d715213"
+    }
+  ],
+  "status": "F2_ROLLING_HORIZON_STUDY_COMPLETED",
+  "no_new_phase_started": true
+}

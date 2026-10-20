@@ -1,0 +1,22 @@
+{
+  "PASS": true,
+  "script_sha256": "92bf9a24c4f1b0f3d4f1011dd71f99e6af3055e23d8c95ebf609a81fa88691d9",
+  "modes": [
+    {
+      "mode": "show",
+      "cells": 6,
+      "real_PNG_displays": 12,
+      "training_started": false,
+      "PASS": true
+    },
+    {
+      "mode": "analyze",
+      "cells": 6,
+      "real_PNG_displays": 12,
+      "training_started": false,
+      "PASS": true
+    }
+  ],
+  "verification_scope": "Real IPython code-cell and PNG display payload execution. VS Code GUI was not opened/certified.",
+  "no_extra_training": true
+}

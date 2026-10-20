@@ -1,0 +1,24 @@
+{
+  "model": "LSTM",
+  "seed": 202,
+  "horizon_steps": 12,
+  "parameters": 21260,
+  "initial_state_sha256": "f087d20d24e9fc85ab77db365f74491015d479d0927893d0673806232ef46b4b",
+  "initial_backbone_sha256": "f087d20d24e9fc85ab77db365f74491015d479d0927893d0673806232ef46b4b",
+  "initialized_from_scratch": true,
+  "historical_checkpoint_loaded": false,
+  "optimizer_initial_state_empty": true,
+  "protocol_sha256": "2c56941d1d16cd248ba6822763a65cf9d001113e8865c25c3b144b6a1bbc8292",
+  "source_sha256": "fbee6b28682766081c9cda08059e2eaabcd6bb25365ce0bc5eb7c5714fda0f38",
+  "code_sha256": {
+    "common.py": "8cd5890416696a013accef45c37e30b97a670dada93305b511ceedef7a542b7b",
+    "data.py": "ea525993d27a1b72eb532d2629dd334afca47f079c0cf54a104817f6682753f3",
+    "native_models.py": "6baa585a952b419e31721a1a5eeb91ebc35f01aec11ddf85da708005a317dfe3",
+    "models.py": "17bbae1c2bd6c537a47ac379365b2acaefe38d6ac7b3cb4d41bfe091d7ee6b17",
+    "train.py": "bead2962fde5de11fbfde73de5e89ca8f0739344660dd2f27d34e508440da05b"
+  },
+  "preprocess_sha256": "5c9ab5c3d0e9d6d1d8ffe921cbc0270ad01f2bc974d7f38a23b9106062d2370a",
+  "started_UTC": "2026-10-20T16:43:32.537430+00:00",
+  "initial_CPU_RNG_sha256": "fc8600f19064c2250f91fa6ebc60dd5b8030f5aa57feb675a1e1d03186da6777",
+  "initial_CUDA_RNG_sha256": "960898e32ef840cdf8158c481014147c1a8fb2a94e92dd66c84428526318d948"
+}

@@ -1,0 +1,13 @@
+{
+  "fresh_GPU_training_failures": 0,
+  "failed_formal_models": [],
+  "scientific_target_not_met": "All new holdout RMSE values exceed10mV; C1 fails frozen Validation improvement criterion, all outputs retained.",
+  "preexisting_missing_files": 2796,
+  "engineering_notes": [
+    "Upstream shared encoder/decoder AddNorm was inspected before evaluation; diagnostic hook restricted to48 history positions. CPU parity tests passed, no formal prediction corruption or training change.",
+    "Lightning warnings about already-saved loss/logging_metrics are warnings, not training failures."
+  ],
+  "no_unreported_retries": true,
+  "formal_runs": 6,
+  "extra_optimization_runs": 0
+}

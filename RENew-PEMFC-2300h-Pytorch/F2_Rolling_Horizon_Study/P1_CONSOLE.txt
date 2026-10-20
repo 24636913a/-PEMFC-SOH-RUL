@@ -1,0 +1,17 @@
+Historical protection snapshot 10000
+Historical protection snapshot 20000
+Historical protection snapshot 30000
+Historical protection snapshot 40000
+Historical protection snapshot 50000
+Historical protection snapshot 60000
+ horizon_steps  partition  legal_origins  queries
+             6      TRAIN           1984    11904
+             6 VALIDATION            269     1614
+             6    HOLDOUT            599     3594
+            12      TRAIN           1906    22872
+            12 VALIDATION            251     3012
+            12    HOLDOUT            575     6900
+            24      TRAIN           1750    42000
+            24 VALIDATION            218     5232
+            24    HOLDOUT            527    12648
+P1 PASS: exact historical cohort recovered 33.837465315380854 8.20818693109254 0.9695525546852483

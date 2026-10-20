@@ -1,0 +1,26 @@
+{
+  "PASS": true,
+  "full24": {
+    "source": "Historical F2 Seed202, selected cohort",
+    "prefix_steps": 24,
+    "RMSE_mV": 33.837465315380854,
+    "MAE_mV": 8.20818693109254,
+    "R2": 0.9695525546852483,
+    "P95_mV": 16.269138874486085,
+    "P99_mV": 92.0883527398132,
+    "max_abs_mV": 547.3624467849731,
+    "top1pct_queries": 127,
+    "top1pct_SSE_fraction": 0.9468667226897107,
+    "target_time_equal_RMSE_mV": 34.192058832119216,
+    "queries": 12648,
+    "origins": 527,
+    "unique_targets": 619
+  },
+  "original_labels_timestamps_and_raw_voltages_exact": true,
+  "historical_checkpoint_readonly": true,
+  "historical_checkpoint_best_epoch": 122,
+  "reference_path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\F2_Training_Outputs\\20261019T055734_218949Z_seedall_compare\\seed202\\top10",
+  "reference_predictions_sha256": "c8d392b270efe13087f8600fcb7c2bb4c87c59982cf889b5e830039a28821bd8",
+  "training_runs": 0,
+  "note": "P1 prefixes truncate one already-trained H24 model; not independent H6/H12 training. Selected seed and previously exposed holdout; exploratory only."
+}

@@ -1,0 +1,9 @@
+{
+  "registered_UTC": "2026-10-20T16:38:37.467040+00:00",
+  "earliest_common_origin_rule": "min H24 legal HOLDOUT origin",
+  "historical_top_target_row": 3112,
+  "historical_top_target_age_h": 1873.5,
+  "adverse_window_rule": "origin=historical_top_target_row-H, compare both available models at same origin; do not replace if new errors small",
+  "new_holdout_inference_started": false,
+  "no_new_error_based_case_selection": true
+}

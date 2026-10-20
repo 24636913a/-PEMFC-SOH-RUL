@@ -1,0 +1,44 @@
+{
+  "created_UTC": "2026-10-20T16:55:26.815361+00:00",
+  "protocol_sha256": "2c56941d1d16cd248ba6822763a65cf9d001113e8865c25c3b144b6a1bbc8292",
+  "checkpoints": [
+    {
+      "model": "F2",
+      "horizon_steps": 6,
+      "SHA256": "f9b1820918448cc46d0cc844c0f10ebb6e6686cc16be5ce6bd68836b0cc1fce5",
+      "best_epoch": 100
+    },
+    {
+      "model": "LSTM",
+      "horizon_steps": 6,
+      "SHA256": "24b15cd1a16e0ca91c1dcedeeff9a6357f93feeae3a5641d3779651f2d715213",
+      "best_epoch": 405
+    },
+    {
+      "model": "F2",
+      "horizon_steps": 12,
+      "SHA256": "6048adcfdbf4ebe9ddb373a158716cd78f5a66613ff74e8632912a71edc0870e",
+      "best_epoch": 85
+    },
+    {
+      "model": "LSTM",
+      "horizon_steps": 12,
+      "SHA256": "45e57ba6bcb6fa862cda49f8748e03a1a471b7aad9b242ee51d3a878576dd4ed",
+      "best_epoch": 256
+    },
+    {
+      "model": "C0",
+      "horizon_steps": 24,
+      "SHA256": "7426f2226117f7990c267c2480029aa7f2ee7c2e53941f077258dd2df0587bf6",
+      "best_epoch": 130
+    },
+    {
+      "model": "C1",
+      "horizon_steps": 24,
+      "SHA256": "6e9f48628a959cba541197834ecbceae8764c3da11610e6e206dd66a11309711",
+      "best_epoch": 98
+    }
+  ],
+  "source_sha256": "fbee6b28682766081c9cda08059e2eaabcd6bb25365ce0bc5eb7c5714fda0f38",
+  "new_holdout_predictions_computed": false
+}

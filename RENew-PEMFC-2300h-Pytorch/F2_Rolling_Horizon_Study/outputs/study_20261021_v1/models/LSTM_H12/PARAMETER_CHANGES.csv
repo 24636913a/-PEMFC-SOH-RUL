@@ -1,0 +1,7 @@
+parameter,path,elements,changed_elements,delta_L2
+lstm.weight_ih_l0,plain_LSTM,3584,2560,9.0009071025372727
+lstm.weight_hh_l0,plain_LSTM,16384,16384,26.224107887045815
+lstm.bias_ih_l0,plain_LSTM,256,256,1.9804270212806532
+lstm.bias_hh_l0,plain_LSTM,256,256,1.9804275868763832
+head.weight,plain_output,768,768,4.0869714229449263
+head.bias,plain_output,12,12,0.12876886931178447

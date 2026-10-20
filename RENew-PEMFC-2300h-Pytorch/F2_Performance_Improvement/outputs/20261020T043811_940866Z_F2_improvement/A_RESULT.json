@@ -1,0 +1,53 @@
+{
+  "status": "A_COMPLETE",
+  "fresh_instances": 9,
+  "qualified_candidates": [],
+  "decisions": {
+    "A1": {
+      "qualified": false,
+      "checks": {
+        "all_three_RMSE_lower": false,
+        "mean_RMSE_at_least_5pct_lower": true,
+        "mean_MAE_not_higher": true,
+        "mean_P99_guard": true,
+        "worst_seed_MAE_guard": false,
+        "worst_seed_P99_guard": false
+      },
+      "mean_RMSE_ratio": 0.8272767961530277,
+      "mean_MAE_ratio": 0.9815170991517632,
+      "paired_wins": 2
+    },
+    "A2": {
+      "qualified": false,
+      "checks": {
+        "all_three_RMSE_lower": false,
+        "mean_RMSE_at_least_5pct_lower": false,
+        "mean_MAE_not_higher": false,
+        "mean_P99_guard": false,
+        "worst_seed_MAE_guard": false,
+        "worst_seed_P99_guard": false
+      },
+      "mean_RMSE_ratio": 1.7515621966323844,
+      "mean_MAE_ratio": 1.434754927635307,
+      "paired_wins": 1
+    }
+  },
+  "selected_training_configuration": "A0",
+  "selected_configuration": {
+    "fusion": "native",
+    "learning_rate": 0.0009605449687795866,
+    "dropout": 0.1,
+    "loss": "MSE"
+  },
+  "B_motivation_qualified": true,
+  "B_motivation_checks": {
+    "all_A0_CNN_have_nonzero_training_gradient": true,
+    "all_A0_LSTM_have_nonzero_training_gradient": true,
+    "median_gate_below_095": true,
+    "mean_fusion_to_LSTM_RMS_below_098": true
+  },
+  "A0_median_gate": 0.4897815138101578,
+  "A0_mean_fusion_to_LSTM_RMS": 0.8413945051942553,
+  "holdout_metrics_used": false,
+  "selection_scope": "three seeds, reused Validation; exploratory consistency gate, not statistical significance"
+}

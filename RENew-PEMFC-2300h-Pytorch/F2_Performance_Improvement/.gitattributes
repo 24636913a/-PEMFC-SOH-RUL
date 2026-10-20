@@ -1,0 +1,7 @@
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.png binary
+*.pdf binary
+*.pt binary
+*.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Keep the exact diagnostic/error source snapshots, including their final blank line.
+history_diagnosis.py whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "command": "D:/ruanjian/python3.11.9/python.exe -B -m unittest -v tests.py",
+  "tests_passed": 5,
+  "tests_failed": 0,
+  "observed_test_seconds": 0.591,
+  "scope": "CPU identity/autograd and real data checks; no optimizer updates",
+  "tested_source_sha256": {
+    "frozen_f2.py": "d48893ab32f64903d1fe1db50a28b948dfe286658f825931999183ff27d0cbab",
+    "settings.py": "6a5334a257385437f789fd5f83d46ffe63d485197d1e292c49f771cd997afcbb",
+    "diagnostics.py": "e4decbe0805ec286227f1932286dd6ac9097cbb4cf7e6a10bd6cb77e8b72a16e",
+    "train.py": "6e248d5ec6e1e988be53befad74651c07839b8c92bb8d00671011471cc09e81c",
+    "io_utils.py": "ced1c641a7dd60bf9365a6092bfbdec667af186832122090732b55800a216ab2",
+    "selection.py": "79a4e4e67e1d4aa8ee94afcc9fc2986799ed345e35be80095ac3cb0515c830c0",
+    "stage_a.py": "743db2e538fce0ce8661af6842d892700d374349143f617d64e95beb4561259b",
+    "tests.py": "bfbe170e0d84f24259047d8d0f41096b3c80d79c14f68422c6ff5798d4639604"
+  }
+}

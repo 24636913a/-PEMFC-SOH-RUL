@@ -1,0 +1,42 @@
+"""New-run-only atomic outputs and exact physical-unit metrics."""
+from pathlib import Path
+import json
+import math
+import os
+import time
+import numpy as np
+import pandas as pd
+
+
+def text(path,value):
+    path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
+    temporary=path.with_suffix(path.suffix+'.writing')
+    with temporary.open('w',encoding='utf-8',newline='\n') as f:f.write(value);f.flush();os.fsync(f.fileno())
+    for delay in [.05,.1,.2,.5,1.,None]:
+        try:os.replace(temporary,path);return
+        except PermissionError:
+            if delay is None:raise
+            time.sleep(delay)
+
+
+def js(path,value):text(path,json.dumps(value,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
+def csv(path,value):text(path,pd.DataFrame(value).to_csv(index=False,float_format='%.17g',lineterminator='\n'))
+
+
+def metrics(points):
+    y=points.y_true_delta_V.to_numpy(float);e=points.y_pred_delta_V.to_numpy(float)-y;n=len(e)
+    if not n:return dict(RMSE_mV=None,MAE_mV=None,R2=None,queries=0,origins=0,unique_targets=0)
+    sse=math.fsum(float(v)**2 for v in e);mu=math.fsum(map(float,y))/n;sst=math.fsum((float(v)-mu)**2 for v in y)
+    return dict(RMSE_mV=math.sqrt(sse/n)*1000,MAE_mV=math.fsum(abs(float(v)) for v in e)/n*1000,
+        R2=1-sse/sst if sst else None,queries=n,origins=int(points.origin_row.nunique()),unique_targets=int(points.target_row.nunique()))
+
+
+def enrich(points,frame):
+    p=points.copy();rows=p.target_row.to_numpy(int);p['error_mV']=(p.y_pred_delta_V-p.y_true_delta_V)*1000
+    p['absolute_error_mV']=p.error_mV.abs();p['squared_error_mV2']=p.error_mV**2
+    for name in ['actual_current_density_A_cm2_mean','zero_current_fraction','load_transition_count','startup_flag','shutdown_flag']:
+        p[name]=frame[name].to_numpy()[rows]
+    voltage=frame.cell_voltage_mean.diff().to_numpy()
+    same=frame.temporal_segment_id.eq(frame.temporal_segment_id.shift()).to_numpy() & frame.bin_end_ophrs2_h.diff().sub(.5).abs().lt(1e-6).to_numpy()
+    p['target_voltage_jump_V']=np.where(same,voltage,np.nan)[rows]
+    return p

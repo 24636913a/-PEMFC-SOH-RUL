@@ -1,0 +1,10 @@
+test_formula_bound_and_nonzero_derivatives (__main__.ResidualContracts.test_formula_bound_and_nonzero_derivatives) ... C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'loss' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['loss'])`.
+C:\Users\1\AppData\Roaming\Python\Python311\site-packages\lightning\pytorch\utilities\parsing.py:209: Attribute 'logging_metrics' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['logging_metrics'])`.
+ok
+test_full_network_CNN_connectivity_no_update (__main__.ResidualContracts.test_full_network_CNN_connectivity_no_update) ... ok
+test_same_parameters_and_only_fusion_override (__main__.ResidualContracts.test_same_parameters_and_only_fusion_override) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.340s
+
+OK

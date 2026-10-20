@@ -1,0 +1,20 @@
+{
+  "status": "NO_QUALIFIED_UPGRADE",
+  "frozen_UTC": "2026-10-20T07:16:34.804068+00:00",
+  "A_fresh_instances": 9,
+  "B_fresh_instances": 6,
+  "C_fresh_instances": 0,
+  "D_fresh_instances": 0,
+  "total_fresh_instances": 15,
+  "C_status": "NOT_TRIGGERED_NO_QUALIFIED_PREDECESSOR",
+  "D_status": "NOT_TRIGGERED_NO_QUALIFIED_UPGRADE",
+  "selected_upgrade": null,
+  "new_holdout_evaluation": false,
+  "new_holdout_metrics": null,
+  "reason": "P0 consistent paired Validation and tail guards not met; no forced winner and no rescue repeats",
+  "AB_review_sha256": "47602e5f816efc50db293454827325250b2ba43b49d6d3156cc78efc6525de50",
+  "selection_partitions": [
+    "TRAIN",
+    "VALIDATION"
+  ]
+}

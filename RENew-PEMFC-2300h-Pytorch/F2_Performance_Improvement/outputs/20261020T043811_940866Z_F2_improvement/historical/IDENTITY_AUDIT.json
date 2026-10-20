@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "models": [
+    {
+      "seed": 42,
+      "checkpoint_sha256": "368edcaf13d7376433b3f841c72329b5882eb5711f6fed00dc8fec1edf3ca9e2",
+      "replay_Train_and_Validation_exact": true,
+      "no_optimizer_update": true
+    },
+    {
+      "seed": 103,
+      "checkpoint_sha256": "8d694598ea6a8ac35c370eb4a7048fb8162c7bf7aa54c50a8542811dc4f8c1c5",
+      "replay_Train_and_Validation_exact": true,
+      "no_optimizer_update": true
+    },
+    {
+      "seed": 193,
+      "checkpoint_sha256": "eedab578834aee5d0ebfe9aab28f489ef7b8922235e909efa131633913c3d716",
+      "replay_Train_and_Validation_exact": true,
+      "no_optimizer_update": true
+    },
+    {
+      "seed": 202,
+      "checkpoint_sha256": "37b8de67eed2104a8cf11289b38bd3eb5a94293881dd40e7f0f07aee0c68cc97",
+      "replay_Train_and_Validation_exact": true,
+      "no_optimizer_update": true
+    },
+    {
+      "seed": 210,
+      "checkpoint_sha256": "9cee8372d443388cd8bf22867e94c8a26153b17e7ed5e5098e59d372aad3816f",
+      "replay_Train_and_Validation_exact": true,
+      "no_optimizer_update": true
+    },
+    {
+      "seed": 212,
+      "checkpoint_sha256": "b65cf4557425976ade475f8191768f445603c4522292c5c12664128008936b2b",
+      "replay_Train_and_Validation_exact": true,
+      "no_optimizer_update": true
+    }
+  ],
+  "holdout_predictions_read": false,
+  "historical_weights_unchanged": true
+}

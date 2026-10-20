@@ -1,0 +1,250 @@
+{
+  "status": "PASS",
+  "verified_UTC": "2026-10-20T07:29:34.506536+00:00",
+  "checked": 40,
+  "frozen_sources": 10,
+  "checkpoints": 15,
+  "Validation_predictions": 15,
+  "rows": [
+    {
+      "kind": "frozen_source",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/frozen_f2.py",
+      "SHA256": "d48893ab32f64903d1fe1db50a28b948dfe286658f825931999183ff27d0cbab",
+      "bytes": 27924
+    },
+    {
+      "kind": "frozen_source",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/settings.py",
+      "SHA256": "6a5334a257385437f789fd5f83d46ffe63d485197d1e292c49f771cd997afcbb",
+      "bytes": 1512
+    },
+    {
+      "kind": "frozen_source",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/diagnostics.py",
+      "SHA256": "e4decbe0805ec286227f1932286dd6ac9097cbb4cf7e6a10bd6cb77e8b72a16e",
+      "bytes": 4622
+    },
+    {
+      "kind": "frozen_source",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/train.py",
+      "SHA256": "6e248d5ec6e1e988be53befad74651c07839b8c92bb8d00671011471cc09e81c",
+      "bytes": 12647
+    },
+    {
+      "kind": "frozen_source",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/io_utils.py",
+      "SHA256": "ced1c641a7dd60bf9365a6092bfbdec667af186832122090732b55800a216ab2",
+      "bytes": 2069
+    },
+    {
+      "kind": "frozen_source",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/selection.py",
+      "SHA256": "79a4e4e67e1d4aa8ee94afcc9fc2986799ed345e35be80095ac3cb0515c830c0",
+      "bytes": 2334
+    },
+    {
+      "kind": "frozen_source",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/stage_a.py",
+      "SHA256": "743db2e538fce0ce8661af6842d892700d374349143f617d64e95beb4561259b",
+      "bytes": 4093
+    },
+    {
+      "kind": "frozen_source",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/residual_fusion.py",
+      "SHA256": "4b2a1aa3ffba747c482dbebcf26d481c8b163fa849e7b47cab1f8f183984bc9c",
+      "bytes": 1460
+    },
+    {
+      "kind": "frozen_source",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/stage_b.py",
+      "SHA256": "9a459bbdb3e00720ae7b7a67bd6b124d2aedc5b42dccf84f786b6e7e64fb5c43",
+      "bytes": 8486
+    },
+    {
+      "kind": "frozen_source",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/tests_b.py",
+      "SHA256": "7d94fde739a94fd1535aaaf54c55125d310282b1f06d05a0c459b0f95b44a2ac",
+      "bytes": 3198
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A0_seed202/best_model.pt",
+      "SHA256": "85d67ab848a01fd55c55c7fbe1d40152255e0da29ea77b3444dc0101216156e5",
+      "bytes": 1486122
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A0_seed202/predictions_VALIDATION.csv",
+      "SHA256": "afab843f883951da0b98d0905e8dcf4a5d9f7b107543bce1b9b7c85279d6c962",
+      "bytes": 974576
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A0_seed212/best_model.pt",
+      "SHA256": "b4b17995bc34d66b2ee3c22dfb936e9c75dad1b86ebb06985055c653f6c29f5b",
+      "bytes": 1486122
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A0_seed212/predictions_VALIDATION.csv",
+      "SHA256": "4f7c46a8fb8d8a28b45648e9c13bd22179d15b07fe53801b3c3340adc6b03b2b",
+      "bytes": 974296
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A0_seed42/best_model.pt",
+      "SHA256": "7547477cb0abbe35e2fea3b6edbdc1bf21dae2e6b846d2ca4f68be746e37460c",
+      "bytes": 1486122
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A0_seed42/predictions_VALIDATION.csv",
+      "SHA256": "6e6504b6a7bf67f4d8bab4eb52b3305eb3deb1b7480de4ba380a7af97a4a0f7e",
+      "bytes": 969460
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A1_seed202/best_model.pt",
+      "SHA256": "d374542eb35b8579453892f28dd1d6875db0ed26bbbd184c1a7d66b1391b6160",
+      "bytes": 1486122
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A1_seed202/predictions_VALIDATION.csv",
+      "SHA256": "3f681286b7d08d7ee8b86f452383398dd372eeeb1bfc127afffcba6103960115",
+      "bytes": 974497
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A1_seed212/best_model.pt",
+      "SHA256": "8fac568f518cb25ba6c98b63066aff292b6db9b6f9b5c87f24271537df492ba2",
+      "bytes": 1486122
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A1_seed212/predictions_VALIDATION.csv",
+      "SHA256": "64f74223d8150871e55abedf355895b30244b622a345a9f1fed7516ef7e088fe",
+      "bytes": 974492
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A1_seed42/best_model.pt",
+      "SHA256": "851fc15d7435defb11a8e3d9d112331a26a03b00f28b5277f54406377261e7bf",
+      "bytes": 1486122
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A1_seed42/predictions_VALIDATION.csv",
+      "SHA256": "f8eb8a531996ba087282d8e2636af582aed73c4ce58efc68ebde6ff8459bdd27",
+      "bytes": 969498
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A2_seed202/best_model.pt",
+      "SHA256": "222eacc6b15b41de5c53a76a2cb9d98086b73672ccdddab3054e9b7447c735a5",
+      "bytes": 1486122
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A2_seed202/predictions_VALIDATION.csv",
+      "SHA256": "f76c788a2592dfc6bf638fe8990f85bbcfab2f216238067571bdd895f768af52",
+      "bytes": 974592
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A2_seed212/best_model.pt",
+      "SHA256": "d6febe9fbaf36ecacefa253403303006898be3b0ce53284a36d577834c6fde07",
+      "bytes": 1486122
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A2_seed212/predictions_VALIDATION.csv",
+      "SHA256": "147876a80894a5887e6ec036ef37453a8f95c628a92e3f31c38174633fcd6e96",
+      "bytes": 974759
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A2_seed42/best_model.pt",
+      "SHA256": "0ea66542aabacbf5398009a90f4ac1da7cf799b2eb6339d0b2adf827a8c50ef1",
+      "bytes": 1486122
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/A/A2_seed42/predictions_VALIDATION.csv",
+      "SHA256": "50606dc25805afca21c66470b5e382ed95a495d99d8d2677153cbad122474524",
+      "bytes": 969400
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/B/B_control_seed202/best_model.pt",
+      "SHA256": "df153f1ce1964f2b6739d426b542aeaabd1c7a42eaa05931f3504c98607f0a09",
+      "bytes": 1486122
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/B/B_control_seed202/predictions_VALIDATION.csv",
+      "SHA256": "5644d9f36bc2db0220d182478c3446a87d584636abfd741cb9260d101d05b87a",
+      "bytes": 974673
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/B/B_control_seed212/best_model.pt",
+      "SHA256": "c3afda648c7337c77d7f6783e4f78662afe9ac71e3cd750926713b53bda2b063",
+      "bytes": 1486122
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/B/B_control_seed212/predictions_VALIDATION.csv",
+      "SHA256": "faccc631ca191fb53d7fca232647d3b02485aaff2bd905fc30acd4001bbff9a3",
+      "bytes": 974515
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/B/B_control_seed42/best_model.pt",
+      "SHA256": "11992dad9097461a7dcf9a7bb0a9e07a07091686d8e63b9b0439b11762f285e6",
+      "bytes": 1486122
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/B/B_control_seed42/predictions_VALIDATION.csv",
+      "SHA256": "ffc4b8c6cbbe96cbee73a02f1e4aede727c7ea119590a1203bf1745885d0a7ca",
+      "bytes": 969601
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/B/B_v2_seed202/best_model.pt",
+      "SHA256": "b232509bf442fa7984358fd18bbe1344d2ba033bef843ce424f76f2d1a32e072",
+      "bytes": 1486186
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/B/B_v2_seed202/predictions_VALIDATION.csv",
+      "SHA256": "200905f36661507ed37273940b93303be6ab0c4a14e514fb7355d44c4370e72d",
+      "bytes": 974623
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/B/B_v2_seed212/best_model.pt",
+      "SHA256": "de57d94caed04f19b0051a9a25dfc7791446cd475b396f7dcdad1a4e0b9ad2f5",
+      "bytes": 1486186
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/B/B_v2_seed212/predictions_VALIDATION.csv",
+      "SHA256": "293cd9c1e559fba87a5bb398d833a3d7e7068d5e69dc27b3df2b69cfbc425736",
+      "bytes": 974498
+    },
+    {
+      "kind": "new_checkpoint",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/B/B_v2_seed42/best_model.pt",
+      "SHA256": "d4387969280fdad5f5f7ea7d7c8b158f308cf3fb8685a0daeb1099338b1bd357",
+      "bytes": 1486186
+    },
+    {
+      "kind": "Validation_prediction",
+      "path": "RENew-PEMFC-2300h-Pytorch/F2_Performance_Improvement/outputs/20261020T043811_940866Z_F2_improvement/models/B/B_v2_seed42/predictions_VALIDATION.csv",
+      "SHA256": "ed7bc98ad8df0be6638ff2fc3fa250fb54e3a34da7ed008b3d7d4d0f23db20a0",
+      "bytes": 969522
+    }
+  ]
+}

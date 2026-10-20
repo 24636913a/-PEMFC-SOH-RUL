@@ -1,0 +1,156 @@
+{
+  "base_git_sha": "2c0d77d51c247afc2d4dddacfd95b79e672deca2",
+  "data_sha256": "fbee6b28682766081c9cda08059e2eaabcd6bb25365ce0bc5eb7c5714fda0f38",
+  "official_F2_sha256": "3dbdc602eb2229a54ee7d5eaa841a6dd94798e8227dbfc6f60db1e78f66419de",
+  "reference_run": "F2_LSTM_DualPath_Comparison/outputs/20261019T090430_205588Z_Top10_LSTM_F2",
+  "raw_rows": 3843,
+  "boundaries": {
+    "TRAIN": [
+      0,
+      2690
+    ],
+    "VALIDATION": [
+      2690,
+      3074
+    ],
+    "EXPLORATORY_HOLDOUT": [
+      3074,
+      3843
+    ]
+  },
+  "history": 48,
+  "horizon": 24,
+  "resolution_h": 0.5,
+  "Top10": [
+    0,
+    3,
+    13,
+    11,
+    4,
+    9,
+    6,
+    7,
+    10,
+    8
+  ],
+  "EWMA_alpha": 0.3,
+  "target": "raw DeltaV",
+  "R2_target": "raw DeltaV",
+  "scaler": "Train legal raw histories only",
+  "initial_seeds": [
+    42,
+    202,
+    212
+  ],
+  "final_seeds": [
+    42,
+    103,
+    193,
+    202,
+    210,
+    212
+  ],
+  "A_candidates": {
+    "A0": {
+      "fusion": "native",
+      "learning_rate": 0.0009605449687795866,
+      "dropout": 0.1,
+      "loss": "MSE"
+    },
+    "A1": {
+      "fusion": "native",
+      "learning_rate": 0.0006,
+      "dropout": 0.1,
+      "loss": "MSE"
+    },
+    "A2": {
+      "fusion": "native",
+      "learning_rate": 0.0009605449687795866,
+      "dropout": 0.05,
+      "loss": "MSE"
+    }
+  },
+  "optimizer": "AdamW",
+  "weight_decay": 6.95942232671908e-06,
+  "batch_size": 32,
+  "max_epochs": 450,
+  "patience": 40,
+  "gradient_clip_norm": 1.0,
+  "early_stop_min_delta": 1e-12,
+  "qualification": {
+    "mean_Validation_RMSE_ratio_max": 0.95,
+    "paired_RMSE_wins_required": 3,
+    "mean_Validation_MAE_ratio_max": 1.0,
+    "mean_Validation_P99_ratio_max": 1.05,
+    "worst_seed_MAE_ratio_max": 1.1,
+    "worst_seed_P99_ratio_max": 1.1,
+    "require_finite_gradients": true,
+    "extra_repeats_to_rescue_candidate": 0
+  },
+  "B_gate": {
+    "require_A_complete": true,
+    "all_A0_CNN_grad_nonzero": true,
+    "all_A0_LSTM_grad_nonzero": true,
+    "median_A0_g_max": 0.95,
+    "mean_A0_fused_to_lstm_RMS_max": 0.98,
+    "CNN_off_Validation_RMSE_worse_seeds_required": 2
+  },
+  "C_gate": {
+    "require_A_B_complete": true,
+    "qualified_preC_candidate_required": true,
+    "min_Validation_unique_event_targets": 5,
+    "event_weight": 2.0,
+    "event_RMSE_ratio_max": 0.95,
+    "non_event_RMSE_ratio_max": 1.02,
+    "P99_ratio_max": 1.0
+  },
+  "selection": "Lowest three-seed Validation mean RMSE among qualified candidates; tie <=1e-6 mV: earlier/simpler stage, then candidate ID.",
+  "max_fresh_trainings": 27,
+  "event_definition": {
+    "Train_jump_P95_V": 0.5163423636853991,
+    "formula": "startup OR shutdown OR 0<zero_fraction<1 OR same-segment abs adjacent voltage jump >= Train P95",
+    "weighted_MSE": "mean((1+event)/mean_Train_queries(1+event) * squared_error)",
+    "training_weight": 2.0,
+    "future_conditions_are_never_predictor_inputs": true
+  },
+  "model_selection_partitions": [
+    "TRAIN",
+    "VALIDATION"
+  ],
+  "holdout_access": "No windows, transformed inputs, inference or new metrics before final configuration and six new weights are frozen",
+  "ordinary_CUDA": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.6.0+cu124",
+    "CUDA": "12.4",
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "bitwise_reproducibility_promised": false
+  },
+  "partitions": {
+    "TRAIN": {
+      "origins": 1750,
+      "queries": 42000,
+      "unique_targets": 2026,
+      "input_sha256": "a0e74eb627c8691b3fdd7d863d0b87b2f10657d59b75a883de5f0b902039398b",
+      "labels_sha256": "5e7d7f27b1e6fe9662c1664f1ccc526fdb3f479c65dc6a60860e9ecdb1225ab8",
+      "origins_sha256": "ad15fed16bcc2ec273081ef937cfe916282df8f6274ba23453b935a58dd18521",
+      "targets_sha256": "ebdc9770a9cc455465ee7e4558987b9ccb187f51a32e96f6758dc3f6904821f3"
+    },
+    "VALIDATION": {
+      "origins": 218,
+      "queries": 5232,
+      "unique_targets": 264,
+      "input_sha256": "21b94472296e4b36095dc9cac983f1bd9ba1a7b657ab0bd34ceed378f54da103",
+      "labels_sha256": "755d829508334add56b1c09a2bba887cda3c436dede09fdf2f6535824d844062",
+      "origins_sha256": "eff6c1a900cde755f33dbde0e20e7b30bd8b1a670cf3c386e17c18c4dc199675",
+      "targets_sha256": "5572ab2b1d6f8046e035fe480d7340f603aad37a424ad2351749b1065c9315c7"
+    }
+  }
+}

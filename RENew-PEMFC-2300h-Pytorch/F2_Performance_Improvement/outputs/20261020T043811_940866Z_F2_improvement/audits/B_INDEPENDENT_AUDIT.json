@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "stage": "B",
+  "instances": 6,
+  "holdout_windows_or_metrics_used": false,
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.6.0+cu124",
+    "CUDA": "12.4",
+    "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "bitwise_reproducibility_promised": false
+  },
+  "source_scope": "Full 3843-row contract read; only Train and Validation windows constructed or evaluated",
+  "fresh_updates_verified": true,
+  "unweighted_Validation_early_stopping_verified": true,
+  "every_primary_Train_Validation_metric_exact": true,
+  "P99_max_precision_difference_mV": 3.810822967409422e-06,
+  "Validation_checkpoint_replays_exact": true,
+  "frozen_float32_P99_reconstructed_exactly": true,
+  "P95_and_max_error_dtype_reconstructed_exactly": true,
+  "event_non_event_primary_metrics_exact": true,
+  "tail_precision_note": "Full float64 error quantile is independently reported, not substituted into frozen selection",
+  "original_F2_AST_exact": true,
+  "selection_only": true
+}

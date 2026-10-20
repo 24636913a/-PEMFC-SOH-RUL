@@ -1,0 +1,41 @@
+{
+  "registered_UTC": "2026-10-20T06:22:37.792142+00:00",
+  "A_result_sha256": "2370355b85dd4e8a6e1cc7adadf628404dfd440e6aa281811de93c7c846688e6",
+  "A_audit_sha256": "cbb9c7d6b63623c351ff4b27015e6dda9b66a3a4ea552b3920ab1c2b4b490e00",
+  "configurations": {
+    "B_control": {
+      "fusion": "native",
+      "learning_rate": 0.0009605449687795866,
+      "dropout": 0.1,
+      "loss": "MSE"
+    },
+    "B_v2": {
+      "fusion": "residual",
+      "learning_rate": 0.0009605449687795866,
+      "dropout": 0.1,
+      "loss": "MSE",
+      "residual_cap": 0.25,
+      "normalization_epsilon": 1e-06
+    }
+  },
+  "seeds": [
+    42,
+    202,
+    212
+  ],
+  "source_sha256": {
+    "residual_fusion.py": "4b2a1aa3ffba747c482dbebcf26d481c8b163fa849e7b47cab1f8f183984bc9c",
+    "stage_b.py": "9a459bbdb3e00720ae7b7a67bd6b124d2aedc5b42dccf84f786b6e7e64fb5c43",
+    "tests_b.py": "7d94fde739a94fd1535aaaf54c55125d310282b1f06d05a0c459b0f95b44a2ac"
+  },
+  "formula": "H = HL + 0.25*(1-g)*RMS(HL)/max(RMS(HC),1e-6)*HC",
+  "norm_scope": "All 48 historical latent positions and 64 channels of this example; available by origin",
+  "gradient_through_normalizers": true,
+  "extra_trainable_parameters": 0,
+  "parameters_each": 332436,
+  "budget": 6,
+  "loss": "ordinary unweighted MSE",
+  "qualification": "Frozen P0 generic gates against BOTH fresh B_control and original A0; CNN-off Validation RMSE worse in >=2/3 seeds; actual CNN gradients/parameter changes/forecast changes required",
+  "CNN_off_required_seeds": 2,
+  "holdout_used_for_design_or_selection": false
+}

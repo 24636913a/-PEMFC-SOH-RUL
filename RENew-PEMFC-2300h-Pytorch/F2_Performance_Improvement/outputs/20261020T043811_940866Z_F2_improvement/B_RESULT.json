@@ -1,0 +1,47 @@
+{
+  "status": "B_COMPLETE",
+  "fresh_instances": 6,
+  "qualified": false,
+  "candidate": "B_v2",
+  "configuration": {
+    "fusion": "residual",
+    "learning_rate": 0.0009605449687795866,
+    "dropout": 0.1,
+    "loss": "MSE",
+    "residual_cap": 0.25,
+    "normalization_epsilon": 1e-06
+  },
+  "matched_control_decision": {
+    "qualified": false,
+    "checks": {
+      "all_three_RMSE_lower": false,
+      "mean_RMSE_at_least_5pct_lower": false,
+      "mean_MAE_not_higher": false,
+      "mean_P99_guard": true,
+      "worst_seed_MAE_guard": false,
+      "worst_seed_P99_guard": false
+    },
+    "mean_RMSE_ratio": 1.0078825968685927,
+    "mean_MAE_ratio": 1.009428413752161,
+    "paired_wins": 1
+  },
+  "A0_reference_decision": {
+    "qualified": false,
+    "checks": {
+      "all_three_RMSE_lower": false,
+      "mean_RMSE_at_least_5pct_lower": false,
+      "mean_MAE_not_higher": false,
+      "mean_P99_guard": false,
+      "worst_seed_MAE_guard": false,
+      "worst_seed_P99_guard": false
+    },
+    "mean_RMSE_ratio": 1.2112921338921196,
+    "mean_MAE_ratio": 1.267645690907899,
+    "paired_wins": 2
+  },
+  "actual_CNN_and_gate_participation": true,
+  "residual_bound_verified": true,
+  "CNN_off_worse_seeds": 3,
+  "parameter_changes_require_independent_audit": true,
+  "holdout_metrics_used": false
+}

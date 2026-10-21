@@ -1,0 +1,23 @@
+{
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.22631-SP0",
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "pytorch-forecasting": "1.8.0",
+    "lightning": "2.5.1",
+    "numpy": "2.4.6",
+    "pandas": "3.0.1",
+    "matplotlib": "3.10.8"
+  },
+  "raw_authority": "17 original Git LFS Loadcycle CSV files",
+  "legacy_cache_access": "read-only",
+  "frozen_protocol_sha256": "e03a126fc8c7b52578f800c9320558f8781412d7f9993e3f9b7da538adfabc5a",
+  "single_seed": 202,
+  "single_GPU_serial": true,
+  "git_base_commit": "fed520e7c28ce3cab6a826583955081adad99541",
+  "training_implementation_sha256": {
+    "scripts/core.py": "4d2f8efe48059a8dd1e877396bd04320dbe7d3d8d6c3e2855bfb637e2f94b64c",
+    "scripts/prepare.py": "71e245c01b77aa4565accafc2ddce5f6496aa2d8917c3424a754b06a885e910a",
+    "scripts/train.py": "93d56cf8e59d9d1df161c4fa020d17189a86867e6df1b17e8385ae4d13d5d763"
+  }
+}

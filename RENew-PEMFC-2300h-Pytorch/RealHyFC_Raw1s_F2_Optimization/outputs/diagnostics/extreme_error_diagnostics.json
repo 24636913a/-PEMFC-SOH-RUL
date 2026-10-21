@@ -1,0 +1,177 @@
+{
+  "status": "COMPLETE",
+  "all_queries_retained": true,
+  "rules_sha256": "d07c6972e96b27b9d7b9a5d08702cbc7c2947279c3d8dac6f99bf317b8c58c8f",
+  "event_catalog_sha256": "a782316ded2d868784303f447da448e80e8537092f723fdd2176b7b0227a302d",
+  "sources": [
+    {
+      "run": "A1",
+      "predictions_sha256": "5b096d55585cd01d589963f64fcdd8a28f607945338ecf8a88fe9ca01166cfdb",
+      "queries": 337470,
+      "origins": 11249
+    },
+    {
+      "run": "A2",
+      "predictions_sha256": "74f759de00fea9a0f3048f9c5fe4c4d9652d52cc9674a947a7a2f26aa33e5f93",
+      "queries": 337470,
+      "origins": 11249
+    },
+    {
+      "run": "A3",
+      "predictions_sha256": "74d44c4a4b46950ee2750870ba58465d63ff6a43d693eb6dbacec3787dc7f88e",
+      "queries": 1349280,
+      "origins": 11244
+    },
+    {
+      "run": "A4",
+      "predictions_sha256": "80714742768b622649773cdb5f791909d1d0e3820b0080d93551348dbead5ac1",
+      "queries": 1349280,
+      "origins": 11244
+    },
+    {
+      "run": "B1",
+      "predictions_sha256": "8885fb300110cc67c8dc43401bb649282754aab7914d0be368ace0ad0c53140a",
+      "queries": 337470,
+      "origins": 11249
+    },
+    {
+      "run": "Persistence_H30",
+      "predictions_sha256": "f2cca63bd4b3017404bf6e405157c3c03d0115e380af7b925ad51e909e00555a",
+      "queries": 337470,
+      "origins": 11249
+    },
+    {
+      "run": "Persistence_H120",
+      "predictions_sha256": "8dc9afdee3b830d42bed7dabf4d6b933160c9a2f3095faba3d2780e1fda39a9a",
+      "queries": 1349280,
+      "origins": 11244
+    }
+  ],
+  "all_query_summaries": [
+    {
+      "run": "A1",
+      "model": "LSTM",
+      "horizon_seconds": 30,
+      "queries": 337470,
+      "RMSE_V": 0.03381850713274024,
+      "MAE_V": 0.010061787221966066,
+      "R2_delta": 0.4400111703213615,
+      "P95_abs_V": 0.03398419770086255,
+      "P99_abs_V": 0.05438764688756309,
+      "SSE_V2": 385.9615450891903,
+      "top_1pct_queries": 3375,
+      "top_1pct_SSE_V2": 327.19889361870287,
+      "top_1pct_SSE_fraction": 0.8477499838567902,
+      "independent_operational_episodes_reached": 833,
+      "normal_SSE_fraction": 0.12854960105157634
+    },
+    {
+      "run": "A2",
+      "model": "F2",
+      "horizon_seconds": 30,
+      "queries": 337470,
+      "RMSE_V": 0.03830430336279223,
+      "MAE_V": 0.012953702554834294,
+      "R2_delta": 0.28160113788508656,
+      "P95_abs_V": 0.04178148208929455,
+      "P99_abs_V": 0.05702259771753014,
+      "SSE_V2": 495.1426173470423,
+      "top_1pct_queries": 3375,
+      "top_1pct_SSE_V2": 404.47526116652074,
+      "top_1pct_SSE_fraction": 0.8168863818139626,
+      "independent_operational_episodes_reached": 833,
+      "normal_SSE_fraction": 0.13753211075726593
+    },
+    {
+      "run": "A3",
+      "model": "LSTM",
+      "horizon_seconds": 120,
+      "queries": 1349280,
+      "RMSE_V": 0.049760690990374015,
+      "MAE_V": 0.02070100726689122,
+      "R2_delta": 0.689311890731972,
+      "P95_abs_V": 0.07601309517284072,
+      "P99_abs_V": 0.1468825098034422,
+      "SSE_V2": 3340.987785598467,
+      "top_1pct_queries": 13493,
+      "top_1pct_SSE_V2": 2205.231721213544,
+      "top_1pct_SSE_fraction": 0.6600538112468806,
+      "independent_operational_episodes_reached": 1181,
+      "normal_SSE_fraction": 0.3816047812886133
+    },
+    {
+      "run": "A4",
+      "model": "F2",
+      "horizon_seconds": 120,
+      "queries": 1349280,
+      "RMSE_V": 0.04747813173647827,
+      "MAE_V": 0.020906579578676747,
+      "R2_delta": 0.7171611456053409,
+      "P95_abs_V": 0.050244418044724806,
+      "P99_abs_V": 0.13045446823398252,
+      "SSE_V2": 3041.510536246525,
+      "top_1pct_queries": 13493,
+      "top_1pct_SSE_V2": 2286.0587507903615,
+      "top_1pct_SSE_fraction": 0.7516195402076583,
+      "independent_operational_episodes_reached": 1181,
+      "normal_SSE_fraction": 0.2511723897376397
+    },
+    {
+      "run": "B1",
+      "model": "F2",
+      "horizon_seconds": 30,
+      "queries": 337470,
+      "RMSE_V": 0.036382321205520755,
+      "MAE_V": 0.011094193719865086,
+      "R2_delta": 0.3518861433488717,
+      "P95_abs_V": 0.03527476984096669,
+      "P99_abs_V": 0.05794752732656291,
+      "SSE_V2": 446.7000273029297,
+      "top_1pct_queries": 3375,
+      "top_1pct_SSE_V2": 386.4752193027688,
+      "top_1pct_SSE_fraction": 0.8651784098519442,
+      "independent_operational_episodes_reached": 833,
+      "normal_SSE_fraction": 0.1312536046622301
+    },
+    {
+      "run": "Persistence_H30",
+      "model": "Persistence",
+      "horizon_seconds": 30,
+      "queries": 337470,
+      "RMSE_V": 0.045192562086567335,
+      "MAE_V": 0.007053182231753342,
+      "R2_delta": -1.0191088586353203e-05,
+      "P95_abs_V": 0.03647570333500008,
+      "P99_abs_V": 0.05438953470300002,
+      "SSE_V2": 689.2378169024937,
+      "top_1pct_queries": 3375,
+      "top_1pct_SSE_V2": 644.7631634843366,
+      "top_1pct_SSE_fraction": 0.9354727028501848,
+      "independent_operational_episodes_reached": 833,
+      "normal_SSE_fraction": 0.028423441070615844
+    },
+    {
+      "run": "Persistence_H120",
+      "model": "Persistence",
+      "horizon_seconds": 120,
+      "queries": 1349280,
+      "RMSE_V": 0.08927394503959876,
+      "MAE_V": 0.021167926264030003,
+      "R2_delta": -2.9491851578633543e-06,
+      "P95_abs_V": 0.058919101904999945,
+      "P99_abs_V": 0.7343170836899992,
+      "SSE_V2": 10753.542022130643,
+      "top_1pct_queries": 13493,
+      "top_1pct_SSE_V2": 9060.989776590908,
+      "top_1pct_SSE_fraction": 0.8426051395850329,
+      "independent_operational_episodes_reached": 1181,
+      "normal_SSE_fraction": 0.020919858519675504
+    }
+  ],
+  "limits": [
+    "Operational episodes merged by a preregistered quiet gap are not experimentally proven independent physical causes.",
+    "At H120 the same target second may be queried from overlapping origins. Contributions use all origin x lead queries, not independent repeats.",
+    "A query following more than one episode is attached once to its latest voltage-trigger episode; this assignment is bookkeeping, not causal attribution.",
+    "Top 1% is a diagnostic rank on all Validation errors and never removes any prediction from the main metrics."
+  ]
+}

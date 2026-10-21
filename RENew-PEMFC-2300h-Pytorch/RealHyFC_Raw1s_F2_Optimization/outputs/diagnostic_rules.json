@@ -1,0 +1,94 @@
+{
+  "status": "FROZEN_BEFORE_NEW_GPU_TRAINING",
+  "version": 2,
+  "old_protocol_sha256": "421b987cc101ddebb0e39097c4249cc20c776902c08743798fb5a3c48b198b23",
+  "voltage_trigger_absolute_1s_delta_V": 0.038477648942,
+  "episode_rule": "Within same recorded segment and partition, consecutive trigger DateTime gap <=120000ms is one operational voltage episode. No hardware independence is asserted.",
+  "zero_current_rule": "abs(actual current)<=0.1A is an observed low/zero-current proxy, never a hardware shutdown label",
+  "classification_window_seconds": [
+    -30,
+    30
+  ],
+  "classification_priority": [
+    "loaded_to_low_or_zero",
+    "low_or_zero_to_loaded",
+    "current_or_command_change",
+    "temperature_or_pressure_change",
+    "no_above_threshold_observed_control_change"
+  ],
+  "classification_definition": {
+    "transition": "Any crossing of the 0.1A observed current boundary within +/-30s of episode first trigger; down crossing takes priority over up if both occur.",
+    "current_or_command_change": "No threshold crossing; any consecutive recorded actual-current or set-current change >0.1A in +/-30s, or recorded operation_point changes. The 0.1A rule is inherited from the existing causal input flag, not fitted on Validation.",
+    "temperature_or_pressure_change": "No prior class; 60s range of any recorded temperature or inlet pressure exceeds TRAIN-fitted 60s threshold.",
+    "ordinary_queries": "Non-event queries separately split by observed origin/target abs(I)<=0.1A and mixed-state interval; ordinary loaded and stable-zero states are not separate voltage episodes.",
+    "no_above_threshold_observed_control_change": "No above rule fires; does not mean physical controls were unchanged and is not proof of instrument error or physical causality."
+  },
+  "precursor_windows_seconds": [
+    30,
+    60,
+    120
+  ],
+  "precursor_quantile": 0.995,
+  "train_only_fitted_thresholds": {
+    "30": {
+      "current_ptp_A": 93.29508972167969,
+      "set_current_ptp_A": 92.40000915527344,
+      "temperature_max_ptp_C": 4.6950531005859375,
+      "pressure_max_ptp_kPag": 29.81780242919922
+    },
+    "60": {
+      "current_ptp_A": 157.78070068359375,
+      "set_current_ptp_A": 156.8000030517578,
+      "temperature_max_ptp_C": 7.28466796875,
+      "pressure_max_ptp_kPag": 58.64511850357051
+    },
+    "120": {
+      "current_ptp_A": 222.72409057617188,
+      "set_current_ptp_A": 221.1999969482422,
+      "temperature_max_ptp_C": 11.76285668373108,
+      "pressure_max_ptp_kPag": 112.48438755035359
+    }
+  },
+  "train_threshold_fit_origins": 78080,
+  "train_threshold_origin_sha256": "0750a18f7139636feb51ab17f4c93866d45d4a7598cc4a1621639f6cc349010d",
+  "precursor_flag": "OR of the four range > their TRAIN-only 99.5% thresholds, or recorded operation_point changed in the causal window. Equality is not exceedance.",
+  "grid_predictability_test": "Fixed 60s chronological diagnostic grid; past W seconds only predicts whether any voltage trigger occurs in next W recorded seconds for W=30,60,120. TRAIN thresholds are unchanged on VALIDATION; report precision/recall/FPR and class base rates, not deterministic advance control knowledge.",
+  "event_alignment_offsets_seconds": [
+    -120,
+    -60,
+    -30,
+    0,
+    30
+  ],
+  "event_alignment_past_window_seconds": 30,
+  "event_alignment_interpretation": "Strictly before (<0), first recorded trigger (0), and only after (>0) are reported separately. Future-time alignment is retrospective diagnostic evidence, not a prediction input.",
+  "largest_error_fraction": 0.01,
+  "largest_error_count": "ceil(0.01 * all origin-times-lead queries); ties use deterministic flat query index",
+  "query_to_episode_assignment": "For event-labeled queries, attach the most recent actual voltage-trigger episode since that origin; normal queries remain event_id=0. Each query is counted once; an event can be reached by multiple overlapping forecasts.",
+  "top_contribution_denominator": "All Validation query squared error, retaining every origin and every lead",
+  "hook_selection": "TRAIN first three and VALIDATION first three chronological episodes whose offsets [-120,-60,-30,0,30,60,120] all admit legal 329-record raw support; never selected by error. Full-model forward uses CPU only and at most 6 episodes x 7 offsets per F2 checkpoint.",
+  "hook_offsets_seconds": [
+    -120,
+    -60,
+    -30,
+    0,
+    30,
+    60,
+    120
+  ],
+  "hook_limitations": "Report native post-LSTM encoder and causal-CNN hidden representation RMS, cosine and change. They share VSN inputs and nonlinear downstream decoding; these are not separately identifiable branch voltage contributions or causal attributions.",
+  "no_future_information": true,
+  "holdout_data_used_to_fit_rules": false,
+  "GPU_calls_by_diagnostics": 0,
+  "optimizer_steps_by_diagnostics": 0,
+  "historically_exposed_1873h_2150h_used_to_define_rules": false,
+  "AI_assistance_disclosure": "AI-assisted implementation; deterministic scripts, source records and saved model outputs are the empirical authority.",
+  "pre_GPU_rule_revision": {
+    "superseded_rules_sha256": "8082d6e0f88573a240d9d16962e3a71e6e3b93c3d0e496f7bb6339ead36a4e27",
+    "reason": "Correct an overstrong category name and ensure ordinary observed current/setpoint changes are described rather than missed by the extreme 99.5% range threshold.",
+    "main_protocol_frozen": false,
+    "new_GPU_trainings_started": 0,
+    "validation_outcomes_consulted": false,
+    "unchanged": "Every precursor threshold, event trigger, quiet-gap episode rule, sampler, model, loss, forecast target and gate diagnostic selection."
+  }
+}

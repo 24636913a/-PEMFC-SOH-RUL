@@ -1,0 +1,29 @@
+{
+  "stage": "intermediate_native_models_CPU_diagnostics",
+  "process_id": 103668,
+  "verified_command": "RealHyFC_Raw1s_F2_Optimization/scripts/diagnose_events.py --run",
+  "action": "Stopped only this verified CPU diagnostic process and reran the read-only diagnostic with single-thread BLAS and equivalent vectorized squared-error summation.",
+  "initial_hypothesis": "Repeated small-vector NumPy dot calls might cause excessive thread overhead; no reported Python exception or model failure.",
+  "confirmed_source_level_bottleneck": "Inside the top-1-percent output loop, repeated NpzFile reads decompressed complete timestamp arrays for each query. Corrected to load those unchanged arrays once per run.",
+  "implementation_correction": "SSE uses sum(error**2) instead of dot(error,error). Both are the same statistic; only floating-point reduction order may differ at roundoff level.",
+  "rerun_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "new_model_trainings": 0,
+  "optimizer_steps": 0,
+  "GPU_calls": 0,
+  "changed_rules_or_metric_definitions": false,
+  "changed_origins_or_prediction_queries": false,
+  "changed_predictions_or_checkpoints": false,
+  "completed_checkpoints_overwritten": false
+  ,"second_operational_restart": {
+    "process_id": 143568,
+    "verified_command": "RealHyFC_Raw1s_F2_Optimization/scripts/diagnose_events.py --run",
+    "action": "Stopped only this CPU diagnostic process after identifying repeated NPZ decompression. Reran the same diagnostic once with per-run timestamp caching.",
+    "same_queries_same_values": true,
+    "changed_frozen_rules": false,
+    "new_GPU_training_runs": 0
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "F2_REMAINING_TFT": {
+    "parameters": 338788,
+    "changed_elements": 322404,
+    "squared_L2_change": 1338.449403060903,
+    "L2_change": 36.58482476466032
+  },
+  "F2_LSTM_ENCODER": {
+    "parameters": 33280,
+    "changed_elements": 33280,
+    "squared_L2_change": 196.41734163992612,
+    "L2_change": 14.01489713269156
+  },
+  "F2_LSTM_DECODER": {
+    "parameters": 33280,
+    "changed_elements": 33280,
+    "squared_L2_change": 195.06073036225962,
+    "L2_change": 13.966414370276274
+  },
+  "F2_NATIVE_OUTPUT": {
+    "parameters": 65,
+    "changed_elements": 65,
+    "squared_L2_change": 0.08526927849390567,
+    "L2_change": 0.29200903837707776
+  },
+  "F2_CAUSAL_CNN": {
+    "parameters": 8896,
+    "changed_elements": 8896,
+    "squared_L2_change": 28.460197311173697,
+    "L2_change": 5.334809960174185
+  },
+  "F2_REGIME_GATE": {
+    "parameters": 57,
+    "changed_elements": 57,
+    "squared_L2_change": 1.3776091168867088,
+    "L2_change": 1.1737159438666191
+  }
+}

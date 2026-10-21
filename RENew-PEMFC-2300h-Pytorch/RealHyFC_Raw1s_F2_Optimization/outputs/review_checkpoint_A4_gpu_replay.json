@@ -1,0 +1,29 @@
+{
+  "pass_all_so_far": true,
+  "grids": {
+    "60s": {
+      "all_queries_compared": true,
+      "origins": 11244,
+      "queries": 1349280,
+      "max_absolute_difference_V": 0.0,
+      "difference_RMSE_V": 0.0,
+      "predeclared_absolute_tolerance_V": 1e-07,
+      "production_inputs_bytewise_identical": true,
+      "normalized_input_sha256": "3083feb7870ccb2372299a25416fc35d4d2cc53673fb4e0aa6c1f57977698370",
+      "batch_size": 16
+    },
+    "600s": {
+      "all_queries_compared": true,
+      "origins": 1124,
+      "queries": 134880,
+      "max_absolute_difference_V": 0.0,
+      "difference_RMSE_V": 0.0,
+      "predeclared_absolute_tolerance_V": 1e-07,
+      "production_inputs_bytewise_identical": true,
+      "normalized_input_sha256": "ce5bd072cda387568af10b93dffc46212d34be556a11f2114f22c9892fb85ffd",
+      "batch_size": 16
+    }
+  },
+  "optimizer_steps": 0,
+  "backward_calls": 0
+}

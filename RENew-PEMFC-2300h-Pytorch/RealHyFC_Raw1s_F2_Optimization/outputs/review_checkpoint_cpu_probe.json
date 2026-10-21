@@ -1,0 +1,38 @@
+{
+  "run": "A2",
+  "selection": "fixed first64 chronological primary Validation origins, not error-selected",
+  "origins": 64,
+  "queries": 1920,
+  "max_absolute_difference_V": 1.4508604783136647e-05,
+  "difference_RMSE_V": 1.1626971097110049e-06,
+  "input_dtype": "float32",
+  "mean_dtype": "float32",
+  "scale_dtype": "float32",
+  "production_inputs_bytewise_identical": true,
+  "input_sha256": "5a543d91aa87ad492ed9e8f58635211e0b769c475ecd7f491e000ce5ab3e2b95",
+  "checkpoint_sha256": "363c125101ddbcac42afd71506cbaced4bb21fc9842f4f24dada25c2bed650ce",
+  "batch_size": 16,
+  "model_eval": true,
+  "all_inference_no_grad": true,
+  "weights_unchanged": true,
+  "production_CuDNN_settings_from_frozen_source": {
+    "deterministic": true,
+    "benchmark": false,
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true
+  },
+  "prior_full_probe": {
+    "completed": true,
+    "queries": 337470,
+    "exit_code": 1,
+    "predeclared_tolerance_V": 1e-05,
+    "log": "AssertionError: CPU vs GPU replay exceeds predeclared1e-5V tolerance; coordinate serial GPU replay, never retrain",
+    "full_max_absolute_difference_V": null,
+    "full_difference_RMSE_V": null,
+    "limitation": "The first full probe reached the end-of-loop tolerance assertion but did not serialize max/RMSE; those values are unavailable, not zero. Fixed-first64 values above are not substitutes for full-query values."
+  },
+  "cause": "Not uniquely determined. CPU/GPU backend behavior remains a candidate; matching inputs alone does not prove a unique cause.",
+  "GPU_calls": 0,
+  "optimizer_steps": 0,
+  "requires_serial_GPU_confirmation": true
+}

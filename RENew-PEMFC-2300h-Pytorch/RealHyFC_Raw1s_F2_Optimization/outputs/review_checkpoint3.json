@@ -1,0 +1,731 @@
+{
+  "checkpoint": 3,
+  "decision": "PASS",
+  "pass": true,
+  "created_at_utc": "2026-10-21T13:17:35.597949+00:00",
+  "scope": "最终编辑、证据边界与 Devil's Advocate 审阅；适用于所列SHA快照，不是外部同行评审或跨种子独立实验复现。",
+  "reviewer": {
+    "agent": "literature",
+    "role": "分工报告审阅者；未实现训练器或独立数值verifier",
+    "independent_of_training_and_numeric_verifier_implementation": true,
+    "fully_author_independent": false,
+    "prior_authored_deliverables": [
+      "01_训练样本及突变覆盖分析.md",
+      "scripts/coverage_report.py",
+      "figures/10_training_coverage.*",
+      "RealHyFC_Raw1s_F2_Interactive.py",
+      "notes/literature_support.md",
+      "outputs/literature_verification.json"
+    ],
+    "boundary": "01、覆盖图、文献说明与交互入口由本审阅者参与撰写，不将自审伪称完全作者独立。00及02–05由root整合/生成，本次为跨分工审阅。独立数值与诊断复算实现的作者是historical_audit，不是本审阅者；root只包装执行。"
+  },
+  "actions": {
+    "GPU_calls": 0,
+    "model_forward_calls": 0,
+    "backward_calls": 0,
+    "optimizer_steps": 0,
+    "new_training_instances": 0,
+    "core_or_verifier_imported_by_extra_recomputation": false,
+    "protected_memmaps_open_mode": "r",
+    "source_csv_full_reparse_by_this_reviewer": false,
+    "written_files": [
+      "outputs/review_checkpoint3.json"
+    ],
+    "did_not_modify": [
+      "原17CSV",
+      "历史研究目录",
+      "缓存",
+      "冻结协议",
+      "core.py",
+      "prepare.py",
+      "train.py",
+      "模型权重",
+      "已保存预测",
+      "采样规则",
+      "阈值"
+    ]
+  },
+  "acceptance_evidence": {
+    "numeric_file": "outputs/final_acceptance.json",
+    "numeric_pass": true,
+    "diagnostic_file": "outputs/independent_diagnostic_acceptance.json",
+    "diagnostic_pass": true,
+    "independent_original_authority_recheck": {
+      "files": 17,
+      "rows": 8604654,
+      "all_original_timestamps_exact_ms": true,
+      "max_original_voltage_difference_V": 0
+    },
+    "causality_falsification": {
+      "future_raw_perturbation_history_equal": true,
+      "future_real_placeholder_max_prediction_difference_V": {
+        "30": 0,
+        "120": 0
+      },
+      "GPU_calls": 0,
+      "optimizer_steps": 0
+    },
+    "attribution": "原17CSV全量重新解析、SHA/毫秒时间戳/十单体均值对照和因果反证来自已有独立verifier执行证据；本审阅者没有冒充该verifier作者或重新全读CSV。",
+    "interactive_smoke": {
+      "pass_status": true,
+      "mode": "READ_ONLY",
+      "torch_imported": false,
+      "GPU_calls": 0,
+      "new_training_instances": 0,
+      "watched_checkpoint_and_state_SHA_unchanged": true,
+      "B2_shown_cancelled": true,
+      "entry_sha256": "50f5e75f041e3470a14385080eda4b1ffb3627689b4087ca79d12a8cd4b0f1d2"
+    }
+  },
+  "direct_read_only_CPU_recomputation": {
+    "method": "独立的一次性NumPy/Pandas计算，不import core或verify_optimization；读取七份主Validation NPZ、真实训练CSV与旧只读voltage/time/x缓存。逐目标重算误差、DateTime、原始电压ΔV和事件前缀，再与正式表和绘图CSV对照。",
+    "metric_agreement_tolerance_mV": 1e-9,
+    "checks": [
+      "All seven saved model/baseline primary NPZ metrics, all timestamp/voltage/event-prefix identities, lead curves and figure03 values independently recomputed without core or verifier imports",
+      "Five COMPLETE runs, 151 real history rows/epochs, 38656 optimizer updates, and no B2 run directory; all figure04 training points and figure05 saved-query values checked",
+      "Training target event and actual-weight composition recomputed directly from read-only raw voltage memmap; unexecuted H120 actual weight share is blank",
+      "Figure06 source row timestamps, measured voltage and actual current checked against read-only cache",
+      "Ten exact-stem PNG/PDF/plot-CSV triplets present; PNG dpi metadata exceeds299 (300dpi rounding); all ten PNGs separately visually inspected"
+    ],
+    "models": [
+      {
+        "directory": "A1_LSTM_H30",
+        "horizon_seconds": 30,
+        "queries": 337470,
+        "event_queries": 25520,
+        "RMSE_mV": 33.81850713274024,
+        "MAE_mV": 10.061787221966066,
+        "R2_delta": 0.4400111703213615,
+        "event_RMSE_mV": 114.8029425281259,
+        "normal_MAE_mV": 7.286185572867095,
+        "P95_mV": 33.98419770086255,
+        "P99_mV": 54.38764688756309,
+        "top_1pct_absolute_SSE_V2": 327.1988936187028,
+        "top_1pct_share_SSE": 0.84774998385679
+      },
+      {
+        "directory": "A2_F2_H30",
+        "horizon_seconds": 30,
+        "queries": 337470,
+        "event_queries": 25520,
+        "RMSE_mV": 38.30430336279223,
+        "MAE_mV": 12.953702554834294,
+        "R2_delta": 0.28160113788508656,
+        "event_RMSE_mV": 129.35889179435168,
+        "normal_MAE_mV": 9.32289094943845,
+        "P95_mV": 41.781482089294556,
+        "P99_mV": 57.02259771753014,
+        "top_1pct_absolute_SSE_V2": 404.4752611665207,
+        "top_1pct_share_SSE": 0.8168863818139624
+      },
+      {
+        "directory": "A3_LSTM_H120",
+        "horizon_seconds": 120,
+        "queries": 1349280,
+        "event_queries": 311812,
+        "RMSE_mV": 49.760690990374016,
+        "MAE_mV": 20.70100726689122,
+        "R2_delta": 0.689311890731972,
+        "event_RMSE_mV": 81.399941549274,
+        "normal_MAE_mV": 16.373329995119605,
+        "P95_mV": 76.01309517284072,
+        "P99_mV": 146.8825098034422,
+        "top_1pct_absolute_SSE_V2": 2205.2317212135445,
+        "top_1pct_share_SSE": 0.6600538112468807
+      },
+      {
+        "directory": "A4_F2_H120",
+        "horizon_seconds": 120,
+        "queries": 1349280,
+        "event_queries": 311812,
+        "RMSE_mV": 47.47813173647827,
+        "MAE_mV": 20.906579578676748,
+        "R2_delta": 0.7171611456053409,
+        "event_RMSE_mV": 85.4651727322212,
+        "normal_MAE_mV": 15.563888027802083,
+        "P95_mV": 50.2444180447248,
+        "P99_mV": 130.4544682339825,
+        "top_1pct_absolute_SSE_V2": 2286.0587507903615,
+        "top_1pct_share_SSE": 0.7516195402076583
+      },
+      {
+        "directory": "B1_F2_H30",
+        "horizon_seconds": 30,
+        "queries": 337470,
+        "event_queries": 25520,
+        "RMSE_mV": 36.38232120552075,
+        "MAE_mV": 11.094193719865086,
+        "R2_delta": 0.3518861433488717,
+        "event_RMSE_mV": 123.31450452609617,
+        "normal_MAE_mV": 7.720231367627714,
+        "P95_mV": 35.27476984096669,
+        "P99_mV": 57.947527326562906,
+        "top_1pct_absolute_SSE_V2": 386.47521930276883,
+        "top_1pct_share_SSE": 0.8651784098519444
+      },
+      {
+        "directory": "Persistence_H120",
+        "horizon_seconds": 120,
+        "queries": 1349280,
+        "event_queries": 311812,
+        "RMSE_mV": 89.27394503959876,
+        "MAE_mV": 21.167926264030005,
+        "R2_delta": -0.0000029491851578633543,
+        "event_RMSE_mV": 183.7547087616169,
+        "normal_MAE_mV": 4.544550837747092,
+        "P95_mV": 58.91910190499994,
+        "P99_mV": 734.3170836899991,
+        "top_1pct_absolute_SSE_V2": 9060.989776590908,
+        "top_1pct_share_SSE": 0.8426051395850329
+      },
+      {
+        "directory": "Persistence_H30",
+        "horizon_seconds": 30,
+        "queries": 337470,
+        "event_queries": 25520,
+        "RMSE_mV": 45.192562086567335,
+        "MAE_mV": 7.053182231753342,
+        "R2_delta": -0.000010191088586353203,
+        "event_RMSE_mV": 161.98795700405208,
+        "normal_MAE_mV": 1.8285723275287702,
+        "P95_mV": 36.475703335000084,
+        "P99_mV": 54.389534703000024,
+        "top_1pct_absolute_SSE_V2": 644.7631634843367,
+        "top_1pct_share_SSE": 0.935472702850185
+      }
+    ],
+    "training_counts": {
+      "new_trained_instances": 5,
+      "epochs": 151,
+      "optimizer_steps": 38656,
+      "Persistence_trained_instances": 0,
+      "B2_executed": false,
+      "B2_directory_exists": false
+    },
+    "B1_gate_recomputed_from_unrounded_values": {
+      "all_RMSE_relative_reduction": 0.05017666393949982,
+      "event_RMSE_relative_reduction": 0.046725719310154346,
+      "normal_MAE_relative_increase": -0.1719058595131664,
+      "B2_allowed": false
+    },
+    "target_event_weight_composition": [
+      {
+        "horizon_seconds": 30,
+        "queries": 245760,
+        "event_queries": 44608,
+        "event_fraction": 0.18151041666666667,
+        "weighted_executed": true,
+        "actual_event_loss_weight_share": 0.39950324799388615
+      },
+      {
+        "horizon_seconds": 120,
+        "queries": 983040,
+        "event_queries": 366533,
+        "event_fraction": 0.3728566487630208,
+        "weighted_executed": false,
+        "actual_event_loss_weight_share": null
+      }
+    ],
+    "not_claimed": "未在本审阅中重做GPU重载、门控/隐状态前向或原17CSV全量解析。图07的隐状态来源/图08–09类别与先兆表数值完整性另引用独立诊断验收。"
+  },
+  "replay_boundary": {
+    "CPU_full_probe": {
+      "completed": true,
+      "queries": 337470,
+      "exit_code": 1,
+      "predeclared_tolerance_V": 0.00001,
+      "log": "AssertionError: CPU vs GPU replay exceeds predeclared1e-5V tolerance; coordinate serial GPU replay, never retrain",
+      "full_max_absolute_difference_V": null,
+      "full_difference_RMSE_V": null,
+      "limitation": "The first full probe reached the end-of-loop tolerance assertion but did not serialize max/RMSE; those values are unavailable, not zero. Fixed-first64 values above are not substitutes for full-query values."
+    },
+    "CPU_first64_max_difference_V": 0.000014508604783136647,
+    "CPU_full_maximum_is_not_replaced_by_subset_maximum": true,
+    "CPU_cross_backend_parity_not_proven": true,
+    "cause_uniquely_identified": false,
+    "GPU_replay": {
+      "A1": {
+        "all_queries_both_grids": true,
+        "maximum_difference_V": 0,
+        "strict_tolerance_V": 1e-7,
+        "backward_calls": 0,
+        "optimizer_steps": 0,
+        "forward_batches": 775
+      },
+      "A2": {
+        "all_queries_both_grids": true,
+        "maximum_difference_V": 0,
+        "strict_tolerance_V": 1e-7,
+        "backward_calls": 0,
+        "optimizer_steps": 0,
+        "forward_batches": 775
+      },
+      "A3": {
+        "all_queries_both_grids": true,
+        "maximum_difference_V": 0,
+        "strict_tolerance_V": 1e-7,
+        "backward_calls": 0,
+        "optimizer_steps": 0,
+        "forward_batches": 774
+      },
+      "A4": {
+        "all_queries_both_grids": true,
+        "maximum_difference_V": 0,
+        "strict_tolerance_V": 1e-7,
+        "backward_calls": 0,
+        "optimizer_steps": 0,
+        "forward_batches": 774
+      },
+      "B1": {
+        "all_queries_both_grids": true,
+        "maximum_difference_V": 0,
+        "strict_tolerance_V": 1e-7,
+        "backward_calls": 0,
+        "optimizer_steps": 0,
+        "forward_batches": 775
+      }
+    },
+    "interpretation": "原完整CPU探针失败保留，完整max缺失为null；64起点值不能替代全量。原GPU环境全部60s和600s查询在1e-7V严格判据下均max0，重放未训练。PASS仅认可记录环境中的GPU重载证据及正确披露，未豁免或伪造CPU一致性。"
+  },
+  "report_review": {
+    "six_reports_read_in_full": true,
+    "README_and_report_generator_reviewed": true,
+    "final_03_pass_true_clarification_checked": true,
+    "ten_question_answers_consistent_with_actual_results": true,
+    "model_comparison": "30秒LSTM全RMSE最低；原生120秒F2全RMSE较低，但事件RMSE和全MAE较LSTM更高，不能称全面优越。",
+    "baseline_tradeoff": "F2的全RMSE低于相同任务Persistence，但普通MAE更高；保留MAE与尾部分母差异。",
+    "historical_comparison": "新旧F2只在同1124个600s起点比较；H30变差1.500%、H120改善32.907%，组合采样/预算变化不拆分因果归因。",
+    "event_weighting": "B1全RMSE下降约5.018%，事件RMSE仅下降约4.673%未到5%；B2取消。全P99略升、事件子集P99下降、Top1%绝对SSE下降而占比升高均已明确，不能挑单一有利尾部指标。",
+    "weighting_origin": "1:3、75/25采样与准入条件是用户预设/继承冻结协议，不称文献最优。H120未执行加权实际权重列为空。",
+    "information_boundary": "未来电流、模式、真实事件和控制日志不作为预测输入；已暴露后留案例仅解释，不称新的盲测；原生F2已有因果多尺度CNN。",
+    "hardware_boundary": "电压episode、低/零流与分类是规则代理，不当作硬件启停或全部供气真值；温压最终类别为0不推出无变化、无影响。",
+    "research_scope": "唯一RealHyFC，直接逐秒ΔV，不创建RUL，不称SOH，不以30秒成绩对旧12小时成绩证明提升。",
+    "citation_boundary": "七篇方法来源已在本轮此前实际网页核验，最终报告保留S2 429降级、全文读取范围和未全面venue/COI审查的限制。"
+  },
+  "figure_review": {
+    "triplets": 10,
+    "all_PNGs_visually_inspected": true,
+    "visible_text_clipping_found": false,
+    "final_regenerated_01_and_04_reinspected": true,
+    "PDF_inspection": "核对PDF文件存在、非空且头部%PDF；本审阅未另行把每份PDF栅格化复审，逐张视觉检查针对对应PNG。",
+    "scientific_style": "与scientific-figure-making要求一致的无衬线字体、清晰单位、白底/少装饰、300dpi和PDF/原始绘图数据；无虚构误差棒或把重复查询称独立实验。",
+    "unexecuted_B2_not_plotted_as_zero": true,
+    "records": [
+      {
+        "stem": "01_overall_validation_RMSE",
+        "pixels": [
+          3600,
+          1440
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ],
+        "PDF_header_valid": true,
+        "plot_rows": 7
+      },
+      {
+        "stem": "02_error_by_forecast_lead",
+        "pixels": [
+          3600,
+          1350
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ],
+        "PDF_header_valid": true,
+        "plot_rows": 480
+      },
+      {
+        "stem": "03_event_and_normal_error",
+        "pixels": [
+          3600,
+          2400
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ],
+        "PDF_header_valid": true,
+        "plot_rows": 14
+      },
+      {
+        "stem": "04_training_validation_loss",
+        "pixels": [
+          3600,
+          3300
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ],
+        "PDF_header_valid": true,
+        "plot_rows": 151
+      },
+      {
+        "stem": "05_real_voltage_and_predictions",
+        "pixels": [
+          3900,
+          1410
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ],
+        "PDF_header_valid": true,
+        "plot_rows": 330
+      },
+      {
+        "stem": "06_current_voltage_sync",
+        "pixels": [
+          3600,
+          1800
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ],
+        "PDF_header_valid": true,
+        "plot_rows": 1083
+      },
+      {
+        "stem": "07_F2_gate_and_path_response",
+        "pixels": [
+          3600,
+          3000
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ],
+        "PDF_header_valid": true,
+        "plot_rows": 33805
+      },
+      {
+        "stem": "08_extreme_error_contribution",
+        "pixels": [
+          3600,
+          2580
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ],
+        "PDF_header_valid": true,
+        "plot_rows": 6952
+      },
+      {
+        "stem": "09_event_weighted_comparison",
+        "pixels": [
+          3600,
+          1650
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ],
+        "PDF_header_valid": true,
+        "plot_rows": 187
+      },
+      {
+        "stem": "10_training_coverage",
+        "pixels": [
+          3960,
+          2730
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ],
+        "PDF_header_valid": true,
+        "plot_rows": 169
+      }
+    ]
+  },
+  "resolved_editorial_findings": [
+    {
+      "severity": "Major reporting",
+      "issue": "跨CPU/GPU复现失败可能被后续GPU成功掩盖。",
+      "resolution": "02/04/05和README显式保留CPU失败、完整max=null及64起点局部值，解释GPU限定复现，不声称CPU一致。",
+      "status": "CORRECTLY_DISCLOSED_NOT_EXPERIMENTALLY_RESOLVED"
+    },
+    {
+      "severity": "Minor",
+      "issue": "全RMSE较低可能被误称各项优于LSTM/Persistence。",
+      "resolution": "05补事件RMSE、全MAE与普通MAE对照；明确不同指标胜负。",
+      "status": "FIXED"
+    },
+    {
+      "severity": "Minor",
+      "issue": "B1事件指标下降不能代表所有尾部同步改善。",
+      "resolution": "05同时披露全P95/P99、事件P99、Top1%绝对SSE及SSE占比分母。",
+      "status": "FIXED"
+    },
+    {
+      "severity": "Minor",
+      "issue": "图01/04条件式文案似乎仍在等待B2准入。",
+      "resolution": "最终PNG明确B2未运行且B1预设门槛失败，重新目检无裁字。",
+      "status": "FIXED"
+    },
+    {
+      "severity": "Minor",
+      "issue": "门槛JSON pass=true可能误读为允许B2。",
+      "resolution": "03解释pass是完整性通过，B2_allowed=false才是性能准入结论，明确4.672572%未到5%。",
+      "status": "FIXED"
+    },
+    {
+      "severity": "Minor",
+      "issue": "当前F2的多尺度能力、供气变量覆盖与先兆精确率基率需避免外推。",
+      "resolution": "05明确已有CausalMultiScaleHistoryBranch与14.35%基率；04列出入口温压/模式的有限真值。",
+      "status": "FIXED"
+    },
+    {
+      "severity": "Minor",
+      "issue": "交互VERIFY缺默认stage，以及普通MAE下降仍称代价、附录标题/列表间距。",
+      "resolution": "VERIFY_ARGS默认--stage final，最终只读smoke通过；05语义和CommonMark层级/空行修复。",
+      "status": "FIXED"
+    }
+  ],
+  "devil_advocate": {
+    "strongest_counterargument": "最强反论证是：训练覆盖和预算共同改变，且checkpoint和B2条件决策都使用相同Validation；单Seed结果可能反映优化轨迹、事件分布及选择不确定性，而不是F2架构普遍优越。H120 F2的全RMSE优势伴随事件RMSE/全MAE劣势；B1聚合改善同时掩盖恢复带载类别RMSE从641.789增至657.107mV以及全P99略升，故不能将加权称为普遍解决极端误差。",
+    "response": "最终报告同时呈现这些反证，取消未达门槛的B2，不追加权重搜索或重训；结论限于Seed202、冻结协议和观测代理，不宣称统计显著性或稳定架构优越。",
+    "remaining_nonblocking_minor": "学术解释仍受单种子、重叠查询、非盲Validation和代理事件限制；报告已披露，需将来另立冻结研究而非本轮继续追加实验。"
+  },
+  "unresolved_findings": {
+    "critical": 0,
+    "major_reporting_or_artifact_errors": 0,
+    "minor_required_fixes": 0
+  },
+  "limitations": [
+    "本审阅是AI分工审阅，不是外部同行评审，且对01/覆盖图/文献/入口存在作者重叠。",
+    "只能验证报告与保存证据一致，不能证明原始测量不存在硬件同步异常或各事件的唯一物理机理。",
+    "单Seed、相同Validation用于选轮和条件决策，没有新的后留盲测，不支持泛化稳定性或显著性结论。",
+    "120秒重叠查询及episode重复覆盖不是独立试验；最新起点去重改变提前量分布，只作辅助。",
+    "CPU跨后端完整复现未通过且原完整max没有序列化，不能由GPU成功反推CPU已验证。",
+    "未检验每秒滚动在线评价或数小时预测；多尺度、辅助任务和物理约束仅是后续独立协议候选。"
+  ],
+  "release_statement": "在上述角色与证据边界内，六份报告、十组图/绘图数据、训练数量、B2取消决策和核心结论一致，可进入本轮打包/提交；不授权任何额外训练，也不将编辑PASS误作B1性能门槛PASS。",
+  "sha256_snapshot": {
+    "00_训练协议与数据冻结.md": {
+      "sha256": "8718cf205e7706aa9c98c2e0b1819bf03d20ab4814ea1a571f7a589cf347c447",
+      "bytes": 7503
+    },
+    "01_训练样本及突变覆盖分析.md": {
+      "sha256": "9020003cbbbb76ef4367126b3ca21857e6174e725beeb36cf178021167989f89",
+      "bytes": 6643
+    },
+    "02_原生F2充分训练结果.md": {
+      "sha256": "2031f5d92c21391ef4b4387baa620cd03e56f2430a8aafc455a290e3f399d6a0",
+      "bytes": 4978
+    },
+    "03_事件敏感训练结果.md": {
+      "sha256": "996aa269a84c613dd312740d3e0d2b3d84ea28c873f601a4115ffd6dbccd6a6a",
+      "bytes": 6299
+    },
+    "04_完整误差分析与图表.md": {
+      "sha256": "0035134e9ea60540780be881fbb650fb7f93ef97ba2478274073c35ccb08772b",
+      "bytes": 26024
+    },
+    "05_最终研究总结与下一阶段建议.md": {
+      "sha256": "41d9c72e2eaf2c48afb85e8973cafd9adb0eab625b823801abe3ef71d9287088",
+      "bytes": 16559
+    },
+    "figures/01_overall_validation_RMSE.png": {
+      "sha256": "131a98762d3af32403fe05ed2e0ac55fd309c2d2ec84641bddc596bf841328b3",
+      "bytes": 137747
+    },
+    "figures/02_error_by_forecast_lead.png": {
+      "sha256": "e149e2c9574d284334dac2eb57e43728099d2de50fa06b64e24c140123083fe3",
+      "bytes": 259182
+    },
+    "figures/03_event_and_normal_error.png": {
+      "sha256": "01c24d9df240da750aa657ecf02fb3999868333302a5167f34e15e8d43583c4f",
+      "bytes": 215547
+    },
+    "figures/04_training_validation_loss.png": {
+      "sha256": "b312363e4edc2b121a144d1f7a92d3b55bfa52be4e7cfa139bbdea1c45fd1132",
+      "bytes": 608807
+    },
+    "figures/05_real_voltage_and_predictions.png": {
+      "sha256": "35a7b5f8f16b3ac0c0f50ab9b496687d4166f2f0e8c12ef6e356efd2824a55b7",
+      "bytes": 282002
+    },
+    "figures/06_current_voltage_sync.png": {
+      "sha256": "250fe8275b38c1658936fbd4412ca5024fe1a7b2df29dddf395fd8a1d8fcc075",
+      "bytes": 283266
+    },
+    "figures/07_F2_gate_and_path_response.png": {
+      "sha256": "8ed00b4d36dae6fc5af9ce35472d8a83abb1295e30da74bd4f075041fb6ed70d",
+      "bytes": 411965
+    },
+    "figures/08_extreme_error_contribution.png": {
+      "sha256": "70cb00929bcf68ff8d1eb7e19a8c814f718b36e83efd3c354bf7cc17897ed6b4",
+      "bytes": 433377
+    },
+    "figures/09_event_weighted_comparison.png": {
+      "sha256": "5ab7c748e0f783e00c2da1e26ea2e3cf72f936e3133489d4fe11384654511814",
+      "bytes": 327591
+    },
+    "figures/10_training_coverage.png": {
+      "sha256": "8ca5c0002b65ba8d87be4673bc173a5d1286bd0aa375e60045bcb3b1e1cec1c5",
+      "bytes": 431224
+    },
+    "figures/01_overall_validation_RMSE.pdf": {
+      "sha256": "ca0f279c6b1bd2b32d05f4fe0ff07b5701d2dbb9909ffb2fa1295c172899fd1c",
+      "bytes": 31650
+    },
+    "figures/02_error_by_forecast_lead.pdf": {
+      "sha256": "d455904f426c941a35883fd691c7f1782ba22fbbeda99c30b6a9adba34170234",
+      "bytes": 35349
+    },
+    "figures/03_event_and_normal_error.pdf": {
+      "sha256": "affddf2a5e6e88ae316f6fa44495646c3f2f3df545386bfab3e77628c754455a",
+      "bytes": 30755
+    },
+    "figures/04_training_validation_loss.pdf": {
+      "sha256": "ea7ac257fde89e4ff8c37010f6d531aed72157755cf7d02c6d82557f8c60bb1d",
+      "bytes": 33952
+    },
+    "figures/05_real_voltage_and_predictions.pdf": {
+      "sha256": "d5a7f2f7eb760efb4d9f18a9aac1afd177475541fa9af3daedb49e906fd666ca",
+      "bytes": 33601
+    },
+    "figures/06_current_voltage_sync.pdf": {
+      "sha256": "fccd0d0b88f263b35723d5c9dce759be05ebc809b3f5eef5e3a0b59341eb2a7a",
+      "bytes": 41234
+    },
+    "figures/07_F2_gate_and_path_response.pdf": {
+      "sha256": "a34cf4f083be3df45d8a6110ba2c03fe95a7e998dfb3a3897ed59d686afa3820",
+      "bytes": 40181
+    },
+    "figures/08_extreme_error_contribution.pdf": {
+      "sha256": "05ce244735c9c43fa4e52a5733f5e18ee9165fcea91aefb62c55629fe9b43e57",
+      "bytes": 39323
+    },
+    "figures/09_event_weighted_comparison.pdf": {
+      "sha256": "942722d5d6ae95ab0cc5407c90c691606725d1ff272da0508d184f31fb2ad181",
+      "bytes": 38648
+    },
+    "figures/10_training_coverage.pdf": {
+      "sha256": "0112e86eae53730dc1ca08b6b835601c0c453944ff38e9f08e572b90571824e4",
+      "bytes": 35213
+    },
+    "figures/01_overall_validation_RMSE_plot_data.csv": {
+      "sha256": "83bf6ac3bada48fc206c5fd68be8504786c6ff0a0a5360ba948c0703eaa42a95",
+      "bytes": 1126
+    },
+    "figures/02_error_by_forecast_lead_plot_data.csv": {
+      "sha256": "757820b2b2ad5065a8b913bd6da9736f432ead9cdd10dcd842e26c77c4479738",
+      "bytes": 27282
+    },
+    "figures/03_event_and_normal_error_plot_data.csv": {
+      "sha256": "a221a14d2fc17cd9f6754e9a73307d71657f49da51e7f7543b4413cdd4c084c7",
+      "bytes": 587
+    },
+    "figures/04_training_validation_loss_plot_data.csv": {
+      "sha256": "8295cadf1e4fbcb974b3e6fe5eacc828220dd4100ebb4e3a3e84ccdfc778abdb",
+      "bytes": 24913
+    },
+    "figures/05_real_voltage_and_predictions_plot_data.csv": {
+      "sha256": "46033f6364028de8ecabf432f69069f65f81ce632631eb675d2b869fede80b5c",
+      "bytes": 70594
+    },
+    "figures/06_current_voltage_sync_plot_data.csv": {
+      "sha256": "eb78a972eb11b14308ec5f435502ac149d4b194bb1639b95d18f7cd234a489bf",
+      "bytes": 90326
+    },
+    "figures/07_F2_gate_and_path_response_plot_data.csv": {
+      "sha256": "5f0d872a898cabdca68db9a533114a4ad850638447c577f247547515786e89c7",
+      "bytes": 3897923
+    },
+    "figures/08_extreme_error_contribution_plot_data.csv": {
+      "sha256": "9de5a8fe03999733330d15e2cf6d1aa48177f83cf46ce10dde8073a9b75f0f54",
+      "bytes": 1629693
+    },
+    "figures/09_event_weighted_comparison_plot_data.csv": {
+      "sha256": "00bdb90bae27d4d99ab6f79357afd800fec3a7a70ef90f58fb6a884f112f49c6",
+      "bytes": 24045
+    },
+    "figures/10_training_coverage_plot_data.csv": {
+      "sha256": "5a6134eb2d0b9a1073e885612456f6f711257b433b9841f5334e4551b3152333",
+      "bytes": 12494
+    },
+    "README.md": {
+      "sha256": "cd5a0a754caf393b5e0fe07049f210909002ecade82989f42511747d1582dbc5",
+      "bytes": 4128
+    },
+    "RealHyFC_Raw1s_F2_Interactive.py": {
+      "sha256": "50f5e75f041e3470a14385080eda4b1ffb3627689b4087ca79d12a8cd4b0f1d2",
+      "bytes": 9206
+    },
+    "scripts/report.py": {
+      "sha256": "0c8969c5b7bffdabdb49693e8749f4e2813bf70dfff1289bd5aaadf9ab11b1cf",
+      "bytes": 37200
+    },
+    "scripts/verify_optimization.py": {
+      "sha256": "13ba2000cab6f08d12de27c83c58f70a551191fb1ac31002ea555ed5bd665254",
+      "bytes": 69938
+    },
+    "scripts/verify_diagnostic_outputs.py": {
+      "sha256": "fb825bd94895f795eb2edc0ea91776a4315331c8c90245cfd2795b483fea4608",
+      "bytes": 1490
+    },
+    "scripts/coverage_report.py": {
+      "sha256": "3ff11afb55b07ed1d4fc795ae5f3f222274fe249c8a3b99e651746267444b0fe",
+      "bytes": 20434
+    },
+    "notes/literature_support.md": {
+      "sha256": "351363f138f006e75e069755f88896f00a11d6ddbd8ded62d0bb15117577e78a",
+      "bytes": 8579
+    },
+    "outputs/frozen_protocol.json": {
+      "sha256": "e03a126fc8c7b52578f800c9320558f8781412d7f9993e3f9b7da538adfabc5a",
+      "bytes": 27801
+    },
+    "outputs/final_acceptance.json": {
+      "sha256": "e06c8d704c6dfcd858581cabc2df57353e90aea19eade585dee8fd2482b49dc1",
+      "bytes": 105346
+    },
+    "outputs/independent_diagnostic_acceptance.json": {
+      "sha256": "4d242665e87ff3af001eb706d99a5696bd71ac2046f0c556ca14e6ba45ef3ddb",
+      "bytes": 7598
+    },
+    "outputs/B1_acceptance.json": {
+      "sha256": "d78996630ee7c061afd67f563ba40607bcf37380103e7ba9374323323f5054d1",
+      "bytes": 3240
+    },
+    "outputs/final_execution_summary.json": {
+      "sha256": "abc782d77c0e5ac9c4c3daafa8e90e74dd43e9b8fde6ee1c5693d6da14b1ec1c",
+      "bytes": 3907
+    },
+    "outputs/validation_main_results.csv": {
+      "sha256": "794b4f83a3c4db108f4a85725eae1c3d0401fdb0befd8cfee547dc4b8c480e52",
+      "bytes": 1134
+    },
+    "outputs/training_summary.csv": {
+      "sha256": "de8e149b6db6b4f1befd1762c169dbfc5eeeeb68e35ebb6b7219149e48dea217",
+      "bytes": 1521
+    },
+    "outputs/training_target_event_weight_composition.csv": {
+      "sha256": "c75417fb45bfa00cd3277219a64f872cdd47f1e4ec1a7c213e9acc5f8c13bd09",
+      "bytes": 236
+    },
+    "outputs/review_checkpoint_gpu_reloads.json": {
+      "sha256": "a94d5ab6fcd25e9443e0058797d5a27b37601537e2f862b6a02b22f0f5c419bc",
+      "bytes": 13665
+    },
+    "outputs/review_checkpoint_cpu_probe.json": {
+      "sha256": "904fe9ad37320af87675c9dceed6005597a7e425776054fc11cd04cfed368583",
+      "bytes": 1660
+    },
+    "outputs/interactive_readonly_smoke_test.json": {
+      "sha256": "1b4c3c191a6bd8496a02c00c1d8ffec097da3a20579a507a9be1b16ace10bea9",
+      "bytes": 295
+    },
+    "outputs/literature_verification.json": {
+      "sha256": "8507576fc11e9e4c2bf3796ce743cd3b3150321062de729f659dccaa9cf46467",
+      "bytes": 18885
+    }
+  }
+}

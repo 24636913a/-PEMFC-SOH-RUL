@@ -1,0 +1,319 @@
+{
+  "runs": {
+    "A1": {
+      "identity": {
+        "run_id": "A1",
+        "model": "LSTM",
+        "horizon": 30,
+        "checkpoint_sha256": "b56e1ab26aa232a9ebcd3bf636d24ef86348946de1473a27b9c9f80fab4b6e1f",
+        "protocol_sha256": "e03a126fc8c7b52578f800c9320558f8781412d7f9993e3f9b7da538adfabc5a",
+        "model_adapter_sha256": "6787d880f7c2459bbb94373edc51c04ea4b01347a61dfac36dd8c68c984dad64",
+        "native_code_sha256": "64cde85cac939806641921083bcf2c2e5354ee2bcd19dc4315949459305660f9",
+        "primary_prediction_sha256": "5b096d55585cd01d589963f64fcdd8a28f607945338ecf8a88fe9ca01166cfdb",
+        "auxiliary_prediction_sha256": "a6f63a78d5dc1d8cb909ffd77a18d6f8e7f462aad37992ddab0448e15a1c676d",
+        "replay_function_sha256": "940a6ddac5712f5a18056a4fa71ba0ca53c752f4979c9a1183b5d37fe867a981"
+      },
+      "pass": true,
+      "device": "CUDA0",
+      "device_name": "NVIDIA GeForce RTX 3070 Laptop GPU",
+      "torch_version": "2.6.0+cu124",
+      "cudnn_version": 90100,
+      "grids": {
+        "60s": {
+          "all_queries_compared": true,
+          "origins": 11249,
+          "queries": 337470,
+          "max_absolute_difference_V": 0.0,
+          "difference_RMSE_V": 0.0,
+          "predeclared_absolute_tolerance_V": 1e-07,
+          "production_inputs_bytewise_identical": true,
+          "normalized_input_sha256": "e98197f1151687d7655f430d5449c7f5beb2db73280045fce25be8b394bc5371",
+          "batch_size": 16
+        },
+        "600s": {
+          "all_queries_compared": true,
+          "origins": 1124,
+          "queries": 33720,
+          "max_absolute_difference_V": 0.0,
+          "difference_RMSE_V": 0.0,
+          "predeclared_absolute_tolerance_V": 1e-07,
+          "production_inputs_bytewise_identical": true,
+          "normalized_input_sha256": "ce5bd072cda387568af10b93dffc46212d34be556a11f2114f22c9892fb85ffd",
+          "batch_size": 16
+        }
+      },
+      "GPU_forward_batches": 775,
+      "GPU_peak_allocated_MiB": 44.2880859375,
+      "GPU_peak_reserved_MiB": 56.0,
+      "batch_size": 16,
+      "model_eval": true,
+      "inference_mode": true,
+      "weights_unchanged": true,
+      "all_gradients_remain_None": true,
+      "optimizer_steps": 0,
+      "backward_calls": 0,
+      "flags": {
+        "cudnn_deterministic": true,
+        "cudnn_benchmark": false,
+        "matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true
+      },
+      "no_other_Python_GPU_process_observed": true,
+      "explicit_parent_idle_confirmation_required_by_workflow": true,
+      "seconds": 1.7935335636138916,
+      "producer_verifier_sha256": "13ba2000cab6f08d12de27c83c58f70a551191fb1ac31002ea555ed5bd665254"
+    },
+    "A2": {
+      "identity": {
+        "run_id": "A2",
+        "model": "F2",
+        "horizon": 30,
+        "checkpoint_sha256": "363c125101ddbcac42afd71506cbaced4bb21fc9842f4f24dada25c2bed650ce",
+        "protocol_sha256": "e03a126fc8c7b52578f800c9320558f8781412d7f9993e3f9b7da538adfabc5a",
+        "model_adapter_sha256": "6787d880f7c2459bbb94373edc51c04ea4b01347a61dfac36dd8c68c984dad64",
+        "native_code_sha256": "64cde85cac939806641921083bcf2c2e5354ee2bcd19dc4315949459305660f9",
+        "primary_prediction_sha256": "74f759de00fea9a0f3048f9c5fe4c4d9652d52cc9674a947a7a2f26aa33e5f93",
+        "auxiliary_prediction_sha256": "59a6f027b92e230ee6bc9cb70905415a385363ec217dd4ba7fc0d3f887ea0998",
+        "replay_function_sha256": "940a6ddac5712f5a18056a4fa71ba0ca53c752f4979c9a1183b5d37fe867a981"
+      },
+      "pass": true,
+      "device": "CUDA0",
+      "device_name": "NVIDIA GeForce RTX 3070 Laptop GPU",
+      "torch_version": "2.6.0+cu124",
+      "cudnn_version": 90100,
+      "grids": {
+        "60s": {
+          "all_queries_compared": true,
+          "origins": 11249,
+          "queries": 337470,
+          "max_absolute_difference_V": 0.0,
+          "difference_RMSE_V": 0.0,
+          "predeclared_absolute_tolerance_V": 1e-07,
+          "production_inputs_bytewise_identical": true,
+          "normalized_input_sha256": "e98197f1151687d7655f430d5449c7f5beb2db73280045fce25be8b394bc5371",
+          "batch_size": 16
+        },
+        "600s": {
+          "all_queries_compared": true,
+          "origins": 1124,
+          "queries": 33720,
+          "max_absolute_difference_V": 0.0,
+          "difference_RMSE_V": 0.0,
+          "predeclared_absolute_tolerance_V": 1e-07,
+          "production_inputs_bytewise_identical": true,
+          "normalized_input_sha256": "ce5bd072cda387568af10b93dffc46212d34be556a11f2114f22c9892fb85ffd",
+          "batch_size": 16
+        }
+      },
+      "GPU_forward_batches": 775,
+      "GPU_peak_allocated_MiB": 102.18701171875,
+      "GPU_peak_reserved_MiB": 144.0,
+      "batch_size": 16,
+      "model_eval": true,
+      "inference_mode": true,
+      "weights_unchanged": true,
+      "all_gradients_remain_None": true,
+      "optimizer_steps": 0,
+      "backward_calls": 0,
+      "flags": {
+        "cudnn_deterministic": true,
+        "cudnn_benchmark": false,
+        "matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true
+      },
+      "no_other_Python_GPU_process_observed": true,
+      "explicit_parent_idle_confirmation_required_by_workflow": true,
+      "seconds": 34.77922439575195,
+      "producer_verifier_sha256": "13ba2000cab6f08d12de27c83c58f70a551191fb1ac31002ea555ed5bd665254"
+    },
+    "A3": {
+      "identity": {
+        "run_id": "A3",
+        "model": "LSTM",
+        "horizon": 120,
+        "checkpoint_sha256": "e1ea6c7dceeb9441301c60ca8edf3c3ff0b3364ed64ff764654624aeb2c6f536",
+        "protocol_sha256": "e03a126fc8c7b52578f800c9320558f8781412d7f9993e3f9b7da538adfabc5a",
+        "model_adapter_sha256": "6787d880f7c2459bbb94373edc51c04ea4b01347a61dfac36dd8c68c984dad64",
+        "native_code_sha256": "64cde85cac939806641921083bcf2c2e5354ee2bcd19dc4315949459305660f9",
+        "primary_prediction_sha256": "74d44c4a4b46950ee2750870ba58465d63ff6a43d693eb6dbacec3787dc7f88e",
+        "auxiliary_prediction_sha256": "e04931c3bdeb42c182c09a6e69143fecf87c146c1612b82e10c6bcd17e140e10",
+        "replay_function_sha256": "940a6ddac5712f5a18056a4fa71ba0ca53c752f4979c9a1183b5d37fe867a981"
+      },
+      "pass": true,
+      "device": "CUDA0",
+      "device_name": "NVIDIA GeForce RTX 3070 Laptop GPU",
+      "torch_version": "2.6.0+cu124",
+      "cudnn_version": 90100,
+      "grids": {
+        "60s": {
+          "all_queries_compared": true,
+          "origins": 11244,
+          "queries": 1349280,
+          "max_absolute_difference_V": 0.0,
+          "difference_RMSE_V": 0.0,
+          "predeclared_absolute_tolerance_V": 1e-07,
+          "production_inputs_bytewise_identical": true,
+          "normalized_input_sha256": "3083feb7870ccb2372299a25416fc35d4d2cc53673fb4e0aa6c1f57977698370",
+          "batch_size": 16
+        },
+        "600s": {
+          "all_queries_compared": true,
+          "origins": 1124,
+          "queries": 134880,
+          "max_absolute_difference_V": 0.0,
+          "difference_RMSE_V": 0.0,
+          "predeclared_absolute_tolerance_V": 1e-07,
+          "production_inputs_bytewise_identical": true,
+          "normalized_input_sha256": "ce5bd072cda387568af10b93dffc46212d34be556a11f2114f22c9892fb85ffd",
+          "batch_size": 16
+        }
+      },
+      "GPU_forward_batches": 774,
+      "GPU_peak_allocated_MiB": 44.31005859375,
+      "GPU_peak_reserved_MiB": 58.0,
+      "batch_size": 16,
+      "model_eval": true,
+      "inference_mode": true,
+      "weights_unchanged": true,
+      "all_gradients_remain_None": true,
+      "optimizer_steps": 0,
+      "backward_calls": 0,
+      "flags": {
+        "cudnn_deterministic": true,
+        "cudnn_benchmark": false,
+        "matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true
+      },
+      "no_other_Python_GPU_process_observed": true,
+      "explicit_parent_idle_confirmation_required_by_workflow": true,
+      "seconds": 1.719369888305664,
+      "producer_verifier_sha256": "13ba2000cab6f08d12de27c83c58f70a551191fb1ac31002ea555ed5bd665254"
+    },
+    "A4": {
+      "identity": {
+        "run_id": "A4",
+        "model": "F2",
+        "horizon": 120,
+        "checkpoint_sha256": "72c91042da40e04f002b6c605b112336066de9572bc937d79394ef5d53b3c38f",
+        "protocol_sha256": "e03a126fc8c7b52578f800c9320558f8781412d7f9993e3f9b7da538adfabc5a",
+        "model_adapter_sha256": "6787d880f7c2459bbb94373edc51c04ea4b01347a61dfac36dd8c68c984dad64",
+        "native_code_sha256": "64cde85cac939806641921083bcf2c2e5354ee2bcd19dc4315949459305660f9",
+        "primary_prediction_sha256": "80714742768b622649773cdb5f791909d1d0e3820b0080d93551348dbead5ac1",
+        "auxiliary_prediction_sha256": "af0cf303a9d74be8f8ed1aaaf0a12de9e4688b52504200823365ea227e54d6fe",
+        "replay_function_sha256": "940a6ddac5712f5a18056a4fa71ba0ca53c752f4979c9a1183b5d37fe867a981"
+      },
+      "pass": true,
+      "device": "CUDA0",
+      "device_name": "NVIDIA GeForce RTX 3070 Laptop GPU",
+      "torch_version": "2.6.0+cu124",
+      "cudnn_version": 90100,
+      "grids": {
+        "60s": {
+          "all_queries_compared": true,
+          "origins": 11244,
+          "queries": 1349280,
+          "max_absolute_difference_V": 0.0,
+          "difference_RMSE_V": 0.0,
+          "predeclared_absolute_tolerance_V": 1e-07,
+          "production_inputs_bytewise_identical": true,
+          "normalized_input_sha256": "3083feb7870ccb2372299a25416fc35d4d2cc53673fb4e0aa6c1f57977698370",
+          "batch_size": 16
+        },
+        "600s": {
+          "all_queries_compared": true,
+          "origins": 1124,
+          "queries": 134880,
+          "max_absolute_difference_V": 0.0,
+          "difference_RMSE_V": 0.0,
+          "predeclared_absolute_tolerance_V": 1e-07,
+          "production_inputs_bytewise_identical": true,
+          "normalized_input_sha256": "ce5bd072cda387568af10b93dffc46212d34be556a11f2114f22c9892fb85ffd",
+          "batch_size": 16
+        }
+      },
+      "GPU_forward_batches": 774,
+      "GPU_peak_allocated_MiB": 102.46142578125,
+      "GPU_peak_reserved_MiB": 166.0,
+      "batch_size": 16,
+      "model_eval": true,
+      "inference_mode": true,
+      "weights_unchanged": true,
+      "all_gradients_remain_None": true,
+      "optimizer_steps": 0,
+      "backward_calls": 0,
+      "flags": {
+        "cudnn_deterministic": true,
+        "cudnn_benchmark": false,
+        "matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true
+      },
+      "no_other_Python_GPU_process_observed": true,
+      "explicit_parent_idle_confirmation_required_by_workflow": true,
+      "seconds": 35.754308223724365,
+      "producer_verifier_sha256": "13ba2000cab6f08d12de27c83c58f70a551191fb1ac31002ea555ed5bd665254"
+    },
+    "B1": {
+      "identity": {
+        "run_id": "B1",
+        "model": "F2",
+        "horizon": 30,
+        "checkpoint_sha256": "4830c60f01def02a24f6c1b5010afa030da5919d0429590ef743235e031c52b2",
+        "protocol_sha256": "e03a126fc8c7b52578f800c9320558f8781412d7f9993e3f9b7da538adfabc5a",
+        "model_adapter_sha256": "6787d880f7c2459bbb94373edc51c04ea4b01347a61dfac36dd8c68c984dad64",
+        "native_code_sha256": "64cde85cac939806641921083bcf2c2e5354ee2bcd19dc4315949459305660f9",
+        "primary_prediction_sha256": "8885fb300110cc67c8dc43401bb649282754aab7914d0be368ace0ad0c53140a",
+        "auxiliary_prediction_sha256": "ab72caf5d445cd211d6b67aa3dc2cc7033954aee625f71364297a2304473970b",
+        "replay_function_sha256": "940a6ddac5712f5a18056a4fa71ba0ca53c752f4979c9a1183b5d37fe867a981"
+      },
+      "pass": true,
+      "device": "CUDA0",
+      "device_name": "NVIDIA GeForce RTX 3070 Laptop GPU",
+      "torch_version": "2.6.0+cu124",
+      "cudnn_version": 90100,
+      "grids": {
+        "60s": {
+          "all_queries_compared": true,
+          "origins": 11249,
+          "queries": 337470,
+          "max_absolute_difference_V": 0.0,
+          "difference_RMSE_V": 0.0,
+          "predeclared_absolute_tolerance_V": 1e-07,
+          "production_inputs_bytewise_identical": true,
+          "normalized_input_sha256": "e98197f1151687d7655f430d5449c7f5beb2db73280045fce25be8b394bc5371",
+          "batch_size": 16
+        },
+        "600s": {
+          "all_queries_compared": true,
+          "origins": 1124,
+          "queries": 33720,
+          "max_absolute_difference_V": 0.0,
+          "difference_RMSE_V": 0.0,
+          "predeclared_absolute_tolerance_V": 1e-07,
+          "production_inputs_bytewise_identical": true,
+          "normalized_input_sha256": "ce5bd072cda387568af10b93dffc46212d34be556a11f2114f22c9892fb85ffd",
+          "batch_size": 16
+        }
+      },
+      "GPU_forward_batches": 775,
+      "GPU_peak_allocated_MiB": 102.18701171875,
+      "GPU_peak_reserved_MiB": 144.0,
+      "batch_size": 16,
+      "model_eval": true,
+      "inference_mode": true,
+      "weights_unchanged": true,
+      "all_gradients_remain_None": true,
+      "optimizer_steps": 0,
+      "backward_calls": 0,
+      "flags": {
+        "cudnn_deterministic": true,
+        "cudnn_benchmark": false,
+        "matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true
+      },
+      "no_other_Python_GPU_process_observed": true,
+      "explicit_parent_idle_confirmation_required_by_workflow": true,
+      "seconds": 33.61620283126831,
+      "producer_verifier_sha256": "13ba2000cab6f08d12de27c83c58f70a551191fb1ac31002ea555ed5bd665254"
+    }
+  }
+}

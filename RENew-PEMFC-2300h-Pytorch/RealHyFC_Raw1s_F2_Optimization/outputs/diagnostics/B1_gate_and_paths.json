@@ -1,0 +1,47 @@
+{
+  "status": "COMPLETE_CPU_ONLY",
+  "run": "B1",
+  "horizon_seconds": 30,
+  "checkpoint_sha256": "4830c60f01def02a24f6c1b5010afa030da5919d0429590ef743235e031c52b2",
+  "rules_sha256": "d07c6972e96b27b9d7b9a5d08702cbc7c2947279c3d8dac6f99bf317b8c58c8f",
+  "full_model_CPU_forward_calls": 42,
+  "GPU_calls": 0,
+  "optimizer_steps": 0,
+  "backward_calls": 0,
+  "all_validation_LSTM_gate_weight": {
+    "n": 11249,
+    "mean": 0.5770464913825352,
+    "std": 0.04646185202440684,
+    "min": 0.3831866979598999,
+    "median": 0.5807411670684814,
+    "max": 0.7045966982841492,
+    "p01": 0.4183462178707123,
+    "p99": 0.690070424079895,
+    "fraction_lt_0p05": 0.0,
+    "fraction_gt_0p95": 0.0,
+    "mean_abs_departure_from_0p5": 0.08176998284480044
+  },
+  "all_validation_CNN_gate_weight": {
+    "n": 11249,
+    "mean": 0.42295350863336084,
+    "std": 0.04646185213290884,
+    "min": 0.29540330171585083,
+    "median": 0.41925883293151855,
+    "max": 0.6168133020401001,
+    "p01": 0.309929575920105,
+    "p99": 0.5816537809371949,
+    "fraction_lt_0p05": 0.0,
+    "fraction_gt_0p95": 0.0,
+    "mean_abs_departure_from_0p5": 0.08176998286069642
+  },
+  "gate_output_weight_nonzero": true,
+  "gate_output_bias_nonzero": true,
+  "selected_event_count": 6,
+  "selected_origin_count": 42,
+  "limits": [
+    "Report native post-LSTM encoder and causal-CNN hidden representation RMS, cosine and change. They share VSN inputs and nonlinear downstream decoding; these are not separately identifiable branch voltage contributions or causal attributions.",
+    "A nonsaturated gate moving away from 0.5 is not evidence that its branch weighting improves predictive accuracy.",
+    "Hidden-path response snapshots are descriptive. No ablation or independent branch-specific voltage decoder is added.",
+    "The diagnostic never changes weights, training budget, loss, threshold, sampler or model selection."
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "status": "COMPLETE",
+  "rules_sha256": "d07c6972e96b27b9d7b9a5d08702cbc7c2947279c3d8dac6f99bf317b8c58c8f",
+  "fixed_grid": [
+    {
+      "partition": "TRAIN",
+      "past_window_seconds": 30,
+      "future_seconds": 30,
+      "origins": 78080,
+      "positive_origins": 9329,
+      "positive_rate": 0.11948002049180328,
+      "flag_rate": 0.18734631147540984,
+      "TP": 2770,
+      "FP": 11858,
+      "FN": 6559,
+      "TN": 56893,
+      "precision": 0.18936286573694286,
+      "recall": 0.29692357165826994,
+      "false_positive_rate": 0.17247749123649112
+    },
+    {
+      "partition": "TRAIN",
+      "past_window_seconds": 60,
+      "future_seconds": 60,
+      "origins": 78080,
+      "positive_origins": 16950,
+      "positive_rate": 0.21708504098360656,
+      "flag_rate": 0.31804559426229506,
+      "TP": 9391,
+      "FP": 15442,
+      "FN": 7559,
+      "TN": 45688,
+      "precision": 0.37816614988120645,
+      "recall": 0.5540412979351033,
+      "false_positive_rate": 0.2526091935220023
+    },
+    {
+      "partition": "TRAIN",
+      "past_window_seconds": 120,
+      "future_seconds": 120,
+      "origins": 78080,
+      "positive_origins": 26542,
+      "positive_rate": 0.33993340163934427,
+      "flag_rate": 0.4380507172131147,
+      "TP": 17120,
+      "FP": 17083,
+      "FN": 9422,
+      "TN": 34455,
+      "precision": 0.500540888226179,
+      "recall": 0.6450154472157336,
+      "false_positive_rate": 0.33146416236563314
+    },
+    {
+      "partition": "VALIDATION",
+      "past_window_seconds": 30,
+      "future_seconds": 30,
+      "origins": 11244,
+      "positive_origins": 1613,
+      "positive_rate": 0.14345428673070082,
+      "flag_rate": 0.188011383849164,
+      "TP": 480,
+      "FP": 1634,
+      "FN": 1133,
+      "TN": 7997,
+      "precision": 0.22705771050141912,
+      "recall": 0.2975821450712957,
+      "false_positive_rate": 0.1696604713944554
+    },
+    {
+      "partition": "VALIDATION",
+      "past_window_seconds": 60,
+      "future_seconds": 60,
+      "origins": 11244,
+      "positive_origins": 2858,
+      "positive_rate": 0.25418000711490574,
+      "flag_rate": 0.3170579864816791,
+      "TP": 1711,
+      "FP": 1854,
+      "FN": 1147,
+      "TN": 6532,
+      "precision": 0.4799438990182328,
+      "recall": 0.5986703988803359,
+      "false_positive_rate": 0.22108275697591223
+    },
+    {
+      "partition": "VALIDATION",
+      "past_window_seconds": 120,
+      "future_seconds": 120,
+      "origins": 11244,
+      "positive_origins": 4253,
+      "positive_rate": 0.3782461757381715,
+      "flag_rate": 0.43765563856278905,
+      "TP": 2878,
+      "FP": 2043,
+      "FN": 1375,
+      "TN": 4948,
+      "precision": 0.5848404795773217,
+      "recall": 0.6766988008464613,
+      "false_positive_rate": 0.29223287083392935
+    }
+  ],
+  "event_alignment": [
+    {
+      "partition": "TRAIN",
+      "first_trigger_offset_seconds": -120,
+      "timing": "BEFORE",
+      "events": 8556,
+      "clue_fraction": 0.271505376344086
+    },
+    {
+      "partition": "TRAIN",
+      "first_trigger_offset_seconds": -60,
+      "timing": "BEFORE",
+      "events": 8557,
+      "clue_fraction": 0.043122589692649295
+    },
+    {
+      "partition": "TRAIN",
+      "first_trigger_offset_seconds": -30,
+      "timing": "BEFORE",
+      "events": 8559,
+      "clue_fraction": 0.20668302371772404
+    },
+    {
+      "partition": "TRAIN",
+      "first_trigger_offset_seconds": 0,
+      "timing": "AT",
+      "events": 8559,
+      "clue_fraction": 0.8974179226545157
+    },
+    {
+      "partition": "TRAIN",
+      "first_trigger_offset_seconds": 30,
+      "timing": "AFTER",
+      "events": 8559,
+      "clue_fraction": 0.15422362425517
+    },
+    {
+      "partition": "VALIDATION",
+      "first_trigger_offset_seconds": -120,
+      "timing": "BEFORE",
+      "events": 1183,
+      "clue_fraction": 0.22231614539306846
+    },
+    {
+      "partition": "VALIDATION",
+      "first_trigger_offset_seconds": -60,
+      "timing": "BEFORE",
+      "events": 1183,
+      "clue_fraction": 0.03888419273034658
+    },
+    {
+      "partition": "VALIDATION",
+      "first_trigger_offset_seconds": -30,
+      "timing": "BEFORE",
+      "events": 1183,
+      "clue_fraction": 0.15046491969568893
+    },
+    {
+      "partition": "VALIDATION",
+      "first_trigger_offset_seconds": 0,
+      "timing": "AT",
+      "events": 1183,
+      "clue_fraction": 0.8918005071851226
+    },
+    {
+      "partition": "VALIDATION",
+      "first_trigger_offset_seconds": 30,
+      "timing": "AFTER",
+      "events": 1183,
+      "clue_fraction": 0.16060862214708369
+    }
+  ],
+  "limits": [
+    "Associations at fixed horizons are not proof of deterministic event time predictability.",
+    "Overlapping diagnostic contexts and episodes are not independent experiment repeats.",
+    "The rule includes high past variability and operation-point changes; it may identify an ongoing event rather than a novel unseen transition.",
+    "No forecast model, data sampler, threshold or checkpoint is changed by these findings."
+  ]
+}

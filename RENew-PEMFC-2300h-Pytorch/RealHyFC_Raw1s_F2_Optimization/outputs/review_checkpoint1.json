@@ -1,0 +1,94 @@
+{
+  "checkpoint": 1,
+  "decision": "PASS",
+  "role": "Independent evidence verification and first Devil's Advocate checkpoint",
+  "reviewer": "historical_audit agent; not author of core.py, prepare.py, train.py or the model adapter",
+  "protocol_sha256": "e03a126fc8c7b52578f800c9320558f8781412d7f9993e3f9b7da538adfabc5a",
+  "implementation_sha256": {
+    "scripts/core.py": "4d2f8efe48059a8dd1e877396bd04320dbe7d3d8d6c3e2855bfb637e2f94b64c",
+    "scripts/prepare.py": "71e245c01b77aa4565accafc2ddce5f6496aa2d8917c3424a754b06a885e910a",
+    "scripts/train.py": "93d56cf8e59d9d1df161c4fa020d17189a86867e6df1b17e8385ae4d13d5d763"
+  },
+  "diagnostic_rules_sha256": "d07c6972e96b27b9d7b9a5d08702cbc7c2947279c3d8dac6f99bf317b8c58c8f",
+  "new_GPU_training_states_present_at_review": 0,
+  "GPU_calls_by_reviewer": 0,
+  "optimizer_updates_by_reviewer": 0,
+  "checks": [
+    {
+      "item": "Original authority, Git LFS payloads and historical preservation",
+      "result": "PASS_EXECUTED",
+      "evidence": "Independently streamed all 17 raw CSV files. Actual byte SHA256 and byte size match each committed Git LFS pointer. All 8,604,654 original DateTime values were parsed as nanosecond integers, required to be exactly divisible by 1,000,000, and compared point-for-point with the read-only millisecond cache. Every original ten-cell mean was independently recomputed and compared against the float64 voltage authority; maximum difference 0 V. All 153 protected historical study artifacts and all eight historical cache files match frozen byte hashes; every memmap was opened mode=r."
+    },
+    {
+      "item": "Inherited task, scalers, threshold and model identity",
+      "result": "PASS",
+      "evidence": "The 24-feature order, ten-channel mask excluding U6, Train-only scaler, target scale, fixed voltage threshold 0.038477648942 V, physical seams and raw-second direct DeltaV targets exactly equal the previous frozen protocol. The factory imports the protected complete historical raw-second adapter, not an old learned checkpoint. Native F2 class source remains SHA256 64cde85cac939806641921083bcf2c2e5354ee2bcd19dc4315949459305660f9. No residual head, gate redesign, auxiliary task or future-real decoder variable was added."
+    },
+    {
+      "item": "Full raw support and chronological partition firewall",
+      "result": "PASS_EXHAUSTIVE",
+      "evidence": "All selected Train origins, all primary Validation origins and all auxiliary 600-second origins were checked over origin-328 through origin+H, including every adjacency, original file row, file ID, segment and partition. No window crosses a file seam, real timing break or partition. All model-input and target rows are valid/finite; every future target is the original row origin+h and is within 100 ms of its stated second. The 29 extra raw warm-up records are disclosed rather than hidden in a nominal 300-second claim."
+    },
+    {
+      "item": "Independent reconstruction of complete grids and the 75/25 sampler",
+      "result": "PASS_EXACT",
+      "evidence": "Reconstructed the fixed 60-second DateTime lattice globally using original timestamps, independent prefix validity/adjacency tests and per-second target offsets. Train legal counts are 78,094 for H30 and 78,080 for H120; their common pool contains 78,080. Every primary Validation list exactly equals all legal grid origins: 11,249 for H30 and 11,244 for H120. Independently reconstructed 6,144 chronology-uniform origins plus 2,048 episode supplemental origins, with zero shortfall fallback; both frozen Train lists exactly equal these same 8,192 origins. Each supplement truly covers a threshold trigger in future seconds 1..30 and remains legal through H120."
+    },
+    {
+      "item": "Historical 600-second matched comparison",
+      "result": "PASS_EXACT",
+      "evidence": "Independently intersected each original Validation list with the new strict full-support legality rule. Exactly 1 of the previous 1,125 origins is excluded for each horizon; the 1,124 surviving origins match the frozen auxiliary lists exactly. Old predictions are subset on these same target queries, without old-model retraining or error-based filtering."
+    },
+    {
+      "item": "Loss normalization under microbatch accumulation",
+      "result": "PASS_CODE_AND_CPU_FALSIFICATION",
+      "evidence": "The full effective-batch denominator is computed before the microbatch loop. Each microbatch backpropagates its weighted squared-error numerator divided by this one common denominator. A synthetic double-precision CPU autograd check with uneven event weights found gradient difference 0 between one 32-example macro batch and two 16-example contributions. No optimizer was constructed or stepped in this falsification test."
+    },
+    {
+      "item": "Causal input and direct decoder falsification",
+      "result": "PASS_EXECUTED_CPU",
+      "evidence": "Perturbing all future raw feature rows and target voltages left the runner's historical input tensor bitwise identical. For both H30 and H120 complete native F2 CPU forward passes, replacing all future real placeholder channels with large random values left predictions bitwise identical (maximum difference 0 V). Only the known relative forecast coordinate enters the native decoder variable selection."
+    },
+    {
+      "item": "Unique target-second auxiliary metric",
+      "result": "PASS_CODE_AND_SYNTHETIC_CHECK",
+      "evidence": "For duplicate target identities the implementation retains the query with the latest chronological origin, equivalent to shortest actual lead. A synthetic overlapping-query example selected the expected exact indices. It never averages predictions into a new ensemble and never selects by error; this changes the H120 lead mixture and is auxiliary only."
+    },
+    {
+      "item": "Bounded training, Validation selection and conditional B2",
+      "result": "PASS_CODE_REVIEW_PENDING_REAL_TRAINING",
+      "evidence": "The six named run IDs enforce the requested order, completed-run reuse and refusal to overwrite or silently resume a partial run. Max 50 epochs, patience 10, AdamW learning rate/weight decay/clip and effective batch32 are fixed. Validation is always unweighted all-query RMSE, including for B1/B2. B2 requires the separate independent B1_acceptance.json with both integrity pass and B2_allowed=true; its 3%, 5%, and <=10% criteria will be independently recomputed from unrounded primary 60-second metrics after real B1 outputs exist."
+    },
+    {
+      "item": "Train-only diagnostic-rule freeze and branch instrumentation",
+      "result": "PASS_CODE_REVIEW_PENDING_REAL_RESULTS",
+      "evidence": "Diagnostic precursor thresholds are fitted only on Train histories, with fixed episode quiet-gap and temporal-alignment rules; the pre-GPU semantic revision is preserved and occurred before this main freeze. Retrospective +/-30-second event classification is explicitly separated from causal precursor features. The runner records first/last update gradient norms per branch per epoch, initial parameter hashes, selected-checkpoint parameter changes and initial-state SHA. These are evidence to be checked after execution, not a pretraining claim that every branch already learned."
+    }
+  ],
+  "sampling_verified": {
+    "TRAIN_H30_legal": 78094,
+    "TRAIN_H120_legal": 78080,
+    "TRAIN_common_legal": 78080,
+    "selected_uniform": 6144,
+    "selected_event_supplement": 2048,
+    "selected_uniform_shortfall_fallback": 0,
+    "selected_total_per_horizon": 8192,
+    "VALIDATION_primary_H30": 11249,
+    "VALIDATION_primary_H120": 11244,
+    "VALIDATION_auxiliary_H30": 1124,
+    "VALIDATION_auxiliary_H120": 1124,
+    "all_frozen_origin_arrays_reconstructed_exactly": true
+  },
+  "fatal_findings": [],
+  "limitations_and_required_disclosures": [
+    "Higher data and epoch budgets do not prove full convergence. A best epoch near50 or a still-improving curve must be reported without extending the preset budget.",
+    "New 60-second evaluation cannot be compared directly to old 600-second scores as training improvement; use the exact matched surviving600-second queries and describe data, event sampling and budget as a joint intervention.",
+    "The 120-second quiet-gap clusters are operational voltage episodes, not independently validated hardware events. Uniform origins may already cover a supplemental episode, so at-most-one supplement does not mean at-most-one total training origin per episode.",
+    "Event supplemental sampling uses future Train labels as explicitly authorized, but those labels and weight masks never enter model inputs. Validation has no corresponding label-selected sampling.",
+    "Latest-origin unique-second statistics have a different lead distribution from all origin-times-lead queries; they must remain auxiliary and must not replace the complete120-second main task.",
+    "Single Seed202, one trajectory and overlapping predictions do not establish independent replication or stable architecture superiority.",
+    "No new holdout model inference is authorized by this frozen phase; historical1873h/2150h cases remain explanatory references only.",
+    "Gradient and weight changes can rule out a completely frozen branch but cannot identify causal branch contributions. Gate saturation and hidden-path diagnostics must be reported without automatic architectural changes."
+  ],
+  "next_checkpoint": "After real native A1-A4 and B1 outputs: independently verify every query, full logs, initialization/branch updates and checkpoint reload; only then determine B2_allowed from the frozen three numeric criteria."
+}

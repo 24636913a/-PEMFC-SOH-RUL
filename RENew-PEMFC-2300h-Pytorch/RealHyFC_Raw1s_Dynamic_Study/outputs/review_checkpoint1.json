@@ -1,0 +1,113 @@
+{
+  "checkpoint": 1,
+  "decision": "PASS",
+  "scope": "Pre-P3 adversarial code and protocol review; not certification of an unfinished P0 execution",
+  "reviewer": "native_model agent; also authored models.py, so model-author independence is limited and explicitly disclosed",
+  "gpu_training_authorized_by_this_review_alone": false,
+  "required_execution_gates": [
+    "P0 must finish all 17 files with SHA256 and file-size matches to committed Git LFS pointers",
+    "P1 diagnostic outputs must be completed without selecting new protocol parameters from exposed holdouts",
+    "P2 must finish all three raw DateTime boundary assertions, Train-only fits, nonempty origin lists, and frozen origin hashes before P3"
+  ],
+  "reviewed_source_sha256": {
+    "scripts/audit_raw.py": "a9a880e20e7aa15c8fd67d00fedc9e5d8657fb4b9463b4472970fb86070c2874",
+    "scripts/freeze_protocol.py": "08e53a49e7aafacc8f14b7f6774ae84385b986e0edd7c7a1d204281fe1b3dba3",
+    "scripts/models.py": "004a048b456f96bd6bacba2a852efa9050a8827cd2f272cd08844312c4186e73"
+  },
+  "checks": [
+    {
+      "item": "Git LFS payload identity",
+      "result": "PASS_CODE_REVIEW_PENDING_FULL_RUN",
+      "evidence": "audit_raw.py rejects the pointer prefix, extracts each HEAD pointer OID and size using git show, streams SHA256 over the actual local payload, and requires both hash and byte count to match before CSV processing. Exactly 17 numerically sorted Loadcycle files are required."
+    },
+    {
+      "item": "No interpolation across breaks",
+      "result": "PASS",
+      "evidence": "No resample, interpolation, forward-fill or synthetic time-grid construction enters the raw cache. Segments require DateTime adjacent deltas of 950..1050 ms, nondecreasing OpHrs2 and finite required raw instruments. Every file seam breaks continuity. Candidate windows are bounded inside one recorded segment and require all rows valid."
+    },
+    {
+      "item": "Past-only rolling features and chunk handling",
+      "result": "PASS",
+      "evidence": "Current and density rolling windows use groupby(segment).rolling(30,min_periods=30), include only the current and preceding 29 observed values, and retain only a 29-row prior tail. Prefix values were unchanged after perturbing all future values; chunked and unchunked results matched; the first 29 points after each segment start were invalid."
+    },
+    {
+      "item": "Historical physical boundary inheritance",
+      "result": "PASS_CODE_REVIEW_PENDING_RAW_ASSERTIONS",
+      "evidence": "Original RealHyFC_F2_Main.py chronological partitions are [0,2103),[2103,2404),[2404,3005),[3005,N). Independent reads of the historical 30-minute table confirm the new-bin start boundaries below. freeze_protocol.py additionally asserts exact previous last DateTime, next first DateTime, contiguous raw row identity, and raw OpHrs2 bracketing; these must pass against the completed cache."
+    },
+    {
+      "item": "Train-only normalization and event thresholds",
+      "result": "PASS",
+      "evidence": "The scaler fits only partition==TRAIN and valid rows. Voltage/current 99.5-percentile event thresholds use only adjacent TRAIN valid rows within the same raw segment. Neither validation nor either historically exposed holdout enters the fit. Event membership is an evaluation stratification, not a model input."
+    },
+    {
+      "item": "Predeclared origin sampling",
+      "result": "PASS_WITH_LIMITATION",
+      "evidence": "Origins use a fixed 600000-ms lattice anchored at first raw DateTime plus 328000 ms. The earliest candidate per segment leaves 29 rolling warm-up points plus 300 historical points. Training is capped at 2048 evenly ranked chronology-derived eligible origins; validation and holdout have no error-based cap. Per-horizon origin files and hashes are frozen before training. Horizon-specific eligibility means cross-horizon origin pairing must not be assumed."
+    },
+    {
+      "item": "Original per-second target alignment",
+      "result": "PASS_CODE_REVIEW_PENDING_RUNNER_SERIALIZATION_CHECK",
+      "evidence": "The protocol keeps original DateTime-derived epoch-ms values and uses original consecutive raw rows origin+1 through origin+H. After the reported correction, every future step is checked against origin DateTime plus h*1000 ms with <=100 ms deviation. No target timestamps are rounded or interpolated. The actual prediction NPZ serialization is outside these three reviewed scripts and must be checked at checkpoint 2."
+    },
+    {
+      "item": "Native complete F2 identity and input causality",
+      "result": "PASS",
+      "evidence": "models.py compiles exactly the six original model class ASTs from the SHA256-frozen source, without executing historical training or IO code. The full TFT VSN, encoder/decoder LSTMs, causal multiscale CNN, original 5-to-8-to-1 gate, enrichment, attention, GRN and scalar head remain intact. Gate indices are [11,13,9,6,8] under the explicitly redefined first 14 raw-second features. Only relative forecast step is a decoder variable; perturbing all future raw placeholder channels left predictions bitwise unchanged in recorded CPU checks."
+    },
+    {
+      "item": "Ordinary LSTM fairness",
+      "result": "PASS_WITH_LIMITATION",
+      "evidence": "LSTM uses the same hidden width 64 and one layer as native F2, common 24-dimensional inputs, and a direct LayerNorm-plus-linear multi-step head from the historical fair baseline. Parameter counts are not matched: F2=414366, LSTM H30=25118 and H120=30968. Shared epochs, loss and origins do not establish equal optimization difficulty."
+    }
+  ],
+  "independently_confirmed_legacy_boundaries": [
+    {
+      "new_partition_first_legacy_row": 2103,
+      "OpHrs2_boundary_h": 1310.0,
+      "first_datetime": "2025-05-18 21:43:32.005000",
+      "previous_datetime": "2025-05-18 21:43:31.005000"
+    },
+    {
+      "new_partition_first_legacy_row": 2404,
+      "OpHrs2_boundary_h": 1460.5,
+      "first_datetime": "2025-05-26 17:29:27.005000",
+      "previous_datetime": "2025-05-26 17:29:26.005000"
+    },
+    {
+      "new_partition_first_legacy_row": 3005,
+      "OpHrs2_boundary_h": 1819.5,
+      "first_datetime": "2025-06-29 13:04:56.005000",
+      "previous_datetime": "2025-06-29 13:04:55.005000"
+    }
+  ],
+  "reported_issues_and_resolution": [
+    {
+      "issue": "CSV numeric conversion originally iterated the first file schema and could raise KeyError at a later schema variant",
+      "severity_when_present": "BLOCKER",
+      "resolution": "Confirmed changed to iterate current frame.columns; essential model instrument presence is asserted separately."
+    },
+    {
+      "issue": "Original future-timing eligibility checked only the final horizon endpoint",
+      "severity_when_present": "REVISE_BEFORE_TRAINING",
+      "resolution": "Confirmed replaced with a maximum-deviation test over every future target step."
+    }
+  ],
+  "remaining_fatal_issues_in_reviewed_source": [],
+  "limitations": [
+    "P0 was still executing at review time; this review does not claim all payloads, raw seam assertions or origin hashes have already passed.",
+    "A 600-second fixed lattice and 2048-origin training cap may underrepresent short or periodically phased transient events; report eligible and sampled event counts and do not generalize to all raw-second origins.",
+    "H30 and H120 have horizon-specific eligibility and potentially different evenly ranked capped origins. Current text saying identical models/horizons overstates cross-horizon pairing; interpret identical origins as within each horizon or clarify the text before freeze.",
+    "History is 300 near-one-second observations spanning approximately 299 seconds; trailing30 statistics are 30 original observations rather than a continuous-time 30.000-second integral.",
+    "Both holdouts have historical exposure; they support exploratory explanation, not an untouched independent test claim.",
+    "A single Seed202 and fixed 12-epoch pilot can expose failure or underconvergence, but cannot establish final architecture superiority or superiority over historical 12-hour forecasting."
+  ],
+  "synthetic_falsification_checks": {
+    "rolling_future_perturbation_prefix_equal": true,
+    "rolling_chunk_boundary_equivalent": true,
+    "segment_warmup_29_invalid": true,
+    "first_complete_window_available": true,
+    "full_raw_audit_rerun_by_reviewer": false,
+    "gpu_training_by_reviewer": false
+  }
+}

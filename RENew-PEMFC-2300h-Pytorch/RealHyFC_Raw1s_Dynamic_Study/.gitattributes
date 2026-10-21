@@ -1,0 +1,12 @@
+# Reports/code use LF; byte-hashed research evidence must never be normalized.
+.gitattributes text eol=lf
+.gitignore text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.json -text whitespace=cr-at-eol
+*.csv -text whitespace=cr-at-eol
+*.npz -text
+*.npy -text
+*.pt -text
+*.png -text
+*.pdf -text

@@ -1,0 +1,22 @@
+{
+  "status": "COMPLETE",
+  "model": "F2",
+  "seed": 202,
+  "horizon": 30,
+  "initial_state_sha256": "c1fe42d08a5e0d8cd997ccb4693aa945fa1f20fcbb48381fe88d66a85db4bac9",
+  "parameters": 414366,
+  "protocol_sha256": "421b987cc101ddebb0e39097c4249cc20c776902c08743798fb5a3c48b198b23",
+  "optimizer_steps": 768,
+  "instance_count": 1,
+  "zero_optimizer_step_startup_failures": 1,
+  "startup_recovery": "device tracking in Lightning submodule; no task/weights/hyperparameter change",
+  "completed_epoch": 12,
+  "stop_epoch": 12,
+  "best_epoch": 10,
+  "best_validation_RMSE_V": 0.03895658441812341,
+  "training_seconds": 197.19295740127563,
+  "checkpoint_sha256": "ad5d0b1ae5fac781f91a285a1cbd1d3b8c1b6d1dacd528e625d890c911afd9ac",
+  "reload_max_difference_V": 0.0,
+  "GPU_peak_allocated_MiB": 348.26123046875,
+  "GPU_peak_reserved_MiB": 426.0
+}

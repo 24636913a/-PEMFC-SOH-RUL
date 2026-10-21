@@ -1,0 +1,30 @@
+[
+  {
+    "event": "E1",
+    "zero_command_start": "2025-07-02 07:39:45.005000",
+    "first_actual_zero": "2025-07-02 07:39:47.005000",
+    "zero_command_end": "2025-07-02 09:03:14.005000",
+    "zero_command_samples": 5010,
+    "restart_positive_command": "2025-07-02 09:03:15.005000",
+    "voltage_recovery_jump": "2025-07-02 09:02:10.005000",
+    "recovery_delta_voltage_V": 0.8663531975999998,
+    "recovery_before_positive_command_s": 65.0,
+    "zero_command_to_first_actual_zero_s": 2.0,
+    "operation_code_during_zero_command": 12.0,
+    "note": "At-most-one-sample pressure prelude is observational, not evidence of a 30/120-s known future command"
+  },
+  {
+    "event": "E2",
+    "zero_command_start": "2025-07-16 19:56:07.005000",
+    "first_actual_zero": "2025-07-16 19:56:09.005000",
+    "zero_command_end": "2025-07-16 21:19:36.005000",
+    "zero_command_samples": 5010,
+    "restart_positive_command": "2025-07-16 21:19:37.005000",
+    "voltage_recovery_jump": "2025-07-16 21:18:32.005000",
+    "recovery_delta_voltage_V": 0.8500443945999999,
+    "recovery_before_positive_command_s": 65.0,
+    "zero_command_to_first_actual_zero_s": 2.0,
+    "operation_code_during_zero_command": 12.0,
+    "note": "At-most-one-sample pressure prelude is observational, not evidence of a 30/120-s known future command"
+  }
+]

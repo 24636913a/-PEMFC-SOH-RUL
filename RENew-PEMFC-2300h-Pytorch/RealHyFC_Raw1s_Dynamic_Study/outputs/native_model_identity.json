@@ -1,0 +1,263 @@
+{
+  "native_source": "RENew-PEMFC-2300h-Pytorch\\RealHyFC_F2_Main.py",
+  "native_source_sha256": "64cde85cac939806641921083bcf2c2e5354ee2bcd19dc4315949459305660f9",
+  "native_class_ast_sha256": {
+    "CanonicalStrictHistoryTFT": "b68e1a0a0e9236d75b3b969300ebfa536d6256835d87931f6c0b83f82f0c2c5b",
+    "_LeftPaddedDepthwiseConv1d": "7f460c56d88c1d30d6d68b65aa821f4f65f19bb186beda943d487322b6776127",
+    "CausalMultiScaleHistoryBranch": "7e061c13d798f42ccf22af3a7b1348f6897ad7b4c1a20387681f1be98d1b747c",
+    "DualPathStrictHistoryTFT": "152795fa73b26a5cb9f5b15ba951b666b8942bec0547a4e7569775f22ac0efeb",
+    "RegimeFusionGate": "1a1e7b579b27bacb8809b3495b3314854e198277f6ac63999abb60e39d251e42",
+    "RegimeAwareDualPathTFT": "3b10169740cb49bed34381f66be63f7dd71669f322ccef78c38bbc259dfd829b"
+  },
+  "native_source_unchanged": true,
+  "constructor_parameters": {
+    "hidden_size": 64,
+    "hidden_continuous_size": 32,
+    "attention_head_size": 4,
+    "lstm_layers": 1,
+    "dropout": 0.1
+  },
+  "feature_order": [
+    "mean10",
+    "std10",
+    "range10",
+    "min10",
+    "max10",
+    "I_act",
+    "I_act_trailing30s_std",
+    "I_act_trailing30s_ptp",
+    "j_act",
+    "j_act_trailing30s_std",
+    "j_act_trailing30s_ptp",
+    "I_change_past1s",
+    "operation_point_change_past1s",
+    "zero_current_flag",
+    "I_set",
+    "I_set_internal",
+    "T_Si_A",
+    "T_Si_C",
+    "T_Si_CL",
+    "T_So_CL",
+    "p_Si_A",
+    "p_Si_C",
+    "operation_point",
+    "OpHrs2"
+  ],
+  "regime_indices": [
+    11,
+    13,
+    9,
+    6,
+    8
+  ],
+  "regime_context": "mean over encoder history of standardized channels [11,13,9,6,8]",
+  "regime_gate": "unchanged Linear(5,8) -> ELU -> Linear(8,1) -> sigmoid",
+  "target": "direct per-future-second standardized DeltaV; external shared MSE",
+  "historical_module_execution": false,
+  "native_class_body_modification": false,
+  "adapter_changes": [
+    "24 real encoder channels instead of historical 14 aggregated channels",
+    "history length from caller; frozen first experiment is 300 true seconds",
+    "direct decoder query length from caller; 30 then 120 true seconds",
+    "only known relative forecast step enters decoder; future real values are zero placeholders",
+    "relative coordinates scaled by horizon, matching historical relative-step convention",
+    "first 14 feature semantics are explicitly redefined causally at raw-second resolution",
+    "no Top10 masking and no EWMA; identical shared raw-second inputs to both models"
+  ],
+  "preserved_modules": [
+    "encoder/decoder variable-selection networks",
+    "native encoder and decoder LSTM",
+    "causal depthwise CNN k3/d1 and k3/d4 plus pointwise mixing and residual LayerNorm",
+    "native post-LSTM gates and add-norm",
+    "native 5-to-8-to-1 regime fusion gate",
+    "static context and static enrichment",
+    "interpretable multi-head causal attention",
+    "position-wise GRN and pre-output gate norm",
+    "native scalar decoder output layer"
+  ],
+  "lstm_baseline": {
+    "hidden_size": 64,
+    "lstm_layers": 1,
+    "inter_layer_dropout": 0,
+    "head": "LayerNorm(64) -> Linear(64,horizon), same as historical fair baseline",
+    "parameter_matching_claim": false,
+    "fairness": "same width/layers, inputs, Train-only scaler, origins, target and shared training protocol"
+  },
+  "cpu_checks": [
+    {
+      "kind": "LSTM",
+      "history": 300,
+      "horizon": 30,
+      "input_shape": [
+        2,
+        300,
+        24
+      ],
+      "output_shape": [
+        2,
+        30
+      ],
+      "all_finite": true,
+      "parameters": 25118,
+      "device": "cpu",
+      "optimizer_steps": 0,
+      "output_requires_grad": false
+    },
+    {
+      "kind": "F2",
+      "history": 300,
+      "horizon": 30,
+      "input_shape": [
+        2,
+        300,
+        24
+      ],
+      "output_shape": [
+        2,
+        30
+      ],
+      "all_finite": true,
+      "parameters": 414366,
+      "device": "cpu",
+      "optimizer_steps": 0,
+      "output_requires_grad": false,
+      "decoder_observation_channels_all_zero": true,
+      "decoder_variables": [
+        "relative_forecast_step"
+      ],
+      "native_lstm_hidden_size": 64,
+      "native_lstm_layers": 1,
+      "regime_indices": [
+        11,
+        13,
+        9,
+        6,
+        8
+      ],
+      "initial_gate_is_half": true,
+      "decoder_placeholder_invariance": true,
+      "max_encoder_length": 300
+    },
+    {
+      "kind": "LSTM",
+      "history": 300,
+      "horizon": 120,
+      "input_shape": [
+        2,
+        300,
+        24
+      ],
+      "output_shape": [
+        2,
+        120
+      ],
+      "all_finite": true,
+      "parameters": 30968,
+      "device": "cpu",
+      "optimizer_steps": 0,
+      "output_requires_grad": false
+    },
+    {
+      "kind": "F2",
+      "history": 300,
+      "horizon": 120,
+      "input_shape": [
+        2,
+        300,
+        24
+      ],
+      "output_shape": [
+        2,
+        120
+      ],
+      "all_finite": true,
+      "parameters": 414366,
+      "device": "cpu",
+      "optimizer_steps": 0,
+      "output_requires_grad": false,
+      "decoder_observation_channels_all_zero": true,
+      "decoder_variables": [
+        "relative_forecast_step"
+      ],
+      "native_lstm_hidden_size": 64,
+      "native_lstm_layers": 1,
+      "regime_indices": [
+        11,
+        13,
+        9,
+        6,
+        8
+      ],
+      "initial_gate_is_half": true,
+      "decoder_placeholder_invariance": true,
+      "max_encoder_length": 300
+    }
+  ],
+  "dependencies": {
+    "torch": "2.6.0+cu124",
+    "pytorch-forecasting": "1.8.0",
+    "lightning": "2.5.1"
+  },
+  "historical_fair_lstm_source": "RENew-PEMFC-2300h-Pytorch/Phase_SCI_F2_LSTM_TCN_Fair_Baselines/models/baseline_models.py",
+  "native_source_unchanged_after_cpu_checks": true,
+  "device_compatibility_fix": {
+    "reason": "A plain torch.nn.Module wrapper's recursive _apply migrates native Lightning child tensors without updating that child's cached device. The unchanged native F2 forward allocates its static embedding using self.device and therefore encountered CPU versus CUDA mismatch on the first formal F2 batch.",
+    "formal_failure_before_fix": {
+      "reported_by": "main P3 runner",
+      "horizon_seconds": 30,
+      "phase": "first F2 forward",
+      "optimizer_steps": 0,
+      "training_instance_not_recounted": true,
+      "lstm_completed_artifacts_reused": true
+    },
+    "scope": "Wrapper-only .to(), .cuda(), .cpu() methods explicitly call native.to() to synchronize cached device/dtype; no native class edits, parameter edits, loss edits or training-task edits",
+    "native_class_ast_unchanged": true,
+    "models_py_sha256_after_fix": "6787d880f7c2459bbb94373edc51c04ea4b01347a61dfac36dd8c68c984dad64",
+    "verification": {
+      "gpu_name": "NVIDIA GeForce RTX 3070 Laptop GPU",
+      "checks": [
+        {
+          "horizon": 30,
+          "batch": 2,
+          "history": 300,
+          "features": 24,
+          "shape": [
+            2,
+            30
+          ],
+          "native_device": "cuda:0",
+          "all_finite": true,
+          "requires_grad": false,
+          "optimizer_steps": 0,
+          "cuda_cpu_to_roundtrip_passed": true,
+          "initial_state_sha256": "da6e2057b7434c5fcf281ca2afd520f7ef2a71cc45f611de9007bd7e3dcbbf2a",
+          "state_unchanged_by_device_migration": true,
+          "prediction_equal_cuda_and_to": true,
+          "peak_allocated_bytes": 22207488
+        },
+        {
+          "horizon": 120,
+          "batch": 2,
+          "history": 300,
+          "features": 24,
+          "shape": [
+            2,
+            120
+          ],
+          "native_device": "cuda:0",
+          "all_finite": true,
+          "requires_grad": false,
+          "optimizer_steps": 0,
+          "cuda_cpu_to_roundtrip_passed": true,
+          "initial_state_sha256": "da6e2057b7434c5fcf281ca2afd520f7ef2a71cc45f611de9007bd7e3dcbbf2a",
+          "state_unchanged_by_device_migration": true,
+          "prediction_equal_cuda_and_to": true,
+          "peak_allocated_bytes": 22254592
+        }
+      ],
+      "native_source_unchanged": true
+    },
+    "training_performed_during_fix": false,
+    "resume_constraint": "Only the already-failed zero-optimizer-step F2 instance may resume under the same Seed202 and initial state SHA; no LSTM retraining or new hyperparameter search"
+  }
+}

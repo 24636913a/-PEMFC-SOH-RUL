@@ -1,0 +1,337 @@
+[
+  {
+    "index_in_union": 0,
+    "name": "DateTime",
+    "unit": "categorical/time"
+  },
+  {
+    "index_in_union": 1,
+    "name": "OpHrs [h]",
+    "unit": "h"
+  },
+  {
+    "index_in_union": 2,
+    "name": "OpHrs2 [h]",
+    "unit": "h"
+  },
+  {
+    "index_in_union": 3,
+    "name": "Number of cells",
+    "unit": "categorical/time"
+  },
+  {
+    "index_in_union": 4,
+    "name": "I.S.set [A]",
+    "unit": "A"
+  },
+  {
+    "index_in_union": 5,
+    "name": "I.S.act [A]",
+    "unit": "A"
+  },
+  {
+    "index_in_union": 6,
+    "name": "j.S.act [A/cm2]",
+    "unit": "A/cm2"
+  },
+  {
+    "index_in_union": 7,
+    "name": "I.S.set.internal [A]",
+    "unit": "A"
+  },
+  {
+    "index_in_union": 8,
+    "name": "I.S.MinGasFlow [A]",
+    "unit": "A"
+  },
+  {
+    "index_in_union": 9,
+    "name": "Stoic.S.A [-]",
+    "unit": "-"
+  },
+  {
+    "index_in_union": 10,
+    "name": "Stoic.S.A.set [-]",
+    "unit": "-"
+  },
+  {
+    "index_in_union": 11,
+    "name": "RH.Si.A  [%]",
+    "unit": "%"
+  },
+  {
+    "index_in_union": 12,
+    "name": "RH.Si.A.CV [%]",
+    "unit": "%"
+  },
+  {
+    "index_in_union": 13,
+    "name": "Stoic.S.C [-]",
+    "unit": "-"
+  },
+  {
+    "index_in_union": 14,
+    "name": "Stoic.S.C.set [-]",
+    "unit": "-"
+  },
+  {
+    "index_in_union": 15,
+    "name": "RH.Si.C [%]",
+    "unit": "%"
+  },
+  {
+    "index_in_union": 16,
+    "name": "RH.Si.C.CV [%]",
+    "unit": "%"
+  },
+  {
+    "index_in_union": 17,
+    "name": "MAX(`U.S.MaxCell [V]`)",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 18,
+    "name": "U.S.AveCell [V]",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 19,
+    "name": "MIN(`U.S.MinCell [V]`)",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 20,
+    "name": "U1 [V]",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 21,
+    "name": "U2 [V]",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 22,
+    "name": "U3 [V]",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 23,
+    "name": "U4 [V]",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 24,
+    "name": "U5 [V]",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 25,
+    "name": "U6 [V]",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 26,
+    "name": "U7 [V]",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 27,
+    "name": "U8 [V]",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 28,
+    "name": "U9 [V]",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 29,
+    "name": "U10 [V]",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 30,
+    "name": "U11 [V]",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 31,
+    "name": "F.Si.H.A [nl/min]",
+    "unit": "nl/min"
+  },
+  {
+    "index_in_union": 32,
+    "name": "F.Si.H.A.set [nl/min]",
+    "unit": "nl/min"
+  },
+  {
+    "index_in_union": 33,
+    "name": "F.Si.N.A [nl/min]",
+    "unit": "nl/min"
+  },
+  {
+    "index_in_union": 34,
+    "name": "F.Si.N.A.set [nl/min]",
+    "unit": "nl/min"
+  },
+  {
+    "index_in_union": 35,
+    "name": "F.Si.Air.C [nl/min]",
+    "unit": "nl/min"
+  },
+  {
+    "index_in_union": 36,
+    "name": "F.Si.Air.C.set [nl/min]",
+    "unit": "nl/min"
+  },
+  {
+    "index_in_union": 37,
+    "name": "F.Si.C.total.set [nl/min]",
+    "unit": "nl/min"
+  },
+  {
+    "index_in_union": 38,
+    "name": "F.Si.C.total [nl/min]",
+    "unit": "nl/min"
+  },
+  {
+    "index_in_union": 39,
+    "name": "F.Si.A.total.set [nl/min]",
+    "unit": "nl/min"
+  },
+  {
+    "index_in_union": 40,
+    "name": "F.Si.A.total [nl/min]",
+    "unit": "nl/min"
+  },
+  {
+    "index_in_union": 41,
+    "name": "F.Si.CL [l/min]",
+    "unit": "l/min"
+  },
+  {
+    "index_in_union": 42,
+    "name": "F.Si.CL.set [l/min]",
+    "unit": "l/min"
+  },
+  {
+    "index_in_union": 43,
+    "name": "p.S.A.set [kPag]",
+    "unit": "kPag"
+  },
+  {
+    "index_in_union": 44,
+    "name": "p.Si.A [kPag]",
+    "unit": "kPag"
+  },
+  {
+    "index_in_union": 45,
+    "name": "p.So.A [kPag]",
+    "unit": "kPag"
+  },
+  {
+    "index_in_union": 46,
+    "name": "p.S.C.set [kPag]",
+    "unit": "kPag"
+  },
+  {
+    "index_in_union": 47,
+    "name": "p.Si.C [kPag]",
+    "unit": "kPag"
+  },
+  {
+    "index_in_union": 48,
+    "name": "p.So.C [kPag]",
+    "unit": "kPag"
+  },
+  {
+    "index_in_union": 49,
+    "name": "p.Si.CL [kPag]",
+    "unit": "kPag"
+  },
+  {
+    "index_in_union": 50,
+    "name": "p.So.CL [kPag]",
+    "unit": "kPag"
+  },
+  {
+    "index_in_union": 51,
+    "name": "DPT.Si.A [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 52,
+    "name": "DPT.Si.A.set [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 53,
+    "name": "T.Si.A.set [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 54,
+    "name": "T.Si.A [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 55,
+    "name": "T.So.A [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 56,
+    "name": "T.Si.C [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 57,
+    "name": "T.So.C [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 58,
+    "name": "DPT.Si.C [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 59,
+    "name": "DPT.Si.C.set [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 60,
+    "name": "T.Si.C.set [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 61,
+    "name": "T.Si.CL.set [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 62,
+    "name": "T.Si.CL [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 63,
+    "name": "T.So.CL [°C]",
+    "unit": "°C"
+  },
+  {
+    "index_in_union": 64,
+    "name": "MIN(`U.S [V]`)",
+    "unit": "V"
+  },
+  {
+    "index_in_union": 65,
+    "name": "operation_point",
+    "unit": "categorical/time"
+  },
+  {
+    "index_in_union": 66,
+    "name": "CalHrs [h]",
+    "unit": "h"
+  }
+]

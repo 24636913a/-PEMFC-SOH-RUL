@@ -1,0 +1,25 @@
+new_index,new_name,old_aggregate_name,was_old_top10,raw_derivation
+0,mean10_V,voltage_mean,True,"ten valid cell channels, instantaneous mean"
+1,std10_V,voltage_std,False,instantaneous spatial std10
+2,range10_V,voltage_range,False,instantaneous spatial ptp10
+3,min10_V,voltage_min,True,instantaneous min10
+4,max10_V,voltage_max,True,instantaneous max10
+5,actual_current_A,current_mean,False,"I.S.act [A], no temporal averaging"
+6,current_past30_std_A,current_std,True,causal past30-sample std (ddof0)
+7,current_past30_ptp_A,current_ptp,True,causal past30-sample ptp
+8,current_density_A_cm2,density_mean,True,"j.S.act [A/cm2], instantaneous"
+9,density_past30_std_A_cm2,density_std,True,causal past30-sample density std
+10,density_past30_ptp_A_cm2,density_ptp,True,causal past30-sample density ptp
+11,past1s_load_change,load_transition_count,True,abs(I[t]-I[t-1])>0.1A (instrument-resolution change flag)
+12,past1s_operation_point_change,operation_point_transitions,False,operation_point[t]!=operation_point[t-1]
+13,zero_current_flag,zero_current_fraction,True,"abs(I[t])<=0.1A, state proxy"
+14,set_current_A,,False,current raw instrument: set_current_A
+15,internal_set_current_A,,False,current raw instrument: internal_set_current_A
+16,anode_inlet_T_C,,False,current raw instrument: anode_inlet_T_C
+17,cathode_inlet_T_C,,False,current raw instrument: cathode_inlet_T_C
+18,coolant_inlet_T_C,,False,current raw instrument: coolant_inlet_T_C
+19,coolant_outlet_T_C,,False,current raw instrument: coolant_outlet_T_C
+20,anode_inlet_p_kPag,,False,current raw instrument: anode_inlet_p_kPag
+21,cathode_inlet_p_kPag,,False,current raw instrument: cathode_inlet_p_kPag
+22,operation_point,,False,current raw instrument: operation_point
+23,OpHrs2_h,,False,current raw instrument: OpHrs2_h

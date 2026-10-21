@@ -1,0 +1,306 @@
+{
+  "pass": true,
+  "horizon_seconds": 120,
+  "decision": "PASS_TASK_RESOURCE_METRIC_IDENTITY_ONLY",
+  "not_a_performance_gate": true,
+  "queries_checked_across_three_models": 3083040,
+  "independent_source_rows": {
+    "unique_original_rows_checked": 3596880,
+    "all_query_and_history_rows": true,
+    "max_voltage_difference_V": 0.0,
+    "timestamp_precision": "original millisecond timestamps exact; no resampling",
+    "all_original_timestamps_checked": 8604654,
+    "submillisecond_truncation_absent": true,
+    "sources": [
+      {
+        "file": "Loadcycle_0-14.csv",
+        "rows_read": 593522,
+        "rows_checked": 109200,
+        "sha256": "2dbc866d944b3d825fbf1e89a37527246256e13fee5f0cee432bdf9f77696ad0"
+      },
+      {
+        "file": "Loadcycle_15-25.csv",
+        "rows_read": 473570,
+        "rows_checked": 86940,
+        "sha256": "6f445cf954d553f6344cca15f117a21dcd035eb9732b750c4a1a3e011ab25cf7"
+      },
+      {
+        "file": "Loadcycle_26-37.csv",
+        "rows_read": 488280,
+        "rows_checked": 89460,
+        "sha256": "2c06497c53ad5d36a0aab298c6d0706ea330a576824c554976bd5cfd64a990a5"
+      },
+      {
+        "file": "Loadcycle_37-50.csv",
+        "rows_read": 576601,
+        "rows_checked": 105840,
+        "sha256": "7b1c2755834b5d4da82a0e063134214f2de934d222cd44d7cebeb8c762ad31ad"
+      },
+      {
+        "file": "Loadcycle_51-70.csv",
+        "rows_read": 854100,
+        "rows_checked": 156660,
+        "sha256": "cc753a6f52cd24cbe81ab84578d101fc8fbad229f7695a625521e094ef3e3f91"
+      },
+      {
+        "file": "Loadcycle_70-75.csv",
+        "rows_read": 214708,
+        "rows_checked": 39060,
+        "sha256": "435cefd654b4298ecd17e35d1f0d15ac3cf52962e3b10743a0d11587194601a1"
+      },
+      {
+        "file": "Loadcycle_76-82.csv",
+        "rows_read": 266972,
+        "rows_checked": 49140,
+        "sha256": "51beab30c2ad94915e62ae75b29c848529a3aaedc567e4eda7e16560fe03065f"
+      },
+      {
+        "file": "Loadcycle_82-84.csv",
+        "rows_read": 161577,
+        "rows_checked": 29400,
+        "sha256": "e64951f9dca7f5360176b83880d507fab93d615b930e04b31391c44dfbc97230"
+      },
+      {
+        "file": "Loadcycle_85-100.csv",
+        "rows_read": 683501,
+        "rows_checked": 125160,
+        "sha256": "282d4e0beb870fff339a899f4b17434b0ef9b22c59afebf3d86f2b4a414e220a"
+      },
+      {
+        "file": "Loadcycle_101-112.csv",
+        "rows_read": 470963,
+        "rows_checked": 135240,
+        "sha256": "c1fb926487f6711c55a6d265656887be72c661066bf50112be267c18b39fa35b"
+      },
+      {
+        "file": "Loadcycle_112-125.csv",
+        "rows_read": 596756,
+        "rows_checked": 417060,
+        "sha256": "774f196496bf8f3ea790d1515684aa2ce7603d891afa4f92bd8bbdecb0e70ca4"
+      },
+      {
+        "file": "Loadcycle_126-133.csv",
+        "rows_read": 331740,
+        "rows_checked": 231840,
+        "sha256": "ba4d82699570cfd564f3df268c7c88da4d54da06bad7a2d317b9d8eb1261886e"
+      },
+      {
+        "file": "Loadcycle_134-150.csv",
+        "rows_read": 727066,
+        "rows_checked": 508620,
+        "sha256": "04bea7651b4f1ff9bcf788c42ec5ef1336e6b0a8cebfcb9f33bbcc7ff7ad7780"
+      },
+      {
+        "file": "Loadcycle_151-162.csv",
+        "rows_read": 477563,
+        "rows_checked": 333480,
+        "sha256": "2f78439ac5ac6e2e978988d7182a999d7a4f99e799f878a97f09739087eb4c7f"
+      },
+      {
+        "file": "Loadcycle_162-175.csv",
+        "rows_read": 590436,
+        "rows_checked": 412860,
+        "sha256": "c40b04849bf5737e4b133eb9e88d37570487b89956ce58c12f14dfba218f2014"
+      },
+      {
+        "file": "Loadcycle_176-190.csv",
+        "rows_read": 647220,
+        "rows_checked": 452760,
+        "sha256": "bb342866c922148d2b242690e856f4541b407587e45566d30db7653dd160ee0e"
+      },
+      {
+        "file": "Loadcycle_191-200.csv",
+        "rows_read": 450079,
+        "rows_checked": 314160,
+        "sha256": "b5af93442a0c81c2878e9006e8f7eb354a5eb09c76bef1a6df149590f5136ac0"
+      }
+    ]
+  },
+  "partition_checks": [
+    {
+      "model": "Persistence",
+      "partition": "TRAIN",
+      "origins": 2048,
+      "queries": 245760,
+      "event_queries": 50796,
+      "normal_queries": 194964,
+      "all_queries_checked": true,
+      "metric_max_difference": 2.220446049250313e-16,
+      "predictions_sha256": "d704712e3a3a49f940e3b50f6e03affefa9e5a8890c23853d8bde7bfacec2d44"
+    },
+    {
+      "model": "Persistence",
+      "partition": "VALIDATION",
+      "origins": 1125,
+      "queries": 135000,
+      "event_queries": 31297,
+      "normal_queries": 103703,
+      "all_queries_checked": true,
+      "metric_max_difference": 2.220446049250313e-16,
+      "predictions_sha256": "8e3e978b1dac7c1e6e143c4a0629ff3f840976451a11a487429cc3493d57397a"
+    },
+    {
+      "model": "Persistence",
+      "partition": "HISTORICAL_ASSESSMENT",
+      "origins": 2229,
+      "queries": 267480,
+      "event_queries": 58866,
+      "normal_queries": 208614,
+      "all_queries_checked": true,
+      "metric_max_difference": 2.220446049250313e-16,
+      "predictions_sha256": "dc27f22a19c27bf4cb559fc5da2fba6c1f8ad9a6de236527c41b490f2f67697c"
+    },
+    {
+      "model": "Persistence",
+      "partition": "LATE_LIFE",
+      "origins": 3162,
+      "queries": 379440,
+      "event_queries": 81154,
+      "normal_queries": 298286,
+      "all_queries_checked": true,
+      "metric_max_difference": 4.440892098500626e-16,
+      "predictions_sha256": "a89de02cb9007cb56f263bca70663c4e2723ad3e7d09f88c91973b156ff492ac"
+    },
+    {
+      "model": "LSTM",
+      "partition": "TRAIN",
+      "origins": 2048,
+      "queries": 245760,
+      "event_queries": 50796,
+      "normal_queries": 194964,
+      "all_queries_checked": true,
+      "metric_max_difference": 4.440892098500626e-16,
+      "predictions_sha256": "e46cb81ad58097aeeed6b504bf7be1d2559ebe40a330615b9baddeffc46090b9"
+    },
+    {
+      "model": "LSTM",
+      "partition": "VALIDATION",
+      "origins": 1125,
+      "queries": 135000,
+      "event_queries": 31297,
+      "normal_queries": 103703,
+      "all_queries_checked": true,
+      "metric_max_difference": 1.1102230246251565e-16,
+      "predictions_sha256": "28a987a3c39e658cbd26f4799f0b55afd9fc21c6dee4f2e36cbd31c2c52840be"
+    },
+    {
+      "model": "LSTM",
+      "partition": "HISTORICAL_ASSESSMENT",
+      "origins": 2229,
+      "queries": 267480,
+      "event_queries": 58866,
+      "normal_queries": 208614,
+      "all_queries_checked": true,
+      "metric_max_difference": 4.440892098500626e-16,
+      "predictions_sha256": "2e29421670160d7df142460d1aaae34ced10231a257831765f88baecd3fd0c7a"
+    },
+    {
+      "model": "LSTM",
+      "partition": "LATE_LIFE",
+      "origins": 3162,
+      "queries": 379440,
+      "event_queries": 81154,
+      "normal_queries": 298286,
+      "all_queries_checked": true,
+      "metric_max_difference": 4.440892098500626e-16,
+      "predictions_sha256": "e569438449cf06292c9d82eda62c10751ebc32b83096fb4ee7f884d6f07c9856"
+    },
+    {
+      "model": "F2",
+      "partition": "TRAIN",
+      "origins": 2048,
+      "queries": 245760,
+      "event_queries": 50796,
+      "normal_queries": 194964,
+      "all_queries_checked": true,
+      "metric_max_difference": 2.220446049250313e-16,
+      "predictions_sha256": "99ea31c25926a0b9d44aded3dfb3552659282353fb36acbe9246a4b0cae999fe"
+    },
+    {
+      "model": "F2",
+      "partition": "VALIDATION",
+      "origins": 1125,
+      "queries": 135000,
+      "event_queries": 31297,
+      "normal_queries": 103703,
+      "all_queries_checked": true,
+      "metric_max_difference": 4.440892098500626e-16,
+      "predictions_sha256": "f7706add73c3651acc5fd167a9ef6121e215159ae2d0350dcb8a7d940500db17"
+    },
+    {
+      "model": "F2",
+      "partition": "HISTORICAL_ASSESSMENT",
+      "origins": 2229,
+      "queries": 267480,
+      "event_queries": 58866,
+      "normal_queries": 208614,
+      "all_queries_checked": true,
+      "metric_max_difference": 4.440892098500626e-16,
+      "predictions_sha256": "b05a043876c9a437aaf7ab8d8cd4f36c0eadcf16229f975ffd9077eec98bd8dd"
+    },
+    {
+      "model": "F2",
+      "partition": "LATE_LIFE",
+      "origins": 3162,
+      "queries": 379440,
+      "event_queries": 81154,
+      "normal_queries": 298286,
+      "all_queries_checked": true,
+      "metric_max_difference": 8.881784197001252e-16,
+      "predictions_sha256": "40812eb7bcef9d78d1413ee21b7754d047887e3a5065f76950619f033b1b9410"
+    }
+  ],
+  "training_logs": [
+    {
+      "model": "LSTM",
+      "epochs": 12,
+      "optimizer_steps": 768,
+      "best_epoch": 10,
+      "best_validation_RMSE_V": 0.0657229091572862,
+      "initial_state_sha256": "96fc5660557e5de5b5e41d7ba81f162e52ffb4560689bbb0eb6665a13a235503",
+      "checkpoint_sha256": "5d40f2be302535d477aef1d446965adb5086d2e29d4b5003ac43d27d0ad61c86",
+      "checkpoint_weights_finite": true,
+      "checkpoint_changed_from_initial": true,
+      "validation_reload_vs_saved_best_max_V": 0.0,
+      "recorded_reload_max_difference_V": 0.0,
+      "GPU_peak_allocated_MiB": 61.46533203125,
+      "GPU_peak_reserved_MiB": 92.0,
+      "checkpoint_cpu_inspection": true,
+      "independent_GPU_reload_inference": false,
+      "complete_training_log_sha256": "5bf32e1e8111ad339feb1bb4d489c757a383047203a1742a0ffcb2dccd11822f",
+      "documented_zero_optimizer_step_startup_failures": 0,
+      "startup_recovery_preserved_initialization_and_protocol": true
+    },
+    {
+      "model": "F2",
+      "epochs": 10,
+      "optimizer_steps": 640,
+      "best_epoch": 7,
+      "best_validation_RMSE_V": 0.07023365462580596,
+      "initial_state_sha256": "c1fe42d08a5e0d8cd997ccb4693aa945fa1f20fcbb48381fe88d66a85db4bac9",
+      "checkpoint_sha256": "b557b9b7d1664dfac11a48e6f2d5c0caa76bfbcdcc2d631d50d5d2a7a3886864",
+      "checkpoint_weights_finite": true,
+      "checkpoint_changed_from_initial": true,
+      "validation_reload_vs_saved_best_max_V": 0.0,
+      "recorded_reload_max_difference_V": 0.0,
+      "GPU_peak_allocated_MiB": 376.392578125,
+      "GPU_peak_reserved_MiB": 442.0,
+      "checkpoint_cpu_inspection": true,
+      "independent_GPU_reload_inference": false,
+      "complete_training_log_sha256": "007028c8c8e45c9479b8ef0bc8d15fde225751429a011e4167a2afd019bc15f7",
+      "documented_zero_optimizer_step_startup_failures": 0,
+      "startup_recovery_preserved_initialization_and_protocol": true
+    }
+  ],
+  "frozen_training_statistics": {
+    "scaler_rows": 4688888,
+    "voltage_threshold_V": 0.038477648942,
+    "max_scaler_mean_difference": 5.684341886080802e-14,
+    "max_scaler_scale_difference": 9.180212146020494e-11
+  },
+  "protocol_sha256": "421b987cc101ddebb0e39097c4249cc20c776902c08743798fb5a3c48b198b23",
+  "verifier_sha256": "8c69cd97d13dafdc7d9f8cdbf030db814a54d15b5985bcf8c9d8e5bfbddca17f",
+  "completed_training_instances_this_horizon": 2,
+  "completed_training_instances_total": 4,
+  "seconds": 48.35712814331055
+}

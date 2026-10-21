@@ -1,0 +1,436 @@
+{
+  "checkpoint": 3,
+  "decision": "PASS",
+  "reviewer": "native_model agent; independent of report author and training runner, but also author of the model adapter and CPU gate diagnostics (partial independence disclosed)",
+  "scope": "Final six-report consistency, protocol/actual artifact identity, training counts, bounded conclusions, target uniqueness and figure-format audit. No training, full TFT inference, or GPU calls during this checkpoint.",
+  "final_report_sha256": {
+    "00_原始数据与采样真实性审计.md": "045be151a6b24f4a7e87fbf6a895b4f4229696732c019a199dbb6dea8b8bf861",
+    "01_30分钟聚合导致的信息损失分析.md": "c1c95a45f19c3730a56e11db1ca13b538e0b23c99c0795c96a31a73f477ec054",
+    "02_秒级突变事件与可预测性研究.md": "5cbb875b99df08a27482d864da1ef7c081bee0352aa020324c733364767af716",
+    "03_原始1秒动态预测正式协议.md": "3fbdb3f8c8542e0cec90d10ce2747d727821268e1216c18c4b38acbd2a1ca685",
+    "04_单种子模型试验与误差对照.md": "9778b0a97ec3169a59e2218bd1dfa9db98915973ace139bffd8eb3e784b52f2f",
+    "05_后续F2改进方向与文献依据.md": "f64b03c324a3ea5b310d0a7a9be20bbe962dbd782f1596849221bdf845b96162"
+  },
+  "evidence_sha256": {
+    "outputs\\frozen_protocol.json": "421b987cc101ddebb0e39097c4249cc20c776902c08743798fb5a3c48b198b23",
+    "outputs\\all_metrics.csv": "d750b637e18fdc6cfe6a6b45820031f09f31786714d42905bc7620173a55ab4d",
+    "outputs\\raw_audit.json": "1e24038116ddacf1c20117afc48b68faa45e31d6f2dfa2182b57c84d6e4d122d",
+    "outputs\\review_checkpoint2.json": "86c4107c48fb6f3706b050b57927c084185ba55cc5e672ce0e4914e62ced4746",
+    "outputs\\H30_acceptance.json": "432085ec1e59cf23c5b187df1b6b8eff5a4d20a77f49d2a426567a2712237b66",
+    "outputs\\H120_acceptance.json": "e684aa2da86b956a0471c89e3e832e90aaf53dd3b46384ca09069effb08c92e0",
+    "outputs\\native_model_identity.json": "7dc8bca69213a656a662936a7e77e072a92ad6a7f3ba17e79e666c9f2e5f693a",
+    "outputs\\f2_diagnostics_H30.json": "3bdfb82efb63c80f09b51e0cc0c0abc8e483ede7fb4cb05d837f9703e608bce3",
+    "outputs\\f2_diagnostics_H120.json": "fb35bb04e6e0b90d139ffe122bd8c3888b00d1d38e87b6804fbecaf15eac8f95"
+  },
+  "checks": [
+    {
+      "item": "Required six reports complete",
+      "result": "PASS",
+      "evidence": "Exactly reports 00 through 05 are present. Raw integrity, aggregation losses, historical-event predictability, frozen raw-second protocol, real single-seed model results and bounded literature directions are covered."
+    },
+    {
+      "item": "Raw dataset and clocks",
+      "result": "PASS",
+      "evidence": "Completed audit records 17 local LFS SHA256/size-verified CSVs and 8604654 rows; valid ten-cell mean excludes U6. Instrument audit corrects metadata-only synthetic first-pair counts to 8604634 near-one-second real pairs and 5497239 frozen OpHrs2 real pairs. Reports disclose gaps, file seams, unequal instrument update rhythms and finite physical-state interpretation."
+    },
+    {
+      "item": "Physical partitions and causality",
+      "result": "PASS",
+      "evidence": "1310.0,1460.5,1819.5 OpHrs2 boundaries inherit original F2 physical cuts and have exact raw DateTime assertions. Train-only scaler and event threshold were independently recomputed in checkpoint 2; raw timestamps, true targets and causal history identity passed both horizon acceptances."
+    },
+    {
+      "item": "300 inputs plus statistical warm-up",
+      "result": "PASS",
+      "evidence": "Reports 02,03,04 and README now explicitly disclose 300 model-input rows plus 29 prior causal warm-up observations. Earliest raw support is approximately origin minus 328 seconds (329 original rows), not a strict last-300-second-only information set. No samples or weights were changed by this clarification."
+    },
+    {
+      "item": "Native F2 complete model identity",
+      "result": "PASS",
+      "evidence": "Historical RealHyFC_F2_Main.py remains SHA256-identical to frozen authority. All six native model class ASTs and native VSN/LSTM/CNN/gate/attention/GRN/head remain unchanged. The wrapper-only device metadata compatibility fix does not add parameters or change task/loss."
+    },
+    {
+      "item": "Real trained instance and optimizer counts",
+      "result": "PASS",
+      "evidence": "Four COMPLETE single-Seed202 instances; total 46 completed epochs and 2944 optimizer steps. One additional first-forward startup failure has exactly zero optimizer steps and identical initialization/protocol on its single recovery. Completed LSTM products were reused; Persistence has no fitted checkpoint."
+    },
+    {
+      "item": "Metric tables and stratification",
+      "result": "PASS",
+      "evidence": "All 72 rows in all_metrics.csv exactly equal the two horizon tables. The 24 all-query main-report rows match rounded CSV RMSE/MAE/delta-R2/P95/P99 and query counts. ALL query count and squared-error sum equal EVENT plus NORMAL for every model/horizon/partition. Checkpoint 2 independently checked all 3853980 model queries against original source identities."
+    },
+    {
+      "item": "Within-horizon target overlap wording",
+      "result": "PASS",
+      "evidence": "Independent original-target-index uniqueness checks found zero overlaps in all eight horizon/partition sets. Reports 03/04 now correctly state that 600-second origins with H<=120 do not overlap within a horizon, while preserving explicit query-scoring rules for any future dense rolling evaluation."
+    },
+    {
+      "item": "Actual model comparison and RMSE/MAE trade-off",
+      "result": "PASS",
+      "evidence": "Both Validation horizons have LSTM lowest all-query RMSE; F2 lowers RMSE versus corresponding Persistence while raising MAE. Report 04 states the trade-offs and includes all four physical partitions plus event/normal strata instead of only favorable scores."
+    },
+    {
+      "item": "Convergence and native gate diagnosis",
+      "result": "PASS",
+      "evidence": "Actual histories and CPU-only gate diagnostics support learned nonzero output weights and no saturation in sampled TRAIN/VALIDATION histories. H120 F2 best epoch 7, stop 10 follows three nonimproving Validation epochs despite declining training MSE. Reports do not claim a unique error mechanism, guaranteed benefit from longer training or ultimate architectural ranking."
+    },
+    {
+      "item": "Historical exposed-event and holdout limits",
+      "result": "PASS",
+      "evidence": "The two known late events only explain previously exposed historical problems. Both post-validation partitions are called exploratory/historically exposed, not pristine independent tests. Future command availability remains unproven. Dynamic voltage is not relabeled as SOH and no RUL task or IEEE 2014 experiment is added."
+    },
+    {
+      "item": "Figures and source plotting data",
+      "result": "PASS_FORMAT_PAIRING",
+      "evidence": "Nine PNGs each have same-stem PDF and plot_data.csv. Each PNG records 299.9994 dpi (standard 300-dpi metadata rounding); each PDF has a valid PDF header. This check verifies artifacts and resolution, not a second full visual-appearance review."
+    },
+    {
+      "item": "Bounded literature use and future work",
+      "result": "PASS_SCOPE",
+      "evidence": "Report 05 and its source ledger distinguish quick primary-source evidence checking from systematic review, separate mechanism support from experimental proof, and defer new modules/losses/control-plan scenarios to separate protocols. No 30-second versus historical 12-hour performance-improvement claim is made."
+    }
+  ],
+  "training_summary": {
+    "trained_instances": 4,
+    "seed": 202,
+    "total_epochs": 46,
+    "total_optimizer_steps": 2944,
+    "persistence_fitted": false,
+    "zero_optimizer_step_startup_failures": 1,
+    "startup_recovery_same_initialization_and_protocol_verified": true,
+    "instances": [
+      {
+        "model": "F2",
+        "horizon": 120,
+        "status": "COMPLETE",
+        "instance_count": 1,
+        "optimizer_steps": 640,
+        "stop_epoch": 10,
+        "best_epoch": 7,
+        "GPU_peak_reserved_MiB": 442
+      },
+      {
+        "model": "LSTM",
+        "horizon": 120,
+        "status": "COMPLETE",
+        "instance_count": 1,
+        "optimizer_steps": 768,
+        "stop_epoch": 12,
+        "best_epoch": 10,
+        "GPU_peak_reserved_MiB": 92
+      },
+      {
+        "model": "F2",
+        "horizon": 30,
+        "status": "COMPLETE",
+        "instance_count": 1,
+        "optimizer_steps": 768,
+        "stop_epoch": 12,
+        "best_epoch": 10,
+        "GPU_peak_reserved_MiB": 426
+      },
+      {
+        "model": "LSTM",
+        "horizon": 30,
+        "status": "COMPLETE",
+        "instance_count": 1,
+        "optimizer_steps": 768,
+        "stop_epoch": 12,
+        "best_epoch": 12,
+        "GPU_peak_reserved_MiB": 92
+      }
+    ]
+  },
+  "validation_all_query_metrics": [
+    {
+      "horizon_seconds": 30,
+      "model": "Persistence",
+      "partition": "VALIDATION",
+      "stratum": "ALL",
+      "origins": 1125,
+      "queries": 33750,
+      "RMSE_V": 0.0425769767507604,
+      "MAE_V": 0.0065199017325777,
+      "R2_delta": -0.0004408764904446,
+      "P95_abs_V": 0.0393015527149998,
+      "P99_abs_V": 0.053670410878
+    },
+    {
+      "horizon_seconds": 30,
+      "model": "LSTM",
+      "partition": "VALIDATION",
+      "stratum": "ALL",
+      "origins": 1125,
+      "queries": 33750,
+      "RMSE_V": 0.0385265693163789,
+      "MAE_V": 0.0116456558801038,
+      "R2_delta": 0.1808518339182862,
+      "P95_abs_V": 0.0363898514444506,
+      "P99_abs_V": 0.0548735021906511
+    },
+    {
+      "horizon_seconds": 30,
+      "model": "F2",
+      "partition": "VALIDATION",
+      "stratum": "ALL",
+      "origins": 1125,
+      "queries": 33750,
+      "RMSE_V": 0.0389565844181234,
+      "MAE_V": 0.0079259058187363,
+      "R2_delta": 0.1624639063535909,
+      "P95_abs_V": 0.0400639676998275,
+      "P99_abs_V": 0.0552127783643246
+    },
+    {
+      "horizon_seconds": 120,
+      "model": "Persistence",
+      "partition": "VALIDATION",
+      "stratum": "ALL",
+      "origins": 1125,
+      "queries": 135000,
+      "RMSE_V": 0.0891441155478784,
+      "MAE_V": 0.0208092806054014,
+      "R2_delta": -0.00001876721863580677,
+      "P95_abs_V": 0.0560561887750001,
+      "P99_abs_V": 0.7478949214250022
+    },
+    {
+      "horizon_seconds": 120,
+      "model": "LSTM",
+      "partition": "VALIDATION",
+      "stratum": "ALL",
+      "origins": 1125,
+      "queries": 135000,
+      "RMSE_V": 0.0657229091572862,
+      "MAE_V": 0.0227336976131512,
+      "R2_delta": 0.4564289143355345,
+      "P95_abs_V": 0.0606012979344979,
+      "P99_abs_V": 0.1714270217741211
+    },
+    {
+      "horizon_seconds": 120,
+      "model": "F2",
+      "partition": "VALIDATION",
+      "stratum": "ALL",
+      "origins": 1125,
+      "queries": 135000,
+      "RMSE_V": 0.0702336546258059,
+      "MAE_V": 0.0237691415906611,
+      "R2_delta": 0.3792548646050756,
+      "P95_abs_V": 0.0538251200105299,
+      "P99_abs_V": 0.1460188299999115
+    }
+  ],
+  "target_uniqueness": {
+    "30": {
+      "TRAIN": {
+        "queries": 61440,
+        "unique_target_rows": 61440,
+        "overlap_count": 0
+      },
+      "VALIDATION": {
+        "queries": 33750,
+        "unique_target_rows": 33750,
+        "overlap_count": 0
+      },
+      "HISTORICAL_ASSESSMENT": {
+        "queries": 66900,
+        "unique_target_rows": 66900,
+        "overlap_count": 0
+      },
+      "LATE_LIFE": {
+        "queries": 94890,
+        "unique_target_rows": 94890,
+        "overlap_count": 0
+      }
+    },
+    "120": {
+      "TRAIN": {
+        "queries": 245760,
+        "unique_target_rows": 245760,
+        "overlap_count": 0
+      },
+      "VALIDATION": {
+        "queries": 135000,
+        "unique_target_rows": 135000,
+        "overlap_count": 0
+      },
+      "HISTORICAL_ASSESSMENT": {
+        "queries": 267480,
+        "unique_target_rows": 267480,
+        "overlap_count": 0
+      },
+      "LATE_LIFE": {
+        "queries": 379440,
+        "unique_target_rows": 379440,
+        "overlap_count": 0
+      }
+    }
+  },
+  "figure_format_checks": [
+    {
+      "path": "figures\\events\\E1_native_transition_zoom.png",
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "pixels": [
+        3750,
+        3000
+      ]
+    },
+    {
+      "path": "figures\\events\\E1_raw_and_aggregation.png",
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "pixels": [
+        3600,
+        3000
+      ]
+    },
+    {
+      "path": "figures\\events\\E2_native_transition_zoom.png",
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "pixels": [
+        3750,
+        3000
+      ]
+    },
+    {
+      "path": "figures\\events\\E2_raw_and_aggregation.png",
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "pixels": [
+        3600,
+        3000
+      ]
+    },
+    {
+      "path": "figures\\results\\01_all_query_rmse.png",
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "pixels": [
+        4500,
+        2400
+      ]
+    },
+    {
+      "path": "figures\\results\\02_real_training_history.png",
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "pixels": [
+        3600,
+        2400
+      ]
+    },
+    {
+      "path": "figures\\results\\03_all_forecast_leads.png",
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "pixels": [
+        4500,
+        2400
+      ]
+    },
+    {
+      "path": "figures\\results\\04_predeclared_chronological_examples.png",
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "pixels": [
+        3900,
+        2400
+      ]
+    },
+    {
+      "path": "figures\\results\\05_original_sampling_intervals.png",
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "pixels": [
+        3000,
+        1350
+      ]
+    }
+  ],
+  "corrections_confirmed_before_final_pass": [
+    "Report 02 now states actual 24-dimensional inputs include past measured/set current, thermal and pressure channels instead of retaining an obsolete conditional input proposal.",
+    "Reports 02/03/04 and README clarify statistical prehistory beyond the 300 input rows.",
+    "Historical nearest-history evidence path points to Phase_SCI_F2_Late_Extreme_Cause_Audit/outputs.",
+    "Reports 03/04 distinguish the actual nonoverlapping 600-second grid from hypothetical dense rolling overlap.",
+    "Report 04 now includes actual gate means/ranges and H120 F2 best/stop behavior with restrained interpretation.",
+    "Final report line endings normalized to LF only; exact semantic identity established by reconstructing all six prior byte hashes with original line-ending forms."
+  ],
+  "fatal_findings": [],
+  "remaining_limitations": [
+    "One seed, at most 12 epochs, unequal parameter counts and finite training support do not establish architecture optimality, statistical significance or final convergence.",
+    "A fixed 600-second lattice and 2048-origin training cap can miss or phase-lock short transients; these results do not evaluate every possible online raw-second origin.",
+    "Both post-validation periods have historical exposure. Their scores are exploratory rather than untouched-test evidence.",
+    "H30 and H120 can have different eligible/capped TRAIN origins; cross-horizon results are different tasks, not strictly paired performance-improvement evidence.",
+    "The input information set includes 29 prior raw observations for causal rolling statistics beyond the 300 model-input rows.",
+    "Past state/thermal/pressure clues and one-sample command lead do not prove that a future 30/120-second control plan was known at the origin.",
+    "Gate movement and lack of saturation show that a simple frozen/dead gate failure is absent, not that gate decisions are physically correct or causally improve errors.",
+    "Publication/commit to GitHub main and final commit SHA are outside this read-only review and remain the main agent's authorized final step."
+  ],
+  "training_executed_during_checkpoint": false,
+  "GPU_calls_during_checkpoint": 0,
+  "full_TFT_forward_calls_during_checkpoint": 0,
+  "performance_does_not_affect_acceptance": true,
+  "reviewed_source_sha256_after_formatting": {
+    "scripts\\freeze_protocol.py": "217253af3235dff93ce3142ed6621fb959eee19cef3b61ac8fb4487df0ce3940",
+    "scripts\\make_report.py": "9fa52baae0ee81890fb8b4756bdc89751562797c8a2a11e5fd37ac2e6f61b290",
+    "scripts\\models.py": "6787d880f7c2459bbb94373edc51c04ea4b01347a61dfac36dd8c68c984dad64",
+    "scripts\\diagnose_f2.py": "486f5250cedb6fd60f280e7e331ee627a3a5f56482f89b88084e1d74d4925892",
+    ".gitattributes": "ce5c8ace5e729831c2657bb37499ebfd8fceb83a299c6b1c2044f2cb780679e9"
+  },
+  "format_only_revision": {
+    "reason": "Normalize Study root Markdown to LF; prevent Windows write_text plus embedded DataFrame.to_csv CRLF from producing CRCRLF. Add explicit LF for future Markdown writes and the embedded CSV table.",
+    "previous_report_sha256": {
+      "00_原始数据与采样真实性审计.md": "52ab3b518d9c77079852569c8ec655e20682f6378ab58058627c06bcc861ae24",
+      "01_30分钟聚合导致的信息损失分析.md": "c1c95a45f19c3730a56e11db1ca13b538e0b23c99c0795c96a31a73f477ec054",
+      "02_秒级突变事件与可预测性研究.md": "5cbb875b99df08a27482d864da1ef7c081bee0352aa020324c733364767af716",
+      "03_原始1秒动态预测正式协议.md": "6be072246a5a4ddee135bb741113cd65e1205ce3fa7ad54b1f9bd411f067a769",
+      "04_单种子模型试验与误差对照.md": "7bf3ef0b543d6b39c9f9c971f8a800741c0434d4ea1415303d82de20d5dfd0d7",
+      "05_后续F2改进方向与文献依据.md": "d650b0c45c2ca9a5c32270f963018ddfe41876d51564655be9dcf9140d078b8f"
+    },
+    "semantic_identity_check": {
+      "method": "Reconstruct each previously reviewed byte sequence by restoring only its original line-ending form, then require exact match to the previous SHA256. No word, number, figure reference or protocol term was changed.",
+      "all_six_previous_report_sha256_reconstructed_exactly": true,
+      "original_line_endings_by_prefix": {
+        "00": "uniform CRLF",
+        "01": "already LF, unchanged bytes",
+        "02": "already LF, unchanged bytes",
+        "03": "CRLF outside fenced CSV; CRCRLF for embedded CSV lines",
+        "04": "uniform CRLF",
+        "05": "uniform CRLF"
+      },
+      "current_six_reports_have_no_CR_bytes": true,
+      "current_reports_equal_staged_report_bytes": true
+    },
+    "frozen_evidence": {
+      "all_nine_previous_evidence_sha256_unchanged": true,
+      "protocol_sha256": "421b987cc101ddebb0e39097c4249cc20c776902c08743798fb5a3c48b198b23",
+      "native_authority_sha256": "64cde85cac939806641921083bcf2c2e5354ee2bcd19dc4315949459305660f9"
+    },
+    "gitattributes": "Markdown/Python/.gitattributes/.gitignore use LF. JSON/CSV/NPZ/NPY/PT/PNG/PDF are -text; JSON/CSV whitespace permits CR-at-EOL without normalizing byte-hashed research evidence.",
+    "git_diff_check_exit_code": 0,
+    "git_diff_cached_check_exit_code": 0,
+    "new_training_runs": 0,
+    "new_inference_runs": 0,
+    "decision_remains": "PASS"
+  }
+}

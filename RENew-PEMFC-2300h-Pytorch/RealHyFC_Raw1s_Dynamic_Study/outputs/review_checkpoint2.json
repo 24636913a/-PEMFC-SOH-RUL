@@ -1,0 +1,81 @@
+{
+  "checkpoint": 2,
+  "reviewer": "historical_audit agent, independent of model/runner author",
+  "decision": "PASS",
+  "horizons": {
+    "30": {
+      "decision": "PASS",
+      "acceptance_file": "H30_acceptance.json",
+      "queries_checked": 770940,
+      "error": null
+    },
+    "120": {
+      "decision": "PASS",
+      "acceptance_file": "H120_acceptance.json",
+      "queries_checked": 3083040,
+      "error": null
+    }
+  },
+  "training_executed_by_reviewer": false,
+  "review_source_sha256": {
+    "scripts\\train_pilot.py": "4342ef0901de8438216450b66af4af5c591e5226f4ef8e7f2a2abac4eefe922c",
+    "scripts\\freeze_protocol.py": "df80b275e31c34a219054be9cc2f118878e9ed0b27b6dcaa5e3992517f2ad556",
+    "outputs\\frozen_protocol.json": "421b987cc101ddebb0e39097c4249cc20c776902c08743798fb5a3c48b198b23",
+    "scripts\\verify_runs.py": "8c69cd97d13dafdc7d9f8cdbf030db814a54d15b5985bcf8c9d8e5bfbddca17f",
+    "scripts\\models.py": "6787d880f7c2459bbb94373edc51c04ea4b01347a61dfac36dd8c68c984dad64",
+    "scripts\\audit_raw.py": "6077d091e5d4dfa1b8578789d1fda0be7492b2fbf9af859b6971026710c71e89"
+  },
+  "checks": [
+    "Every saved query has every future step, original source time, float64 raw ten-cell target and origin anchor",
+    "All original historical/future window adjacencies, file/segment identities, validity, timestamp jitter and partition memberships checked",
+    "All three models have identical frozen origins, targets, clocks, event labels and source identities within each horizon",
+    "Independent double-precision RMSE/MAE/delta-R2/P95/P99 for all/event/normal; no shared metric function imported",
+    "Every underlying original history/target source row reread from CSV, all 17 LFS payload SHA/size values rechecked",
+    "Train-only scaler, event threshold and raw split counts independently recomputed",
+    "Complete actual epoch/optimizer logs, best validation checkpoint, saved reload predictions and <=8 GiB process GPU peak evidence checked"
+  ],
+  "findings": [
+    {
+      "severity": "NON_BLOCKING_DISCLOSURE_REQUIRED",
+      "item": "Raw support of causal rolling features exceeds the tensor history",
+      "evidence": "The model consumes 300 row vectors spanning about 299 seconds. A past30 statistic at its earliest row uses 29 additional earlier raw observations, so effective original raw support can extend to origin minus 328 seconds (329 records). This was present in the pretraining freeze via the 328-row segment warm-up and contains no future observations; reports must disclose it and must not claim every raw source observation lies strictly within the most recent 300 seconds."
+    },
+    {
+      "severity": "NON_BLOCKING",
+      "item": "Evaluation is not an untouched independent Test",
+      "evidence": "Both post-validation regions have historical exposure; this acceptance checks identity, not independent generalization."
+    },
+    {
+      "severity": "NON_BLOCKING",
+      "item": "Pilot optimization budget is unequal to architecture convergence proof",
+      "evidence": "Shared <=12 epochs, one Seed202 and no search; F2 and LSTM have different parameter counts and optimization difficulty."
+    },
+    {
+      "severity": "NON_BLOCKING",
+      "item": "Finite fixed origin lattice",
+      "evidence": "600-second grid and 2048-origin Train cap can miss/phase-lock brief events. No claim covers every possible raw-second origin."
+    },
+    {
+      "severity": "NON_BLOCKING",
+      "item": "GPU evidence scope",
+      "evidence": "PyTorch allocated/reserved process peaks are recorded; other applications' full-device usage is not independently attributed here."
+    },
+    {
+      "severity": "NON_BLOCKING",
+      "item": "Checkpoint reload evidence scope",
+      "evidence": "Reviewer checks checkpoint bytes/finite tensors and complete saved-best vs evaluated Validation predictions on CPU; no additional independent GPU inference or training is performed."
+    },
+    {
+      "severity": "NON_BLOCKING",
+      "item": "Horizon pairing",
+      "evidence": "H30/H120 eligibility/capped Train ranks may differ; target identity is required across models within a horizon, not across horizons."
+    },
+    {
+      "severity": "RESOLVED_ZERO_STEP_ENGINEERING_FAILURE",
+      "item": "Initial F2 GPU device tracking",
+      "evidence": "The first H30 F2 attempt stopped before optimizer step 1 because a wrapped LightningModule retained CPU device metadata. The new adapter explicitly synchronizes native device metadata without changing the historical model class bodies. Acceptance requires the preserved failure record to show zero steps and exactly identical initialization/protocol on its one compatibility recovery."
+    }
+  ],
+  "fatal_findings": [],
+  "performance_does_not_affect_acceptance": true
+}

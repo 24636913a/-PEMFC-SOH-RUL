@@ -1,0 +1,18 @@
+{
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.22631-SP0",
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "pytorch-forecasting": "1.8.0",
+    "lightning": "2.5.1",
+    "numpy": "2.4.6",
+    "pandas": "3.0.1",
+    "matplotlib": "3.10.8"
+  },
+  "CUDA": "12.4",
+  "cuDNN": 90100,
+  "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "GPU_total_bytes": 8589410304,
+  "training_settings_authority": "scripts/train_pilot.py configure(); frozen_protocol.json",
+  "serial_single_GPU": true
+}

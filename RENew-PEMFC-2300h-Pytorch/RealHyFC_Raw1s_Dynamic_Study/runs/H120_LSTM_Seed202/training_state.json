@@ -1,0 +1,20 @@
+{
+  "status": "COMPLETE",
+  "model": "LSTM",
+  "seed": 202,
+  "horizon": 120,
+  "initial_state_sha256": "96fc5660557e5de5b5e41d7ba81f162e52ffb4560689bbb0eb6665a13a235503",
+  "parameters": 30968,
+  "protocol_sha256": "421b987cc101ddebb0e39097c4249cc20c776902c08743798fb5a3c48b198b23",
+  "optimizer_steps": 768,
+  "instance_count": 1,
+  "completed_epoch": 12,
+  "stop_epoch": 12,
+  "best_epoch": 10,
+  "best_validation_RMSE_V": 0.0657229091572862,
+  "training_seconds": 5.270633935928345,
+  "checkpoint_sha256": "5d40f2be302535d477aef1d446965adb5086d2e29d4b5003ac43d27d0ad61c86",
+  "reload_max_difference_V": 0.0,
+  "GPU_peak_allocated_MiB": 61.46533203125,
+  "GPU_peak_reserved_MiB": 92.0
+}

@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "status": "FROZEN_BEFORE_GPU_TRAINING",
+  "dataset": "RealHyFC Loadcycle only",
+  "seed": 202,
+  "history_steps": 300,
+  "horizons_seconds": [
+    30,
+    120
+  ],
+  "future_candidate_seconds": 600,
+  "input_features": [
+    "mean10_V",
+    "std10_V",
+    "range10_V",
+    "min10_V",
+    "max10_V",
+    "actual_current_A",
+    "current_past30_std_A",
+    "current_past30_ptp_A",
+    "current_density_A_cm2",
+    "density_past30_std_A_cm2",
+    "density_past30_ptp_A_cm2",
+    "past1s_load_change",
+    "past1s_operation_point_change",
+    "zero_current_flag",
+    "set_current_A",
+    "internal_set_current_A",
+    "anode_inlet_T_C",
+    "cathode_inlet_T_C",
+    "coolant_inlet_T_C",
+    "coolant_outlet_T_C",
+    "anode_inlet_p_kPag",
+    "cathode_inlet_p_kPag",
+    "operation_point",
+    "OpHrs2_h"
+  ],
+  "n_features": 24,
+  "voltage_channels": [
+    "U1 [V]",
+    "U2 [V]",
+    "U3 [V]",
+    "U4 [V]",
+    "U5 [V]",
+    "U7 [V]",
+    "U8 [V]",
+    "U9 [V]",
+    "U10 [V]",
+    "U11 [V]"
+  ],
+  "target": "future original-second mean10 voltage minus last observed mean10 voltage",
+  "output": "direct all H steps; original DateTime targets; no recursive feedback",
+  "target_timestamp_tolerance_ms": 100,
+  "raw_sampling_tolerance_ms": [
+    950,
+    1050
+  ],
+  "partitions": [
+    "TRAIN",
+    "VALIDATION",
+    "HISTORICAL_ASSESSMENT",
+    "LATE_LIFE"
+  ],
+  "seams": [
+    {
+      "legacy_first_row": 2103,
+      "age_boundary_h": 1310.0,
+      "cut_datetime": "2025-05-18 21:43:32.005000",
+      "cut_ms": 1747604612005,
+      "before_raw_row": 4689206,
+      "after_raw_row": 4689207,
+      "before_raw_age_h": 1309.99,
+      "after_raw_age_h": 1310.0,
+      "verified": true
+    },
+    {
+      "legacy_first_row": 2404,
+      "age_boundary_h": 1460.5,
+      "cut_datetime": "2025-05-26 17:29:27.005000",
+      "cut_ms": 1748280567005,
+      "before_raw_row": 5365160,
+      "after_raw_row": 5365161,
+      "before_raw_age_h": 1460.49,
+      "after_raw_age_h": 1460.5,
+      "verified": true
+    },
+    {
+      "legacy_first_row": 3005,
+      "age_boundary_h": 1819.5,
+      "cut_datetime": "2025-06-29 13:04:56.005000",
+      "cut_ms": 1751202296005,
+      "before_raw_row": 6704814,
+      "after_raw_row": 6704815,
+      "before_raw_age_h": 1819.49,
+      "after_raw_age_h": 1819.5,
+      "verified": true
+    }
+  ],
+  "partition_raw_rows": {
+    "TRAIN": 4689207,
+    "VALIDATION": 675954,
+    "HISTORICAL_ASSESSMENT": 1339654,
+    "LATE_LIFE": 1899839
+  },
+  "holdout_status": "both post-validation periods historically exposed, exploratory only, never tuned",
+  "scaler": {
+    "mean": [
+      0.5808282427841657,
+      0.0019072745550241773,
+      0.0061244224474676775,
+      0.5772392941119859,
+      0.5833637165753436,
+      168.98931488925018,
+      5.443540106198727,
+      13.828170506155558,
+      0.6035324110093834,
+      0.01944126768284057,
+      0.04938525408647882,
+      0.2499270615975472,
+      0.006028294981667295,
+      0.19447809373992297,
+      169.17490652354383,
+      169.17494967620598,
+      71.0715635958581,
+      70.9915896079883,
+      65.8288324764783,
+      68.63888330160212,
+      129.84134528892173,
+      122.89410263279265,
+      171.73896668037284,
+      653.6635057382609
+    ],
+    "scale": [
+      0.2817291623903912,
+      0.004868984875378572,
+      0.014273985609587873,
+      0.28141526481212853,
+      0.282090839902857,
+      116.08307260614846,
+      12.089162773492674,
+      29.422422388937935,
+      0.4145827470910727,
+      0.04317596047419555,
+      0.10507950643346724,
+      0.43297058269444016,
+      0.07740771693624157,
+      0.39579838907606574,
+      115.95798228882545,
+      115.95786077774778,
+      10.155923605750813,
+      10.205261443769606,
+      12.733777609136611,
+      13.735574229789327,
+      65.04239076009928,
+      62.94336215126906,
+      112.89232865517577,
+      351.9717488512214
+    ],
+    "fit_rows": 4688888,
+    "fit": "all valid TRAIN rows only, no validation/holdout"
+  },
+  "voltage_event": {
+    "threshold_V": 0.038477648942,
+    "train_quantile": 0.995,
+    "definition": "target query is event if any absolute original 1-step voltage change from origin+1 through that target exceeds frozen Train threshold"
+  },
+  "current_event": {
+    "threshold_A": 64.2109375,
+    "train_quantile": 0.995
+  },
+  "sampling": {
+    "origin_spacing_seconds": 600,
+    "anchor_ms": 1737980086005,
+    "train_max_origins": 2048,
+    "train_cap": "if needed, deterministic evenly spaced ranks of chronology-only lattice before labels; identical models within each horizon; horizon-specific eligibility",
+    "validation_cap": null,
+    "heldout_cap": null,
+    "phase": "strict timestamp lattice; at most 50ms to original origin; no error-driven choices"
+  },
+  "training": {
+    "batch_size": 16,
+    "gradient_accumulation": 2,
+    "effective_batch_size": 32,
+    "max_epochs": 12,
+    "patience": 3,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0009605449687795866,
+    "weight_decay": 6.95942232671908e-06,
+    "loss": "MSE of standardized DeltaV",
+    "gradient_clip_norm": 1.0,
+    "target_scale_V": 0.2817291623903912,
+    "scheduler": null,
+    "amp": false,
+    "initialization": "fresh Seed202; no warm-start",
+    "selection": "best VALIDATION all-step RMSE only",
+    "gpu_budget_GiB": 8,
+    "oom_policy": "reduce microbatch and preserve effective batch by accumulation; no task changes; log failure, no unbounded retry"
+  },
+  "max_trained_instances": 4,
+  "models": [
+    "Persistence",
+    "LSTM",
+    "F2"
+  ],
+  "ordering": "H30 Persistence,LSTM,F2,verify then H120 Persistence,LSTM,F2; single GPU serial",
+  "historical_code_sha256": "64cde85cac939806641921083bcf2c2e5354ee2bcd19dc4315949459305660f9",
+  "source_inventory_sha256": "2bbe0436daaf2cb5efb6f0481d4200927fa0f1c522f8b76c05ab730c95462822",
+  "origin_summaries": [
+    {
+      "horizon": 30,
+      "partition": "TRAIN",
+      "lattice_eligible_origins": 7808,
+      "sampled_origins": 2048,
+      "all_queries": 61440,
+      "first_raw_row": 328,
+      "last_raw_row": 4688681
+    },
+    {
+      "horizon": 30,
+      "partition": "VALIDATION",
+      "lattice_eligible_origins": 1125,
+      "sampled_origins": 1125,
+      "all_queries": 33750,
+      "first_raw_row": 4689281,
+      "last_raw_row": 5364880
+    },
+    {
+      "horizon": 30,
+      "partition": "HISTORICAL_ASSESSMENT",
+      "lattice_eligible_origins": 2230,
+      "sampled_origins": 2230,
+      "all_queries": 66900,
+      "first_raw_row": 5365480,
+      "last_raw_row": 6704205
+    },
+    {
+      "horizon": 30,
+      "partition": "LATE_LIFE",
+      "lattice_eligible_origins": 3163,
+      "sampled_origins": 3163,
+      "all_queries": 94890,
+      "first_raw_row": 6705405,
+      "last_raw_row": 8604556
+    },
+    {
+      "horizon": 120,
+      "partition": "TRAIN",
+      "lattice_eligible_origins": 7807,
+      "sampled_origins": 2048,
+      "all_queries": 245760,
+      "first_raw_row": 328,
+      "last_raw_row": 4688681
+    },
+    {
+      "horizon": 120,
+      "partition": "VALIDATION",
+      "lattice_eligible_origins": 1125,
+      "sampled_origins": 1125,
+      "all_queries": 135000,
+      "first_raw_row": 4689281,
+      "last_raw_row": 5364880
+    },
+    {
+      "horizon": 120,
+      "partition": "HISTORICAL_ASSESSMENT",
+      "lattice_eligible_origins": 2229,
+      "sampled_origins": 2229,
+      "all_queries": 267480,
+      "first_raw_row": 5365480,
+      "last_raw_row": 6704205
+    },
+    {
+      "horizon": 120,
+      "partition": "LATE_LIFE",
+      "lattice_eligible_origins": 3162,
+      "sampled_origins": 3162,
+      "all_queries": 379440,
+      "first_raw_row": 6705405,
+      "last_raw_row": 8603956
+    }
+  ],
+  "sampling_hashes": {
+    "30": "c4c38e9d7b176e6d4cb54e8e472e2d0bb0757dc294f01ed4973824b2e73bbf20",
+    "120": "9e3bdd2704d93811d871e29f96d71cde0a578d3a9190fa1fac548d1f94e8e492"
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "status": "RAW_AUDIT_COMPLETE",
+  "base_commit": "42f9905dbe25d839a93c64ed7809b169ebcf9441",
+  "rows": 8604654,
+  "files": 17,
+  "all_lfs_verified": true,
+  "fields_union": 67,
+  "file_schema_variations": [
+    {
+      "file": "Loadcycle_51-70.csv",
+      "columns": [
+        "DateTime",
+        "CalHrs [h]",
+        "OpHrs [h]",
+        "OpHrs2 [h]",
+        "Number of cells",
+        "I.S.set [A]",
+        "I.S.act [A]",
+        "j.S.act [A/cm2]",
+        "I.S.set.internal [A]",
+        "I.S.MinGasFlow [A]",
+        "Stoic.S.A [-]",
+        "Stoic.S.A.set [-]",
+        "RH.Si.A  [%]",
+        "RH.Si.A.CV [%]",
+        "Stoic.S.C [-]",
+        "Stoic.S.C.set [-]",
+        "RH.Si.C [%]",
+        "RH.Si.C.CV [%]",
+        "MAX(`U.S.MaxCell [V]`)",
+        "U.S.AveCell [V]",
+        "MIN(`U.S.MinCell [V]`)",
+        "U1 [V]",
+        "U2 [V]",
+        "U3 [V]",
+        "U4 [V]",
+        "U5 [V]",
+        "U6 [V]",
+        "U7 [V]",
+        "U8 [V]",
+        "U9 [V]",
+        "U10 [V]",
+        "U11 [V]",
+        "F.Si.H.A [nl/min]",
+        "F.Si.H.A.set [nl/min]",
+        "F.Si.N.A [nl/min]",
+        "F.Si.N.A.set [nl/min]",
+        "F.Si.Air.C [nl/min]",
+        "F.Si.Air.C.set [nl/min]",
+        "F.Si.C.total.set [nl/min]",
+        "F.Si.C.total [nl/min]",
+        "F.Si.A.total.set [nl/min]",
+        "F.Si.A.total [nl/min]",
+        "F.Si.CL [l/min]",
+        "F.Si.CL.set [l/min]",
+        "p.S.A.set [kPag]",
+        "p.Si.A [kPag]",
+        "p.So.A [kPag]",
+        "p.S.C.set [kPag]",
+        "p.Si.C [kPag]",
+        "p.So.C [kPag]",
+        "p.Si.CL [kPag]",
+        "p.So.CL [kPag]",
+        "DPT.Si.A [°C]",
+        "DPT.Si.A.set [°C]",
+        "T.Si.A.set [°C]",
+        "T.Si.A [°C]",
+        "T.So.A [°C]",
+        "T.Si.C [°C]",
+        "T.So.C [°C]",
+        "DPT.Si.C [°C]",
+        "DPT.Si.C.set [°C]",
+        "T.Si.C.set [°C]",
+        "T.Si.CL.set [°C]",
+        "T.Si.CL [°C]",
+        "T.So.CL [°C]",
+        "operation_point"
+      ],
+      "missing_vs_first": [
+        "MIN(`U.S [V]`)"
+      ],
+      "extra_vs_first": [
+        "CalHrs [h]"
+      ]
+    },
+    {
+      "file": "Loadcycle_134-150.csv",
+      "columns": [
+        "DateTime",
+        "CalHrs [h]",
+        "OpHrs [h]",
+        "OpHrs2 [h]",
+        "Number of cells",
+        "I.S.set [A]",
+        "I.S.act [A]",
+        "j.S.act [A/cm2]",
+        "I.S.set.internal [A]",
+        "I.S.MinGasFlow [A]",
+        "Stoic.S.A [-]",
+        "Stoic.S.A.set [-]",
+        "RH.Si.A  [%]",
+        "RH.Si.A.CV [%]",
+        "Stoic.S.C [-]",
+        "Stoic.S.C.set [-]",
+        "RH.Si.C [%]",
+        "RH.Si.C.CV [%]",
+        "MAX(`U.S.MaxCell [V]`)",
+        "U.S.AveCell [V]",
+        "MIN(`U.S.MinCell [V]`)",
+        "U1 [V]",
+        "U2 [V]",
+        "U3 [V]",
+        "U4 [V]",
+        "U5 [V]",
+        "U6 [V]",
+        "U7 [V]",
+        "U8 [V]",
+        "U9 [V]",
+        "U10 [V]",
+        "U11 [V]",
+        "F.Si.H.A [nl/min]",
+        "F.Si.H.A.set [nl/min]",
+        "F.Si.N.A [nl/min]",
+        "F.Si.N.A.set [nl/min]",
+        "F.Si.Air.C [nl/min]",
+        "F.Si.Air.C.set [nl/min]",
+        "F.Si.C.total.set [nl/min]",
+        "F.Si.C.total [nl/min]",
+        "F.Si.A.total.set [nl/min]",
+        "F.Si.A.total [nl/min]",
+        "F.Si.CL [l/min]",
+        "F.Si.CL.set [l/min]",
+        "p.S.A.set [kPag]",
+        "p.Si.A [kPag]",
+        "p.So.A [kPag]",
+        "p.S.C.set [kPag]",
+        "p.Si.C [kPag]",
+        "p.So.C [kPag]",
+        "p.Si.CL [kPag]",
+        "p.So.CL [kPag]",
+        "DPT.Si.A [°C]",
+        "DPT.Si.A.set [°C]",
+        "T.Si.A.set [°C]",
+        "T.Si.A [°C]",
+        "T.So.A [°C]",
+        "T.Si.C [°C]",
+        "T.So.C [°C]",
+        "DPT.Si.C [°C]",
+        "DPT.Si.C.set [°C]",
+        "T.Si.C.set [°C]",
+        "T.Si.CL.set [°C]",
+        "T.Si.CL [°C]",
+        "T.So.CL [°C]",
+        "MIN(`U.S [V]`)",
+        "operation_point"
+      ],
+      "missing_vs_first": [],
+      "extra_vs_first": [
+        "CalHrs [h]"
+      ]
+    }
+  ],
+  "clock_counts": {
+    "OpHrs2_frozen_pairs": 5497239,
+    "OpHrs2_backward_pairs": 0,
+    "DateTime_backward_or_duplicate_pairs": 0,
+    "near_1second_pairs": 8604634
+  },
+  "segments": 22,
+  "valid_long_segments": 20,
+  "interval_top": [
+    [
+      1000,
+      7956613
+    ],
+    [
+      1001,
+      320407
+    ],
+    [
+      999,
+      320335
+    ],
+    [
+      998,
+      3442
+    ],
+    [
+      1002,
+      3404
+    ],
+    [
+      1003,
+      67
+    ],
+    [
+      997,
+      62
+    ],
+    [
+      995,
+      39
+    ],
+    [
+      1005,
+      37
+    ],
+    [
+      996,
+      25
+    ],
+    [
+      1004,
+      24
+    ],
+    [
+      1006,
+      20
+    ],
+    [
+      994,
+      20
+    ],
+    [
+      1007,
+      17
+    ],
+    [
+      993,
+      16
+    ]
+  ],
+  "validity_rule": "all10 cell channels finite and [-0.1,1.5]V; all model raw instruments finite; causal30 stats available; large real jumps retained",
+  "u6": {
+    "count": 8604654,
+    "missing": 0,
+    "min": -0.026795,
+    "max": 0.006409,
+    "zero": 1703179,
+    "mean": -0.008985731193476693,
+    "std": 0.0055536026895187185,
+    "changed_pairs_within_chunk": 3697370,
+    "missing_or_absent_total": 0
+  },
+  "active_channels": [
+    "U1 [V]",
+    "U2 [V]",
+    "U3 [V]",
+    "U4 [V]",
+    "U5 [V]",
+    "U7 [V]",
+    "U8 [V]",
+    "U9 [V]",
+    "U10 [V]",
+    "U11 [V]"
+  ],
+  "seconds": 85.48016142845154
+}

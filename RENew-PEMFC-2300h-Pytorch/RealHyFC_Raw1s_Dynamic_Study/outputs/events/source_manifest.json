@@ -1,0 +1,26 @@
+[
+  {
+    "event": "E1",
+    "source_file": "数据\\《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据\\Loadcycle_data\\Loadcycle_data\\Loadcycle_162-175.csv",
+    "sha256": "c40b04849bf5737e4b133eb9e88d37570487b89956ce58c12f14dfba218f2014",
+    "rows_scanned": 590436,
+    "retained_rows": 24435,
+    "raw_indices_zero_based": true,
+    "filtering": "1872.5 <= OpHrs2 < 1877.5",
+    "first_datetime": "2025-07-02 06:39:36.005000",
+    "last_datetime": "2025-07-02 13:26:50.005000",
+    "future_plan_evidence": "No issue-time, schedule-publication-time or future-plan field in raw CSV; logged setpoint is contemporaneous observation only"
+  },
+  {
+    "event": "E2",
+    "source_file": "数据\\《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据\\Loadcycle_data\\Loadcycle_data\\Loadcycle_176-190.csv",
+    "sha256": "bb342866c922148d2b242690e856f4541b407587e45566d30db7653dd160ee0e",
+    "rows_scanned": 647220,
+    "retained_rows": 28559,
+    "raw_indices_zero_based": true,
+    "filtering": "2148.5 <= OpHrs2 < 2154.5",
+    "first_datetime": "2025-07-16 18:55:52.005000",
+    "last_datetime": "2025-07-17 02:51:50.005000",
+    "future_plan_evidence": "No issue-time, schedule-publication-time or future-plan field in raw CSV; logged setpoint is contemporaneous observation only"
+  }
+]

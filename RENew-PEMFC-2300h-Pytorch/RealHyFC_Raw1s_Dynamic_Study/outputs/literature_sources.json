@@ -1,0 +1,131 @@
+{
+  "last_searched_at": "2026-10-21",
+  "mode": "targeted_quick_evidence_brief_not_systematic_review",
+  "scope": "RealHyFC raw approximately 1 second dynamic mean-cell voltage forecasting; historical inputs only; direct multiple-output 300 s to 30/120 s",
+  "searches": [
+    "RealHyFC dataset Data in Brief Loadcycle",
+    "RealHyFC dataset / RealHyFC doi",
+    "PEM fuel cell durability dataset 2300 hours load cycle Mendeley Data RealHyFC",
+    "Spatially resolved electrochemical characterization 156060",
+    "PEM fuel cell transient dynamic model Pukrushpan Stefanopoulou Peng 2004 control oriented model",
+    "A new dynamic model for predicting transient phenomena in a PEM fuel cell system",
+    "Delving into Deep Imbalanced Regression Yang ICML 2021",
+    "Temporal Fusion Transformers known future",
+    "Multiple-output modeling for multi-step-ahead time series forecasting"
+  ],
+  "selection": {
+    "included": 8,
+    "peer_reviewed_research_articles": 6,
+    "dataset_records": 1,
+    "author_published_textbook": 1,
+    "criteria": "Primary publisher/proceedings, original author or institution page, or original dataset deposit; existence and relevant claim independently inspectable. Do not transfer reported numerical accuracy to RealHyFC.",
+    "excluded_or_not_retained": [
+      {"title": "Long-term dynamic durability test datasets for single proton exchange membrane fuel cell", "doi": "10.1016/j.dib.2021.106775", "reason": "Different Tongji single-cell dataset of approximately 1008 hours, not RealHyFC; no use as experimental data."},
+      {"title": "Spatially Resolved Current Density and Electrochemical Impedance Spectroscopy in PEM Fuel Cells", "doi": "10.5281/zenodo.19068126", "reason": "Related initial characterization dataset, not the durability Loadcycle source required here."},
+      {"title": "Recursive and direct multi-step forecasting: the best of both worlds", "url": "https://robjhyndman.com/papers/rectify.pdf", "reason": "Author working paper verified, but replaced in final included set by the peer-reviewed 2010 multiple-output primary study; no rectify/residual-head modification in this round."}
+    ]
+  },
+  "verification": {
+    "method": "web search plus original publisher/proceedings/dataset or author/institution pages; DOI strings matched to titles on original records",
+    "semantic_scholar": "S2-API-UNAVAILABLE: browser open of the DOI lookup endpoint was inaccessible; graceful fallback to primary web sources. No S2 identity or match claimed.",
+    "doi_gateway_limit": "Several doi.org redirects returned 403/500 in the browsing tool. The corresponding titles and DOI strings were checked on original publisher or original deposit records; successful HTTP DOI resolution is not claimed for those gateways.",
+    "full_text_limit": "Pathapati 2005 and Ben Taieb 2010 were checked through original publisher abstracts and section excerpts, not subscription full text. RealHyFC journal claims here use the original-author deposit abstract, dataset description and project publication page. Pukrushpan author PDF and TFT author preprint HTML were inspected.",
+    "no_human_read_attestation": true
+  },
+  "claim_intent_manifest": {
+    "manifest_id": "M-2026-10-21-raw1s-literature",
+    "manifest_version": "1.0",
+    "claims": [
+      {"claim_id": "L-C01", "claim_text": "The RealHyFC deposit explicitly provides load cycle data, polarization and EIS data; local completeness is a separate P0 question.", "planned_refs": ["fensterle2026data", "fensterle2026durability"]},
+      {"claim_id": "L-C02", "claim_text": "Current changes interact with gas supply, pressures, water and thermal dynamics, supporting examination of causal operating inputs rather than interpreting all voltage transients as aging.", "planned_refs": ["pukrushpan2004", "pathapati2005", "fensterle2026durability"]},
+      {"claim_id": "L-C03", "claim_text": "Known future inputs must be distinguished from observed-only inputs; a recorded future current setpoint is not proof of a preavailable plan.", "planned_refs": ["lim2021tft"]},
+      {"claim_id": "L-C04", "claim_text": "A vector of direct multiple-output forecasts is distinct from recursive feedback and from one separately trained scalar model per horizon.", "planned_refs": ["bentaieb2010mimo"]},
+      {"claim_id": "L-C05", "claim_text": "Persistence is a necessary reference and event/target imbalance is a candidate diagnosis, not evidence that a new module will improve RealHyFC.", "planned_refs": ["hyndman_fpp3", "yang2021dir"]}
+    ],
+    "negative_constraints": ["No F2 superiority or numerical RMSE claim without actual experiment files.", "No SOH or RUL claim.", "No change to first-round loss, gate or model modules.", "No use of held-out historical events to set new thresholds.", "No 30-second versus historical 12-hour accuracy comparison as improvement evidence."]
+  },
+  "sources": [
+    {
+      "citation_key": "fensterle2026data", "year": 2026,
+      "title": "Underlying data of the paper Spatially Resolved Electrochemical Characterization of a PEM Fuel Cell Stack During Durability Testing",
+      "authors": ["Eva Fensterle", "Jürgen Hunger", "Frank Rabsahl", "Florian Wilhelm", "Christian Kolle Christensen", "Adam Benson", "Rami Al-Khamissi", "Marine Trégaro", "Sylvie Escribano", "Joachim Scholta", "Markus Hölzle"],
+      "venue": "Zenodo, version v1", "type": "original_dataset", "doi": "10.5281/zenodo.20715542", "url": "https://zenodo.org/records/20715542", "verified_locator": "Description; Files; Published June 29 2026, version v1",
+      "supports": "Correct durability dataset provenance and the inclusion of Loadcycle_data.zip, polarization, sensitivity and EIS resources.",
+      "does_not_support": "Exact local CSV count, complete Git LFS hydration, exact 1 second sampling everywhere, validated forecasting accuracy or failure-time labels.",
+      "loadcycle_zip_md5": "4e61ce711970548e3452be691915f11d",
+      "evidence_level": "VI, descriptive primary dataset", "claim_fitness_grade": "A for source identity only", "conflict_assessment": "Original data authors describe their own dataset; independent external replication not assessed.",
+      "existence_status": "verified_original_deposit", "source_acquired": false, "source_verified_against_original": false, "source_verification_method": "none", "description_last_audit": "none"
+    },
+    {
+      "citation_key": "fensterle2026durability", "year": 2026,
+      "title": "Spatially resolved electrochemical characterization of a PEM fuel cell stack during durability testing",
+      "authors": ["Eva Fensterle", "Jürgen Hunger", "Frank Rabsahl", "Florian Wilhelm", "Christian Kolle Christensen", "Adam Benson", "Rami Al-Khamissi", "Marine Trégaro", "Sylvie Escribano", "Joachim Scholta", "Markus Hölzle"],
+      "venue": "International Journal of Hydrogen Energy, 250, 156060", "type": "peer_reviewed_primary_experiment", "doi": "10.1016/j.ijhydene.2026.156060", "url": "https://zenodo.org/records/20742676", "additional_url": "https://realhyfc-project.eu/spatially-resolved-electrochemical-characterization-of-a-pem-fuel-cell-stack-during-durability-testing/", "verified_locator": "Original-author deposit Description / Abstract",
+      "supports": "Heavy-duty load cycling over 2000 hours; pressure, stoichiometry and spatial differences materially affect electrochemical behavior.",
+      "does_not_support": "30/120 second prediction metrics, F2 superiority, all transients being degradation, or local U6 validity.",
+      "evidence_level": "III, controlled engineering durability experiment", "claim_fitness_grade": "A for the experimental source; B for transfer to a different forecasting question", "conflict_assessment": "Project participants and material suppliers are disclosed; no independent replication or exhaustive COI audit performed.",
+      "existence_status": "verified_original_author_deposit_and_project_publication", "source_acquired": false, "source_verified_against_original": false, "source_verification_method": "none", "description_last_audit": "none"
+    },
+    {
+      "citation_key": "pukrushpan2004", "year": 2004,
+      "title": "Control-Oriented Modeling and Analysis for Automotive Fuel Cell Systems",
+      "authors": ["Jay T. Pukrushpan", "Huei Peng", "Anna G. Stefanopoulou"],
+      "venue": "Journal of Dynamic Systems, Measurement, and Control, 126(1), 14-25", "type": "peer_reviewed_primary_dynamic_model", "doi": "10.1115/1.1648308", "url": "https://public.websites.umich.edu/~annastef/papers/Pukrushpan2004JDSMC.pdf", "verified_locator": "Abstract; section 1 Introduction",
+      "supports": "Compressor, manifold, partial-pressure and membrane-humidity dynamics affect fuel-cell voltage; stack temperature treated as a slower parameter in this model.",
+      "does_not_support": "A quantitatively calibrated RealHyFC simulator, exact raw data event thresholds, or seconds-level forecasting RMSE. Authors explicitly note inability to completely validate against test data.",
+      "evidence_level": "III-equivalent engineering computational model with validation limitations", "claim_fitness_grade": "B for qualitative mechanism", "conflict_assessment": "Author institutional paper verified; no exhaustive financial COI audit performed.",
+      "existence_status": "verified_author_hosted_paper", "source_acquired": false, "source_verified_against_original": false, "source_verification_method": "none", "description_last_audit": "none"
+    },
+    {
+      "citation_key": "pathapati2005", "year": 2005,
+      "title": "A new dynamic model for predicting transient phenomena in a PEM fuel cell system",
+      "authors": ["P. R. Pathapati", "X. Xue", "J. Tang"],
+      "venue": "Renewable Energy, 30(1), 1-22", "type": "peer_reviewed_primary_dynamic_model", "doi": "10.1016/j.renene.2004.05.001", "url": "https://www.sciencedirect.com/science/article/pii/S0960148104001764", "verified_locator": "Abstract; Introduction; Model validation and simulation excerpts",
+      "supports": "A dynamic model can include double-layer capacitance, flow/pressure, mass and heat transfer, with voltage response to sudden load-current changes.",
+      "does_not_support": "Identifying double-layer mechanisms from 1 Hz measurements alone, transferring parameters to RealHyFC, or asserting a 300 second optimum.",
+      "evidence_level": "III, computational model with reported laboratory comparison", "claim_fitness_grade": "B for mechanism with abstract-only quantitative limitations", "conflict_assessment": "Publisher excerpt discloses US Army, Connecticut Global Fuel Cell Center and university foundation support; exhaustive COI audit not performed.",
+      "existence_status": "verified_publisher_metadata_and_abstract", "source_acquired": false, "source_verified_against_original": false, "source_verification_method": "none", "description_last_audit": "none"
+    },
+    {
+      "citation_key": "yang2021dir", "year": 2021,
+      "title": "Delving into Deep Imbalanced Regression",
+      "authors": ["Yuzhe Yang", "Kaiwen Zha", "Yingcong Chen", "Hao Wang", "Dina Katabi"],
+      "venue": "Proceedings of the 38th International Conference on Machine Learning, PMLR 139, 11842-11851", "type": "peer_reviewed_primary_ml_experiment", "doi": null, "url": "https://proceedings.mlr.press/v139/yang21m.html", "verified_locator": "Abstract; section 2 excerpts in paper",
+      "supports": "Continuous-target imbalance deserves dedicated diagnosis; label/feature distribution smoothing were evaluated on several non-PEMFC tasks.",
+      "does_not_support": "A time-causal event predictor, temporal-event labeling from future data at inference, or automatic improvement of F2/RealHyFC through reweighting. No adopted algorithm in this first trial.",
+      "evidence_level": "III, controlled computational benchmark", "claim_fitness_grade": "B for imbalance diagnosis; C for transfer to seconds-level voltage events", "conflict_assessment": "Author/proceedings identity verified; no exhaustive funding/COI audit performed.",
+      "existence_status": "verified_original_proceedings", "source_acquired": false, "source_verified_against_original": false, "source_verification_method": "none", "description_last_audit": "none"
+    },
+    {
+      "citation_key": "lim2021tft", "year": 2021,
+      "title": "Temporal Fusion Transformers for interpretable multi-horizon time series forecasting",
+      "authors": ["Bryan Lim", "Sercan Ö. Arık", "Nicolas Loeff", "Tomas Pfister"],
+      "venue": "International Journal of Forecasting, 37(4), 1748-1764", "type": "peer_reviewed_primary_ml_experiment", "doi": "10.1016/j.ijforecast.2021.03.012", "url": "https://doi.org/10.1016/j.ijforecast.2021.03.012", "readable_author_version": "https://arxiv.org/html/1912.09363v3", "verified_locator": "Author version section 3 Multi-horizon Forecasting; section 2 Related Work",
+      "supports": "Explicit distinction among static, observed-only and future-known covariates; simultaneously outputs multiple future steps.",
+      "does_not_support": "Recorded future setpoints being available at the forecast origin, TFT/F2 equivalence, or F2 superiority on RealHyFC. Author preprint and final article are one source, not two independent results.",
+      "evidence_level": "III, controlled computational benchmark", "claim_fitness_grade": "A for information-set definition; B for transfer to this study", "conflict_assessment": "Google and Oxford affiliations and internship noted; no independent replication/COI audit performed.",
+      "existence_status": "verified_publisher_metadata_and_author_version", "source_acquired": false, "source_verified_against_original": false, "source_verification_method": "none", "description_last_audit": "none"
+    },
+    {
+      "citation_key": "hyndman_fpp3", "year": null,
+      "title": "Forecasting: Principles and Practice, third edition, online version accessed 2026-10-21",
+      "authors": ["Rob J Hyndman", "George Athanasopoulos"],
+      "venue": "OTexts", "type": "author_published_method_reference", "doi": null, "url": "https://otexts.com/fpp3/toolbox.html", "verified_locator": "Sections 5.2 Naive method, 5.8 Evaluating point forecast accuracy, 5.10 Time series cross-validation",
+      "supports": "Last-observation naive forecast; evaluation on genuinely future observations and chronological rolling origins.",
+      "does_not_support": "Persistence optimality for PEMFC, one fixed train split percentage or numerical accuracy on the present dataset.",
+      "evidence_level": "VII, authoritative methodological textbook", "claim_fitness_grade": "A for naive-method definition; not experimental evidence", "conflict_assessment": "Textbook authors present their own methodology reference; no independent peer-review status inferred.",
+      "existence_status": "verified_author_published_textbook", "source_acquired": false, "source_verified_against_original": false, "source_verification_method": "none", "description_last_audit": "none"
+    },
+    {
+      "citation_key": "bentaieb2010mimo", "year": 2010,
+      "title": "Multiple-output modeling for multi-step-ahead time series forecasting",
+      "authors": ["Souhaib Ben Taieb", "Antti Sorjamaa", "Gianluca Bontempi"],
+      "venue": "Neurocomputing, 73(10-12), 1950-1957", "type": "peer_reviewed_primary_ml_experiment", "doi": "10.1016/j.neucom.2009.11.030", "url": "https://www.sciencedirect.com/science/article/pii/S0925231210001013", "institutional_url": "https://research.monash.edu/en/publications/multiple-output-modeling-for-multi-step-ahead-time-series-forecas/", "verified_locator": "Abstract; Introduction; Multi-step-ahead prediction techniques excerpt",
+      "supports": "Distinction between iterated, scalar direct and multiple-output forecasting; one MIMO model predicts a future value vector without target feedback.",
+      "does_not_support": "Guaranteed horizon-to-horizon dynamics, optimality on RealHyFC, or a direct comparison of 30 second and historical 12 hour errors.",
+      "evidence_level": "III, controlled computational benchmark on NN3", "claim_fitness_grade": "A for terminology; B for method transfer", "conflict_assessment": "Publisher and author university metadata checked; exhaustive funding/COI audit not performed.",
+      "existence_status": "verified_original_publisher_and_author_university", "source_acquired": false, "source_verified_against_original": false, "source_verification_method": "none", "description_last_audit": "none"
+    }
+  ],
+  "limitations": ["Targeted quick search, no exhaustive database export, no PRISMA claim or fabricated hit counts.", "Some original papers inspected at abstract/excerpt level only.", "Primary web verification is not the on-disk original-file acquisition attestation used by the skill trust-chain fields.", "Literature does not establish present experiment results or optimal settings; integrate P0-P3 results before final study conclusion."]
+}

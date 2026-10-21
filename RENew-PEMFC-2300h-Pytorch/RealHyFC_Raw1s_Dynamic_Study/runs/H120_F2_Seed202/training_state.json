@@ -1,0 +1,20 @@
+{
+  "status": "COMPLETE",
+  "model": "F2",
+  "seed": 202,
+  "horizon": 120,
+  "initial_state_sha256": "c1fe42d08a5e0d8cd997ccb4693aa945fa1f20fcbb48381fe88d66a85db4bac9",
+  "parameters": 414366,
+  "protocol_sha256": "421b987cc101ddebb0e39097c4249cc20c776902c08743798fb5a3c48b198b23",
+  "optimizer_steps": 640,
+  "instance_count": 1,
+  "completed_epoch": 10,
+  "stop_epoch": 10,
+  "best_epoch": 7,
+  "best_validation_RMSE_V": 0.07023365462580596,
+  "training_seconds": 170.6681306362152,
+  "checkpoint_sha256": "b557b9b7d1664dfac11a48e6f2d5c0caa76bfbcdcc2d631d50d5d2a7a3886864",
+  "reload_max_difference_V": 0.0,
+  "GPU_peak_allocated_MiB": 376.392578125,
+  "GPU_peak_reserved_MiB": 442.0
+}

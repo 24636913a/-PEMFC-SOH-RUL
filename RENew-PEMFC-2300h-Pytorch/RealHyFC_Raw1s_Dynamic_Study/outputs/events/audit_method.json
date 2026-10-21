@@ -1,0 +1,30 @@
+{
+  "script_sha256": "30e162fce4de1389670cfbadce11c629deacfb83ea989af7a0b49d7b2cd3d658",
+  "training_executed": false,
+  "models_or_thresholds_fit": false,
+  "no_interpolation": true,
+  "no_resampling": true,
+  "known_historical_zero_threshold_A": 0.1,
+  "known_historical_current_transition_A": 5.0,
+  "lag_search_seconds": [
+    -30,
+    30
+  ],
+  "lag_interpretation": "record ordering only, not advance command-availability proof",
+  "event_selection": "explicit user historical cases; held-out explanatory use, not independent confirmation",
+  "active_cells": [
+    "U1 [V]",
+    "U2 [V]",
+    "U3 [V]",
+    "U4 [V]",
+    "U5 [V]",
+    "U7 [V]",
+    "U8 [V]",
+    "U9 [V]",
+    "U10 [V]",
+    "U11 [V]"
+  ],
+  "U6": "retained diagnostic only; excluded from mean",
+  "old_bin_sha256": "b926af6764909d4ec9417a55bc32f4c5e25f77ca99bd4ae90c15ace3e586abd2",
+  "plot_exports": "300 dpi PNG + PDF + native plotting CSV; each source row preserves original index and timestamp"
+}

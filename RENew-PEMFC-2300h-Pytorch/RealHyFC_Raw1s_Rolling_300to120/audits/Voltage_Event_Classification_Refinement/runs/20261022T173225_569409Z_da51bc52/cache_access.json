@@ -1,0 +1,77 @@
+{
+  "mode": "r",
+  "full_cache_scan": false,
+  "original_declared": {
+    "values": {
+      "path": "cache/values.bin",
+      "sha256": "1c56c50e8eacff4e4221f410bd3a92cdbe473351d899b5317d97f68e97a33bdd"
+    },
+    "time_ns": {
+      "path": "cache/time_ns.bin",
+      "sha256": "a69dd26d975e0248045acd9e0ad8cfbfd75eb472f6c9b40939c2b18188776e7c"
+    },
+    "segment": {
+      "path": "cache/segment.bin",
+      "sha256": "a95b719d83e5d9066712d83a4b86bbc7676477578e59d9b0e86220e495412c6b"
+    },
+    "file_id": {
+      "path": "cache/file_id.bin",
+      "sha256": "de54cc5a3c5214613378e63890278dd896a611b5fcee13cb577c2165077ee4f9"
+    },
+    "source_row": {
+      "path": "cache/source_row.bin",
+      "sha256": "dcda5ab24d5969608d92ef9d1cd41c76edc3d4cae3b921c9033f395485f6a990"
+    },
+    "delta_V": {
+      "path": "cache/delta_V.bin",
+      "sha256": "5293bac5ea64582a6f78e0e045f059d0d616cc2d42323c8dedc9bf8b95254edb"
+    }
+  },
+  "variables": {
+    "actual_current": {
+      "column": "I.S.act [A]",
+      "present": true,
+      "unit": "A"
+    },
+    "set_current": {
+      "column": "I.S.set [A]",
+      "present": true,
+      "unit": "A"
+    },
+    "internal_set_current": {
+      "column": "I.S.set.internal [A]",
+      "present": true,
+      "unit": "A"
+    },
+    "coolant_in": {
+      "column": "T.Si.CL [°C]",
+      "present": true,
+      "unit": "°C"
+    },
+    "coolant_out": {
+      "column": "T.So.CL [°C]",
+      "present": true,
+      "unit": "°C"
+    },
+    "anode_pressure": {
+      "column": "p.Si.A [kPag]",
+      "present": true,
+      "unit": "kPag"
+    },
+    "cathode_pressure": {
+      "column": "p.Si.C [kPag]",
+      "present": true,
+      "unit": "kPag"
+    },
+    "hydrogen_flow": {
+      "column": "F.Si.H.A [nl/min]",
+      "present": true,
+      "unit": "nl/min"
+    },
+    "air_flow": {
+      "column": "F.Si.Air.C [nl/min]",
+      "present": true,
+      "unit": "nl/min"
+    }
+  }
+}

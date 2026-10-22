@@ -1,0 +1,7 @@
+# Preserve exact completed-run bytes and original SHA256, including code snapshots.
+* -text -eol
+event_phase_features.csv filter=lfs diff=lfs merge=lfs -text -eol
+exploratory_holdout_control_features.csv filter=lfs diff=lfs merge=lfs -text -eol
+train_control_features.csv filter=lfs diff=lfs merge=lfs -text -eol
+validation_control_features.csv filter=lfs diff=lfs merge=lfs -text -eol
+variable_associations.csv filter=lfs diff=lfs merge=lfs -text -eol

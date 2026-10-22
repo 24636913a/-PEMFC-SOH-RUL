@@ -1,0 +1,496 @@
+{
+  "fitted_partition": "TRAIN",
+  "selected_from": "ordinary calendar-grid controls outside frozen events",
+  "quantile": 0.99,
+  "numerical_floors": {
+    "actual_current": {
+      "value": 0.7324221000000077,
+      "positive_train_increments": 3606,
+      "identity": "numerical-change proxy; NOT instrument resolution"
+    },
+    "set_current": {
+      "value": 11.91839921999999,
+      "positive_train_increments": 123,
+      "identity": "numerical-change proxy; NOT instrument resolution"
+    },
+    "internal_set_current": {
+      "value": 11.354406780000001,
+      "positive_train_increments": 123,
+      "identity": "numerical-change proxy; NOT instrument resolution"
+    },
+    "coolant_in": {
+      "value": 0.2990570099999985,
+      "positive_train_increments": 17556,
+      "identity": "numerical-change proxy; NOT instrument resolution"
+    },
+    "coolant_out": {
+      "value": 0.2990570099999985,
+      "positive_train_increments": 13153,
+      "identity": "numerical-change proxy; NOT instrument resolution"
+    },
+    "anode_pressure": {
+      "value": 0.3032225999999979,
+      "positive_train_increments": 11801,
+      "identity": "numerical-change proxy; NOT instrument resolution"
+    },
+    "cathode_pressure": {
+      "value": 0.30050399099999997,
+      "positive_train_increments": 12787,
+      "identity": "numerical-change proxy; NOT instrument resolution"
+    },
+    "hydrogen_flow": {
+      "value": 0.0549316500000072,
+      "positive_train_increments": 11180,
+      "identity": "numerical-change proxy; NOT instrument resolution"
+    },
+    "air_flow": {
+      "value": 0.1919059499999988,
+      "positive_train_increments": 8465,
+      "identity": "numerical-change proxy; NOT instrument resolution"
+    }
+  },
+  "rules": {
+    "actual_current|before|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 65.43168639999999,
+      "cutoff": 65.43168639999999,
+      "strict_comparison": "value > cutoff"
+    },
+    "actual_current|before|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 157.78070069999998,
+      "cutoff": 157.78070069999998,
+      "strict_comparison": "value > cutoff"
+    },
+    "actual_current|before|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 158.0248566,
+      "cutoff": 158.0248566,
+      "strict_comparison": "value > cutoff"
+    },
+    "actual_current|instant|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 0.7324523999999997,
+      "cutoff": 0.7324523999999997,
+      "strict_comparison": "value > cutoff"
+    },
+    "actual_current|after|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 65.18753050000001,
+      "cutoff": 65.18753050000001,
+      "strict_comparison": "value > cutoff"
+    },
+    "actual_current|after|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 142.85714915,
+      "cutoff": 142.85714915,
+      "strict_comparison": "value > cutoff"
+    },
+    "actual_current|after|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 143.5895939,
+      "cutoff": 143.5895939,
+      "strict_comparison": "value > cutoff"
+    },
+    "set_current|before|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 64.39999390000003,
+      "cutoff": 64.39999390000003,
+      "strict_comparison": "value > cutoff"
+    },
+    "set_current|before|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 156.8000031,
+      "cutoff": 156.8000031,
+      "strict_comparison": "value > cutoff"
+    },
+    "set_current|before|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 156.8000031,
+      "cutoff": 156.8000031,
+      "strict_comparison": "value > cutoff"
+    },
+    "set_current|instant|max_abs_step": {
+      "status": "CONSTANT_OR_ZERO_TRAIN_BACKGROUND",
+      "n": 20000,
+      "train_q99": 0.0,
+      "cutoff": null,
+      "strict_comparison": "value > cutoff"
+    },
+    "set_current|after|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 64.39999390000003,
+      "cutoff": 64.39999390000003,
+      "strict_comparison": "value > cutoff"
+    },
+    "set_current|after|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 142.8000031,
+      "cutoff": 142.8000031,
+      "strict_comparison": "value > cutoff"
+    },
+    "set_current|after|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 142.8000031,
+      "cutoff": 142.8000031,
+      "strict_comparison": "value > cutoff"
+    },
+    "internal_set_current|before|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 64.39999390000003,
+      "cutoff": 64.39999390000003,
+      "strict_comparison": "value > cutoff"
+    },
+    "internal_set_current|before|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 156.8000031,
+      "cutoff": 156.8000031,
+      "strict_comparison": "value > cutoff"
+    },
+    "internal_set_current|before|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 156.8000031,
+      "cutoff": 156.8000031,
+      "strict_comparison": "value > cutoff"
+    },
+    "internal_set_current|instant|max_abs_step": {
+      "status": "CONSTANT_OR_ZERO_TRAIN_BACKGROUND",
+      "n": 20000,
+      "train_q99": 0.0,
+      "cutoff": null,
+      "strict_comparison": "value > cutoff"
+    },
+    "internal_set_current|after|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 64.39999390000003,
+      "cutoff": 64.39999390000003,
+      "strict_comparison": "value > cutoff"
+    },
+    "internal_set_current|after|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 142.8000031,
+      "cutoff": 142.8000031,
+      "strict_comparison": "value > cutoff"
+    },
+    "internal_set_current|after|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 142.8000031,
+      "cutoff": 142.8000031,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_in|before|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 1.6946487400000052,
+      "cutoff": 1.6946487400000052,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_in|before|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 8.672611239999995,
+      "cutoff": 8.672611239999995,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_in|before|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 8.772300719999997,
+      "cutoff": 8.772300719999997,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_in|instant|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 1.1962204000000014,
+      "cutoff": 1.1962204000000014,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_in|after|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 1.6946487400000052,
+      "cutoff": 1.6946487400000052,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_in|after|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 8.27387238,
+      "cutoff": 8.27387238,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_in|after|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 8.672611240000002,
+      "cutoff": 8.672611240000002,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_out|before|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 1.1962204000000014,
+      "cutoff": 1.1962204000000014,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_out|before|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 7.9758159985998445,
+      "cutoff": 7.9758159985998445,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_out|before|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 8.0745010781,
+      "cutoff": 8.0745010781,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_out|instant|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 0.4984207100000049,
+      "cutoff": 0.4984207100000049,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_out|after|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 1.1962204000000014,
+      "cutoff": 1.1962204000000014,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_out|after|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 7.676758998499847,
+      "cutoff": 7.676758998499847,
+      "strict_comparison": "value > cutoff"
+    },
+    "coolant_out|after|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 7.775447839999998,
+      "cutoff": 7.775447839999998,
+      "strict_comparison": "value > cutoff"
+    },
+    "anode_pressure|before|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 5.256011999999998,
+      "cutoff": 5.256011999999998,
+      "strict_comparison": "value > cutoff"
+    },
+    "anode_pressure|before|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 35.28963070399982,
+      "cutoff": 35.28963070399982,
+      "strict_comparison": "value > cutoff"
+    },
+    "anode_pressure|before|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 37.515346219599515,
+      "cutoff": 37.515346219599515,
+      "strict_comparison": "value > cutoff"
+    },
+    "anode_pressure|instant|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 1.0107727000000182,
+      "cutoff": 1.0107727000000182,
+      "strict_comparison": "value > cutoff"
+    },
+    "anode_pressure|after|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 5.357086101000004,
+      "cutoff": 5.357086101000004,
+      "strict_comparison": "value > cutoff"
+    },
+    "anode_pressure|after|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 93.52176661,
+      "cutoff": 93.52176661,
+      "strict_comparison": "value > cutoff"
+    },
+    "anode_pressure|after|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 98.6816471411992,
+      "cutoff": 98.6816471411992,
+      "strict_comparison": "value > cutoff"
+    },
+    "cathode_pressure|before|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 3.4057159000000183,
+      "cutoff": 3.4057159000000183,
+      "strict_comparison": "value > cutoff"
+    },
+    "cathode_pressure|before|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 34.07162912699966,
+      "cutoff": 34.07162912699966,
+      "strict_comparison": "value > cutoff"
+    },
+    "cathode_pressure|before|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 34.271969445799684,
+      "cutoff": 34.271969445799684,
+      "strict_comparison": "value > cutoff"
+    },
+    "cathode_pressure|instant|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 0.801345800200007,
+      "cutoff": 0.801345800200007,
+      "strict_comparison": "value > cutoff"
+    },
+    "cathode_pressure|after|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 3.505874699999993,
+      "cutoff": 3.505874699999993,
+      "strict_comparison": "value > cutoff"
+    },
+    "cathode_pressure|after|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 94.9767605922992,
+      "cutoff": 94.9767605922992,
+      "strict_comparison": "value > cutoff"
+    },
+    "cathode_pressure|after|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 95.27425454289967,
+      "cutoff": 95.27425454289967,
+      "strict_comparison": "value > cutoff"
+    },
+    "hydrogen_flow|before|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 8.771018625,
+      "cutoff": 8.771018625,
+      "strict_comparison": "value > cutoff"
+    },
+    "hydrogen_flow|before|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 16.48457146,
+      "cutoff": 16.48457146,
+      "strict_comparison": "value > cutoff"
+    },
+    "hydrogen_flow|before|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 16.594623565399967,
+      "cutoff": 16.594623565399967,
+      "strict_comparison": "value > cutoff"
+    },
+    "hydrogen_flow|instant|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 0.0915565499999999,
+      "cutoff": 0.0915565499999999,
+      "strict_comparison": "value > cutoff"
+    },
+    "hydrogen_flow|after|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 8.771018625,
+      "cutoff": 8.771018625,
+      "strict_comparison": "value > cutoff"
+    },
+    "hydrogen_flow|after|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 13.515884400000004,
+      "cutoff": 13.515884400000004,
+      "strict_comparison": "value > cutoff"
+    },
+    "hydrogen_flow|after|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 13.625747680000003,
+      "cutoff": 13.625747680000003,
+      "strict_comparison": "value > cutoff"
+    },
+    "air_flow|before|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 18.48640442,
+      "cutoff": 18.48640442,
+      "strict_comparison": "value > cutoff"
+    },
+    "air_flow|before|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 44.656898346099986,
+      "cutoff": 44.656898346099986,
+      "strict_comparison": "value > cutoff"
+    },
+    "air_flow|before|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 44.7927475,
+      "cutoff": 44.7927475,
+      "strict_comparison": "value > cutoff"
+    },
+    "air_flow|instant|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 0.3198318499999999,
+      "cutoff": 0.3198318499999999,
+      "strict_comparison": "value > cutoff"
+    },
+    "air_flow|after|max_abs_step": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 18.48640442,
+      "cutoff": 18.48640442,
+      "strict_comparison": "value > cutoff"
+    },
+    "air_flow|after|abs_net_change": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 36.4690704601,
+      "cutoff": 36.4690704601,
+      "strict_comparison": "value > cutoff"
+    },
+    "air_flow|after|range": {
+      "status": "OK",
+      "n": 20000,
+      "train_q99": 36.78890227000001,
+      "cutoff": 36.78890227000001,
+      "strict_comparison": "value > cutoff"
+    }
+  },
+  "multiple_comparisons": "OR of metrics; no claimed 1% family false-positive guarantee"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "partition": "TRAIN",
+    "calendar_grid_points": 186250,
+    "matched_unique": 100389,
+    "outside_frozen_event_contexts": 48725,
+    "legal_contexts": 48696,
+    "selected": 20000,
+    "selection_rule": "uniform rank in time; no feature/voltage amplitude selection",
+    "maximum_context_rows_each_side": 130
+  },
+  {
+    "partition": "VALIDATION",
+    "calendar_grid_points": 37107,
+    "matched_unique": 14341,
+    "outside_frozen_event_contexts": 6829,
+    "legal_contexts": 6825,
+    "selected": 5000,
+    "selection_rule": "uniform rank in time; no feature/voltage amplitude selection",
+    "maximum_context_rows_each_side": 130
+  },
+  {
+    "partition": "EXPLORATORY_HOLDOUT",
+    "calendar_grid_points": 35840,
+    "matched_unique": 28683,
+    "outside_frozen_event_contexts": 13932,
+    "legal_contexts": 13922,
+    "selected": 5000,
+    "selection_rule": "uniform rank in time; no feature/voltage amplitude selection",
+    "maximum_context_rows_each_side": 130
+  }
+]

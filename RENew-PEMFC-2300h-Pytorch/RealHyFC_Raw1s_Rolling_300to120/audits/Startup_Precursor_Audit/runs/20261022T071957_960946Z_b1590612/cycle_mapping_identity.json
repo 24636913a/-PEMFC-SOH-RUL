@@ -1,0 +1,41 @@
+{
+  "RCR_catalog_sha256": "8d1a8b9e17b179fbc99776f4006a61e5758006bd73e1a55bb96ffed38fa0f3d8",
+  "RCR_template_sha256": "267a3ee5a2d297b4368f4dd262771a19109e8015b2617de45ab828d83d696200",
+  "historical_complete_cycles": 146,
+  "calibration_template": [
+    {
+      "template_id": 1,
+      "phase_seconds": 162.0,
+      "nominal_minutes": 15,
+      "observed_zero_command_seconds": 524.0,
+      "duration_match": false,
+      "calibration_cycle_id": 1
+    },
+    {
+      "template_id": 2,
+      "phase_seconds": 4614.0,
+      "nominal_minutes": 30,
+      "observed_zero_command_seconds": 1425.001,
+      "duration_match": false,
+      "calibration_cycle_id": 1
+    },
+    {
+      "template_id": 3,
+      "phase_seconds": 19752.0,
+      "nominal_minutes": 93,
+      "observed_zero_command_seconds": 5013.0,
+      "duration_match": false,
+      "calibration_cycle_id": 1
+    },
+    {
+      "template_id": 4,
+      "phase_seconds": 37345.0,
+      "nominal_minutes": 30,
+      "observed_zero_command_seconds": 1425.0,
+      "duration_match": false,
+      "calibration_cycle_id": 1
+    }
+  ],
+  "template_source": "earliest historical RCR complete interval, set-current spells; not controller schedule",
+  "limitation": "RCR has limited Development coverage; no new late-life cycle discovery; future plan publication time unknown"
+}

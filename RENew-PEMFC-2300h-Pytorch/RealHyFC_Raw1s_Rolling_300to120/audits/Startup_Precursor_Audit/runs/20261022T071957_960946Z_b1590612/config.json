@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "status": "DECLARED_BEFORE_USER_EXECUTION",
+  "split": [
+    0.7,
+    0.1,
+    0.2
+  ],
+  "chunk_rows": 50000,
+  "event_threshold_mode": "TRAIN_Q995",
+  "event_quantile": 0.995,
+  "historical_threshold_V": 0.038477648942,
+  "merge_quiet_seconds": 120,
+  "context_seconds": 180,
+  "match_tolerance_seconds": 0.1,
+  "minimum_sample_dt_seconds": 0.95,
+  "maximum_sample_dt_seconds": 1.05,
+  "zero_current_A": 0.1,
+  "loaded_current_A": 5.0,
+  "loaded_sustain_seconds": 5,
+  "long_stop_seconds": 3600,
+  "near_65_tolerance_seconds": 2.0,
+  "causal_feature_quantile": 0.995,
+  "precursor_seconds": [
+    120,
+    60,
+    30,
+    10,
+    5,
+    1,
+    0
+  ],
+  "prediction_horizons": [
+    30,
+    60,
+    120
+  ],
+  "rule_names": [
+    "coolant_in_120",
+    "anode_p_1",
+    "anode_p_30",
+    "anode_p_120",
+    "cathode_p_30",
+    "coolant_out_120",
+    "thermal_OR_pressure",
+    "thermal_AND_pressure"
+  ],
+  "warning_evaluation_stride": 1,
+  "warning_alarm_merge_seconds": 30,
+  "plot_examples_per_partition": 2,
+  "plot_max_event_points": 1201,
+  "descriptive_plan_stop_minutes": [
+    30,
+    15,
+    30,
+    93
+  ],
+  "plan_duration_match_tolerance_seconds": 120,
+  "make_figures": true,
+  "holdout_role": "fixed-rule exploratory description only; never threshold fitting or selection",
+  "future_schedule_release_time_known": false,
+  "GPU_calls": 0,
+  "model_training": false,
+  "run_mode": "AUDIT"
+}

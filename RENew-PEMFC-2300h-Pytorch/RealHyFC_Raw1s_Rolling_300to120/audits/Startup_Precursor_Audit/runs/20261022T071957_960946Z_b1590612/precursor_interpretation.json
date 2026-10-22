@@ -1,0 +1,10 @@
+{
+  "definition": "within next H seconds is not exactly H seconds in advance",
+  "exact_H_comparison": "separate causal snapshot before each event at requested H seconds; actual DateTime lag retained",
+  "false_positive_rate": "FP/(FP+TN)",
+  "precision": "TP/(TP+FP)",
+  "overlapping_queries_are_independent": false,
+  "horizons_are_independent_events": false,
+  "statistical_significance_claimed": false,
+  "holdout": "descriptive fixed-rule evaluation; no retuning"
+}

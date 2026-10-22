@@ -1,0 +1,83 @@
+{
+  "fit_partition": "TRAIN",
+  "signals": [
+    {
+      "feature": "coolant_in_120",
+      "sensor": "T.Si.CL [°C]",
+      "lookback_seconds": 120,
+      "threshold": 10.068206790000005,
+      "finite_train_origins": 5800794,
+      "formula": "x(t)-x(asof(t-lookback)); both timestamps <= t",
+      "comparator": "strict > max(0, Train Q.995); equality is not alarm"
+    },
+    {
+      "feature": "anode_p_1",
+      "sensor": "p.Si.A [kPag]",
+      "lookback_seconds": 1,
+      "threshold": 2.5269316999999774,
+      "finite_train_origins": 5588816,
+      "formula": "x(t)-x(asof(t-lookback)); both timestamps <= t",
+      "comparator": "strict > max(0, Train Q.995); equality is not alarm"
+    },
+    {
+      "feature": "anode_p_30",
+      "sensor": "p.Si.A [kPag]",
+      "lookback_seconds": 30,
+      "threshold": 28.617507900000007,
+      "finite_train_origins": 5589370,
+      "formula": "x(t)-x(asof(t-lookback)); both timestamps <= t",
+      "comparator": "strict > max(0, Train Q.995); equality is not alarm"
+    },
+    {
+      "feature": "anode_p_120",
+      "sensor": "p.Si.A [kPag]",
+      "lookback_seconds": 120,
+      "threshold": 96.65516664000002,
+      "finite_train_origins": 5800794,
+      "formula": "x(t)-x(asof(t-lookback)); both timestamps <= t",
+      "comparator": "strict > max(0, Train Q.995); equality is not alarm"
+    },
+    {
+      "feature": "cathode_p_30",
+      "sensor": "p.Si.C [kPag]",
+      "lookback_seconds": 30,
+      "threshold": 28.547859200000005,
+      "finite_train_origins": 5589370,
+      "formula": "x(t)-x(asof(t-lookback)); both timestamps <= t",
+      "comparator": "strict > max(0, Train Q.995); equality is not alarm"
+    },
+    {
+      "feature": "coolant_out_120",
+      "sensor": "T.So.CL [°C]",
+      "lookback_seconds": 120,
+      "threshold": 10.26757431,
+      "finite_train_origins": 5800794,
+      "formula": "x(t)-x(asof(t-lookback)); both timestamps <= t",
+      "comparator": "strict > max(0, Train Q.995); equality is not alarm"
+    }
+  ],
+  "combinations": {
+    "thermal_OR_pressure": "coolant_in_120 OR anode_p_30 OR cathode_p_30",
+    "thermal_AND_pressure": "coolant_in_120 AND (anode_p_30 OR cathode_p_30)"
+  },
+  "no_label_used_for_threshold_fitting": true,
+  "warning_evaluation_stride": 1,
+  "causal_features_sha256": "036eb3f654c310ced3aa12f617b950c3a896a388ecc65c4f77c96e074e1efcbc",
+  "causal_feature_cache": {
+    "path": "cache/causal_features.bin",
+    "dtype": "float64",
+    "shape": [
+      8604654,
+      6
+    ]
+  },
+  "history_mask": {
+    "path": "cache/past120_legal.bin",
+    "dtype": "uint8",
+    "shape": [
+      8604654
+    ],
+    "sha256": "1363e186b12a666f86bb6af1a14fe4b9335886344bec35decdce24e083672089"
+  },
+  "no_holdout_rule_selection": true
+}

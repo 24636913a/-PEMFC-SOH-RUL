@@ -1,0 +1,35 @@
+CPU原始秒级审计开始；不加载任何F2模型，不操作其他运行进程。
+读取原始文件 1/17：Loadcycle_0-14.csv
+读取原始文件 2/17：Loadcycle_15-25.csv
+读取原始文件 3/17：Loadcycle_26-37.csv
+读取原始文件 4/17：Loadcycle_37-50.csv
+读取原始文件 5/17：Loadcycle_51-70.csv
+读取原始文件 6/17：Loadcycle_70-75.csv
+读取原始文件 7/17：Loadcycle_76-82.csv
+读取原始文件 8/17：Loadcycle_82-84.csv
+读取原始文件 9/17：Loadcycle_85-100.csv
+读取原始文件 10/17：Loadcycle_101-112.csv
+读取原始文件 11/17：Loadcycle_112-125.csv
+读取原始文件 12/17：Loadcycle_126-133.csv
+读取原始文件 13/17：Loadcycle_134-150.csv
+读取原始文件 14/17：Loadcycle_151-162.csv
+读取原始文件 15/17：Loadcycle_162-175.csv
+读取原始文件 16/17：Loadcycle_176-190.csv
+读取原始文件 17/17：Loadcycle_191-200.csv
+TRAIN触发记录与120秒静默间隔事件段已建立
+VALIDATION触发记录与120秒静默间隔事件段已建立
+EXPLORATORY_HOLDOUT触发记录与120秒静默间隔事件段已建立
+TRAIN因果前兆特征已提取：只用起点及以前的真实记录
+VALIDATION因果前兆特征已提取：只用起点及以前的真实记录
+EXPLORATORY_HOLDOUT因果前兆特征已提取：只用起点及以前的真实记录
+TRAIN未来30秒预警固定规则已评价：全部合法逐秒起点
+TRAIN未来60秒预警固定规则已评价：全部合法逐秒起点
+TRAIN未来120秒预警固定规则已评价：全部合法逐秒起点
+VALIDATION未来30秒预警固定规则已评价：全部合法逐秒起点
+VALIDATION未来60秒预警固定规则已评价：全部合法逐秒起点
+VALIDATION未来120秒预警固定规则已评价：全部合法逐秒起点
+EXPLORATORY_HOLDOUT未来30秒预警固定规则已评价：全部合法逐秒起点
+EXPLORATORY_HOLDOUT未来60秒预警固定规则已评价：全部合法逐秒起点
+EXPLORATORY_HOLDOUT未来120秒预警固定规则已评价：全部合法逐秒起点
+审计完成：E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\RealHyFC_Raw1s_Rolling_300to120\audits\Startup_Precursor_Audit\runs\20261022T071957_960946Z_b1590612
+请先阅读AUDIT_REPORT.md；结果为观测关联与固定规则诊断，不是物理因果结论。

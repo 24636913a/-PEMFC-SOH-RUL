@@ -1,0 +1,475 @@
+{
+  "status": "COMPLETED",
+  "completed_stages": [
+    "raw_ingest_and_identity",
+    "all_voltage_events",
+    "event_state_classification",
+    "restart_timelines",
+    "RCR_template_alignment",
+    "Train_only_signal_threshold_freeze",
+    "causal_event_snapshots",
+    "full_stride1_warning_evaluation",
+    "figures_and_plot_CSVs",
+    "actual_CSV_report"
+  ],
+  "started_utc": "2026-10-22T07:19:57.962084+00:00",
+  "execution_owner": "user",
+  "device": "CPU",
+  "models_created": 0,
+  "formal_F2_modified_by_audit": false,
+  "git_commit": "c383c9167c2ba8c09bad9f9f343393909f00f8df",
+  "environment": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "pandas": "3.0.1"
+  },
+  "read_only_reference_identities": [
+    {
+      "path": "RealHyFC_Raw1s_Dynamic_Study/scripts/audit_raw.py",
+      "sha256": "6077d091e5d4dfa1b8578789d1fda0be7492b2fbf9af859b6971026710c71e89"
+    },
+    {
+      "path": "RealHyFC_Raw1s_Dynamic_Study/scripts/freeze_protocol.py",
+      "sha256": "217253af3235dff93ce3142ed6621fb959eee19cef3b61ac8fb4487df0ce3940"
+    },
+    {
+      "path": "RealHyFC_Raw1s_F2_Optimization/scripts/diagnose_events.py",
+      "sha256": "8243132a55e7ceef6f8e9c5ad10a738745248f69cda952fa88f7ddf24914d1fc"
+    },
+    {
+      "path": "Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/configs/PREREGISTERED_RCR_PROTOCOL.yaml",
+      "sha256": "df9e45dde37feea6d74b95caed91032fe1458847d3ba2357e24a097f20bd0405"
+    },
+    {
+      "path": "Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_CYCLE_CATALOG.csv",
+      "sha256": "8d1a8b9e17b179fbc99776f4006a61e5758006bd73e1a55bb96ffed38fa0f3d8"
+    },
+    {
+      "path": "Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/CYCLE_TEMPLATE.json",
+      "sha256": "267a3ee5a2d297b4368f4dd262771a19109e8015b2617de45ab828d83d696200"
+    }
+  ],
+  "code_and_config_sha256": {
+    "Audit_Startup_Precursors_Interactive.py": "932b6bc9e7b4e980aef187835061baf90882a76232f97fac0d77fc948bea4277",
+    "startup_audit_core\\__init__.py": "7fabbd0c63a2c9dd646acbaa73962b5918696ccff98d8e80f75170afdf5527f9",
+    "startup_audit_core\\data_io.py": "26f9892751aae6c783ed6674724b1a59c0fdd8d13bda6a4bd483a78f87fd1543",
+    "startup_audit_core\\events.py": "ace0254e72a2bed9b0d961f0cec41145c2668ee4e5f89095107c9a768caf2be1",
+    "startup_audit_core\\figures.py": "afed2c0c9cbf4da86955a864aa2054a8e33eefd108ae7e289ce7879a0b68cb17",
+    "startup_audit_core\\precursors.py": "192008d4ec390cd32bf5b4a053639c1e214c8990b3f26575e3836d4a8ca37fe3",
+    "startup_audit_core\\report.py": "9ee952b1b08e57e3f7176316e51a236c33a4cec2e439e30df7c9b37d6f980f0d",
+    "startup_audit_core\\runner.py": "91d236ab9917582262690f34351c995f7f1539ce8f5bb35050c4b0187ededfff",
+    "configs\\PROTOCOL.json": "ec327fcab825404e5be4c9d8b4511960fd84e7d2cc5996b424fb2fd78b590455",
+    "configs\\RAW_SOURCE_AUTHORITY.json": "99f33d35ce301578bfd3111ee46de8895b5545766e247046541d1d9e515e5d2e",
+    "configs\\REFERENCE_IDENTITIES.json": "f997a4ec0aa9d9c2767e0916d7329c46ea26a485d91796fc6bf33e175cdb6d85"
+  },
+  "raw_rows": 8604654,
+  "source_files": [
+    {
+      "file_id": 0,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_0-14.csv",
+      "sha256": "2dbc866d944b3d825fbf1e89a37527246256e13fee5f0cee432bdf9f77696ad0",
+      "rows": 593522,
+      "internal_dt_min_ns": 977000000,
+      "internal_dt_max_ns": 1023000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 1,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_15-25.csv",
+      "sha256": "6f445cf954d553f6344cca15f117a21dcd035eb9732b750c4a1a3e011ab25cf7",
+      "rows": 473570,
+      "internal_dt_min_ns": 989000000,
+      "internal_dt_max_ns": 1011000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 2,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_26-37.csv",
+      "sha256": "2c06497c53ad5d36a0aab298c6d0706ea330a576824c554976bd5cfd64a990a5",
+      "rows": 488280,
+      "internal_dt_min_ns": 987000000,
+      "internal_dt_max_ns": 1013000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 3,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_37-50.csv",
+      "sha256": "7b1c2755834b5d4da82a0e063134214f2de934d222cd44d7cebeb8c762ad31ad",
+      "rows": 576601,
+      "internal_dt_min_ns": 984000000,
+      "internal_dt_max_ns": 1016000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 4,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_51-70.csv",
+      "sha256": "cc753a6f52cd24cbe81ab84578d101fc8fbad229f7695a625521e094ef3e3f91",
+      "rows": 854100,
+      "internal_dt_min_ns": 992000000,
+      "internal_dt_max_ns": 1008000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 5,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_70-75.csv",
+      "sha256": "435cefd654b4298ecd17e35d1f0d15ac3cf52962e3b10743a0d11587194601a1",
+      "rows": 214708,
+      "internal_dt_min_ns": 979000000,
+      "internal_dt_max_ns": 1021000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 6,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_76-82.csv",
+      "sha256": "51beab30c2ad94915e62ae75b29c848529a3aaedc567e4eda7e16560fe03065f",
+      "rows": 266972,
+      "internal_dt_min_ns": 986000000,
+      "internal_dt_max_ns": 1014000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 7,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_82-84.csv",
+      "sha256": "e64951f9dca7f5360176b83880d507fab93d615b930e04b31391c44dfbc97230",
+      "rows": 161577,
+      "internal_dt_min_ns": 986000000,
+      "internal_dt_max_ns": 4000000000,
+      "continuity_breaks_including_file_start": 2,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 8,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_85-100.csv",
+      "sha256": "282d4e0beb870fff339a899f4b17434b0ef9b22c59afebf3d86f2b4a414e220a",
+      "rows": 683501,
+      "internal_dt_min_ns": 994000000,
+      "internal_dt_max_ns": 1006000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 9,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_101-112.csv",
+      "sha256": "c1fb926487f6711c55a6d265656887be72c661066bf50112be267c18b39fa35b",
+      "rows": 470963,
+      "internal_dt_min_ns": 990000000,
+      "internal_dt_max_ns": 2000000000,
+      "continuity_breaks_including_file_start": 2,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 10,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_112-125.csv",
+      "sha256": "774f196496bf8f3ea790d1515684aa2ce7603d891afa4f92bd8bbdecb0e70ca4",
+      "rows": 596756,
+      "internal_dt_min_ns": 978000000,
+      "internal_dt_max_ns": 1022000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 11,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_126-133.csv",
+      "sha256": "ba4d82699570cfd564f3df268c7c88da4d54da06bad7a2d317b9d8eb1261886e",
+      "rows": 331740,
+      "internal_dt_min_ns": 952000000,
+      "internal_dt_max_ns": 1048000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 12,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_134-150.csv",
+      "sha256": "04bea7651b4f1ff9bcf788c42ec5ef1336e6b0a8cebfcb9f33bbcc7ff7ad7780",
+      "rows": 727066,
+      "internal_dt_min_ns": 990000000,
+      "internal_dt_max_ns": 1009000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 13,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_151-162.csv",
+      "sha256": "2f78439ac5ac6e2e978988d7182a999d7a4f99e799f878a97f09739087eb4c7f",
+      "rows": 477563,
+      "internal_dt_min_ns": 976000000,
+      "internal_dt_max_ns": 4000000000,
+      "continuity_breaks_including_file_start": 2,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 14,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_162-175.csv",
+      "sha256": "c40b04849bf5737e4b133eb9e88d37570487b89956ce58c12f14dfba218f2014",
+      "rows": 590436,
+      "internal_dt_min_ns": 990000000,
+      "internal_dt_max_ns": 1010000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 15,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_176-190.csv",
+      "sha256": "bb342866c922148d2b242690e856f4541b407587e45566d30db7653dd160ee0e",
+      "rows": 647220,
+      "internal_dt_min_ns": 988000000,
+      "internal_dt_max_ns": 1011000000,
+      "continuity_breaks_including_file_start": 1,
+      "invalid_voltage_rows": 0
+    },
+    {
+      "file_id": 16,
+      "path": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据/Loadcycle_data/Loadcycle_data/Loadcycle_191-200.csv",
+      "sha256": "b5af93442a0c81c2878e9006e8f7eb354a5eb09c76bef1a6df149590f5136ac0",
+      "rows": 450079,
+      "internal_dt_min_ns": 985000000,
+      "internal_dt_max_ns": 303000000000,
+      "continuity_breaks_including_file_start": 3,
+      "invalid_voltage_rows": 0
+    }
+  ],
+  "source_manifest_sha256": "642ff5f623241c4ddd2053e40f9bd3c216eac778d9ee3956915de1e8c1f3b014",
+  "finished_utc": "2026-10-22T07:24:15.878043+00:00",
+  "protected_files_changed_during_run": [],
+  "artifacts": {
+    "AUDIT_REPORT.md": {
+      "bytes": 11523,
+      "sha256": "579d5999a39f90eaa2e36df2786276c9fc3f5644d93297140605723f256c43e4"
+    },
+    "audit_summary.json": {
+      "bytes": 219236,
+      "sha256": "fad2d4111d7415a7b634dc7da60c9b5e83022966e89e909d702c7a6a0b04d449"
+    },
+    "config.json": {
+      "bytes": 1490,
+      "sha256": "82d55d4eb68fd4a213f8e7169bcc1287d906651f5be2bcf6b6da0e80a4dbd00d"
+    },
+    "cycle_mapping_identity.json": {
+      "bytes": 1367,
+      "sha256": "05f7a402828177fcf646e7afbc262fbaf9a7ccbd94666c6d3f07eec2acdcd66a"
+    },
+    "event_catalog.csv": {
+      "bytes": 2731338,
+      "sha256": "1b4c61f085cfd16d277782e7f44db0771aa111bfc665f286ad408afc1ac826b8"
+    },
+    "event_category_statistics.csv": {
+      "bytes": 1401,
+      "sha256": "6fa37565acd24ed5ae2e1abc96ea58668a5cc66a25270a844a3886086c52751c"
+    },
+    "event_classification.csv": {
+      "bytes": 3358181,
+      "sha256": "e7291fee4105bab31ac841ffd09d1abf8d53df4faab0f17ee0761b4718829324"
+    },
+    "event_contexts.csv": {
+      "bytes": 2201085115,
+      "sha256": "23bec0a282b4c89c78535f499c23e42207cc1831d4c8c35b04162054273952b3"
+    },
+    "event_cycle_mapping.csv": {
+      "bytes": 721396,
+      "sha256": "78b7db61c7124af30fe1bd7db11c3e5263436db44ba441add9ff65ded20af22d"
+    },
+    "event_transition_lags.csv": {
+      "bytes": 76731968,
+      "sha256": "0ccb356be77ae4648d94ceb4133507e06190664be1f68382a192e24647834aec"
+    },
+    "example_selection.csv": {
+      "bytes": 57982,
+      "sha256": "9ec15edd62640d1d20d3b6d0466feb83e6b4b1f0b9bfb8d4f3bdfc5872b923ad"
+    },
+    "formal_F2_readonly_check.json": {
+      "bytes": 2283,
+      "sha256": "5bcea851cab5362a61bd2d77d3bda2ee2a79c263377dddeee5e89e0fcc1e1e07"
+    },
+    "frozen_precursor_rules.json": {
+      "bytes": 2831,
+      "sha256": "d147765b5d6d167aef45d9dabc730ac8ebe5425d4ebd9dd658809843f76517be"
+    },
+    "historical_threshold_comparison.csv": {
+      "bytes": 277,
+      "sha256": "ad912dea9c07fc3e524b09d8fadbdaaca7a4e81d8342df8f5182e74db5c27a54"
+    },
+    "ingest_progress.json": {
+      "bytes": 947,
+      "sha256": "7ebeafa8c63517be773a5615fbfafb59449b3dc0adf3e37641a6695a9a191425"
+    },
+    "ordinary_signal_controls.csv": {
+      "bytes": 4031,
+      "sha256": "3d6fb2eb405ba02e79d8f091a79482abd9cbc6b155c0883341f1a0088ba5c35e"
+    },
+    "partition_table.csv": {
+      "bytes": 508,
+      "sha256": "81b966266d6ccf5272e26e8cd67b9350d79918152de6dad7daa66efe592838c5"
+    },
+    "planned_stop_voltage_comparison.csv": {
+      "bytes": 702473,
+      "sha256": "da2c31d55b213eb21e3769e9d356fb6a1fcdcd22c21454790f0f5e7b60ea1f2b"
+    },
+    "planned_vs_observed_timeline.csv": {
+      "bytes": 94334,
+      "sha256": "c5d5b9c6eb486824e0a38fd523fca8e5b4e3b619449afb921d50732a30bfa56d"
+    },
+    "precursor_evaluation.csv": {
+      "bytes": 47447,
+      "sha256": "14ee69d0bb6544382fb27731393350d3ef5b759eaecc35dae2df75496d9e9049"
+    },
+    "precursor_event_detection.csv": {
+      "bytes": 31035713,
+      "sha256": "8e851a7c6c697c7b61667730a0256945f394eb9f78a207653fa2840f7542aa5e"
+    },
+    "precursor_features.csv": {
+      "bytes": 85092266,
+      "sha256": "569027d21bbff34f49cae79fb06afa1bb85e88c787896a41a03b675aa9eb4d22"
+    },
+    "precursor_interpretation.json": {
+      "bytes": 481,
+      "sha256": "bbc9d4321b8ac9a1a0fbe11872f93a736fd7e8c01431048e4d0b957c957b6eb8"
+    },
+    "precursor_onsets.csv": {
+      "bytes": 9865164,
+      "sha256": "ca44355626e3f443754b45647cceed80f0e500a7d3c622dd1ed9c9896d6dc11e"
+    },
+    "recovery_direction_summary.csv": {
+      "bytes": 856,
+      "sha256": "03ae8bac880fba95001aadc66b837f53b9c359e27fd590b8a4c16e92b56dc3fc"
+    },
+    "restart_65_counterexamples.csv": {
+      "bytes": 453443,
+      "sha256": "37518a1fd87eb18f87cc0177d9a28c655b1f179b4ff81c89b533a682a1173813"
+    },
+    "restart_lag_distribution.csv": {
+      "bytes": 1799,
+      "sha256": "f95f94cd85cd30d1f47855b3c73a322db448639464da1a31ce46a62f4b64fcd7"
+    },
+    "restart_lag_distribution.pdf": {
+      "bytes": 17734,
+      "sha256": "920d64e21dcba5c24c03a17ad78fd6f62361cc3703f9af4866f67b2812117038"
+    },
+    "restart_lag_distribution.png": {
+      "bytes": 134149,
+      "sha256": "3d9ec67fc1d829b5582c6b3e4042266954b1f71bb3822ace6f9744bcf7d7aa51"
+    },
+    "restart_lag_plot_data.csv": {
+      "bytes": 73571,
+      "sha256": "d0519c869052977e6e499b54c8b2eb2451ed834e3a71d371e37f84737307ad5d"
+    },
+    "source_manifest.json": {
+      "bytes": 15616,
+      "sha256": "642ff5f623241c4ddd2053e40f9bd3c216eac778d9ee3956915de1e8c1f3b014"
+    },
+    "startup_precursor_examples.pdf": {
+      "bytes": 77481,
+      "sha256": "b595ee92ebedd2095fccda5b6bc840790ab865eb4ccea008611efeb12a2440dc"
+    },
+    "startup_precursor_examples.png": {
+      "bytes": 1624008,
+      "sha256": "0d0c13cb733cba6f306acd72584ad4d6695b2229d7f5128c734029c19ff9aa06"
+    },
+    "startup_precursor_examples_plot_data.csv": {
+      "bytes": 972507,
+      "sha256": "1f7ac532e40ed626225ae43972595e44ec2dea72c6072c24a4ac90a599dafe0c"
+    },
+    "startup_timeline.csv": {
+      "bytes": 612124,
+      "sha256": "6b48e429059c5a5b15d075e207ba41678e585b3bd9034bf3d187564864a3c2c4"
+    },
+    "temperature_pressure_leadtime.pdf": {
+      "bytes": 28438,
+      "sha256": "f5c5ee18db98e2d71aa214d5227de285695f91e97580d443508f6297d361a200"
+    },
+    "temperature_pressure_leadtime.png": {
+      "bytes": 417363,
+      "sha256": "d796454bf550a710c4f17451180cd860cad57e0a8dfe8e3c1f8affa1ab073c2c"
+    },
+    "temperature_pressure_leadtime_plot_data.csv": {
+      "bytes": 5546,
+      "sha256": "d33d20fd77c3b09f826235fa14a428e9eb783bf900da16bb9bc97d88bf551483"
+    },
+    "temperature_pressure_plot_data.csv": {
+      "bytes": 18234,
+      "sha256": "25ec6ac66303e7171bdb87667d0455368f907b06233d56f546d00514ad9c5b1c"
+    },
+    "u6_diagnostics.csv": {
+      "bytes": 1326,
+      "sha256": "68df1594cfc0158bc4f003138121a3e7972dd6fde911c1724b8f65a5e8fdd12c"
+    },
+    "voltage_background_plot_data.csv": {
+      "bytes": 7767927,
+      "sha256": "52ef89aa7e7ddbe2b152307f64291b5a87e98bb67e095bd65546d1f328c4bb5d"
+    },
+    "voltage_event_overview.pdf": {
+      "bytes": 1170362,
+      "sha256": "e651a4bad5f2aabb403335b7ab09c84a96633cf01aa680b24930d9c4ecb5a27b"
+    },
+    "voltage_event_overview.png": {
+      "bytes": 364184,
+      "sha256": "034b1c12148cbd7128726a5eab649927b6980d2e2d099cb08aae1c8853abea98"
+    },
+    "voltage_event_plot_data.csv": {
+      "bytes": 948452,
+      "sha256": "afa83e9cf8dc496580fd16b46ebcdf3ac3d219b400b5f931573f10a3091bcf46"
+    },
+    "voltage_threshold.json": {
+      "bytes": 261,
+      "sha256": "afff54ae1e16851aef944fd899a36ea9a791c5f266becd043a5c35233b380a85"
+    },
+    "voltage_trigger_records.csv": {
+      "bytes": 4774661,
+      "sha256": "99db1525a9cee49ddfe53b7cca283b8cad4564e6ebd9dc7ceb03fb4050291260"
+    },
+    "zero_command_spells.csv": {
+      "bytes": 79772,
+      "sha256": "8041ecd22d235285e9f837da5fe44213e003e7b4233ac16d1e57fdb52b934382"
+    },
+    "source_snapshot\\Audit_Startup_Precursors_Interactive.py": {
+      "bytes": 1532,
+      "sha256": "932b6bc9e7b4e980aef187835061baf90882a76232f97fac0d77fc948bea4277"
+    },
+    "source_snapshot\\configs\\PROTOCOL.json": {
+      "bytes": 1282,
+      "sha256": "ec327fcab825404e5be4c9d8b4511960fd84e7d2cc5996b424fb2fd78b590455"
+    },
+    "source_snapshot\\configs\\RAW_SOURCE_AUTHORITY.json": {
+      "bytes": 13283,
+      "sha256": "99f33d35ce301578bfd3111ee46de8895b5545766e247046541d1d9e515e5d2e"
+    },
+    "source_snapshot\\configs\\REFERENCE_IDENTITIES.json": {
+      "bytes": 1051,
+      "sha256": "f997a4ec0aa9d9c2767e0916d7329c46ea26a485d91796fc6bf33e175cdb6d85"
+    },
+    "source_snapshot\\startup_audit_core\\data_io.py": {
+      "bytes": 10041,
+      "sha256": "26f9892751aae6c783ed6674724b1a59c0fdd8d13bda6a4bd483a78f87fd1543"
+    },
+    "source_snapshot\\startup_audit_core\\events.py": {
+      "bytes": 26567,
+      "sha256": "ace0254e72a2bed9b0d961f0cec41145c2668ee4e5f89095107c9a768caf2be1"
+    },
+    "source_snapshot\\startup_audit_core\\figures.py": {
+      "bytes": 8362,
+      "sha256": "afed2c0c9cbf4da86955a864aa2054a8e33eefd108ae7e289ce7879a0b68cb17"
+    },
+    "source_snapshot\\startup_audit_core\\precursors.py": {
+      "bytes": 16773,
+      "sha256": "192008d4ec390cd32bf5b4a053639c1e214c8990b3f26575e3836d4a8ca37fe3"
+    },
+    "source_snapshot\\startup_audit_core\\report.py": {
+      "bytes": 8771,
+      "sha256": "9ee952b1b08e57e3f7176316e51a236c33a4cec2e439e30df7c9b37d6f980f0d"
+    },
+    "source_snapshot\\startup_audit_core\\runner.py": {
+      "bytes": 7432,
+      "sha256": "91d236ab9917582262690f34351c995f7f1539ce8f5bb35050c4b0187ededfff"
+    },
+    "source_snapshot\\startup_audit_core\\__init__.py": {
+      "bytes": 71,
+      "sha256": "7fabbd0c63a2c9dd646acbaa73962b5918696ccff98d8e80f75170afdf5527f9"
+    }
+  }
+}

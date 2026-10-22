@@ -1,0 +1,80 @@
+{
+  "initial_state_sha256": "b67b5aec08c45038fae8414cf0e037264a5b11b8d37962755041cba9b7d593b0",
+  "initial_parameter_sha256": "1aca300e7a6579e6e03d2a465645f54d620ee6900e7825013068f6a482f188a0",
+  "optimizer_initial_state_empty": true,
+  "optimizer_initial_sha256": "c0ee3d0560e25136e22499534c46e5080b492374be779ff8817ecafe1fb5c431",
+  "rng": {
+    "cpu": "4d7f5ad609745a38d7a2d6086343f0f53d6eb235c0ba50b89138f3f6de55b77e",
+    "cuda": "a9ca4d8d72df40ca0aa51d98a6fcf2eead5b5cfb526616a634e09b38db90dff6",
+    "python": "c5a5d809c3a6ba1316d180a6dbcfe75a0a5ef148f504eba8c5e1ac046a32590c",
+    "numpy": "d7afbb8f4d199376c2d8a91e1ed987096c1045d2dd74d3eae6d15cda47909810"
+  },
+  "prepared_train_sha256": "a0e74eb627c8691b3fdd7d863d0b87b2f10657d59b75a883de5f0b902039398b",
+  "prepared_validation_sha256": "21b94472296e4b36095dc9cac983f1bd9ba1a7b657ab0bd34ceed378f54da103",
+  "train_origins_sha256": "ad15fed16bcc2ec273081ef937cfe916282df8f6274ba23453b935a58dd18521",
+  "data_sha256": "fbee6b28682766081c9cda08059e2eaabcd6bb25365ce0bc5eb7c5714fda0f38",
+  "code_sha256": "3dbdc602eb2229a54ee7d5eaa841a6dd94798e8227dbfc6f60db1e78f66419de",
+  "hyperparameters": {
+    "learning_rate": 0.0009605449687795866,
+    "weight_decay": 6.95942232671908e-06,
+    "batch_size": 32,
+    "dropout": 0.1,
+    "hidden_size": 64,
+    "hidden_continuous_size": 32,
+    "attention_head_size": 4,
+    "lstm_layers": 1,
+    "gradient_clip_norm": 1.0,
+    "optimizer": "AdamW",
+    "loss": "MSE"
+  },
+  "top10": [
+    0,
+    3,
+    13,
+    11,
+    4,
+    9,
+    6,
+    7,
+    10,
+    8
+  ],
+  "top11": [
+    0,
+    3,
+    13,
+    11,
+    4,
+    9,
+    6,
+    7,
+    10,
+    8,
+    5
+  ],
+  "partitions": {
+    "TRAIN": [
+      0,
+      2690
+    ],
+    "VALIDATION": [
+      2690,
+      3074
+    ],
+    "TEST": [
+      3074,
+      3843
+    ]
+  },
+  "target": "raw DeltaV",
+  "history": 48,
+  "horizon": 24,
+  "target_scale_V": 0.13665617091602913,
+  "seed": 202,
+  "feature_mode": "top10",
+  "formal_max_epochs": 450,
+  "formal_patience": 40,
+  "diagnostic_epoch_budget": 6,
+  "no_historical_weights": true,
+  "no_holdout_scoring": true
+}

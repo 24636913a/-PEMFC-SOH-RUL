@@ -1,0 +1,26 @@
+{
+  "path": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\Phase_N1_Data_Foundation\\outputs\\causal_feature_tables\\causal_features_30min.csv",
+  "sha256": "fbee6b28682766081c9cda08059e2eaabcd6bb25365ce0bc5eb7c5714fda0f38",
+  "rows": 3843,
+  "columns": 214,
+  "parser": "pandas read_csv defaults, historical H parser",
+  "row_order": "unchanged physical CSV order",
+  "development_prefix_filtered_rows": 3005,
+  "late_access": "explicit user scheme B; exploratory only",
+  "phase_L_decision": {
+    "status": "PHASE_L_CONFIRMATORY_TEST_NOT_ELIGIBLE",
+    "candidate_region": "RealHyFC >=1819.997738 h",
+    "classification": "NOT_ELIGIBLE_AS_CONFIRMATORY_TEST",
+    "scope": "existing shared late-life region only",
+    "facts": [
+      "RUL90 full Test voltage/current access and compromised seal",
+      "AHC raw voltage use and posterior support diagnosis",
+      "ELTE later exploratory health target/error exposure"
+    ],
+    "F2_Test_supervised_training_proved": false,
+    "direct_F2_hyperparameter_influence_proved": false,
+    "reason": "shared candidate targets and diagnostic feedback already known; posterior decision influence cannot be excluded",
+    "unidentified_external_region": "UNKNOWN_ELIGIBILITY",
+    "explicit_authorization_readiness": false
+  }
+}

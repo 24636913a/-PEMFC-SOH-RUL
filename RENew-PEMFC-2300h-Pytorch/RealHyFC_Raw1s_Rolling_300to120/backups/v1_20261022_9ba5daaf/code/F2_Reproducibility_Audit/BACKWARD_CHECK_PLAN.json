@@ -1,0 +1,7 @@
+{
+  "reason": "Per-batch gradient hashes differ; quantify genuine numeric differences versus signed zero.",
+  "fixed_budget": "two fresh first-batch forward/backward passes; ZERO optimizer steps",
+  "source_program_unchanged": true,
+  "no_historical_weights": true,
+  "no_holdout": true
+}

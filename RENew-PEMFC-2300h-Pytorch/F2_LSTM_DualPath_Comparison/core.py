@@ -22,8 +22,8 @@ from pytorch_forecasting.models.temporal_fusion_transformer import TemporalFusio
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parent
-OFFICIAL=ROOT/'REAL_Paper_File/F2主程序/F2_Train_Interactive.py'
-OLD_RUN=ROOT/'REAL_Paper_File/F2主程序/F2_Training_Outputs/20261019T055734_218949Z_seedall_compare'
+OFFICIAL=ROOT/'RealHyFC_Raw1s_Rolling_300to120/archives/F2_legacy_9ba5daaf/F2_Train_Interactive.py'
+OLD_RUN=ROOT/'RealHyFC_Raw1s_Rolling_300to120/archives/F2_legacy_9ba5daaf/F2_Training_Outputs/20261019T055734_218949Z_seedall_compare'
 SOURCE=ROOT/'Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv'
 SOURCE_CODE_SHA='3dbdc602eb2229a54ee7d5eaa841a6dd94798e8227dbfc6f60db1e78f66419de'
 SUPPORTED_SEEDS = (42, 103, 193, 202, 210, 212)

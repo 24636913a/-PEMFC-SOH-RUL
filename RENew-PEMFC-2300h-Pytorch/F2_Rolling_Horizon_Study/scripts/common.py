@@ -13,7 +13,7 @@ HERE=Path(__file__).resolve().parents[1]
 ROOT=HERE.parent
 REPO=ROOT.parent
 SOURCE=ROOT/'Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv'
-REFERENCE=ROOT/'REAL_Paper_File/F2主程序/F2_Training_Outputs/20261019T055734_218949Z_seedall_compare/seed202/top10'
+REFERENCE=ROOT/'RealHyFC_Raw1s_Rolling_300to120/archives/F2_legacy_9ba5daaf/F2_Training_Outputs/20261019T055734_218949Z_seedall_compare/seed202/top10'
 CONFIG=HERE/'configs/FROZEN_PROTOCOL.json'
 
 def utc():return datetime.now(timezone.utc).isoformat()

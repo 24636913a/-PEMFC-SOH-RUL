@@ -1,0 +1,14 @@
+{
+  "status": "FAILURE_PRESERVED",
+  "error_type": "RuntimeError",
+  "error": "upsample_linear1d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.",
+  "phase": "backward",
+  "epoch": 1,
+  "batch": 1,
+  "optimizer_updates": 0,
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\F2_Deterministic_Validation\\deterministic_prefix.py\", line 229, in <module>\n    if args.task.startswith('strict_'):prefix(m,model,optimizer,loader,xv,yv)\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\F2_Deterministic_Validation\\deterministic_prefix.py\", line 177, in prefix\n    PHASE='backward';loss.backward();record['gradients_before_clip']=parameter_data_sha(model,gradient=True)\n                     ^^^^^^^^^^^^^^^\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\_tensor.py\", line 626, in backward\n    torch.autograd.backward(\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\autograd\\__init__.py\", line 347, in backward\n    _engine_run_backward(\n  File \"D:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\autograd\\graph.py\", line 823, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: upsample_linear1d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.\n",
+  "source_sha256": "3dbdc602eb2229a54ee7d5eaa841a6dd94798e8227dbfc6f60db1e78f66419de",
+  "workspace": ":4096:8",
+  "strict_enabled": true,
+  "network_replacement_attempted": false
+}

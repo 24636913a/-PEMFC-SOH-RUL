@@ -1,0 +1,39 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "cudnn": 90100,
+  "GPU": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "platform": "Windows-10-10.0.22631-SP0",
+  "driver": "552.22",
+  "inherited_workspace": ":4096:8",
+  "actual_workspace": ":4096:8",
+  "workspace_configured_before_torch_import": true,
+  "cuda_uninitialized_after_torch_import": true,
+  "deterministic_algorithms": true,
+  "warn_only": false,
+  "cudnn_deterministic": true,
+  "cudnn_benchmark": false,
+  "matmul_tf32": false,
+  "cudnn_tf32": true,
+  "fill_uninitialized_memory": true,
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "pytorch-forecasting": "1.8.0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.1",
+    "lightning": "2.5.1"
+  },
+  "launch_command": [
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\F2_Deterministic_Validation\\deterministic_prefix.py",
+    "--task",
+    "strict_a",
+    "--run-dir",
+    "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\F2_Deterministic_Validation\\outputs\\20261019T082402_605729Z_seed202_top10_strict"
+  ],
+  "process_id": 118948,
+  "network": {
+    "original_F2_classes_exact": true,
+    "trainable_parameters": 332436
+  }
+}

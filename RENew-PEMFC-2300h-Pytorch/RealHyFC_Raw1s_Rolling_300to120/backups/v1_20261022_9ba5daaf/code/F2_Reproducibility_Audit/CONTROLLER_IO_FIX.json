@@ -1,0 +1,9 @@
+{
+  "reason": "Console relay failed AFTER both prefixes and strict diagnostic were saved; UTF-8 I/O only fix. No completed probe rerun.",
+  "original_controller_sha256": "bdff8d9d47991821e868aeded1b2a897b5a399fd7daecd617ae61ff1b9717fbf",
+  "fixed_controller_sha256": "d70e3c2a75f94827e5da927a30aaf4eeb5e672868c9f54b956bc96eeb788f818",
+  "original_failure_receipt_preserved": "PROBE_EXECUTION.json",
+  "executed_controller_source_preserved": "run_prefix_probes.executed_source.py.txt",
+  "worker_source_unchanged": true,
+  "formal_training_source_unchanged": true
+}

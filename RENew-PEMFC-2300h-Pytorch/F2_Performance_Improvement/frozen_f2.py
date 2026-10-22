@@ -22,7 +22,7 @@ from pytorch_forecasting.models.temporal_fusion_transformer import TemporalFusio
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parent
-OFFICIAL=ROOT/'REAL_Paper_File/F2主程序/F2_Train_Interactive.py'
+OFFICIAL=ROOT/'RealHyFC_Raw1s_Rolling_300to120/archives/F2_legacy_9ba5daaf/F2_Train_Interactive.py'
 REFERENCE_RUN=ROOT/'F2_LSTM_DualPath_Comparison/outputs/20261019T090430_205588Z_Top10_LSTM_F2'
 SOURCE=ROOT/'Phase_N1_Data_Foundation/outputs/causal_feature_tables/causal_features_30min.csv'
 SOURCE_CODE_SHA='3dbdc602eb2229a54ee7d5eaa841a6dd94798e8227dbfc6f60db1e78f66419de'

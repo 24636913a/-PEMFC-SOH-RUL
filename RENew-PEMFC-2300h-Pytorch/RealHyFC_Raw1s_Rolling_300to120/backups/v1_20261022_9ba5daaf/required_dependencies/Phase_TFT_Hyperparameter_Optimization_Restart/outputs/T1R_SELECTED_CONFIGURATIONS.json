@@ -1,0 +1,53 @@
+{
+  "protocol_sha256": "c9f58b01c74dc82b3d35f264cc320f7c800a7b3b43d038437df166ead53eb183",
+  "folds": {
+    "fold_1": {
+      "pass": true,
+      "study_name": "T1R_fold_1",
+      "attempted": 16,
+      "completed": 16,
+      "best_trial_id": 3,
+      "best_params": {
+        "learning_rate": 0.0014730569183338338,
+        "weight_decay": 4.2670501992526394e-05,
+        "dropout": 0.05,
+        "hidden_size": 32,
+        "hidden_continuous_size": 16,
+        "batch_size": 64
+      },
+      "best_epoch": 330
+    },
+    "fold_2": {
+      "pass": true,
+      "study_name": "T1R_fold_2",
+      "attempted": 16,
+      "completed": 16,
+      "best_trial_id": 13,
+      "best_params": {
+        "learning_rate": 0.0009605449687795866,
+        "weight_decay": 6.95942232671908e-06,
+        "dropout": 0.1,
+        "hidden_size": 64,
+        "hidden_continuous_size": 32,
+        "batch_size": 32
+      },
+      "best_epoch": 266
+    },
+    "fold_3": {
+      "pass": true,
+      "study_name": "T1R_fold_3",
+      "attempted": 16,
+      "completed": 16,
+      "best_trial_id": 9,
+      "best_params": {
+        "learning_rate": 0.00018425097978540014,
+        "weight_decay": 0.00011500180204469123,
+        "dropout": 0.1,
+        "hidden_size": 64,
+        "hidden_continuous_size": 8,
+        "batch_size": 32
+      },
+      "best_epoch": 310
+    }
+  }
+}

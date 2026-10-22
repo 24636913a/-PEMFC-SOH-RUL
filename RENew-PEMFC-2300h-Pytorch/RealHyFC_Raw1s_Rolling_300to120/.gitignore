@@ -1,0 +1,13 @@
+# Per-run raw arrays, exact origin indices, source snapshots and weights stay local.
+runs/**/cache/
+runs/**/source_snapshot/
+runs/**/*.pt
+runs/**/*.pth
+runs/**/*.npz
+runs/**/*.npy
+runs/**/*.bin
+runs/**/*.writing
+runs/**/predictions*.csv
+__pycache__/
+*.pyc
+# Existing historical evidence under archives is already tracked; do not remove it.

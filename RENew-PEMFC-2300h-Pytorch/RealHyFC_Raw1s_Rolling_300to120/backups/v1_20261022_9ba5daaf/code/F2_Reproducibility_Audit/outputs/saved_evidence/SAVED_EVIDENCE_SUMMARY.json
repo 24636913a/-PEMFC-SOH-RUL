@@ -1,0 +1,82 @@
+{
+  "status": "READ_ONLY_EVIDENCE_VERIFIED",
+  "source_program_sha256": "3dbdc602eb2229a54ee7d5eaa841a6dd94798e8227dbfc6f60db1e78f66419de",
+  "exact_initialization": true,
+  "exact_first_update_weights": true,
+  "common_epochs": 162,
+  "exact_common_sampler_orders": true,
+  "first_loss_and_gradient_min_difference_epoch": 5,
+  "first_best_epoch_decision_difference": 8,
+  "early_stopping_recomputed": [
+    {
+      "best_epoch": 157,
+      "stop_epoch": 197,
+      "stale_epochs": 40,
+      "best_validation_RMSE_V": 0.0063955885941299065,
+      "updates": 10835
+    },
+    {
+      "best_epoch": 122,
+      "stop_epoch": 162,
+      "stale_epochs": 40,
+      "best_validation_RMSE_V": 0.007966176116282973,
+      "updates": 8910
+    }
+  ],
+  "metrics": [
+    {
+      "run": "20261019T052754_499042Z_seed202_compare",
+      "RMSE_mV": 28.465966513884595,
+      "MAE_mV": 6.685466258752698,
+      "R2": 0.9784519943784564,
+      "best_epoch": 157,
+      "stop_epoch": 197,
+      "optimizer_updates": 10835
+    },
+    {
+      "run": "20261019T055734_218949Z_seedall_compare",
+      "RMSE_mV": 33.837465315380854,
+      "MAE_mV": 8.20818693109254,
+      "R2": 0.9695525546852483,
+      "best_epoch": 122,
+      "stop_epoch": 162,
+      "optimizer_updates": 8910
+    }
+  ],
+  "rmse_summary": {
+    "n": 2,
+    "mean_mV": 31.151715914632724,
+    "sample_sd_mV": 3.798223227673417,
+    "min_mV": 28.465966513884595,
+    "max_mV": 33.837465315380854,
+    "range_mV": 5.371498801496259,
+    "later_vs_first_percent": 18.869897844066696
+  },
+  "mae_summary": {
+    "mean_mV": 7.446826594922619,
+    "sample_sd_mV": 1.0767261132644406
+  },
+  "R2_summary": {
+    "mean": 0.9740022745318524,
+    "sample_sd": 0.006292854155828222
+  },
+  "repeated_run_prediction_difference": {
+    "RMS_mV": 30.451527250259065,
+    "max_abs_mV": 530.2475281059742
+  },
+  "best_weight_difference": {
+    "unequal_values": 325268,
+    "total_float_values": 341908,
+    "L2_difference": 46.1402140065546,
+    "relative_L2_to_first": 0.4164203305016652
+  },
+  "historical_rng_and_dropout_masks_recorded": false,
+  "historical_per_batch_gradients_recorded": false,
+  "historical_cublas_workspace_environment_recorded": false,
+  "important_limit": "Two completed repetitions are descriptive; no robust variance estimate or statistical significance.",
+  "unrelated_protocol_differences": [
+    "UTC creation time",
+    "requested seed list",
+    "~1e-16 descriptive KMeans centres; no model input dependence"
+  ]
+}

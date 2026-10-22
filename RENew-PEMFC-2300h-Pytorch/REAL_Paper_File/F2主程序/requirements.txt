@@ -1,0 +1,9 @@
+# Existing project environment: Python 3.11; install CUDA PyTorch from official index separately.
+torch==2.6.0
+pytorch-forecasting==1.8.0
+numpy>=1.26,<3
+pandas>=2.2,<3
+scipy>=1.12,<2
+matplotlib>=3.8,<4
+ipython>=8,<10
+ipykernel>=6,<7

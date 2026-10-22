@@ -1,0 +1,4 @@
+* text eol=lf
+# Preserve original Windows file bytes, including historical CRLF JSON/notebooks.
+archives/** -text
+backups/** -text

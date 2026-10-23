@@ -1,0 +1,28 @@
+{
+  "model": "F2",
+  "seed": 202,
+  "lookback": 300,
+  "horizon": 120,
+  "target_mode": "V",
+  "split": [
+    0.7,
+    0.1,
+    0.2
+  ],
+  "run_mode": "TRAIN",
+  "max_epochs": 450,
+  "patience": 40,
+  "batch_size": 16,
+  "gradient_accumulation": 2,
+  "learning_rate": 0.0009605449687795866,
+  "weight_decay": 6.95942232671908e-06,
+  "gradient_clip": 1.0,
+  "train_stride": 1,
+  "feature_count": 10,
+  "preprocess_origins": 10000,
+  "plot_every_epochs": 5,
+  "progress_batches": 500,
+  "chunk_rows": 50000,
+  "repo": "E:\\沈农信电\\ PEMFC-SOH+RUL",
+  "source_authority": "E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\RealHyFC_Raw1s_Rolling_300to120\\reports\\LEGACY_RAW_SOURCE_AUTHORITY.json"
+}

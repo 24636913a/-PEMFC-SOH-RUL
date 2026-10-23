@@ -1,0 +1,37 @@
+Configuration frozen before data preparation: {"model": "F2", "seed": 202, "lookback": 300, "horizon": 120, "target_mode": "V", "split": [0.7, 0.1, 0.2], "run_mode": "TRAIN", "max_epochs": 450, "patience": 40, "batch_size": 16, "gradient_accumulation": 2, "learning_rate": 0.0009605449687795866, "weight_decay": 6.95942232671908e-06, "gradient_clip": 1.0, "train_stride": 1, "feature_count": 10, "preprocess_origins": 10000, "plot_every_epochs": 5, "progress_batches": 500, "chunk_rows": 50000, "repo": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL", "source_authority": "E:\\\u6c88\u519c\u4fe1\u7535\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\RealHyFC_Raw1s_Rolling_300to120\\reports\\LEGACY_RAW_SOURCE_AUTHORITY.json"}
+All partition/window identities frozen before model construction: 800adc8db8be8a7770d1b22664dbb0b51b719a9e7057185326d1ccdd4690bf84
+Fresh model and optimizer; 414366 parameters; no checkpoint loaded
+Epoch {"epoch": 1, "train_loss": 0.03972048132750715, "validation_loss": 0.04654411528603549, "validation_RMSE_mV": 60.73051290738188, "best_epoch": 1, "optimizer_updates": 188043, "last_gradient_norm": 0.05774765834212303, "elapsed_seconds": 55277.116765700004}
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\REAL_Paper_File\F2主程序\raw1s\runner.py", line 141, in run
+    output = model(x.to('cuda')); target = objective.to('cuda')
+             ^^^^^^^^^^^^^^^^^^^
+  File "d:\ruanjian\python3.11.9\Lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ruanjian\python3.11.9\Lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\REAL_Paper_File\F2主程序\raw1s\models.py", line 37, in forward
+    result = self.native(inputs)['prediction'].squeeze(-1)
+             ^^^^^^^^^^^^^^^^^^^
+  File "d:\ruanjian\python3.11.9\Lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ruanjian\python3.11.9\Lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\REAL_Paper_File\F2主程序\raw1s\native_f2.py", line 234, in forward
+    encoder_output, (hidden, cell) = self.lstm_encoder(
+                                     ^^^^^^^^^^^^^^^^^^
+  File "d:\ruanjian\python3.11.9\Lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ruanjian\python3.11.9\Lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\1\AppData\Roaming\Python\Python311\site-packages\pytorch_forecasting\models\nn\rnn.py", line 147, in forward
+    pack_lengths = lengths.where(lengths > 0, torch.ones_like(lengths))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+

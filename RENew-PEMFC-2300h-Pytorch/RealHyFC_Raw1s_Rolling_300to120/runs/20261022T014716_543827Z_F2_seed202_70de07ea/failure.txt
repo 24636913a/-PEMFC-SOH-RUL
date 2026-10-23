@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\REAL_Paper_File\F2主程序\raw1s\runner.py", line 141, in run
+    output = model(x.to('cuda')); target = objective.to('cuda')
+             ^^^^^^^^^^^^^^^^^^^
+  File "d:\ruanjian\python3.11.9\Lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ruanjian\python3.11.9\Lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\REAL_Paper_File\F2主程序\raw1s\models.py", line 37, in forward
+    result = self.native(inputs)['prediction'].squeeze(-1)
+             ^^^^^^^^^^^^^^^^^^^
+  File "d:\ruanjian\python3.11.9\Lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ruanjian\python3.11.9\Lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\RENew-PEMFC-2300h-Pytorch\REAL_Paper_File\F2主程序\raw1s\native_f2.py", line 234, in forward
+    encoder_output, (hidden, cell) = self.lstm_encoder(
+                                     ^^^^^^^^^^^^^^^^^^
+  File "d:\ruanjian\python3.11.9\Lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ruanjian\python3.11.9\Lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\1\AppData\Roaming\Python\Python311\site-packages\pytorch_forecasting\models\nn\rnn.py", line 147, in forward
+    pack_lengths = lengths.where(lengths > 0, torch.ones_like(lengths))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

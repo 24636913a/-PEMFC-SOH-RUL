@@ -1,0 +1,45 @@
+{
+  "status": "FAILED_OR_INTERRUPTED",
+  "run_id": "20261022T014716_543827Z_F2_seed202_70de07ea",
+  "started_utc": "2026-10-22T01:47:16.546949+00:00",
+  "execution_owner": "user",
+  "holdout_evaluated": false,
+  "target_mode": "V",
+  "git_commit": "729b181e00ffa12d7c0a0714472ecbd2b7ce9d90",
+  "git_status": "?? RENew-PEMFC-2300h-Pytorch/RealHyFC_Raw1s_Rolling_300to120/runs/\n",
+  "code_sha256": {
+    "F2_Train_Interactive.py": "112287bd930c34843365a2ac5a95ea315552a6916c9b24f3488bb4c6eb481a9b",
+    "raw1s\\__init__.py": "9dbac626b7d9eebb9f3d3ef0f93a4070b50776dc5fa1fd0c60b39644ca49eeea",
+    "raw1s\\data.py": "0a747d111f21d4aec0faf2c783ac3ee17dba3e2dc36b3a1c8ace95e3c6ad75b7",
+    "raw1s\\features.py": "124510afc12427ebcf2e74b3711ec2f01d12d6cfbfdeea835d7423be778d2b6b",
+    "raw1s\\metrics.py": "f7ae67315bec348f17562ef68dcc558868bf1cc1b029ee034dd82d7c859c5d93",
+    "raw1s\\models.py": "33d6cb8995a944a24333d3587e4b957579ee5cf8f9cdcb3a3e65ebf4a7868664",
+    "raw1s\\native_f2.py": "4f280ee7fca83cd2fe0b0c419ecf19d2acd357f4a33883fa31e93fb005a0a7f7",
+    "raw1s\\plots.py": "cfdbcac2fed0059ac41a3532c01c2f31fd859ad965cdc65e6f7752cb48c8588b",
+    "raw1s\\runner.py": "ca768c1b510f2fc74c8f8995c2dfa6a05d261a8ba265193bbc36fc38479c41cf"
+  },
+  "environment": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "cudnn": 90100,
+    "gpu": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "strict_determinism": false,
+    "bitwise_reproducibility_promised": false
+  },
+  "preprocess_sha256": "3cf2794ecf7f4a6e1e5e00c5966c02ad8a210dbb2b63de0626dc0fef628b6cfb",
+  "split_sha256": "800adc8db8be8a7770d1b22664dbb0b51b719a9e7057185326d1ccdd4690bf84",
+  "training_origin_count": 6017348,
+  "training_origin_sha256": "122a264197676572e4c86d0043bdbf83888fcb4e29cba9028905d671d6367d98",
+  "model_parameters": {
+    "hidden_size": 64,
+    "hidden_continuous_size": 32,
+    "attention_head_size": 4,
+    "lstm_layers": 1,
+    "dropout": 0.1
+  },
+  "trainable_parameters": 414366,
+  "initial_state_sha256": "da6e2057b7434c5fcf281ca2afd520f7ef2a71cc45f611de9007bd7e3dcbbf2a",
+  "failure": "Traceback (most recent call last):\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\raw1s\\runner.py\", line 141, in run\n    output = model(x.to('cuda')); target = objective.to('cuda')\n             ^^^^^^^^^^^^^^^^^^^\n  File \"d:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"d:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\raw1s\\models.py\", line 37, in forward\n    result = self.native(inputs)['prediction'].squeeze(-1)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"d:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"d:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\RENew-PEMFC-2300h-Pytorch\\REAL_Paper_File\\F2主程序\\raw1s\\native_f2.py\", line 234, in forward\n    encoder_output, (hidden, cell) = self.lstm_encoder(\n                                     ^^^^^^^^^^^^^^^^^^\n  File \"d:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"d:\\ruanjian\\python3.11.9\\Lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\1\\AppData\\Roaming\\Python\\Python311\\site-packages\\pytorch_forecasting\\models\\nn\\rnn.py\", line 147, in forward\n    pack_lengths = lengths.where(lengths > 0, torch.ones_like(lengths))\n                                              ^^^^^^^^^^^^^^^^^^^^^^^^\nKeyboardInterrupt\n",
+  "finished_utc": "2026-10-23T03:11:57.565048+00:00"
+}

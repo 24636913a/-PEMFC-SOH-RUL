@@ -1,0 +1,63 @@
+{
+  "partitions": [
+    {
+      "partition": "TRAIN",
+      "start_row": 0,
+      "end_row_exclusive": 6023257,
+      "records": 6023257,
+      "start_DateTime": "2025-01-27T12:09:18.005000000",
+      "last_DateTime": "2025-06-05T20:19:58.005000000",
+      "start_OpHrs2_h": 72.78869,
+      "last_OpHrs2_h": 1626.69,
+      "legal_origins": 6017348,
+      "queries": 722081760,
+      "invalid_internal_windows": 5490,
+      "boundary_excluded": 419,
+      "origin_index_sha256": "122a264197676572e4c86d0043bdbf83888fcb4e29cba9028905d671d6367d98",
+      "index_file": "cache\\TRAIN_origins.bin",
+      "stride": 1,
+      "support": "entire input and target in partition"
+    },
+    {
+      "partition": "VALIDATION",
+      "start_row": 6023257,
+      "end_row_exclusive": 6883723,
+      "records": 860466,
+      "start_DateTime": "2025-06-05T20:19:59.005000000",
+      "last_DateTime": "2025-07-01T14:46:43.005000000",
+      "start_OpHrs2_h": 1626.69,
+      "last_OpHrs2_h": 1859.34,
+      "legal_origins": 859514,
+      "queries": 103141680,
+      "invalid_internal_windows": 533,
+      "boundary_excluded": 419,
+      "origin_index_sha256": "aad1023243a7183ddc42035a27e6b91c85998dcfe3ae4d1286cccb1329b25321",
+      "index_file": "cache\\VALIDATION_origins.bin",
+      "stride": 1,
+      "support": "entire input and target in partition"
+    },
+    {
+      "partition": "EXPLORATORY_HOLDOUT",
+      "start_row": 6883723,
+      "end_row_exclusive": 8604654,
+      "records": 1720931,
+      "start_DateTime": "2025-07-01T14:46:44.005000000",
+      "last_DateTime": "2025-07-26T12:06:23.005000000",
+      "start_OpHrs2_h": 1859.34,
+      "last_OpHrs2_h": 2256.8,
+      "legal_origins": 1718417,
+      "queries": 206210040,
+      "invalid_internal_windows": 2095,
+      "boundary_excluded": 419,
+      "origin_index_sha256": "2bbaafdc182a3583fe6c0a5f4017431f05c33d47840b6817f72f58e750b8ed59",
+      "index_file": "cache\\EXPLORATORY_HOLDOUT_origins.bin",
+      "stride": 1,
+      "support": "entire input and target in partition"
+    }
+  ],
+  "lookback": 300,
+  "horizon": 120,
+  "continuity": "same source file, 950.0.1050ms, finite candidate sensors, nondecreasing OpHrs2",
+  "overlapping_queries_are_independent_trials": false,
+  "holdout_evaluated": false
+}

@@ -1,0 +1,29 @@
+只读极化及支持审计: FC1 FC1_Pola_T000.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T048.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T185.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T348.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T515.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T658.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T823.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T991.xlsx
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_1150h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_1500h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_1500h_afterAirAirStart.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_1750h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_2000h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_2300h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_2300h_afterAirAirStart.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_300h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_600h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_850h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_BoL.csv
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\PEMFC指导\健康特征提取\共同负载特征研究\程序\共同负载研究.py", line 337, in <module>
+    run()
+  File "E:\沈农信电\ PEMFC-SOH+RUL\PEMFC指导\健康特征提取\共同负载特征研究\程序\共同负载研究.py", line 233, in run
+    cv.extend(dict(电堆=stack,文件名=name,方案=label,支持域=domain,**a) for a in grouped_holdout(x,y,[su[i] for i in idx],[bs[i] for i in idx]))
+                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\PEMFC指导\健康特征提取\共同负载特征研究\程序\共同负载研究.py", line 108, in grouped_holdout
+    rows.append(dict(留出组=gi,j=float(x[i]),训练j=';'.join(map(str,x[keep])),
+                                                                    ~^^^^^^
+IndexError: arrays used as indices must be of integer (or boolean) type

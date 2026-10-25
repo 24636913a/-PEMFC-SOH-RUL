@@ -1,0 +1,35 @@
+只读极化及支持审计: FC1 FC1_Pola_T000.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T048.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T185.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T348.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T515.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T658.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T823.xlsx
+只读极化及支持审计: FC1 FC1_Pola_T991.xlsx
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_1150h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_1500h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_1500h_afterAirAirStart.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_1750h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_2000h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_2300h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_2300h_afterAirAirStart.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_300h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_600h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_850h.csv
+只读极化及支持审计: RealHyFC Polcurve_Nominal_RHFC_BoL.csv
+Traceback (most recent call last):
+  File "E:\沈农信电\ PEMFC-SOH+RUL\PEMFC指导\健康特征提取\共同负载特征研究\程序\共同负载研究.py", line 339, in <module>
+    run()
+  File "E:\沈农信电\ PEMFC-SOH+RUL\PEMFC指导\健康特征提取\共同负载特征研究\程序\共同负载研究.py", line 334, in run
+    跨堆主曲线共同j=queries[common].tolist(),算法测试=unit_tests(),正式训练=False,历史阶段1='BLOCKED_UNCHANGED'))
+                                                      ^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\PEMFC指导\健康特征提取\共同负载特征研究\程序\共同负载研究.py", line 136, in unit_tests
+    assert np.isnan(guarded(p,a,[.5])[0][0])
+                    ^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\PEMFC指导\健康特征提取\共同负载特征研究\程序\共同负载研究.py", line 49, in guarded
+    result, support=interpolate(reps, np.asarray(queries), gap, values)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\沈农信电\ PEMFC-SOH+RUL\PEMFC指导\健康特征提取\程序\极化特征计算.py", line 110, in interpolate
+    右原始行=reps[right]['row_end'] if right<len(x) else None,
+             ~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'row_end'

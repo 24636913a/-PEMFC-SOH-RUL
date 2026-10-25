@@ -1,0 +1,42 @@
+[
+  {
+    "source": "PEMFC指导/基础预测实验/数据准备/FC1小时观测.csv",
+    "local": "数据准备/FC1小时观测.csv",
+    "sha256": "ad414bc5de47d8c8c0481a92afcde81f595a3a7e9cf2ef3cbab232245b08a36c"
+  },
+  {
+    "source": "PEMFC指导/基础预测实验/数据准备/RealHyFC循环观测.csv",
+    "local": "数据准备/RealHyFC循环观测.csv",
+    "sha256": "a87b9dcfe065df58ea6a30968b889f86002893706ab8bf7ab4d80d45bb33ff40"
+  },
+  {
+    "source": "PEMFC指导/基础预测实验/数据准备/稀疏诊断观测.csv",
+    "local": "数据准备/稀疏诊断观测.csv",
+    "sha256": "61f554b4d6e7144da8d752049e20ff39598994946f21d21073d0ffde846c4279"
+  },
+  {
+    "source": "RENew-PEMFC-2300h-Pytorch/RealHyFC_Raw1s_Rolling_300to120/audits/Startup_Precursor_Audit/runs/20261022T071957_960946Z_b1590612/source_manifest.json",
+    "sha256": "642ff5f623241c4ddd2053e40f9bd3c216eac778d9ee3956915de1e8c1f3b014",
+    "use": "仅搜索时钟邻点；cache只读；未扫描原始CSV"
+  },
+  {
+    "source": "PEMFC指导/step1/燃料电池三档研究方案.docx",
+    "sha256": "60d88a8ce04d331f213096d7c2b22bbba2a53c9fd17a961b2f9748ba604cc27a"
+  },
+  {
+    "source": "PEMFC指导/物理约束退化演化/阶段2B/配置/阶段2B冻结协议.json",
+    "sha256": "667a6871e6afe551854bdc8330d51eadfeee5958d9011acb9ecc0bf5dcdb7319"
+  },
+  {
+    "source": "PEMFC指导/物理约束退化演化/阶段2B/程序/低阶演化核心.py",
+    "sha256": "7da7e7d9265e5da825bb55c093b572e490e25fcffd209c6e816c6593478dd767"
+  },
+  {
+    "source": "PEMFC指导/物理约束退化演化/阶段2B/输出结果/表格/后续300_600及后移起点协议.csv",
+    "sha256": "049ec1ab26b8657adf8e754bfdc04cbc0171a1a85d02ecbb59b1fd57a6213f4d"
+  },
+  {
+    "source": "PEMFC指导/物理约束退化演化/阶段2B/输出结果/表格/诊断与运行历史配对及排除.csv",
+    "sha256": "26b6a32acdc4aeeebe6c9fb0a5c0639e5e531ad2939c0a367dff45e2d2a8d5d2"
+  }
+]

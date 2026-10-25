@@ -1,0 +1,4 @@
+﻿scenario,cutoff_h,clock_anchor_id,last_observation_id,last_observation_h,last_observation_calendar,n_history,diagnostic_nominal_h,availability
+A_严格300h,300,23,23,296.81473,2025-02-08T04:41:39.005000,23,[0],完成后可用的探索性离线假设；实际发布时间未知
+B_严格600h,600,49,49,560.3537,2025-02-23T17:24:58.005000,47,"[0, 300]",完成后可用的探索性离线假设；实际发布时间未知
+C_后移629h,629.2038,51,51,629.2038,2025-03-08T04:30:32.005000,48,"[0, 300, 600]",完成后可用的探索性离线假设；实际发布时间未知

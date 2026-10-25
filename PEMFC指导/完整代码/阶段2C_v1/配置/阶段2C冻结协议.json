@@ -1,0 +1,108 @@
+{
+  "version": "阶段2C_v1",
+  "head": "d49ccce5c4676780baed8d88283b914ee2938bda",
+  "utc": "2026-10-25T16:35:56.075825+00:00",
+  "identity": "标量运行性能探索性低阶迁移；既有Assessment已查看；非盲测、非二维迁移、非真实RUL",
+  "source": {
+    "dataset": "FC1",
+    "partition": "Train",
+    "scheme": "FC1_NOMINAL",
+    "j_A_cm2": 0.7,
+    "coordinate": "actual hour",
+    "lookback": 48,
+    "min_history": 24,
+    "dt_ref_h": 1
+  },
+  "target": {
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "j_A_cm2": 0.558161974,
+    "coordinate": "completed available_h",
+    "lookback_raw_cycles": 12,
+    "min_history": 6,
+    "min_fit": 12,
+    "dt_ref_h": 12
+  },
+  "scenarios": [
+    {
+      "name": "A_严格300h",
+      "cutoff_h": 300.0,
+      "diagnostic_nominal_h": [
+        0
+      ]
+    },
+    {
+      "name": "B_严格600h",
+      "cutoff_h": 600.0,
+      "diagnostic_nominal_h": [
+        0,
+        300
+      ]
+    },
+    {
+      "name": "C_后移629h",
+      "cutoff_h": 629.2038,
+      "diagnostic_nominal_h": [
+        0,
+        300,
+        600
+      ]
+    }
+  ],
+  "state": "仅最后12个原始循环内合法观测初始化2B型状态；全截止前历史拟合统计。A/B/C从最后实测d锚定；到截止点用已知历史时间传播，不接触未来观测。",
+  "methods": [
+    "A_Persistence",
+    "A_TargetBounded",
+    "B_FC1Direct",
+    "C_FC1PriorAdapted",
+    "D_Target2B_Bounded",
+    "D_Target2B_SlowReversible"
+  ],
+  "prior_weight_source": 0.25,
+  "rate": "d=1-SOH dimensionless; global OLS(d,actual past h) clipped [0,Q95(abs(local rates))]; source FC1 Train only; C=.25*q_source+.75*q_target",
+  "local": "FC1过去48h至少24点；Real过去12个原始cycle ID至少6点；均对真实过去运行小时OLS，缺失不填",
+  "floors": {
+    "rate_V": 1e-06,
+    "acceleration_V": 1e-08,
+    "noise_V": 1e-05
+  },
+  "statistics": "rate cap=max(Q95(abs local d/h),floor_V/(base_V*dt_ref)); acceleration=max(.25*Q95(abs diff local rates / diff actual h),floor_V/(base_V*dt_ref^2)); noise=MAD(diff d)/(.6744897501960817*sqrt(2)) with V/base floor; reversible=max(std(d-causalEWMA),noise); EWMA tc=lookback*dt_ref/2",
+  "bounded_k": [
+    0.25,
+    1.0
+  ],
+  "reversible_tau_h": [
+    12.0,
+    36.0,
+    72.0
+  ],
+  "inner": "各截止前合法历史按顺序前80%拟合，最后20%为单一起点固定预测选择；未来名义12h/cycle，不读实际未来lead；按RMSE、MAE、候选次序；随后全部截止前历史重拟合。",
+  "D_model": "x=[L,q,R]; F=[[1,dt,0],[0,1,0],[0,0,exp(-dt/tau)]]; H=[1,0,1]; Joseph update; q projected to [0,cap] and |dq|<=accel*dt; P0=diag(sR^2,(.25cap)^2,sR^2); Q=diag((.05noise)^2*dt/dt_ref,(accel*dt_ref)^2*dt/dt_ref,sR^2*(1-exp(-2dt/tau))); no future observation update",
+  "units": "2B型算法重新按d/h参数化；不是原2B以V/cycle计算结果的复用。Q的参考步长显式12h，保留量纲。",
+  "nominal_future": "从实际截止点重新锚定名义循环排程：target_nominal_h=cutoff_h+12*(target_id-last_completed_cycle_id)。截止时未完成循环的相位未知，不推测剩余时长。真实未来时长仅用于误差和时间审计。",
+  "evaluation": {
+    "common_after_raw_cycle": 51,
+    "common_after_h": 629.2038,
+    "primary": "所有真实合格共同未来目标；每个场景一个固定预测起点；同一目标仅一个查询",
+    "strata": "保留旧partition标签，分别报告；这些标签不再决定本轮拟合样本",
+    "auxiliary_complete_blocks": [
+      1,
+      4,
+      12,
+      25
+    ],
+    "block_rule": "从原始cycle52起完整前缀，任何缺失则该块NA；不补齐。主共同未来逐点评价仍保留全部合法观测。"
+  },
+  "pairing": {
+    "max_calendar_lag_h": 48,
+    "min_pairs_1d": 6,
+    "min_pairs_2d": 9,
+    "max_standardized_condition": 100,
+    "min_2d_transitions": 6,
+    "FC1_clock": "NOMINAL_ONLY",
+    "release": "UNKNOWN；诊断完成后可用仅离线回放假设"
+  },
+  "selection": "不使用共同未来、旧Assessment或后期诊断选择迁移权重、参数或方法；所有模型和场景均报告；无后续搜索",
+  "scope": "不训练网络，不更改0-2B，不重解析原始860万CSV；只复用冻结观测和缓存时间邻点",
+  "git": "延续用户自动Git授权，仅本地提交，不推送；不改旧文件"
+}

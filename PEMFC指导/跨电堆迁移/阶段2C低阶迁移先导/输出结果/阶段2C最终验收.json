@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "protocol_sha256": "592af52ad7fb898b9c6a92379f38fcc7892255c9d042197d92fa952615f285d7",
+  "independent_checks_each": 1492,
+  "numerical_csv_json_exact_equal": 14,
+  "historical_files_unchanged": 1050,
+  "backup_files_sha_equal": 20,
+  "figures_png_pdf": 8,
+  "figure_csv": 8,
+  "causal_unit_tests": 11,
+  "forecast_rows": 2538,
+  "unique_targets_each": 141,
+  "all_models_from_actual_cpu_fits": true,
+  "neural_training": false,
+  "formal_package_self_contained": true,
+  "git_policy": "standing local-commit authorization only; no push"
+}

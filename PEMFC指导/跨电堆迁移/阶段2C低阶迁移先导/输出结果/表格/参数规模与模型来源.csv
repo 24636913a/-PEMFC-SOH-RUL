@@ -1,0 +1,7 @@
+﻿method,估计量,源输入,状态,固定或内选超参数,说明
+A_Persistence,目标末次损失1个；速率固定0,0,1个观察锚点,无,不拟合未来状态
+A_TargetBounded,目标全历史斜率1个；经验cap,0,1个观察锚点,非负有界,截距仅OLS辅助、不作为额外预测自由度
+B_FC1Direct,源斜率1个及源cap；目标自身BoL,1个源速率,1个目标观察锚点,源模型固定,不使用目标早期漂移
+C_FC1PriorAdapted,源与目标各1个斜率；各自cap,1个源速率,1个目标观察锚点,源权重0.25固定,不拟合迁移权重
+D_Target2B_Bounded,目标q_prior、cap、accel共3个统计量,0,L锚点＋q滤波状态,k两个候选Train内部选择,无网络权重
+D_Target2B_SlowReversible,目标q_prior、cap、accel、noise、rev_scale共5个统计量,0,"L,q,R三个因果滤波状态",tau三个候选Train内部选择,状态不等于自由拟合物理损伤参数

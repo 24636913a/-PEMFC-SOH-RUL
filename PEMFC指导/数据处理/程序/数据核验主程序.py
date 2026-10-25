@@ -37,86 +37,9 @@ def snapshot_old(root):
 
 
 def sync_complete(guide,cfg,source,config,out,verified):
-    """只有真实数据核验及本次检查完成后同步；旧正式版本先完整备份。"""
-    complete=guide/'完整代码';history=complete/'完整代码历史副本'
-    complete.mkdir(exist_ok=True);history.mkdir(exist_ok=True)
-    if source.resolve()==complete.resolve():
-        return dict(status='ALREADY_RUNNING_COMPLETE_VERSION',backup=None)
-    files=list(source.glob('*.py'))
-    incoming=[(p,p.name) for p in files]+[(config,'配置/数据核验配置.yaml')]
-    for p in files:
-        compile(p.read_text(encoding='utf-8'),str(p),'exec')
-    current=[p for p in complete.rglob('*') if p.is_file() and history not in p.parents]
-    backup=None
-    if current:
-        stamp=datetime.now(timezone(timedelta(hours=8))).strftime('%Y%m%d_%H%M%S_%f')
-        backup=history/(stamp+'_阶段0_更新前完整版本')
-        backup.mkdir(exist_ok=False)
-        entries=[]
-        for item in current:
-            relative=item.relative_to(complete);target=backup/relative
-            target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(item,target)
-            digest=sha(item)
-            if sha(target)!=digest:raise RuntimeError('正式旧版本备份SHA失败，禁止更新')
-            entries.append(dict(file=relative.as_posix(),sha256=digest))
-        save_json(backup/'历史副本完整性.json',dict(status='VERIFIED_BEFORE_UPDATE',files=entries))
-    identities=[];promoted=[]
-    try:
-        for original,relative in incoming:
-            target=complete/relative;target.parent.mkdir(parents=True,exist_ok=True)
-            promoted.append(target)
-            shutil.copy2(original,target)
-            if sha(target)!=sha(original):raise RuntimeError('完整代码同步SHA失败')
-            compile(target.read_text(encoding='utf-8'),str(target),'exec') if target.suffix=='.py' else None
-            identities.append(dict(file=relative,sha256=sha(target)))
-    except BaseException:
-        failure=out/'完整代码同步失败现场';failure.mkdir(exist_ok=False)
-        for p in promoted:
-            if p.exists():
-                destination=failure/p.relative_to(complete)
-                if not p.resolve().is_relative_to(complete.resolve()) or not destination.resolve().is_relative_to(out.resolve()):
-                    raise RuntimeError('回滚路径越界，停止自动回滚')
-                destination.parent.mkdir(parents=True,exist_ok=True);p.replace(destination)
-        if backup:
-            for item in current:
-                relative=item.relative_to(complete);target=complete/relative
-                target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(backup/relative,target)
-                if sha(target)!=sha(backup/relative):raise RuntimeError('旧完整代码回滚SHA失败')
-        (failure/'失败记录.txt').write_text(traceback.format_exc(),encoding='utf-8')
-        raise
-    deps={p:metadata.version(p) for p in ('numpy','pandas','matplotlib','openpyxl','PyYAML')}
-    (complete/'依赖环境.txt').write_text('Python=='+sys.version.split()[0]+'\n'+'\n'.join(k+'=='+v for k,v in deps.items())+'\n',encoding='utf-8')
-    save_json(complete/'版本与核验记录.json',dict(version=cfg['版本'],updated=datetime.now().astimezone().isoformat(),
-        implemented='阶段0原始数据读取、审计、原始图和对应表',not_implemented='健康特征拟合、模型、SOH/RUL和迁移训练',
-        development_execution_verified=verified,output=str(out),files=identities,backup=str(backup) if backup else None,
-        runtime_scope='同SHA程序已在数据处理目录真实执行；同步副本另做静态/配置检查，不重复全量扫描'))
-    text=f'''# 最新完整代码：{cfg['版本']}
-
-最近更新：{datetime.now().astimezone().isoformat()}。研究阶段：阶段0。
-
-正式入口：`数据核验主程序.py`。全部自研逻辑包含在本目录四个Python文件中，配置位于`配置/数据核验配置.yaml`。不依赖任何历史训练入口、模型权重或临时缓存。
-
-已实现：FC1/RealHyFC原始数据核验、源SHA/LFS身份、时间完整性、极化覆盖、原始点绘图、诊断与运行记录对应、中文报告。未实现：二维健康特征拟合、健康状态模型、迁移训练、预测精度、SOH/RUL。
-
-源数据保留原位置，配置路径相对`PEMFC指导`的父目录，即现有项目根目录；无需复制原始数据。具体文件均记录在数据处理的源登记表。
-
-运行（原项目Python 3.11环境，不自动安装依赖）：
-
-```powershell
-python -X utf8 -B 数据核验主程序.py --check-only
-python -X utf8 -B 数据核验主程序.py
-```
-
-依赖见`依赖环境.txt`。新结果统一写入`PEMFC指导/数据处理/输出结果`，已有结果不覆盖，重复运行会创建历史核验子目录。正式代码中不堆放图像或缓存。
-
-运行验证：同SHA代码在数据处理目录完成本次全量描述性核验，状态见`版本与核验记录.json`。不把CONDITIONAL_PASS升级为跨电堆物理条件已完全一致。当前结果：`{out}`。
-
-历史备份：{str(backup) if backup else '首次形成正式代码；此前只有空历史目录，没有旧正式版本，不制造历史副本'}。
-
-后续正式代码更新前，必须先完整备份本目录（不递归复制历史副本），逐文件记录SHA并验证成功，再更新。已有历史副本不得改写。此次没有训练或计算预测精度。
-'''
-    (complete/'使用说明.md').write_text(text,encoding='utf-8')
-    return dict(status='SYNCHRONIZED_VERIFIED_BYTES',files=identities,backup=str(backup) if backup else None)
+    """阶段1.1新规则：准备程序不再发布到正式实验完整代码。"""
+    return dict(status='PREPARATORY_CODE_TASK_LOCAL_ONLY',backup=None,
+                policy='阶段1.1目录规则；旧同步实现已完整归档，当前不创建或写入完整代码')
 
 
 def main(argv=None):

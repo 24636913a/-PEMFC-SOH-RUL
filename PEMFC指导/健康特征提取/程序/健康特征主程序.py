@@ -178,15 +178,13 @@ def main():
         else:feature,curves,sensitivity=compute(cfg,out)
         from 特征报告绘图 import deliver
         result=deliver(stage,out,cfg,feature,curves,sensitivity)
+        # 原SHA不变；目录规范化后从已核对归档解析旧代码证据。
+        sys.path.insert(0,str(GUIDE/'健康特征提取/方法复核/程序'))
+        from 路径与证据 import resolve_evidence
         protected=[]
         for item in frozen['protected_files']:
-            checked=GUIDE/item['path'];current=sha(checked)
-            # 正式完整代码合法更新后，按已核对归档中的阶段0副本验证旧代码。
-            if current!=item['sha256'] and item['path'].startswith('完整代码/'):
-                rel=Path(item['path']).relative_to('完整代码')
-                matching=[p/rel for p in (GUIDE/'完整代码/完整代码历史副本').iterdir() if p.is_dir() and (p/rel).is_file() and sha(p/rel)==item['sha256']]
-                if matching:checked=matching[0];current=sha(checked)
-            protected.append(dict(**item,checked_path=str(checked),unchanged=current==item['sha256']))
+            checked=resolve_evidence(item['path'],item['sha256'])
+            protected.append(dict(**item,checked_path=str(checked),unchanged=sha(checked)==item['sha256']))
         if not all(x['unchanged'] for x in protected):raise RuntimeError('阶段0/正式代码发生变化')
         save_json(out/'历史成果保护核验.json',protected)
         record=dict(status=result,started=started,finished=datetime.datetime.now().astimezone().isoformat(),

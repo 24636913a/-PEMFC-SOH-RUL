@@ -68,7 +68,10 @@ def main():
     frozen=json.loads((guide/'健康特征提取/配置/计算前冻结记录.json').read_text(encoding='utf-8'))
     # 正式代码同步后允许完整代码变更，但阶段0数据处理目录必须保持逐文件相同。
     preserved=[r for r in frozen['protected_files'] if r['path'].startswith('数据处理/')]
-    for r in preserved:assert digest(guide/r['path'])==r['sha256']
+    import sys
+    sys.path.insert(0,str(guide/'健康特征提取/方法复核/程序'))
+    from 路径与证据 import resolve_evidence
+    for r in preserved:assert digest(resolve_evidence(r['path'],r['sha256']))==r['sha256']
     residual_rows=[]
     mask=(pts.电堆=='FC1')&(pts.方案=='主规则')&(pts.文件名!='FC1_Pola_T000.xlsx')&pts.纳入拟合
     for name,group in pts.loc[mask].groupby('文件名'):

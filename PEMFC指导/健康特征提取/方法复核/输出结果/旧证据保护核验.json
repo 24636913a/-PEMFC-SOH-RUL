@@ -1,0 +1,911 @@
+[
+  {
+    "path": "数据处理/使用说明.md",
+    "sha256": "bd092c03188ed37cf151374ea4ba3b9aea1715ac10301139e271fb04326a5a68",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/历史代码只读身份记录.json",
+    "sha256": "5f8a70adc0006996940636f3afa9b96b412138e07382cca9703b90990c9682ef",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/数据核验报告.md",
+    "sha256": "2e8fcba50edb4c73b0f729a2e52040e43a974ffc8f35186e195a2e879579e20a",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/数据读取代码审查报告.md",
+    "sha256": "737672888f9341be48131fc54092c25a586be6ef207cc073f973f798075950de",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/核验补充说明.md",
+    "sha256": "97d114b6f81741d9a8f46f7768070ee2b57bb2146f143d36d0f5a5486e7703bc",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/程序/报告与绘图.py",
+    "sha256": "ad9d6a35b6d3183b96d766c573188254903cd46ab6e71b8623c5f5e6864e74b0",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/程序/数据核验主程序.py",
+    "sha256": "f4b16c826135eda1a5c2175d43b0c10da61357f43b96fa43723bec75afcda7f4",
+    "status": "OLD_BYTES_ARCHIVED_MANAGEMENT_FIX_ONLY",
+    "archived": "E:\\沈农信电\\ PEMFC-SOH+RUL\\PEMFC指导\\数据处理\\程序历史副本\\20261025T155740_154655_阶段0原程序及归档\\整理前任务源\\程序\\数据核验主程序.py"
+  },
+  {
+    "path": "数据处理/程序/核验基础.py",
+    "sha256": "f3e21da56eda457070808b26769ab3241df9fea341f6aa29ac84eb5f690d93b6",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/程序/运行与极化.py",
+    "sha256": "6324e1ba1a98435e8d349143611b5b10b8bff05b3ba6aa77184671c8c9e4f58f",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/历史文件保护检查.json",
+    "sha256": "8adb231ad656e4b4c827d67f3dccec5a07adf207d1cd82f262fcfe11645969e6",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/完整代码同步记录.json",
+    "sha256": "e59a24f235ba6ce1b2b5acff998aa851163efec82f3bfbc203ce30d34031398c",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/实际配置.json",
+    "sha256": "28ffbdd71a58e5c61f36c0a7db449f634dfc88909d59f96af0f2064df57d3cc6",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/执行日志.txt",
+    "sha256": "2068e951238a34ed131fc7780304ca9a0091319a668569e7fc69b619d7d098b2",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/补充交付核验记录.json",
+    "sha256": "ff28d9eb6b394e363a37f1fabfd6ecf81a1160d1c39200b0f109fafb71094975",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/补充原始一致性核查.json",
+    "sha256": "e808385a263ff9c7061b05e96ac3cb5031edded36d406352c7c6c3c31c340897",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/输出文件SHA256.json",
+    "sha256": "e3fd8a051a578e6af99b890aecc6240d683c50c8a8df6a43ac33d6d575d6d8f9",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/运行记录.json",
+    "sha256": "57200fd98762cb30bd415458c1228b8af3e486d483ed623d8014532cd50b9159",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/运行验证记录.json",
+    "sha256": "49aaa7c97d1e1eb118a44effe400b97ee1184c6d22fff898ac638cfc4e2ebcf3",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/图片/FC1原始极化曲线.png",
+    "sha256": "10817f56e29c3826bc4405df1310da6429396ca096049f55de5b521709054a10",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/图片/FC1原始运行电压.png",
+    "sha256": "ad63233bd29f268bb3730eb4b1b171b9498a88ac6eb52b25b9199d28cd248fe0",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/图片/RealHyFC原始极化曲线.png",
+    "sha256": "e4c43ae81985909cf25bfebf9e6a0a1714f04f989facd66ef1d1fe2398e6d04a",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/图片/RealHyFC原始运行电压.png",
+    "sha256": "7ca3947e9952f2cf33834213b6ca2b84efb8414c754cca02548382780bbc349b",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/图片/RealHyFC启停前后极化对比.png",
+    "sha256": "7629f5156b386797e1bff87ff259e82cffac950b61f6faf0881ad67d45d1f494",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/图片/RealHyFC运行电流与数据间断.png",
+    "sha256": "8f1f632a1df989e2517c2a338e9f115cb13013dfbaddc126d383a08f2bd2413b",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/绘图缓存/fontlist-v390.json",
+    "sha256": "e16e0c84746d1171a2ad2d4f9a00cbb0f68c107da9243d36b58ba8aad62f961f",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/FC1原始字段与单位登记.csv",
+    "sha256": "e5cd3a8068fe1723be5b3b19d0a9765b3beb50ef7a219a4e840b93fb75da1779",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/FC1原始运行绘图点.csv",
+    "sha256": "8c359d3883e9e89045d6afa96fb4a804fd23a99c4b92fdd1fa8c4423126109f2",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/FC1重复运行时刻明细.csv",
+    "sha256": "af614d37f105b83d193f8b8d960b4c12ade43685ff704ec10fcdfeaafc12e162",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/RealHyFC原始运行绘图点.csv",
+    "sha256": "9fee43b115cee5e338677899ed4374a8ab9f9672d02d558373a1c2ea15f648c2",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/RealHyFC电流密度不一致原始例证.csv",
+    "sha256": "6a61c1a260aeb563a40cd063bcea4316bbe8555ae561d1be34cafea9bca1cbea",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/RealHyFC逐字段缺失检查.csv",
+    "sha256": "440ae4f2e1854f1c8ce70102b3511026c4f78ee4aa888bfd79d8e16fb84f35b9",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/U6独立诊断.csv",
+    "sha256": "2d6acbff77ae348963583486a06387c33fd30f17a1f64b97369dd2f5a788ff0a",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/图片与原始来源索引.csv",
+    "sha256": "cde825d34e34d36e96e8c5541f3af9c555d5186fdacf44ec974d41d262c1128b",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/数据源文件登记表.csv",
+    "sha256": "8b97b20b1e29952180f163e7658adbf80a9ee38b50e37e7d340e3380ad76978f",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/极化原始测量点.csv",
+    "sha256": "08987c8a05b63f8a6dde56cd7885b9cc050a3fdb8c775bbdce6648375e543ded",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/极化扫描分段与参考点支持.csv",
+    "sha256": "14e7f829150d3ead2923a39cc428c5a9f24fbba972ac48619b70a7244504c4b7",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/极化曲线覆盖范围.csv",
+    "sha256": "107c73ad777f553875a39d410710c0924a2d5e6d52f3e49a19b1d7dbf7b5381f",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/老化运行数据完整性检查.csv",
+    "sha256": "5bb29ff12f9267ff339df71b18ca6837c0c97aaeb538ef39d863200206920c5e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/运行数据与极化测试对应表.csv",
+    "sha256": "023cd655a4db9aeb8bec3f3a04a1904d9d796d55b8776e5ab09760a88d160b65",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/输出结果/表格/运行观测间断明细.csv",
+    "sha256": "8d09f09bcbcc7bab47ce4bb9bc834357133505ac87b24f774b3b3a1700fc39c7",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "数据处理/配置/数据核验配置.yaml",
+    "sha256": "9b949537ee1bcb1713e8e5eff1b5712cdf84bfa71ffd5b84bf43bb96cd70238a",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/使用说明.md",
+    "sha256": "06a1eda4739cf7380913649f86cc8461e67bf947dcc000e3e1c55696406cda6c",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/健康特征验证报告.md",
+    "sha256": "a15332e79a9cca1ef4bf58245f3fcfe263e761acd6af259e0ed5a54ff39d201e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/特征提取方法说明.md",
+    "sha256": "06ed63bc8f7a37c658627c06b7b6a6aee96e2840f79a26233e8419d8b3359cc1",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/程序/健康特征主程序.py",
+    "sha256": "6269ab57d34886ca871ffc9ececbc84701f4b88b8e5f36562dd52ec1699c5d0c",
+    "status": "OLD_BYTES_ARCHIVED_MANAGEMENT_FIX_ONLY",
+    "archived": "E:\\沈农信电\\ PEMFC-SOH+RUL\\PEMFC指导\\健康特征提取\\程序历史副本\\20261025T155740_154655_原完整代码阶段1_v1\\健康特征主程序.py"
+  },
+  {
+    "path": "健康特征提取/程序/平台可靠性复核.py",
+    "sha256": "ea719e166100fa29cbe00d361283b4953058e5a838cbf64751a4a63d64ad8f17",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/程序/极化特征计算.py",
+    "sha256": "157a57706f3dcba8d732df6ea2c2858a327b44a6f0645393efae0ec9c3364ea6",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/程序/正式代码归档同步.py",
+    "sha256": "00f11e16ace12ff60d7b08a1cc2fb01c941092d85977501c84f5f940ff51ceac",
+    "status": "OLD_BYTES_ARCHIVED_MANAGEMENT_FIX_ONLY",
+    "archived": "E:\\沈农信电\\ PEMFC-SOH+RUL\\PEMFC指导\\健康特征提取\\程序历史副本\\20261025T155740_154655_原完整代码阶段1_v1\\正式代码归档同步.py"
+  },
+  {
+    "path": "健康特征提取/程序/特征报告绘图.py",
+    "sha256": "21f7bd05aec892b9acf9c47aa1a9adc15fcb977751c3d033c77192583fa28238",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/程序/独立复算核验.py",
+    "sha256": "63da2678814de4166083abb99ee34b12a7b6e798912e1ad2e1a5a8b023e566da",
+    "status": "OLD_BYTES_ARCHIVED_MANAGEMENT_FIX_ONLY",
+    "archived": "E:\\沈农信电\\ PEMFC-SOH+RUL\\PEMFC指导\\健康特征提取\\程序历史副本\\20261025T155740_154655_原完整代码阶段1_v1\\独立复算核验.py"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史成果保护核验.json",
+    "sha256": "f8f9a753bf13cd885427672ef7358df1f9ee26f655c2bf1f6924cda12e7cfee0",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/执行日志.txt",
+    "sha256": "a6336b9bc7c0956a32ca7887377c78107ae240f221ed05ed805391707e770a2c",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/最终交付索引.json",
+    "sha256": "e9a178b3b18537a7b6217c224d9edf1fb8a7931fc516e740a59e9ce05a280d8d",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/独立复算核验_20261025T153023_655575.json",
+    "sha256": "e0cba8adbfb275050aface468e60fbc8d682a25125ca30f308a03df38b990389",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/结果SHA256.json",
+    "sha256": "4765eb9da60c9a1243017edc6e2a1a3d572daa1faf59c4c5d5f35e702a737eb4",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/运行记录.json",
+    "sha256": "9a66aa55bb5547526163f10579005b973467fc859929637a8b60a6da08508495",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/阶段结论.json",
+    "sha256": "bb80913ad1fbe9315085afec31e61967df36e2f854b3421447ec2f3a37dcb150",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153239_328349/故障记录.json",
+    "sha256": "189f389cb213f664c3056dcfd5b7698730bd26a8b389a3534453511e7cc67b0d",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/健康特征验证报告.md",
+    "sha256": "903328ea4948ca95e47a0c4c59a2c4cbba01b44fb301b19bba99d758997bc234",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/历史成果保护核验.json",
+    "sha256": "f8f9a753bf13cd885427672ef7358df1f9ee26f655c2bf1f6924cda12e7cfee0",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/平台可靠性复核.json",
+    "sha256": "12783b017d457a04ece19029b2baed87a56c85209182689c0dc2fa04dccc78ed",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/特征提取方法说明.md",
+    "sha256": "06ed63bc8f7a37c658627c06b7b6a6aee96e2840f79a26233e8419d8b3359cc1",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/独立复算核验_20261025T153452_667463.json",
+    "sha256": "94ac735411c78210485742a17365e71fc0ad48646742f9dab98ed7e6c96d4d92",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/结果SHA256.json",
+    "sha256": "7abd32ddfc78d10ac128ceea10c03ecb43dc9c9641223e47f5d578120ff751ca",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/运行记录.json",
+    "sha256": "c9ebb688a9e0ff5518454341ef4896cc0c9b3b66d5ad81713727bafd0b21384f",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/重绘来源记录.json",
+    "sha256": "628fb58025f4a3badb48493e159568a772d3c8366b7dcddf3fc1f49f3eaffa91",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/阶段结论.json",
+    "sha256": "6d3f4ffe1caf9f27faf33eb030fcc7a76e5327dbd2e937a632f4ed218a7c9028",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/图片/FC1一维与二维拟合对比.pdf",
+    "sha256": "bd544c6d8465034927721b2736d92ad9c33707999a5c1854b978f3040d09a2fe",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/图片/FC1一维与二维拟合对比.png",
+    "sha256": "39ef8c8aeaacb71f770eea8959fad6144539f35dcffec457b1e8d398b9ba3dad",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/图片/FC1二维健康特征随老化变化.pdf",
+    "sha256": "00910a11bd849fd979c6ce52d6461c56b60eeff51d33e6e31a6046e5cb48b1da",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/图片/FC1二维健康特征随老化变化.png",
+    "sha256": "c19a1824c152f507087c6b3d9f9376ffc0472347b84aa36ac5c4205b2e197efb",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/图片/FC1相对初始极化电压损失.pdf",
+    "sha256": "a42652db3952f3613119504163f99d64109e7d4fbc2d4540dd1cca69e001a2e2",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/图片/FC1相对初始极化电压损失.png",
+    "sha256": "2e259a6866ac5b31de6ee978a33c92be91823b872ab83a7dc1fb6dd26bf8d75c",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/图片/RealHyFC平台覆盖与提取拒绝依据.pdf",
+    "sha256": "59656f165256209dd204d8b1f0a91b6185bcfe0ebe69f8580b241585c17cbc41",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/图片/RealHyFC平台覆盖与提取拒绝依据.png",
+    "sha256": "5c19f02921bb9adf791cacdf98118fa8119f9ac10be749a30bf15d3628d3794c",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/图片/一维二维负载留组重构比较.pdf",
+    "sha256": "6455b60e0a856f0e91538d2e4e5a366660acb98c07ac425b2bb3b4a3456db42e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/图片/一维二维负载留组重构比较.png",
+    "sha256": "1801dbbb9d8529ad2e9af3fc4929d609bfee1fcdd087c8dc6ad6053e9c4252b3",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/图片/二维健康特征稳定性对比.pdf",
+    "sha256": "2c6f2f0b5983fb6f3e9d1eef2e208998603a8c32eca39efdc42207cfbc8b4b01",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/图片/二维健康特征稳定性对比.png",
+    "sha256": "dd64535ce5e43c569ec1d852a192ff62fd6fa4163e18cc9054dc3c5928ff9746",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/绘图配置缓存/fontlist-v390.json",
+    "sha256": "4e769f97f07cb711916d303b8a1823cf629cb88cf6fbd086ce78edc855208545",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/FC1二维健康特征.csv",
+    "sha256": "437d73bd604c5153ae6b10c5b8825faad177537aca2e04e4ad67cc167bd77ced",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/RealHyFC二维健康特征.csv",
+    "sha256": "d30e57d56666923b73823dd3757fb01272332eb3f5c99acea1071c575d1aa07e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/RealHyFC平台覆盖绘图数据.csv",
+    "sha256": "4ba181785ed9c00db839f8e46f4e97d04682064d03f5e3fc6e46ac219a6888e3",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/RealHyFC长平台拒绝独立复核.csv",
+    "sha256": "b6381435be3d857436ea4a1f63ec716f74ac71516defc77534f18e758ffde238",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/代表点原始行成员.csv",
+    "sha256": "2e0c51909fbae49d5973aa354bf769911d82c9088be1cb2a81a2f3a23a46f972",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/全部方案二维特征.csv",
+    "sha256": "bf6a26191acd5de90f33570a9e87a921d3f560fa9871153ef3a8940d6bff8994",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/共同网格损失及一二维重构.csv",
+    "sha256": "0f8b3693f9f1c3869e9091b6f24a87a0522c0149e5610a568313f71c5679dcbe",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/合格代表点及条件.csv",
+    "sha256": "2eb7380020a5073504c0b08fb025178b220b559cc40694f7453357858239dcc0",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/同支持区间处理敏感性.csv",
+    "sha256": "acadc2753e6ab88734669561896c29727efe06ae77673e10de5d368ae01ba44e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/图片与来源索引.csv",
+    "sha256": "04c50aed9c50b5a29e3743a127c76afa10d8dee9bf3d7cbc4f96424b3e910649",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/局部插值左右支持.csv",
+    "sha256": "7f48f248f2682f76ff717c4458913300e48b50fdea241589ffbc6c2b28404643",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/平台及分组筛选明细.csv",
+    "sha256": "4151e8e38740204472b0816de77c5b1619fd67e675c16f0be6a9f5ed303f28cf",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/未生成图表及原因.csv",
+    "sha256": "d42dda42c23cb644ee718b68b97d3d1e3f57bd2cc5b8c326ff20c6628df78f9f",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/条件分块扰动参数.csv",
+    "sha256": "5e18c9ba33fffd4c77bb544e229fb3cfc9eba13c870f0a054afb25626bcaeb56",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/极化源身份复核.csv",
+    "sha256": "a68256963cc246fe78990b771a167f97f0781a6c46e55af86b89579d8ddce239",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/独立复算差异_20261025T153023_655575.csv",
+    "sha256": "0bfcb0cef6a2751fef05f85d0f9b25b53b6b82857b8f05c77a2ea43284544d4d",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/独立复算差异_20261025T153452_667463.csv",
+    "sha256": "0bfcb0cef6a2751fef05f85d0f9b25b53b6b82857b8f05c77a2ea43284544d4d",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153300_494048/表格/阶段1验收汇总.csv",
+    "sha256": "a229c7494874dc56edcef7f4aaf90a2c72bc98e578e9fc9136b87bb2c458ab88",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/交付验收记录.json",
+    "sha256": "6c49c7497947e680dd1a814ae5ef418c983ffbc36443f1a8b73a67298e771608",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/健康特征验证报告.md",
+    "sha256": "903328ea4948ca95e47a0c4c59a2c4cbba01b44fb301b19bba99d758997bc234",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/历史成果保护核验.json",
+    "sha256": "616fc0256c6950a0b58485bfe9f9d3b789f2a41171a34e4131b55965bde1426d",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/平台可靠性复核.json",
+    "sha256": "ee4bcdf9c904c5b64c3bc33a7886d2bdf090d7b8f933800ab630666663939a4a",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/最终交付SHA256.json",
+    "sha256": "1820033162980ff43895f94ff559c46442595c6271b5b01ec81bc70539ef86e7",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/正式代码同步记录.json",
+    "sha256": "e5bbd78543c91adf5723566ad3a75601b96c8af1e59ca862b6f9bfd47014ee69",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/特征提取方法说明.md",
+    "sha256": "06ed63bc8f7a37c658627c06b7b6a6aee96e2840f79a26233e8419d8b3359cc1",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/独立复算核验_20261025T153649_118759.json",
+    "sha256": "02fa95d76d4f2c6f47e6c6ee9443904c43cceb2b3f7be9ea8a5fdd94639b1c4e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/独立复算核验_20261025T154049_900639.json",
+    "sha256": "bd5b314e8773341913988d007fab45f91fada82c3dfc3941c46859842ca5b18d",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/结果SHA256.json",
+    "sha256": "56e1a415abe24ca83dd5e6d806559976bb256f6a0d4e48b448627de0a6431d15",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/运行记录.json",
+    "sha256": "67ead96432f6b84465233118b4eefc0996e06096cf030ce8c437482e0af4f4cb",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/重绘来源记录.json",
+    "sha256": "11083489845cdfcf2c101f4da619d7007af6c463be29851b4ea0bd829d5d8acf",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/阶段结论.json",
+    "sha256": "6d3f4ffe1caf9f27faf33eb030fcc7a76e5327dbd2e937a632f4ed218a7c9028",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/图片/FC1一维与二维拟合对比.pdf",
+    "sha256": "897a195648f28bc9295259bd7275425915c0072d8ab054ab9aca3dfd16d8a110",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/图片/FC1一维与二维拟合对比.png",
+    "sha256": "39ef8c8aeaacb71f770eea8959fad6144539f35dcffec457b1e8d398b9ba3dad",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/图片/FC1二维健康特征随老化变化.pdf",
+    "sha256": "3ce227b22ddc7f6e1de280caeb0e469b6d229394c48d09629896b5c9724924b0",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/图片/FC1二维健康特征随老化变化.png",
+    "sha256": "c19a1824c152f507087c6b3d9f9376ffc0472347b84aa36ac5c4205b2e197efb",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/图片/FC1相对初始极化电压损失.pdf",
+    "sha256": "862a7bd83e301666b67f5236d4d8bb4a29e45135a1baaedea461ccc00652fcc8",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/图片/FC1相对初始极化电压损失.png",
+    "sha256": "2e259a6866ac5b31de6ee978a33c92be91823b872ab83a7dc1fb6dd26bf8d75c",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/图片/RealHyFC平台覆盖与提取拒绝依据.pdf",
+    "sha256": "009c6da582e1dfbb7a81323084d134e3503f2cedfec0488027b647d960525a76",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/图片/RealHyFC平台覆盖与提取拒绝依据.png",
+    "sha256": "5c19f02921bb9adf791cacdf98118fa8119f9ac10be749a30bf15d3628d3794c",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/图片/一维二维负载留组重构比较.pdf",
+    "sha256": "4b3e2136b070c69564321d70015a26525cc0bb3318f63b2d25dcc358902eba1d",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/图片/一维二维负载留组重构比较.png",
+    "sha256": "3051689c569129db42a6d7cb03149fb70d9cbd85bcbea53e2f20659b0e8297a0",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/图片/二维健康特征稳定性对比.pdf",
+    "sha256": "9572302a16d5fccafbcd10f48df5416ea4d9b6906c871d8e0f34d7e90ae97676",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/图片/二维健康特征稳定性对比.png",
+    "sha256": "e764a64cc2a547c36cab1324ed1cde9a0819f9862bd9c1a2a13005a4279a9dbd",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/绘图配置缓存/fontlist-v390.json",
+    "sha256": "b336e04729e04c5633a070815b46006fd546817e861db0d5bd1ea763c12f4405",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/FC1二维健康特征.csv",
+    "sha256": "437d73bd604c5153ae6b10c5b8825faad177537aca2e04e4ad67cc167bd77ced",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/FC1分负载残差检查.csv",
+    "sha256": "3c67b0fd77ef882278d7480d8f134ddb861240666c81cdc74b96c514a4578402",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/RealHyFC二维健康特征.csv",
+    "sha256": "d30e57d56666923b73823dd3757fb01272332eb3f5c99acea1071c575d1aa07e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/RealHyFC平台覆盖绘图数据.csv",
+    "sha256": "4ba181785ed9c00db839f8e46f4e97d04682064d03f5e3fc6e46ac219a6888e3",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/RealHyFC长平台拒绝独立复核.csv",
+    "sha256": "b6381435be3d857436ea4a1f63ec716f74ac71516defc77534f18e758ffde238",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/代表点原始行成员.csv",
+    "sha256": "2e0c51909fbae49d5973aa354bf769911d82c9088be1cb2a81a2f3a23a46f972",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/全部方案二维特征.csv",
+    "sha256": "bf6a26191acd5de90f33570a9e87a921d3f560fa9871153ef3a8940d6bff8994",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/共同网格损失及一二维重构.csv",
+    "sha256": "0f8b3693f9f1c3869e9091b6f24a87a0522c0149e5610a568313f71c5679dcbe",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/合格代表点及条件.csv",
+    "sha256": "2eb7380020a5073504c0b08fb025178b220b559cc40694f7453357858239dcc0",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/同支持区间处理敏感性.csv",
+    "sha256": "acadc2753e6ab88734669561896c29727efe06ae77673e10de5d368ae01ba44e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/图片与来源索引.csv",
+    "sha256": "ccdf47e3c0bd52c2ff093a2ff3e5f5a67cf31a7dc12cc5ce85e85a0cec1c001e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/局部插值左右支持.csv",
+    "sha256": "7f48f248f2682f76ff717c4458913300e48b50fdea241589ffbc6c2b28404643",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/平台及分组筛选明细.csv",
+    "sha256": "4151e8e38740204472b0816de77c5b1619fd67e675c16f0be6a9f5ed303f28cf",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/未生成图表及原因.csv",
+    "sha256": "d42dda42c23cb644ee718b68b97d3d1e3f57bd2cc5b8c326ff20c6628df78f9f",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/条件分块扰动参数.csv",
+    "sha256": "5e18c9ba33fffd4c77bb544e229fb3cfc9eba13c870f0a054afb25626bcaeb56",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/极化源身份复核.csv",
+    "sha256": "a68256963cc246fe78990b771a167f97f0781a6c46e55af86b89579d8ddce239",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/独立复算差异_20261025T153023_655575.csv",
+    "sha256": "0bfcb0cef6a2751fef05f85d0f9b25b53b6b82857b8f05c77a2ea43284544d4d",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/独立复算差异_20261025T153452_667463.csv",
+    "sha256": "0bfcb0cef6a2751fef05f85d0f9b25b53b6b82857b8f05c77a2ea43284544d4d",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/独立复算差异_20261025T153649_118759.csv",
+    "sha256": "0bfcb0cef6a2751fef05f85d0f9b25b53b6b82857b8f05c77a2ea43284544d4d",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/独立复算差异_20261025T154049_900639.csv",
+    "sha256": "0bfcb0cef6a2751fef05f85d0f9b25b53b6b82857b8f05c77a2ea43284544d4d",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/历史核验/20261025T153526_430847/表格/阶段1验收汇总.csv",
+    "sha256": "a229c7494874dc56edcef7f4aaf90a2c72bc98e578e9fc9136b87bb2c458ab88",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/FC1一维与二维拟合对比.pdf",
+    "sha256": "47363211427f5b9e2c14c6fdd4d55a5c5e23b9c98ad6772c04e491b56896b6cc",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/FC1一维与二维拟合对比.png",
+    "sha256": "448e1e8c2971c8f10170afe813d1d1e252af6fa887bbda678dbe529ea6c021a8",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/FC1二维健康特征随老化变化.pdf",
+    "sha256": "e4b5db499584f4331982cf9021d1c3fb73a7c963cb00eea49d84673ebf1dc364",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/FC1二维健康特征随老化变化.png",
+    "sha256": "c19a1824c152f507087c6b3d9f9376ffc0472347b84aa36ac5c4205b2e197efb",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/FC1相对初始极化电压损失.pdf",
+    "sha256": "15bdc15b3ca13d73a0efed5d08ad7414d00d1b9611eb568396fd2eb6a2c6cc91",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/FC1相对初始极化电压损失.png",
+    "sha256": "2e259a6866ac5b31de6ee978a33c92be91823b872ab83a7dc1fb6dd26bf8d75c",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/RealHyFC一维与二维拟合对比.pdf",
+    "sha256": "1acc50efb27fbfb172abc0c17bcb0fa4d33b9a5e563976ae52c324492dba37eb",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/RealHyFC一维与二维拟合对比.png",
+    "sha256": "8e88249ccdac1c1dee3ef5ec2cd6782f0a5ae468d93d9d467d189d4e37b0709e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/RealHyFC二维健康特征随老化变化.pdf",
+    "sha256": "c660d403fa73bc482bc30dd8cea806f0632b7a0db546a1683548130b40eac0cc",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/RealHyFC二维健康特征随老化变化.png",
+    "sha256": "e03ab654b80338fbe0fba59b3830d05a316846e2116a4565c4c51bbd375217f6",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/RealHyFC相对初始极化电压损失.pdf",
+    "sha256": "c7a0d3176e140748a8933a77ee396e9b2749b8e4faa0817e6319c4d2d63039e0",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/RealHyFC相对初始极化电压损失.png",
+    "sha256": "8798853fc015c5bd6340921a95bceb6ee6b48c7f8e7e8560ee02346e2b4ecf77",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/一维二维负载留组重构比较.pdf",
+    "sha256": "7a145aa3902191c21a4c0a2b7ed96326957a69b76ba62609da0a68e7f133459b",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/一维二维负载留组重构比较.png",
+    "sha256": "1801dbbb9d8529ad2e9af3fc4929d609bfee1fcdd087c8dc6ad6053e9c4252b3",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/二维健康特征稳定性对比.pdf",
+    "sha256": "b3f177a59859d135ad2c5d1e58cc66fe4ee03c44e3065a18e4c5f7d7375c7f76",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/图片/二维健康特征稳定性对比.png",
+    "sha256": "dd64535ce5e43c569ec1d852a192ff62fd6fa4163e18cc9054dc3c5928ff9746",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/绘图配置缓存/fontlist-v390.json",
+    "sha256": "6994443c179f14f0b15fd31e611ac023e76cd5a1e724174e67660b81cc08e974",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/FC1二维健康特征.csv",
+    "sha256": "437d73bd604c5153ae6b10c5b8825faad177537aca2e04e4ad67cc167bd77ced",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/RealHyFC二维健康特征.csv",
+    "sha256": "d30e57d56666923b73823dd3757fb01272332eb3f5c99acea1071c575d1aa07e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/代表点原始行成员.csv",
+    "sha256": "2e0c51909fbae49d5973aa354bf769911d82c9088be1cb2a81a2f3a23a46f972",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/全部方案二维特征.csv",
+    "sha256": "bf6a26191acd5de90f33570a9e87a921d3f560fa9871153ef3a8940d6bff8994",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/共同网格损失及一二维重构.csv",
+    "sha256": "0f8b3693f9f1c3869e9091b6f24a87a0522c0149e5610a568313f71c5679dcbe",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/合格代表点及条件.csv",
+    "sha256": "2eb7380020a5073504c0b08fb025178b220b559cc40694f7453357858239dcc0",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/同支持区间处理敏感性.csv",
+    "sha256": "acadc2753e6ab88734669561896c29727efe06ae77673e10de5d368ae01ba44e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/图片与来源索引.csv",
+    "sha256": "ddb1163c159eb235c8a473723230730e97c9dee724a00aa7d18e5d5f85f970dd",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/局部插值左右支持.csv",
+    "sha256": "7f48f248f2682f76ff717c4458913300e48b50fdea241589ffbc6c2b28404643",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/平台及分组筛选明细.csv",
+    "sha256": "4151e8e38740204472b0816de77c5b1619fd67e675c16f0be6a9f5ed303f28cf",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/条件分块扰动参数.csv",
+    "sha256": "5e18c9ba33fffd4c77bb544e229fb3cfc9eba13c870f0a054afb25626bcaeb56",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/极化源身份复核.csv",
+    "sha256": "a68256963cc246fe78990b771a167f97f0781a6c46e55af86b89579d8ddce239",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/独立复算差异_20261025T153023_655575.csv",
+    "sha256": "0bfcb0cef6a2751fef05f85d0f9b25b53b6b82857b8f05c77a2ea43284544d4d",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/表格/阶段1验收汇总.csv",
+    "sha256": "8a17b60944a050cd96ea7e21367abcd757851eb060fb1abdd3ab7e70973ceb4e",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/首轮显示与判定记录/首轮健康特征验证报告.md",
+    "sha256": "2e46dfb7c5ce504151a4bece1b3bf98be8443ed51b3681d3b2665e0323ec7cf3",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/输出结果/首轮显示与判定记录/首轮特征提取方法说明.md",
+    "sha256": "06ed63bc8f7a37c658627c06b7b6a6aee96e2840f79a26233e8419d8b3359cc1",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/配置/健康特征冻结规则.yaml",
+    "sha256": "3c88d3dac66f18ff5d403a416bb460c6b6d9a9af69f2d23c00804e8377eba950",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/配置/指导方案只读文本.txt",
+    "sha256": "083a4998f903e825436441597a2790e917f35ab3e265863688d25170cd78a1f4",
+    "status": "UNCHANGED"
+  },
+  {
+    "path": "健康特征提取/配置/计算前冻结记录.json",
+    "sha256": "3d5c62af815b1f90905cd4ebeefbf4ca3a0ad7d0a5344aced8969c993bd04438",
+    "status": "UNCHANGED"
+  }
+]

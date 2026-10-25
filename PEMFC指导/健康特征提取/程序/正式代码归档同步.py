@@ -8,6 +8,7 @@ def write(p,obj):p.write_text(json.dumps(obj,ensure_ascii=False,indent=2),encodi
 
 
 def main():
+    raise RuntimeError('阶段1.1起准备工作不得同步到完整代码。旧实现已归档，仅保留历史身份；正式实验尚未建立。')
     guide=next(p for p in Path(__file__).resolve().parents if (p/'数据处理/数据核验报告.md').exists())
     stage=guide/'健康特征提取';formal=guide/'完整代码'
     previous=json.loads((formal/'版本与核验记录.json').read_text(encoding='utf-8'))

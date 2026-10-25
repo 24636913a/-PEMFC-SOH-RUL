@@ -1,0 +1,36 @@
+{
+  "status": "BLOCKED",
+  "started": "2026-10-25T15:33:00.494048+08:00",
+  "finished": "2026-10-25T15:33:04.679270+08:00",
+  "config_sha256": "3c88d3dac66f18ff5d403a416bb460c6b6d9a9af69f2d23c00804e8377eba950",
+  "tests": [
+    "禁止外推",
+    "插值最大括距",
+    "保留负损失",
+    "二维解析解",
+    "BoL恒等零",
+    "负载留组重构"
+  ],
+  "source_files": 19,
+  "training": false,
+  "prediction_metrics": false,
+  "code": [
+    {
+      "file": "健康特征主程序.py",
+      "sha256": "6fffddf16c15daa36f05fc25f9b453c2b877ff7950898d5de988e67c593813d8"
+    },
+    {
+      "file": "极化特征计算.py",
+      "sha256": "157a57706f3dcba8d732df6ea2c2858a327b44a6f0645393efae0ec9c3364ea6"
+    },
+    {
+      "file": "特征报告绘图.py",
+      "sha256": "4407e44597260a042a5abdd3029228bc33788160e5b3f92ae0c090d608aa771f"
+    },
+    {
+      "file": "独立复算核验.py",
+      "sha256": "b70a4294499a2203bb4f7e5f0ee782322614034df1af2889a939045af084922d"
+    }
+  ],
+  "protected_files_unchanged": true
+}

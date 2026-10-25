@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "version": "阶段1_v1",
+  "archive": "E:\\沈农信电\\ PEMFC-SOH+RUL\\PEMFC指导\\完整代码\\完整代码历史副本\\20261025T153904_294445_阶段0_v1",
+  "backup_files": [
+    {
+      "file": "使用说明.md",
+      "sha256": "ee40b58d68100e925ee5189d50bc08c122aff3ce5863a82376035aa61aeacc37"
+    },
+    {
+      "file": "依赖环境.txt",
+      "sha256": "d134b2594b37e665650006d852fe619d8e2682adfedbdec1207c2b756b464fa4"
+    },
+    {
+      "file": "报告与绘图.py",
+      "sha256": "ad9d6a35b6d3183b96d766c573188254903cd46ab6e71b8623c5f5e6864e74b0"
+    },
+    {
+      "file": "数据核验主程序.py",
+      "sha256": "f4b16c826135eda1a5c2175d43b0c10da61357f43b96fa43723bec75afcda7f4"
+    },
+    {
+      "file": "核验基础.py",
+      "sha256": "f3e21da56eda457070808b26769ab3241df9fea341f6aa29ac84eb5f690d93b6"
+    },
+    {
+      "file": "版本与核验记录.json",
+      "sha256": "0e891eab6d32a2e21971a6ad7d7a69f980569895906c159ce52832d8655834b3"
+    },
+    {
+      "file": "运行与极化.py",
+      "sha256": "6324e1ba1a98435e8d349143611b5b10b8bff05b3ba6aa77184671c8c9e4f58f"
+    },
+    {
+      "file": "配置/数据核验配置.yaml",
+      "sha256": "9b949537ee1bcb1713e8e5eff1b5712cdf84bfa71ffd5b84bf43bb96cd70238a"
+    }
+  ],
+  "new_code": [
+    {
+      "file": "健康特征主程序.py",
+      "sha256": "6269ab57d34886ca871ffc9ececbc84701f4b88b8e5f36562dd52ec1699c5d0c"
+    },
+    {
+      "file": "平台可靠性复核.py",
+      "sha256": "ea719e166100fa29cbe00d361283b4953058e5a838cbf64751a4a63d64ad8f17"
+    },
+    {
+      "file": "极化特征计算.py",
+      "sha256": "157a57706f3dcba8d732df6ea2c2858a327b44a6f0645393efae0ec9c3364ea6"
+    },
+    {
+      "file": "正式代码归档同步.py",
+      "sha256": "00f11e16ace12ff60d7b08a1cc2fb01c941092d85977501c84f5f940ff51ceac"
+    },
+    {
+      "file": "特征报告绘图.py",
+      "sha256": "21f7bd05aec892b9acf9c47aa1a9adc15fcb977751c3d033c77192583fa28238"
+    },
+    {
+      "file": "独立复算核验.py",
+      "sha256": "63da2678814de4166083abb99ee34b12a7b6e798912e1ad2e1a5a8b023e566da"
+    }
+  ],
+  "training": false,
+  "git": false
+}

@@ -1,0 +1,30 @@
+{
+  "status": "CONDITIONAL_PASS",
+  "numerical_information_supported": 6,
+  "summary": [
+    {
+      "电堆": "FC1",
+      "主曲线含BoL": 8,
+      "启停后单列": 0,
+      "非BoL主曲线计算数": 7,
+      "数值额外信息支持数": 6,
+      "完整共同网格数": 0,
+      "二维重构RMSE中位_mV": 0.8473984474438633,
+      "一维重构RMSE中位_mV": 3.8771695107518473,
+      "最大处理参数改变量_mV": 0.5247477700565661
+    },
+    {
+      "电堆": "RealHyFC",
+      "主曲线含BoL": 9,
+      "启停后单列": 2,
+      "非BoL主曲线计算数": 0,
+      "数值额外信息支持数": 0,
+      "完整共同网格数": 0,
+      "二维重构RMSE中位_mV": null,
+      "一维重构RMSE中位_mV": null,
+      "最大处理参数改变量_mV": null
+    }
+  ],
+  "online_qualified": false,
+  "physical_mechanisms_identified": false
+}

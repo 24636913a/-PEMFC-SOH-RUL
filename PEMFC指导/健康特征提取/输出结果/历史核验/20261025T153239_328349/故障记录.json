@@ -1,0 +1,4 @@
+{
+  "started": "2026-10-25T15:32:39.329350+08:00",
+  "error": "Traceback (most recent call last):\n  File \"E:\\沈农信电\\ PEMFC-SOH+RUL\\PEMFC指导\\健康特征提取\\程序\\健康特征主程序.py\", line 163, in main\n    if sha(source/item['file'])!=item['sha256']:raise RuntimeError('重绘来源结果SHA不一致：'+item['file'])\n                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: 重绘来源结果SHA不一致：执行日志.txt\n"
+}

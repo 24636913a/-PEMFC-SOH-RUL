@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "tests": [
+    "禁止外推",
+    "插值最大括距",
+    "保留负损失",
+    "二维解析解",
+    "BoL恒等零",
+    "负载留组重构",
+    "180秒平台边界",
+    "179秒拒绝",
+    "温度波动拒绝",
+    "缺失电压拒绝"
+  ],
+  "raw_long_plateaus_checked": 77,
+  "temperature_rejections": 69,
+  "temperature_peak_to_peak_min": 0.6977920599999976,
+  "temperature_peak_to_peak_max": 1.9937057500000037,
+  "qualification_scope": "1C是本阶段预注册的保守筛选值，不是已证实的仪器精度或跨堆等价阈值；拒绝只说明本协议未取得资格",
+  "time": "2026-10-25T15:40:44.018871+08:00",
+  "training": false
+}

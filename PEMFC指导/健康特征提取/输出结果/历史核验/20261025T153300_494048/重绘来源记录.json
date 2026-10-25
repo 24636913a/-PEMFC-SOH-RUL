@@ -1,0 +1,14 @@
+{
+  "source": "E:\\沈农信电\\ PEMFC-SOH+RUL\\PEMFC指导\\健康特征提取\\输出结果",
+  "source_record_sha256": "9a66aa55bb5547526163f10579005b973467fc859929637a8b60a6da08508495",
+  "reason": "修正无资格曲线的空图显示与两堆整体资格判定，未修改提取规则或数值",
+  "recomputed_features": false,
+  "source_execution_log_variance": [
+    {
+      "file": "执行日志.txt",
+      "recorded": "6f0cb94b17a6d6eadf23c9c5091fe8ee6c6ce562625648b072ba61ae185c7169",
+      "current": "a6336b9bc7c0956a32ca7887377c78107ae240f221ed05ed805391707e770a2c",
+      "reason": "首轮外部Tee在主程序生成SHA后追加最终stdout；不涉及计算CSV、图像或配置"
+    }
+  ]
+}

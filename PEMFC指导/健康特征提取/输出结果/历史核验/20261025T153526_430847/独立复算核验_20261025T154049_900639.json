@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-25T15:40:49.900639+08:00",
+  "source_files": 19,
+  "fitted_records": 24,
+  "raw_member_groups": 2299,
+  "protected_stage0_files": 41,
+  "maximum_coefficient_difference": 1.734723475976807e-16,
+  "tests": [
+    "原始行与阶段0点值一致",
+    "代表点均值/中位数",
+    "独立闭式系数",
+    "一二维重构RMSE",
+    "5组留负载重构",
+    "无外推与局部插值",
+    "BoL严格零",
+    "原始19源SHA",
+    "阶段0结果未变"
+  ],
+  "training": false,
+  "scope": "同曲线描述性核验，不是未来预测评价"
+}

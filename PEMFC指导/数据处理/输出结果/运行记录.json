@@ -1,0 +1,74 @@
+{
+  "status": "CONDITIONAL_PASS",
+  "version": "阶段0_v1",
+  "started": "2026-10-25T14:51:59.802544+08:00",
+  "project_root": "E:\\沈农信电\\ PEMFC-SOH+RUL",
+  "guidance": "E:\\沈农信电\\ PEMFC-SOH+RUL\\PEMFC指导",
+  "output": "E:\\沈农信电\\ PEMFC-SOH+RUL\\PEMFC指导\\数据处理\\输出结果",
+  "training": false,
+  "prediction_accuracy": false,
+  "phase": 0,
+  "all_domain_use": "DESCRIPTIVE_ONLY_NOT_GLOBAL_MODEL_FITTING",
+  "self_test": {
+    "status": "PASS",
+    "tests": [
+      "locale_numeric",
+      "missing_cell_not_hidden",
+      "scan_direction_hysteresis"
+    ],
+    "model_training": false,
+    "prediction_metrics": false
+  },
+  "syntax": [
+    "报告与绘图.py",
+    "数据核验主程序.py",
+    "核验基础.py",
+    "运行与极化.py"
+  ],
+  "code_sha256": {
+    "报告与绘图.py": "ad9d6a35b6d3183b96d766c573188254903cd46ab6e71b8623c5f5e6864e74b0",
+    "数据核验主程序.py": "f4b16c826135eda1a5c2175d43b0c10da61357f43b96fa43723bec75afcda7f4",
+    "核验基础.py": "f3e21da56eda457070808b26769ab3241df9fea341f6aa29ac84eb5f690d93b6",
+    "运行与极化.py": "6324e1ba1a98435e8d349143611b5b10b8bff05b3ba6aa77184671c8c9e4f58f"
+  },
+  "completed": "2026-10-25T14:53:37.120548+08:00",
+  "elapsed_seconds": 97.29108930000075,
+  "fc1": {
+    "rows": 143862,
+    "first_hour": 0.0,
+    "last_hour": 1154.21335611121,
+    "global_duplicate_hours": 15,
+    "source_files": 3,
+    "calendar_time_known": false,
+    "original_csv_found": false
+  },
+  "realhyfc": {
+    "rows": 8604654,
+    "source_files": 17,
+    "first_hour": 72.78869,
+    "last_hour": 2256.8,
+    "first_datetime": "2025-01-27 12:09:18.005000",
+    "last_datetime": "2025-07-26 12:06:23.005000",
+    "historical_sha_all_match": true,
+    "all_rows_match": true,
+    "voltage": {
+      "finite": 8604654,
+      "missing": 0,
+      "minimum": -0.0199469,
+      "maximum": 0.9432967067,
+      "mean": 0.5766343134064124,
+      "max_abs": 0.9432967067
+    },
+    "adaptation_raw_rows": {
+      "前300h": 1009939,
+      "前600h": 2131973,
+      "600h后": 6472681
+    },
+    "duplicate_check_scope": "若全局无倒序，相邻相等检查覆盖全部重复；有倒序则不宣称完整全局唯一性"
+  },
+  "polar_curves": 19,
+  "images": 6,
+  "blocks": [],
+  "source_files": 39,
+  "report": "E:\\沈农信电\\ PEMFC-SOH+RUL\\PEMFC指导\\数据处理\\数据核验报告.md"
+}

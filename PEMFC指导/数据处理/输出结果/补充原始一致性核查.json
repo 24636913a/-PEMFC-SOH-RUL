@@ -1,0 +1,76 @@
+{
+  "scope": "Manual targeted spot-check of one file with global maximum residual, not all-file discrepancy frequency",
+  "file": "Loadcycle_26-37.csv",
+  "source_sha256": "2c06497c53ad5d36a0aab298c6d0706ea330a576824c554976bd5cfd64a990a5",
+  "rows": 488280,
+  "finite_pairs": 488280,
+  "maximum_abs_j_minus_I_over_280": 0.33058136885714295,
+  "count_over_0_01_in_this_file": 276,
+  "count_over_0_001_in_this_file": 34460,
+  "largest_context": [
+    {
+      "来源文件": "Loadcycle_26-37.csv",
+      "原始行号": 352894,
+      "DateTime": "2025-02-13 18:23:34.005",
+      "OpHrs2 [h]": 406.81607,
+      "I.S.set [A]": 221.1999969,
+      "I.S.act [A]": 220.9845276,
+      "j.S.act [A/cm2]": 0.789229989,
+      "I.S.set.internal [A]": 221.1999969,
+      "I除以280_A_cm2": 0.7892304557142857,
+      "j减I除以280_A_cm2": -4.6671428577393925e-07
+    },
+    {
+      "来源文件": "Loadcycle_26-37.csv",
+      "原始行号": 352895,
+      "DateTime": "2025-02-13 18:23:35.005",
+      "OpHrs2 [h]": 406.81638,
+      "I.S.set [A]": 221.1999969,
+      "I.S.act [A]": 221.2286682,
+      "j.S.act [A/cm2]": 0.789229989,
+      "I.S.set.internal [A]": 221.1999969,
+      "I除以280_A_cm2": 0.7901023864285713,
+      "j减I除以280_A_cm2": -0.0008723974285713698
+    },
+    {
+      "来源文件": "Loadcycle_26-37.csv",
+      "原始行号": 352896,
+      "DateTime": "2025-02-13 18:23:36.005",
+      "OpHrs2 [h]": 406.81665,
+      "I.S.set [A]": 313.6000061,
+      "I.S.act [A]": 313.5471802,
+      "j.S.act [A/cm2]": 0.789229989,
+      "I.S.set.internal [A]": 313.6000061,
+      "I除以280_A_cm2": 1.119811357857143,
+      "j减I除以280_A_cm2": -0.33058136885714295
+    },
+    {
+      "来源文件": "Loadcycle_26-37.csv",
+      "原始行号": 352897,
+      "DateTime": "2025-02-13 18:23:37.005",
+      "OpHrs2 [h]": 406.81693,
+      "I.S.set [A]": 313.6000061,
+      "I.S.act [A]": 313.7913208,
+      "j.S.act [A/cm2]": 1.120682955,
+      "I.S.set.internal [A]": 313.6000061,
+      "I除以280_A_cm2": 1.1206832885714286,
+      "j减I除以280_A_cm2": -3.3357142870116263e-07
+    },
+    {
+      "来源文件": "Loadcycle_26-37.csv",
+      "原始行号": 352898,
+      "DateTime": "2025-02-13 18:23:38.005",
+      "OpHrs2 [h]": 406.8172,
+      "I.S.set [A]": 313.6000061,
+      "I.S.act [A]": 313.7913208,
+      "j.S.act [A/cm2]": 1.119811058,
+      "I.S.set.internal [A]": 313.6000061,
+      "I除以280_A_cm2": 1.1206832885714286,
+      "j减I除以280_A_cm2": -0.0008722305714286005
+    }
+  ],
+  "fc1_duplicate_clock_values": 15,
+  "fc1_affected_rows": 30,
+  "source_values_modified": false,
+  "inference": "Observed channel inconsistency; hardware cause and exact synchronization unknown"
+}

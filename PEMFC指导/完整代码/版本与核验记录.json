@@ -1,0 +1,49 @@
+{
+  "version": "阶段0_v1",
+  "updated": "2026-10-25T14:53:37.120548+08:00",
+  "implemented": "阶段0原始数据读取、审计、原始图和对应表",
+  "not_implemented": "健康特征拟合、模型、SOH/RUL和迁移训练",
+  "development_execution_verified": {
+    "status": "PASS",
+    "source_files": 39,
+    "raw_loadcycle_rows": 8604654,
+    "figures": 6,
+    "all_old_sources_unchanged": true,
+    "syntax_files": 4,
+    "self_test": {
+      "status": "PASS",
+      "tests": [
+        "locale_numeric",
+        "missing_cell_not_hidden",
+        "scan_direction_hysteresis"
+      ],
+      "model_training": false,
+      "prediction_metrics": false
+    }
+  },
+  "output": "E:\\沈农信电\\ PEMFC-SOH+RUL\\PEMFC指导\\数据处理\\输出结果",
+  "files": [
+    {
+      "file": "报告与绘图.py",
+      "sha256": "ad9d6a35b6d3183b96d766c573188254903cd46ab6e71b8623c5f5e6864e74b0"
+    },
+    {
+      "file": "数据核验主程序.py",
+      "sha256": "f4b16c826135eda1a5c2175d43b0c10da61357f43b96fa43723bec75afcda7f4"
+    },
+    {
+      "file": "核验基础.py",
+      "sha256": "f3e21da56eda457070808b26769ab3241df9fea341f6aa29ac84eb5f690d93b6"
+    },
+    {
+      "file": "运行与极化.py",
+      "sha256": "6324e1ba1a98435e8d349143611b5b10b8bff05b3ba6aa77184671c8c9e4f58f"
+    },
+    {
+      "file": "配置/数据核验配置.yaml",
+      "sha256": "9b949537ee1bcb1713e8e5eff1b5712cdf84bfa71ffd5b84bf43bb96cd70238a"
+    }
+  ],
+  "backup": null,
+  "runtime_scope": "同SHA程序已在数据处理目录真实执行；同步副本另做静态/配置检查，不重复全量扫描"
+}

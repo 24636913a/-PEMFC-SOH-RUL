@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "source_files": 39,
+  "raw_loadcycle_rows": 8604654,
+  "figures": 6,
+  "all_old_sources_unchanged": true,
+  "syntax_files": 4,
+  "self_test": {
+    "status": "PASS",
+    "tests": [
+      "locale_numeric",
+      "missing_cell_not_hidden",
+      "scan_direction_hysteresis"
+    ],
+    "model_training": false,
+    "prediction_metrics": false
+  }
+}

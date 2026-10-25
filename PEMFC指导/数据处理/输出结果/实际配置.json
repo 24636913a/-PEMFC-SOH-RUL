@@ -1,0 +1,29 @@
+{
+  "版本": "阶段0_v1",
+  "研究方向": "基于极化健康特征的跨电堆少样本退化预测",
+  "项目根目录": "..",
+  "输出目录": "数据处理/输出结果",
+  "FC1目录": "数据/FC1_FC2_Excel/FC1_FC2_Excel/FC1_Without_Ripples_Excel",
+  "RealHyFC目录": "数据/《耐久性测试期间PEM燃料电池堆的空间解析电化学表征》的基础数据",
+  "历史运行清单": "RENew-PEMFC-2300h-Pytorch/RealHyFC_Raw1s_Rolling_300to120/reports/LEGACY_RAW_SOURCE_AUTHORITY.json",
+  "历史周期表": "RENew-PEMFC-2300h-Pytorch/Before/Phase_RCR_Raw_Resolution_Cycle_Reconstruction_Audit/outputs/RAW_CYCLE_CATALOG.csv",
+  "分块行数": 50000,
+  "RealHyFC作图行间隔": 60,
+  "FC1作图行间隔": 1,
+  "FC1间断阈值秒": 120.0,
+  "RealHyFC连续间隔秒": [
+    0.95,
+    1.05
+  ],
+  "运行小时回退容限": 1e-07,
+  "共同电流密度区间": [
+    0.3,
+    1.0
+  ],
+  "参考电流密度": 0.9,
+  "参考邻域半宽": 0.005,
+  "扫描方向确认幅度": 0.05,
+  "RealHyFC面积记录参考值": 280.0,
+  "绘图DPI": 300,
+  "说明": "全时域仅作描述性核验；不拟合预处理、健康特征、预测模型或SOH；不计算预测精度。"
+}

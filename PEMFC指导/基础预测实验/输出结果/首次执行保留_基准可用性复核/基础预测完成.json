@@ -1,0 +1,51 @@
+{
+  "UTC": "2026-10-25T14:51:19.912178+00:00",
+  "protocol_sha256": "a39506110419b34e8bbe3376fbf98570e74e22dbf1742fd25ad2222ee02fc2d9",
+  "input_sha256": {
+    "FC1小时观测.csv": "ad414bc5de47d8c8c0481a92afcde81f595a3a7e9cf2ef3cbab232245b08a36c",
+    "RealHyFC循环观测.csv": "a87b9dcfe065df58ea6a30968b889f86002893706ab8bf7ab4d80d45bb33ff40",
+    "稀疏诊断观测.csv": "61f554b4d6e7144da8d752049e20ff39598994946f21d21073d0ffde846c4279"
+  },
+  "code_sha256": {
+    "基础预测核心.py": "6f394c3141f8845814fe585fc83f3bde81216cd9de72d9a8cedba872736f68f7",
+    "运行基础预测.py": "6eb3ddf407de9e53b52c73dc7d13ed970f9f83d6452d06a1bfd3c4f3a1ffe3f6"
+  },
+  "python": "3.11.9",
+  "numpy": "2.4.6",
+  "pandas": "3.0.1",
+  "output_sha256": {
+    "表格\\300和600小时诊断可用性表.csv": "e85e5a23f117d5025bb5e7ac57b4c97bf13dc2a0039ec45b400ac9d05e0d2731",
+    "表格\\FC1_RUL外推曲线.csv": "566facec880a5ddcb7ccf126aba205a5662cf56741325438a5434f749250bd4b",
+    "表格\\FC1_RUL阈值与删失结果.csv": "cab4efd7e07ea6e79c9e400c6f6da554610224a8679695439e07b452222eb27a",
+    "表格\\FC1原始记录资格.csv": "f5ab1258ca7a6d4e47545920434f7a554e2f63dbc3160fc993e3d566bd44882f",
+    "表格\\FC1基准十小时.csv": "a163ba8bff4fcb3cef2b1e95c3c6403893d2ac074ed1dd77ca2d27ec51af36e7",
+    "表格\\FC1基础预测逐起点结果.csv": "32ba9545cb6d69b2975ab2bda9c4dcef5cebf3060659967f0ea9f31021d16ec2",
+    "表格\\FC1连续预测指标.csv": "ad44fb90c91265bbc93404fdf9f6a63725b659cb9b78c6462baec1a8f2b888c6",
+    "表格\\FC1连续预测排除记录.csv": "0ebfcfb998d2efe034bd1f83c723c11e0c5cca2b3c253704574d500e019e281b",
+    "表格\\RealHyFC基础预测逐起点结果.csv": "fc7fa1b62a24cc05b284a3ed43e2c6cc0122c83acd12a8dd83ad54751b4e3f13",
+    "表格\\RealHyFC连续预测指标.csv": "14e20de2d10944a2ce1cde259236def4558e5cb21b334ea706539806ad621721",
+    "表格\\RealHyFC连续预测排除记录.csv": "3e72fc28e1a0a8918dd9471acc8a4d3e889b0da21f9acfef3337dc2cb0b51e77",
+    "表格\\Real_A60_基准五循环.csv": "601b59f1696955262c942e21bb5b816492eee88410006ab9fe16ffa73f6c3731",
+    "表格\\Real_B60_基准五循环.csv": "58145b45d6dec6b5cb5cbf611498481945eaa8700f39b95f0513e8e8c534a2d5",
+    "表格\\Real运行平台逐段资格.csv": "7845ad1bd7a2dccb331731d1608e313025c45c7df0633db4c7a388518e6c9310",
+    "表格\\SOH评价结果.csv": "85a27d194d8a0e8dc6c2b944e974b70991863c102fcc8923e537f0dd298cacad",
+    "表格\\Train平台方向恢复分组.csv": "3f4cc8c5f353d944e0ba9080787512408216800dddf6ca786ba695200ce18169",
+    "表格\\Train运行平台候选.csv": "655325fe081fa9446506b271f91f971c265965decbbc4574cc519a917ede5dd8",
+    "表格\\一维二维健康特征公平对比.csv": "4fbdab32b14da5c8e1df97bea833cbd92b6c1b1788c9d142988dab8884e88532",
+    "表格\\共同负载健康特征核对表.csv": "3cdab0a624fdf51bfabfc7cf424e5b605d80c67843956e68fa3fb7f61045c7a1",
+    "表格\\原始缓存身份.csv": "84264756466a8e0e4174e131c8e95876baaf856fbde1481eeb9d04c762ff2866",
+    "表格\\周期漂移时序绘图数据.csv": "10c06b565258eaea3d2cffa379008b2710d5a5f38bce1079b96ff9c6e7097f5e",
+    "表格\\完整运行周期身份.csv": "e033fe6296e336fa774d7f2e92ee3987679d6ba743f063ce5b4cadf058c747d6",
+    "表格\\未闭合首尾运行片段.csv": "cb4b94c650c9691065e80884b2ce32b62876a56dd170c8d0363a2357a6328289",
+    "表格\\温压周期波动与工况漂移对比.csv": "0410d407c11cb62d61b54872b200ee5ed647355ee0d406a5c9b132da9581c2f3",
+    "表格\\稀疏诊断全部起点指标.csv": "b9b5fec8039651be069f4bc5c1b2f751956099f8290c4efe7a5d998dd0947ab9",
+    "表格\\稀疏诊断全部预测与NA.csv": "72924f28c1f9ad48444062d1e8340856c96ceaa2161d0250b9d5b82ef16770f5",
+    "表格\\稀疏诊断公平交集指标.csv": "724a954365960c194417ade72fab803e6e83f047b786954fa73c1f3f65cd6f72",
+    "表格\\筛选前后参考负载支持.csv": "3f537ba6dad227c61e8fe2fd9fe6dda5a19a46c3766131d754852ce545ceada9",
+    "模型记录\\FC1局部模型参数.csv": "bb4e570f13097cda0d38c1d295ee345b417c2d2d986134fc4f60c3a493e0fac8",
+    "模型记录\\RealHyFC局部模型参数.csv": "f05d7e73109cf7b665b681580a20288b4e2e88932d536b1d74b2df054e4238ef",
+    "模型记录\\RUL历史内部选择记录.json": "3d32d043a738091d9e8cd11f4f9be200ea1838d20e4db1748a45e75ecfe257b8",
+    "模型记录\\稀疏回归逐起点参数.json": "02ce8eeb19c1fbbe6aedc2347607b2ccec10c3d8e8d42a7cd64c7d406fb98dd7"
+  },
+  "identity": "EXPLORATORY_OFFLINE_BASELINES_NO_NEURAL_TRAINING"
+}

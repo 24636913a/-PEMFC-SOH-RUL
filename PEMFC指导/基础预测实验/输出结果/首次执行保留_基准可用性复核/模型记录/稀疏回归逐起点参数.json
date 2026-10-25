@@ -1,0 +1,1699 @@
+[
+  {
+    "n": 0,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 0,
+    "target_id": 1,
+    "origin_file": "FC1_Pola_T000.xlsx",
+    "target_file": "FC1_Pola_T048.xlsx",
+    "origin_nominal_h": 0.0,
+    "target_nominal_h": 48.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.003767809498081,
+    "base_V": 0.635819778002018,
+    "method": "Ridge1D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 0,
+    "target_id": 1,
+    "origin_file": "FC1_Pola_T000.xlsx",
+    "target_file": "FC1_Pola_T048.xlsx",
+    "origin_nominal_h": 0.0,
+    "target_nominal_h": 48.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.003767809498081,
+    "base_V": 0.635819778002018,
+    "method": "Ridge2D",
+    "historical_transitions": []
+  },
+  {
+    "n": 1,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 1,
+    "target_id": 2,
+    "origin_file": "FC1_Pola_T048.xlsx",
+    "target_file": "FC1_Pola_T185.xlsx",
+    "origin_nominal_h": 48.0,
+    "target_nominal_h": 185.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0146544566268311,
+    "base_V": 0.635819778002018,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "n": 1,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 1,
+    "target_id": 2,
+    "origin_file": "FC1_Pola_T048.xlsx",
+    "target_file": "FC1_Pola_T185.xlsx",
+    "origin_nominal_h": 48.0,
+    "target_nominal_h": 185.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0146544566268311,
+    "base_V": 0.635819778002018,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "n": 2,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 2,
+    "target_id": 3,
+    "origin_file": "FC1_Pola_T185.xlsx",
+    "target_file": "FC1_Pola_T348.xlsx",
+    "origin_nominal_h": 185.0,
+    "target_nominal_h": 348.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.019541683699464,
+    "base_V": 0.635819778002018,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ]
+  },
+  {
+    "n": 2,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 2,
+    "target_id": 3,
+    "origin_file": "FC1_Pola_T185.xlsx",
+    "target_file": "FC1_Pola_T348.xlsx",
+    "origin_nominal_h": 185.0,
+    "target_nominal_h": 348.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.019541683699464,
+    "base_V": 0.635819778002018,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ]
+  },
+  {
+    "n": 3,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 3,
+    "target_id": 4,
+    "origin_file": "FC1_Pola_T348.xlsx",
+    "target_file": "FC1_Pola_T515.xlsx",
+    "origin_nominal_h": 348.0,
+    "target_nominal_h": 515.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0238565187427588,
+    "base_V": 0.635819778002018,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "n": 3,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 3,
+    "target_id": 4,
+    "origin_file": "FC1_Pola_T348.xlsx",
+    "target_file": "FC1_Pola_T515.xlsx",
+    "origin_nominal_h": 348.0,
+    "target_nominal_h": 515.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0238565187427588,
+    "base_V": 0.635819778002018,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "n": 4,
+    "minimum": 4,
+    "alpha": 1.0,
+    "mean": [
+      0.009490987456094026
+    ],
+    "scale": [
+      0.007913777822324554
+    ],
+    "rank": 2,
+    "condition": 1.0000000000000002,
+    "coef": [
+      0.0059641296856897,
+      -0.00074463320927998
+    ],
+    "reason": "OK",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 4,
+    "target_id": 5,
+    "origin_file": "FC1_Pola_T515.xlsx",
+    "target_file": "FC1_Pola_T658.xlsx",
+    "origin_nominal_h": 515.0,
+    "target_nominal_h": 658.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0298426787653768,
+    "base_V": 0.635819778002018,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "n": 4,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 4,
+    "target_id": 5,
+    "origin_file": "FC1_Pola_T515.xlsx",
+    "target_file": "FC1_Pola_T658.xlsx",
+    "origin_nominal_h": 515.0,
+    "target_nominal_h": 658.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0298426787653768,
+    "base_V": 0.635819778002018,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "n": 5,
+    "minimum": 4,
+    "alpha": 1.0,
+    "mean": [
+      0.01236409371342698
+    ],
+    "scale": [
+      0.00911708625606865
+    ],
+    "rank": 2,
+    "condition": 1.0000000000000002,
+    "coef": [
+      0.00596853575307536,
+      -0.0005339996805790139
+    ],
+    "reason": "OK",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 5,
+    "target_id": 6,
+    "origin_file": "FC1_Pola_T658.xlsx",
+    "target_file": "FC1_Pola_T823.xlsx",
+    "origin_nominal_h": 658.0,
+    "target_nominal_h": 823.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0380596145699445,
+    "base_V": 0.635819778002018,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ]
+    ]
+  },
+  {
+    "n": 5,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 5,
+    "target_id": 6,
+    "origin_file": "FC1_Pola_T658.xlsx",
+    "target_file": "FC1_Pola_T823.xlsx",
+    "origin_nominal_h": 658.0,
+    "target_nominal_h": 823.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0380596145699445,
+    "base_V": 0.635819778002018,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ]
+    ]
+  },
+  {
+    "n": 6,
+    "minimum": 4,
+    "alpha": 1.0,
+    "mean": [
+      0.015277191222085285
+    ],
+    "scale": [
+      0.010568746550178943
+    ],
+    "rank": 2,
+    "condition": 1.0000000000000002,
+    "coef": [
+      0.00634326909499075,
+      4.7821808983662335e-05
+    ],
+    "reason": "OK",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 6,
+    "target_id": 7,
+    "origin_file": "FC1_Pola_T823.xlsx",
+    "target_file": "FC1_Pola_T991.xlsx",
+    "origin_nominal_h": 823.0,
+    "target_nominal_h": 991.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0340197780020179,
+    "base_V": 0.635819778002018,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ]
+    ]
+  },
+  {
+    "n": 6,
+    "minimum": 6,
+    "alpha": 1.0,
+    "mean": [
+      0.015277191222085285,
+      0.008896898125061432
+    ],
+    "scale": [
+      0.010568746550178943,
+      0.0061704354708395515
+    ],
+    "rank": 3,
+    "condition": 68.63079493009657,
+    "coef": [
+      0.00634326909499075,
+      -1.9315114681371635e-05,
+      7.83596763139778e-05
+    ],
+    "reason": "OK",
+    "dataset": "FC1",
+    "scheme": "FC1_10",
+    "origin_id": 6,
+    "target_id": 7,
+    "origin_file": "FC1_Pola_T823.xlsx",
+    "target_file": "FC1_Pola_T991.xlsx",
+    "origin_nominal_h": 823.0,
+    "target_nominal_h": 991.0,
+    "origin_completed": null,
+    "target_completed": null,
+    "clock": "NOMINAL_ONLY",
+    "origin_operating_upper_h": null,
+    "target_operating_upper_h": null,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0340197780020179,
+    "base_V": 0.635819778002018,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ]
+    ]
+  },
+  {
+    "n": 0,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 0,
+    "target_id": 1,
+    "origin_file": "Polcurve_Nominal_RHFC_BoL.csv",
+    "target_file": "Polcurve_Nominal_RHFC_300h.csv",
+    "origin_nominal_h": 0.0,
+    "target_nominal_h": 300.0,
+    "origin_completed": "2024-12-09T11:35:02.005000",
+    "target_completed": "2025-02-09T03:31:41.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 72.78869,
+    "target_operating_upper_h": 327.81354,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge1D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 0,
+    "target_id": 1,
+    "origin_file": "Polcurve_Nominal_RHFC_BoL.csv",
+    "target_file": "Polcurve_Nominal_RHFC_300h.csv",
+    "origin_nominal_h": 0.0,
+    "target_nominal_h": 300.0,
+    "origin_completed": "2024-12-09T11:35:02.005000",
+    "target_completed": "2025-02-09T03:31:41.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 72.78869,
+    "target_operating_upper_h": 327.81354,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge2D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 1,
+    "target_id": 2,
+    "origin_file": "Polcurve_Nominal_RHFC_300h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_600h.csv",
+    "origin_nominal_h": 300.0,
+    "target_nominal_h": 600.0,
+    "origin_completed": "2025-02-09T03:31:41.005000",
+    "target_completed": "2025-02-24T04:24:52.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 327.81354,
+    "target_operating_upper_h": 615.66968,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge1D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 1,
+    "target_id": 2,
+    "origin_file": "Polcurve_Nominal_RHFC_300h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_600h.csv",
+    "origin_nominal_h": 300.0,
+    "target_nominal_h": 600.0,
+    "origin_completed": "2025-02-09T03:31:41.005000",
+    "target_completed": "2025-02-24T04:24:52.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 327.81354,
+    "target_operating_upper_h": 615.66968,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge2D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 2,
+    "target_id": 3,
+    "origin_file": "Polcurve_Nominal_RHFC_600h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_850h.csv",
+    "origin_nominal_h": 600.0,
+    "target_nominal_h": 850.0,
+    "origin_completed": "2025-02-24T04:24:52.005000",
+    "target_completed": "2025-03-20T04:45:08.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 615.66968,
+    "target_operating_upper_h": 882.59088,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge1D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 2,
+    "target_id": 3,
+    "origin_file": "Polcurve_Nominal_RHFC_600h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_850h.csv",
+    "origin_nominal_h": 600.0,
+    "target_nominal_h": 850.0,
+    "origin_completed": "2025-02-24T04:24:52.005000",
+    "target_completed": "2025-03-20T04:45:08.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 615.66968,
+    "target_operating_upper_h": 882.59088,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge2D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 3,
+    "target_id": 4,
+    "origin_file": "Polcurve_Nominal_RHFC_850h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_1150h.csv",
+    "origin_nominal_h": 850.0,
+    "target_nominal_h": 1150.0,
+    "origin_completed": "2025-03-20T04:45:08.005000",
+    "target_completed": "2025-04-18T07:40:56.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 882.59088,
+    "target_operating_upper_h": 1225.01,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge1D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 3,
+    "target_id": 4,
+    "origin_file": "Polcurve_Nominal_RHFC_850h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_1150h.csv",
+    "origin_nominal_h": 850.0,
+    "target_nominal_h": 1150.0,
+    "origin_completed": "2025-03-20T04:45:08.005000",
+    "target_completed": "2025-04-18T07:40:56.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 882.59088,
+    "target_operating_upper_h": 1225.01,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge2D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 4,
+    "target_id": 5,
+    "origin_file": "Polcurve_Nominal_RHFC_1150h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_1500h.csv",
+    "origin_nominal_h": 1150.0,
+    "target_nominal_h": 1500.0,
+    "origin_completed": "2025-04-18T07:40:56.005000",
+    "target_completed": "2025-05-27T00:58:12.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 1225.01,
+    "target_operating_upper_h": 1482.18,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge1D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 4,
+    "target_id": 5,
+    "origin_file": "Polcurve_Nominal_RHFC_1150h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_1500h.csv",
+    "origin_nominal_h": 1150.0,
+    "target_nominal_h": 1500.0,
+    "origin_completed": "2025-04-18T07:40:56.005000",
+    "target_completed": "2025-05-27T00:58:12.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 1225.01,
+    "target_operating_upper_h": 1482.18,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge2D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 5,
+    "target_id": 6,
+    "origin_file": "Polcurve_Nominal_RHFC_1500h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_1750h.csv",
+    "origin_nominal_h": 1500.0,
+    "target_nominal_h": 1750.0,
+    "origin_completed": "2025-05-27T00:58:12.005000",
+    "target_completed": "2025-06-10T19:10:50.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 1482.18,
+    "target_operating_upper_h": 1759.77,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge1D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 5,
+    "target_id": 6,
+    "origin_file": "Polcurve_Nominal_RHFC_1500h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_1750h.csv",
+    "origin_nominal_h": 1500.0,
+    "target_nominal_h": 1750.0,
+    "origin_completed": "2025-05-27T00:58:12.005000",
+    "target_completed": "2025-06-10T19:10:50.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 1482.18,
+    "target_operating_upper_h": 1759.77,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge2D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 6,
+    "target_id": 7,
+    "origin_file": "Polcurve_Nominal_RHFC_1750h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_2000h.csv",
+    "origin_nominal_h": 1750.0,
+    "target_nominal_h": 2000.0,
+    "origin_completed": "2025-06-10T19:10:50.005000",
+    "target_completed": "2025-07-08T23:13:20.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 1759.77,
+    "target_operating_upper_h": 2001.29,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge1D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 6,
+    "target_id": 7,
+    "origin_file": "Polcurve_Nominal_RHFC_1750h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_2000h.csv",
+    "origin_nominal_h": 1750.0,
+    "target_nominal_h": 2000.0,
+    "origin_completed": "2025-06-10T19:10:50.005000",
+    "target_completed": "2025-07-08T23:13:20.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 1759.77,
+    "target_operating_upper_h": 2001.29,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge2D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 7,
+    "target_id": 8,
+    "origin_file": "Polcurve_Nominal_RHFC_2000h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_2300h.csv",
+    "origin_nominal_h": 2000.0,
+    "target_nominal_h": 2300.0,
+    "origin_completed": "2025-07-08T23:13:20.005000",
+    "target_completed": "2025-07-26T15:22:39.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 2001.29,
+    "target_operating_upper_h": 2259.97,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge1D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "A60",
+    "origin_id": 7,
+    "target_id": 8,
+    "origin_file": "Polcurve_Nominal_RHFC_2000h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_2300h.csv",
+    "origin_nominal_h": 2000.0,
+    "target_nominal_h": 2300.0,
+    "origin_completed": "2025-07-08T23:13:20.005000",
+    "target_completed": "2025-07-26T15:22:39.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 2001.29,
+    "target_operating_upper_h": 2259.97,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": null,
+    "base_V": null,
+    "method": "Ridge2D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 0,
+    "target_id": 1,
+    "origin_file": "Polcurve_Nominal_RHFC_BoL.csv",
+    "target_file": "Polcurve_Nominal_RHFC_300h.csv",
+    "origin_nominal_h": 0.0,
+    "target_nominal_h": 300.0,
+    "origin_completed": "2024-12-09T11:35:02.005000",
+    "target_completed": "2025-02-09T03:31:41.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 72.78869,
+    "target_operating_upper_h": 327.81354,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.009118210075118,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge1D",
+    "historical_transitions": []
+  },
+  {
+    "n": 0,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 0,
+    "target_id": 1,
+    "origin_file": "Polcurve_Nominal_RHFC_BoL.csv",
+    "target_file": "Polcurve_Nominal_RHFC_300h.csv",
+    "origin_nominal_h": 0.0,
+    "target_nominal_h": 300.0,
+    "origin_completed": "2024-12-09T11:35:02.005000",
+    "target_completed": "2025-02-09T03:31:41.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 72.78869,
+    "target_operating_upper_h": 327.81354,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.009118210075118,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge2D",
+    "historical_transitions": []
+  },
+  {
+    "n": 1,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 1,
+    "target_id": 2,
+    "origin_file": "Polcurve_Nominal_RHFC_300h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_600h.csv",
+    "origin_nominal_h": 300.0,
+    "target_nominal_h": 600.0,
+    "origin_completed": "2025-02-09T03:31:41.005000",
+    "target_completed": "2025-02-24T04:24:52.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 327.81354,
+    "target_operating_upper_h": 615.66968,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0124127382632925,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "n": 1,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 1,
+    "target_id": 2,
+    "origin_file": "Polcurve_Nominal_RHFC_300h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_600h.csv",
+    "origin_nominal_h": 300.0,
+    "target_nominal_h": 600.0,
+    "origin_completed": "2025-02-09T03:31:41.005000",
+    "target_completed": "2025-02-24T04:24:52.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 327.81354,
+    "target_operating_upper_h": 615.66968,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0124127382632925,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "n": 2,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 2,
+    "target_id": 3,
+    "origin_file": "Polcurve_Nominal_RHFC_600h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_850h.csv",
+    "origin_nominal_h": 600.0,
+    "target_nominal_h": 850.0,
+    "origin_completed": "2025-02-24T04:24:52.005000",
+    "target_completed": "2025-03-20T04:45:08.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 615.66968,
+    "target_operating_upper_h": 882.59088,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0136949157540476,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ]
+  },
+  {
+    "n": 2,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 2,
+    "target_id": 3,
+    "origin_file": "Polcurve_Nominal_RHFC_600h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_850h.csv",
+    "origin_nominal_h": 600.0,
+    "target_nominal_h": 850.0,
+    "origin_completed": "2025-02-24T04:24:52.005000",
+    "target_completed": "2025-03-20T04:45:08.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 615.66968,
+    "target_operating_upper_h": 882.59088,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0136949157540476,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ]
+  },
+  {
+    "n": 3,
+    "minimum": 4,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 3,
+    "target_id": 4,
+    "origin_file": "Polcurve_Nominal_RHFC_850h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_1150h.csv",
+    "origin_nominal_h": 850.0,
+    "target_nominal_h": 1150.0,
+    "origin_completed": "2025-03-20T04:45:08.005000",
+    "target_completed": "2025-04-18T07:40:56.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 882.59088,
+    "target_operating_upper_h": 1225.01,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0172032177623358,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "n": 3,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 3,
+    "target_id": 4,
+    "origin_file": "Polcurve_Nominal_RHFC_850h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_1150h.csv",
+    "origin_nominal_h": 850.0,
+    "target_nominal_h": 1150.0,
+    "origin_completed": "2025-03-20T04:45:08.005000",
+    "target_completed": "2025-04-18T07:40:56.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 882.59088,
+    "target_operating_upper_h": 1225.01,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0172032177623358,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "n": 4,
+    "minimum": 4,
+    "alpha": 1.0,
+    "mean": [
+      0.008806466023114527
+    ],
+    "scale": [
+      0.005351475693964423
+    ],
+    "rank": 2,
+    "condition": 1.0000000000000002,
+    "coef": [
+      0.004300804440583949,
+      -0.0021488696516302887
+    ],
+    "reason": "OK",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 4,
+    "target_id": 5,
+    "origin_file": "Polcurve_Nominal_RHFC_1150h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_1500h.csv",
+    "origin_nominal_h": 1150.0,
+    "target_nominal_h": 1500.0,
+    "origin_completed": "2025-04-18T07:40:56.005000",
+    "target_completed": "2025-05-27T00:58:12.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 1225.01,
+    "target_operating_upper_h": 1482.18,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0166799730984645,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "n": 4,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 4,
+    "target_id": 5,
+    "origin_file": "Polcurve_Nominal_RHFC_1150h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_1500h.csv",
+    "origin_nominal_h": 1150.0,
+    "target_nominal_h": 1500.0,
+    "origin_completed": "2025-04-18T07:40:56.005000",
+    "target_completed": "2025-05-27T00:58:12.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 1225.01,
+    "target_operating_upper_h": 1482.18,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0166799730984645,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "n": 5,
+    "minimum": 4,
+    "alpha": 1.0,
+    "mean": [
+      0.010485816370958781
+    ],
+    "scale": [
+      0.005847350173000766
+    ],
+    "rank": 2,
+    "condition": 1.0000000000000002,
+    "coef": [
+      0.0033359946196928995,
+      -0.002562505239052249
+    ],
+    "reason": "OK",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 5,
+    "target_id": 6,
+    "origin_file": "Polcurve_Nominal_RHFC_1500h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_1750h.csv",
+    "origin_nominal_h": 1500.0,
+    "target_nominal_h": 1750.0,
+    "origin_completed": "2025-05-27T00:58:12.005000",
+    "target_completed": "2025-06-10T19:10:50.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 1482.18,
+    "target_operating_upper_h": 1759.77,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0178777908620536,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ]
+    ]
+  },
+  {
+    "n": 5,
+    "minimum": 6,
+    "alpha": 1.0,
+    "reason": "INSUFFICIENT_PAST_TRANSITIONS",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 5,
+    "target_id": 6,
+    "origin_file": "Polcurve_Nominal_RHFC_1500h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_1750h.csv",
+    "origin_nominal_h": 1500.0,
+    "target_nominal_h": 1750.0,
+    "origin_completed": "2025-05-27T00:58:12.005000",
+    "target_completed": "2025-06-10T19:10:50.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 1482.18,
+    "target_operating_upper_h": 1759.77,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0178777908620536,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ]
+    ]
+  },
+  {
+    "n": 6,
+    "minimum": 4,
+    "alpha": 1.0,
+    "mean": [
+      0.011518175825543068
+    ],
+    "scale": [
+      0.005815647019500459
+    ],
+    "rank": 2,
+    "condition": 1.0000000000000002,
+    "coef": [
+      0.002979631810342266,
+      -0.0024795184401107495
+    ],
+    "reason": "OK",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 6,
+    "target_id": 7,
+    "origin_file": "Polcurve_Nominal_RHFC_1750h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_2000h.csv",
+    "origin_nominal_h": 1750.0,
+    "target_nominal_h": 2000.0,
+    "origin_completed": "2025-06-10T19:10:50.005000",
+    "target_completed": "2025-07-08T23:13:20.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 1759.77,
+    "target_operating_upper_h": 2001.29,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0193744480645827,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ]
+    ]
+  },
+  {
+    "n": 6,
+    "minimum": 6,
+    "alpha": 1.0,
+    "mean": [
+      0.011518175825543068,
+      0.00450009746005705
+    ],
+    "scale": [
+      0.005815647019500459,
+      0.002499701476393465
+    ],
+    "rank": 3,
+    "condition": 12.6053390813329,
+    "coef": [
+      0.002979631810342266,
+      -0.001544405031021553,
+      -0.0011047845564022584
+    ],
+    "reason": "OK",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 6,
+    "target_id": 7,
+    "origin_file": "Polcurve_Nominal_RHFC_1750h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_2000h.csv",
+    "origin_nominal_h": 1750.0,
+    "target_nominal_h": 2000.0,
+    "origin_completed": "2025-06-10T19:10:50.005000",
+    "target_completed": "2025-07-08T23:13:20.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 1759.77,
+    "target_operating_upper_h": 2001.29,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.0193744480645827,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ]
+    ]
+  },
+  {
+    "n": 7,
+    "minimum": 4,
+    "alpha": 1.0,
+    "mean": [
+      0.012426692259330286
+    ],
+    "scale": [
+      0.005826017877613787
+    ],
+    "rank": 2,
+    "condition": 1.0000000000000002,
+    "coef": [
+      0.0027677782949403857,
+      -0.0023391592526181004
+    ],
+    "reason": "OK",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 7,
+    "target_id": 8,
+    "origin_file": "Polcurve_Nominal_RHFC_2000h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_2300h.csv",
+    "origin_nominal_h": 2000.0,
+    "target_nominal_h": 2300.0,
+    "origin_completed": "2025-07-08T23:13:20.005000",
+    "target_completed": "2025-07-26T15:22:39.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 2001.29,
+    "target_operating_upper_h": 2259.97,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.019325304369734,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge1D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        7
+      ]
+    ]
+  },
+  {
+    "n": 7,
+    "minimum": 6,
+    "alpha": 1.0,
+    "mean": [
+      0.012426692259330286,
+      0.004921681886919929
+    ],
+    "scale": [
+      0.005826017877613787,
+      0.002534218641017968
+    ],
+    "rank": 3,
+    "condition": 13.48263559257603,
+    "coef": [
+      0.0027677782949403857,
+      -0.0015034630831983972,
+      -0.0009656474788612381
+    ],
+    "reason": "OK",
+    "dataset": "RealHyFC",
+    "scheme": "B60",
+    "origin_id": 7,
+    "target_id": 8,
+    "origin_file": "Polcurve_Nominal_RHFC_2000h.csv",
+    "target_file": "Polcurve_Nominal_RHFC_2300h.csv",
+    "origin_nominal_h": 2000.0,
+    "target_nominal_h": 2300.0,
+    "origin_completed": "2025-07-08T23:13:20.005000",
+    "target_completed": "2025-07-26T15:22:39.005000",
+    "clock": "MEASUREMENT_CLOCK_KNOWN_RELEASE_UNKNOWN",
+    "origin_operating_upper_h": 2001.29,
+    "target_operating_upper_h": 2259.97,
+    "available_assumption": "DETECTION_COMPLETED_THEN_AVAILABLE_OFFLINE_ONLY",
+    "release_confirmed": false,
+    "true_D": 0.019325304369734,
+    "base_V": 0.7112889236446048,
+    "method": "Ridge2D",
+    "historical_transitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        7
+      ]
+    ]
+  }
+]

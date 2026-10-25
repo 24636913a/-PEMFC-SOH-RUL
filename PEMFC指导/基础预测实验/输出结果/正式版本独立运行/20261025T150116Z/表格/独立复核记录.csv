@@ -1,0 +1,103 @@
+﻿check,passed,detail
+frozen_protocol_SHA,True,
+observation_SHA_FC1小时观测.csv,True,
+observation_SHA_RealHyFC循环观测.csv,True,
+observation_SHA_稀疏诊断观测.csv,True,
+FC1_all_origins_causal_full_target_blocks,True,1340 blocks; max independent voltage difference 1.67e-15 V
+"RMSE_('FC1', 'FC1_NOMINAL', 'Assessment', 24, 'LocalLinear')",True,0.0
+"SOH_('FC1', 'FC1_NOMINAL', 'Assessment', 24, 'LocalLinear')",True,5.551115123125783e-17
+"RMSE_('FC1', 'FC1_NOMINAL', 'Assessment', 24, 'Persistence')",True,1.1102230246251565e-16
+"SOH_('FC1', 'FC1_NOMINAL', 'Assessment', 24, 'Persistence')",True,5.551115123125783e-17
+"RMSE_('FC1', 'FC1_NOMINAL', 'Assessment', 72, 'LocalLinear')",True,0.0
+"SOH_('FC1', 'FC1_NOMINAL', 'Assessment', 72, 'LocalLinear')",True,1.1102230246251565e-16
+"RMSE_('FC1', 'FC1_NOMINAL', 'Assessment', 72, 'Persistence')",True,0.0
+"SOH_('FC1', 'FC1_NOMINAL', 'Assessment', 72, 'Persistence')",True,5.551115123125783e-17
+"RMSE_('FC1', 'FC1_NOMINAL', 'Train', 24, 'LocalLinear')",True,2.220446049250313e-16
+"SOH_('FC1', 'FC1_NOMINAL', 'Train', 24, 'LocalLinear')",True,8.326672684688674e-17
+"RMSE_('FC1', 'FC1_NOMINAL', 'Train', 24, 'Persistence')",True,0.0
+"SOH_('FC1', 'FC1_NOMINAL', 'Train', 24, 'Persistence')",True,2.7755575615628914e-17
+"RMSE_('FC1', 'FC1_NOMINAL', 'Train', 72, 'LocalLinear')",True,0.0
+"SOH_('FC1', 'FC1_NOMINAL', 'Train', 72, 'LocalLinear')",True,5.551115123125783e-17
+"RMSE_('FC1', 'FC1_NOMINAL', 'Train', 72, 'Persistence')",True,0.0
+"SOH_('FC1', 'FC1_NOMINAL', 'Train', 72, 'Persistence')",True,0.0
+"RMSE_('FC1', 'FC1_NOMINAL', 'Validation', 24, 'LocalLinear')",True,0.0
+"SOH_('FC1', 'FC1_NOMINAL', 'Validation', 24, 'LocalLinear')",True,0.0
+"RMSE_('FC1', 'FC1_NOMINAL', 'Validation', 24, 'Persistence')",True,2.220446049250313e-16
+"SOH_('FC1', 'FC1_NOMINAL', 'Validation', 24, 'Persistence')",True,2.7755575615628914e-17
+"RMSE_('FC1', 'FC1_NOMINAL', 'Validation', 72, 'LocalLinear')",True,0.0
+"SOH_('FC1', 'FC1_NOMINAL', 'Validation', 72, 'LocalLinear')",True,0.0
+"RMSE_('FC1', 'FC1_NOMINAL', 'Validation', 72, 'Persistence')",True,0.0
+"SOH_('FC1', 'FC1_NOMINAL', 'Validation', 72, 'Persistence')",True,0.0
+RealHyFC_all_origins_causal_full_target_blocks,True,348 blocks; max independent voltage difference 1.11e-15 V
+"RMSE_('RealHyFC', 'B60', 'Assessment', 1, 'LocalLinear')",True,5.551115123125783e-17
+"SOH_('RealHyFC', 'B60', 'Assessment', 1, 'LocalLinear')",True,4.85722573273506e-17
+"RMSE_('RealHyFC', 'B60', 'Assessment', 1, 'Persistence')",True,0.0
+"SOH_('RealHyFC', 'B60', 'Assessment', 1, 'Persistence')",True,9.020562075079397e-17
+"RMSE_('RealHyFC', 'B60', 'Assessment', 4, 'LocalLinear')",True,5.551115123125783e-17
+"SOH_('RealHyFC', 'B60', 'Assessment', 4, 'LocalLinear')",True,7.632783294297951e-17
+"RMSE_('RealHyFC', 'B60', 'Assessment', 4, 'Persistence')",True,0.0
+"SOH_('RealHyFC', 'B60', 'Assessment', 4, 'Persistence')",True,4.85722573273506e-17
+"RMSE_('RealHyFC', 'B60', 'Assessment', 12, 'LocalLinear')",True,0.0
+"SOH_('RealHyFC', 'B60', 'Assessment', 12, 'LocalLinear')",True,2.7755575615628914e-17
+"RMSE_('RealHyFC', 'B60', 'Assessment', 12, 'Persistence')",True,5.551115123125783e-17
+"SOH_('RealHyFC', 'B60', 'Assessment', 12, 'Persistence')",True,4.163336342344337e-17
+"RMSE_('RealHyFC', 'B60', 'Train', 1, 'LocalLinear')",True,0.0
+"SOH_('RealHyFC', 'B60', 'Train', 1, 'LocalLinear')",True,2.7755575615628914e-17
+"RMSE_('RealHyFC', 'B60', 'Train', 1, 'Persistence')",True,5.551115123125783e-17
+"SOH_('RealHyFC', 'B60', 'Train', 1, 'Persistence')",True,6.938893903907228e-18
+"RMSE_('RealHyFC', 'B60', 'Train', 4, 'LocalLinear')",True,0.0
+"SOH_('RealHyFC', 'B60', 'Train', 4, 'LocalLinear')",True,4.163336342344337e-17
+"RMSE_('RealHyFC', 'B60', 'Train', 4, 'Persistence')",True,0.0
+"SOH_('RealHyFC', 'B60', 'Train', 4, 'Persistence')",True,8.326672684688674e-17
+"RMSE_('RealHyFC', 'B60', 'Train', 12, 'LocalLinear')",True,0.0
+"SOH_('RealHyFC', 'B60', 'Train', 12, 'LocalLinear')",True,0.0
+"RMSE_('RealHyFC', 'B60', 'Train', 12, 'Persistence')",True,1.1102230246251565e-16
+"SOH_('RealHyFC', 'B60', 'Train', 12, 'Persistence')",True,0.0
+"RMSE_('RealHyFC', 'B60', 'Validation', 1, 'LocalLinear')",True,8.326672684688674e-17
+"SOH_('RealHyFC', 'B60', 'Validation', 1, 'LocalLinear')",True,8.326672684688674e-17
+"RMSE_('RealHyFC', 'B60', 'Validation', 1, 'Persistence')",True,2.7755575615628914e-17
+"SOH_('RealHyFC', 'B60', 'Validation', 1, 'Persistence')",True,7.632783294297951e-17
+"RMSE_('RealHyFC', 'B60', 'Validation', 4, 'LocalLinear')",True,0.0
+"SOH_('RealHyFC', 'B60', 'Validation', 4, 'LocalLinear')",True,6.245004513516506e-17
+"RMSE_('RealHyFC', 'B60', 'Validation', 4, 'Persistence')",True,0.0
+"SOH_('RealHyFC', 'B60', 'Validation', 4, 'Persistence')",True,6.245004513516506e-17
+"RMSE_('RealHyFC', 'B60', 'Validation', 12, 'LocalLinear')",True,0.0
+"SOH_('RealHyFC', 'B60', 'Validation', 12, 'LocalLinear')",True,0.0
+"RMSE_('RealHyFC', 'B60', 'Validation', 12, 'Persistence')",True,0.0
+"SOH_('RealHyFC', 'B60', 'Validation', 12, 'Persistence')",True,5.551115123125783e-17
+"Ridge_standardization_('FC1', 4, 1)",True,0.0
+"Ridge_coefficients_('FC1', 4, 1)",True,8.673617379884035e-19
+"Ridge_standardization_('FC1', 5, 1)",True,0.0
+"Ridge_coefficients_('FC1', 5, 1)",True,8.673617379884035e-19
+"Ridge_standardization_('FC1', 6, 1)",True,0.0
+"Ridge_coefficients_('FC1', 6, 1)",True,1.734723475976807e-18
+"Ridge_standardization_('FC1', 6, 2)",True,0.0
+"Ridge_coefficients_('FC1', 6, 2)",True,4.075922542187693e-18
+"Ridge_standardization_('RealHyFC', 4, 1)",True,0.0
+"Ridge_coefficients_('RealHyFC', 4, 1)",True,8.673617379884035e-19
+"Ridge_standardization_('RealHyFC', 5, 1)",True,0.0
+"Ridge_coefficients_('RealHyFC', 5, 1)",True,2.168404344971009e-18
+"Ridge_standardization_('RealHyFC', 6, 1)",True,0.0
+"Ridge_coefficients_('RealHyFC', 6, 1)",True,1.734723475976807e-18
+"Ridge_standardization_('RealHyFC', 6, 2)",True,0.0
+"Ridge_coefficients_('RealHyFC', 6, 2)",True,2.168404344971009e-18
+"Ridge_standardization_('RealHyFC', 7, 1)",True,0.0
+"Ridge_coefficients_('RealHyFC', 7, 1)",True,4.336808689942018e-19
+"Ridge_standardization_('RealHyFC', 7, 2)",True,0.0
+"Ridge_coefficients_('RealHyFC', 7, 2)",True,2.0599841277224584e-18
+sparse_augmented_least_squares_recalculation,True,10 predictions; max difference 9.71e-17 V
+fair_same_targets_cutoffs_and_transition_sets,True,3 targets; not independent stacks
+RUL_curve_400_Persistence,True,0.0
+RUL_curve_400_LocalLinear,True,9.71445146547012e-17
+RUL_curve_500_Persistence,True,0.0
+RUL_curve_500_LocalLinear,True,2.498001805406602e-16
+RUL_curve_600_Persistence,True,0.0
+RUL_curve_600_LocalLinear,True,7.28583859910259e-17
+RUL_nested_selection_first_crossing_and_censoring,True,all 30 threshold/origin/method records
+FC1_ten_hour_baseline,True,0.0
+Real_five_cycle_baseline,True,0.0
+frozen_stage1_2_features_unchanged,True,
+synthetic_missing_block_rank_and_nonnegative_RUL,True,
+cycle_LCS_bitset_vs_independent_DP,True,30 fixed synthetic sequences
+full_life_cycle_identity_completeness,True,200 closed candidates; 189 sequence/duration eligible; first156 exact historical identity audited in preparation
+historical_preservation_SHA256,True,725 original files unchanged; formal README separately backed up

@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "formal_output": "输出结果\\正式版本独立运行\\20261025T150116Z",
+  "compared_files": 17,
+  "backup_SHA": [
+    {
+      "文件": "使用说明.md",
+      "原SHA256": "c6cc84929b82e03d67e17f942459aca25f063ac84936a409cd62bc9050bac942",
+      "备份SHA256": "c6cc84929b82e03d67e17f942459aca25f063ac84936a409cd62bc9050bac942"
+    }
+  ],
+  "formal_core_equals_stage": true,
+  "formal_files_sha256": {
+    "requirements.txt": "a4bd44778fc5aab5b72ee90d11740f4adb950788c983c588579374b566c3cafa",
+    "使用说明.md": "193b44572be69f5d98a8c2299f4089379c1b8c21feacb18963476f4c470729e5",
+    "版本记录.json": "1f1ecdadac314807cb756548f195e5b3cd8e70baa20bb3e3b9e87702c315fb58",
+    "程序\\基础预测核心.py": "241967503b86efb3a700ae5e9fbfea76068a0edb6490dc46fd6d76356945e871",
+    "程序\\运行基础预测.py": "6266927f4221dcfc6b4dd457cdaa5845584354b92dd62ed3e92b4c60ed06ba61",
+    "配置\\执行前冻结.json": "43c1f638a1585d6785c92cec7bab4d13f79db95dab567eaed6114ade3e027274",
+    "配置\\阶段2A冻结协议.json": "a39506110419b34e8bbe3376fbf98570e74e22dbf1742fd25ad2222ee02fc2d9",
+    "配置\\预测输入合同.json": "2a385e907ea3c010247b27dfd67733e402560c48f2114a5d4290c08a5d8360ef"
+  }
+}

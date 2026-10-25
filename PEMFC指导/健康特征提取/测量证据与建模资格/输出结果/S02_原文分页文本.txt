@@ -1,0 +1,1252 @@
+PDF第1页
+Spatially resolved electrochemical characterization of a PEM fuel cell stack 
+during durability testing
+Eva Fensterle a,*
+, Jürgen Hunger a, Frank Rabsahl a, Florian Wilhelm a
+,  
+Christian Kolle Christensen b, Adam Benson c, Rami Al-Khamissi d, Marine Tregaro e,  
+Sylvie Escribano e
+, Joachim Scholta a, Markus H¨olzle a
+a Zentrum für Sonnenenergie- und Wasserstoff-Forschung Baden-Württemberg (ZSW), Ulm, 89081, Germany
+b IRD Fuel Cells A/S, Odense, SØ, 5220, Denmark
+c PowerCell Sweden AB, Gothenburg, SE 418 34, Sweden
+d German Aerospace Center (DLR), Institute of Engineering Thermodynamics, Stuttgart, 70569, Germany
+e Univ. Grenoble Alpes, CEA, LITEN, DEHT, Grenoble, 38000, France
+A R T I C L E I N F O
+Keywords:
+Proton exchange membrane fuel cell
+Electrochemical impedance spectroscopy
+Current density distribution
+Spatially resolved characterization
+Durability test
+Aging effects
+A B S T R A C T
+The durability of proton exchange membrane fuel cells (PEMFC) is a decisive factor for their use in heavy-duty 
+applications. In order to increase durability, it is important to identify and understand the aging mechanisms. In 
+large-area PEMFCs, inhomogeneities occur across the active area right from beginning of life, which have a 
+decisive influence on degradation. This paper presents results on aging phenomena with a particular focus on 
+spatially resolved degradation. A heavy-duty relevant load cycle was applied for more than 2000 h to a PEMFC 
+stack with an active area of 280 cm2. At regular intervals, detailed electrochemical characterizations such as 
+polarization curves, sensitivity tests, and electrochemical impedance spectroscopy at cell level and spatially 
+resolved were performed. Degradation impact increases with decreasing pressure, especially in the resistance of 
+the oxygen reduction reaction. Mass transport losses are primarily affected in the cathode outlet area and show 
+the greatest dependence on stoichiometry.
+1. Introduction
+Fuel cells are a climate-friendly alternative to combustion engines 
+and can play an important role in the decarbonization of the transport 
+sector. Compared to battery-electric systems, the proton exchange 
+membrane fuel cells (PEMFC) offer advantages in terms of range and 
+short refueling times, which makes them particularly attractive for 
+heavy-duty transport applications [1,2]. For competitive deployment, 
+the durability of the fuel cell stack is a decisive factor. To assess dura­
+bility and efficiency, the investigation of the membrane electrode as­
+sembly (MEA) is of particular importance since they lead fuel cell 
+performance degradation during aging. In addition, heterogeneities 
+across the active area already observed at the beginning of life (BoL), 
+intensify during operation. These local differences in degradation 
+significantly affect overall performance and represent a major challenge 
+for long-term stability [3].
+Among degradation mechanisms, membrane degradation is consid­
+ered the most critical, as it can ultimately lead to cell failure, whereas 
+degradation of other components generally results in gradual perfor­
+mance losses [4]. Membrane failure is mainly caused by the formation of 
+cracks or pinholes, which can induce excessive gas crossover and pre­
+vent safe operation. Such defects may already occur during 
+manufacturing or assembly and may be promoted by mechanical 
+stresses arising from hydration and dehydration cycles, for example 
+during start-up and shutdown [5,6]. Other membrane-related aging 
+phenomena, such as membrane thinning and chemical decomposition, 
+primarily lead to performance losses. These processes are typically 
+associated with dynamic operating conditions involving dynamic cycles 
+in potentials and humidity levels. Another mechanism is the detachment 
+of the catalyst layer from the membrane [7], creating cavities that 
+facilitate local water accumulation, increase charge transfer resistance, 
+and hence reduce cell performance. Catalyst aging is causing the loss of 
+This article is part of a special issue entitled: EFCHC25 conference (Iulianelli) published in International Journal of Hydrogen Energy.
+* Corresponding author.
+E-mail address: eva.fensterle@zsw-bw.de (E. Fensterle). 
+Contents lists available at ScienceDirect
+International Journal of Hydrogen Energy
+journal homepage: www.elsevier.com/locate/he
+https://doi.org/10.1016/j.ijhydene.2026.156060
+Received 5 March 2026; Received in revised form 21 April 2026; Accepted 12 June 2026  
+International Journal of Hydrogen Energy 250 (2026) 156060 
+0360-3199/© 2026 The Authors. Published by Elsevier Ltd on behalf of Hydrogen Energy Publications LLC. This is an open access article under the CC BY license 
+( http://creativecommons.org/licenses/by/4.0/ ). 
+
+
+PDF第2页
+electrochemically active surface area (ECSA), which directly results in 
+voltage degradation [6,8]. Several mechanisms occur, including plat­
+inum particles dissolution, agglomeration and electrochemical Ostwald 
+ripening. The two latter lead to larger particles with a reduced 
+surface-to-volume ratio, while dissolved platinum cations may migrate 
+and be reduced as non-active particles into the membrane. A compre­
+hensive overview of PEMFC aging mechanisms is provided in Ref. [6].
+The aim of this work is to achieve a deeper understanding of aging 
+phenomena in a metallic PEMFC stack. To this end, a heavy-duty rele­
+vant durability test is conducted. The stack performance is evaluated at 
+regular intervals using electrochemical characterization techniques, 
+allowing the quantification of key parameters contributing to degrada­
+tion. The focus is on spatially resolved aging effects across the active 
+area. Local variations in current density are assessed using a current 
+density distribution measurement board (CDDM). Previous studies 
+considering spatially resolved current density distributions were con­
+ducted on the development of accelerated durability test (ADT) by 
+Koprek et al. [9] and Schüttoff et al. [10]. Further analyses of local 
+current density evolution with increasing degradation can be found in 
+Refs. [11,12], while the influence of operating conditions is discussed in 
+Refs. [13–17].
+Electrochemical impedance spectroscopy (EIS) is a powerful method 
+for analyzing resistances of transport, conduction, and reaction pro­
+cesses occurring at different frequencies. By separating individual loss 
+mechanisms, EIS enables a more detailed interpretation of aging-related 
+changes. Cell-level EIS measurements are well established in PEMFC 
+aging research. Chandran et al. [7] used EIS to investigate the influence 
+of different load profiles on degradation. EIS is widely applied in ADTs 
+and accelerated stress tests (ASTs) [9,10,18,19]. While cell-level EIS 
+measurements provide valuable insight into global processes, they do 
+not capture effects caused by non-uniform local conditions, which 
+strongly influence local performance and degradation. By using addi­
+tional expansion boards for the CDDM, spatially resolved EIS measure­
+ments across the active area become possible. Although this technique is 
+not yet common, it has been found promising by several studies [20–25]. 
+Most previous works have focused on the influence of flow field design 
+[22,23,26] or water balance [21,24,25], and predominantly on single 
+cells with relatively small active areas. However, for heavy-duty appli­
+cations, investigating larger active area is more relevant as generally 
+leading to stronger spatial heterogeneities that significantly affect per­
+formance and aging behavior. So far only very few studies address 
+large-format cells or stacks. One notable example is the work of Haimerl 
+et al. [12], who investigated spatially resolved impedance behavior of a 
+PEMFC with an active area of 285 cm2 under various operating condi­
+tions and during freeze-start degradation.
+Thus, an aging study focusing on the investigation of application 
+relevant cell-sizes in a short-stack employing a combination of advanced 
+analysis methods including spatially resolved EIS appears most relevant. 
+Building on our previous investigations of BoL performance phenomena 
+[27], the present study extends this work by providing a systematic 
+analysis of spatially resolved aging effects in a PEMFC with an active 
+area of 280 cm2. In contrast to prior studies as [7,10,22–24,28], which 
+predominantly focus either on global aging phenomena or localized 
+analyses at small cell level, this work combines spatially resolved elec­
+trochemical impedance spectroscopy and current density measurements 
+within a long-term durability test conducted under realistic operating 
+conditions. This approach enables the direct correlation of local elec­
+trochemical properties with degradation behavior during operation. In 
+particular, the influence of different operating conditions on the evo­
+lution of inhomogeneities is analyzed, allowing for a more detailed 
+assessment of local degradation mechanisms across the active area. By 
+applying spatially resolved diagnostics to a large-area cell format, this 
+study contributes to closing the research gap between fundamental in­
+vestigations employing small, typical laboratory-scale single cells and 
+application-relevant PEM fuel cell stacks, especially in the context of 
+heavy-duty applications.
+2. Material and methods
+2.1. Test-setup
+The tests were conducted as part of the RealHyFC project [29]. The 
+generic HyFaB stack [30] with an active area of 280 cm2 and a 
+project-specific MEA served as the stack hardware using: a 10-cell stack 
+for the durability test (see Section 2.3), and a 8-cell stack for the BoL EIS 
+sensitivity analysis. The BoL sensitivity study was conducted on a 
+separate stack, as this module was deliberately removed from the 
+durability test to ensure that any initial degradation could be solely 
+attributed to the applied load cycle. To enable a comparison between the 
+sensitivity behavior of the different aging states, the comprehensive 
+sensitivity study, including EIS analysis during sensitivity measure­
+ments, was therefore repeated on a second, fresh stack. The number of 
+cells for the sensitivity stack was reduced due to test bench limitations, 
+as the 10-cell configuration did not allow the highest stoichiometry to be 
+tested at the highest load point. It should be noted that identical MEAs 
+from the same production batch were employed for both stacks. Both 
+stacks integrated in the middle of the cell package a CDDM from S++
+Simulation Services with a resolution of 29x23 corresponding to 667 
+measurement segments for the local current density. In the 10-cell stack, 
+the CDDM was integrated between cells 5 and 6, whereas in the 8-cell 
+stack it was positioned between cells 4 and 5. In both cases, conven­
+tional bipolar plates of the adjacent cells were replaced by end bipolar 
+plates, and additional gas diffusion layers were inserted on both sides of 
+the CDDM. Consequently, as usual with the method, the measured local 
+current density represents the combined contribution of several cells. 
+The individual segments of the current density measurement board are 
+calibrated by the manufacturer using a two-point calibration method. 
+The measurement uncertainty of the individual measurement segments 
+is not specified in detail. According to the manufacturer, however, the 
+expected measurement error is at least one order of magnitude smaller 
+than the measurement error caused by lateral cross-conductance within 
+the cell. Thus, the contribution of sensor calibration to the total uncer­
+tainty of the spatially resolved current density measurement can be 
+considered negligible compared to blurring mainly induced by the dis­
+tance between the catalyst layer and the measurement board and 
+in-plane conductivity. The latter effects can hardly be quantified as there 
+is no established measurement technique for local current density within 
+the catalyst layer. The stacks were operated in counterflow mode, with 
+the coolant flowing in the same direction as the air flow. The tests were 
+performed on a Greenlight G200 test bench. Further details on the test 
+setup, including current density correction factors and the break-in 
+procedure, are given in Ref. [27].
+2.2. Characterization methods
+Details on the characterization methods used can be found in 
+Ref. [27]. For the purpose of completeness, they are briefly described 
+below.
+2.2.1. Polarization curves
+Six different polarization curves were measured. However, only the 
+polarization curve under nominal RealHyFC conditions is relevant for 
+the purpose of this paper. These conditions applied for the durability test 
+and for the other characterization methods are shown in Table 1.
+The coolant flow was kept constant and selected so that the tem­
+perature difference between the inlet and outlet was 10 K at the highest 
+load point of 1.8 A cm−2. A total of 16 different load points in a range 
+from 0 A cm−2 to 1.8 A cm−2 were measured in both descending and 
+ascending order. For the durability test the minimum current for stoi­
+chiometric operation was set to 0.3 A cm−2, while 0.5 A cm−2 was used 
+for the full sensitivity test.
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+2 
+
+
+PDF第3页
+2.2.2. Sensitivity test
+Sensitivity tests were performed to investigate the influence of 
+operating conditions on performance. A partial sensitivity test, which 
+includes fewer measurement points, and a full sensitivity test were 
+performed. Both sensitivity tests studied the influence of temperature, 
+humidity, pressure, and stoichiometry at four different current densities 
+(cf. Table 2). The parameters were changed together for both anode and 
+cathode. The selected operating parameter ranges were defined based on 
+the nominal RealHyFC conditions and systematically varied towards 
+both higher and lower values within the ranges typical for the operation 
+of PEMFCs. The variation limits take into account the constraints 
+imposed by the stack hardware, the MEA components and the test 
+bench. Furthermore, contributions and advice of the industrial partners 
+within the RealHyFC consortium were reflected to maximize the rele­
+vance of the chosen parameters. The partial sensitivity test was per­
+formed every 50 cycles during the durability test as follows: only one 
+parameter is varied at a time, while the others remain constant at the 
+thick, underlined nominal values. This results in a total of 13 different 
+sets of operating conditions for the partial sensitivity test. For the full 
+sensitivity test, used for the BoL test and at the end of the durability test, 
+all possible 240 conditions were tested ending with 960 measurement 
+points.
+Details regarding current density ramp, dwell times and conditioning 
+times for the sensitivity test and the polarization curve can be found in 
+Table 3.
+2.2.3. Electrochemical impedance spectroscopy
+The EIS measurements were performed using a Zahner potentiostat 
+of type Zennium X in combination with four additional 1 V-PAD4 cards 
+[31] and an external electrical load of type EL1002 [32]. The additional 
+PAD4 cards enable the measurement of 16 impedance spectra in parallel 
+with a reference impedance. Both the cell impedance and the spatially 
+resolved impedance were measured galvanostatically. For the cell 
+impedance, the alternating current (AC) was 5 % of the direct current 
+(DC). The spatially resolved measurements showed that a slightly higher 
+alternating current results in less noise in the measurements. Accord­
+ingly, an AC of 7 % of the DC was used for the spatially resolved mea­
+surements. The spatially resolved EIS measurement was performed 
+using the CDDM and special expansion boards that transmit the current 
+from the measurement segments to the Zahner device. It is assumed that 
+the metallic bipolar plate represents an equipotential surface and thus 
+the voltage is constant over the entire active area. For the EIS mea­
+surement, the voltage of a reference cell and the AC recorded by the 
+CDDM are used. The cell directly above the CDDM served as the refer­
+ence. For the spatially resolved measurement, the CDDM was divided 
+into 16 different zones based on the current density distribution map 
+observed at 1.8 A cm−2, with 7 zones selected in the cathode inlet area 
+(blue-based colors), two in the middle area (yellow-based colors), and 7 
+in the cathode outlet area (green-based colors) as shown in Fig. 1.
+The uncertainty of the impedance measurement was estimated based 
+on the specified measurement uncertainties of the PAD4 cards and the 
+EL1002 module. The combined uncertainties of voltage U and current I 
+were applied to the impedance Z 
+Z = U
+I
+(1) 
+using the Gaussian error propagation. For a load point of 1.8 A cm−2, 
+the relative uncertainty of the impedance magnitude covered by this 
+estimation is below 0.3 %, indicating a very low contribution of this 
+measurement uncertainty to the overall signal. It should be noted that 
+additional uncertainties arising from cable-related effects, such as con­
+tact resistances, inductive contributions, and parasitic coupling, are not 
+explicitly included in this estimation. However, these effects are ex­
+pected to be small compared to the intrinsic measurement uncertainties 
+of the instrumentation, i.e. the Zahner device for cell impedance and 
+additionally the effects related to the CDDM for the spatially resolved 
+EIS. Thus, the observed variations in the impedance can be attributed 
+primarily to physical effects rather than measurement artifacts and do 
+not significantly affect the overall interpretation of the results.
+2.3. Durability test procedure
+To investigate the effects of aging, a durability test was carried out 
+applying a load cycle defined within the RealHyFC project and based on 
+the PEMTASTIC load cycle [33]. The cycle has a duration of approxi­
+mately 12 h and includes three short and one longer stop. The time 
+course of the load cycle (left) and the percentage distribution of the load 
+points in the cycle (right) are shown in Fig. 2. The operating conditions 
+correspond to the nominal RealHyFC conditions.
+A schematic representation of the test procedure for the overall test 
+procedure applied for the durability test is shown in Fig. 3.
+The break-in aiming to achieve the full performance of the cells, is 
+followed by the full characterization sequence, including the methods 
+described before: six different polarization curves, the partial sensitivity 
+test, EIS at cell level and spatially resolved, as well as cyclic voltammetry 
+Table 1 
+Nominal RealHyFC operating conditions applied for the polarization curve, the EIS measurements and the durability test.
+Inlet temperature 
+/◦C
+Humidity 
+/%
+Outlet Pressure 
+/kPaG
+Stoichiometry 
+/-
+Gas composition
+Anode
+75
+50
+160
+1.5
+80 % H2/20 % N2
+Cathode
+75
+35
+150
+1.7
+100 % Air
+Coolant
+70
+-
+-
+-
+-
+Table 2 
+Operating conditions of the sensitivity tests. For pressure, humidity, and stoi­
+chiometry, anode and cathode (A/C) conditions are changed simultaneously. 
+Nominal conditions shown in bold and underlined.
+Parameter/Variation
+1
+2
+3
+4
+5
+Temperature/◦C (coolant 
+inlet)
+55
+60
+65
+70
+75
+Pressure A/C/kPaG (outlet)
+60/50
+110/ 
+100
+160/ 
+150
+210/ 
+200
+​
+Humidity A/C/%
+30/30
+50/35
+70/60
+90/90
+​
+Stoichiometry A/C/-
+1.4/ 
+1.6
+1.5/1.7
+1.9/2.1
+​
+​
+Current density/A cm−2
+0.36
+0.9
+1.8
+2.3
+​
+Table 3 
+Current density ramps, dwell times and conditioning times for the character­
+ization methods.
+Polarization curve
+Sensitivity test
+Current density ramps
+2 A s−1
+2 A s−1
+Dwell time per load 
+point
+5 min for 
+j ≥0.3 A cm−2 
+2 min for 
+j < 0.3 A cm−2
+5 min
+Conditioning time
+30 min at 1 A cm−2
+Change of temperature or 
+humidity: 
+30 min at 1 A cm−2 
+Change of pressure or 
+stoichiometry: 
+10 min at 1 A cm−2
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+3 
+
+
+PDF第4页
+(CV) and linear sweep voltammetry (LSV). The voltammetry measure­
+ments are not discussed in detail here, as the results are not relevant for 
+this work focused on spatially resolved data.
+After every 25 load cycles, a partial characterization is performed, 
+consisting only of the six polarization curves, and after every 50 cycles, 
+the stack undergoes the full characterization. A passive air/air start was 
+integrated into the characterization sequence after the first 50 cycles, 
+followed by an additional nominal RealHyFC polarization curve to 
+measure reversible voltage losses. During passive air/air start, air dif­
+fuses to the anode side, allowing to regenerate reversible voltage losses 
+due to temporary concentration gradients or water accumulation. As 
+air/air starts could promote some degradation mechanisms [18,34], 
+especially in the catalyst layer, they are only performed as part of the 
+characterization and in limited numbers. As the goal of this study was to 
+complete more than 2000 operating hours (corresponding to about 170 
+cycles), the durability test was ended after a relevant number of 200 
+cycles, to perform a full characterization. Subsequently, the final char­
+acterization including spatially resolved EIS measurements and cell EIS 
+measurements of the reference cell under the partial sensitivity test 
+conditions is carried out, followed by the full sensitivity test and a final 
+full characterization excluding the partial sensitivity test.
+3. Results and discussion
+The results of BoL nominal polarization curve, partial sensitivity test, 
+cell EIS and spatially resolved EIS under nominal conditions have 
+already been described in detail in Ref. [27]. The following section takes 
+a closer look at aging and analysis of the EIS measurements during the 
+sensitivity test.
+3.1. Voltage progression in polarization curves and sensitivity tests
+The progression of the nominal polarization curves recorded imme­
+diately following the load cycle is shown in Fig. 4. It is clear that the cell 
+voltage decreases over time. The largest jump is between the BoL curve 
+and the curve after 300 h (25 cycles). In this initial period, the voltage 
+loss is about half the total, with a degradation rate of 63.3 μV h−1 at 
+1.8 A cm−2. Looking at the entire durability test, the total degradation 
+rate is 15.7 μV h−1. However, this value includes both reversible and 
+irreversible losses. If the nominal polarization curves after air-air start 
+are considered, excluding the reversible cell voltages, the degradation 
+rate decreases to 13.0 μV h−1 at 1.8 A cm−2. This result is consistent with 
+an initial degradation known to be the most severe, as a significant loss 
+of the ECSA occurs at the beginning due to catalyst aging, while after­
+wards the degradation rate stabilizes [8,11]. Looking at the degradation 
+rate after 1500 h, it is only 3.8 μV h−1. The observed degradation rates 
+are in good agreement with degradation rates reported in the literature 
+for PEM fuel cells [9,35–38]. It can be noted that the hysteresis between 
+increasing and decreasing current, particularly visible below 0.5 A cm−2 
+is not affected by aging, showing a limited impact of aging on this 
+feature associated with global sensitivity to humidity at least on the 
+average performance.
+Fig. 1. Division of the CDDM measuring segments into a total of 16 different zones across the active area of the fuel cell.
+Fig. 2. Current density profile (left) and percentage contribution of load points (right) of the load cycle from the RealHyFC project, which is based on the load cycle 
+of the PEMTASTIC project [33]. Current range is defined by the specifications of the stack.
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+4 
+
+
+PDF第5页
+The partial sensitivity test shows the change in cell voltages under 
+various operating conditions. The results of the partial sensitivity test for 
+BoL and after completing all 200 cycles are shown in Fig. 5.
+The cell voltage loss is clearly visible in all four variations, and 
+increasing with the current. For the temperature, humidity, and stoi­
+chiometry variations, the voltage losses are approximately the same 
+under all operating conditions (about 50 mV at the highest current), and 
+consistent in values with the nominal polarization curves, not showing 
+strong influence of aging on the sensitivity. In contrast, the influence of 
+aging on PEMFC sensitivity becomes evident under varying operating 
+pressures, with much more pronounced performance losses as the 
+pressure decreases. It appears that the aging-related performance be­
+comes more sensitive to reduced reactant partial pressures and present 
+increased susceptibility to mass-transport limitations. Increasing oper­
+ating pressures enhances reactant availability and cell operation, as for 
+the non-aged case, but with a much more beneficial effect as seems 
+required after aging. The higher partial pressure mitigates the impact of 
+aging by improving oxygen transport to the catalyst layer, thereby 
+supporting more uniform and robust cell performance.
+Fig. 3. Schematic representation of the durability test procedure with a description of the characterization sequences. For the purpose of our study, an operating hour 
+is defined as the time under load.
+Fig. 4. Nominal RealHyFC polarization curve from the characterization sequences of the durability test including reversible and irreversible cell voltage losses.
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+5 
+
+
+PDF第6页
+3.2. Current density distribution analysis
+The current density distribution changes with aging. The current 
+density distribution during the descending branch of the nominal 
+RealHyFC characteristic curve after air/air start is shown in Fig. 6 for 
+three load points over the course of aging. For the line-graphs, the active 
+area is divided into 27 columns in the flow direction according to the 
+current density measurement segments, and the mean value is calcu­
+lated within each column. To illustrate the systematic variation in cur­
+rent density perpendicular to the channel, the BoL curve at 1.8 A cm−2 
+shows the minimum and maximum current densities within the 
+respective columns along the cathode flow direction as error bars.
+The 2D images at BoL and after 2300 operating hours show a typical 
+current density distribution pattern, with lower values in the inlet and 
+outlet regions as well as at the edges, and higher values in the central 
+region of the active area. A comparison of the current density over time 
+reveals a visible shift in the current density maximum towards the 
+cathode inlet. Furthermore, the inhomogeneity increases over time and 
+the current density maximum reaches higher values after 2300 h. This is 
+confirmed by the 1D plots and agrees well with previously reported 
+results in the literature [37,39]. During the first 600 h of aging, a sig­
+nificant shift in current density can be observed, which thereafter 
+changes only very slightly, as seen for the polarization curves. However, 
+the overall shape does not change, only the low local current densities at 
+air inlet are becoming even lower but only for the lowest load, 
+compensated by higher values in the middle area from 5 to 14. For the 
+higher loads, no effect noticed at air inlet but an increased slope between 
+the maximum area, always nearby the air inlet, and the area from middle 
+to outlet. Aging has thus affected the operation at air inlet at low current, 
+probably caused by a higher susceptibility to dry conditions. This is also 
+Fig. 5. Partial sensitivity test at BoL and after 200 cycles (2300 h), a) temperature variation, b) humidity variation, c) pressure variation, d) stoichiometry variation.
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+6 
+
+
+PDF第7页
+confirmed with small but visible continuous decrease of current den­
+sities for the very first column.
+With the help of spatially resolved polarization curves, the average 
+current density of the 16 defined individual zones (cf. Fig. 1) can be 
+plotted against the average stack voltage (cf. Fig. 7).
+The spatially resolved polarization curves demonstrate that the 
+current density varies greatly between zones. The spread of local current 
+densities is analyzed at the highest load point (about 0.6 V). The 
+Fig. 6. Current density distribution during the polarization curve under nominal RealHyFC conditions after air/air start at 0.18 A cm−2, 0.9 A cm−2 and 1.8 A cm−2. 
+Representation of the current density distribution at BoL and after 2300 h as a 2D graph, as well as the evolution of the current density over several aging time points 
+as a 1D graph. Indicating the systematic distribution of current density with error bars showing the minimum and maximum values using the BoL curve 
+at 1.8 A cm−2.
+Fig. 7. Spatially resolved U–I curves plotted from the CDDM data for the 16 selected zones during the nominal RealHyFC polarization curves, at BoL (on the left), and 
+2300 h after air/air start (on the right). At each fixed voltage value, the local current density is averaged over all the CDDM segments of the zone. Arrows represent 
+the current density span of a selected group of zones at 0.6 V.
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+7 
+
+
+PDF第8页
+maximum spread occurs both at BoL and after 2300 h between zones 4 
+and 7 (respectively at coolant and cathode outlet). The maximum spread 
+is 0.94 A cm−2 at BoL and increases to 1.03 A cm−2 after 2300 h. An 
+increase in the maximum difference can also be observed in the inlet 
+areas. The spread increase in the inlet areas is of 20 mA cm−2. In contrast 
+to the inlet areas, the spread in the outlet areas decreases from 
+0.76 A cm−2 to 0.72 A cm−2. These observations are consistent with the 
+averaged distribution at 1.8 A cm−2 for the 10 first and 10 last segments 
+in Fig. 6.
+Fig. 8 shows how the maximum difference between zones 4 and 7 
+varies with the operating conditions, in the partial sensitivity test at BoL 
+and after 2300 h at 1.8 A cm−2. The variations characterize the indi­
+vidual operating conditions according to Table 2. The values for the 
+operating conditions increase with increasing number of variations. At a 
+pressure of 60 kPaG/50 kPaG, 1.8 A cm−2 could no longer be measured 
+because the cell voltage fell below 500 mV, which was defined as the 
+lower voltage limit for the durability test.
+The gap in the averaged current density between the two zones de­
+creases both at BoL and after 2300 h when increasing humidity, pres­
+sure, and stoichiometry. The opposite occurs when increasing 
+temperature, showing that the inhomogeneity across the active area 
+increases with temperature. A comparison of all the two curves at BoL 
+and after 2300 h shows that the difference between the two zones is 
+always greater after aging, hence showing an increase in the overall 
+heterogeneity for all conditions. However, this difference in in­
+homogeneity decreases with increasing temperature showing that 
+degradation has therefore a greater influence on the current density 
+distribution at lower temperatures. With stoichiometry it is the same, 
+aging has a greater influence on the current density distribution at low 
+stoichiometry. With pressure and humidity, it is the reverse, the influ­
+ence of aging on the current density difference increases with increasing 
+pressure and increasing humidity, respectively.
+3.3. Electrochemical impedance spectroscopy
+This paper focuses on the results of the EIS measurements at 
+1.8 A cm−2, where the mass transport resistance, usually comes into play 
+in both the aging process and the sensitivity analysis. Furthermore, the 
+spatially resolved measurements at 1.8 A cm−2 exhibit the lowest 
+measurement noise. The results of the cell EIS measurement over time 
+under nominal RealHyFC conditions are shown in Fig. 9. In order to 
+complete the discussion about the processes involved, in addition the 
+EIS results at a current density of 0.18 A cm−2 are also shown in Fig. 9a. 
+It should be noted that EIS measurements at cell level represent an 
+average of the processes across the active area. In the measurements 
+underlying this work, capacitive artifacts occur in the high frequency 
+range. For this reason, the frequency range at cell level was limited to 
+100 mHz – 1180 Hz.
+The averaged Nyquist plot of all 10 cells of the stack over time (Fig. 9 
+a) show for both load points a shift of the curves along the real axis by 
+the value of the high frequency resistance (HFR). The HFR represents the 
+ohmic losses, which comprising the membrane resistance as well as 
+contributions from electronic contact resistances and electrode-related 
+effects, including ionomer distribution and possible swelling phenom­
+ena. Nevertheless, according to Heinzmann et al. [40], the ohmic losses 
+consist mainly of the ionic component, which can be attributed to proton 
+transport in the membrane. In addition to the high-frequency intercept, 
+intermediate- and low-frequency intercepts can be identified. The low 
+frequency resistance (LFR) represents the sum of all losses. The sections 
+between the intercepts LFR, IFR and HFR can be assigned to two pro­
+cesses. These are attributed to mass transport in the low frequency range 
+and to the charge transfer of the oxygen reduction reaction (ORR) on the 
+cathode side in the intermediate frequency region. At higher current 
+densities, mass transport effects become increasingly dominant, leading 
+to a clearer separation between intermediate- and low-frequency fea­
+tures. In contrast, at lower current densities, the impedance response is 
+mainly governed by charge transfer processes, and mass transport con­
+tributions are less pronounced.
+The three processes can be represented by an equivalent circuit di­
+agram shown in Fig. 9 b). The resistance R0 represents the membrane 
+resistance. The charge transfer of the ORR and the mass transport lim­
+itations can each be represented by an R-CPE element (constant phase 
+element, CPE). Generally, the findings from the fitting of the equivalent 
+circuit model support the qualitative discussion of the Nyquist diagram 
+in the previous section. The Nyquist plot shows an overall increase of the 
+impedance over time at 1.8 A cm−2, with a clear gap between the spectra 
+until 1150 h and the spectra recorded at 2300 h. The distribution of the 
+fitted resistances is shown in Fig. 9 c). The mean value across all cells is 
+shown with the standard deviation indicated in the form of error bars. 
+The membrane resistance increases slightly over time, with a clearer 
+jump after 1150 h. The increase in membrane resistance can be attrib­
+uted to membrane degradation. Chemical aging of the membrane due to 
+radical attacks reduces proton conductivity and increases membrane 
+resistance [41–43]. In addition, an increase in interfacial contact re­
+sistances, e.g., between the gas diffusion layer and the bipolar plate, may 
+also contribute to the observed rise in resistance. The ORR resistance 
+initially decreases slightly and then increases again. The increase in 
+charge transfer resistance is primarily attributable to catalyst aging. 
+Typical mechanisms of catalyst layer aging reported in the literature 
+include platin particle growth due to Ostwald ripening, dissolution and 
+platinum agglomeration, as well as carbon corrosion. These processes 
+lead to a reduction in the ECSA and thereby impair the oxygen reduction 
+reaction [10,44,45]. The mass transport resistance behaves contrary to 
+what is described in the literature. Over time, the mass transport resis­
+tance normally increases due to blocked gas diffusion pathways caused 
+by degradation mechanisms such as liquid water accumulation, loss of 
+hydrophobicity in the gas diffusion layer, pore structure changes in the 
+catalyst layer, and carbon support corrosion [9,10,46]. However, the 
+mean fitted values here remain practically constant over the timespan 
+covered by the test reported here. This may be due to the specific test 
+conditions avoiding high potentials or the test duration which might be 
+not long enough to trigger the relevant processes in the GDL and catalyst 
+layers. However, these trends are difficult to interpret. In summary, it 
+can be stated that this aging test caused only minor effects in the average 
+impedance measured at cell level.
+The distribution of resistances across the active area and their change 
+over time are also represented using spatially resolved EIS measure­
+ments. For this purpose, the spatially resolved EIS spectra were fitted 
+using the same equivalent circuit diagram mentioned above. The fre­
+quency range of the spatially resolved measurements was limited in the 
+Fig. 8. Current density difference between zone 4 (highest current density) and 
+zone 7 (lowest current density) at 1.8 A cm−2 over the different variations of the 
+sensitivity test (cf. Table 2) with increasing values over the variations in all 
+cases at BoL and after 2300 h.
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+8 
+
+
+PDF第9页
+upper frequency range due to measurement artifacts. For the cathode 
+inlet zones 1, 3, 10 (cf. Fig. 1) a maximum frequency of 1180 Hz was set 
+and for the remaining zones a higher frequency limit of 421 Hz was 
+defined. To map the resistance values across the active area, the 
+measured values of the individual zones were set at their zone centers. 
+The values were linearly interpolated between the zones. For better 
+resolution in the middle area of the active area, zones 5 and 12 were 
+additionally mirrored across the flow direction. Zone 4 cannot be fitted 
+in a meaningful and realistic way and was therefore excluded from the 
+evaluation and replaced by the values from zone 9. Similarly, capacitive 
+artifacts in the high frequency range occur in zone 7 that cannot be 
+precisely localized, which is why the values from zone 16 were used for 
+mapping the membrane resistance and ORR resistance for zone 7. The 
+resulting resistances across the active area at BoL, 1150 h, and after 
+2300 h are shown in Fig. 10.
+The mean values and standard deviation of the three resistances 
+across the active area based on Fig. 10 are listed in Table 4. The mem­
+brane resistance increases from the center to the edges of the active area. 
+The most obvious phenomenon is that the differences between low 
+values (middle area) and high values are much more pronounced with 
+aging. So, the distribution of membrane resistance across the active area 
+becomes increasingly inhomogeneous with increasing aging, which is 
+also indicated by the standard deviation. The membrane resistance in­
+creases in average by 9.75 % over the first 1150 h. The increase in 
+membrane resistance over time observed in the boundary regions can, in 
+agreement with the cell-level results, be attributed to both mechanical 
+and chemical membrane degradation. In these regions, enhanced local 
+stress conditions and inhomogeneous operating environments may 
+accelerate degradation processes, leading to a reduction in proton con­
+ductivity and thus higher membrane resistance. In contrast, the slight 
+decrease in membrane resistance observed in the central region may be 
+associated with membrane thinning effects, which have been reported in 
+the literature as a consequence of chemical degradation [8,10]. Such 
+thinning reduces the effective transport path for protons and can 
+therefore lead to a lower apparent membrane resistance, caused by 
+ongoing material degradation. Of course, simultaneously the local cross 
+over rate will increase, nevertheless this will not influence membrane 
+resistance. Colombo et al. [8] have already described that the outlet 
+region is most susceptible to membrane aging, a finding confirmed by 
+the results presented here. The ORR charge transfer resistance generally 
+increases from the cathode inlet to the cathode outlet, with again an 
+accentuation of the local differences during aging. During the first 
+1150 h of aging, the resistance shows a decrease in the cathode inlet area 
+and an increase in the cathode outlet area, resulting in a 37.2 % increase 
+in the variation of the values. Of course, we are aware that the values are 
+not randomly distributed over the active area, but follow clear physi­
+cochemical processes and boundary conditions. Nevertheless, statistical 
+nomenclature can help to explain the increase in the variation. The in­
+crease of the ORR resistance in the outlet region is likely caused by 
+enhanced catalyst degradation under locally harsher conditions, such as 
+higher water content and reduced reactant availability. This is consis­
+tent with previous studies, which have shown that platinum degradation 
+is more pronounced at the air outlet compared to the inlet, attributed to 
+the higher local humidification [8]. In the following period of another 
+1150 h, the resistance increases in all areas, maintaining the previous 
+shape of the distribution, thus a more homogeneous progression of 
+catalyst degradation across the active area takes place. The mass 
+transport resistance shows a strong increase from the cathode inlet to the 
+cathode outlet, with the maximum being reached at the anode inlet. No 
+significant changes over time are observed during the first 1150 h, then 
+Fig. 9. Nyquist plot of mean cell impedance spectra from all 10 cells of the stack over aging for 0.18 A cm−2 and 1.8 A cm−2 with labeling of the high-frequency 
+resistance (HFR), the intermediate-frequency resistance (IFR) and the low-frequency resistance (LFR) (a), equivalent circuit model (b), and fitted resistances for 
+1.8 A cm−2 averaged over all cells with marking of the standard deviation by error bars (c). R0: membrane resistance, R1: charge transfer resistance of the oxygen 
+reduction reaction (ORR), R2: mass transport resistance, CPE: constant phase element.
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+9 
+
+
+PDF第10页
+an 11 % increase compared to BoL is recorded, which is particularly 
+evident both in the cathode outlet and the anode inlet area. This delayed 
+increase suggests that structural changes in the porous media, such as 
+degradation of the gas diffusion layer, loss of hydrophobicity, or pore 
+blockage within the catalyst layer, progressively impair gas transport 
+and become dominant at later stages of aging.
+The sensitivity study provides information about the influence of 
+operating conditions on impedance. Fig. 11 shows results of the partial 
+sensitivity test at BoL and after 2300 h. The BoL data comes from the 8- 
+cell short stack, and cell 5 which served as the reference for the spatially 
+resolved measurements. The results after 2300 h are from the 10-cell 
+stack that underwent the durability test, and the cell 6 used as the 
+reference. As noted above, the identical MEA types and operating 
+conditions were used in both stacks, ensuring comparability between the 
+BoL and EoT investigations. In the following, the BoL and EoT sensitivity 
+behavior of the two stacks will be investigated. The fitted Nyquist dia­
+gram of the pressure variation is shown in Fig. 11 a). After 2300 h the 
+lowest pressure value could no longer be measured meaningfully. The 
+fitted resistances associated with pressure variation are shown in Fig. 11 
+b). Fig. 11 also shows the fitted resistances for temperature (c) and 
+stoichiometry variation (d).
+The Nyquist plot (Fig. 11 a) shows that both the ORR resistance and 
+the mass transport resistance exhibit a significant decrease with 
+increasing pressure, both at BoL and after 2300 h. This is confirmed by 
+the fitted resistance values. The observed decrease in impedance with 
+increasing pressure is consistent with literature reports [47–49] and can 
+be attributed to the enhanced reactant availability at the catalyst layer. 
+The elevated oxygen concentration enhances the oxygen reduction re­
+action kinetics, thereby lowering the charge transfer resistance. In 
+addition, the increased gas density improves diffusion and convective 
+transport within the gas diffusion layer and catalyst layer, reducing 
+concentration gradients and consequently diminishing mass transport 
+resistance. In general, pressure has the greatest influence of the inves­
+tigated operating conditions on these two resistances. This confirms the 
+previously described results of the influence of operating conditions on 
+cell voltage (see Fig. 5). The membrane resistance shows a slight 
+decreasing trend with increasing pressure at BoL. This can be attributed 
+to the increasing amount of liquid water as pressure rises, which leads to 
+improved hydration of the membrane. At the same time, the increased 
+Fig. 10. Spatial distribution of resistances at 1.8 A cm−2 fitted from spatially resolved impedance spectra with linearly interpolated data between the zones over 
+time. To increase the resolution in the middle area, zones 5 and 12 were mirrored along the flow direction. Left: membrane resistance, middle: ORR resistance, right: 
+mass transport resistance, top: BoL, middle: after 1150 h and bottom: after 2300 h.
+Table 4 
+Mean values and standard deviations of the fitted resistances plotted over the 
+active area over aging from Fig. 10.
+Time
+Membrane Resistance 
+/mΩ cm2
+ORR Resistance 
+/mΩ cm2
+Mass Transport 
+Resistance 
+/mΩ cm2
+Mean 
+value
+Standard 
+deviation
+Mean 
+value
+Standard 
+deviation
+Mean 
+value
+Standard 
+deviation
+BoL
+14.50
+2.18
+17.62
+3.68
+32.22
+29.90
+1150 h
+15.91
+2.99
+17.17
+5.94
+32.34
+28.78
+2300 h
+14.91
+3.96
+20.40
+5.78
+35.76
+33.79
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+10 
+
+
+PDF第11页
+pressure reduces the flow velocities of the reaction media, thereby 
+further reducing the dehydration of the membrane. After 2300 h, the 
+membrane resistance remains stable.
+For the temperature variation, the membrane resistance remains 
+largely constant in both the initial state and the aged state. This is 
+attributable to the fact that the relative humidity was kept constant 
+across the entire temperature range, thereby ensuring uniform hydra­
+tion of the membrane. The ORR resistance and mass transfer resistance 
+show minimal resistances at 70 ◦C for both BoL and after 2300 h (Fig. 11 
+c). At higher and lower temperatures, the resistance increases in each 
+case. We expect that the behavior of the ORR resistance and the mass 
+transport resistance is based on the interaction of two opposing effects. 
+An increase in temperature initially leads to an acceleration of the 
+electrochemical reaction kinetics and transport processes, which would 
+generally suggest a decrease in both resistances. However, this positive 
+effect is evidently counteracted at higher temperatures. This may be due 
+to increasing dehydration of the ionomer, which results in catalyst 
+particles, which are only bound by thin ionomer films, being partially 
+cut off from proton transport. The dehydration could be due to the non- 
+linear increase of the saturation vapor pressure with temperature. 
+Identical relative humidity in the gas channel may result in a lower local 
+humidity at the catalyst layer at higher temperatures, thereby increasing 
+the local resistance and slightly deteriorating ORR kinetics. In addition, 
+higher temperatures may lead to increased water vapor release rates 
+from the ionomer face, which would dynamically enhance the removal 
+of water from the catalyst layer and further contribute to ionomer 
+dehydration. Consequently, a smaller active surface area would be 
+available for the reaction, while at the same time the effective transport 
+paths for the reactants would increase. This dehydration may primarily 
+affect the ionomer in the catalyst layer, which is in direct contact with 
+the gas phase and may thus not immediately be reflected in the mem­
+brane resistance. At BoL, the aforementioned opposing effects largely 
+compensate each other at 75 ◦C, so that only minor changes in ORR 
+resistance from 70 ◦C to 75 ◦C are observed. After 2300 h of operation, 
+degradation processes within the electrode structure probably enhance 
+the effects of ionomer dehydration. As a result, the negative effects are 
+no longer fully compensated by the improved kinetics, leading to a 
+steeper increase as well as a greater overall variation in the ORR and 
+mass transport resistance when deviating from the optimal temperature.
+A change in stoichiometry has a significant influence on mass 
+transport resistance. A decrease in stoichiometry leads to a reduction in 
+the available oxygen, particularly in the cathode outlet area, which in­
+creases the mass transport resistance. This relationship has already been 
+described several times in the literature [13,49]. The ORR resistance 
+decreases both at BoL and after 2300 h with increasing stoichiometry 
+and the membrane resistance stays stable for both cases.
+The results of the sensitivity analysis illustrate the global trends and 
+influencing factors at cell level. However, a spatially resolved analysis is 
+necessary to gain a deeper understanding of the physical- 
+electrochemical processes. The next section therefore analyzes the 
+spatially resolved effects of the operating conditions, considering the 
+average over the same 27 columns as for the current density distribution 
+analysis. Fig. 12 shows the averaged resistance values along the cathode 
+flow direction. As in Fig. 11, the data in Fig. 12 comes from two different 
+stacks. The spatially resolved distributions of the resistances of the two 
+stacks match very well and can therefore be compared with each other 
+[27].
+On the overall, between BoL and after 2300 h, the shapes of the plots 
+Fig. 11. Fitted Nyquist plot of the pressure variation (a) and fitted Membrane (R0) resistance, ORR (R1) resistance and Mass Transport (R2) resistance of the 
+respective reference cell (cell 5 of 8-cell short stack for BoL and cell 6 of 10-cell short stack for 2300 h) for the pressure (b), temperature (c) and stoichiometry (d) 
+variations at BoL and after 2300 h at 1.8 A cm−2.
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+11 
+
+
+PDF第12页
+are changing a lot for the membrane resistance, whereas they keep the 
+same trend from inlet to outlet for the ORR charge transfer and the mass 
+transport resistances. For the membrane resistance (a, d, g, j), the rela­
+tively flat profile at BoL changes with a strong decrease at the inlet, and 
+an increase from segment 10 until a maximum appearing near segment 
+20. For the ORR charge transfer resistance, with aging, it increases even 
+more near the outlet (b, e, k) but also all across the active area for the 
+lower pressures (h). For the mass transport resistance, it also increases 
+more with aging near the outlet but more strongly for both lower stoi­
+chiometries (l) and lower pressures (i).
+The temperature variation in the membrane resistance shows that at 
+BoL, the membrane resistance at the cathode inlet and outlet increases 
+with rising temperature, but is lower in the middle. As the temperature 
+decreases, the membrane resistance remains very stable at one value. 
+After 2300 h, the membrane resistance at the cathode inlet decreases 
+with increasing temperature, except for the 70 ◦C test, which shows the 
+highest membrane resistance at the cathode inlet. The 70 ◦C line shows 
+the greatest homogeneity across the cathode flow at 2300 h. The ORR 
+resistance reflects the behavior at cell level. A temperature of 55 ◦C 
+shows the highest resistances across the cathode flow. The 55 ◦C line 
+stands out clearly from the others, especially at the inlet. At BoL, the 
+temperatures above 55 ◦C at the cathode inlet are close together. In the 
+Fig. 12. Averaged resistances resulting from the spatially resolved EIS analysis within the partial sensitivity study plotted over the cathode flow field direction. 
+Variation of temperature (a, b, c), humidity (d, e, f), pressure (g, h, i) and stoichiometry (j, k, l). In each variation, the membrane resistance (a, d, g, j), the ORR 
+resistance (b, e, h, k), and the mass transport resistance (c, f, i, l) are shown.
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+12 
+
+
+PDF第13页
+middle range, the ORR resistance decreases with increasing temperature 
+up to 70 ◦C. Subsequently, the ORR resistance increases again. At the 
+cathode outlet, all temperature curves are again very close together. 
+After completing the load cycles, the temperature influence becomes 
+greater and the curves are further apart. However, even after aging, the 
+pattern remains that the ORR resistance decreases up to a temperature of 
+70 ◦C and then increases again. The same behavior is evident in both BoL 
+and after 2300 h in the mass transport resistance. Here, the 70 ◦C curve 
+shows the lowest resistance. Notably, mass transport resistance is not 
+affected by aging in the inlet area, and the effects become greater to­
+wards the cathode outlet.
+With regard to humidity, higher humidity has a positive effect on the 
+membrane resistance [13,16,28]. This is particularly evident in the inlet 
+area. At BoL and after 2300 h, there is a moderate variation between the 
+different humidity curves in terms of lowest resistance. The ORR resis­
+tance shows a dependence on humidity and decreases with increasing 
+humidity, as a result of improved proton conductivity with increasing 
+humidity. The variation in humidity with aging shows an increase in 
+ORR resistance, especially in the outlet area. The mass transport resis­
+tance is optimal at a humidity of 50 %/35 %. Higher humidity levels lead 
+to an increase in mass transport resistance due to flooding effects, which 
+is particularly evident in the cathode outlet area. Similarly, degradation 
+only affects the outlet area.
+The pressure variation influences the membrane resistance. As the 
+pressure increases, the membrane resistance decreases. This can be 
+attributed to the fact that as pressure increases, the media flow velocity 
+decreases, thereby reducing the drying effect of the membrane. The ORR 
+resistance is most influenced by the pressure under the operating con­
+dition variations considered. Here, a strong increase with decreasing 
+pressure can be observed over the entire cathode flow, which intensifies 
+towards the cathode outlet. When comparing the BoL with the aged 
+curves, there is almost no difference at a pressure of 210 kPaG/200 
+kPaG. At the nominal pressure of 160 kPaG/150 kPaG, there is also 
+hardly any difference in the inlet and middle areas. Only in the cathode 
+outlet is a clear influence of aging effects visible. At a pressure of 110 
+kPaG/100 kPaG, the ORR resistance after 2300 h is consistently higher 
+than at BoL. The mass transport resistance decreases with increasing 
+pressure due to a higher oxygen partial pressure and consequently better 
+oxygen supply to the catalyst layer. With regard to aging, mass transport 
+resistance increases with increasing aging at all pressures. The increase 
+is greater as the pressure decreases. The progression of ORR resistance 
+and mass transport resistance confirm the results of the partial sensi­
+tivity test (chapter 3.1), which showed that the voltage loss with 
+decreasing pressure is greater with increasing aging effects.
+As the stoichiometry increases, the membrane dries out more and the 
+membrane resistance increases. The ORR resistance shows a dependence 
+on the stoichiometry, and the influence of the stoichiometry increases 
+towards the cathode outlet. The ORR resistance decreases with 
+increasing stoichiometry. This behavior can be attributed to the fact that 
+increasing stoichiometry ensures a higher oxygen partial pressure and 
+thus a better supply to the reaction sites, which facilitates the electro­
+chemical reaction. The highest effect of aging in ORR resistance can 
+again be seen in the outlet area. The mass transport resistance shows the 
+greatest dependence on stoichiometry in relation to the other operating 
+conditions considered. As with the ORR resistance, the influence in­
+creases towards the cathode outlet. Comparing BoL and EoT of the mass 
+transport resistance, it becomes clear that aging has a significant influ­
+ence on the outlet area and that there is no difference in the inlet area or 
+in the middle area. Furthermore, the increase in mass transport resis­
+tance 
+due 
+to 
+degradation 
+effects 
+increases 
+with 
+decreasing 
+stoichiometry.
+In general, the cathode outlet zone is strongly affected by the con­
+ditions having an effect of the oxygen feeding, and the limitations 
+observed are even more pronounced after aging, probably because the 
+aged catalyst layers are more sensitive to local issues like flooding.
+4. Conclusion
+In this work, a recently developed load cycle for heavy-duty appli­
+cations was applied for the first time to a PEMFC stack with an active 
+area of 280 cm2. About 2300 operating hours of durability data were 
+acquired, complemented by comprehensive electrochemical character­
+ization methods to analyze both global and spatially resolved degrada­
+tion phenomena. Polarization curves recorded at regular intervals reveal 
+that performance degradation is most pronounced during the initial 
+phase of the durability test and subsequently stabilizes. The sensitivity 
+analysis of voltage losses indicates that aging effects are strongest at low 
+pressures and elevated temperatures. Spatially resolved current density 
+measurements, obtained using a CDDM, show a similar trend, with the 
+largest changes occurring early in the test. BoL and EoT, the heteroge­
+neity of the current density distribution decreases with increasing hu­
+midity, pressure, and stoichiometry, while higher temperatures lead to 
+increased heterogeneity. Over time, overall heterogeneity increases, 
+with stronger effects observed at higher pressure and humidity and at 
+lower temperature and stoichiometry. Cell-level EIS measurements 
+demonstrate an overall increase in impedance with progressing degra­
+dation. The EIS sensitivity analysis identifies optimal operating points at 
+a temperature of 70 ◦C. Increasing pressure and stoichiometry generally 
+reduce impedance. By extending the current density measurement sys­
+tem, spatially resolved EIS measurements across the active area were 
+enabled. Fitting of the spatially resolved impedance spectra allowed the 
+mapping of membrane resistance, cathodic ORR charge transfer resis­
+tance, and mass transport resistance, as well as the analysis of their 
+evolution during aging. The membrane resistance increases predomi­
+nantly in the boundary regions of the active area during the durability 
+test, while a slight decrease is observed in the central region. In contrast, 
+the aging of the ORR resistance in the first 1150 h is noticeable due to an 
+increase in resistance in the outlet area. The mean value of the ORR 
+resistance across the active area shows the greatest increase between 
+1150 h and 2300 h. A similar trend is observed for the mass transport 
+resistance, which remains largely unchanged during the first 1150 h but 
+increases significantly in the outlet region during the second half of the 
+test. The sensitivity analysis shows that pressure has the strongest in­
+fluence on ORR charge transfer resistance. At lower pressures, below 
+160/150 kPaG the durability test caused one of the major impacts 
+observed with a strong increase in ORR charge transfer resistance. The 
+mass transport resistance is most strongly affected by stoichiometry, 
+with pronounced increases in the outlet region at low stoichiometric 
+ratios. These stronger effects of aging are probably associated with the 
+local degradation of the catalyst layers becoming more sensitive to the 
+operating conditions. The catalyst degradation primarily affects the 
+electrochemically active surface area and thus the charge transfer and 
+mass transport resistances, while the ohmic resistance remains largely 
+unaffected, as it is dominated by membrane and contact properties of 
+the components including GDL and bipolar plate.
+The results of this work provide fundamental insights that can be 
+applied to system-level strategies for the heavy-duty sector. In partic­
+ular, the spatially resolved analyses highlight the pronounced degra­
+dation phenomena in the air outlet region, underlining the need for 
+optimized flow-field designs to improve local operating conditions. The 
+significant increase in resistance at low stoichiometry and reduced 
+pressure at the cathode outlet indicates that achieving the most homo­
+geneous distribution of reactants possible should be a key objective of 
+future flow-field and operating conditions optimizations. As a first step 
+in this direction an optimization of the flow-field structures with regards 
+to reactant homogeneity has been performed as part of the RealHyFC 
+project, the results presented here are stemming from. The results of this 
+optimization will be presented in a subsequent publication.
+Furthermore, the pronounced sensitivity to operating parameters 
+highlights the importance of precise control, enabling operating strate­
+gies to be specifically aligned with conditions that promote stability and 
+durability. Overall, the results underscore the importance of 
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+13 
+
+
+PDF第14页
+systematically taking spatial effects into account both in the design of 
+stack hardware and in the development of suitable control strategies for 
+heavy-duty PEMFC applications.
+CRediT authorship contribution statement
+Eva Fensterle: Conceptualization, Data curation, Investigation, 
+Methodology, Validation, Visualization, Writing – original draft, 
+Writing – review & editing. Jürgen Hunger: Investigation, Methodol­
+ogy, Resources. Frank Rabsahl: Investigation, Methodology. Florian 
+Wilhelm: Methodology, Project administration, Supervision, Writing – 
+review & editing. Christian Kolle Christensen: Methodology, Re­
+sources. Adam Benson: Methodology. Rami Al-Khamissi: Methodol­
+ogy. Marine Tregaro: Methodology, Writing – review & editing. Sylvie 
+Escribano: Methodology, Project administration, Writing – review & 
+editing. Joachim Scholta: Supervision, Writing – review & editing. 
+Markus H¨olzle: Supervision.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgements
+This work was performed within the framework of the RealHyFC 
+project. The RealHyFC project is supported by the Clean Hydrogen 
+Partnership and its partners Hydrogen Europe and Hydrogen Europe 
+Research under GA 101111904.
+References
+[1] De Wolf D, Smeers Y. Comparison of battery electric vehicles and fuel cell vehicles. 
+World Electr Vehic J 2023;14(262).
+[2] Cullen DA, Neyerlin KC, Ahluwalia RK, Mukundan R, More KL, Borup RL, et al. 
+New roads and challenges for fuel cells in heavy-duty transportation. Nat Energy 
+2021;6(5):462–74. https://doi.org/10.1038/s41560-021-00775-z.
+[3] Marine Cornet, Tardy Erwan, Poirot-Crouvezier Jean-Philippe, Bultel Yann. Impact 
+of coolant operation on performance and heterogeneities in large proton exchange 
+membrane fuel cells: a review. Energies 2025;18(111).
+[4] Liu M, Wang C, Zhang J, Wang J, Hou Z, Mao Z. Diagnosis of membrane electrode 
+assembly degradation with drive cycle test technique. Int J Hydrogen Energy 2014; 
+39(26):14370–5. https://doi.org/10.1016/j.ijhydene.2014.02.161.
+[5] Bender G, Felt W, Ulsh M. Detecting and localizing failure points in proton 
+exchange membrane fuel cells using IR thermography. J Power Sources 2014;253: 
+224–9. https://doi.org/10.1016/j.jpowsour.2013.12.045.
+[6] Nguyen HL, Han J, Nguyen XL, Yu S, Goo Y-M, Le DD. Review of the durability of 
+polymer electrolyte membrane fuel cell in long-term operation: main influencing 
+parameters and testing protocols. Energies 2021;14(4048).
+[7] Chandran M, Palaniswamy K, Karthik Babu NB, Das O. A study of the influence of 
+current ramp rate on the performance of polymer electrolyte membrane fuel cell. 
+Sci Rep 2022;12(1):21888. https://doi.org/10.1038/s41598-022-25037-0.
+[8] Colombo E, Baricci A, Bisello A, Guetaz L, Casalegno A. PEMFC performance decay 
+during real-world automotive operation: evincing degradation mechanisms and 
+heterogeneity of ageing. J Power Sources 2023;553:232246. https://doi.org/ 
+10.1016/j.jpowsour.2022.232246.
+[9] Koprek M, Schlumberger R, Wachtel C, Wilhelm F, Messerschmidt M, Scholta J, 
+et al. Local ageing effects of polymer electrolyte fuel cell membrane electrode 
+assemblies due to accelerated durability testing. Fuel Cells 2022;20(6):271–83.
+[10] Schüttoff M, Wachtel C, Schlumberger R, Wilhelm F, Scholta J, H¨olzle M. 
+Development of accelerated durability test protocols for polymer electrolyte 
+membrane fuel cell stacks under realistic operating conditions. Fuel Cells 2024;24 
+(5). https://doi.org/10.1002/fuce.202300263.
+[11] Robin C, G´erard M, Quinaud M, d'Arbigny J, Bultel Y. Proton exchange membrane 
+fuel cell model for aging predictions: simulated equivalent active surface area loss 
+and comparisons with durability tests. J Power Sources 2016;326:417–27. https:// 
+doi.org/10.1016/j.jpowsour.2016.07.018.
+[12] Haimerl F, Sabawa JP, Dao TA, Bandarenka AS. Spatially resolved electrochemical 
+impedance spectroscopy of automotive PEM fuel cells. Chemelectrochem 2022;9.
+[13] Mitzel J, Sanchez-Monreal J, Garcia-Sanchez D, Gazdzicki P, Schulze M, H¨außler F, 
+et al. Fault diagnostics in PEMFC stacks by evaluation of local performance and cell 
+impedance analysis. Fuel Cells 2020;(4):403–12.
+[14] Yin C, Gao J, Wen X, Xie G, Yang C, Fang H, et al. In situ investigation of proton 
+exchange membrane fuel cell performance with novel segmented cell design and a 
+two-phase flow model. Energy 2016;113:1071–89. https://doi.org/10.1016/j. 
+energy.2016.06.097.
+[15] Yin C, Gao Y, Li K, Song Y, Tang H. Experimental investigation on local behaviors 
+of PEMFC with segmented cell. Automot Innov 2021. https://doi.org/10.1007/ 
+s42154-021-00145-1.
+[16] Zhang Q, Lin R, T´echer L, Cui X. Experimental study of variable operating 
+parameters effects on overall PEMFC performance and spatial performance 
+distribution. Energy 2016;115:550–60. https://doi.org/10.1016/j. 
+energy.2016.08.086.
+[17] Liu Z, Mao Z, Wu B, Wang L, Schmidt VM. Current density distribution in PEFC. 
+J Power Sources 2005;141:205–10.
+[18] Colombo E, Casalegno A, Bisello A, Rovatti L, Baricci A. Air-start-up of PEM fuel 
+cells under automotive conditions: analysing degradation mechanisms via 
+accelerated protocols comparison. J Electrochem Soc 2025;172(6):64512. https:// 
+doi.org/10.1149/1945-7111/ade0f1.
+[19] Zhang X, Yang Y, Guo L, Liu H. Performance degradation of proton exchange 
+membrane fuel cell caused by an accelerated stress test. Fuel Cells 2019;(2):160–8.
+[20] Schneider IA, Kuhn H, Wokaun A, Scherer GG. Fast locally resolved 
+electrochemical impedance spectroscopy in polymer electrolyte fuel cells. 
+J Electrochem Soc 2005;152(10):A2092–103.
+[21] Schneider IA, Kuhn H, Wokaun A, Scherer GG. Study of water balance in a polymer 
+electrolyte fuel cell by locally resolved impedance spectroscopy. J Electrochem Soc 
+2005;152(12):A2383–9.
+[22] Gerteisen D, M´erida W, Kurz T, Lupotto P, Schwager M, Hebling C. Spatially 
+resolved voltage, current and electrochemical impedance spectroscopy 
+measurements. Fuel Cells 2011;11(2):339–49.
+[23] Gerteisen D, Zamel N, Sadeler C, Geiger F, Ludwig V, Hebling C. Effect of operating 
+conditions on current density distribution and high frequency resistance in a 
+segmented PEM fuel cell. Int J Hydrogen Energy 2012;37(9):7736–44. https://doi. 
+org/10.1016/j.ijhydene.2012.02.024.
+[24] Liu D, Lin R, Feng B, Han L, Zhang Y, Ni M, et al. Localised electrochemical 
+impedance spectroscopy investigation of polymer electrolyte membrane fuel cells 
+using print circuit board based interference-free system. Appl Energy 2019;254: 
+113712. https://doi.org/10.1016/j.apenergy.2019.113712.
+[25] Liu D, Lin R, Feng B, Yang Z. Investigation of the effect of cathode stoichiometry of 
+proton exchange membrane fuel cell using localized electrochemical impedance 
+spectroscopy based on print circuit board. Int J Hydrogen Energy 2019;44(14): 
+7564–73. https://doi.org/10.1016/j.ijhydene.2019.01.095.
+[26] Brett DJL, Atkins S, Brandon NP, Vesovic V, Vasileiadis N, Kucernak A. Localized 
+impedance measurements along a single channel of a solid polymer fuel cell. The 
+Electrochemical Society 2003;6(4):A63–6.
+[27] Fensterle E, Rabsahl F, Hunger J, Wilhelm F, Scholta J, H¨olzle M. Spatially resolved 
+current density and electrochemical impedance spectroscopy in PEM fuel cells. 
+Fuel Cells 2026;26(2):e70057. https://doi.org/10.1002/fuce.70057.
+[28] Engebretsen E, Hinds G, Meyer Q, Mason T, Brightman E, Castanheira L, et al. 
+Localised electrochemical impedance measurements of a polymer electrolyte fuel 
+cell using a reference electrode array to give cathode-specific measurements and 
+examine membrane hydration dynamics. J Power Sources 2018;382:38–44. 
+https://doi.org/10.1016/j.jpowsour.2018.02.022.
+[29] RealHyFC Consortium. RealHyFC: an innovative European project to a wide 
+adoption of pEMFC on HD applications. Available from: https://realhyfc-project. 
+eu/.
+[30] H¨außler F, Wiedemann B, Bergbreiter C, Schneider S, K¨onig L, Cerne B, et al. The 
+ZSW HyFaB Generic Stack: Zentrum fuer Sonnenenergie- und Wasserstoff- 
+Forschung Baden-Wuerttemberg (ZSW). https://doi.org/10.5281/zenodo 
+.14223364; 2024.
+[31] Zahner-Elektrik GmbH & Co. KG. PAD4: HC, lc, HZ. 2025.
+[32] Zahner-Elektrik GmbH & Co. KG. Electronic Load EL1002: (operating manual). 
+2024.
+[33] Sanchez-Monreal J, Mitzel J, Vacquier C, Gazdzicki P. Application relevant load 
+cycles for PEMFC component development and hybrid system optimization. Energy 
+Convers Manag 2026;348:120604. https://doi.org/10.1016/j. 
+enconman.2025.120604.
+[34] Komini Babu S, Spernjak D, Dillet J, Lamibrac A, Maranzana G, Didierjean S, et al. 
+Spatially resolved degradation during startup and shutdown in polymer electrolyte 
+membrane fuel cell operation. Appl Energy 2019;254:113659. https://doi.org/ 
+10.1016/j.apenergy.2019.113659.
+[35] Vichard L, Petrone R, Harel F, Ravey A, Venet P, Hissel D. Long term durability test 
+of open-cathode fuel cell system under actual operating conditions. Energy Convers 
+Manag 2020;212:112813. https://doi.org/10.1016/j.enconman.2020.112813.
+[36] Takahashi T, Ikeda T, Murata K, Hotaka O, Hasegawa S, Tachikawa Y, et al. 
+Accelerated durability testing of fuel cell stacks for commercial automotive 
+applications: a case study. J Electrochem Soc 2022;169(4):44523. https://doi.org/ 
+10.1149/1945-7111/ac662d.
+[37] Wu J, Yuan XZ, Martin JJ, Wang H, Zhang J, Shen J, et al. A review of PEM fuel cell 
+durability: degradation mechanisms and mitigation strategies. J Power Sources 
+2008;(184):104–19.
+[38] Schmid MA, Kaczerowski J, Wilhelm F, Scholta J, Müller B, H¨olzle M. Aging effects 
+observed in automotive fuel cell stacks by applying a new realistic test protocol and 
+humidity control. Fuel Cells 2024. https://doi.org/10.1002/fuce.202300227.
+[39] Heuer M, Bernstein PA, Wenske M, Styczynski ZA. Results of current density 
+distribution mapping in PEM fuel cells dependent on operation parameters, vol. 6; 
+2013. p. 3841–58.
+[40] Heinzmann M, Weber A, Ivers-Tiff´ee E. Advanced impedance study of polymer 
+electrolyte membrane single cells by means of distribution of relaxation times. 
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+14 
+
+
+PDF第15页
+J Power Sources 2018;402:24–33. https://doi.org/10.1016/j. 
+jpowsour.2018.09.004.
+[41] Madhav D, Wang J, Keloth R, Mus J, Buysschaert F, Vandeginste V. A review of 
+proton exchange membrane degradation pathways, mechanisms, and mitigation 
+strategies in a fuel cell. Energies 2024;17(998). https://doi.org/10.3390/ 
+en17050998.
+[42] Foniok K, Drozdova L, Prokop L, Krupa F, Kedron P, Blazek V. Mechanisms and 
+modelling of effects on the degradation processes of a proton exchange Membrane 
+(PEM) fuel cell: a comprehensive review. Energies 2025;18(2117). https://doi.org/ 
+10.3390/en18082117.
+[43] Cipollini NE. Chemical aspects of membrane degradation. ECS Trans 2007;11(1): 
+1071–82. https://doi.org/10.1149/1.2781020.
+[44] Young AP, Stumper J, Gyenge E. Characterizing the structural degradation in a 
+PEMFC cathode catalyst layer: carbon corrosion. J Electrochem Soc 2009;156: 
+B913–22.
+[45] Meier Josef C, Galeano Carolina, Katsounaros Ioannis, Witte Jonathon, 
+Bongard Hans J, Topalov Angel A, et al. Design criteria for stable Pt/C fuel cell 
+catalysts. Beilstein J Nanotechnol 2014;5:44–67.
+[46] Uhlemayr T, Scholta J, H¨olzle M. Modeling the aging behavior of the catalyst layer 
+in PEM fuel cells. In: Holder D, Wulle F, Lind J, editors. Advances in automotive 
+production technology – Digital product development and manufacturing. Cham: 
+Springer Nature Switzerland; 2025. p. 121–36.
+[47] Ustuner Gozde, Hung Yue, Mahajan Devinder. Investigation of proton exchange 
+membrane fuel cell performance by exploring the synergistic effects of reaction 
+parameters via power curve and impedance spectroscopy analysis. Energies 2024; 
+17(2530).
+[48] Lei Zhao, Dai Haifeng, Pei Fenglai, Pingwen Ming, Xuezhe Wei, Zhou Jiangdong. 
+A comparative study of equivalent circuit models for electro-chemical impedance 
+spectroscopy analysis of proton exchange membrane fuel cells. Energies 2022;386 
+(15).
+[49] Li X, Ge Z, Zhang R, Ni Z, Zhao Z, Fan M, et al. Measurement and analysis on 
+current density distribution of long-channel proton exchange membrane fuel cell: 
+insights from operational conditions and electrochemical impedance. Energy 2025; 
+318:134790. https://doi.org/10.1016/j.energy.2025.134790.
+E. Fensterle et al.                                                                                                                                                                                                                                
+International Journal of Hydrogen Energy 250 (2026) 156060 
+15 

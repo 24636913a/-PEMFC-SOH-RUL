@@ -1,0 +1,1166 @@
+PDF第1页
+Fuel Cells 
+RESEARCH ARTICLE
+Spatially Resolved Current Density and Electrochemical 
+Impedance Spectroscopy in PEM Fuel Cells 
+Eva Fensterle
+Frank Rabsahl 
+Jürgen Hunger 
+Florian Wilhelm 
+Joachim Scholta 
+Markus Hölzle 
+Zentrum Für Sonnenenergie- und Wasserstoff-Forschung Baden-Württemberg (ZSW), Ulm, Germany 
+Correspondence: Eva Fensterle ( eva.fensterle@zsw-bw.de) 
+Received: 10 October 2025 
+Revised: 9 January 2026 
+Accepted: 10 February 2026 
+Keywords: current density distribution | electrochemical impedance spectroscopy | fuel cell stack | polymer electrolyte membrane fuel cell | spatially resolved 
+characterization 
+ABSTRACT 
+The durability and efficiency of proton exchange membrane fuel cells (PEMFC) are crucial for their deployment in heavy-duty 
+applications. The membrane-electrode assembly (MEA) of a PEMFC plays a central role and can be characterized using in situ 
+methods like polarization curves, current density mapping, and electrochemical impedance spectroscopy (EIS). In medium-sized 
+to large cells, inhomogeneous conditions often occur across the active area. Segmented current-density measurement boards 
+enable spatially resolved analysis of current density and temperature, and with additional electronics, also spatially resolved 
+EIS. This allows detailed investigation of membrane resistance, diffusion, charge transfer, and proton transport across the cell 
+surface. In this study, current-density distribution under various operating conditions and spatially resolved EIS measurements 
+were performed on an automotive-sized PEMFC. The results show a significant influence of the membrane humidification state on 
+the local performance. Higher humidity, pressure, and stoichiometry improve the homogeneity of the current density distribution. 
+The spatially resolved EIS reveals increasing impedance values from the cathode inlet to the outlet. Equivalent circuit fitting 
+enabled assigning resistances to physical processes and mapping their distributions across the active area. These findings are 
+crucial for a deeper understanding of local operating phenomena in automotive-sized fuel cells. 
+1 
+Introduction 
+Decarbonizing the transportation sector is crucial to achieving 
+climate targets. Road transport accounts for around 70% of 
+greenhouse gas emissions in the transportation sector. The share 
+of heavy-duty vehicles (HDVs) in greenhouse gas emissions from 
+road transport is around 25% [ 1, 2 ]. Polymer electrolyte membrane 
+fuel cells are a promising alternative to combustion engines for 
+reducing greenhouse gas emissions and offer advantages over 
+batteries, especially in the medium and long-distance range, 
+due to their greater range and faster charging times [ 3, 4 ]. 
+The long-term behavior and reliability of PEMFCs play a key 
+role in their long-term use. The MEA is a central component 
+of PEMFCs and provides essential insights into mechanisms 
+relevant to efficiency and degradation. Even at the beginning 
+of life (BoL), medium to large fuel cells exhibit heterogeneities 
+across the entire active area, which have a significant impact on 
+performance. These inhomogeneities arise, inter alia, from an 
+uneven distribution of reactant concentrations along the active 
+area, which results from flow patterns, pressure losses, and 
+locally varying reaction rates and has already been described in 
+detail in the literature [ 5–8 ]. Furthermore, the formation of local 
+heterogeneities is significantly influenced by an inhomogeneous 
+distribution of water and moisture within the MEA, as described 
+in the literature, for example, by Mitzel et al. [ 5 ] and Hussaini et al. 
+[ 9 ]. A current density distribution measurement board (CDDM) 
+is suitable for characterizing these inhomogeneities, as it enables 
+spatially resolved recording of the current density and temper- 
+This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided the original work is properly 
+cited. 
+© 2026 The Author(s). Fuel Cells published by Wiley-VCH GmbH. 
+Fuel Cells , 2026; 26:e70057 
+https://doi.org/10.1002/fuce.70057
+1 of 15
+
+
+PDF第2页
+ature distribution during the measurement of in situ methods 
+such as polarization curves and sensitivity analyses. Meyer et al. 
+[ 10 ] were the first to report on the combined measurement of 
+current density and temperature distribution. In their study, they 
+investigated the mutual influence of temperature and current 
+density in an air-cooled fuel cell operating in air/hydrogen 
+cross-flow mode. Many studies have attempted to improve the 
+homogeneity of current density distribution by making specific 
+adjustments to the material parameters, for example, by varying 
+the porosity of the gas diffusion layer (GDL) [ 11, 12 ] or by changing 
+the platinum content of the MEA [ 11, 13 , 14 ]. In addition, various 
+studies have shown that modifying the flow field design can 
+achieve a more uniform current density distribution [ 15, 16 ]. In 
+addition to these design approaches, the influence of operating 
+conditions is also an important research focus, as operating 
+conditions such as temperature, humidity, or gas composition can 
+significantly influence the local current density. Mitzel et al. [ 5 ] 
+investigated the influence of stoichiometry and moisture content 
+of the cathode air on the current density distribution in a 10- 
+cell short stack with an active area of 96 cm2 . They showed 
+that even small changes in humidity can have a major impact 
+on the performance homogeneity of the stack and that critical 
+operating conditions, such as local drying out of cells, can be 
+detected via the current density distribution. Zhang et al. [ 6 ] 
+also investigated the influence of stoichiometry and humidity on 
+the homogeneity of current density distribution, and additionally 
+examined the influence of back pressure. Their results showed 
+that the current density distribution becomes more homogeneous 
+up to a humidity of 70%, as well as with increasing stoichiometry 
+and increasing back pressure. However, they also found that 
+the humidification rate increases with increasing back pressure, 
+which in turn promotes increased mass transport losses due 
+to flooding. Further investigations into the influence of stoi- 
+chiometry on current density distribution were conducted by 
+Yin et al. [ 17 ] and Yin et al. [ 18 ]. Tang et al. [ 19 ], on the other 
+hand, investigated the influence of temperature in the range 
+from 50◦C to 90◦C and identified 70◦C as the optimal operating 
+point for both performance and homogeneity of current density. 
+Finally, Liu et al. [ 20 ] emphasized that water distribution—and 
+thus moisture balance—is the most sensitive parameter for the 
+performance and stability of fuel cells. 
+EIS is a key analytical method for characterizing PEMFCs, 
+alongside stationary in situ methods such as polarization curves. 
+By frequency-resolved separation of superimposed processes, 
+EIS allows the identification and quantification of transport, 
+conduction, and reaction processes that occur on different time 
+scales. This makes it possible to specifically assign and distin- 
+guish individual loss mechanisms from one another. Numerous 
+studies have been published on the use of EIS measurements to 
+investigate degradation mechanisms [ 21, 22 ] or the influence of 
+operating conditions such as temperature or stoichiometry [ 5, 6 , 
+23–25 ]. Impedance measurements at the cell level provide valu- 
+able information on global transport and reaction mechanisms. 
+However, the design of the bipolar plates and the resulting flow 
+distribution and water balance influence the local performance 
+of the fuel cell, which is not captured by conventional cell 
+EIS measurements. It is therefore very important to determine 
+the impedance spatially resolved over the entire active area. 
+Numerous studies, including work by Schneider et al. [ 26–28 ], 
+Gerteisen et al. [ 29, 30 ], and Liu et al. [ 31, 32 ], have shown 
+that spatially resolved EIS measurements provide crucial insights 
+into local differences and limitations in cell performance. Much 
+of the previous work on spatially resolved EIS has focused on 
+the influence of the flow field on the impedance distribution. 
+These studies investigate, for example, how different flow fields 
+influence the gas distribution and thus the electrochemical 
+reactions [ 29, 30 , 33 ]. Another key research topic is the water 
+balance within the fuel cell. This involves investigating how 
+gas humidification affects cell performance and the effects of 
+uneven water distribution on electrochemical processes [ 28, 31 , 
+32 ]. In most of the published studies on spatially resolved EIS 
+measurements, only small cell formats have been analyzed. 
+Only a few studies have focused on spatially resolved EIS 
+measurements on large-format full cells, which are of greater 
+relevance for practical use in fuel cell systems. One of the few 
+comprehensive studies in this area was carried out by Haimerl 
+et al. [ 34 ], who analyzed in detail the influence of operating 
+conditions on the local impedance distribution and ageing effects 
+in a freeze-cycle test on a PEM fuel cell with an active area 
+of 285 cm2 . There are currently two established methods for 
+measuring spatially resolved impedances in fuel cells. The most 
+widely used method for measuring local impedances is based 
+on the use of segmented cells [ 26–29 ]. An alternative method 
+is to integrate a CDDM into the measurement setup [ 31, 32 , 
+34 ]. 
+This work contributes to the expansion of knowledge about local 
+impedances of automotive-sized PEM fuel cells. In contrast to 
+previous approaches, in which the local impedance was mainly 
+recorded via a segmented cell, a CDDM is used here. Segmented 
+cells make it possible to divide the active area into electrically 
+separate areas, allowing local currents and voltages to be recorded 
+separately. However, segmentation can influence cell behavior, 
+particularly regarding gas flows, water management, and heat 
+transfer. The use of a CDDM ensures that these influences 
+are minimized: Gas distribution and thermal properties remain 
+largely unchanged compared with normal stack operation, which 
+enables a realistic investigation of cell behavior [ 31 ]. However, it 
+should be noted that with CDDM, the individual measurement 
+zones are not completely electrically decoupled from each other, 
+which means that slight interactions between neighboring areas 
+can occur. 
+Special extension boards for the CDDM allow the local impedance 
+to be recorded directly on the measurement segments. The 
+measuring segments can be read out individually or combined 
+into larger measuring ranges using solder connections. 
+2 
+Experimental 
+2.1 
+Test-Setup 
+A 10-cell short stack with an active area of 280 cm2 was used for all 
+investigations. The “generic” open-design metal stack hardware 
+[ 35 ] used was originally developed as part of the HyFaB project 
+and is now being used in the RealHyFC project as an open-design 
+metal stack (ODM). The stack is equipped with a project-defined 
+MEA from the RealHyFC project. The tests were performed using 
+a counter-flow method, in which the coolant flows in the same 
+direction as the cathode gas. Deionized water was used as a 
+2 of 15
+Fuel Cells, 2026
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第3页
+coolant. The tests were performed on a Greenlight (Burnaby, BC, 
+Canada) G200 test bench in galvanostatic mode. 
+A CDDM from S ++ (Murnau-Westried, Germany) was inte- 
+grated between cells 5 and 6. The measurement board has 667 
+measurement segments arranged in a 29 × 23 matrix for high- 
+resolution current density mapping. The measuring area of the 
+CDDM is slightly larger than the active cell area. For this reason, 
+the boundary segments of the CDDM were excluded from the 
+evaluation, and the measured currents were taken into account 
+with a correction factor in the other cells. The calculation of the 
+correction factor is shown in Equation ( 1 ). 
+corr ecti on f actor =
+𝑗wo boundary cells 
+𝑗total 
+(1) 
+The correction factor is calculated from the sum of the current 
+density of all measurement segments, without the boundary 
+segments 𝑗𝑤𝑜boundary cells in relation to the total current density of 
+all measurement segments 𝑗total . The corrected current density in 
+the respective measurement segment 𝑗segment , corrected is calculated 
+from the measured current density in the respective segment 
+𝑗𝑠 𝑒 𝑔 𝑚 𝑒𝑛 𝑡, 𝑚 𝑒𝑎𝑠𝑢 𝑟𝑒𝑑 divided by the correction factor (see Equation 2 ). 
+𝑗segment , corrected =
+𝑗segment , measured 
+correction f actor 
+(2) 
+Before electrochemical characterization, the stack underwent a 
+break-in procedure based on the protocol from PowerCell Sweden 
+AB used in the RealHyFC project. This serves to condition the 
+stack to achieve the full performance of the fuel cells. Initially, the 
+stack was heated to 68◦C under fully humidified nitrogen. The gas 
+media were then changed to 100% hydrogen at the anode and air 
+at the cathode, also fully humidified. Within 30 min, the load was 
+gradually increased to 420 A (1.5 A ⋅cm− 2 ), followed by a holding 
+phase of 3 min. After that, 20 cycles were performed, consisting 
+of alternating between hydrogen soaks and operation at 420 A. 
+For the hydrogen soaks, the load is reduced to 0 A with a ramp of 
+15 A ⋅s− 1 . The cathode air was then depleted so that the hydrogen 
+soak could be initiated. After all cell voltages had dropped below 
+0.05 V, this state was maintained for a further 3 min. The load was 
+then increased again to 420 A with a ramp of 7.5 A ⋅s− 1 under full 
+media flow and held for 6 min. After completing the 20 cycles, the 
+stack was shut down and left in a resting state for at least 4 h. 
+2.2 
+Characterization Methods 
+The characterization methods were performed following the 
+break-in. First, six different polarization curves defined in the 
+project were completed. This was followed by the sensitivity test 
+and, finally, the electrochemical impedance measurements at 
+the cell level and spatially resolved. Between all characterization 
+sequences, the stack had a minimum rest period of 8 h to rule out 
+reversible cell voltage losses [ 36 ]. 
+2.2.1 
+Polarization Curves 
+In the following analysis, only one of the six polarization curves 
+under standard conditions is examined in detail. The nominal 
+operating conditions specified in the RealHyFC project were used 
+as standard conditions (see Table 1 ). These parameters were kept 
+constant throughout the measurement. The coolant flow was 
+selected so that the difference between the coolant inlet and outlet 
+temperatures was 10 K at a load point of 1.8 A ⋅cm− 2 . This coolant 
+flow was kept constant for the other load points. The polarization 
+curve comprised a total of 16 load points in the range from 0 to 
+1.8 A ⋅cm− 2 . The measurement was first performed in descending 
+order and then in ascending order. All load points above the 
+minimum load point for stoichiometric operation (0.3 A ⋅cm− 2 ) 
+were held for 5 min each, while load points below this limit were 
+held for 2 min each. Before recording each polarization curve, 
+the stack was conditioned for 30 min at 1 A ⋅cm− 2 under the 
+corresponding operating conditions. 
+2.2.2 
+Sensitivity Test 
+To investigate the heterogeneities, a sensitivity study was con- 
+ducted in which the operating parameters temperature, pressure, 
+humidity, and stoichiometry were systematically varied. Only one 
+parameter was changed at a time, while the other parameters 
+were kept at a constant reference value. Table 2 shows the 
+range of operating conditions that were taken into account in 
+the sensitivity test. The reference values are marked in blue 
+and correspond to the nominal ReaHyFC conditions. A total of 
+13 different operating states were analyzed, with measurements 
+taken at four load points for each of these states. 
+For all parameter variations, the gas temperatures, gas mixture, 
+and minimum current for stoichiometric operation were selected 
+according to the nominal conditions (cf. Table 1 ). The coolant 
+flow at 1.8 and 2.3 A ⋅cm− 2 was selected so that the temperature 
+difference between the coolant inlet and outlet did not exceed 
+10 K. At the lower two load points, the coolant flow was kept 
+constant in accordance with the coolant flow at 1.8 A ⋅cm− 2 . 
+2.2.3 
+Electrochemical Impedance Spectroscopy 
+The EIS measurements at the cell level and spatially resolved 
+are performed using a Zahner (Kronach, Germany) potentiostat 
+of type Zennium X in combination with a Zahner external load 
+of type EL1002. The external load EL1002 handles the variable 
+load component. The testbench load of type EA-ELR 10080- 
+1000 from the EA Elektro-Automatik GmbH & Co. KG (Viersen, 
+Germany) was used for the static load component. By using an 
+additional 1 V-PAD4 card, up to 16 impedance measurements can 
+be performed in parallel in addition to the reference impedance. 
+For the spatially resolved EIS measurements, the active area 
+was divided into 16 regions in which the measurements could 
+be recorded in parallel. This number cannot be exceeded due 
+to the limitations of the measurement device. The division of 
+these areas was chosen based on the current density distribution 
+under nominal conditions at 1.8 A ⋅cm− 2 . On the one hand, it 
+was ensured that the current density within each zone is as 
+homogeneous as possible. On the other hand, care was taken that 
+the relevant areas showing inhomogeneous behavior over the cell, 
+including the cathode and anode inlets and outlets, are covered. 
+As shown in Figure 1 , seven measurement zones in the cathode 
+Fuel Cells, 2026
+3 of 15
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第4页
+TABLE 1 
+RealHyFC Nominal operating conditions for the polarization curve and for the EIS measurements. 
+Inlet 
+temperature/◦C 
+Humidity/% 
+Outlet pres- 
+sure/kPaG 
+Inlet pres- 
+sure/kPaG 
+Stoichiometry/- 
+Gas composition 
+Anode 
+75 
+50 
+160 
+—
+1.5 
+80% H2 /20% N2 
+Cathode 
+75 
+35 
+150 
+—
+1.7 
+100% air 
+Coolant 
+70 
+—
+—
+50 
+—
+—
+TABLE 2 
+Parameter change in the sensitivity test, with the nominal parameters marked in blue. Simultaneous change of anode and cathode (A/C) 
+for pressure, humidity, and stoichiometry. 
+Parameter/Variation 
+1 
+2 
+3 
+4 
+5 
+Temperature/◦C (coolant inlet) 
+55 
+60 
+65 
+70 
+75 
+Pressure A/C/kPaG (outlet) 
+60/50 
+110/100 
+160/150 
+210/200 
+Humidity A/C/% 
+30/30 
+50/35 
+70/60 
+90/90 
+Stoichiometry A/C/—
+1.4/1.6 
+1.5/1.7 
+1.9/2.1 
+Current density/A ⋅cm− 2 
+0.36 
+0.9 
+1.8 
+2.3 
+FIGURE 1 
+Division of the CDDM measuring cells into a total of 16 different zones across the active area of the fuel cell based on the current density 
+distribution under reference conditions at 1.8 A ⋅cm− 2 (cf. color code). 
+inlet and outlet areas and two additional zones in the middle area 
+are taken into account. 
+The spatially resolved EIS measurements and the single cell 
+measurements are performed galvanostatically. However, the 
+underlying measured variable differs between the two methods. 
+In the single-cell measurements, it is assumed that all cells have 
+the same current density. The composite of the five cells above 
+the CDDM serves as the reference impedance, while the voltage 
+of each cell is recorded as the measured variable. In contrast, 
+the spatially resolved impedance measurements are based on the 
+assumption that the active area acts as an equipotential surface 
+and therefore the same voltage is applied across the entire area. 
+This assumption is justified due to the high electrical conductivity 
+of the metallic bipolar plates. During the spatially resolved 
+measurement, the voltage of cell 6, which is located directly above 
+the CDDM, is recorded as the reference voltage. This voltage is 
+identical for all zones and therefore does not serve as a zone data 
+source, but only as a reference for the galvanostatic stimulation. 
+The zone signals relevant for impedance determination are 
+the locally measured currents. For each of the defined zones, 
+the time-dependent current change caused by the galvanostatic 
+excitation is recorded with the CDDM and transmitted to the 
+Zahner EIS device via special expansion boards for the CDDM. 
+The impedances of the individual zones are determined from the 
+ratio of this local current response to the global reference voltage. 
+First, impedance measurements were performed on the indi- 
+vidual cells at all load points, followed by spatially resolved 
+impedance measurements. All EIS measurements were per- 
+formed under nominal operating conditions. The stack was 
+conditioned for 30 min before measurement. The conditioning 
+time between load changes was 15 min. The impedance mea- 
+surements were performed in a frequency range of 5 kHz to 
+100 mHz. The alternating current (AC) for the single-cell EIS 
+measurements was 5% of the direct current (DC) and 7% of the 
+DC for the spatially resolved measurements. The AC was set 
+slightly higher for the spatially resolved measurements, as this 
+resulted in less noise in the measurement results. The amplitude 
+of the AC in both the cell EIS measurement and the spatially 
+resolved measurement is in the range of 5% to 10% of the DC, and 
+it can therefore be assumed that the linearity requirements are 
+4 of 15
+Fuel Cells, 2026
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第5页
+FIGURE 2 
+Current density distribution at 0.089 A ⋅cm− 2 (top) and 1.8 A ⋅cm− 2 (bottom) for a descending (left) and ascending (right) polarization 
+curve under nominal conditions. 
+met [ 37 ]. The minimum gas flow was set to the respective DC. 
+At the beginning of life (BoL), impedance measurements were 
+performed at 0.18, 0.45, 0.9, 1.44, and 1.8 A ⋅cm− 2 . 
+3 
+Results and Discussion 
+The results of the spatially resolved current density distribution 
+and impedance measurements at the cell level and spatially 
+resolved are presented below. 
+3.1 
+Current Density Distribution 
+Figure 2 shows the current density distributions at load points of 
+0.089 and 1.8 A ⋅cm− 2 for the descending and ascending branches 
+of the nominal polarization curve. 
+Figure 2 helps to understand the different behaviors and the 
+resulting cell voltage for descending and ascending branches 
+of the polarization curve. Comparison of the current density 
+distribution at low and high load points shows a significant 
+influence of the different local conditions, in particular the 
+wetting state of the membrane. At the low-load point shown, a 
+clear difference in the current density distribution can be seen, 
+with a shift of the current density maximum toward the cathode 
+outlet in the ascending polarization curve. This results from over- 
+stoichiometric operation at low-load points, which leads to partial 
+drying out of the membrane. All load points below the minimum 
+load for stoichiometric operation of 0.3 A ⋅cm− 2 were therefore 
+operated in over-stoichiometric mode. As the membrane dries 
+out, the membrane resistance increases due to reduced proton 
+conductivity, and the current density consequently decreases [ 5, 
+6 , 9 ]. Along the descending branch of the polarization curve, a 
+higher amount of residual water remains within the MEA from 
+the preceding high-load operating point, where more product 
+water was produced. This additional hydration is not immediately 
+removed when the load is reduced, resulting in a more uniformly 
+wetted membrane. On the ascending branch, however, the cell 
+approaches the same load point from a lower load operating 
+condition, possibly including over-stoichiometric flows, leading 
+to lower membrane hydration and consequently higher local 
+resistance. This effect has already been described several times in 
+the literature [ 38, 39 ]. At high load points, there is no difference 
+in the current density distribution of the two branches. Here, 
+the membrane is moistened by the product water to the same 
+extent in the ascending polarization curve as in the descending 
+polarization curve. 
+Locally resolved polarization curves can be used for further analy- 
+sis of the gradients within the current density distribution. These 
+polarization curves are calculated by averaging the current values 
+from the individual measurement segments within a defined zone 
+and plotted against the average stack voltage. Figure 3 shows the 
+descending branch of the nominal polarization curve represented 
+as spatially resolved polarization curves of the 16 zones defined in 
+Figure 1 . 
+Figure 3 illustrates the heterogeneity of local performance across 
+the active area. With a constant value for the average cell voltage 
+of 0.618 V (corresponding to the highest load point of 1.8 A ⋅cm− 2 ), 
+the maximum difference between the inlet areas (marked by blue- 
+based colors) with a deviation of 0.442 A ⋅cm− 2 is smaller than 
+between the outlet areas (marked by green-based colors) with 
+0.761 A ⋅cm− 2 . The largest difference in current density between 
+the zones is found between zones 4 and 7. At a load point of 
+Fuel Cells, 2026
+5 of 15
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第6页
+FIGURE 3 
+Spatially resolved current density distribution over the 16 different zones of the active cell surface (cf. Figure 1 ) during a polarization 
+curve under nominal conditions, plotted as a U-I curve where the local current density values at a fixed voltage value, respectively, were averaged over 
+the CDDM measuring cells of each zone. 
+1.8 A ⋅cm− 2 , this deviation is 0.938 A ⋅cm− 2 . The maximum spread 
+in the current density distribution of more than 0.9 A ⋅cm− 2 
+is quite common for a stack with an active area of 280 cm2 . 
+Reports in the literature describe stacks of a similar size that 
+exhibit comparable spreads in current density distribution [ 34, 
+40 , 41 ], though usually the respective stack design employed is 
+not disclosed. Overall, the generic HyFaB stack can be considered 
+state-of-the-art compared with present commercial stack designs. 
+As shown in the following sections, a more homogeneous current 
+density distribution can be achieved by adjusting the operating 
+conditions. Further improvements may be achieved by modifying 
+the design of the bipolar plates. An important prerequisite for 
+uniform current density distribution is a homogeneous oxygen 
+partial pressure across the entire active area. Zhang et al. [ 16 ] have 
+shown in their work that a baffled flow field can make the current 
+density distribution more uniform. Significant improvements in 
+the uniformity of the oxygen partial pressure may furthermore 
+be achieved by using so-called microflow fields, which employ 
+comparatively narrow fins. The narrow fins reduce the restric- 
+tions on mass transport and allow for improving the local oxygen 
+concentration, which is especially relevant at the cathode outlet 
+[ 42 ]. In the outlet zones, it is clearly visible that the characteristic 
+curves begin to deviate from the linear form at high current 
+densities. This indicates the local occurrence of diffusion losses, 
+which point to a limited mass transport capacity in these areas [ 25, 
+43 ]. In contrast, the middle zones and the inlet zones still show 
+predominantly linear behavior even at high current densities, 
+which suggests that ohmic losses dominate there and that mass 
+transport is not yet limiting. 
+The maximum current density deviations between the defined 
+zones were further analyzed as part of the sensitivity study. The 
+largest deviation occurred between zones 4 and 7, which is why 
+these zones were selected in the following. The corresponding 
+values are shown in Figure 4 . In the sensitivity analysis, the 
+current density was only increased as long as the voltage in no 
+cell of the stack fell below 500 mV. In addition, the highest load 
+point in combination with the maximum stoichiometry could not 
+be achieved due to limitations on the test bench. This meant that 
+not all current-density points defined for the sensitivity test could 
+be recorded for all conditions. 
+Temperature variations exhibit opposite effects on the local 
+current density distribution in the investigated zones. With 
+increasing temperature, the performance of zone 4 improves at all 
+load points, showing a pronounced positive trend. This behavior 
+can be attributed primarily to enhanced reaction kinetics. In 
+contrast, zone 7 exhibits a more differentiated response. At low 
+load points, an increase in temperature leads to a slight perfor- 
+mance improvement. However, at higher load points, a slight 
+performance decline is observed with increasing temperature. 
+In zone 7, locally higher temperatures prevail, particularly at 
+high loads, as a result of the increased temperature gradient 
+between inlet and outlet. In combination with the drying effect 
+of the anode inlet, this results in a sensitivity of the membrane 
+resistance to the temperature, triggered by dehydration [ 44 ]. 
+Consequently, a consistent behavior can be observed with the 
+variation in humidification. Here, the performance in zone 7, 
+which is close to the anode inlet, increases significantly with 
+higher anode inlet gas humidity across the entire range. Again, 
+this trend may be attributed to improved membrane hydration in 
+this region, cf. e.g. [ 29 ]. 
+In contrast, Zone 4 benefits only very slightly from increasing 
+relative humidity. The fact that hardly any performance gain is 
+observed in zone 4 with increasing relative humidity is likely 
+attributable to the fact that the membrane in this region is 
+already close to its saturation level at all investigated humidi- 
+fication conditions. Consequently, further increases in inlet gas 
+humidity result in only minor additional membrane hydration 
+6 of 15
+Fuel Cells, 2026
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第7页
+FIGURE 4 
+Results of the sensitivity study for (from top to bottom) temperature, relative humidity, pressure, and stoichiometry for zone 4 (overall 
+highest local current density) and zone 7 (lowest local current density). 
+and therefore provide only a very limited performance benefit. 
+The variation in stoichiometry leads to rather minor and similar 
+effects as the variation in humidification. The performance of 
+zone 4 is hardly affected by the variation in stoichiometry, while 
+the increase in stoichiometry has a positive effect on zone 7. 
+This behavior may be attributed to the enhanced availability of 
+oxygen in the cathode outlet regions at higher stoichiometries, 
+which improves the local reactant supply in zone 7. In contrast, 
+zone 4 appears to be sufficiently supplied with oxygen over the 
+entire range of investigated stoichiometries, such that further 
+increases do not lead to a significant performance enhancement 
+[ 5, 6 ]. 
+An interesting correlation can be seen in the variation in oper- 
+ating pressure. In contrast to the other operating conditions, 
+pressure has a significant influence on both zones. An increase in 
+operating pressure leads to higher local reactant concentrations in 
+both zones, which, in turn, enhances the oxygen reduction reac- 
+tion (ORR) kinetics [ 45 ]. As a result, a pronounced performance 
+improvement is observed in both regions. 
+Figure 5 shows the differences in local current density between 
+zone 4 and zone 7 over the different variations of the parameters’ 
+temperature, humidity, pressure, and stoichiometry at a load 
+point of 1.8 A ⋅cm− 2 . The variations are listed according to the 
+representation in Table 2 . The respective values of the individual 
+parameters are increasing in all cases with increasing variation 
+identifier (consecutive no.). 
+It is clear that the different variations in operating conditions have 
+different effects on heterogeneity. Temperature behaves in the 
+opposite way to the other operating conditions; the heterogeneity 
+increases with increasing temperature. In contrast, the current 
+density distribution becomes more homogeneous with increasing 
+humidity, increasing pressure, and increasing stoichiometry. The 
+influence of humidity shown here supports the aforementioned 
+Fuel Cells, 2026
+7 of 15
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第8页
+FIGURE 5 
+Current density difference between zone 4 (highest 
+current density) and zone 7 (lowest current density) at an average load of 
+1.8 A ⋅cm− 2 over the different variations of the sensitivity test (cf. Table 2 ) 
+with increasing values over the variations in all cases. 
+interpretation of the different current density heat maps between 
+descending and ascending polarization curves at low load points 
+(see Figure 2 ). Overall, the operating pressure clearly has the 
+greatest influence on the uniformity of the current density 
+distribution. 
+The spatially resolved polarization curves clearly show differ- 
+ences between different zones and the ratio of minimum to 
+maximum. However, this means that local behavior is lost, which 
+can be depicted much better in 2D representations. These, in turn, 
+offer only limited possibilities for comparing different operating 
+parameter variations with each other. A suitable compromise is 
+the representation along the direction of media flow. Figure 6 
+shows the averaged current density distribution along the cathode 
+flow direction as part of the sensitivity analysis. 
+All four parameter variations examined show a similar basic 
+pattern of current density distribution: At the cathode inlet, the 
+current density is initially at a medium level, then rises in the 
+middle of the cathode and drops significantly again toward the 
+outlet. The temperature variation, in particular, shows that the 
+most homogeneous distribution is achieved at 55◦C. Surprisingly, 
+however, the greatest inhomogeneity occurs at 70◦C—an effect 
+that was not apparent in the spatially resolved polarization 
+curves. This makes clear that a higher temperature does not 
+automatically lead to greater inhomogeneity. The other three 
+parameters—humidity, pressure, and stoichiometry—confirm 
+the findings described above: as humidity increases, pressure 
+increases, and stoichiometry increases, the current density is 
+distributed more evenly across the active area. The increasingly 
+uniform current density distribution observed at higher humid- 
+ity confirms that the shift in current density distribution at 
+low load points, as described earlier in Figure 2 , is primarily 
+attributable to the membrane’s moisture content. Looking at the 
+representation along the cathode flow direction, parallels can 
+FIGURE 6 
+Averaged current density distribution along the cathode flow direction of the temperature variation (a), pressure variation (b), humidity 
+variation (c), and stoichiometry variation (d) at 1.8 A ⋅cm− 2 , with the increasing homogeneity of the current density distribution across the operating 
+parameter variation indicated by a red arrow. 
+8 of 15
+Fuel Cells, 2026
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第9页
+also be seen between temperature and humidity on the one 
+hand and between pressure and stoichiometry on the other. 
+For humidity and temperature, there are two intersections in 
+the curves of the parameters examined. The variants with the 
+greatest inhomogeneity ( T = 70◦C and RH = 30%/30%) stand 
+out in that they have the lowest current densities at the inlet 
+and outlet, while reaching the highest values in the middle 
+range. The decrease in current density in the cathode inlet 
+area with decreasing humidity is due to the drying out of the 
+membrane and the catalyst layer by the relatively dry inlet gas. 
+This is in line with previous studies by Mitzel et al. [ 5 ]. In 
+contrast to the temperature and humidity variation, there is only 
+one intersection point for pressure and stoichiometry: in these 
+cases, the lowest values at the inlet show the highest current 
+densities, while the lowest values at the outlet show the lowest 
+current densities. Increasing the operating pressure enhances the 
+O2 partial pressure and reduces the mass transport resistance. 
+Thereby, the O2 activity at the catalyst is enhanced, and the 
+reaction rates toward the outlet are increased. Since the average 
+current density remains constant, a current density increase in 
+the outlet region will directly lead to a lowered current density in 
+the remaining sections, resulting in a higher overall cell potential. 
+Thus, the inlet region is no longer required to deliver this high 
+share of the current density distribution as it is for low pressure. 
+Consequently, effects that are minor for the lowest pressure, that 
+is, the detailed shape of the humidity-determined membrane 
+resistance and ORR resistance curves, come more into play for 
+the inlet region. We will present a more detailed analysis of these 
+phenomena based on locally resolved EIS data in a subsequent 
+publication. For the stoichiometry variation, the current density 
+at the cathode inlet also decreases with increasing stoichiometry. 
+In the literature, it is discussed that the dominant mechanism is 
+the increased air flow at higher stoichiometries [ 5, 6 ]. The higher 
+air flow means that more oxygen is available for the reaction, 
+which is particularly effective in the cathode outlet zone. A higher 
+air flow also ensures that reaction water is transported out of 
+the outlet area more effectively, thereby reducing flooding effects 
+[ 6 ]. In contrast to the cathode inlet region, membrane moisture 
+certainly plays a role. Increased flow of relatively dry air causes 
+the membrane to dry out. The reduced local membrane hydration 
+increases the ohmic resistance, causing the reaction zone to shift 
+toward the cathode outlet. 
+3.2 
+EIS 
+EIS measurements were performed to analyze the electrochem- 
+ical processes and the distribution of relevant loss mechanisms. 
+The results of the single-cell EIS are presented below, followed 
+by a discussion of the spatially resolved EIS measurements for 
+detailed investigation of local differences within the active area. 
+3.2.1 
+Single Cell EIS 
+When performing EIS measurements at the stack level with large- 
+format cells, various factors can limit data quality. In particular, 
+the size and geometry of the stack and the arrangement of the 
+cables can lead to capacitive or inductive effects in the high- 
+frequency range. This is also the case in the experiments shown 
+here (see Figure 7 ). To minimize the influence of such inter- 
+FIGURE 7 
+Nyquist plots of single cell impedance spectra from cell 
+6 exemplarily at different current densities (a) and fitted resistances of 
+the equivalent circuit fitting averaged over all 10 cells with marking 
+of minimum and maximum values by error bar (b). R0: membrane 
+resistance. R1: charge transfer resistance of the oxygen reduction reaction 
+(ORR). R2: mass transport resistance. 
+ference effects, the evaluated frequency range for the single-cell 
+measurements was limited to 100 mHz–1026 Hz. The results of the 
+EIS measurement at load points of 0.45, 0.9, and 1.8 A ⋅cm− 2 are 
+shown in Figure 7a at cell 6, which is representative for all cells. 
+The Nyquist plot shows two dominant processes. The high- 
+frequency process is associated with the charge transfer of 
+the ORR on the cathode side. In the lower frequency range, 
+mass transport is limiting [ 23, 46–48 ]. The two dominant 
+processes can be represented in an equivalent circuit as two 
+R-CPE elements consisting of a resistor and a constant phase 
+element (CPE). In addition to these processes, a significant 
+shift of the curves due to ohmic losses can be seen in the 
+Nyquist diagrams. The ohmic losses consist of an ionic and 
+an electronic component. Heinzmann et al. [ 46 ] have shown 
+that the ionic part, which results from proton transport in 
+the MEA, is the dominant process. Accordingly, in addition 
+to the two R-CPE elements, the equivalent circuit diagram 
+includes another resistor that describes the membrane resistance. 
+The complete equivalent circuit model and the averaged fit 
+resistances across all cells, shown with error bars to indicate 
+the minimum and maximum values, are shown in Figure 7b . 
+Here, R0 describes the membrane resistance, R1 the charge 
+transfer resistance of the ORR, and R3 the mass transport 
+resistance. 
+The Nyquist plots already show that the total impedance 
+decreases with increasing load, which is quantitatively confirmed 
+by the fit parameters. The membrane resistance remains largely 
+constant on average, but shows a slightly greater spread between 
+Fuel Cells, 2026
+9 of 15
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第10页
+FIGURE 8 
+Nyquist plots of spatially resolved EIS measurement of selected zones (a, b) and DRT analysis (c, d) at 0.9 A ⋅cm− 2 (a, c) and 1.8 A ⋅cm− 2 
+(b, d), with red arrows indicating the tendencies from cathode inlet toward cathode outlet. 
+the individual cells as the load increases. This suggests that differ- 
+ences in local wetting or temperature distribution become more 
+pronounced at higher currents, since, as described in Section 3.1 , 
+the membrane resistance increases as the membrane dries out. 
+The ORR resistance shows a characteristic curve as a function 
+of current density. The ORR resistance decreases significantly 
+with increasing load, which can be attributed to higher cathodic 
+overpotentials that accelerate the electrochemical reaction [ 46, 
+48 ]. The mass transport resistance is lowest at 0.9 A cm− 2 and 
+increases at both lower and higher loads. At low loads, limited gas 
+flow and water accumulation lead to higher apparent transport 
+resistance, while at high loads, oxygen depletion and flooding 
+effects in the cathode catalyst and gas diffusion layers hinder gas 
+diffusion, resulting in a pronounced increase in mass transport 
+resistance [ 48 ]. 
+3.2.2 
+Spatially Resolved EIS 
+The spatially resolved EIS measurements were performed simul- 
+taneously for each current density value in all 16 defined zones. 
+Figure 8 shows the measured spectra for selected zones: cathode 
+inlet (1 and 10), middle zones (5 and 12), and cathode outlet (7 
+and 16). The diagrams on the left show the selected spectra in 
+the form of Nyquist plots, and the diagrams on the right show 
+the evaluation of the spectra using the distribution of relaxation 
+times (DRT) analysis method [ 46, 49 ]. A regulation parameter of 
+λ = 10− 4 was used in the DRT analyses for all spectra examined. 
+The parameter λ controls the balance between smoothness and 
+resolution of the resulting DRT spectra. A smaller λ enhances 
+resolution but increases sensitivity to noise, while a larger λ
+yields smoother results at the expense of detail. Therefore, λ
+must be carefully selected according to the data quality. For the 
+DRT analysis and parameter fitting, the high-frequency range of 
+the measurements was reduced due to capacitive and inductive 
+artifacts. A maximum of 1180 Hz was set for inlet zones 1, 3, 
+and 10. The upper frequency limit for the other zones was set to 
+517 Hz. The upper diagrams (Figure 8A,C ) show the results for a 
+load point of 0.9 A ⋅cm− 2 , while the lower diagrams (Figure 8B,D ) 
+correspond to 1.8 A ⋅cm− 2 . In all diagrams, red arrows for selected 
+features illustrate the trend observed in the local zones from the 
+cathode inlet to the cathode outlet. 
+The Nyquist diagram on the left shows two key processes at 
+the cell level, which are also identified by the DRT analysis 
+at the corresponding frequencies. The two processes can be 
+assigned to the cell impedance of the ORR and the mass transport. 
+The DRT analysis shows a significant increase in peak values 
+from the cathode inlet to the cathode outlet, indicating that 
+the impedances at the cathode outlet are higher than at the 
+inlet. This observation is confirmed by the Nyquist plots: the 
+cathode outlet areas marked in green show significantly higher 
+impedance values than the middle areas marked in yellow and 
+the inlet areas marked in blue. The shift of the frequency range of 
+the mass transport process from the cathode inlet to the outlet 
+toward lower frequencies in the DRT analysis shows that the 
+gas transport conditions in the outlet area are significantly less 
+favorable. The lower characteristic frequencies indicate slower 
+transport dynamics and effectively longer diffusion paths, which 
+lead to higher mass transport-related losses. A major advantage of 
+DRT analysis over classic Nyquist plots is that the individual elec- 
+trochemical processes can be clearly separated from each other, 
+and no overlaps occur [ 46, 49 ]. This unambiguous discrimination 
+reveals an additional third peak in the low-frequency range in 
+the cathode outlet zones at a current density of 1.8 A ⋅cm− 2 . This 
+can be attributed to the frequency range of diffusion losses. This 
+result is consistent with the previously analyzed spatially resolved 
+polarization curves, which also showed that deviations from 
+ohmic-linear behavior already occur in the outlet zones under 
+high load. The analysis confirms that limitations due to diffusion 
+losses already become relevant at BoL in the outlet zones, while 
+this is not yet observable in other areas. 
+10 of 15
+Fuel Cells, 2026
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第11页
+FIGURE 9 
+Spatial distribution of resistances at 1.8 A ⋅cm− 2 fitted from spatially resolved impedance spectra across the active cell surface. The 
+values were determined zone by zone, assigned to the respective zone centers, and linearly interpolated. To increase the resolution in the middle area, 
+zones 5 and 12 were mirrored along the flow direction. (a) membrane resistance, (b) ORR resistance, (c) mass transport resistance. 
+Fuel Cells, 2026
+11 of 15
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第12页
+FIGURE 10 
+Averaged membrane resistance (a), ORR resistance (b), mass transport resistance (c) over cathode flow field at 0.45, 0.9, and 
+1.8 A ⋅cm− 2 . 
+12 of 15
+Fuel Cells, 2026
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第13页
+The spatially resolved impedance spectra were fitted using the 
+equivalent circuit diagram presented above, which consists of 
+two R–CPE elements and an additional ohmic resistance. To 
+visualize the resistance curves across the active area, the fitted 
+values were first assigned to the centers of the respective zones 
+and then linearly interpolated. For zone 4, the values from zone 
+9 were used because the measurements in zone 4 were faulty and 
+did not provide realistic results. Similarly, the values from zone 
+16 were used for the membrane resistance and ORR resistance 
+in zone 7, as inductive artifacts occurred in zone 7, which led 
+to a distortion of these two resistance components. To achieve 
+improved resolution in the middle of the active area, zones 5 and 
+12 were additionally mirrored along the flow direction. Since the 
+current density distribution at these positions is comparable, it 
+can be assumed that the impedance values are also equivalent. 
+The resulting spatial distribution of the fitted resistance values at 
+1.8 A ⋅cm− 2 is shown in Figure 9 . 
+The membrane resistance is lowest in the central area of the 
+cell and increases toward the edges. The lower membrane 
+resistance in the central area of the cell can be explained by the 
+moisture balance of the membrane. Due to more uniform gas 
+and water transport, the membrane remains better moistened 
+in the center than at the edges [ 5–7, 9 ]. The ORR resistance 
+increases continuously along the flow direction from the cathode 
+inlet to the cathode outlet. The resistance at the edges is higher 
+than in the central area. The increase from inlet to outlet 
+correlates with oxygen depletion along the cathode. At the outlet, 
+the oxygen concentration decreases, which limits the reaction 
+kinetics locally [ 7, 8 ]. The mass transport resistance also increases 
+significantly from the cathode inlet toward the cathode outlet. 
+A local maximum is reached at the anode inlet. The increase in 
+mass transport resistance is attributed to oxygen concentration 
+gradients and water accumulation along the cathode flow field, 
+which impede gas transport and limit reactant access to the 
+catalyst sites [ 23, 47 ]. To compare the resistance values at different 
+current densities, the interpolated 2D data over the active area 
+was displayed as a 1D line plot. As with the current density 
+distribution, a total of 27 areas were formed along the flow 
+direction, and the mean value was calculated for each area. The 
+resistance values across the flow direction for the three resistors 
+are shown in Figure 10 for current densities of 0.45, 0.9, and 
+1.8 A ⋅cm− 2 . 
+The membrane resistance shows a significant drop along the 
+cathode flow at the cathode inlet and reaches its minimum at 
+all load points in segments 8 and 9. The membrane resistance 
+increases again toward the cathode outlet. At the inlet, the 
+membrane resistance decreases with increasing current density, 
+while at the outlet, it even reaches higher values at 1.8 A ⋅cm− 2 
+than at 0.45 A ⋅cm− 2 . The largest spread between minimum and 
+maximum membrane resistance was observed at 0.9 A ⋅cm− 2 with 
+0.00285 Ω cm2 . The ORR resistance shows a significant decrease 
+with increasing current density. This effect is particularly pro- 
+nounced at the cathode inlet. At 1.8 A ⋅cm− 2 , the ORR resistance 
+increases continuously along the cathode from the inlet to the 
+outlet. At the two lower current densities, however, a different 
+behavior is observed: from the inlet to the middle areas, the 
+resistance initially decreases and then increases again toward the 
+outlet. At 0.9 A ⋅cm− 2 , the drop at the inlet is already lower than 
+at the lowest load point. With a maximum spread of 0.0173 Ω cm2 
+at 1.8 A ⋅cm− 2 , the ORR resistance has a stronger influence 
+on local differences than the membrane resistance. Even more 
+pronounced is the variation in mass transport resistance, which 
+shows its greatest spread of 0.088 Ω cm2 at 0.45 A cm− 2 . Regardless 
+of the current density, it shows a significant increase from the 
+cathode inlet toward the cathode outlet. The lowest values over 
+the entire channel length occur at 0.9 A ⋅cm− 2 , while the highest 
+values are reached at 1.8 A cm− 2 . 
+4 
+Conclusions 
+The results of this work contribute to a better understanding 
+of local processes in fuel cells with large active areas, which 
+are relevant for mobility applications in heavy-duty transport. 
+Analysis of the current density distribution shows that significant 
+inhomogeneities occur across the entire active area. In addition to 
+the obvious dependence on the local oxygen concentration, the 
+current density varies in particular with the moisture content of 
+the membrane, which has a significant influence, especially at 
+low current densities. At a load of 1.8 A ⋅cm− 2 , local differences 
+in current density of up to 0.938 A ⋅cm− 2 were observed. Among 
+the investigated operating parameters, temperature, humidity, 
+pressure, and stoichiometry, pressure proved to be the domi- 
+nant factor influencing the homogeneity of the current density 
+distribution. 
+Furthermore, this work highlights the added value of spatially 
+resolved EIS analysis, which provides new insights into the local 
+electrochemical processes within a stack with an active area 
+of 280 cm2 . The EIS measurements confirm the existence of 
+significant local differences across the entire active area. A clear 
+trend can be seen in the increase in impedance values from the 
+cathode inlet to the cathode outlet. The membrane resistance is 
+strongly influenced by the moisture balance, reaching its lowest 
+values in the middle of the cell and increasing toward the edges. 
+The ORR resistance decreases significantly with increasing load, 
+both at the cell level and across the active area, with this effect 
+being particularly pronounced at the cathode inlet. The mass 
+transport resistance shows the largest increase from the cathode 
+inlet to the cathode outlet, which is due to increasingly limited 
+reaction kinetics along the cathode gas flow. 
+Acknowledgments 
+This work was performed within the framework of the RealHyFC 
+project. The authors wish to acknowledge the participation of PowerCell 
+Sweden AB, IRD Fuel Cells A/S, German Aerospace Center (DLR), and 
+Univ. Grenoble Alpes (CEA) in RealHyFC for material supply and their 
+involvement in protocol definition. The RealHyFC project is supported by 
+the Clean Hydrogen Partnership and its partners Hydrogen Europe and 
+Hydrogen Europe Research, under GA 101111904. 
+References 
+1 . Greenhouse Gas Emissions From Transport in Europe , https://www. 
+eea.europa.eu/en/analysis/indicators/greenhouse-gas-emissions-from- 
+transport?activeAccordion= , 2024. 
+2 . Reducing Greenhouse Gas Emissions From Heavy-Duty Vehicles in 
+Europe , https://www.eea.europa.eu/en/analysis/publications/reducing- 
+greenhouse-gas-emissions-from-heavy-duty-vehicles-in-europe , 2022. 
+Fuel Cells, 2026
+13 of 15
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第14页
+3 . Y. Ruf, M. Baum, T. Zorn, A. Menzel, and J. Rehberger Fuel Cells 
+Hydrogen Trucks Heavy-Duty’s High Performance Green Solution (2020), 
+https://www.clean-hydrogen.europa.eu/document/download/81edb800- 
+d1fc- 49f4- 8341- c894d3ab77e4_en?filename=FCH%20HDT%20- 
+%20Study%20Report_final_vs.pdf. 
+4 . D. A. Cullen, K. C. Neyerlin, and R. K. Ahluwalia, et al., “New Roads 
+and Challenges for Fuel Cells in Heavy-Duty Transportation,” National 
+Energy 6 (2021): 462–474, https://doi.org/10.1038/s41560- 021- 00775- z . 
+5 . J. Mitzel, et al., “Fault Diagnostics in PEMFC Stacks by Evaluation of 
+Local Performance and Cell Impedance Analysis,” Fuel Cells (2020): 403–
+412, https://doi.org/10.1002/fuce.201900193 . 
+6 . Q. Zhang, R. Lin, L. Técher, and X. Cui, “Experimental Study of Vari- 
+able Operating Parameters Effects on Overall PEMFC Performance and 
+Spatial Performance Distribution,” Energy 115 (2016): 550–560, https://doi. 
+org/10.1016/j.energy.2016.08.086 . 
+7 . E. Engebretsen, G. Hinds, and Q. Meyer, et al., “Localised Electro- 
+chemical Impedance Measurements of a Polymer Electrolyte Fuel Cell 
+Using a Reference Electrode Array to Give Cathode-Specific Measure- 
+ments and Examine Membrane Hydration Dynamics,” Journal of Power 
+Sources 382 (2018): 38–44, https://doi.org/10.1016/j.jpowsour.2018.02. 
+022 . 
+8 . S. Shimpalee, S. Hirano, M. DeBolt, V. Lilavivat, J. W. Weidner, and 
+Y. Khunatorn, “Macro-Scale Analysis of Large Scale PEM Fuel Cell 
+Flow-Fields for Automotive Applications,” Journal of the Electrochemical 
+Society 164 (2017): E3073, https://doi.org/10.1149/2.0091711jes . 
+9 . I. S. Hussaini and C.-Y. Wang, “Transients of Water Distribution and 
+Transport in PEM Fuel Cells,” Journal of Electrochemical Society 156 
+(2009): B1394, https://doi.org/10.1149/1.3236646 . 
+10 . Q. Meyer, et al., “Combined Current and Temperature Mapping in an 
+Air- Cooled, Open- Cathode Polymer Electrolyte Fuel Cell Under Steady- 
+State and Dynamic Conditions,” Journal of Power Sources 297 (2015): 315–
+322, https://doi.org/10.1016/j.jpowsour.2015.07.069 . 
+11 . L. Xing, Y. Wang, P. K. Das, K. Scott, and W. Shi, “Homogenization of 
+Current Density of PEM Fuel Cells by In-Plane Graded Distributions of 
+Platinum Loading and GDL Porosity,” Chemical Engineering Science 192 
+(2018): 699–713, https://doi.org/10.1016/j.ces.2018.08.029 . 
+12 . J. Sim, M. Kang, and K. Min, “Effects of Porosity Gradient and Average 
+Pore Size in the In-Plane Direction and Disposition of Perforations in the 
+Gas Diffusion Layer on the Performance of Proton Exchange Membrane 
+Fuel Cells,” Journal of Power Sources 544 (2022): 231912, https://doi.org/ 
+10.1016/j.jpowsour.2022.231912 . 
+13 . Y. Zhang, A. Smirnova, A. Verma, and R. Pitchumani, “Design of 
+a Proton Exchange Membrane (PEM) Fuel Cell with Variable Catalyst 
+Loading,” Journal of Power Sources 291 (2015): 46–57, https://doi.org/10. 
+1016/j.jpowsour.2015.05.002 . 
+14 . A. A. Kulikovsky, “Optimal Shape of Catalyst Loading Along the 
+Oxygen Channel of a PEM Fuel Cell,” Electrochimica Acta 54 (2009): 
+7001–7005, https://doi.org/10.1016/j.electacta.2009.07.005 . 
+15 . Y. Wang, X. Wang, Y. Fan, W. He, J. Guan, and X. Wang, “Numerical 
+Investigation of Tapered Flow Field Configurations for Enhanced Poly- 
+mer Electrolyte Membrane Fuel Cell Performance,” Applied Energy 306 
+(2022): 118021. 
+16 . X. Zhang, X. Yang, W. Gao, and C. Wang, “An Experimental Research 
+on the Net Output Power and Current Density Distribution of PEM 
+Fuel Cells With Trapezoid Baffled Flow Fields,” International Journal 
+of Energy Research 45 (2021): 21464–21475, https://doi.org/10.1002/er. 
+7194 . 
+17 . C. Yin, J. Gao, and X. Wen, et al., “In Situ Investigation of Proton 
+Exchange Membrane Fuel Cell Performance With Novel Segmented Cell 
+Design and a Two-Phase Flow Model,” Energy 113 (2016): 1071–1089, 
+https://doi.org/10.1016/j.energy.2016.06.097 . 
+18 . C. Yin, Y. Gao, K. Li, Y. Song, and H. Tang, “Experimental Investi- 
+gation on Local Behaviors of PEMFC with Segmented Cell,” Automotive 
+Innovation 4 (2021): 165–175. 
+19 . W. Tang, R. Lin, Y. Weng, J. Zhang, and J. Ma, “The Effects of 
+Operating Temperature on Current Density Distribution and Impedance 
+Spectroscopy by Segmented Fuel Cell,” International Journal of Hydrogen 
+Energy 38 (2013): 10985–10991, https://doi.org/10.1016/j.ijhydene.2013.01. 
+099 . 
+20 . Z. Liu, Z. Mao, B. Wu, L. Wang, and V. M. Schmidt, “Curr ent Density 
+Distribution in PEFC,” Journal of Power Sources 141 (2005): 205–210, 
+https://doi.org/10.1016/j.jpowsour.2004.10.003 . 
+21 . M. Schüttoff, C. Wachtel, R. Schlumberger, F. Wilhelm, J. Scholta, 
+and M. Hölzle, “Development of Accelerated Durability Test Protocols 
+for Polymer Electrolyte Membrane Fuel Cell Stacks Under Realistic 
+Operating Conditions,” Fuel Cells 24: (2024): e202300263. 
+22 . X. Zhang, Y. Yang, L. Guo, and H. Liu, “Performance Degradation 
+of Proton Exchange Membrane Fuel Cell Caused by an Accelerated 
+Stress Test,” Fuel Cells 19 (2019): 160–168, https://doi.org/10.1002/fuce. 
+201800152 . 
+23 . G. Ustuner, Y. Hung, and D. Mahajan, “Investigation of Proton 
+Exchange Membrane Fuel Cell Performance by Exploring the Syner- 
+gistic Effects of Reaction Parameters via Power Curve and Impedance 
+Spectroscopy Analysis,” Energies 17 (2024): 2530. 
+24 . X. Li, Z. Ge, and R. Zhang, et al., “Measurement and Analysis on Cur- 
+rent Density Distribution of Long-Channel Proton Exchange Membrane 
+Fuel Cell: Insights From Operational Conditions and Electrochemical 
+Impedance,” Energy 318 (2025): 134790, https://doi.org/10.1016/j.energy. 
+2025.134790 . 
+25 . N. Wagner, “Characterization of Membrane Electrode Assemblies 
+in Polymer Electrolyte Fuel Cells Using a.c. Impedance Spectroscopy,”
+Journal of Applied Electrochemistry (2002): 859–863, https://doi.org/10. 
+1023/A:1020551609230 . 
+26 . I. A. Schneider, H. Kuhn, A. Wokaun, and G. G. Scherer, “Study of 
+Water Balance in a Polymer Electrolyte Fuel Cell by Locally Resolved 
+Impedance Spectroscopy,” Journal of The Electrochemical Society 152 
+(2005): A2383–A2389, https://doi.org/10.1149/1.2121739 . 
+27 . I. A. Schneider, M. H. Bayer, and S. von Dahlen, “Locally Resolved 
+Electrochemical Impedance Spectroscopy in Channel and Land Areas of a 
+Differential Polymer Electrolyte Fuel Cell,” Journal of The Electrochemical 
+Society 158 (2011): B343–B348, https://doi.org/10.1149/1.3536498 . 
+28 . I. A. Schneider, H. Kuhn, A. Wokaun, and G. G. Scherer, “Fast 
+Locally Resolved Electrochemical Impedance Spectroscopy in Polymer 
+Electrolyte Fuel Cells,” Journal of The Electrochemical Society 152 (2005): 
+A2092–A2103, https://doi.org/10.1149/1.2032409 . 
+29 . D. Gerteisen, W. Mérida, T. Kurz, P. Lupotto, M. Schwager, and 
+C. Hebling, “Spatially Resolved Voltage, Current and Electrochemical 
+Impedance Spectroscopy Measurements,” Fuel Cells 11 (2011): 339–349, 
+https://doi.org/10.1002/fuce.201000181 . 
+30 . D. Gerteisen, N. Zamel, C. Sadeler, F. Geiger, V. Ludwig, and C. 
+Hebling, “Effect of Operating Conditions on Current Density Distribution 
+and High Frequency Resistance in a Segmented PEM Fuel Cell,” Interna- 
+tional Journal of Hydrogen Energy 37 (2012): 7736–7744, https://doi.org/10. 
+1016/j.ijhydene.2012.02.024 . 
+31 . D. Liu, R. Lin, and B. Feng, et al., “Localised Electrochemical 
+Impedance Spectroscopy Investigation of Polymer Electrolyte Membrane 
+Fuel Cells Using Print Circuit Board Based Interference-Free System,”
+Applied Energy 254 (2019): 113712, https://doi.org/10.1016/j.apenergy.2019. 
+113712 . 
+32 . D. Liu, R. Lin, B. Feng, and Z. Yang, “Investigation of the Effect 
+of Cathode Stoichiometry of Proton Exchange Membrane Fuel Cell 
+Using Localized Electrochemical Impedance Spectroscopy Based on Print 
+Circuit Board,” International Journal of Hydrogen Energy 44 (2019): 
+7564–7573, https://doi.org/10.1016/j.ijhydene.2019.01.095 . 
+33 . D. J. L. Brett, S. Atkins, N. P. Brandon, V. Vesovic, N. Vasileiadis, and A. 
+Kucernak, “Localized Impedance Measurements along a Single Channel 
+of a Solid Polymer Fuel Cell,” The Electrochemical Society 6 (2003): A63–
+A66. 
+14 of 15
+Fuel Cells, 2026
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+PDF第15页
+34 . F. Haimerl, J. P. Sabawa, T. A. Dao, and A. S. Bandarenka, “Spatially 
+Resolved Electrochemical Impedance Spectroscopy of Automotive PEM 
+Fuel Cells,” ChemElectroChem 9 (2022): e202200069. 
+35 . F. Häußler, B. Wiedemann, C. Bergbreiter, et al., The ZSW HyFaB 
+Generic Stack , 2024, Zentrum fuer Sonnenenergie- und Wasserstoff- 
+Forschung Baden-Wuerttemberg (ZSW), https://zenodo.org/records/ 
+14223364/files/2024- 11- 29_Presentation_HyFaB_and_GenStack.pdf. 
+36 . Q. Zhang, M. Schulze, P. Gazdzicki, and K. A. Friedrich, “Comparison 
+of Different Performance Recovery Procedures for Polymer Electrolyte 
+Membrane Fuel Cells,” Applied Energy 302 (2021): 117490. 
+37 . X.-Z. Yuan, C. Song, H. Wang, and J. Zhang Electrochemical Impedance 
+Spectroscopy in PEM Fuel Cells. Fundamentals and Application (Springer, 
+2009). 
+38 . S. Schneider, F. Wilhelm, J. Scholta, M. Schüttoff, and L. Jörissen, 
+“Further Development of an OpenFOAM LT-PEMFC Toolbox and Its 
+Validation on an Automotive Fuel Cell Design,” Energies 18 (2025): 4793. 
+39 . J. Mitzel, E. Gülzow, and A. Kabza, et al., “Identification of Critical 
+Parameters for PEMFC Stack Performance Characterization and Control 
+Strategies for Reliable and Comparable Stack Benchmarking,” Interna- 
+tional Journal of Hydrogen Energy 41 (2016): 21415–21426, https://doi.org/ 
+10.1016/j.ijhydene.2016.08.065 . 
+40 . M. Koprek, R. Schlumberger, and C. Wachtel, et al., “Local Ageing 
+Effects of Polymer Electrolyte Fuel Cell Membrane Electrode Assemblies 
+due to Accelerated Durability Testing,” Fuel Cells 20 (2022): 271–283, 
+https://doi.org/10.1002/fuce.202200064 . 
+41 . A New Load Cycle and Durability Test Procedure Based on 
+Vehicle Fleet Data: ID-Fast Final Workshop, https://www.id- 
+fast.eu/uploads/media/ID-FAST_Final_Workshop_2021-12- 
+16_03_Drive_Cycle_public.pdf, 2021. 
+42 . R. Zhang, B. Yang, and X. Lei, et al., “Droplets Dynamics Theory and 
+Micro-Flow Field Experiments of Improving Self-Humidifying Feature 
+and Maximum Power Density in Fuel Cells,” Chemical Engineering 
+Journal 429 (2022): 131974, https://doi.org/10.1016/j.cej.2021.131974 . 
+43 . EG&G Technical Services, Inc., Fuel Cell Handbook (2004), https:// 
+www.netl.doe.gov/sites/default/files/netl-file/FCHandbook7.pdf. 
+44 . P. Qi, Z. Wu, and J. Mou, et al., “A Review of Water Management in 
+Proton Exchange Membrane Fuel Cell Systems,” Sustainable Energy Fuels 
+9 (2024): 72–97, https://doi.org/10.1039/D4SE01020E . 
+45 . L. Wang, A. Husar, T. Zhou, and H. Liu, “A Parametric Study of PEM 
+Fuel Cell Performances,” International Journal of Hydrogen Energy 28 
+(2003): 1263–1272, https://doi.org/10.1016/S0360-3199(02)00284-7 . 
+46 . M. Heinzmann, A. Weber, and E. Ivers-Tiffée, “Advanced Impedance 
+Study of Polymer Electrolyte Membrane Single Cells by Means of 
+Distribution of Relaxation Times,” Journal of Power Sources 402 (2018): 
+24–33, https://doi.org/10.1016/j.jpowsour.2018.09.004 . 
+47 . L. Zhao, H. Dai, F. Pei, P. Ming, X. Wei, and J. Zhou, “A Comparative 
+Study of Equivalent Circuit Models for Electro-Chemical Impedance 
+Spectroscopy Analysis of Proton Exchange Membrane Fuel Cells,”
+Energies (2022): 386, https://doi.org/10.3390/en15010386 . 
+48 . J. Santana, M. Espinoza-Andaluz, T. Li, and M. Andersson, “A 
+Detailed Analysis of Internal Resistance of a PEFC Comparing High and 
+Low Humidification of the Reactant Gases,” Frontiers in Energy Research 
+8 (2020), https://doi.org/10.3389/fenrg.2020.00217 . 
+49 . S. Dierickx, A. Weber, and E. Ivers-Tiffée, “How the Distribution of 
+Relaxation Times Enhances Complex Equivalent Circuit Models for Fuel 
+Cells,” Electrochimica Acta 355 (2020): 136764, https://doi.org/10.1016/j. 
+electacta.2020.136764 . 
+Fuel Cells, 2026
+15 of 15
+ 16156854, 2026, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/fuce.70057 by Eva Fensterle - Otto-Von-Taube-Gymn , Wiley Online Library on [01/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License

@@ -1,0 +1,9 @@
+﻿维度,对象,状态,说明,证据ID
+数学计算,FC1,CONDITIONAL_PASS,固定两负载8条主曲线含BoL可计算；不重算,H01
+数学计算,RealHyFC,CONDITIONAL_PASS,9条主曲线含BoL可计算；2300h启停后B60拒绝,H01
+同电堆日期可比性,FC1,PARTIAL_PROTOCOL_ONLY,标称时点/名义设定与降载扫描得到原作者依据，但每日期实际温压和时钟未给,F01/F03/F05/F06/F09
+同电堆日期可比性,RealHyFC,PARTIAL_PROTOCOL_ONLY,名义条件、停留与预调理有依据，记录温压可查；公差、传感器与恢复等价未认证,R01/R02/R03/R05/R07/R08
+跨电堆统一数学定义,FC1与RealHyFC,YES_MATHEMATICAL_ONLY,D(0.45)/D(0.90)定义一致且基准各自独立,H01
+跨电堆测量等价,FC1与RealHyFC,BLOCKED_NOT_ESTABLISHED,连续扫描与5分钟平台不同；温度位置/设定、压力基准及硬件不同,F03/F05/F06;R01/R04/R07
+独立重复测量,两堆,BLOCKED_NOT_IDENTIFIED,不同年龄、同曲线密集点、升降载与启停前后均不构成同条件独立重复,F10/R08
+严格少样本信息可用性,两堆,BLOCKED,FC1实际诊断时钟与两堆结果可用时间未知；Real早期运行小时有区间,F02;T01/T02/T03

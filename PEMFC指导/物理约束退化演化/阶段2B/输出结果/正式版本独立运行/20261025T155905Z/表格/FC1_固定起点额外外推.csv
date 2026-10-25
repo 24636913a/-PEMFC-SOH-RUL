@@ -1,0 +1,3 @@
+﻿dataset,method,origin_id,origin_time,step,target_time,pred_v,true_v,status,model_selection_available,information_note
+FC1,BoundedRate,692,692.0,,,,,NA_VALIDATION_SELECTED_CONFIGURATION_NOT_YET_AVAILABLE_AT_TRAIN_END,False,不执行使用未来Validation选择的Train末端额外预测；长期图改用合法RUL独立内层选择起点
+FC1,SlowReversible,692,692.0,,,,,NA_VALIDATION_SELECTED_CONFIGURATION_NOT_YET_AVAILABLE_AT_TRAIN_END,False,不执行使用未来Validation选择的Train末端额外预测；长期图改用合法RUL独立内层选择起点

@@ -1,0 +1,123 @@
+{
+  "version": "阶段2B_v1",
+  "head": "f223372300f890818d2011a4b99619b6848cfff6",
+  "identity": "低阶机理启发约束实验；已查看Assessment的探索性再次验证；不是PINN或已验证电化学机制",
+  "protected": "阶段0–2A全部只读；原阶段2A正式代码完整备份后仅更新总使用说明并新增2B子版本",
+  "datasets": {
+    "FC1": {
+      "scheme": "FC1_NOMINAL",
+      "lookback": 48,
+      "min_history": 24,
+      "horizons": [
+        24,
+        72,
+        168
+      ],
+      "coordinate": "actual_hour",
+      "j": 0.7
+    },
+    "RealHyFC": {
+      "scheme": "B60",
+      "lookback": 12,
+      "min_history": 6,
+      "horizons": [
+        1,
+        4,
+        12,
+        25
+      ],
+      "coordinate": "raw_cycle_index",
+      "j": 0.558161974
+    }
+  },
+  "no_data_rescreen": true,
+  "schedules": "严格复用2A Validation/Assessment全部origin,target,horizon,step身份；Train只拟合，不输出依赖完整Train参数的伪因果Train预测",
+  "base": "不改Ubase、Vop0、0.45/0.90诊断BoL或已有A/B60资格；A60仍NA",
+  "fitting": {
+    "local_slope": "同2A历史窗口内OLS，历史至少24h或6循环；仅Train中滚动局部斜率的统计量确定界限",
+    "q_prior": "Train D对真实小时/循环序号的OLS斜率；投影版本截断非负",
+    "rate_cap": "max(Q95(abs(Train局部斜率)),1e-6 V/unit)",
+    "acceleration_cap": "max(0.25*Q95(abs(diff(Train局部斜率)/diff坐标)),1e-8 V/unit²)",
+    "noise": "max(MAD(相邻合格观测D差分)/(0.6744897501960817*sqrt(2)),1e-5 V)",
+    "reversible_scale": "max(std(Train D-因果EWMA(D)),noise)；EWMA时间常数lookback/2，缺测按实际坐标间隔传播",
+    "min_train_observations": 24,
+    "min_real_train_observations": 12
+  },
+  "C": {
+    "name": "BoundedRate",
+    "candidates": [
+      0.25,
+      1.0
+    ],
+    "formula": "q_raw=k*q_local+(1-k)*q_prior;逐历史观测投影到[0,rate_cap]及与上一q相差<=acceleration_cap*dt;从最后实测D_o线性传播",
+    "scenario": "无未来恢复基础场景；速率界是Train经验尺度与结构先验，不是已测得的电化学常数"
+  },
+  "D": {
+    "name": "SlowReversible",
+    "FC1_tau": [
+      6,
+      24,
+      72
+    ],
+    "RealHyFC_tau": [
+      1,
+      3,
+      6
+    ],
+    "state": "x=[L,q,R]; D=L+R+epsilon；L_next=L+dt*q，q_next=q，R_next=exp(-dt/tau)*R；两项是综合观测分量",
+    "initial": "历史窗首点[L=D_first,q=q_prior,R=0]，P=diag(rev_scale²,(0.25*rate_cap)²,rev_scale²)",
+    "process": "Q=diag((0.05*noise)²*dt,acceleration_cap²*dt,rev_scale²*(1-exp(-2*dt/tau)))；观测R_noise=noise²",
+    "filter": "3维线性预测和Joseph协方差更新，再投影q；截断后协方差是近似记录，不宣称严格截断高斯后验",
+    "forecast": "起点状态固定；未来不更新观测，不预知恢复事件；q常量和R均值回归可产生电压回升；L不强制非负",
+    "identifiability": "固定tau的线性观测矩阵O=[H;HF;HF²]须满秩、条件数<=1e6；通过不等于真实分量可独立验证"
+  },
+  "controls": [
+    "C_no_projection",
+    "D_no_projection"
+  ],
+  "control_policy": "只去掉对应C/D的非负/上界/变化率投影，同参数数量、同Train统计和已选Validation配置，不另行择优；辅助消融非新增主模型",
+  "selection": {
+    "candidates_frozen": true,
+    "primary": "每个可评价跨度的Validation全块RMSE等权平均；再MAE；再候选编号",
+    "min_validation_origins": 3,
+    "global_weights": "仅Train拟合；Validation只选k或tau，Assessment不参与",
+    "rolling_state": "每起点仅同2A的48h/12循环已发生历史重估状态，不引入更长输入；参数不随Validation标签更新",
+    "selection_timing": "使用完整Validation选出的配置仅在Validation末尾后合法起点评价；选定配置的Validation指标是选择期回放，不是起点时已冻结模型的在线成绩"
+  },
+  "RUL": {
+    "origins": [
+      400,
+      500,
+      600
+    ],
+    "drops": [
+      0.035,
+      0.04,
+      0.045,
+      0.05,
+      0.055
+    ],
+    "main": 0.04,
+    "horizon": 1000,
+    "nested": "每起点前历史80%拟合全部速率/噪声参数；固定起点预测后20%选择同一候选；再用全部起点前历史重估参数，不借完整Train或外部Validation",
+    "baseline": "直接复用阶段2A同起点、同阈值及内层选择的A/B；条件首次观测越界与右删失，不认证809h为物理EOL"
+  },
+  "fixed_origin": {
+    "FC1": "Train最后合格小时起点，168h不使用未来更新；真实缺口保持NA，不进入滚动完整块主指标",
+    "RealHyFC": "Assessment最早H1合法起点，向前25循环；没有实测的目标保留NA，不凑主25循环资格"
+  },
+  "pairing": {
+    "window_FC1_h": 48,
+    "window_Real_calendar_h": 48,
+    "rule": "诊断完成前最近一个已可用连续观测；不使用诊断之后的运行点；同一诊断只算一对",
+    "FC1": "只可名义时钟描述配对；实际完成/发布未知，严格因果配对NA",
+    "RealHyFC": "循环available_ns<=诊断实际日历完成；最多48日历小时滞后，全部配对/拒绝均保留",
+    "mapping": "D_op=a+b*D_ref或a+b1*D_ref+b2*D_low，训练区间且诊断和运行均合法；不是两种测量同值假设",
+    "min_distinct_pairs_per_parameter": 3,
+    "rank": "Train标准化设计满列秩，条件数<=100；1D至少6、2D至少9独立诊断配对。此为预登记稳定性门槛而非物理定理",
+    "dynamic": "即使映射可拟合，2D至少6合法过去诊断转移并有验证目标；否则状态校正/二维演化NA，不加参数凑结果"
+  },
+  "network": "本轮不训练网络。先据真实低阶效果、观测映射、样本、历史事件字段资格评估16单元网络；不以名称当作贡献",
+  "transfer": "仅协议：FC1源、Real目标，300/600/检测实际完成后保守起点分别登记，真实发布未知；不执行迁移",
+  "git": "延续此前自动Git提交授权，仅本地提交；无本轮远端推送授权"
+}

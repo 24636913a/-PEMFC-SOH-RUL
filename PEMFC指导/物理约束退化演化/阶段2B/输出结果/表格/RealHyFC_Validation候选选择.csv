@@ -1,0 +1,6 @@
+﻿dataset,method,candidate_index,setting,equal_horizon_RMSE_mV,equal_horizon_MAE_mV,parameters_fit_only,selection_labels
+RealHyFC,BoundedRate,0,0.25,0.2562119965079267,0.20417630746007576,Train,Validation
+RealHyFC,BoundedRate,1,1.0,0.3434330691718652,0.26717200297980015,Train,Validation
+RealHyFC,SlowReversible,0,1.0,0.2488913264949916,0.20616092051296353,Train,Validation
+RealHyFC,SlowReversible,1,3.0,0.2387452444781987,0.18944157278507615,Train,Validation
+RealHyFC,SlowReversible,2,6.0,0.25418837719915527,0.2004175855016291,Train,Validation

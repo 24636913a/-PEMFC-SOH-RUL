@@ -1,0 +1,4 @@
+﻿scenario,operating_cutoff_h,exact_cutoff_identity,completed_main_diagnostics,n_completed,qualified_operating_cycles,temperature_identity,result_release_time,common_evaluation_start_h,migration,caveat
+STRICT_300,300.0,RUNNING_HOUR_CUTOFF_NOT_NOMINAL_FILENAME,Polcurve_Nominal_RHFC_BoL.csv,1,23,B60_EXPLORATORY,UNKNOWN,629.2038,NOT_RUN,时间完成资格不等于稳态/观测映射或迁移资格；300模型必须自行传播到共同后移评价起点，不使用300后真实观测
+STRICT_600,600.0,RUNNING_HOUR_CUTOFF_NOT_NOMINAL_FILENAME,Polcurve_Nominal_RHFC_300h.csv;Polcurve_Nominal_RHFC_BoL.csv,2,47,B60_EXPLORATORY,UNKNOWN,629.2038,NOT_RUN,时间完成资格不等于稳态/观测映射或迁移资格；300模型必须自行传播到共同后移评价起点，不使用300后真实观测
+SHIFTED_AFTER_600_COMPLETED,629.2038,cycle_id=51; calendar=2025-03-08T04:30:32.005000,Polcurve_Nominal_RHFC_300h.csv;Polcurve_Nominal_RHFC_600h.csv;Polcurve_Nominal_RHFC_BoL.csv,3,48,B60_EXPLORATORY,UNKNOWN,629.2038,NOT_RUN,时间完成资格不等于稳态/观测映射或迁移资格；300模型必须自行传播到共同后移评价起点，不使用300后真实观测

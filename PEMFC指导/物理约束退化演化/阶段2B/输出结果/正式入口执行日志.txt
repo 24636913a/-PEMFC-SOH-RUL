@@ -1,0 +1,4 @@
+FC1：拟合Train速率和噪声尺度，执行冻结Validation候选
+RealHyFC：拟合Train速率和噪声尺度，执行冻结Validation候选
+FC1：400/500/600h各自重新拟合80%/20%，不借后续Train参数
+低阶模型拟合、选择和实际预测完成。

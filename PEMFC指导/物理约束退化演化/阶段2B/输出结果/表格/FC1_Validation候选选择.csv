@@ -1,0 +1,6 @@
+﻿dataset,method,candidate_index,setting,equal_horizon_RMSE_mV,equal_horizon_MAE_mV,parameters_fit_only,selection_labels
+FC1,BoundedRate,0,0.25,1.5452008213894617,0.9327297753107084,Train,Validation
+FC1,BoundedRate,1,1.0,1.65751036862128,1.0625520498581322,Train,Validation
+FC1,SlowReversible,0,6.0,1.6042467555886246,1.0086465109861844,Train,Validation
+FC1,SlowReversible,1,24.0,1.3435167400560606,0.8114879760851564,Train,Validation
+FC1,SlowReversible,2,72.0,1.361889600112265,0.8133876450083536,Train,Validation

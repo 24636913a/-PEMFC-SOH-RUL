@@ -1,0 +1,53 @@
+﻿check,passed,detail
+protocol_before_calculation_SHA,True,
+FC1_Train_q_prior,True,3.101039205010571e-05 vs 3.101039205010569e-05
+FC1_Train_rate_cap,True,9.220840628510773e-05 vs 9.220840628510779e-05
+FC1_Train_acceleration_cap,True,2.6320622902745153e-06 vs 2.6320622902745416e-06
+FC1_Train_noise,True,0.00013985449209886295 vs 0.00013985449209886295
+FC1_Train_reversible_scale,True,0.0010908535174471556 vs 0.0010908535174471551
+FC1_Train_ids_exact,True,
+FC1_BoundedRate_same_queries,True,
+FC1_BoundedRate_same_true_voltage,True,
+FC1_BoundedRate_no_projection_same_queries,True,
+FC1_BoundedRate_no_projection_same_true_voltage,True,
+FC1_LocalLinear_same_queries,True,
+FC1_LocalLinear_same_true_voltage,True,
+FC1_LocalLinear_frozen_prediction,True,
+FC1_Persistence_same_queries,True,
+FC1_Persistence_same_true_voltage,True,
+FC1_Persistence_frozen_prediction,True,
+FC1_SlowReversible_same_queries,True,
+FC1_SlowReversible_same_true_voltage,True,
+FC1_SlowReversible_no_projection_same_queries,True,
+FC1_SlowReversible_no_projection_same_true_voltage,True,
+FC1_independent_state_and_forecast,True,"all 4 new variants, all Validation/Assessment origins; <=2e-11V numerical tolerance, IDs exact"
+FC1_all_voltage_and_SOH_metrics,True,24
+FC1_selection_only_Validation,True,all fixed candidates recorded; no Assessment field in objective
+RealHyFC_Train_q_prior,True,6.660196242601723e-05 vs 6.660196242601724e-05
+RealHyFC_Train_rate_cap,True,0.0002426602620502068 vs 0.00024266026205020688
+RealHyFC_Train_acceleration_cap,True,1.4426566386024771e-05 vs 1.4426566386024765e-05
+RealHyFC_Train_noise,True,9.147174128519613e-05 vs 9.147174128519613e-05
+RealHyFC_Train_reversible_scale,True,0.0004814107178781062 vs 0.0004814107178781063
+RealHyFC_Train_ids_exact,True,
+RealHyFC_BoundedRate_same_queries,True,
+RealHyFC_BoundedRate_same_true_voltage,True,
+RealHyFC_BoundedRate_no_projection_same_queries,True,
+RealHyFC_BoundedRate_no_projection_same_true_voltage,True,
+RealHyFC_LocalLinear_same_queries,True,
+RealHyFC_LocalLinear_same_true_voltage,True,
+RealHyFC_LocalLinear_frozen_prediction,True,
+RealHyFC_Persistence_same_queries,True,
+RealHyFC_Persistence_same_true_voltage,True,
+RealHyFC_Persistence_frozen_prediction,True,
+RealHyFC_SlowReversible_same_queries,True,
+RealHyFC_SlowReversible_same_true_voltage,True,
+RealHyFC_SlowReversible_no_projection_same_queries,True,
+RealHyFC_SlowReversible_no_projection_same_true_voltage,True,
+RealHyFC_independent_state_and_forecast,True,"all 4 new variants, all Validation/Assessment origins; <=2e-11V numerical tolerance, IDs exact"
+RealHyFC_all_voltage_and_SOH_metrics,True,36
+RealHyFC_selection_only_Validation,True,all fixed candidates recorded; no Assessment field in objective
+RUL_independent_nested_fit_selection_curves_threshold_censor,True,60 rows; all 3 origins; no later Train labels
+809h_not_irreversible_EOL,True,
+mapping_rejects_insufficient_rank_sample_or_clock,True,no fabricated coefficients/state updates
+synthetic_future_perturbation_and_allowed_recovery,True,
+historical_SHA_preservation,True,900 files unchanged; 2B publication only adds a new version and version index

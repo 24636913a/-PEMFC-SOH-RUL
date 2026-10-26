@@ -1,0 +1,3 @@
+﻿dataset,j_operating,j_low,j_ref,H_ref,H_low,instantaneous_observation_rank,unknown_state_dimensions,unknown_operating_offset,formal_2D_MLP_inputs,formal_2D_MLP_outputs,formal_2D_MLP_weights,FC1_scalar_MLP_weights,identity
+FC1,0.69999999999999996,0.45000000000000001,0.90000000000000002,0.55555555555555547,0.44444444444444453,1,2,True,8,2,178,113,仅线性表征的代数观测方向；不认证负载等价，不计算新SOH，不把两个电堆堆叠为同一状态
+RealHyFC,0.55816197400000001,0.45000000000000001,0.90000000000000002,0.24035994222222221,0.75964005777777777,1,2,True,8,2,178,,仅线性表征的代数观测方向；不认证负载等价，不计算新SOH，不把两个电堆堆叠为同一状态

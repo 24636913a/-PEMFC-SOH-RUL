@@ -1,0 +1,33 @@
+{
+  "scenario": "FC1-like SYNTHETIC teaching scenario; not the FC1 dataset",
+  "reference": {
+    "initial_reference_cell_voltage_v": 0.72,
+    "voltage_loss_fraction": 0.04,
+    "threshold_label": "4% reference-voltage loss = 96% V0"
+  },
+  "synthetic": {
+    "seed": 240809,
+    "end_time_h": 2200,
+    "step_h": 1,
+    "n_cells": 5,
+    "initial_cell_voltage_v": 0.72,
+    "long_term_decay_v_per_h": 0.00002,
+    "reversible_loss_max_v": 0.016,
+    "reversible_time_constant_h": 85,
+    "observation_noise_sd_v": 0.00075,
+    "restart_times_h": [240, 510, 809]
+  },
+  "model": {
+    "calibration_end_h": 360,
+    "forecast_cutoff_h": 850,
+    "forecast_end_h": 2200,
+    "forecast_step_h": 1,
+    "tau_candidates_h": [40, 150, 1],
+    "initial_voltage_bounds_v": [0.65, 0.8],
+    "decay_bounds_v_per_h": [0.0, 0.00015],
+    "reversible_amplitude_bounds_v": [0.0, 0.05],
+    "smoothing_alpha": 0.08,
+    "initialization_window_h": 20,
+    "forecast_fit_window_h": 240
+  }
+}

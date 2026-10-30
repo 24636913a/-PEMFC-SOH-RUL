@@ -1,0 +1,13 @@
+Demo 3: independent stack models, pooled rate, and source-rate transfer
+Data provenance: SYNTHETIC, not measured FC1/RealHyFC records
+Threshold: SOH = 0.9600; loss = 4.0%
+        stack             method  test_latent_rmse_soh  predicted_rul_h  true_rul_h  rul_absolute_error_h
+     FC1_like        independent              0.000664       288.649132       300.0             11.350868
+     FC1_like pooled_common_rate              0.011861       731.476669       300.0            431.476669
+     FC1_like   cross_stack_rate              0.013251       881.785629       300.0            581.785629
+RealHyFC_like        independent              0.000101       894.399680       900.0              5.600320
+RealHyFC_like pooled_common_rate              0.004267       741.940531       900.0            158.059469
+RealHyFC_like   cross_stack_rate              0.041798       292.778293       900.0            607.221707
+Meaningful self-checks: 8 passed
+Predictions use no future observation values and no truth labels.
+Done. See RESULTS.md, plots, predictions and metrics in the output directory.

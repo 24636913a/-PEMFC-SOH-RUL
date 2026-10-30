@@ -1,0 +1,61 @@
+{
+  "metric_unit": "SOH percentage points (pp)",
+  "scope": "Synthetic data, not real-dataset accuracy",
+  "overall": {
+    "raw_ratio": {
+      "rmse_percentage_points": 5.946524692335643,
+      "mae_percentage_points": 4.9718336128635565,
+      "mean_error_percentage_points": 0.5213771663414836,
+      "samples": 361
+    },
+    "initial_curve_standardized_soh": {
+      "rmse_percentage_points": 1.1491099293010116,
+      "mae_percentage_points": 0.8654681442744359,
+      "mean_error_percentage_points": 0.8274005333984689,
+      "samples": 361
+    },
+    "kalman_without_anchors_soh": {
+      "rmse_percentage_points": 0.8992744190868883,
+      "mae_percentage_points": 0.7777575481052514,
+      "mean_error_percentage_points": 0.7776931537386949,
+      "samples": 361
+    },
+    "anchor_fusion_soh": {
+      "rmse_percentage_points": 0.24863785742894068,
+      "mae_percentage_points": 0.21384473467065432,
+      "mean_error_percentage_points": 0.21378034030409776,
+      "samples": 361
+    }
+  },
+  "non_anchor_samples": {
+    "raw_ratio": {
+      "rmse_percentage_points": 5.904503674374405,
+      "mae_percentage_points": 4.930750445117935,
+      "mean_error_percentage_points": 0.6730300069916256,
+      "samples": 353
+    },
+    "initial_curve_standardized_soh": {
+      "rmse_percentage_points": 1.1598139302446346,
+      "mae_percentage_points": 0.8762440005368928,
+      "mean_error_percentage_points": 0.8443171444633903,
+      "samples": 353
+    },
+    "kalman_without_anchors_soh": {
+      "rmse_percentage_points": 0.8993784467946955,
+      "mae_percentage_points": 0.778370735883015,
+      "mean_error_percentage_points": 0.7783316507131203,
+      "samples": 353
+    },
+    "anchor_fusion_soh": {
+      "rmse_percentage_points": 0.2509349714210622,
+      "mae_percentage_points": 0.21663946473621035,
+      "mean_error_percentage_points": 0.21660037956631573,
+      "samples": 353
+    }
+  },
+  "intervals_are_causal": true,
+  "anchor_update_loss_rmse_mv": {
+    "before": 2.5356068196660266,
+    "after": 0.808300553287718
+  }
+}

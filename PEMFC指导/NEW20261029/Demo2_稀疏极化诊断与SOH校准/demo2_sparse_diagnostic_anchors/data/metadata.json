@@ -1,0 +1,39 @@
+{
+  "kind": "SYNTHETIC_DATA",
+  "not_a_real_dataset": true,
+  "scenario": "Dynamic-load PEMFC teaching example; no measured RealHyFC/FC1 samples",
+  "voltage_basis": "average single-cell voltage; controlled diagnostic voltage",
+  "operating_samples": 361,
+  "diagnostic_sessions": 8,
+  "points_per_diagnostic": 21,
+  "random_seed": 20261029,
+  "diagnostic_anchor_semantics": "Eight longitudinal sessions, not eight current points",
+  "generator_config": {
+    "random_seed": 20261029,
+    "end_time_h": 1800.0,
+    "sample_interval_h": 5.0,
+    "diagnostic_times_h": [
+      0,
+      260,
+      520,
+      780,
+      1040,
+      1300,
+      1560,
+      1800
+    ],
+    "diagnostic_points_per_session": 21,
+    "reference_current_density_a_cm2": 0.8,
+    "initial_voltage_at_reference_v": 0.72,
+    "reference_temperature_c": 70.0,
+    "temperature_coefficient_v_per_c": 0.0012,
+    "operation_noise_sd_v": 0.0014,
+    "diagnostic_noise_sd_v": 0.0007,
+    "initial_polarization_slope_ohm_cm2": 0.15,
+    "initial_polarization_curvature": 0.04,
+    "loss_linear_v_per_h": 1.8e-05,
+    "loss_quadratic_v_per_h2": 3e-09,
+    "slope_increment_at_end_ohm_cm2": 0.03,
+    "residual_bias_at_end_v": 0.011
+  }
+}

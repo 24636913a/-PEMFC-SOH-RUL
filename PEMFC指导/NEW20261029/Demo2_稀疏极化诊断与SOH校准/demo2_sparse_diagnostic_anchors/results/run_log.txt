@@ -1,0 +1,115 @@
+{
+  "output_directory": "/workspace/scratch/f20822816ad0/fuelcell_demos/demo2_sparse_diagnostic_anchors/results",
+  "checks": {
+    "passed": 9,
+    "total": 9,
+    "checks": [
+      {
+        "name": "prefix_causality",
+        "passed": true,
+        "detail": "Truncate future operation and scans at 900 h; max earlier SOH change=0"
+      },
+      {
+        "name": "future_mutation_invariance",
+        "passed": true,
+        "detail": "Alter all future operating voltages and diagnostics; max earlier change=0"
+      },
+      {
+        "name": "truth_file_independence",
+        "passed": true,
+        "detail": "Production inference with missing vs poisoned truth file; max change=0"
+      },
+      {
+        "name": "ablation_uses_identical_filter",
+        "passed": true,
+        "detail": "Same estimator code and settings; only post-initial diagnostic assimilation disabled"
+      },
+      {
+        "name": "diagnostic_session_shape",
+        "passed": true,
+        "detail": "Synthetic fixture metadata expects 8 sessions x 21 points; actual counts=[21, 21, 21, 21, 21, 21, 21, 21]"
+      },
+      {
+        "name": "later_update_count",
+        "passed": true,
+        "detail": "t=0 initializes only; 7 later arrived sessions should update"
+      },
+      {
+        "name": "no_future_anchor_assimilation",
+        "passed": true,
+        "detail": "Every update timestamp exactly matches that scan's availability"
+      },
+      {
+        "name": "diagnostic_regression_units",
+        "passed": true,
+        "detail": "Recovered dc=0.020000 V; dr=0.030000 ohm cm2"
+      },
+      {
+        "name": "covariance_psd",
+        "passed": true,
+        "detail": "Joseph-form measurement covariance remains symmetric positive semidefinite"
+      }
+    ]
+  },
+  "metrics": {
+    "metric_unit": "SOH percentage points (pp)",
+    "scope": "Synthetic data, not real-dataset accuracy",
+    "overall": {
+      "raw_ratio": {
+        "rmse_percentage_points": 5.946524692335643,
+        "mae_percentage_points": 4.9718336128635565,
+        "mean_error_percentage_points": 0.5213771663414836,
+        "samples": 361
+      },
+      "initial_curve_standardized_soh": {
+        "rmse_percentage_points": 1.1491099293010116,
+        "mae_percentage_points": 0.8654681442744359,
+        "mean_error_percentage_points": 0.8274005333984689,
+        "samples": 361
+      },
+      "kalman_without_anchors_soh": {
+        "rmse_percentage_points": 0.8992744190868883,
+        "mae_percentage_points": 0.7777575481052514,
+        "mean_error_percentage_points": 0.7776931537386949,
+        "samples": 361
+      },
+      "anchor_fusion_soh": {
+        "rmse_percentage_points": 0.24863785742894068,
+        "mae_percentage_points": 0.21384473467065432,
+        "mean_error_percentage_points": 0.21378034030409776,
+        "samples": 361
+      }
+    },
+    "non_anchor_samples": {
+      "raw_ratio": {
+        "rmse_percentage_points": 5.904503674374405,
+        "mae_percentage_points": 4.930750445117935,
+        "mean_error_percentage_points": 0.6730300069916256,
+        "samples": 353
+      },
+      "initial_curve_standardized_soh": {
+        "rmse_percentage_points": 1.1598139302446346,
+        "mae_percentage_points": 0.8762440005368928,
+        "mean_error_percentage_points": 0.8443171444633903,
+        "samples": 353
+      },
+      "kalman_without_anchors_soh": {
+        "rmse_percentage_points": 0.8993784467946955,
+        "mae_percentage_points": 0.778370735883015,
+        "mean_error_percentage_points": 0.7783316507131203,
+        "samples": 353
+      },
+      "anchor_fusion_soh": {
+        "rmse_percentage_points": 0.2509349714210622,
+        "mae_percentage_points": 0.21663946473621035,
+        "mean_error_percentage_points": 0.21660037956631573,
+        "samples": 353
+      }
+    },
+    "intervals_are_causal": true,
+    "anchor_update_loss_rmse_mv": {
+      "before": 2.5356068196660266,
+      "after": 0.808300553287718
+    }
+  }
+}

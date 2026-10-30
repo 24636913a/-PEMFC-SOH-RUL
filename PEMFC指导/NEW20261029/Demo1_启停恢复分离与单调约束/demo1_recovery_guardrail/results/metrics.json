@@ -1,0 +1,60 @@
+{
+  "data_status": "SYNTHETIC; no real FC1 data are included",
+  "is_synthetic": true,
+  "forecast_cutoff_h": 850.0,
+  "threshold_v": 0.6911999999999999,
+  "reference_voltage_v": 0.72,
+  "voltage_loss_fraction": 0.04,
+  "forecast_fit_window_h": 240.0,
+  "threshold_definition": "(1 - voltage_loss_fraction) times initial reference voltage",
+  "evaluation_available": true,
+  "methods": {
+    "raw_voltage": {
+      "current_estimate_v": 0.698377427397889,
+      "slope_v_per_h": -5.022926568758251e-06,
+      "rul_h": 1428.9333717381908,
+      "threshold_crossing_time_h": 2278.9333717381905,
+      "crossing_within_plotted_horizon": false,
+      "forecast_fit_first_h": 611.0,
+      "forecast_fit_last_h": 850.0,
+      "history_upward_steps": 134,
+      "history_latent_rmse_mv": 12.080186997689855,
+      "heldout_latent_rmse_mv": 8.01600607370691,
+      "rul_absolute_error_h": 838.9333717381853
+    },
+    "recovery_separated": {
+      "current_estimate_v": 0.7035763664911439,
+      "slope_v_per_h": -2.0782641269173026e-05,
+      "rul_h": 595.5146090839688,
+      "threshold_crossing_time_h": 1445.514609083969,
+      "crossing_within_plotted_horizon": true,
+      "forecast_fit_first_h": 611.0,
+      "forecast_fit_last_h": 850.0,
+      "history_upward_steps": 190,
+      "history_latent_rmse_mv": 0.26638252773366916,
+      "heldout_latent_rmse_mv": 0.3087103787988542,
+      "rul_absolute_error_h": 5.514609083963364
+    },
+    "recovery_guardrail": {
+      "current_estimate_v": 0.7029910069216401,
+      "slope_v_per_h": -2.1216026685200495e-05,
+      "rul_h": 555.7594311410397,
+      "threshold_crossing_time_h": 1405.7594311410398,
+      "crossing_within_plotted_horizon": true,
+      "forecast_fit_first_h": 611.0,
+      "forecast_fit_last_h": 850.0,
+      "history_upward_steps": 0,
+      "history_latent_rmse_mv": 0.15819352134239426,
+      "heldout_latent_rmse_mv": 0.956125777274495,
+      "rul_absolute_error_h": 34.24056885896573
+    }
+  },
+  "true_latent_threshold_time_h": 1440.0000000000055,
+  "true_rul_h": 590.0000000000055,
+  "noise_free_operating_voltage_first_threshold_time_h": 713.2330575027212,
+  "heldout_n": 1350,
+  "history_evaluation_window_h": [
+    360.0,
+    850.0
+  ]
+}

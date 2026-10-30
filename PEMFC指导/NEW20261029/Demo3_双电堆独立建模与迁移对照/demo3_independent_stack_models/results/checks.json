@@ -1,0 +1,10 @@
+{
+  "future_observation_perturbation_invariance": "PASS",
+  "independent_model_no_other_stack_training": "PASS",
+  "transfer_baseline_responds_to_source_change": "PASS",
+  "truth_only_evaluation_does_not_mutate_forecasts": "PASS",
+  "simulation_truth_parameters_do_not_enter_estimation": "PASS",
+  "rul_units_flat_case_and_censoring": "PASS",
+  "series_cell_count_scale_invariance": "PASS",
+  "nonincreasing_predicted_health": "PASS"
+}

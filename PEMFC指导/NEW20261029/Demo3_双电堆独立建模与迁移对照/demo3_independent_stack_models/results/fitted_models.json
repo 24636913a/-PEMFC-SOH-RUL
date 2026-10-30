@@ -1,0 +1,40 @@
+{
+  "independent_fits": {
+    "FC1_like": {
+      "slope_soh_per_h": -5.102371024519419e-05,
+      "unconstrained_slope_soh_per_h": -5.102371024519419e-05,
+      "soh_at_origin": 0.9747279496670649,
+      "origin_h": 500.0,
+      "n_training": 251
+    },
+    "RealHyFC_like": {
+      "slope_soh_per_h": -1.670241516280351e-05,
+      "unconstrained_slope_soh_per_h": -1.670241516280351e-05,
+      "soh_at_origin": 0.9749386347710586,
+      "origin_h": 1500.0,
+      "n_training": 251
+    }
+  },
+  "forecast_parameters": {
+    "FC1_like": {
+      "slopes": {
+        "independent": -5.102371024519419e-05,
+        "pooled_common_rate": -2.0134544671042576e-05,
+        "cross_stack_rate": -1.670241516280351e-05
+      },
+      "origin_h": 500.0,
+      "soh_at_origin": 0.9747279496670649,
+      "source_stack_for_transfer": "RealHyFC_like"
+    },
+    "RealHyFC_like": {
+      "slopes": {
+        "independent": -1.670241516280351e-05,
+        "pooled_common_rate": -2.0134544671042576e-05,
+        "cross_stack_rate": -5.102371024519419e-05
+      },
+      "origin_h": 1500.0,
+      "soh_at_origin": 0.9749386347710586,
+      "source_stack_for_transfer": "FC1_like"
+    }
+  }
+}

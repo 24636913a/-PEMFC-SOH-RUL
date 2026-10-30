@@ -1,0 +1,18 @@
+{
+  "fitted_initial_reference_voltage_v": 0.720190749896666,
+  "initial_curve_polynomial_coefficients": [
+    -0.04259505455627064,
+    -0.14945731052597402,
+    0.720190749896666
+  ],
+  "post_initial_anchor_count_used": 7,
+  "state_order": [
+    "d_c",
+    "rate",
+    "d_r",
+    "bias"
+  ],
+  "prior_rate_v_per_h": 1.5e-05,
+  "forecast_note": "Filtering is causal; no future anchors used. This demo estimates present SOH, not RUL.",
+  "data_kind": "SYNTHETIC_DATA"
+}

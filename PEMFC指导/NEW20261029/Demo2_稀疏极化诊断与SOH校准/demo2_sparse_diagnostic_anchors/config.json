@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "scenario": "Synthetic dynamic-load PEMFC; not measured RealHyFC data",
+  "generator": {
+    "random_seed": 20261029,
+    "end_time_h": 1800.0,
+    "sample_interval_h": 5.0,
+    "diagnostic_times_h": [0, 260, 520, 780, 1040, 1300, 1560, 1800],
+    "diagnostic_points_per_session": 21,
+    "reference_current_density_a_cm2": 0.8,
+    "initial_voltage_at_reference_v": 0.720,
+    "reference_temperature_c": 70.0,
+    "temperature_coefficient_v_per_c": 0.0012,
+    "operation_noise_sd_v": 0.0014,
+    "diagnostic_noise_sd_v": 0.0007,
+    "initial_polarization_slope_ohm_cm2": 0.15,
+    "initial_polarization_curvature": 0.04,
+    "loss_linear_v_per_h": 0.000018,
+    "loss_quadratic_v_per_h2": 0.000000003,
+    "slope_increment_at_end_ohm_cm2": 0.030,
+    "residual_bias_at_end_v": 0.011
+  },
+  "estimator": {
+    "reference_current_density_a_cm2": 0.8,
+    "reference_temperature_c": 70.0,
+    "calibrated_temperature_coefficient_v_per_c": 0.0012,
+    "operation_noise_sd_v": 0.0018,
+    "initial_rate_prior_v_per_h": 0.000015,
+    "initial_rate_prior_sd_v_per_h": 0.000020,
+    "initial_loss_prior_sd_v": 0.0005,
+    "initial_slope_prior_sd_ohm_cm2": 0.003,
+    "initial_bias_prior_sd_v": 0.003,
+    "loss_process_sd_v_per_sqrt_h": 0.000025,
+    "rate_process_sd_v_per_h_per_sqrt_h": 0.00000012,
+    "slope_process_sd_ohm_cm2_per_sqrt_h": 0.000035,
+    "bias_process_sd_v_per_sqrt_h": 0.000040,
+    "anchor_loss_noise_floor_v": 0.00050,
+    "anchor_slope_noise_floor_ohm_cm2": 0.00080,
+    "baseline_polynomial_degree": 2
+  }
+}

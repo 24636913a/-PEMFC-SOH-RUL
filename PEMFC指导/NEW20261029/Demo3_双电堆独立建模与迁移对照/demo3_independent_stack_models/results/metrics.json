@@ -1,0 +1,110 @@
+{
+  "synthetic": true,
+  "threshold_soh": 0.96,
+  "metrics": [
+    {
+      "stack": "FC1_like",
+      "method": "independent",
+      "test_n": 350,
+      "train_end_h": 500.0,
+      "soh_at_origin": 0.9747279497,
+      "fitted_soh_loss_rate_per_h": 5.10237e-05,
+      "test_observation_rmse_soh": 0.0013446783,
+      "test_latent_rmse_soh": 0.0006643972,
+      "predicted_rul_h": 288.6491318701,
+      "true_rul_h": 300.0,
+      "truth_crossing_status": "observed_in_truth",
+      "rul_signed_error_h": -11.3508681299,
+      "rul_absolute_error_h": 11.3508681299
+    },
+    {
+      "stack": "FC1_like",
+      "method": "pooled_common_rate",
+      "test_n": 350,
+      "train_end_h": 500.0,
+      "soh_at_origin": 0.9747279497,
+      "fitted_soh_loss_rate_per_h": 2.01345e-05,
+      "test_observation_rmse_soh": 0.011828901,
+      "test_latent_rmse_soh": 0.0118608474,
+      "predicted_rul_h": 731.4766689632,
+      "true_rul_h": 300.0,
+      "truth_crossing_status": "observed_in_truth",
+      "rul_signed_error_h": 431.4766689632,
+      "rul_absolute_error_h": 431.4766689632
+    },
+    {
+      "stack": "FC1_like",
+      "method": "cross_stack_rate",
+      "test_n": 350,
+      "train_end_h": 500.0,
+      "soh_at_origin": 0.9747279497,
+      "fitted_soh_loss_rate_per_h": 1.67024e-05,
+      "test_observation_rmse_soh": 0.0132133034,
+      "test_latent_rmse_soh": 0.0132508165,
+      "predicted_rul_h": 881.7856294139,
+      "true_rul_h": 300.0,
+      "truth_crossing_status": "observed_in_truth",
+      "rul_signed_error_h": 581.7856294139,
+      "rul_absolute_error_h": 581.7856294139
+    },
+    {
+      "stack": "RealHyFC_like",
+      "method": "independent",
+      "test_n": 350,
+      "train_end_h": 1500.0,
+      "soh_at_origin": 0.9749386348,
+      "fitted_soh_loss_rate_per_h": 1.67024e-05,
+      "test_observation_rmse_soh": 0.0011474272,
+      "test_latent_rmse_soh": 0.0001013524,
+      "predicted_rul_h": 894.3996796539,
+      "true_rul_h": 900.0,
+      "truth_crossing_status": "observed_in_truth",
+      "rul_signed_error_h": -5.6003203461,
+      "rul_absolute_error_h": 5.6003203461
+    },
+    {
+      "stack": "RealHyFC_like",
+      "method": "pooled_common_rate",
+      "test_n": 350,
+      "train_end_h": 1500.0,
+      "soh_at_origin": 0.9749386348,
+      "fitted_soh_loss_rate_per_h": 2.01345e-05,
+      "test_observation_rmse_soh": 0.0044737519,
+      "test_latent_rmse_soh": 0.004266879,
+      "predicted_rul_h": 741.940531317,
+      "true_rul_h": 900.0,
+      "truth_crossing_status": "observed_in_truth",
+      "rul_signed_error_h": -158.059468683,
+      "rul_absolute_error_h": 158.059468683
+    },
+    {
+      "stack": "RealHyFC_like",
+      "method": "cross_stack_rate",
+      "test_n": 350,
+      "train_end_h": 1500.0,
+      "soh_at_origin": 0.9749386348,
+      "fitted_soh_loss_rate_per_h": 5.10237e-05,
+      "test_observation_rmse_soh": 0.0418737408,
+      "test_latent_rmse_soh": 0.0417981461,
+      "predicted_rul_h": 292.7782926657,
+      "true_rul_h": 900.0,
+      "truth_crossing_status": "observed_in_truth",
+      "rul_signed_error_h": -607.2217073343,
+      "rul_absolute_error_h": 607.2217073343
+    }
+  ],
+  "truth_crossings": {
+    "FC1_like": {
+      "status": "observed_in_truth",
+      "crossing_h": 800.0,
+      "rul_h": 300.0,
+      "rul_lower_bound_h": null
+    },
+    "RealHyFC_like": {
+      "status": "observed_in_truth",
+      "crossing_h": 2400.0,
+      "rul_h": 900.0,
+      "rul_lower_bound_h": null
+    }
+  }
+}

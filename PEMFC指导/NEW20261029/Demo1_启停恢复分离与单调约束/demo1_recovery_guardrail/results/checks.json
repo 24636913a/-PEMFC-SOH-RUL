@@ -1,0 +1,10 @@
+{
+  "future_measurements_and_restart_flags_do_not_change_inference": "PASS",
+  "earlier_cutoff_prefix_equals_full_run_prefix": "PASS: prefix through 751 h is unchanged",
+  "guardrail_history_has_no_upward_steps": "PASS",
+  "rul_zero_and_no_finite_crossing_edge_cases": "PASS",
+  "recovery_algebra_does_not_double_subtract": "PASS",
+  "inference_runs_without_truth_argument_or_truth_file": "PASS",
+  "external_observations_do_not_auto_load_bundled_truth": "PASS",
+  "corrupt_truth_changes_only_evaluation_not_predictions": "PASS"
+}

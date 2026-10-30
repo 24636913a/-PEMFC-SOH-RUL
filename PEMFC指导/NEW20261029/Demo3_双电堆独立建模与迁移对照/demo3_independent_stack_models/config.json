@@ -1,0 +1,30 @@
+{
+  "scenario": "SYNTHETIC teaching example; not measured FC1 or RealHyFC data",
+  "random_seed": 20261029,
+  "threshold_soh": 0.96,
+  "reference_current_density_A_cm2": 0.8,
+  "reference_temperature_C": 70.0,
+  "initial_polarization_slope_V_per_A_cm2": 0.16,
+  "temperature_coefficient_V_per_C": 0.0007,
+  "measurement_noise_cell_V": 0.0008,
+  "stacks": {
+    "FC1_like": {
+      "n_cells": 5,
+      "reference_cell_voltage_V": 0.72,
+      "synthetic_soh_loss_rate_per_h": 0.00005,
+      "train_end_h": 500.0,
+      "simulation_end_h": 1200.0,
+      "sampling_interval_h": 2.0,
+      "load_profile": "constant_current"
+    },
+    "RealHyFC_like": {
+      "n_cells": 10,
+      "reference_cell_voltage_V": 0.72,
+      "synthetic_soh_loss_rate_per_h": 0.000016666666666666667,
+      "train_end_h": 1500.0,
+      "simulation_end_h": 3600.0,
+      "sampling_interval_h": 6.0,
+      "load_profile": "variable_current"
+    }
+  }
+}

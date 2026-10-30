@@ -1,0 +1,58 @@
+{
+  "schema_version": "RealHyFC_recovery_exploratory_v1",
+  "cache_directory": "RENew-PEMFC-2300h-Pytorch/RealHyFC_Raw1s_Rolling_300to120/audits/Startup_Precursor_Audit/runs/20261022T071957_960946Z_b1590612",
+  "platform_table": "PEMFC指导/基础预测实验/输出结果/表格/Real运行平台逐段资格.csv",
+  "frozen_load_selection": "PEMFC指导/基础预测实验/配置/训练期平台冻结选择.json",
+  "expected_sha256": {
+    "manifest": "642ff5f623241c4ddd2053e40f9bd3c216eac778d9ee3956915de1e8c1f3b014",
+    "platform_table": "7845ad1bd7a2dccb331731d1608e313025c45c7df0633db4c7a388518e6c9310",
+    "frozen_load_selection": "056cc9c4f3e185c730e7d2d1746fcd92681f8671e4d86c3cdbb529b5d4399e2f"
+  },
+  "verify_binary_sha256": true,
+  "chunk_rows": 200000,
+  "zero_current_max_A": 0.1,
+  "minimum_observed_zero_duration_s": 60.0,
+  "reload_current_min_A": 1.0,
+  "reload_search_after_zero_s": 120.0,
+  "sample_interval_s": [
+    0.95,
+    1.05
+  ],
+  "use_entry_direction": "DOWN",
+  "tau_candidates_wall_h": [
+    0.25,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0,
+    12.0,
+    24.0,
+    48.0,
+    96.0
+  ],
+  "maximum_reversible_amplitude_V": 0.1,
+  "maximum_slow_decay_V_per_operating_h": 0.0005,
+  "minimum_calibration_observations": 40,
+  "minimum_calibration_restart_groups": 3,
+  "minimum_observations_per_restart_group": 5,
+  "maximum_scaled_design_condition": 10000.0,
+  "maximum_abs_time_recovery_correlation": 0.98,
+  "minimum_train_mse_reduction_fraction": 0.05,
+  "maximum_near_optimal_tau_ratio": 10.0,
+  "ewma_half_life_operating_h": 6.0,
+  "reset_filter_gap_operating_h": 24.0,
+  "plot_dpi": 300,
+  "raw_voltage_plot_bucket_rows": 600,
+  "show_figures": true,
+  "maximum_event_panels": 4,
+  "notes": [
+    "新探索性处理协议，不修改阶段2A及Demo1。零电流后重新加载只是候选启停，不认证Air-Air操作或完全恢复。",
+    "复用Train固定的156||156.800平台及DOWN方向；约0.558 A/cm2，不是0.90 A/cm2极化参考。",
+    "复用平台原有稳定性/压力筛选，仅移除OTHER_ENTRY_RECOVERY_GROUP拒绝项以检查恢复年龄；不放宽其余拒绝项。B60取消温度峰峰筛选的历史限制仍保留。",
+    "恢复时间常数以真实日历小时计；慢变项和滤波时间以OpHrs2小时计。候选范围为探索性假设，不是传感器或电化学标定。",
+    "Train边界沿用冻结负载选择bounds[1]，不是新建7:1:2预测实验。不根据后期数据选择参数。",
+    "原始mean_voltage_V已经是历史缓存定义的有效单体均值；不可再除以片数。",
+    "无温压修正系数，不将缺失修正项填0冒充同工况认证；不计算真实健康RMSE、SOH或RUL。"
+  ]
+}

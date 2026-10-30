@@ -1,0 +1,28 @@
+{
+  "status": "BLOCKED",
+  "calibration_end_h": 1383.1954760000003,
+  "train_observations": 2012,
+  "restart_groups": 229,
+  "reasons": [
+    "NO_SUFFICIENT_IN_SAMPLE_RECOVERY_SHAPE_EVIDENCE",
+    "TAU_AT_SEARCH_BOUNDARY",
+    "TAU_PROFILE_TOO_FLAT"
+  ],
+  "candidate_available": true,
+  "calculation_status": "CANDIDATE_COMPUTED",
+  "restart_interpretation": "OPERATIONAL_RELOAD; complete recovery/reset is an unverified model assumption",
+  "model_scope": "single global linear slow trend plus one common exponential candidate; not proven irreversible degradation",
+  "t0_operating_h": 73.83743233333333,
+  "a_V": 0.7398820105314299,
+  "A_V": 0.007654547350468453,
+  "beta_V_per_operating_h": 5.882631093553467e-06,
+  "tau_wall_h": 96.0,
+  "baseline_train_weighted_mse_V2": 1.5667491864033053e-06,
+  "train_mse_reduction_fraction": 0.005042013856899841,
+  "calibration_last_measurement_h": 1380.21,
+  "weighting": "equal total weight per observed restart group; not independent stacks",
+  "no_recovery_coefficient": [
+    0.7397149172688525,
+    0.007682987270509077
+  ]
+}
